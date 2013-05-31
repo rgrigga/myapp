@@ -28,7 +28,7 @@ return array(
 	|
 	*/
 
-	'host' => 'smtp.postmarkapp.com',
+	'host' => 'mail.gristech.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => null, 'name' => null),
+	'from' => array('address' => 'info@gristech.com', 'name' => 'Gristech Technology'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => null,
+	'username' => 'info@gristech.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,6 +93,5 @@ return array(
 	|
 	*/
 
-	'password' => null,
-
+	'password' => 'foobar',
 );

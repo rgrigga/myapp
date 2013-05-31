@@ -55,9 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'laravelbootstrapstarter',
-			'username'  => 'user',
-			'password'  => 'password',
+			'database'  => 'gristech_myapp6',
+			'username'  => 'gristech_foo',
+			'password'  => 'JLEgriss22',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
