@@ -48,7 +48,7 @@ Blog Post Update ::
 			<div class="control-group {{{ $errors->has('content') ? 'error' : '' }}}">
 				<label class="control-label" for="content">Content</label>
 				<div class="controls">
-					<textarea class="full-width span10 wysihtml5" name="content" value="content" rows="10">{{{ Input::old('content', $post->content) }}}</textarea>
+					<textarea class="full-width span10 wysihtml5" name="content" value="content" rows="20">{{{ Input::old('content', $post->content) }}}</textarea>
 					{{{ $errors->first('content', '<span class="help-inline">:message</span>') }}}
 				</div>
 			</div>
@@ -78,6 +78,16 @@ Blog Post Update ::
 			</div>
 			<!-- ./ meta description -->
 
+			<!-- Meta Image -->
+			<div class="control-group {{{ $errors->has('meta-image') ? 'error' : '' }}}">
+				<label class="control-label" for="meta-image">Meta Image</label>
+				<div class="controls">
+					<input type="text" name="meta-image" id="meta-image" value="{{{ Input::old('meta-image', $post->meta_image) }}}" />
+					{{{ $errors->first('meta-image', '<span class="help-inline">:message</span>') }}}
+				</div>
+			</div>
+			<!-- ./ meta image -->
+
 			<!-- Meta Keywords -->
 			<div class="control-group {{{ $errors->has('meta-keywords') ? 'error' : '' }}}">
 				<label class="control-label" for="meta-keywords">Meta Keywords</label>
@@ -87,6 +97,8 @@ Blog Post Update ::
 				</div>
 			</div>
 			<!-- ./ meta keywords -->
+
+
 		</div>
 		<!-- ./ meta data tab -->
 	</div>

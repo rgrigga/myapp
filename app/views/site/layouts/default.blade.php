@@ -6,25 +6,21 @@
 		<meta charset="utf-8" />
 		<title>
 			@section('title')
-			Laravel 4 Sample Site
+			Gristech MyApp
 			@show
 		</title>
-		<meta name="keywords" content="your, awesome, keywords, here" />
-		<meta name="author" content="Jon Doe" />
-		<meta name="description" content="Lorem ipsum dolor sit amet, nihil fabulas et sea, nam posse menandri scripserit no, mei." />
+		<meta name="keywords" content="php, laravel, development, learning, software, business" />
+		<meta name="author" content="Ryan Grissinger" />
+		<meta name="description" content="A flexible, customizable web application" />
 
 		<!-- Mobile Specific Metas
 		================================================== -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<!-- CSS
 		================================================== -->
-        @stylesheets('public-css')
+        @stylesheets("public-css")
 
-		<style>
-		@section('styles')
-		@show
-		</style>
 
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>

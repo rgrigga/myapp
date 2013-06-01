@@ -39,3 +39,7 @@ body {
         padding-right: 20px;
     }
 }
+
+iframe.wysihtml5-sandbox{
+    height:600px;
+}

@@ -26,6 +26,17 @@ class Post extends Eloquent implements PresentableInterface {
 	 *
 	 * @return string
 	 */
+	public function image()
+	{
+		return nl2br($this->image);
+	}
+
+	/**
+	 * Returns a formatted post content entry,
+	 * this ensures that line breaks are returned.
+	 *
+	 * @return string
+	 */
 	public function content()
 	{
 		return nl2br($this->content);

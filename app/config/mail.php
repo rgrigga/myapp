@@ -93,5 +93,5 @@ return array(
 	|
 	*/
 
-	'password' => 'foobar',
+	'password' => 'JLEgriss22',
 );

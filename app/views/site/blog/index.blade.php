@@ -2,6 +2,8 @@
 
 {{-- Content --}}
 @section('content')
+
+<h1>Posts:</h1>
 @foreach ($posts as $post)
 <div class="row">
 	<div class="span8">
@@ -17,6 +19,7 @@
 		<div class="row">
 			<div class="span2">
 				<a href="{{{ $post->url() }}}" class="thumbnail"><img src="http://placehold.it/260x180" alt=""></a>
+				<p>caption here</p>
 			</div>
 			<div class="span6">
 				<p>
