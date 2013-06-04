@@ -22,6 +22,7 @@ Blog Management ::
 	<thead>
 		<tr>
 			<th class="span6">{{{ Lang::get('admin/blogs/table.title') }}}</th>
+			<th class="span2">{{{ Lang::get('keywords') }}}</th>
 			<th class="span2">{{{ Lang::get('admin/blogs/table.comments') }}}</th>
 			<th class="span2">{{{ Lang::get('admin/blogs/table.created_at') }}}</th>
 			<th class="span2">{{{ Lang::get('table.actions') }}}</th>
@@ -31,6 +32,7 @@ Blog Management ::
 		@foreach ($posts as $post)
 		<tr>
 			<td>{{{ $post->title }}}</td>
+			<td>{{{ $post->meta_keywords }}}</td>
 			<td>{{{ $post->comments()->count() }}}</td>
 			<td>{{{ $post->created_at() }}}</td>
 			<td>

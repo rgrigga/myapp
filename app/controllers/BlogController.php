@@ -57,10 +57,10 @@ class BlogController extends BaseController {
 		if (is_null($post))
 		{
 
-			$post = $this->post->where('tags', 'has', $slug);
+			// $post = $this->post->where('tags', 'has', $slug);
 			
-			if (is_null($post))
-			{
+			// if (is_null($post))
+			// {
 
 
 			// If we ended up in here, it means that
@@ -68,7 +68,7 @@ class BlogController extends BaseController {
 			// So, this means that it is time for
 			// 404 error page.
 			return App::abort(404);
-			}
+			// }
 		}
 
 

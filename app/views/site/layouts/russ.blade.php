@@ -34,9 +34,17 @@
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
 		<link rel="shortcut icon" href="{{{ asset('http://gristech.com/ico/favicon.png') }}}">
+
+
+
 	</head>
 
 	<body>
+				<style>
+			body {
+				background-color: red;
+			}
+		</style>
 		<!-- To make sticky footer need to wrap in a div -->
 		<div id="wrap">
 		<!-- Navbar -->
@@ -60,6 +68,8 @@
 					<div class="nav-collapse collapse">
 						<ul class="nav">
 							<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
+							<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">About</a></li>
+							<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Order</a></li>
 						</ul>
 
 			                        <ul class="nav pull-right">
@@ -111,7 +121,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, cumque pr
 	    <div id="footer">
 	      <div class="container">
 	        <p class="muted credit">&copy; 2013</p>
-	        
+
 	      </div>
 	    </div>
 

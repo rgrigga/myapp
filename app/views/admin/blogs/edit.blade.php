@@ -8,6 +8,18 @@ Blog Post Update ::
 
 {{-- Content --}}
 @section('content')
+
+
+<!-- {{{ var_dump($post->tags()) }}} -->
+<style>
+	li.tag{
+		display: inline;
+		background-color: orange;
+		padding: 5px;
+	}
+</style>
+
+
 <div class="page-header">
 	<h3>
 		Blog Post Update
@@ -17,7 +29,13 @@ Blog Post Update ::
 		</div>
 	</h3>
 	<h4>{{{ $post->title }}}</h4>
-	<h5>Tags: {{{$post->meta_keywords}}}</h5>
+	<h5>Tags: <ul>
+@foreach($post->tags() as $tag)
+
+    <li class='tag'>{{ $tag }}</li>
+    
+@endforeach
+</ul></h5>
 </div>
 
 <!-- Tabs -->
@@ -108,6 +126,8 @@ Blog Post Update ::
 			<!-- Meta Keywords -->
 			<div class="control-group {{{ $errors->has('meta-keywords') ? 'error' : '' }}}">
 				<label class="control-label" for="meta-keywords">Meta Keywords</label>
+
+
 				<div class="controls">
 					<input type="text" name="meta-keywords" id="meta-keywords" value="{{{ Input::old('meta-keywords', $post->meta_keywords) }}}" />
 					{{{ $errors->first('meta-keywords', '<span class="help-inline">:message</span>') }}}
