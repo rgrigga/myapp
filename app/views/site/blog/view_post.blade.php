@@ -28,6 +28,19 @@
 @section('content')
 <h3>{{ $post->title }}</h3>
 
+<!-- //copy and edit buttons -->
+				@if (Auth::check())
+                @if (Auth::user()->hasRole('admin'))
+				<p>
+					<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
+					<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
+				</p>
+				@endif
+				@endif
+				<div class="pull-left">
+					<img src="http://gristech.com{{ $post->image }}" class="thumbnail" style="padding:10px;">
+				</div>
+
 <p>{{ $post->content() }}</p>
 
 <div>

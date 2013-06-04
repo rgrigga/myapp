@@ -109,6 +109,17 @@ Route::get('contact-us', function()
     return View::make('site/contact-us');
 });
 
+Route::get('russ', 'RussController@getIndex');
+
+// Route::get('russ', function()
+// {   // Get all the blog posts
+//     $posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);
+
+//     // Show the page
+//     return View::make('site/blog/index', compact('posts'));
+//     return View::make('site/russ', compact('posts'));
+// });
+
 # Posts - Second to last set, match slug
 Route::get('{postSlug}', 'BlogController@getView');
 Route::post('{postSlug}', 'BlogController@postView');

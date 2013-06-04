@@ -10,7 +10,7 @@
 	<div class="row">
 
 		<div class="span6">
-			<h1>Think About It.</h1>
+			<h1>HI!</h1>
 		</div>
 		<div class="span4 text-center" style="padding:30px;">
 			<img class="img-circle" src="http://gristech.com/img/thinker/thinker_head_square.png" alt="think about it">

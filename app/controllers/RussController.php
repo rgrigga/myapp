@@ -1,6 +1,5 @@
 <?php
-
-class BlogController extends BaseController {
+class RussController extends BaseController {
 
     /**
      * Post Model
@@ -38,7 +37,7 @@ class BlogController extends BaseController {
 		$posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);
 
 		// Show the page
-		return View::make('site/blog/index', compact('posts'));
+		return View::make('site/russ/index', compact('posts'));
 	}
 
 	/**
@@ -56,22 +55,12 @@ class BlogController extends BaseController {
 		// Check if the blog post exists
 		if (is_null($post))
 		{
-
-			$post = $this->post->where('tags', 'has', $slug);
-			
-			if (is_null($post))
-			{
-
-
 			// If we ended up in here, it means that
 			// a page or a blog post didn't exist.
 			// So, this means that it is time for
 			// 404 error page.
 			return App::abort(404);
-			}
 		}
-
-
 
 		// Get this post comments
 		$comments = $post->comments()->orderBy('created_at', 'ASC')->get();

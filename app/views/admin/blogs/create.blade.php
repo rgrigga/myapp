@@ -53,6 +53,16 @@ Create a New Blog Post ::
 				</div>
 			</div>
 			<!-- ./ content -->
+
+			<!-- Image -->
+			<div class="control-group {{{ $errors->has('image') ? 'error' : '' }}}">
+				<label class="control-label" for="image">image URL</label>
+				<div class="controls">
+					<textarea class="full-width span10 wysihtml5" name="image" value="image" rows="1">{{{ Input::old('image') }}}</textarea>
+					{{{ $errors->first('image', '<span class="help-inline">:message</span>') }}}
+				</div>
+			</div>
+			<!-- ./ image -->
 		</div>
 		<!-- ./ tab general -->
 

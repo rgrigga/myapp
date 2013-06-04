@@ -16,6 +16,8 @@ Blog Post Update ::
 			<a href="{{{ URL::to('admin/blogs') }}}" class="btn btn-small btn-inverse"><i class="icon-circle-arrow-left icon-white"></i> Back</a>
 		</div>
 	</h3>
+	<h4>{{{ $post->title }}}</h4>
+	<h5>Tags: {{{$post->meta_keywords}}}</h5>
 </div>
 
 <!-- Tabs -->
@@ -53,6 +55,21 @@ Blog Post Update ::
 				</div>
 			</div>
 			<!-- ./ content -->
+
+			<!-- Image -->
+			<div class="control-group {{{ $errors->has('image') ? 'error' : '' }}}">
+				<label class="control-label" for="image">image URL</label>
+				<div class="controls">
+<!-- 					<textarea class="full-width span10 wysihtml5" name="image" value="image" rows="1">{{{ Input::old('image', $post->image()) }}}</textarea> -->
+					<input type="text" name="image" id="image" value="{{{ Input::old('image', $post->image) }}}" />
+					{{{ $errors->first('image', '<span class="help-inline">:message</span>') }}}
+				</div>
+			</div>
+			<!-- ./ image -->
+			<div class="thumbnail">
+				<img src="http://gristech.com{{ $post->image }}">
+			</div>
+
 		</div>
 		<!-- ./ general tab -->
 

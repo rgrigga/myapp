@@ -114,4 +114,10 @@ class Post extends Eloquent implements PresentableInterface {
         return new PostPresenter($this);
     }
 
+
+	public function tags()
+	{
+		return $this->hasMany('Tag');
+	}
+
 }
