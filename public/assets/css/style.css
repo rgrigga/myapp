@@ -1,6 +1,9 @@
 html,
 body {
+    /*background-color: red;*/
     height: 100%;
+
+
     /* The html and body elements cannot have any padding or margin. */
 }
 
@@ -43,3 +46,154 @@ body {
 iframe.wysihtml5-sandbox{
     height:600px;
 }
+
+ul.tag li{
+    display: inline;
+    background-color: orange;
+    padding: 5px;
+}
+
+
+
+.navbar-inverse .nav .active > a, .navbar-inverse .nav-collapse .nav .active > a {
+    background-color: #DA500A;
+    color: black;
+}
+
+.hotel{
+    /*background-color: red;*/
+    position: fixed; 
+    /*height:60px;*/
+    bottom:0px;
+    right: 0px;
+    z-index: 5;
+    /*color: white;*/
+    padding: 5px;
+    opacity: .5;
+    border-top-left-radius:60px; 
+}
+
+.hotelb{
+    /*background-color: red;*/
+    height: 100px;
+    width: 100px;
+    border-top-left-radius:100px;
+}
+
+.foobar{
+    background-color: rgba(235,200,176,.5);
+    padding:5px; 
+    /*margin-top: 40px; */
+    margin-right: 20px;
+    border-bottom-left-radius:20px;
+    border-bottom-right-radius:20px;
+    text-align: center;
+}
+
+/*from the bootstrap docs:*/
+    /* Large desktop */
+    @media (min-width: 1200px) { 
+
+        .hotel{
+                background-color: yellow;
+                color:purple;
+
+        }
+
+        .hero-unit h1{
+            margin-top: 1em;
+            
+        }
+
+    }
+
+/*REALLY important!*/
+    @media (min-width: 980px){
+        .hero-unit{
+            margin-top:60px;
+        }
+        .foobar{
+            margin-top: 40px;
+        }
+
+
+    }
+
+    /* Portrait tablet to landscape and desktop */
+    @media (min-width: 980px) and (max-width: 1199px) { 
+            .hotel{
+                background-color: blue;
+                color:orange;
+
+            }
+
+
+            /* body { 
+            background-color: red;
+                    padding-top: 40px; }
+            you can't do this!
+                    */
+        }
+
+
+    /* Portrait tablet to landscape and desktop */
+    @media (min-width: 768px) and (max-width: 979px) { 
+            .hotel{
+                background-color: red;
+                color:green;
+            }
+
+
+/*                body { 
+background-color: red;
+        padding-top: 40px; }*/
+        }
+     
+
+
+
+    /* up to desktop */
+    @media (max-width: 979px) { 
+/*            .foobar{
+
+
+                margin-top: -20px;
+            }
+            .hotel{
+                background-color: green;
+                color:red;
+
+            }*/
+
+         }
+
+    @media (min-width: 480px) and (max-width: 979px) { 
+            .hotel{
+                background-color: green;
+                color:red;
+            }
+
+            .hotelb{
+                /*background-color: red;*/
+                height: 80px;
+                width: 60px;
+                border-top-left-radius:60px;
+            }
+
+
+        }
+     
+    /* Landscape phones and down */
+    @media (max-width: 480px) { 
+                .hotel{
+                background-color: orange;
+                color:blue;
+            }
+
+            .hotelb{
+                /*background-color: red;*/
+                height: 60px;
+                width: 40px;
+                border-top-left-radius:60px;
+            }
+        }

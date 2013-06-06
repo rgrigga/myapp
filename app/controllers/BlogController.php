@@ -32,8 +32,14 @@ class BlogController extends BaseController {
 	 *
 	 * @return View
 	 */
-	public function getIndex()
+	public function getIndex($tag="foo")
 	{
+
+		// if($tag){
+		// 	$posts = $this->post->has('tag', $tag);
+		// 	echo " $tag ";
+		// }
+
 		// Get all the blog posts
 		$posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);
 
@@ -72,6 +78,7 @@ class BlogController extends BaseController {
 		}
 
 
+		
 
 		// Get this post comments
 		$comments = $post->comments()->orderBy('created_at', 'ASC')->get();
@@ -136,4 +143,7 @@ class BlogController extends BaseController {
 		// Redirect to this blog post page
 		return Redirect::to($slug)->withInput()->withErrors($validator);
 	}
+
+	//return posts where has tag
+
 }

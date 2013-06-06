@@ -6,12 +6,12 @@
 		<meta charset="utf-8" />
 		<title>
 			@section('title')
-			Mobile Lawn Mower Repair, Small Engine Service
+			Buckeye Mower : Mobile Lawn Mower Repair, Small Engine Service
 			@show
 		</title>
-		<meta name="keywords" content="php, laravel, development, learning, software, business" />
+		<meta name="keywords" content="mower repair, mower service" />
 		<meta name="author" content="Ryan Grissinger" />
-		<meta name="description" content="A flexible, customizable web application" />
+		<meta name="description" content="Lawn Mower Repair, Small Engine Repair, more." />
 
 		<!-- Mobile Specific Metas
 		================================================== -->
@@ -20,6 +20,11 @@
 		<!-- CSS
 		================================================== -->
         @stylesheets("public-css")
+		<link rel="stylesheet" href="/assets/css/russstyle.css">
+
+<!-- font-awesome -->
+<!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
 
 
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -33,43 +38,48 @@
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
-		<link rel="shortcut icon" href="{{{ asset('http://gristech.com/ico/favicon.png') }}}">
 
+		<link rel="shortcut icon" href="{{{ asset('http://gristech.com/russ/buckeye32.png') }}}">
+
+		<!-- <link rel="shortcut icon" href="{{{ asset('http://gristech.com/ico/favicon.png') }}}"> -->
 
 
 	</head>
 
 	<body>
-				<style>
+		<style>
 			body {
-				background-color: red;
+				/*background-color: red;*/
 			}
 		</style>
 		<!-- To make sticky footer need to wrap in a div -->
 		<div id="wrap">
+
 		<!-- Navbar -->
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
-				<div class="container">
-					<div class="pull-right">
-										    <a href="http://facebook.com" class="social-icon">
-				    <img src="http://gristech.com/img/facebook.png" class="img-circle"></a>
-				    <a href="http://twitter.com" class="social-icon"><img src="http://gristech.com/img/twitter.png" class="img-circle"></a>
-				    <a href="http://linkedin.com" class="social-icon"><img src="http://gristech.com/buttons/linkedin.png" class="img-circle"></a>
-				    <a href="http://gmail.com" class="social-icon"><img src="http://gristech.com/buttons/email.png" class="img-circle"></a>
-					</div>
 
-					<a class="btn btn-navbar pull-left" data-toggle="collapse" data-target=".nav-collapse">
+				<div class="container-fluid">
+<div class="brand">Buckeye Mower Repair</div>
+					
+
+					<a class="btn btn-navbar pull-right" data-toggle="collapse" data-target=".nav-collapse">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</a>
 
+					@include('site.partials.contact')
+
+
+
+					
+
 					<div class="nav-collapse collapse">
 						<ul class="nav">
-							<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
-							<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">About</a></li>
-							<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Order</a></li>
+							<li></li>
+							<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('/russ') }}}">Home</a></li>
+							<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('diy') }}}">DIY</a></li>
 						</ul>
 
 			                        <ul class="nav pull-right">
@@ -89,11 +99,18 @@
 			                        </ul>
 					</div>
 					<!-- ./ nav-collapse -->
+				
 				</div>
 			</div>
 		</div>
-		<!-- ./ navbar -->
 
+		<!-- ./ navbar -->
+<div class="foobar pull-right">
+		<div>phone, email, chat, anything!</div>
+		<div><img src="http://gristech.com/img/contactus.png" alt="buckeye mower"></div>
+        <span>Whatever works for you.</span>
+        
+</div>
 		<!-- Container -->
 		<div class="container-fluid">
 			<!-- Notifications -->
@@ -122,7 +139,13 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, cumque pr
 	      <div class="container">
 	        <p class="muted credit">&copy; 2013</p>
 
+
+
 	      </div>
+
+<div class="hotel pull-right">
+	<i class="icon-coffee"> Coffee</i>
+</div>
 	    </div>
 
 		<!-- Javascripts

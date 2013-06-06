@@ -10,7 +10,7 @@
 	<div class="row">
 
 		<div class="span6">
-			<h1>Think About It.</h1>
+			<h1>What's Your Story?</h1>
 		</div>
 		<div class="span4 text-center" style="padding:30px;">
 			<img class="img-circle" src="http://gristech.com/img/thinker/thinker_head_square.png" alt="think about it">
@@ -52,23 +52,34 @@
 			<div class="span4">
 				<a href="{{{ $post->url() }}}" class="thumbnail">
 					<!-- http://placehold.it/260x180 -->
-					<img src="http://gristech.com{{{$post->image}}} " alt="{{{$post->image}}}">
+					<img src="http://gristech.com/img/{{{$post->image}}} " alt="{{{$post->image}}}">
 				</a>
-				@if (Auth::check())
-                @if (Auth::user()->hasRole('admin'))
+
+
+
+		<!-- Tags -->
 				<p>
-					<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
-					<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
+
+					<ul class='tag'>
+						<li><i class="icon-tag"></i></li>
+				@foreach($post->tags() as $tag)
+					
+				    <li><a href="tag/{{ $tag }}">{{ $tag }}</a></li>
+				    
+				@endforeach
+				</ul>
 				</p>
-				@endif
-				@endif
+
 			</div>
 			<div class="span4">
 				<h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
 				<p>
 					{{ String::tidy(Str::limit($post->content, 300)) }}
 				</p>
-				<p><a class="btn btn-info" href="{{{ $post->url() }}}">Read more</a></p>
+				<p>
+					<a class="btn btn-info" href="{{{ $post->url() }}}">Read more</a>
+				</p>
+
 			</div>
 		</div>
 		<!-- ./ post content -->
@@ -78,10 +89,23 @@
 			<div class="span8">
 				<p></p>
 				<p>
-					<i class="icon-user"></i> by <span class="muted">{{{ $post->author->username }}}</span>
+							<!-- Edit/Delete Buttons -->
+			<div class="metabuttons pull-left">
+				@if (Auth::check())
+	                @if (Auth::user()->hasRole('admin'))
+						<p>
+							<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
+							<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
+						| </p>
+					@endif
+				@endif
+			</div>
+
+					&nbsp;<i class="icon-user"></i> by <span class="muted">{{{ $post->author->username }}}</span>
 					| <i class="icon-calendar"></i> <!--Sept 16th, 2012-->{{{ $post->date() }}}
 					| <i class="icon-comment"></i> <a href="{{{ $post->url() }}}#comments">{{$post->comments()->count()}} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
 				</p>
+
 			</div>
 		</div>
 		<!-- ./ post footer -->
@@ -98,7 +122,7 @@
 <!-- span8 -->
 <div id="about" name="about" class="span3 pull-right" style="background-color:orange;margin:0px;">
 	<h2>The New Collossus</h2>
-	<img src="http://www.loc.gov/exhibits/haventohome/images/hh0041s.jpg" alt="manuscript">
+	<img src="https://docs.google.com/file/d/0B9psk8tKBXOQNmM4WGhIWDZFVVk" alt="manuscript">
 	<p>Not like the brazen giant of Greek fame,
 With conquering limbs astride from land to land;
 Here at our sea-washed, sunset gates shall stand
@@ -113,6 +137,13 @@ Your huddled masses yearning to breathe free,
 The wretched refuse of your teeming shore.
 Send these, the homeless, tempest-tost to me,
 I lift my lamp beside the golden door!"</p>
+
+<p>
+	<a href="http://www.youtube.com/watch?v=09geUJg11iA">http://www.youtube.com/watch?v=09geUJg11iA</a>
+</p>
+
+
+<img src="" alt="google docs">
 
 </div>
 

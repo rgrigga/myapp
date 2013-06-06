@@ -12,10 +12,10 @@ Blog Post Update ::
 
 <!-- {{{ var_dump($post->tags()) }}} -->
 <style>
-	li.tag{
-		display: inline;
-		background-color: orange;
-		padding: 5px;
+	ul.tag li{
+	    display: inline;
+	    background-color: orange;
+	    padding: 5px;
 	}
 </style>
 
@@ -25,17 +25,21 @@ Blog Post Update ::
 		Blog Post Update
 
 		<div class="pull-right">
-			<a href="{{{ URL::to('admin/blogs') }}}" class="btn btn-small btn-inverse"><i class="icon-circle-arrow-left icon-white"></i> Back</a>
+			<a href="{{{ URL::to('admin/blogs') }}}" class="btn btn-small btn-inverse"><i class="icon-circle-arrow-left icon-white"></i> Back to Post List</a>
 		</div>
 	</h3>
 	<h4>{{{ $post->title }}}</h4>
-	<h5>Tags: <ul>
+	<h5>{{{ $post->slug }}}</h5>
+
+	<h5>Tags: <ul class='tag'>
 @foreach($post->tags() as $tag)
 
-    <li class='tag'>{{ $tag }}</li>
+    <li>{{ $tag }}</li>
     
 @endforeach
 </ul></h5>
+
+
 </div>
 
 <!-- Tabs -->
@@ -64,6 +68,8 @@ Blog Post Update ::
 			</div>
 			<!-- ./ post title -->
 
+
+
 			<!-- Content -->
 			<div class="control-group {{{ $errors->has('content') ? 'error' : '' }}}">
 				<label class="control-label" for="content">Content</label>
@@ -75,18 +81,22 @@ Blog Post Update ::
 			<!-- ./ content -->
 
 			<!-- Image -->
+
+			
 			<div class="control-group {{{ $errors->has('image') ? 'error' : '' }}}">
-				<label class="control-label" for="image">image URL</label>
+				<label class="control-label" for="image">http://gristech.com/img/</label>
 				<div class="controls">
 <!-- 					<textarea class="full-width span10 wysihtml5" name="image" value="image" rows="1">{{{ Input::old('image', $post->image()) }}}</textarea> -->
 					<input type="text" name="image" id="image" value="{{{ Input::old('image', $post->image) }}}" />
 					{{{ $errors->first('image', '<span class="help-inline">:message</span>') }}}
 				</div>
+				<div class="thumbnail span6 controls">
+					<img src="http://gristech.com/img/{{ $post->image }}" alt="The Old Image should appear here">
+					<p class="muted text-center">http://gristech.com/img/{{ $post->image }}</p>
+				</div>
 			</div>
 			<!-- ./ image -->
-			<div class="thumbnail">
-				<img src="http://gristech.com{{ $post->image }}">
-			</div>
+			
 
 		</div>
 		<!-- ./ general tab -->

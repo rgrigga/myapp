@@ -26,6 +26,16 @@
 
 {{-- Content --}}
 @section('content')
+
+	<h5>Tags:</h5>
+<ul>
+@foreach($post->tags() as $tag)
+
+    <li class='tag'>{{ $tag }}</li>
+    
+@endforeach
+</ul>
+
 <h3>{{ $post->title }}</h3>
 
 <!-- //copy and edit buttons -->
