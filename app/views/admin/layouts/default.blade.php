@@ -21,14 +21,19 @@
 		================================================== -->
         {{ Basset::show('admin-css.css') }}
 
-		<style>
+		
 		@section('styles')
-		body {
-			padding: 60px 0;
+		<style>
+		.page-header{
+			margin-top: 60px;
 		}
-		@show
+/*		body {
+			padding: 60px 0;
+		}*/
 		</style>
-
+		@show
+		
+<link rel="stylesheet" href="/assets/css/style.css">
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -44,6 +49,19 @@
 	</head>
 
 	<body>
+
+	<!-- google analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-41528506-1', 'gristech.com');
+  ga('send', 'pageview');
+
+</script>
+
 		<!-- Container -->
 		<div class="container">
 			<!-- Navbar -->

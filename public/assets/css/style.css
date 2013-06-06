@@ -201,12 +201,12 @@ background-color: red;
 
 .hero-unit{
     background-color: #cccccc;
-box-shadow: 10px 10px 5px #666666;
+    box-shadow: 10px 10px 5px #666666;
 
 }
 
 .img-circle{
-    border: 30px solid #888888;
+    /*border: 30px solid #888888;*/
 
     /*border-color: #888888;*/
 }
@@ -218,6 +218,9 @@ box-shadow: 10px 10px 5px #666666;
 /* Base class
 ------------------------- */
 .jumbotron {
+
+  margin-right: -20px;
+  margin-left: -20px;
   position: relative;
   padding: 40px 0;
   color: #fff;
@@ -346,3 +349,23 @@ only screen and ( -o-min-device-pixel-ratio: 2/1) {
   padding: 0 10px;
   color: rgba(255,255,255,.25);
 }
+
+
+/*.container-fluid{
+  margin-left: 0px;
+  padding-left:  0px;
+  padding-right: 0px;
+}*/
+
+.navbar-fixed-top {
+    /*margin-bottom: 0px;*/
+  }
+
+.jumbotron{
+  .margin-left: -20px;
+  .margin-right: -20px;
+}
+
+  .navbar a{
+    color:orange;
+  }

@@ -102,7 +102,7 @@ Route::controller('user', 'UserController');
 
 //:: Application Routes ::
 
-# Contact Us Static Page
+# Technical/Development Static Page
 Route::get('technical', function()
 {
     // Return about us page
@@ -119,6 +119,8 @@ Route::get('russ', 'RussController@getIndex');
 //     return View::make('site/blog/index', compact('posts'));
 //     return View::make('site/russ', compact('posts'));
 // });
+
+Route::get('tags/{tag}', 'BlogController@getIndex');
 
 # Posts - Second to last set, match slug
 Route::get('{postSlug}', 'BlogController@getView');

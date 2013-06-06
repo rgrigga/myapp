@@ -9,18 +9,29 @@
 			
 	<div class="row">
 
-		<div class="span6">
+		<!-- <div class="span6"> -->
+			<img class="pull-right img-circle" src="http://gristech.com/img/automation-busn.jpg" alt="think about it">
 			<h1>Automate Your Business <br><small>Custom Web Applications</small></h1>
-		</div>
-		<div class="span4 text-center" style="padding:30px;">
-			<img class="img-circle" src="http://gristech.com/img/thinker/thinker_head_square.png" alt="think about it">
-		</div>
+
+			<ul>
+				<li>Generate Traffic</li>
+				<li>Better service for your clients</li>
+				<li>Make life easier for you and your employees</li>
+				<li>Save Money</li>
+				<li>Make Money</li>
+			</ul>
+			<p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+			
+		<!-- </div> -->
+		<!-- <div class="span5 text-center" style="padding:30px;"> -->
+			
+		<!-- </div> -->
 	</div>
 </div>
 		<h2>What is a website?</h2>
-		<p>A website is a collection of text, images, video.</p>
+		<p>A website is a just organized text, images, video.  It is very, very simple.</p>
 
-<a href="http://www.whatisawebsite.com/">http://www.whatisawebsite.com/</a>
+		<a href="http://www.whatisawebsite.com/">http://www.whatisawebsite.com/</a>
 
 			<p>Your website is the first thing that many of your customers will know of your business, and you may only have one shot to convert "searcher" to "prospect", and "prospect" to "client".</p>
 			<p>Your website helps you turn "clients" into "happy clients" and keep them that way.</p>
@@ -35,7 +46,7 @@
 					It's easy might put off, because you are too busy running your business to deal with it.  It may seem too expensive.  Maybe you've researched Web Designers, and you've found high prices.
 				</p>
 
-			<p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+			
 
 
 <!-- end hero-unit -->

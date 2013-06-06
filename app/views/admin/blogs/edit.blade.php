@@ -12,11 +12,12 @@ Blog Post Update ::
 
 <!-- {{{ var_dump($post->tags()) }}} -->
 <style>
-	ul.tag li{
+
+/*	ul.tag li{
 	    display: inline;
 	    background-color: orange;
 	    padding: 5px;
-	}
+	}*/
 </style>
 
 
@@ -28,16 +29,19 @@ Blog Post Update ::
 			<a href="{{{ URL::to('admin/blogs') }}}" class="btn btn-small btn-inverse"><i class="icon-circle-arrow-left icon-white"></i> Back to Post List</a>
 		</div>
 	</h3>
-	<h4>{{{ $post->title }}}</h4>
-	<h5>{{{ $post->slug }}}</h5>
+	<h4><em>Title:</em> {{{ $post->title }}}</h4>
+	<h5><em>Link:</em> {{{ URL::to($post->slug) }}}</h5>
 
-	<h5>Tags: <ul class='tag'>
+
+
+	<ul class='tag'>
+		<li><i class="icon-tag"></i> tags:</li>
 @foreach($post->tags() as $tag)
 
     <li>{{ $tag }}</li>
     
 @endforeach
-</ul></h5>
+</ul>
 
 
 </div>
@@ -61,6 +65,16 @@ Blog Post Update ::
 			
 <h3>Meta</h3>
 
+
+			<!-- Meta Title -->
+			<div class="control-group {{{ $errors->has('meta-link') ? 'error' : '' }}}">
+				<label class="control-label" for="meta-link">Meta Link</label>
+				<div class="controls">
+					<input type="text" name="meta-link" id="meta-link" value="{{{ Input::old('meta-link', $post->meta_link) }}}" />
+					{{{ $errors->first('meta-link', '<span class="help-inline">:message</span>') }}}
+				</div>
+			</div>
+
 			<!-- Meta Title -->
 			<div class="control-group {{{ $errors->has('meta-title') ? 'error' : '' }}}">
 				<label class="control-label" for="meta-title">Meta Title</label>
@@ -75,7 +89,9 @@ Blog Post Update ::
 			<div class="control-group {{{ $errors->has('meta-description') ? 'error' : '' }}}">
 				<label class="control-label" for="meta-description">Meta Description</label>
 				<div class="controls">
-					<input type="text" name="meta-description" id="meta-description" value="{{{ Input::old('meta-description', $post->meta_description) }}}" />
+					<!-- <textarea class="full-width span10 wysihtml5" name="content" value="content" rows="20">{{{ Input::old('content', $post->content) }}}</textarea> -->
+					<textarea class="full-width span10 wysihtml5" rows="4" name="meta-description" id="meta-description">{{{ Input::old('meta-description', $post->meta_description) }}}</textarea>
+
 					{{{ $errors->first('meta-description', '<span class="help-inline">:message</span>') }}}
 				</div>
 			</div>

@@ -40,11 +40,24 @@
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
-		<link rel="shortcut icon" href="{{{ asset('http://gristech.com/ico/favicon.png') }}}">
+
+		<link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}">
+		<meta name="google-site-verification" content="U8zCfNgj-23MojmUwyxkij6AqrU30NWhgJgTtiBl3WI" />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-41528506-1', 'gristech.com');
+  ga('send', 'pageview');
+
+</script>
 	</head>
 
 	<body>
 
+<!-- google analytics -->
 
 
 
@@ -83,7 +96,7 @@
 					<div class="nav-collapse collapse">
 						<ul class="nav">
 							<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
-							<li {{ (Request::is('/footer') ? ' class="active"' : '') }}><a href="{{{ URL::to('#footer') }}}">Partners</a></li>
+							<li {{ (Request::is('technical') ? ' class="active"' : '') }}><a href="{{{ URL::to('/technical') }}}">Technical</a></li>
 						</ul>
 
 			                        <ul class="nav pull-right">
@@ -137,102 +150,16 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, cumque pr
 
 	    <div id="footer">
 
-<div class="jumbotron masthead">
 
-	<a href="https://groups.google.com/forum/?fromgroups#!topic/twitter-bootstrap/hCUy_n1Mkks
-	"><em>Jumbotron Masthead</em></a>
-
-	<!-- <div class="span1">&copy; Ryan Grissinger 
-		<img src="http://lorempixel.com/400/200/nature.png" alt="thinker.png"></div> -->
-
-	<h1>Partners<small> This building blocks for this site include:</small></h1>
-	<img src="http://gristech.com/img/mini-tools.jpg" alt="">
-	<!-- <h2>PS: Help Wanted!</h2> -->
-
-</div>
 <div class="container">
 
 
-
-	      
-
-	      	<div class="row">
-
-	      		<div class="span1 pull-right thumbnail">
-	      			<a href="http://www.comentum.com/php-vs-asp.net-comparison.html">
-	      			<img src="http://gristech.com/img/logo/php-med-trans.png" alt="laravel rocks">
-					<h5>PHP</h5></a>
-					<h6>Web Application Language</h6>
-					<p>Why PHP?</p>
-	      		</div>
-
-	      		<div class="span3 thumbnail">
-	      			<a href="http://laravel.com">
-	      			<img src="http://gristech.com/img/laravel-l-slant.png" alt="laravel rocks">
-					<h5>Laravel</h5>
-					</a>
-					<h6>PHP Framework</h6>
-					<ul>
-						<li>Eloquent ORM</li>
-						<li>Artisan CLI</li>
-						<li>Polymorphic Relations</li>
-						<li>Eager Loading</li>
-					</ul>
-					<p>The best thing since sliced bread.</p>
-					<a href="http://laravel.com/docs/requests#old-input">http://laravel.com/docs/requests#old-input</a>
-	      		</div>
-
-	      		<div class="span2 thumbnail">
-	      			<a href="http://twitter.github.io/bootstrap/scaffolding.html#responsive">
-	      			<img src="http://gristech.com/img/logo/twitter-bootstrap.jpg" alt="laravel rocks">
-					<h5>Bootstrap</h5>
-					</a>
-					<h6>Front-End Framework (Light, Responsive CSS & Javascript)</h6>
-					<p>Allows rapid development</p>
-	      		</div>
-
-	      		<div class="span2 thumbnail">
-	      			<a href="http://linux.com">
-	      			<img src="http://gristech.com/img/logo/linux.jpg" alt="linux">
-					<h5>Linux</h5>
-					</a>
-					<h6>It's what runs the internet.</h6>
-					<p>The best thing since sliced bread.</p>
-	      		</div>
+	      	
 
 
-	      		<div class="span2 thumbnail">
-	      			<a href="http://http://www.siteground.com/">
-	      			<img src="http://gristech.com/img/screen/siteground2.png" alt="laravel rocks">
-					<h5>Siteground</h5>
-					</a>
-					<h6>Webhost</h6>
-					<p>The best thing since sliced bread.</p>
-	      		</div>
+</div>
+<!-- container -->
 
-	      		<div class="span2 thumbnail">
-	      			<a href="http://http://www.siteground.com/">
-	      			<img src="http://www.lorempixum.com/g/150/100" alt="laravel rocks">
-					<h5>Siteground</h5>
-					</a>
-					<h6>Webhost</h6>
-					<p>The best thing since sliced bread.</p>
-	      		</div>
-
-	<div class="span6">
-	<img src="http://gristech.com/img/mini-tools.jpg" alt="">
-	<!-- Default -->  
-<!-- <img src="http://www.lorempixum.com/400/100" alt="" />   -->
-  
-<!-- Black and White -->  
-<!-- <img src="http://www.lorempixum.com/g/400/100" alt="" />   -->
-  
-<!-- Tagged -->  
-<!-- <img src="http://www.lorempixum.com/g/400/100/nature" alt="" /> -->
-	</div>
-
-
-	      	</div>
 	        <p class="muted credit">Laravel 4 Starter Site on <a href="https://github.com/andrew13/Laravel-4-Bootstrap-Starter-Site">Github</a>.</p>
 	      
 
@@ -243,7 +170,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, cumque pr
 
 	    </div>
 
-<a href="/whyresponsive">
+<a href="/why-responsive">
 <div class="hotel hotelb">
 <!-- 	<div style="color:black; padding-bottom:50px;">resize me</div> -->
 	<div class="hotel pull-right">

@@ -32,18 +32,19 @@ class BlogController extends BaseController {
 	 *
 	 * @return View
 	 */
-	public function getIndex($tag="foo")
+	public function getIndex($tag="")
 	{
 
-		// if($tag){
-		// 	$posts = $this->post->has('tag', $tag);
-		// 	echo " $tag ";
-		// }
+		if($tag){
+			$posts = $this->post->where('meta_keywords', '=', $tag)->paginate(5);
+			// echo " $tag ";
+		}
 
 		// $posts = $this->post->where('tag','seo');
 		// Get all the blog posts
-		$posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
-
+		else{
+			$posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
+		}
 		// Show the page
 		return View::make('site/blog/index', compact('posts'));
 	}

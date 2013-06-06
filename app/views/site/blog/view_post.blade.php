@@ -27,16 +27,38 @@
 {{-- Content --}}
 @section('content')
 
-	<h5>Tags:</h5>
-<ul>
-@foreach($post->tags() as $tag)
+<div class="hero-unit">
 
-    <li class='tag'>{{ $tag }}</li>
-    
-@endforeach
-</ul>
+<div class="row">
+	<div class="span5">
 
-<h3>{{ $post->title }}</h3>
+		<h2>{{ $post->title }}</h2>
+
+		<h5>Tags:</h5>
+
+		<ul class='tag'>
+			@foreach($post->tags() as $tag)
+
+			    <li class='tag'>{{ $tag }}</li>
+			    
+			@endforeach
+		</ul>
+
+		<p>
+			{{{$post->meta_description}}}
+		</p>
+	</div>
+	<div class="span6">
+		<a href="{{{ $post->url() }}}" class="thumbnail">
+			<!-- http://placehold.it/260x180 -->
+			<img src="http://gristech.com/img/{{{$post->image}}} " alt="{{{$post->image}}}">
+		</a>
+	</div>
+</div>
+
+
+					
+</div>
 
 <!-- //copy and edit buttons -->
 				@if (Auth::check())
