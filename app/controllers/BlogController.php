@@ -40,8 +40,9 @@ class BlogController extends BaseController {
 		// 	echo " $tag ";
 		// }
 
+		// $posts = $this->post->where('tag','seo');
 		// Get all the blog posts
-		$posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);
+		$posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
 
 		// Show the page
 		return View::make('site/blog/index', compact('posts'));

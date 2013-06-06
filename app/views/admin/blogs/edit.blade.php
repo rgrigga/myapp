@@ -58,6 +58,56 @@ Blog Post Update ::
 	<div class="tab-content">
 		<!-- General tab -->
 		<div class="tab-pane active" id="tab-general">
+			
+<h3>Meta</h3>
+
+			<!-- Meta Title -->
+			<div class="control-group {{{ $errors->has('meta-title') ? 'error' : '' }}}">
+				<label class="control-label" for="meta-title">Meta Title</label>
+				<div class="controls">
+					<input type="text" name="meta-title" id="meta-title" value="{{{ Input::old('meta-title', $post->meta_title) }}}" />
+					{{{ $errors->first('meta-title', '<span class="help-inline">:message</span>') }}}
+				</div>
+			</div>
+			<!-- ./ meta title -->
+
+			<!-- Meta Description -->
+			<div class="control-group {{{ $errors->has('meta-description') ? 'error' : '' }}}">
+				<label class="control-label" for="meta-description">Meta Description</label>
+				<div class="controls">
+					<input type="text" name="meta-description" id="meta-description" value="{{{ Input::old('meta-description', $post->meta_description) }}}" />
+					{{{ $errors->first('meta-description', '<span class="help-inline">:message</span>') }}}
+				</div>
+			</div>
+			<!-- ./ meta description -->
+
+			<!-- Meta Image -->
+<!-- 			<div class="control-group {{{ $errors->has('meta-image') ? 'error' : '' }}}">
+				<label class="control-label" for="meta-image">Meta Image</label>
+				<div class="controls">
+					<input type="text" name="meta-image" id="meta-image" value="{{{ Input::old('meta-image', $post->meta_image) }}}" />
+					{{{ $errors->first('meta-image', '<span class="help-inline">:message</span>') }}}
+				</div>
+			</div> -->
+			<!-- ./ meta image -->
+
+			<!-- Meta Keywords -->
+			<div class="control-group {{{ $errors->has('meta-keywords') ? 'error' : '' }}}">
+				<label class="control-label" for="meta-keywords">Meta Keywords</label>
+
+
+				<div class="controls">
+					<input type="text" name="meta-keywords" id="meta-keywords" value="{{{ Input::old('meta-keywords', $post->meta_keywords) }}}" />
+					{{{ $errors->first('meta-keywords', '<span class="help-inline">:message</span>') }}}
+				</div>
+			</div>
+			<!-- ./ meta keywords -->
+
+
+
+<h3>General</h3>
+
+
 			<!-- Post Title -->
 			<div class="control-group {{{ $errors->has('title') ? 'error' : '' }}}">
 				<label class="control-label" for="title">Post Title</label>
@@ -103,47 +153,7 @@ Blog Post Update ::
 
 		<!-- Meta Data tab -->
 		<div class="tab-pane" id="tab-meta-data">
-			<!-- Meta Title -->
-			<div class="control-group {{{ $errors->has('meta-title') ? 'error' : '' }}}">
-				<label class="control-label" for="meta-title">Meta Title</label>
-				<div class="controls">
-					<input type="text" name="meta-title" id="meta-title" value="{{{ Input::old('meta-title', $post->meta_title) }}}" />
-					{{{ $errors->first('meta-title', '<span class="help-inline">:message</span>') }}}
-				</div>
-			</div>
-			<!-- ./ meta title -->
-
-			<!-- Meta Description -->
-			<div class="control-group {{{ $errors->has('meta-description') ? 'error' : '' }}}">
-				<label class="control-label" for="meta-description">Meta Description</label>
-				<div class="controls">
-					<input type="text" name="meta-description" id="meta-description" value="{{{ Input::old('meta-description', $post->meta_description) }}}" />
-					{{{ $errors->first('meta-description', '<span class="help-inline">:message</span>') }}}
-				</div>
-			</div>
-			<!-- ./ meta description -->
-
-			<!-- Meta Image -->
-			<div class="control-group {{{ $errors->has('meta-image') ? 'error' : '' }}}">
-				<label class="control-label" for="meta-image">Meta Image</label>
-				<div class="controls">
-					<input type="text" name="meta-image" id="meta-image" value="{{{ Input::old('meta-image', $post->meta_image) }}}" />
-					{{{ $errors->first('meta-image', '<span class="help-inline">:message</span>') }}}
-				</div>
-			</div>
-			<!-- ./ meta image -->
-
-			<!-- Meta Keywords -->
-			<div class="control-group {{{ $errors->has('meta-keywords') ? 'error' : '' }}}">
-				<label class="control-label" for="meta-keywords">Meta Keywords</label>
-
-
-				<div class="controls">
-					<input type="text" name="meta-keywords" id="meta-keywords" value="{{{ Input::old('meta-keywords', $post->meta_keywords) }}}" />
-					{{{ $errors->first('meta-keywords', '<span class="help-inline">:message</span>') }}}
-				</div>
-			</div>
-			<!-- ./ meta keywords -->
+moved
 
 
 		</div>

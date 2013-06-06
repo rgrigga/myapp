@@ -44,5 +44,5 @@ Blog Management ::
 	</tbody>
 </table>
 
-{{{ $posts->links() }}}
+{{ $posts->links() }}
 @stop

@@ -158,6 +158,8 @@
 	<div id="about" name="about" class="alpha well span3 pull-right" >
 		<h3>Layman's Guide to Lawn Mower Maintenance</h3>
 		<p class="text-center"><i class="icon-circle-arrow-down icon-4x"></i></p>
+
+		<a href="http://lorempixel.com/400/200/sports/">LOREMPIXEL</a>
 		<!-- <img src="http://www.loc.gov/exhibits/haventohome/images/hh0041s.jpg" alt="manuscript" class="img-circle"> -->
 <div class="well">
 	<h4>lorem ipsum</h4>

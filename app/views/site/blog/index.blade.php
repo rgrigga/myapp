@@ -10,12 +10,18 @@
 	<div class="row">
 
 		<div class="span6">
-			<h1>What's Your Story?</h1>
+			<h1>Automate Your Business <br><small>Custom Web Applications</small></h1>
 		</div>
 		<div class="span4 text-center" style="padding:30px;">
 			<img class="img-circle" src="http://gristech.com/img/thinker/thinker_head_square.png" alt="think about it">
 		</div>
 	</div>
+</div>
+		<h2>What is a website?</h2>
+		<p>A website is a collection of text, images, video.</p>
+
+<a href="http://www.whatisawebsite.com/">http://www.whatisawebsite.com/</a>
+
 			<p>Your website is the first thing that many of your customers will know of your business, and you may only have one shot to convert "searcher" to "prospect", and "prospect" to "client".</p>
 			<p>Your website helps you turn "clients" into "happy clients" and keep them that way.</p>
 	
@@ -31,7 +37,7 @@
 
 			<p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
 
-</div>
+
 <!-- end hero-unit -->
 
 <div class="span8">
@@ -117,34 +123,8 @@
 @endforeach
 
 
-{{{ $posts->links() }}}
-</div>
-<!-- span8 -->
-<div id="about" name="about" class="span3 pull-right" style="background-color:orange;margin:0px;">
-	<h2>The New Collossus</h2>
-	<img src="https://docs.google.com/file/d/0B9psk8tKBXOQNmM4WGhIWDZFVVk" alt="manuscript">
-	<p>Not like the brazen giant of Greek fame,
-With conquering limbs astride from land to land;
-Here at our sea-washed, sunset gates shall stand
-A mighty woman with a torch, whose flame
-Is the imprisoned lightning, and her name
-Mother of Exiles. From her beacon-hand
-Glows world-wide welcome; her mild eyes command
-The air-bridged harbor that twin cities frame.
-"Keep, ancient lands, your storied pomp!" cries she
-With silent lips. "Give me your tired, your poor,
-Your huddled masses yearning to breathe free,
-The wretched refuse of your teeming shore.
-Send these, the homeless, tempest-tost to me,
-I lift my lamp beside the golden door!"</p>
+{{ $posts->links() }}
+<!-- https://github.com/andrew13/Laravel-4-Bootstrap-Starter-Site/issues/49 -->
 
-<p>
-	<a href="http://www.youtube.com/watch?v=09geUJg11iA">http://www.youtube.com/watch?v=09geUJg11iA</a>
-</p>
-
-
-<img src="" alt="google docs">
-
-</div>
 
 @stop

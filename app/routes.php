@@ -103,10 +103,10 @@ Route::controller('user', 'UserController');
 //:: Application Routes ::
 
 # Contact Us Static Page
-Route::get('contact-us', function()
+Route::get('technical', function()
 {
     // Return about us page
-    return View::make('site/contact-us');
+    return View::make('site/technical');
 });
 
 Route::get('russ', 'RussController@getIndex');

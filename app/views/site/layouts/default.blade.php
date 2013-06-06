@@ -137,10 +137,24 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, cumque pr
 
 	    <div id="footer">
 
-<h1>Partners<small>This site is built on:</small></h1>
-<p class="muted">PS: : Ask me about stock options!</p>
+<div class="jumbotron masthead">
 
-	      <div class="container">
+	<a href="https://groups.google.com/forum/?fromgroups#!topic/twitter-bootstrap/hCUy_n1Mkks
+	"><em>Jumbotron Masthead</em></a>
+
+	<!-- <div class="span1">&copy; Ryan Grissinger 
+		<img src="http://lorempixel.com/400/200/nature.png" alt="thinker.png"></div> -->
+
+	<h1>Partners<small> This building blocks for this site include:</small></h1>
+	<img src="http://gristech.com/img/mini-tools.jpg" alt="">
+	<!-- <h2>PS: Help Wanted!</h2> -->
+
+</div>
+<div class="container">
+
+
+
+	      
 
 	      	<div class="row">
 
@@ -153,8 +167,10 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, cumque pr
 	      		</div>
 
 	      		<div class="span3 thumbnail">
+	      			<a href="http://laravel.com">
 	      			<img src="http://gristech.com/img/laravel-l-slant.png" alt="laravel rocks">
 					<h5>Laravel</h5>
+					</a>
 					<h6>PHP Framework</h6>
 					<ul>
 						<li>Eloquent ORM</li>
@@ -163,6 +179,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, cumque pr
 						<li>Eager Loading</li>
 					</ul>
 					<p>The best thing since sliced bread.</p>
+					<a href="http://laravel.com/docs/requests#old-input">http://laravel.com/docs/requests#old-input</a>
 	      		</div>
 
 	      		<div class="span2 thumbnail">
@@ -170,86 +187,48 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, cumque pr
 	      			<img src="http://gristech.com/img/logo/twitter-bootstrap.jpg" alt="laravel rocks">
 					<h5>Bootstrap</h5>
 					</a>
-					<h6>PHP Framework</h6>
+					<h6>Front-End Framework (Light, Responsive CSS & Javascript)</h6>
+					<p>Allows rapid development</p>
+	      		</div>
+
+	      		<div class="span2 thumbnail">
+	      			<a href="http://linux.com">
+	      			<img src="http://gristech.com/img/logo/linux.jpg" alt="linux">
+					<h5>Linux</h5>
+					</a>
+					<h6>It's what runs the internet.</h6>
 					<p>The best thing since sliced bread.</p>
 	      		</div>
 
-	      			      		<div class="span1 pull-right thumbnail">
-	      			<a href="http://www.comentum.com/php-vs-asp.net-comparison.html">
-	      			<img src="http://gristech.com/img/logo/php-med-trans.png" alt="laravel rocks">
-					<h5>PHP</h5></a>
-					<h6>Web Application Language</h6>
-					<p>Why PHP?</p>
-	      		</div>
 
-	      		<div class="span3 thumbnail">
-	      			<img src="http://gristech.com/img/laravel-l-slant.png" alt="laravel rocks">
-					<h5>Laravel</h5>
-					<h6>PHP Framework</h6>
-					<p>The best thing since sliced bread.</p>
-	      		</div>
-
-	      		<div class="span1 thumbnail">
-	      			<img src="http://gristech.com/img/laravel-l-slant.png" alt="laravel rocks">
-					<h5>Bootstrap</h5>
-					<h6>PHP Framework</h6>
-					<p>The best thing since sliced bread.</p>
-	      		</div>
-
-	      			      		<div class="span1 pull-right thumbnail">
-	      			<a href="http://www.comentum.com/php-vs-asp.net-comparison.html">
-	      			<img src="http://gristech.com/img/logo/php-med-trans.png" alt="laravel rocks">
-					<h5>PHP</h5></a>
-					<h6>Web Application Language</h6>
-					<p>Why PHP?</p>
-	      		</div>
-
-	      		<div class="span3 thumbnail">
-	      			<img src="http://gristech.com/img/laravel-l-slant.png" alt="laravel rocks">
-					<h5>Laravel</h5>
-					<h6>PHP Framework</h6>
-					<p>The best thing since sliced bread.</p>
-	      		</div>
-
-	      		<div class="span1 thumbnail">
-	      			<img src="http://gristech.com/img/laravel-l-slant.png" alt="laravel rocks">
-					<h5>Bootstrap</h5>
-					<h6>PHP Framework</h6>
-					<p>The best thing since sliced bread.</p>
-	      		</div>
-
-	      		<div class="span1 pull-right thumbnail">
-	      			<a href="http://www.comentum.com/php-vs-asp.net-comparison.html">
-	      			<img src="http://gristech.com/img/logo/php-med-trans.png" alt="laravel rocks">
-					<h5>PHP</h5></a>
-					<h6>Web Application Language</h6>
-					<p>Why PHP?</p>
-	      		</div>
-
-	      		<div class="span3 thumbnail">
-	      			<img src="http://gristech.com/img/laravel-l-slant.png" alt="laravel rocks">
-					<h5>Laravel</h5>
-					<h6>PHP Framework</h6>
-					<p>The best thing since sliced bread.</p>
-	      		</div>
-
-	      		<div class="span1 thumbnail">
-	      			<img src="http://gristech.com/img/laravel-l-slant.png" alt="laravel rocks">
-					<h5>Bootstrap</h5>
-					<h6>PHP Framework</h6>
-					<p>The best thing since sliced bread.</p>
-	      		</div>
-
-	      		<div class="span1 thumbnail">
-	      			<img src="http://gristech.com/img/laravel-l-slant.png" alt="laravel rocks">
+	      		<div class="span2 thumbnail">
+	      			<a href="http://http://www.siteground.com/">
+	      			<img src="http://gristech.com/img/screen/siteground2.png" alt="laravel rocks">
 					<h5>Siteground</h5>
-					<h6>PHP Framework</h6>
+					</a>
+					<h6>Webhost</h6>
 					<p>The best thing since sliced bread.</p>
 	      		</div>
 
-	<div class="span1">
-	<img src="http://placehold.it/350x150" alt="">
-	
+	      		<div class="span2 thumbnail">
+	      			<a href="http://http://www.siteground.com/">
+	      			<img src="http://www.lorempixum.com/g/150/100" alt="laravel rocks">
+					<h5>Siteground</h5>
+					</a>
+					<h6>Webhost</h6>
+					<p>The best thing since sliced bread.</p>
+	      		</div>
+
+	<div class="span6">
+	<img src="http://gristech.com/img/mini-tools.jpg" alt="">
+	<!-- Default -->  
+<!-- <img src="http://www.lorempixum.com/400/100" alt="" />   -->
+  
+<!-- Black and White -->  
+<!-- <img src="http://www.lorempixum.com/g/400/100" alt="" />   -->
+  
+<!-- Tagged -->  
+<!-- <img src="http://www.lorempixum.com/g/400/100/nature" alt="" /> -->
 	</div>
 
 
