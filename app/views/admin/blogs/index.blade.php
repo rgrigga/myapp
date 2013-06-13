@@ -18,6 +18,10 @@ Blog Management ::
 	</h3>
 </div>
 
+<div>
+	
+</div>
+
 <table class="table table-bordered table-hover">
 	<thead>
 		<tr>

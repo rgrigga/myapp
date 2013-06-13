@@ -30,6 +30,10 @@
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
+<!-- prettify -->
+<!-- <link href="prettify.css" type="text/css" rel="stylesheet" /> -->
+<script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&amp;skin=sunburst&amp;lang=css"></script>
+
 <!-- font-awesome -->
 <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
@@ -65,6 +69,7 @@
 		<!-- To make sticky footer need to wrap in a div -->
 	<div id="wrap">
 		<!-- Navbar -->
+
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container-fluid">
@@ -97,26 +102,38 @@
 						<ul class="nav">
 							<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
 							<li {{ (Request::is('technical') ? ' class="active"' : '') }}><a href="{{{ URL::to('/technical') }}}">Technical</a></li>
+							<li {{ (Request::is('features') ? ' class="active"' : '') }}><a href="{{{ URL::to('/features') }}}">Features</a></li>
+							<li {{ (Request::is('tags') ? ' class="active"' : '') }}><a href="{{{ URL::to('/tags') }}}">Tags</a></li>
 						</ul>
 
-			                        <ul class="nav pull-right">
-			                            @if (Auth::check())
-                                        @if (Auth::user()->hasRole('admin'))
+						<!-- admin/user nav -->
+                        <ul class="nav pull-right">
+                            @if (Auth::check())
+                                @if (Auth::user()->hasRole('admin'))
 
-                                        <li{{ (Request::is('admin/blogs/create*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/blogs/create') }}}"><i class="icon-bullhorn icon-white"></i> Create</a></li>
+                                    <li{{ (Request::is('admin/blogs/create*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/blogs/create') }}}"><i class="icon-bullhorn icon-white"></i> Create</a></li>
 
-			                            <li><a href="{{{ URL::to('admin') }}}">Admin Panel</a></li>
-                                        @endif
-			                            <li><a href="{{{ URL::to('user') }}}">Logged in as {{{ Auth::user()->username }}}</a></li>
-			                            <li><a href="{{{ URL::to('user/logout') }}}">Logout</a></li>
-			                            @else
-			                            <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">Login</a></li>
-			                            <li {{ (Request::is('user/register') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/create') }}}">Sign Up</a></li>
-			                            @endif
-			                        </ul>
+		                            <li><a href="{{{ URL::to('admin') }}}">Admin Panel</a></li>
+                                @endif
+	                            <li><a href="{{{ URL::to('user') }}}">Logged in as {{{ Auth::user()->username }}}</a></li>
+	                            <li><a href="{{{ URL::to('user/logout') }}}">Logout</a></li>
+                            @else
+	                            <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">Login</a></li>
+	                            <li {{ (Request::is('user/register') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/create') }}}">Join (Free)</a></li>
+                            @endif
+                        </ul>
 					</div>
 					<!-- ./ nav-collapse -->
 				</div>
+
+			</div>
+			<!-- //this is the only place to put india! -->
+			<div class="india pull-right">
+					<!-- <div>phone, email, chat, anything!</div> -->
+				<div>
+					<img src="http://gristech.com/img/contactus.png" alt="learn php laravel web design">
+				</div>
+			        
 			</div>
 		</div>
 		<!-- ./ navbar -->
@@ -126,10 +143,18 @@
 			<!-- Notifications -->
 			@include('notifications')
 			<!-- ./ notifications -->
-
+			<style>
+			/*http://css-tricks.com/almanac/properties/z/z-index/*/
+			.contentwrap{
+				position: relative;
+				/*z-index: -3;*/
+			}
+			</style>
+<div class="contentwrap">
 			<!-- Content -->
 			@yield('content')
 			<!-- ./ content -->
+</div>
 <!-- <div class="span8">
 </div>
 <div class="span3"><h2>sidebar</h2>
@@ -145,7 +170,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, cumque pr
 		<div id="push"></div>
 
 </div>
-		<!-- ./wrap -->
+<!-- ./wrap -->
 
 
 	    <div id="footer">
@@ -160,9 +185,9 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, cumque pr
 </div>
 <!-- container -->
 
-	        <p class="muted credit">Laravel 4 Starter Site on <a href="https://github.com/andrew13/Laravel-4-Bootstrap-Starter-Site">Github</a>.</p>
+	        <p class="muted credit">This site began as the Laravel 4 Starter Site on <a href="https://github.com/andrew13/Laravel-4-Bootstrap-Starter-Site">Github</a>.  Thank you Andrew!</p>
 	      
-
+<span><a href="http://en.wikipedia.org/wiki/Perpetual_beta">Always Beta</a></span>
 
 
 
@@ -170,7 +195,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, cumque pr
 
 	    </div>
 
-<a href="/why-responsive">
+<a href="/whyresponsive">
 <div class="hotel hotelb">
 <!-- 	<div style="color:black; padding-bottom:50px;">resize me</div> -->
 	<div class="hotel pull-right">

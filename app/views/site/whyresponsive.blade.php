@@ -8,9 +8,14 @@
 {{-- Content --}}
 @section('content')
 
+
+<style>
+
+</style>
+<!-- <div class="contentwrap"> -->
 <h1>Contact Us</h1>
+<!-- </div> -->
 
-<!-- //moves to contact us -->
 
-				    <a href="http://lifehacker.com/5964262/host-web-pages-on-google-drive">http://lifehacker.com/5964262/host-web-pages-on-google-drive</a>
+				    
 @stop

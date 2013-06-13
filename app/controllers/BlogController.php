@@ -3,6 +3,12 @@
 class BlogController extends BaseController {
 
     /**
+     * Tost Model
+     * @var Tags
+     */
+    protected $tags;
+
+    /**
      * Post Model
      * @var Post
      */
@@ -23,7 +29,7 @@ class BlogController extends BaseController {
     {
         parent::__construct();
 
-        $this->post = $post;
+        $this->post = $post;//These are basically empty objects.
         $this->user = $user;
     }
     
@@ -35,19 +41,112 @@ class BlogController extends BaseController {
 	public function getIndex($tag="")
 	{
 
+		$alltags=array();		
+
+		foreach ($this->post->get() as $post) {
+
+			foreach ($post->tags() as $mytag) {
+				if(!in_array($mytag, $alltags)){
+					array_push($alltags, trim($mytag));
+				}
+			}
+
+		}
+
+		//check to see if the tag works
+		//
+		// http://stackoverflow.com/questions/13386774/using-eloquent-orm-in-laravel-to-perform-search-of-database-using-like
 		if($tag){
-			$posts = $this->post->where('meta_keywords', '=', $tag)->paginate(5);
-			// echo " $tag ";
+			$tag='%'.$tag.'%';
+			$posts = $this->post->where('meta_keywords', 'LIKE', "$tag")->paginate(5);		
+			
+			$tags=array();
+
+			foreach ($posts as $post) {
+
+				foreach ($post->tags() as $mytag) {
+					if(!in_array($mytag, $tags)){
+						array_push($tags, trim($mytag));
+					}
+				}
+
+			}			
+			
+			// die(var_dump(count($posts)));
+
+			if(count($posts)==0){
+
+			return View::make('site/blog/tags', compact('posts'),compact('tags'),compact('alltags'));
+
+			}
+
+			return View::make('site/blog/tags', compact('posts'),compact('tags'),compact('alltags'))->with('error', 'There was a problem!');
 		}
 
 		// $posts = $this->post->where('tag','seo');
 		// Get all the blog posts
 		else{
+
 			$posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
+			return View::make('site/blog/index', compact('posts'),compact('tags'),compact('alltags'));
 		}
 		// Show the page
-		return View::make('site/blog/index', compact('posts'));
+		// return View::make('site/blog/index', compact('posts'));
 	}
+
+	
+	public function getAllTags(){
+		$alltags=array();		
+
+		foreach ($this->post->get() as $post) {
+
+			foreach ($post->tags() as $mytag) {
+				if(!in_array($mytag, $alltags)){
+					array_push($alltags, trim($mytag));
+				}
+			}
+
+		}
+		return $alltags;
+	}
+
+	public function getTags($tag="")
+	{
+		// return Redirect::to("tags", "all");
+		// 
+		$alltags=array();		
+
+		foreach ($this->post->get() as $post) {
+
+			foreach ($post->tags() as $posttag) {
+				if(!in_array($posttag, $alltags)){
+					array_push($alltags, trim($posttag));
+				}
+			}
+
+		}
+
+		$posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
+
+		$tags=array();
+		foreach ($posts as $post) {
+
+			foreach ($post->tags() as $mytag) {
+				if(!in_array($mytag, $tags)){
+					array_push($tags, trim($mytag));
+				}
+			}
+
+		}
+
+		// $tags=array_unique($tags);
+		// die(var_dump($tags));
+		// return var_dump($tags);
+// View::make($view, $data);
+
+		return View::make('site/blog/tags', compact('posts'),compact('tags'));
+	}
+
 
 	/**
 	 * View a blog post.

@@ -62,6 +62,7 @@
 
 </script>
 
+<div class="wrap">
 		<!-- Container -->
 		<div class="container">
 			<!-- Navbar -->
@@ -78,7 +79,7 @@
 								<li{{ (Request::is('admin') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin') }}}"><i class="icon-home icon-white"></i> Home</a></li>
 								<li{{ (Request::is('admin/blogs*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/blogs') }}}"><i class="icon-list-alt icon-white"></i> Blog</a></li>
 
-								<li{{ (Request::is('admin/blogs/create*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/blogs/create') }}}"><i class="icon-bullhorn icon-white"></i> Create</a></li>
+								<li{{ (Request::is('admin/blogs/create*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/blogs/create') }}}"><i class="icon-bullhorn icon-white"></i> New Post</a></li>
 
 
 								<li{{ (Request::is('admin/comments*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/comments') }}}"><i class="icon-bullhorn icon-white"></i> Comments</a></li>
@@ -121,11 +122,29 @@
 			@include('notifications')
 			<!-- ./ notifications -->
 
+
+<style>
+
+/*http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site*/
+
+	.contentwrap{
+padding-top: 60px;
+	}
+
+@media screen and (max-width: 979px) {
+    .contentwrap { padding-top: 0px; }
+}
+
+</style>
+<div class="contentwrap">
 			<!-- Content -->
 			@yield('content')
 			<!-- ./ content -->
+</div>
 		</div>
 		<!-- ./ container -->
+</div>
+<!-- ./ wrap -->
 
 		<!-- Javascripts
 		================================================== -->

@@ -36,12 +36,18 @@ class RussController extends BaseController {
 		// Get all the blog posts
 		// 
 		// 
-		$posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);
+		// $tag='%'.$tag.'%';
+		$posts = $this->post->where('meta_keywords', 'LIKE', "%russ%")->paginate(5);
+		// $posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);
+
+// die(var_dump($posts));
 
 		// Show the page
 		return View::make('site/russ/index', compact('posts'));
 		
 	}
+
+
 
 	/**
 	 * View a blog post.

@@ -16,6 +16,8 @@ Create a New Blog Post ::
 			<a href="{{{ URL::to('admin/blogs') }}}" class="btn btn-small btn-inverse"><i class="icon-circle-arrow-left icon-white"></i> Back</a>
 		</div>
 	</h3>
+
+	<p>Howdy. This is the create post page... Required fields are "Title" "Content" and "Image".  Please create those, then click "publish", then we'll add some better details through the "Update" page.</p>
 </div>
 
 <!-- Tabs -->

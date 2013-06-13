@@ -30,9 +30,9 @@
 <div class="jumbotron masthead">
 
 
-	<h1>Tools<small> building blocks for this site include:</small></h1>
+	<h1>Features<small> available features include:</small></h1>
 	<!-- <h2>blah</h2> -->
-	<img src="http://gristech.com/img/mini-tools.jpg" alt="">
+	<img src="http://gristech.com/img/features.jpg" alt="">
 	<!-- <p>If you're interested...</p> -->
 	<h5><em>Modular, Extensible, Testable, Expressive, Elegant, Simple</em>
 	</h5>
@@ -43,15 +43,39 @@
 
 <style>
 
+.jumbotron{
+
+
+  margin-right: -20px;
+  margin-left: -20px;
+  position: relative;
+  padding: 40px 0;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
+  background: #020031; /* Old browsers */
+  background: -moz-linear-gradient(45deg, #020031 0%, #6d3353 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#020031), color-stop(100%,#6d3353)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(45deg, #020031 0%,#6d3353 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(45deg, #020031 0%,#6d3353 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(45deg, #020031 0%,#6d3353 100%); /* IE10+ */
+  background: linear-gradient(45deg, #aa3311 0%,rgb(53,7,4) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#020031', endColorstr='#6d3353',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  -webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
+     -moz-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
+          box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
+}
+
+
 .delta img{
 	width: 100%;
 }
 .delta { 
 	margin-top: 20px;
-   position: relative; 
+	position: relative; 
    /*width: 100%;  for IE 6 */
    /*background-color: blue;*/
-       background-color: #cccccc;
+    background-color: #cccccc;
     box-shadow: 10px 10px 5px #666666;
 }
 
@@ -187,15 +211,15 @@ p.photocredit {
 		      		</div>
 
 		      		<div class="span3 thumbnail delta">
-		      			<a href="http://lorempixum.com/">
-		      			<img src="http://lorempixum.com/g/350/200/city" alt="lorempixum">
+		      			<a href="http://http://www.lorempixum.com/">
+		      			<img src="http://www.lorempixum.com/g/350/200/city" alt="lorempixum">
 						<h4><span>Free Images</span></h4>
 						</a>
 						<h6>Awesome</h6>
 						<p>The best thing since sliced bread.</p>
 						<ul>
 							<li>lorempixum</li>
-							<li><a href="http://www.flickr.com/creativecommons/">flickr</a></li>
+							<li>flickr</li>
 							<li>other creative commons resources</li>
 							<li><a href="http://yourbusiness.azcentral.com/give-copyright-credit-images-2791.html">About copyrighting</a></li>
 						</ul>
@@ -205,7 +229,7 @@ p.photocredit {
 
 
 		      		<div class="span4 thumbnail delta">
-		      			<a href="http://www.sublimetext.com/">
+		      			<a href="http://http://www.sublimetext.com/">
 		      			<img src="http://www.gristech.com/img/screen/sublime.png" alt="Sublime Text">
 						<h4><span>Sublime Text</span></h4>
 						</a>
@@ -293,7 +317,7 @@ ul.tag li{
 
 						<!-- Default -->  
 	<!-- <div class="delta"> -->
-	<img src="http://lorempixum.com/1680/1250/nature" alt="" />  
+	<img src="http://www.lorempixum.com/1680/1250/nature" alt="" />  
 <!-- </div>				 -->
 <h1><span>The New Colossus</span></h1>
 
@@ -356,6 +380,7 @@ I lift my lamp beside the golden door!"</span></p>
 		By the way, this page is an example of a fluid grid system
 
 	</p>
+	<p>landscape photo &copy; <a href="http://www.flickr.com/photos/65978013@N03/6472678173/">flickr</a></p>
 </div>
 
 

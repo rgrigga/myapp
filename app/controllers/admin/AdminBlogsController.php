@@ -24,9 +24,41 @@ class AdminBlogsController extends AdminController {
      *
      * @return View
      */
-    public function getIndex()
+    public function getIndex($tag="")
     {
+
+
+        if($tag){
+            $tag='%'.$tag.'%';
+            $posts = $this->post->where('meta_keywords', 'LIKE', "$tag")->paginate(5);      
+            
+            $tags=array();
+
+            foreach ($posts as $post) {
+
+                foreach ($post->tags() as $mytag) {
+                    if(!in_array($mytag, $tags)){
+                        array_push($tags, trim($mytag));
+                    }
+                }
+
+            }           
+            
+            // die(var_dump(count($posts)));
+
+            if(count($posts)==0){
+
+            return View::make('admin/blogs/index', compact('posts'),compact('tags'));
+
+            }
+
+            return View::make('admin/blogs/index', compact('posts'),compact('tags'))->with('error', 'There was a problem!');
+        }
+
+        //else tag was empty
+
         // Grab all the blog posts
+        
         $posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);
 
         // Show the page

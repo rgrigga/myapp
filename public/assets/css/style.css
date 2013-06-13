@@ -25,6 +25,15 @@ body {
     background-color: #f5f5f5;
 }
 
+/*next 2 properties correct overlapping div probelem*/
+.contentwrap{
+  /*background-color: red;*/
+padding-top: 60px;
+  }
+
+@media screen and (max-width: 979px) {
+    .contentwrap { padding-top: 0px; }
+}
 
 #wrap > .container {
     padding-top: 60px;
@@ -47,10 +56,12 @@ iframe.wysihtml5-sandbox{
     height:600px;
 }
 
+/*http://stackoverflow.com/questions/5506258/horizontal-scroll-overflowing-html-lis-without-knowing-width*/
 ul.tag li{
-    display: inline;
+    display: inline-block;
     background-color: orange;
     padding: 5px;
+    margin:2px;
 }
 
 
@@ -81,13 +92,24 @@ ul.tag li{
 }
 
 .india{
+    position:relative;
     background-color: rgba(235,200,176,.5);
-    padding:5px; 
-    /*margin-top: 40px; */
-    margin-right: 20px;
-    border-bottom-left-radius:20px;
-    border-bottom-right-radius:20px;
+    /*padding:10px; */
+    line-height: 300px;
+    margin-top: -120px; 
+    /*margin-right: -20px;*/
+    width: 200px;
+    height:200px;
+    /*border-top:50px;*/
+    border-radius: 50%;
+    /*border-bottom-left-radius:50%;*/
+    /*border-bottom-right-radius:50%;*/
     text-align: center;
+    z-index: -2;
+}
+
+.foxtrot{
+
 }
 
 /*from the bootstrap docs:*/
@@ -108,13 +130,14 @@ ul.tag li{
     }
 
 /*REALLY important!*/
+
     @media (min-width: 980px){
         .hero-unit{
             margin-top:60px;
         }
-        .foobar{
-            margin-top: 40px;
-        }
+        /*.foobar{*/
+            /*margin-top: 40px;*/
+        /*}*/
 
 
     }
@@ -164,6 +187,13 @@ background-color: red;
                 color:red;
 
             }*/
+            .navbar-fixed-top {
+                /*margin-bottom: 0px;*/
+            }
+            .jumbotron{
+              margin-top: -20px;
+              z-index: -3;
+            }
 
          }
 
@@ -210,6 +240,24 @@ background-color: red;
 
     /*border-color: #888888;*/
 }
+
+
+  .navbar a{
+    color:orange;
+  }
+
+
+  .container{
+
+  }
+
+
+
+
+
+
+
+
 
 
 /* Jumbotrons
@@ -366,6 +414,3 @@ only screen and ( -o-min-device-pixel-ratio: 2/1) {
   .margin-right: -20px;
 }
 
-  .navbar a{
-    color:orange;
-  }

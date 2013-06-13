@@ -197,11 +197,30 @@ h1, h2, h3 {
 }*/
 .hotel{
     /*background-color: red;*/
-    position: fixed; 
+/*    position: fixed; 
     height:20px;
     bottom:0px;
     right: 0px;
+    z-index: 5;*/
+}
+.hotel{
+    /*background-color: red;*/
+    position: fixed; 
+    /*height:60px;*/
+    bottom:0px;
+    right: 0px;
     z-index: 5;
+    /*color: white;*/
+    padding: 5px;
+    opacity: .5;
+    border-top-left-radius:60px; 
+}
+
+.hotelb{
+    /*background-color: red;*/
+    height: 100px;
+    width: 100px;
+    border-top-left-radius:100px;
 }
 
 .foobar{

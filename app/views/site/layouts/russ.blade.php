@@ -20,6 +20,7 @@
 		<!-- CSS
 		================================================== -->
         @stylesheets("public-css")
+        <link rel="stylesheet" href="/assets/css/style.css">
 		<link rel="stylesheet" href="/assets/css/russstyle.css">
 
 <!-- font-awesome -->
@@ -70,6 +71,7 @@
 			<div class="navbar-inner">
 
 				<div class="container-fluid">
+
 <div class="brand">Buckeye Mower Repair</div>
 					
 
@@ -80,17 +82,17 @@
 					</a>
 
 					@include('site.partials.contact')
-
-
-
 					
-
 					<div class="nav-collapse collapse">
 						<ul class="nav">
 							<li></li>
 							<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('/russ') }}}">Home</a></li>
 							<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('diy') }}}">DIY</a></li>
-						</ul>
+							
+
+			              	
+			                  
+							<!-- </ul> -->
 
 			                        <ul class="nav pull-right">
 			                            @if (Auth::check())
@@ -107,6 +109,7 @@
 			                            <li {{ (Request::is('user/register') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/create') }}}">Sign Up</a></li>
 			                            @endif
 			                        </ul>
+
 					</div>
 					<!-- ./ nav-collapse -->
 				
@@ -153,9 +156,24 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, cumque pr
 
 	      </div>
 
-<div class="hotel pull-right">
-	<i class="icon-coffee"> Coffee</i>
+<a href="/why-responsive">
+<div class="hotel hotelb">
+<!-- 	<div style="color:black; padding-bottom:50px;">resize me</div> -->
+	<div class="hotel pull-right">
+		<div class="visible-phone">
+			
+			<i class="icon-mobile-phone icon-4x"></i>
+		</div>
+		<div class="visible-tablet">
+
+			<i class="icon-tablet icon-4x"></i>
+		</div>
+			<div class="visible-desktop">
+			<i class="icon-desktop icon-4x"></i>
+		</div>
+	</div>
 </div>
+</a>
 	    </div>
 
 		<!-- Javascripts
