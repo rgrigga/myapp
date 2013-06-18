@@ -49,6 +49,10 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
         ->where('post', '[0-9]+');
     Route::post('blogs/{post}/delete', 'AdminBlogsController@postDelete')
         ->where('post', '[0-9]+');
+
+    Route::get('blogs/tag/{tag}', 'AdminBlogsController@getIndex');
+        // ->where('post', '[0-9]+');
+
     Route::controller('blogs', 'AdminBlogsController');
 
     # User Management
@@ -102,16 +106,65 @@ Route::controller('user', 'UserController');
 
 //:: Application Routes ::
 
-# Contact Us Static Page
-Route::get('contact-us', function()
+
+// STATIC PAGES: ///////////////////////////////////////////////////
+# Technical/Development Static Page
+
+Route::get('features', function()
 {
     // Return about us page
-    return View::make('site/contact-us');
+    return View::make('site/features');
 });
 
+Route::get('technical', function()
+{
+    // Return about us page
+    return View::make('site/technical');
+});
+
+Route::get('whyresponsive', function()
+{
+    // Return about us page
+    return View::make('site/whyresponsive');
+});
+
+Route::get('notes', function()
+{
+    // Return about us page
+    return View::make('site/notes');
+});
+
+
+///////////////////////////////////////////////////////////////////////
+
+Route::get('russ', 'RussController@getIndex');
+Route::get('russ/{tag}', 'RussController@getIndex');
+// Route::get('tags/{tag}', 'BlogController@getIndex');
+
+// Route::get('russ', function()
+// {   // Get all the blog posts
+//     $posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);
+
+//     // Show the page
+//     return View::make('site/blog/index', compact('posts'));
+//     return View::make('site/russ', compact('posts'));
+// });
+// 
+
+Route::get('blog', 'BlogController@getTags');
+Route::post('blog/{postSlug}', 'BlogController@postView');
+
+Route::get('tags', 'BlogController@getTags');
+Route::post('tags', 'BlogController@getTags');
+Route::get('tags/{tag}', 'BlogController@getIndex');
+// Route::post('tags/{tag}', 'BlogController@postIndex');
+
 # Posts - Second to last set, match slug
-Route::get('{postSlug}', 'BlogController@getView');
-Route::post('{postSlug}', 'BlogController@postView');
+Route::get('blog/{postSlug}', 'BlogController@getView');
+Route::post('blog/{postSlug}', 'BlogController@postView');
+
+Route::get('/{tag}', 'BlogController@getIndex');
+// Route::post('/{tag}', 'BlogController@postView');
 
 # Index Page - Last route, no matches
 Route::get('/', 'BlogController@getIndex');
