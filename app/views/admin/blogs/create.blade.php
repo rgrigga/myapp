@@ -16,6 +16,8 @@ Create a New Blog Post ::
 			<a href="{{{ URL::to('admin/blogs') }}}" class="btn btn-small btn-inverse"><i class="icon-circle-arrow-left icon-white"></i> Back</a>
 		</div>
 	</h3>
+
+	<p>Howdy. This is the create post page... Required fields are "Title" "Content" and "Image".  Please create those, then click "publish", then we'll add some better details through the "Update" page.</p>
 </div>
 
 <!-- Tabs -->
@@ -48,11 +50,21 @@ Create a New Blog Post ::
 			<div class="control-group {{{ $errors->has('content') ? 'error' : '' }}}">
 				<label class="control-label" for="content">Content</label>
 				<div class="controls">
-					<textarea class="full-width span10 wysihtml5" name="content" value="content" rows="10">{{{ Input::old('content') }}}</textarea>
+					<textarea class="full-width span10 wysihtml5" name="content" value="content" rows="20">{{{ Input::old('content') }}}</textarea>
 					{{{ $errors->first('content', '<span class="help-inline">:message</span>') }}}
 				</div>
 			</div>
 			<!-- ./ content -->
+
+			<!-- Image -->
+			<div class="control-group {{{ $errors->has('image') ? 'error' : '' }}}">
+				<label class="control-label" for="image">image URL</label>
+				<div class="controls">
+					<textarea class="full-width span10 wysihtml5" name="image" value="image" rows="1">{{{ Input::old('image') }}}</textarea>
+					{{{ $errors->first('image', '<span class="help-inline">:message</span>') }}}
+				</div>
+			</div>
+			<!-- ./ image -->
 		</div>
 		<!-- ./ tab general -->
 

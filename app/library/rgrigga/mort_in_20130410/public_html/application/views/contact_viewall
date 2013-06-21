@@ -1,0 +1,10 @@
+<?php
+foreach($query as $row){
+  print $row->id;
+  print $row->name;
+  print $row->city;
+  print "<br>";
+  //implode("<div>",$row->id;
+  
+}
+?>

@@ -11,6 +11,16 @@
 |
 */
 
+Route::group(array('domain' => 'buckeyemower.com'),function()
+{
+    // die("BAM!");
+    Route::get('/{tag}', 'RussController@getIndex');
+    Route::get('/', 'RussController@getIndex');
+    
+    // Route::controller('russ','RussController');
+});
+
+
 /** ------------------------------------------
  *  Route model binding
  *  ------------------------------------------
@@ -110,6 +120,8 @@ Route::controller('user', 'UserController');
 // STATIC PAGES: ///////////////////////////////////////////////////
 # Technical/Development Static Page
 
+//TODO: regex routing here (DRY)
+
 Route::get('features', function()
 {
     // Return about us page
@@ -119,24 +131,48 @@ Route::get('features', function()
 Route::get('technical', function()
 {
     // Return about us page
-    return View::make('site/technical');
+    return View::make('site/tools');
 });
 
-Route::get('whyresponsive', function()
+Route::get('tools', function()
 {
     // Return about us page
-    return View::make('site/whyresponsive');
+    return View::make('site/tools');
 });
 
-Route::get('notes', function()
+Route::get('responsive', function()
 {
     // Return about us page
-    return View::make('site/notes');
+    return View::make('site/pages/responsive');
 });
 
+// Route::get('notes', function()
+// {
+//     // Return about us page
+//     return View::make('site/notes');
+// });
+
+Route::get('security', function()
+{
+    // Return about us page
+    return View::make('site/pages/security');
+});
+
+Route::get('pages/{page}', function($page)
+{
+    // Return about us page
+    return View::make('site/pages/'.$page);
+});
+
+
+
+// Route::get('http://buckeyemower.com',function()){
+//     return 'russ';
+// }
 
 ///////////////////////////////////////////////////////////////////////
 
+Route::get('/russ/','RussController@getIndex'); //this should not be happening
 Route::get('russ', 'RussController@getIndex');
 Route::get('russ/{tag}', 'RussController@getIndex');
 // Route::get('tags/{tag}', 'BlogController@getIndex');
@@ -163,8 +199,42 @@ Route::get('tags/{tag}', 'BlogController@getIndex');
 Route::get('blog/{postSlug}', 'BlogController@getView');
 Route::post('blog/{postSlug}', 'BlogController@postView');
 
-Route::get('/{tag}', 'BlogController@getIndex');
+Route::get('show/{tag}','BlogController@show');
+Route::get('search/{tag}','BlogController@getIndex');
+
+Route::get('/{tag}', function($tag){
+
+    //e.g. myapp.gristech.com/notes
+    //try page
+
+    //try tag
+    //try search
+    //404
+
+    $mypages=array(
+        "search","notes","backup","contact","licensing","responsive",
+        "");
+
+    if($tag==="russ"){
+        die("RUSS!");
+    }
+
+    if(in_array($tag, $mypages)){
+        $view = View::make('site/pages/'.$tag);
+        return $view;
+    }
+    else{
+        return Redirect::to('search/'.$tag);
+    }
+
+
+    // 'BlogController@getIndex'
+});
+
 // Route::post('/{tag}', 'BlogController@postView');
 
+// Route::get('/', 'BlogController@getIndex');
 # Index Page - Last route, no matches
 Route::get('/', 'BlogController@getIndex');
+
+

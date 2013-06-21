@@ -27,4 +27,16 @@
     </tr>
     </tbody>
 </table>
+
+<div id="usertodo" class="todo">
+    <h2>To do:</h2>
+    <ul>
+        <li>Photo</li>
+        <li>Gravatar</li>
+        <li>Sync with Facebook</li>
+        <li>Sync with Twitter</li>
+        <li>sync with LinkedIn</li>
+
+    </ul>
+</div>
 @stop

@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://myapp.gristech.com',
+	'url' => 'http://localhost/gristech',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -120,6 +120,9 @@ return array(
         'Basset\BassetServiceProvider', // Better Asset Management
         'Greggilbert\Recaptcha\RecaptchaServiceProvider', // recaptcha
         'Robbo\Presenter\PresenterServiceProvider', // Presenter
+   
+    	// 'EnhancedRouter\EnhancedRouterServiceProvider',
+
 
         /* Uncomment for use in development */
 //        'Way\Generators\GeneratorsServiceProvider', // Generators

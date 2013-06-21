@@ -31,8 +31,8 @@ body {
 padding-top: 60px;
   }
 
-@media screen and (max-width: 979px) {
-    .contentwrap { padding-top: 0px; }
+@media screen and (max-width: 767px) {
+    /*.contentwrap { padding-top: 0px; }*/
 }
 
 #wrap > .container {
@@ -55,6 +55,9 @@ padding-top: 60px;
 iframe.wysihtml5-sandbox{
     height:600px;
 }
+
+
+
 
 /*http://stackoverflow.com/questions/5506258/horizontal-scroll-overflowing-html-lis-without-knowing-width*/
 ul.tag li{
@@ -235,21 +238,15 @@ background-color: red;
 
 }
 
-.img-circle{
-    /*border: 30px solid #888888;*/
-
-    /*border-color: #888888;*/
-}
 
 
   .navbar a{
     color:orange;
   }
 
+.HL {background: #ffff00;
+color: #000000;}
 
-  .container{
-
-  }
 
 
 

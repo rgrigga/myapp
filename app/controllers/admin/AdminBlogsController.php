@@ -24,9 +24,41 @@ class AdminBlogsController extends AdminController {
      *
      * @return View
      */
-    public function getIndex()
+    public function getIndex($tag="")
     {
+
+
+        if($tag){
+            $tag='%'.$tag.'%';
+            $posts = $this->post->where('meta_keywords', 'LIKE', "$tag")->paginate(5);      
+            
+            $tags=array();
+
+            foreach ($posts as $post) {
+
+                foreach ($post->tags() as $mytag) {
+                    if(!in_array($mytag, $tags)){
+                        array_push($tags, trim($mytag));
+                    }
+                }
+
+            }           
+            
+            // die(var_dump(count($posts)));
+
+            if(count($posts)==0){
+
+            return View::make('admin/blogs/index', compact('posts'),compact('tags'));
+
+            }
+
+            return View::make('admin/blogs/index', compact('posts'),compact('tags'))->with('error', 'There was a problem!');
+        }
+
+        //else tag was empty
+
         // Grab all the blog posts
+        
         $posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);
 
         // Show the page
@@ -55,6 +87,8 @@ class AdminBlogsController extends AdminController {
         $rules = array(
             'title'   => 'required|min:3',
             'content' => 'required|min:3'
+            // ,
+            // 'image' => 'required|min:3'
         );
 
         // Validate the inputs
@@ -70,6 +104,8 @@ class AdminBlogsController extends AdminController {
             $this->post->title            = Input::get('title');
             $this->post->slug             = Str::slug(Input::get('title'));
             $this->post->content          = Input::get('content');
+            // var_dump(Input::get('image'));
+            $this->post->image            = Input::get('image');
             $this->post->meta_title       = Input::get('meta-title');
             $this->post->meta_description = Input::get('meta-description');
             $this->post->meta_keywords    = Input::get('meta-keywords');
@@ -125,7 +161,8 @@ class AdminBlogsController extends AdminController {
         // Declare the rules for the form validation
         $rules = array(
             'title'   => 'required|min:3',
-            'content' => 'required|min:3'
+            'content' => 'required|min:3',
+            'image' => 'required|min:3'
         );
 
         // Validate the inputs
@@ -138,6 +175,7 @@ class AdminBlogsController extends AdminController {
             $post->title            = Input::get('title');
             $post->slug             = Str::slug(Input::get('title'));
             $post->content          = Input::get('content');
+            $post->image            = Input::get('image');
             $post->meta_title       = Input::get('meta-title');
             $post->meta_description = Input::get('meta-description');
             $post->meta_keywords    = Input::get('meta-keywords');
