@@ -10,7 +10,9 @@ return array(
 	| Here we just defined the path to the application directory. Most likely
 	| you will never need to change this value as the default setup should
 	| work perfectly fine for the vast majority of all our applications.
-	|
+	| 
+
+what if we use this to plug in other applications?
 	*/
 
 	'app' => __DIR__.'/../app',

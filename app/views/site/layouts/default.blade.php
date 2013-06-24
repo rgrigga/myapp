@@ -1,29 +1,40 @@
 <!DOCTYPE html>
+
+<!-- meta -->
+<!-- CSS/styles -->
+<!-- JS -->
+
 <html lang="en">
 	<head>
 		<!-- Basic Page Needs
 		================================================== -->
 		<meta charset="utf-8" />
 		<title>
-			@section('title')
-			Gristech MyApp
+			@section('meta-title')
+			Gristech
 			@show
 		</title>
 
-		@section('meta')
 
-		<!-- Metatags are super important. -->
+{{-- Update the Meta Title --}}
+<!-- @section('meta_title') -->
 
-			<meta name="keywords" content="php, laravel, web application, development, learning, software, business, design" />
-			<meta name="author" content="Ryan Grissinger" />
-			<meta name="description" content="A flexible, customizable web application" />
+<!-- Buckeye Mower ::  -->
+ <!-- String::title($post->title) }}} -->
+<!-- @stop -->
 
-			<!-- Mobile Specific Metas
-			================================================== -->
-
-			<!-- MOre info on this: http://coding.smashingmagazine.com/2011/01/12/guidelines-for-responsive-web-design/ -->
-			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		@show
+{{-- Update the Meta Description --}}
+@section('meta_description')
+Gristech will do things that will help you do what you do better.  We will make you make more money.  We will therefore make you want to give us lots of money.We will make you 
+{{-- Update the Meta Keywords --}}
+@show
+@section('meta_keywords')
+<meta name="keywords" content="Gristech" />
+@show
+	{{-- Update the Meta Description --}}
+@section('meta_description')
+<meta name="description" content="A flexible, customizable web application" />
+@show
 
 
 		<!-- CSS
@@ -37,8 +48,11 @@
 		<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
 
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.css" rel="stylesheet">
+<!-- font-awesome -->
+<!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
 	@show
 <!-- prettify -->
 
@@ -46,11 +60,10 @@
 
 <!-- <link href="prettify.css" type="text/css" rel="stylesheet" /> -->
 @section('js')
-<script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&amp;skin=sunburst&amp;lang=css"></script>
+<!-- <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&amp;skin=sunburst&amp;lang=css"></script> -->
 
-<!-- font-awesome -->
-<!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
-<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.css" rel="stylesheet">
+
+
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -65,8 +78,11 @@
 
 @show
 
+@section('favicons')
 		<!-- Favicons
 		================================================== -->
+
+<!-- It would be great generate these on the fly.  For now, they are located in X asset file -->
 
 		<!-- http://theksmith.com/technology/howto-website-icons-browsersdevices-favicon-apple-touch-icon-etc/ -->
 		<!-- (this step is required for Android support, android ignores the non-pre-composed version): -->
@@ -75,122 +91,33 @@
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
-
 		<link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}">
-		<meta name="google-site-verification" content="U8zCfNgj-23MojmUwyxkij6AqrU30NWhgJgTtiBl3WI" />
-	</head>
 
+		<!-- hardy har -->		
+@show
+
+<meta name="google-site-verification" content="U8zCfNgj-23MojmUwyxkij6AqrU30NWhgJgTtiBl3WI" />
+	</head>
 	<body>
 
-<!-- google analytics -->
+<!-- google analytics! -->
 
-
+<!-- html -->
+<!-- body -->
 
 
 		<!-- To make sticky footer need to wrap in a div -->
 	<div id="wrap">
 		<!-- Navbar -->
 
-		<style>
-		.navbar-fixed-top{
-			position:fixed;
-		}
-		</style>
-
-		<div class="navbar navbar-inverse navbar-fixed-top">
-
-			<div class="navbar-inner">
-
-				<div class="container-fluid">
+		
 
 
+@section('nav')
+@include('site.partials.nav-top')
 
+@show
 
-<!-- search -->
-
-<!-- search -->
-
-
-<!-- <form action="{{ URL::to('tags') }}"> -->
-<!-- action="" -->
-
-
-<!-- <form class="navbar-search" action="/tags" method='get'> -->
-
-<!-- </form> -->
-<!-- //moved -->
-<!-- </form> -->
-
-<!-- 					<div class="pull-right">
-						<a href="http://facebook.com" class="social-icon">
-					    	<img src="http://gristech.com/img/facebook.png" class="img-circle">
-					    </a>
-					    <a href="http://twitter.com" class="social-icon">
-					    	<img src="http://gristech.com/img/twitter.png" class="img-circle">
-					    </a>
-					    <a href="http://linkedin.com" class="social-icon">
-					    	<img src="http://gristech.com/buttons/linkedin.png" class="img-circle">
-					    </a>
-					    <a href="http://gmail.com" class="social-icon">
-					    	<img src="http://gristech.com/buttons/email.png" class="img-circle">
-					    </a>
-					</div> -->
-
-					<a class="btn btn-navbar pull-left" data-toggle="collapse" data-target=".nav-collapse">
-
-
-						<!-- <div class="text-center">foo</div> -->
-						<i class="icon-collapse icon-2x"></i>
-<!-- 						<span class="icon-bar"></span>
-	<span class="icon-bar"></span>
-						<span class="icon-bar"></span> -->
-					</a>
-
-					<a class="brand" style="margin-left:30px;" href="#">MyApp</a>
-
-					<div class="nav-collapse collapse">
-						
-						<ul class="nav">
-							<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
-							<li {{ (Request::is('tools') ? ' class="active"' : '') }}><a href="{{{ URL::to('/tools') }}}">Tools</a></li>
-							<li {{ (Request::is('features') ? ' class="active"' : '') }}><a href="{{{ URL::to('/features') }}}">Features</a></li>
-							<li {{ (Request::is('tags') ? ' class="active"' : '') }}><a href="{{{ URL::to('/tags') }}}">Tags</a></li>
-						</ul>
-
-						<!-- admin/user nav -->
-                        <ul class="nav pull-right">
-							
-
-                            @if (Auth::check())
-                                @if (Auth::user()->hasRole('admin'))
-
-                                    <li{{ (Request::is('admin/blogs/create*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/blogs/create') }}}"><i class="icon-bullhorn icon-white"></i> Create</a></li>
-
-		                            <li><a href="{{{ URL::to('admin') }}}">Admin Panel</a></li>
-                                @endif
-	                            <li><a href="{{{ URL::to('user') }}}">Logged in as {{{ Auth::user()->username }}}</a></li>
-	                            <li><a href="{{{ URL::to('user/logout') }}}">Logout</a></li>
-                            @else
-	                            <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">Login</a></li>
-	                            <li {{ (Request::is('user/register') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/create') }}}">Welcome</a></li>
-                            @endif
-                            @include('site.partials.contact')
-                        </ul>
-					</div>
-					<!-- ./ nav-collapse -->
-				</div>
-
-			</div>
-			<!-- //this is the only place to put india! -->
-			<div class="india pull-right">
-					<!-- <div>phone, email, chat, anything!</div> -->
-				<div>
-					<img src="http://gristech.com/img/contactus.png" alt="learn php laravel web design">
-				</div>
-			        
-			</div>
-		</div>
-		<!-- ./ navbar -->
 
 		<!-- Container -->
 		<div class="container-fluid">
@@ -204,11 +131,12 @@
 				/*z-index: -3;*/
 			}
 			</style>
-<div class="contentwrap">
-			<!-- Content -->
-			@yield('content')
-			<!-- ./ content -->
-</div>
+			
+			<div class="contentwrap">
+						<!-- Content -->
+						@yield('content')
+						<!-- ./ content -->
+			</div>
 <!-- <div class="span8">
 </div>
 <div class="span3"><h2>sidebar</h2>
@@ -230,14 +158,8 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, cumque pr
 	    <div id="footer">
 
 
-<div class="container">
 
 
-	      	
-
-
-</div>
-<!-- container -->
 
 	        <p class="muted credit">This site began as the Laravel 4 Starter Site on <a href="https://github.com/andrew13/Laravel-4-Bootstrap-Starter-Site">Github</a>.  Thank you Andrew13!</p>
 
@@ -250,28 +172,27 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, cumque pr
 
 	    </div>
 
-<a href="/responsive">
+	    <!-- container -->
 
+<a href="http:myapp.gristech.com/responsive">
+	<div class="hotel hotelb">
+	<!-- 	<div style="color:black; padding-bottom:50px;">resize me</div> -->
 
+		<div class="hotel pull-right">
 
-<div class="hotel hotelb">
-<!-- 	<div style="color:black; padding-bottom:50px;">resize me</div> -->
-
-	<div class="hotel pull-right">
-
-		<div class="visible-phone">
+			<div class="visible-phone">
+				<i class="icon-mobile-phone icon-4x"></i>
+			</div>
 			
-			<i class="icon-mobile-phone icon-4x"></i>
-		</div>
-		<div class="visible-tablet">
-
-			<i class="icon-tablet icon-4x"></i>
-		</div>
+			<div class="visible-tablet">
+				<i class="icon-tablet icon-4x"></i>
+			</div>
+			
 			<div class="visible-desktop">
-			<i class="icon-desktop icon-4x"></i>
+				<i class="icon-desktop icon-4x"></i>
+			</div>
 		</div>
 	</div>
-</div>
 </a>
 		<!-- Javascripts
 		================================================== -->

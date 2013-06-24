@@ -1,0 +1,3 @@
+return array{
+	'debug' => true,
+}

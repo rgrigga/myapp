@@ -18,6 +18,8 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
     Route::get('/', 'RussController@getIndex');
     
     // Route::controller('russ','RussController');
+
+    //Set group to 
 });
 
 
@@ -29,6 +31,9 @@ Route::model('user', 'User');
 Route::model('comment', 'Comment');
 Route::model('post', 'Post');
 Route::model('role', 'Role');
+//http://stackoverflow.com/questions/7770728/group-vs-role-any-real-difference
+
+
 
 /** ------------------------------------------
  *  Admin Routes
@@ -211,6 +216,8 @@ Route::get('/{tag}', function($tag){
     //try search
     //404
 
+
+//pages can be turned on and off with this array:
     $mypages=array(
         "search","notes","backup","contact","licensing","responsive",
         "");

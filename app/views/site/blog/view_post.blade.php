@@ -10,17 +10,23 @@
 @section('meta_title')
 @parent
 
+
+
 @stop
 
 {{-- Update the Meta Description --}}
 @section('meta_description')
 @parent
 
+Buckeye Mower offers engine repair services in Columbus Ohio.
+
 @stop
 
 {{-- Update the Meta Keywords --}}
 @section('meta_keywords')
 @parent
+
+
 
 @stop
 

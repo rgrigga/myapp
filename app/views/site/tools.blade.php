@@ -565,6 +565,8 @@ Creative Commons Public Domain Dediciation[0] as reproduced below:
 						<h6>Awesome</h6>
 						<p>The best thing since sliced bread.</p>
 						<ul>
+							<li><a href="http://clipartist.info/RSS/openclipart.org/2011/May/29-Sunday/lawn_mower.svg.html">Open Clip Art Library</a>
+							</li>
 							<li>lorempixum</li>
 							<li><a href="http://www.flickr.com/creativecommons/">flickr</a></li>
 							<li><a href="http://www.kozzi.com/?ref=146452">Kozzi</a></li>

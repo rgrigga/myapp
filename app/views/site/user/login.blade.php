@@ -42,4 +42,9 @@
     </fieldset>
 </form>
 
+Not A Member?
+        <a class="btn btn-large btn-primary" href="{{{ URL::to('user/create') }}}">Sign Up</a>
+
+
+
 @stop

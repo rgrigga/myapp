@@ -3,7 +3,12 @@
 {{-- Content --}}
 @section('content')
 
-
+<div class="alert alert-warning alert-block">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<h4>Warning</h4>
+    
+    This site is under development. 
+</div>
 <ul>
 	<li> Like the brands and the coupon at <a href="http://mobilemowerrepair.com/">http://mobilemowerrepair.com/</a>  </li>
 	<li>just hit the drop downs and explore<a href="http://www.lawnmowerrepair.com/">http://www.lawnmowerrepair.com/</a></li>
