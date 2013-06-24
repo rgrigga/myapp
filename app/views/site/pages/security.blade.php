@@ -205,6 +205,8 @@ Now, these same
 
 However, it is important that brand messaging and policy is consistent amongst each of these groups.  It is also important that pieces of the system that apply to X group remain functional and transferrable (or extendable) into Y group at a later date.   
 
+<h3>OUT OF PLACE:</h3>
+ Ubuntu Desktop Guide » Files › Tips and questions »
 
 <p class="muted credit">Abridged & annotated from:</p>
 <a href="http://www.openssh.org/">

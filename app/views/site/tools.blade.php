@@ -24,9 +24,6 @@
   		/*border-color: #4C58AD;*/
 	/*}*/
 
-
-
-
 </style>
 
 <div class="jumbotron masthead">
@@ -507,6 +504,16 @@ Creative Commons Public Domain Dediciation[0] as reproduced below:
 						
 
 		      		</div>
+					
+					<div class="span4 thumbnail delta">
+		      			<a href="http://OAuth2.0">
+		      			<img src="http://gristech.com/img/logo/twitter-bootstrap.jpg" alt="laravel rocks">
+						<h5><span>Bootstrap</span></h5>
+						</a>
+						<h6>Front-End Framework (Light, Responsive CSS & Javascript)</h6>
+						<p>Allows rapid development</p>
+		      		</div>
+					
 
 		      		<div class="span4 thumbnail delta">
 		      			<a href="http://twitter.github.io/bootstrap/scaffolding.html#responsive">

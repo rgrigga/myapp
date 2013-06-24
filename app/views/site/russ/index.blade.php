@@ -4,7 +4,13 @@
 @section('content')
 
 
-
+<ul>
+	<li> Like the brands and the coupon at <a href="http://mobilemowerrepair.com/">http://mobilemowerrepair.com/</a>  </li>
+	<li>just hit the drop downs and explore<a href="http://www.lawnmowerrepair.com/">http://www.lawnmowerrepair.com/</a></li>
+	<li>and at the bottom... the hours, location bla bla looks.... nice<a href="http://www.mobilelawnmowerdoctor.com/services">http://www.mobilelawnmowerdoctor.com/services</a></li>
+	<li><a href="http://fastmobilemower.com/">http://fastmobilemower.com/</a></li>
+	<li>Love this one: <a href="http://www.themowerman.com/index.html">http://www.themowerman.com/index.html</a></li>
+</ul>
 
 
 

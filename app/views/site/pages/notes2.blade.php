@@ -28,7 +28,6 @@ notes2.blade.php
 
 </style>
 
-
 <div class="jumbotron masthead">
 
 
@@ -160,19 +159,7 @@ How to establish a SFTP connection to your hosting account with FileZilla:
 
 http://kb.siteground.com/how_to_establish_sftp_connection_to_hosting_with_filezilla/
 
-
-<h3>SSH Links</h3>
-<ul>
-<li><a href="https://help.ubuntu.com/community/SSH/OpenSSH/Keys">Ubuntu</a></li>
-
-<li><a href="http://serverfault.com/questions/39733/why-do-i-get-permission-denied-publickey-when-trying-to-ssh-from-local-ubunt">Permission Denied(publickey)</a></li>
 </p>
-
-<li><a href="https://help.github.com/articles/error-permission-denied-publickey">Permission Denied (github)</a></li>
-
-
-<li><a href="http://security.stackexchange.com/questions/5096/rsa-vs-dsa-for-ssh-authentication-keys">RSA vs DSA</a></li>
-</ul>
 	      		</div>
 
 
@@ -578,24 +565,13 @@ Consider  I am thoroughly convinced that
  		<div class="accordion-heading">
  			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
 <!-- heading -->
- 				GIT
+ 				Collapsible Group Item #1
  			</a>
  		</div>
  		<div id="collapseOne" class="accordion-body collapse in">
  			<div class="accordion-inner">
 <!-- content -->
  				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-
-
- 				<ul>
- 					<li>
- 						<a href="http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging">Branching and Merging</a>
- 					</li>
- 					<li><i class="icon-github"></i> <a href="https://github.com/rgrigga">Rgrigga on GitHub</a></li>
- 					<li><a href="https://github.com/bshaffer/oauth2-demo-php#oauth2-demo-php">OAuth 2</a></li>
- 					<li><a href="http://linuxaria.com/pills/linux-system-info-cheat-sheet?lang=en">System Info Cheat sheet</a></li>
- 					<li><a href="http://git-scm.com/book/en/Git-Basics-Getting-a-Git-Repository">Getting a git repository</a></li>
- 				</ul>
  			</div>
  		</div>
  	</div> 	
@@ -605,27 +581,18 @@ Consider  I am thoroughly convinced that
  		<div class="accordion-heading">
  			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
 <!-- heading -->
- 				Design Links
+ 				Collapsible Group Item #1
  			</a>
  		</div>
  		<div id="collapseOne" class="accordion-body collapse in">
  			<div class="accordion-inner">
 <!-- content -->
- 				
- 				<ul>
- 					<li> <a href="http://colorschemedesigner.com/#3341Uw0w0w0w0">Color Scheme Designer</a> </li>
- 					<li><a href="http://www.math.ubc.ca/~cass/gfx/bezier.html">Bezier Curves</a></li>
- 					<li><a href="http://www.bootstrapthemeroller.com/twitter-bootstrap-themeroller.html">Bootstrap Themeroller</a></li>
- 					<li><a href="http://tavmjong.free.fr/INKSCAPE/MANUAL/html/ix01.html">Inkscape Man</a></li>
- 					<li><a href="http://www.cssdrive.com/imagepalette/index.php">Pallate from Image</a></li>
- 					<li><a href="http://laravel.com/docs/ioc">Laravel IOC</a></li>
- 				</ul>
+ 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
  			</div>
  		</div>
  	</div>
- 	<!-- group -->
  </div>
-<!-- accordian -->
+
 
 
  	<div class="accordion-group">
