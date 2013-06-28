@@ -1,17 +1,13 @@
 @extends('site.layouts.default')
 
-
 @section('title')
 {{{ "Home" }}} ::
 @parent
 @stop
 
-
 @section('meta')
-	
 	@parent
 @stop
-
 
 {{-- Content --}}
 @section('content')
@@ -19,7 +15,6 @@
 <div class="spacer" style="margin-top:80px;"></div>
 
 <div class="row">
-	
 	<div class="span6 pull-right">
 		<img src="http://gristech.com/img/robots.jpg" class="img-circle">
 		<p class="muted credit text-center">
@@ -29,11 +24,6 @@
 
 
 	<div class="span6">
-
-
-
-
-
 
 		<p>Wanna see something kinda cool?</p>
 		<h3>This website is sort of alive.</h3>
@@ -74,10 +64,6 @@
 				<li>Did I mention it's custom-built, and you can do anything you want with it?</li>
 			</ul>
 		</div>
-
-
-		
-
 	</div>
 	<!-- span6 -->
 </div>

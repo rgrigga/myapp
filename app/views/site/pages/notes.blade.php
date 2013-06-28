@@ -1,10 +1,10 @@
-notes2.blade.php
 @extends('site.layouts.default')
 @section('content')
 
 <!-- http://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ -->
-
+<h1>site.pages.notes</h1>
 <style>
+
 
 	/*.jumbotron{*/
 		/*font-family: font-awesome;*/
@@ -43,6 +43,7 @@ notes2.blade.php
 <p class="muted credit">Image from <a href="http://www.flickr.com/photos/anotherphotograph/4548643188/">Flikr</a></p>
 <!-- jumbotron -->
 
+<a href="http://stackoverflow.com/questions/12339044/how-to-run-multiple-sites-on-one-apache-instance">http://stackoverflow.com/questions/12339044/how-to-run-multiple-sites-on-one-apache-instance</a>
 
 <style>
 
@@ -146,6 +147,71 @@ p.photocredit {
 	word-wrap:break-word;
 }
 </style>
+
+<div class="container">
+	<div class="row">
+
+<h3>chmod</h3>
+<p>http://stackoverflow.com/questions/3740152/how-to-set-chmod-for-a-folder-and-all-of-its-subfolders-and-files-in-linux-ubunt</p>
+
+<a href="http://area51.stackexchange.com/proposals/46607/laravel?referrer=VUgOWgZpXyO753uZWv1VMg2">Stack Exchange Area51</a>
+
+<section>
+	<h3>Links</h3>
+	<p><a href="https://github.com/phpDocumentor/phpDocumentor2">PHP Documentor</a></p>
+</section>
+
+<section>
+	<!-- //onclick open modal -->
+	<a class="btn" data-toggle="modal" href="#myModal">Launch Modal</a>
+	<div class="modal" id="myModal">
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal">&times;</a>
+			<h3>Modal header</h3>
+		</div>
+		<div class="modal-body">
+			<section>
+				<h4>Install Ubuntu</h4>
+				<a href="http://en.kioskea.net/faq/2288-installing-a-ssh-server-on-ubuntu"></a>
+			</section>
+			<p>One fine body…</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn btn-primary">Save changes</a>
+			<a href="#" class="btn">Close</a>
+		</div>
+	</div>
+
+
+	
+</section>
+
+		<div class="span3">
+			<h3>SSH tunnel :)</h3>
+			<p><pre>ssh gristech@siteground252.com -p18765
+		</pre></p>
+		</div>
+
+		<div class="span3">
+			<h3>Data recovery</h3>
+			<p><a href="http://www.youtube.com/watch?v=BWSzSeQm7pE"><i class="icon-youtube"></i> YouTube Data Recovery</a></p>
+		</div>
+
+		<div class="span3">
+			<h3>hipchat</h3>
+			<ul>
+				<li><a href="https://gristech.hipchat.com/history/room/214618/2013/06/23">Chat history</a></li>
+				<li><a href="http://www.myharddrivedied.com">myharddrivedied.com</a></li>
+			</ul>
+			<p></p>
+
+		</div>
+	</div>
+</div>
+
+
+
+
 <div class="span2 pull-right text-center foxtrot">
 	      			<!-- <a href="http://http://www.siteground.com/"> -->
 

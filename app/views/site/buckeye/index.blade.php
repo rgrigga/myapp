@@ -1,5 +1,9 @@
 @extends('site.layouts.buckeye')
 
+@section('meta-title')
+Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
+@stop
+
 @section('content')
 @parent
     <style>
@@ -32,6 +36,7 @@
 
     /* Remove border and change up box shadow for more contrast */
     .navbar .navbar-inner {
+      /*background-color: green;*/
       border: 0;
       -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
          -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
@@ -165,7 +170,7 @@
 
     @media (max-width: 979px) {
 
-      .container.navbar-wrapper {
+/*      .container.navbar-wrapper {
         margin-bottom: 0;
         width: auto;
       }
@@ -180,7 +185,7 @@
       .carousel img {
         width: auto;
         height: 500px;
-      }
+      }*/
 
       .featurette {
         height: auto;
@@ -198,7 +203,7 @@
 
     @media (max-width: 767px) {
 
-      .navbar-inner {
+      /*.navbar-inner {
         margin: -20px;
       }
 
@@ -226,7 +231,7 @@
       .carousel-caption .lead,
       .carousel-caption .btn {
         font-size: 18px;
-      }
+      }*/
 
       .marketing .span4 + .span4 {
         margin-top: 40px;
@@ -260,15 +265,39 @@
 
 <div class="row">
 	<div class="hero-unit">
+    <h2>Mobile Mower Repair</h2>
 		<div class="h2">Mobile Mower Repair</div>
-		<p>We will come to you!</p>
+    icon-flag on icon-circle<br>
+
+		<p>We will come to you! <span class="icon-stack">
+  <i class="icon-circle icon4x icon-stack-base"></i>
+  <i class="icon-rocket icon4x icon-light"></i>
+</span></p>
 	</div>
 </div>
+
+@foreach ($posts as $post)
+<section></section>
+<p>{{ $post->content }} </p>
+  @foreach (get_object_vars($post) as $prop)
+  {{$prop}}
+  @endforeach
+
+  <? $myarray=array('title','description'); ?>
+  <ol>
+  @foreach ($myarray as $item)
+    <li>{{ $post->$item; }}</li>
+  @endforeach
+  </ol>
+@endforeach
+
+
+
       <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="span4">
           <img class="img-circle" data-src="holder.js/140x140">
-          <h2>Heading</h2>
+          <h2 #href="{{{URL::to('About')}}}">Heading</h2>
           <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
           <p><a class="btn" href="#">View details &raquo;</a></p>
         </div><!-- /.span4 -->
@@ -292,7 +321,7 @@
       <hr class="featurette-divider">
 
       <div class="featurette">
-        <img class="featurette-image pull-right" src="../assets/img/examples/browser-icon-chrome.png">
+        <img class="featurette-image pull-right" src="http://placehold.it/300x300">
         <h2 class="featurette-heading">First featurette headling. <span class="muted">It'll blow your mind.</span></h2>
         <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
       </div>
@@ -300,7 +329,8 @@
       <hr class="featurette-divider">
 
       <div class="featurette">
-        <img class="featurette-image pull-left" src="../assets/img/examples/browser-icon-firefox.png">
+
+        <img class="featurette-image pull-left" src="http://placehold.it/300x300">
         <h2 class="featurette-heading">Oh yeah, it's that good. <span class="muted">See for yourself.</span></h2>
         <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
       </div>
@@ -308,7 +338,7 @@
       <hr class="featurette-divider">
 
       <div class="featurette">
-        <img class="featurette-image pull-right" src="../assets/img/examples/browser-icon-safari.png">
+        <img class="featurette-image pull-right" src="http://placehold.it/300x300">
         <h2 class="featurette-heading">And lastly, this one. <span class="muted">Checkmate.</span></h2>
         <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
       </div>

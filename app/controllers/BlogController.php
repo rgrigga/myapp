@@ -5,7 +5,7 @@
 class BlogController extends BaseController {
 
     /**
-     * Tost Model
+     * Tags Model
      * @var Tags
      */
     protected $tags;
@@ -100,7 +100,7 @@ class BlogController extends BaseController {
 
 			}
 
-			return View::make('site/blog/tags', compact('posts'),compact('tags'),compact('alltags'))->with('error', 'There was a problem!');
+			return View::make('site/blog/tags', compact('posts'),compact('user')->with('error', 'There was a problem!'));
 		}
 
 		// $posts = $this->post->where('tag','seo');
@@ -110,6 +110,7 @@ class BlogController extends BaseController {
 			// $photos=Paginator::make($myphotos,count($myphotos),10);
 				// $myphotos->paginate(10);
 			$posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
+			// $data = array();
 			return View::make('site/blog/index', compact('posts'),compact('tags'),compact('alltags'),compact('photos'));
 		}
 		// Show the page

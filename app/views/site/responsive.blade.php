@@ -13,7 +13,11 @@
 
 </style>
 <!-- <div class="contentwrap"> -->
-<h1>Responsive Design?</h1>
+<h1>Responsive Website</h1>
+
+<p>Websites have been </p>
+
+Here is a non responsive design.  Look at it on your phone, or resize your browser to make a narrower screen:
 
 Try this: <a href="http://www.pixelscapes.com/spatulacity/button.htm">Resposnsive Website from 1993.</a>
 				    

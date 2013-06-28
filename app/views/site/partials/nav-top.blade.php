@@ -3,7 +3,7 @@
 			position:fixed;
 		}
 		</style>
-		<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar navbar-fixed-top">
 
 			<div class="navbar-inner">
 
@@ -17,7 +17,7 @@
 						<span class="icon-bar"></span>
 					</a>
 
-					<a class="brand" style="margin-left:30px;" href="#">Buckeye Mower</a>
+					<a class="brand" style="margin-left:30px;" href="#">Company</a>
 
 					<div class="nav-collapse collapse">
 						
@@ -27,11 +27,12 @@
 
 						<?php 
 						$menus= array();
+						//this is the main navigation menu
 						$menus=array('','tools','features','tags');
 						?>
 
 						@foreach ($menus as $menu)
-						<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to('/$menu') }}}">{{{$menu}}}</a></li>
+						<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to('/'.$menu) }}}">{{{$menu}}}</a></li>
 
 						@endforeach
 

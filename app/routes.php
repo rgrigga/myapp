@@ -14,14 +14,28 @@
 Route::group(array('domain' => 'buckeyemower.com'),function()
 {
     // die("BAM!");
-    Route::get('/{tag}', 'RussController@getIndex');
-    Route::get('/', 'RussController@getIndex');
+    
+    Route::get('/{tag}', 'CompanyController@getIndex');
+    Route::get('/', function(){
+        $name='buckeye';
+        return View::make('site/'.$name.'/home');
+    });
     
     // Route::controller('russ','RussController');
 
     //Set group to 
 });
 
+// Route::get('advantage'),function()
+// {
+//     // die("BAM!");
+//     Route::get('advantage/{tag}', 'RussController@getIndex');
+//     Route::get('/advantage/', 'RussController@getIndex');
+    
+//     // Route::controller('russ','RussController');
+
+//     //Set group to 
+// });
 
 /** ------------------------------------------
  *  Route model binding
@@ -166,9 +180,19 @@ Route::get('security', function()
 Route::get('pages/{page}', function($page)
 {
     // Return about us page
-    return View::make('site/pages/'.$page);
-});
+    if (empty($page)){
+        return View::make('site/buckeye/home');
+    }
 
+    if (file_exists('site/pages/'.$page)){
+        return View::make('site/pages/'.$page);
+    }
+
+    Redirect::to('tags/'.$page);
+
+
+
+});
 
 
 // Route::get('http://buckeyemower.com',function()){
@@ -181,6 +205,10 @@ Route::get('/russ/','RussController@getIndex'); //this should not be happening
 Route::get('russ', 'RussController@getIndex');
 Route::get('russ/{tag}', 'RussController@getIndex');
 // Route::get('tags/{tag}', 'BlogController@getIndex');
+
+Route::get('/advantage/','CompanyController@getIndex');
+Route::get('advantage', 'CompanyController@getIndex',array('name'=>'advantage'));
+Route::get('company/{name}', 'CompanyController@getIndex');
 
 // Route::get('russ', function()
 // {   // Get all the blog posts
@@ -210,16 +238,23 @@ Route::get('search/{tag}','BlogController@getIndex');
 Route::get('/{tag}', function($tag){
 
     //e.g. myapp.gristech.com/notes
+    
     //try page
-
     //try tag
     //try search
     //404
 
 
-//pages can be turned on and off with this array:
+//static pages can be turned on and off with this array:
     $mypages=array(
-        "search","notes","backup","contact","licensing","responsive",
+        "search",
+        "notes",
+        "backup",
+        "contact",
+        "licensing",
+        "responsive",
+        "notes3",
+        "advantage",
         "");
 
     if($tag==="russ"){

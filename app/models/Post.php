@@ -26,6 +26,17 @@ class Post extends Eloquent implements PresentableInterface {
 	 *
 	 * @return string
 	 */
+	public function image()
+	{
+		return nl2br($this->image);
+	}
+
+	/**
+	 * Returns a formatted post content entry,
+	 * this ensures that line breaks are returned.
+	 *
+	 * @return string
+	 */
 	public function content()
 	{
 		return nl2br($this->content);
@@ -73,7 +84,7 @@ class Post extends Eloquent implements PresentableInterface {
 	 */
 	public function url()
 	{
-		return Url::to($this->slug);
+		return Url::to('blog/'.$this->slug);
 	}
 
 	/**
@@ -102,5 +113,22 @@ class Post extends Eloquent implements PresentableInterface {
     {
         return new PostPresenter($this);
     }
+
+	public function tags()
+	{
+		// var_dump($this->meta_keywords);
+		$tags=array();
+
+		$tags=explode(',', $this->meta_keywords);
+// var_dump($tags);
+
+		if(!$tags){
+
+		 array_push($tags, 'private');
+		}
+		//return $this->hasMany('Tag');
+		return $tags;
+	}
+
 
 }

@@ -2,7 +2,7 @@
 
 {{-- Web site Title --}}
 @section('title')
-Blog Management ::
+Website Management ::
 @parent
 @stop
 
@@ -10,12 +10,22 @@ Blog Management ::
 @section('content')
 <div class="page-header">
 	<h3>
-		Blog Management
-
+		Website Management
 		<div class="pull-right">
-			<a href="{{{ URL::to('admin/blogs/create') }}}" class="btn btn-small btn-info"><i class="icon-plus-sign icon-white"></i> Create</a>
+			<a href="{{{ URL::to('admin/blogs/create') }}}" class="btn btn-small btn-info"><i class="icon-plus-sign icon-white"></i>Create </a>
 		</div>
 	</h3>
+	<div class="btn-group">
+		<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Action <span class="caret"></span></a>
+		<ul class="dropdown-menu">
+			<li><a href="#">Action</a></li>
+			<li><a href="#">Another action</a></li>
+			<li><a href="#">Something else here</a></li>
+			<li class="divider"></li>
+			<li><a href="#">Separated link</a></li>
+		</ul>
+	</div>
+	<a href="http://www.make-rss-feeds.com/making-an-rss-feed.htm">RSS Feeds</a>
 </div>
 
 <table class="table table-bordered table-hover">
@@ -30,14 +40,20 @@ Blog Management ::
 	</thead>
 	<tbody>
 		@foreach ($posts as $post)
+		<div class="thumbnail">
+			
+		</div>
 		<tr>
-			<td>{{{ $post->title }}}</td>
-			<td>{{{ $post->meta_keywords }}}</td>
+			<td>t{{{ $post->title }}}</td>
+			<td>md{{{ $post->meta_description }}}</td>			
+			<td>mk{{{ $post->meta_keywords }}}</td>
+			<td>{{{ $post->author->username }}}</td>
+			<td>{{{ $post->views }}}</td>
 			<td>{{{ $post->comments()->count() }}}</td>
 			<td>{{{ $post->created_at() }}}</td>
 			<td>
-				<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
-				<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
+				<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">icon {{{ Lang::get('button.edit') }}}</a>
+				<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">icon {{{ Lang::get('button.delete') }}}</a>
 			</td>
 		</tr>
 		@endforeach

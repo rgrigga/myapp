@@ -376,8 +376,8 @@ p.photocredit {
 
 
 </style>
-
-<pre>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<pre class="prettyprint">
 
 Tango Icons
 ------------
@@ -395,6 +395,43 @@ Creative Commons Public Domain Dediciation[0] as reproduced below:
 </pre>
 
 
+<div class="span4 thumbnail delta">
+	<h3>Mysql</h3>
+	<a href="http://www.thegeekstuff.com/2008/09/backup-and-restore-mysql-database-using-mysqldump/">Backup and Restore</a>
+
+<pre class="prettyprint">
+	<code class="lang-php">
+
+	</code>
+</pre>
+<?
+$code='foo';
+?>
+	<p>
+		{{{$code}}}
+		<code>
+		    gristech@serv01 [~/myapp]# mysqldump -u gristech --all > ~/sqldump/dump.sql 
+		</code>
+		{{{$code}}}
+
+		<a href="http://www.bootstrapcdn.com/">http://www.bootstrapcdn.com/</a>
+	</p>
+
+
+	<p>
+		{{e('<pre>')}}
+		<pre class="prettyprint">
+		    gristech@serv01 [~/myapp]# mysqldump -u gristech --all > ~/sqldump/dump.sql 
+		</pre>
+		{{e('</code>')}}
+	</p>
+
+
+	<p>The difference between code and pre tags.</p>
+	<p>It is also a good example of google prettify.</p>
+</div>
+
+{{e('foobar')}}
 
 <div class="span4">
 	<a href="http://www.cssdrive.com/imagepalette/index.php">Convert Image to Color Pallete</a>
@@ -567,7 +604,6 @@ Creative Commons Public Domain Dediciation[0] as reproduced below:
 						<ul>
 							<li><a href="http://clipartist.info/RSS/openclipart.org/2011/May/29-Sunday/lawn_mower.svg.html">Open Clip Art Library</a>
 							</li>
-							<li>lorempixum</li>
 							<li><a href="http://www.flickr.com/creativecommons/">flickr</a></li>
 							<li><a href="http://www.kozzi.com/?ref=146452">Kozzi</a></li>
 							<li><a href="http://www.deviantart.com/"></a>deviantart</li>

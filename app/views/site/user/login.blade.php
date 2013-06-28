@@ -8,6 +8,13 @@
 
 {{-- Content --}}
 @section('content')
+
+<style>
+    .page-header{
+        padding-top:+60px;
+    }
+</style>
+
 <div class="page-header">
 	<h1>Login into your account</h1>
 </div>

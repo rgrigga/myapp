@@ -4,13 +4,22 @@
 
 <div class="container">
 
-<h1>admin</h1>
+<i class=""></i>
+
+<h1>admin dashboard</h1>
 <div class="span12">views.admin.dashboard</div>
 
 
+<!-- @ include('../../README.md') -->
+
+<!-- http://thenounproject.com/noun/lawn-mower/#icon-No2960 -->
 
 <h2>to do:</h2>
 <ul>
+	<li>SVG:</li>
+	<li><a href="http://stackoverflow.com/questions/4476526/do-i-use-img-object-or-embed-for-svg-files">SVG Primer</a></li>
+	<li><a href="http://www.sitepoint.com/add-svg-to-web-page/">Add SVG to web page</a></li>
+	<li><a href="http://css-tricks.com/using-svg/">CSS Tricks</a></li>
 	<li><a href="http://nbii-thesaurus.ornl.gov/thesaurus/"></a>Thesaurus API</li>
 	<li>Educational benefits</li>
 	<li><a href="http://www.youtube.com/watch?v=09geUJg11iA">8 minute Javascript Drive API App</a></li>

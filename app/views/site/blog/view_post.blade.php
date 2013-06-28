@@ -2,30 +2,26 @@
 
 {{-- Web site Title --}}
 @section('title')
-{{{ String::title($post->title) }}} ::
+{{ $post->title }} ::
 @parent
 @stop
 
 {{-- Update the Meta Title --}}
 @section('meta_title')
 @parent
-
-
-
+ :: {{ $post->title }} 
 @stop
 
 {{-- Update the Meta Description --}}
 @section('meta_description')
 @parent
-
-Buckeye Mower offers engine repair services in Columbus Ohio.
-
+{{{ String::title($post->description) }}} ::
 @stop
 
 {{-- Update the Meta Keywords --}}
 @section('meta_keywords')
 @parent
-
+{{{ String::title($post->title) }}} ::
 
 
 @stop

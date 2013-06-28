@@ -9,6 +9,7 @@
 @section('content')
 
 <script>
+//I think this is analytics tracking code...
   (function() {
     var cx = '012277204628171564007:sik_hha9myk';
     var gcse = document.createElement('script');

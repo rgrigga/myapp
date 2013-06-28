@@ -1,5 +1,22 @@
 @extends('site.layouts.russ')
 
+@section('favicons')
+		<!-- Favicons
+		================================================== -->
+
+<!-- It would be great generate these on the fly.  For now, they are located in X asset file -->
+
+		<!-- http://theksmith.com/technology/howto-website-icons-browsersdevices-favicon-apple-touch-icon-etc/ -->
+		<!-- (this step is required for Android support, android ignores the non-pre-composed version): -->
+
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}}">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}}">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
+		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
+		<link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}">
+
+		<!-- hardy har -->		
+@show
 {{-- Content --}}
 @section('content')
 
@@ -20,21 +37,6 @@
 	<li>russ@buckeyemower.com</li>
 	
 </ul>
-
-
-<!-- <div class="note">
-	<a href="http://en.wikipedia.org/wiki/Handwriting_recognition#Software">http://en.wikipedia.org/wiki/Handwriting_recognition#Software </a>
-	<a href="http://risujin.org/cellwriter/">CellWriter </a>
-	<p>is an Open Source handwriting recognition program written for Linux. It was developed primarily by Michael Levin, working under the University of Minnesota's Undergraduate Research Opportunity Program. CellWriter is designed to be writer-dependent, so input training is required prior to use. It includes an English word-recognition engine to aid recognition accuracy, an on-screen keyboard and the ability to fine tune or correct mistakes through a context menu. Unlike most recognition engines, the source code and algorithms are available and free to download.</p>
-	<p>CellWriter is a grid-entry natural handwriting input panel. As you write characters into the cells, your writing is instantly recognized at the character level. When you press Enter on the panel, the input you entered is sent to the currently focused application as if typed on the keyboard.</p>
-
-	<p>Here are a few highlights from their page:
-</div>
-User logs in using demo/demo as password.  authenticate as demo.  no email.
-
-
-<a href="http://www.bythecutlawncare.com/manatee-county-grass-cutting-service/">grass cutting</a> -->
-
 
 <style>
 
@@ -408,6 +410,14 @@ Article Source: http://EzineArticles.com/5938962</p>
 <div class="span8">
 <!-- <h1>Posts:</h1> -->
 @foreach ($posts as $post)
+	<? $myarray=array('foo','bar'); ?>
+	@foreach ($myarray as $item)
+	{{ echo $item; }}
+	@endforeach
+@endforeach
+
+<h3>Title:</h3>
+
 <div class="row">
 	<div class="span8 well">
 		<!-- Post Title -->

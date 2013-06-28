@@ -1,4 +1,3 @@
-notes2.blade.php
 @extends('site.layouts.default')
 @section('content')
 
@@ -27,7 +26,7 @@ notes2.blade.php
 
 
 </style>
-
+<h1>site.pages.notes2</h1>
 <div class="jumbotron masthead">
 
 
