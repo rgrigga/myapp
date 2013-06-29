@@ -85,14 +85,14 @@ class AdminBlogsController extends AdminController {
         // Declare the rules for the form validation
         $rules = array(
             'title'   => 'required|min:3',
-<<<<<<< HEAD
+// <<<<<<< HEAD
             'content' => 'required|min:3'
             // ,
             // 'image' => 'required|min:3'
-=======
+// =======
             'content' => 'required|min:3',
             'image' => 'required|min:3'
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
+// >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
         );
 
         // Validate the inputs
@@ -109,7 +109,7 @@ class AdminBlogsController extends AdminController {
             $this->post->slug             = Str::slug(Input::get('title'));
             $this->post->content          = Input::get('content');
             // var_dump(Input::get('image'));
-<<<<<<< HEAD
+// <<<<<<< HEAD
 
             if(!Input::get('image')){
                 $this->post->image='brand.png';
@@ -120,10 +120,10 @@ class AdminBlogsController extends AdminController {
             
 // Changed this from meta-title to make the title seo stuff work! --->
             $this->post->meta_title       = Input::get('title');
-=======
+// =======
             $this->post->image            = Input::get('image');
             $this->post->meta_title       = Input::get('meta-title');
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
+// >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
             $this->post->meta_description = Input::get('meta-description');
             $this->post->meta_keywords    = Input::get('meta-keywords');
             $this->post->user_id          = $user->id;
