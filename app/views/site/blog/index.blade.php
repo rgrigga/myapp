@@ -1,6 +1,5 @@
 @extends('site.layouts.default')
 
-
 @section('title')
 {{{ "Home" }}} ::
 @parent
