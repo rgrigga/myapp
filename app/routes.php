@@ -10,7 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-// die("BAM");
+
 
 Route::group(array('domain' => 'buckeyemower.com'),function()
 {
@@ -20,6 +20,7 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
 
     Route::get('/', function(){
         $name='buckeye';
+        
         return View::make('site/'.$name.'/home',array(
             'company'=>'Buckeye Mower',
             'menus'=>array('#services','#contact','#about')
