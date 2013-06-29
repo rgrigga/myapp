@@ -10,7 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-die("BAM");
+// die("BAM");
 
 Route::group(array('domain' => 'buckeyemower.com'),function()
 {

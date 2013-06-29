@@ -55,7 +55,7 @@ class BlogController extends BaseController {
 	 */
 	public function getIndex($tag="")
 	{
-// <<<<<<< HEAD
+
 
 		$alltags=array();		
 
@@ -109,7 +109,7 @@ class BlogController extends BaseController {
 			$posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
 			// $data = array();
 			return View::make('site/blog/index', array(compact('posts'),compact('tags'),compact('alltags'),compact('photos')));
-// =======
+
 
 		$alltags=array();		
 
@@ -159,7 +159,6 @@ class BlogController extends BaseController {
 
 			$posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
 			return View::make('site/blog/index', compact('posts'),compact('tags'),compact('alltags'));
-// >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 		}
 		// Show the page
 		// return View::make('site/blog/index', compact('posts'));
@@ -179,7 +178,6 @@ class BlogController extends BaseController {
 
 		}
 		return $alltags;
-// <<<<<<< HEAD
 	}
 
 	public function getTags($tag="")
@@ -220,7 +218,7 @@ class BlogController extends BaseController {
 	}
 
 // =======
-	}
+	
 
 	public function getTags($tag="")
 	{
