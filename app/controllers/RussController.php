@@ -43,10 +43,19 @@ class RussController extends BaseController {
 // die(var_dump($posts));
 
 		// Show the page
+<<<<<<< HEAD
 		return View::make('site/buckeye/index', compact('posts'));
 		
 	}
 
+=======
+		return View::make('site/russ/index', compact('posts'));
+		
+	}
+
+
+
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 	/**
 	 * View a blog post.
 	 *

@@ -6,26 +6,30 @@ class AdminDashboardController extends AdminController {
      * Blog Model
      * @var Blog
      */
-    protected $blog;
+    protected $post;
 
     /**
      * Inject the models.
-     * @param blog $blog
+     * @param post $post
      */
-    public function __construct(Blog $blog)
+    public function __construct(Post $post)
     {
         parent::__construct();
-        $this->blog = $blog;
+        $this->post = $post;
     }
 
 	/**
 	 * Admin dashboard
 	 *
 	 */
-	public function getIndex()
+	public function getIndex($tag='admin')
 	{
 
-		$posts=$this->blog->getIndex('admin',3)
+		// if(!$tag){
+		// 	$tag='admin';
+		// }
+
+		$posts=$this->post->getIndex('$tag',3);
 		//show list of recent posts
 
         return View::make('admin/dashboard')->with($posts);

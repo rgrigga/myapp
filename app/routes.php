@@ -149,6 +149,7 @@ Route::controller('user', 'UserController');
 
 //:: Application Routes ::
 
+<<<<<<< HEAD
 
 // STATIC PAGES: ///////////////////////////////////////////////////
 # Technical/Development Static Page
@@ -216,14 +217,39 @@ Route::get('pages/{page}', function($page)
 ///////////////////////////////////////////////////////////////////////
 
 Route::get('/russ/','RussController@getIndex'); //this should not be happening
+=======
+# Technical/Development Static Page
+
+Route::get('features', function()
+{
+    // Return about us page
+    return View::make('site/features');
+});
+
+Route::get('technical', function()
+{
+    // Return about us page
+    return View::make('site/technical');
+});
+
+Route::get('whyresponsive', function()
+{
+    // Return about us page
+    return View::make('site/whyresponsive');
+});
+
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 Route::get('russ', 'RussController@getIndex');
 Route::get('russ/{tag}', 'RussController@getIndex');
 // Route::get('tags/{tag}', 'BlogController@getIndex');
 
+<<<<<<< HEAD
 Route::get('/advantage/','CompanyController@getIndex');
 Route::get('advantage', 'CompanyController@getIndex',array('name'=>'advantage'));
 Route::get('company/{name}', 'CompanyController@getIndex');
 
+=======
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 // Route::get('russ', function()
 // {   // Get all the blog posts
 //     $posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);
@@ -238,14 +264,19 @@ Route::get('blog', 'BlogController@getTags');
 Route::post('blog/{postSlug}', 'BlogController@postView');
 
 Route::get('tags', 'BlogController@getTags');
+<<<<<<< HEAD
 Route::post('tags', 'BlogController@getTags');
 Route::get('tags/{tag}', 'BlogController@getIndex');
 // Route::post('tags/{tag}', 'BlogController@postIndex');
+=======
+Route::get('tags/{tag}', 'BlogController@getIndex');
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 
 # Posts - Second to last set, match slug
 Route::get('blog/{postSlug}', 'BlogController@getView');
 Route::post('blog/{postSlug}', 'BlogController@postView');
 
+<<<<<<< HEAD
 Route::get('show/{tag}','BlogController@show');
 Route::get('search/{tag}','BlogController@getIndex');
 
@@ -270,6 +301,10 @@ Route::get('/{tag}', function($tag){
         "notes3",
         "advantage",
         "");
+=======
+Route::get('/{tag}', 'BlogController@getIndex');
+// Route::post('/{tag}', 'BlogController@postView');
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 
     if($tag==="russ"){
         die("RUSS!");

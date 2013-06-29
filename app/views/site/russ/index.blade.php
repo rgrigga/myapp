@@ -1,5 +1,6 @@
 @extends('site.layouts.russ')
 
+<<<<<<< HEAD
 @section('favicons')
 <!-- Favicons
 	================================================== -->
@@ -18,10 +19,13 @@
 
 		<!-- hardy har -->		
 @show
+=======
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 {{-- Content --}}
 @section('content')
 
 
+<<<<<<< HEAD
 <ul>
 	<li> Like the brands and the coupon at <a href="http://mobilemowerrepair.com/">http://mobilemowerrepair.com/</a>  </li>
 	<li>just hit the drop downs and explore<a href="http://www.lawnmowerrepair.com/">http://www.lawnmowerrepair.com/</a></li>
@@ -239,6 +243,21 @@ t.span
 	</div>
 </div>
 
+=======
+<?php
+// foreach ($posts as $post) {
+// 	# code...
+// 	echo $post->title."<br>";
+
+// }
+
+// die();
+?>
+<!-- <div class="row">
+
+
+</div> -->
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 	<!-- Main hero unit for a primary marketing message or call to action -->
 <div class="hero-unit">
 
@@ -253,7 +272,11 @@ t.span
 
 
 		<div class="span6">
+<<<<<<< HEAD
 			<h1>Buckeye Mower <small>Mobile Mower Repair</small></h1>
+=======
+			<h1>Busted Mower?</h1>
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 			<p class="text-center"><a class="btn btn-primary btn-large" href="tel:7405076198" > Call (740)507-6198</a></p>
 				<!-- <div class="beta">	
 				-->
@@ -278,6 +301,7 @@ t.span
 
 
 <div class="span9">
+<<<<<<< HEAD
 	<h3>Areas Served:</h3>
 	<p>
 		We serve the Greater Columbus, Ohio Area as well as Near Columbus & Central Ohio Areas such as Hilliard, Delaware, Marysville, Westerville, Worthington, Lewis Center, and more!
@@ -294,6 +318,17 @@ t.span
 
 
 
+=======
+	<h4>Areas Served:</h4>
+<p>
+	We serve the Greater Columbus, Ohio Area as well as Near Columbus & Central Ohio Areas such as Hilliard, Delaware, Marysville, Westerville, Worthington, Lewis Center, and more!
+</p>
+
+<p>
+	<a href="http://columbus.craigslist.org/sks/3847721791.html">Craigslist!</a>
+</p>
+<div class="row-fluid">
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 	<div class="span4 thumbnail">
 		<h2><a href="#">Riding <p>Lawn Mower Service</p></a></h2>
 		<div class="delta">starting at <span class="price">$85.00</span> *plus parts</div>
@@ -335,9 +370,20 @@ t.span
 			<li>INSPECTION OF ENTIRE MACHINE  (belt, cables, drive system etc)</li>
 		</ul>
 
+<<<<<<< HEAD
 		<p class="text-center">
 			<a class="btn btn-primary btn-large" href="tel:7405076198" >(740)507-6198</a>
 		</p>
+=======
+
+
+<p class="text-center">
+<a class="btn btn-primary btn-large" href="tel:7405076198" >(740)507-6198</a>
+</p>
+
+
+
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 	</div>
 
 	<div class="span4">
@@ -347,6 +393,7 @@ t.span
 			<img src="http://gristech.com/img/russ/chainsaw400.png" alt="chainsaw repair">
 		</div>
 		<h3>Maintenance</h3>
+<<<<<<< HEAD
 			<ul>
 				<li>Compact tractors</li>
 				<li>Utility Vehicles</li>
@@ -366,6 +413,32 @@ t.span
 <!-- end row -->
 
 
+=======
+		<ul>
+<li>Compact tractors</li>
+<li>Utility Vehicles</li>
+<li>Commercial Mowers</li>
+	<li>Trimmers and Hedgers</li>  
+		<li>Chainsaws Leaf Blowers</li> 
+			<li>Rototillers</li>
+			    <li>Snow Blowers</li> 
+			    <li>All 2 & 4 Cycle Equipment</li>
+		</ul>
+		<p>Call us!</p>
+
+<p>
+<a class="btn btn-primary btn-large" href="tel:7405076198" >(740)507-6198</a>
+</p>
+	</div>
+
+
+
+
+
+
+</div>
+<!-- end row -->
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 <p class="text-center">
 <a class="btn btn-primary btn-large" href="http://www.jackssmallengines.com/jacks-parts-lookup/" >Need Parts?</a>
 </p>
@@ -376,6 +449,7 @@ t.span
 		<h3>Layman's Guide to Lawn Mower Maintenance</h3>
 		<p class="text-center"><i class="icon-circle-arrow-down icon-4x"></i></p>
 
+<<<<<<< HEAD
 		<img src="http://gristech.com/img/grass.jpg" alt="grass">
 		<!-- <img src="http://lorempixel.com/400/200/sports/"> -->
 		<!-- <img src="http://www.loc.gov/exhibits/haventohome/images/hh0041s.jpg" alt="manuscript" class="img-circle"> -->
@@ -386,6 +460,15 @@ t.span
 Article Source: http://EzineArticles.com/5938962</p>
 </div>
 		<h5>5 simple ways to extend the life of your mower</h5>
+=======
+		<a href="http://lorempixel.com/400/200/sports/">LOREMPIXEL</a>
+		<!-- <img src="http://www.loc.gov/exhibits/haventohome/images/hh0041s.jpg" alt="manuscript" class="img-circle"> -->
+<div class="well">
+	<h4>lorem ipsum</h4>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, deleniti, natus impedit praesentium alias exercitationem consectetur recusandae architecto labore ducimus.</p>
+</div>
+		<h4>5 simple ways to extend the life of your mower</h4>
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem accusamus perferendis veniam expedita cum quia pariatur ipsum maxime nihil laudantium!</p>
 	</div>
 
@@ -397,6 +480,7 @@ Article Source: http://EzineArticles.com/5938962</p>
 <div class="span8">
 <!-- <h1>Posts:</h1> -->
 @foreach ($posts as $post)
+<<<<<<< HEAD
 	<? $myarray=array('foo','bar'); ?>
 	@foreach ($myarray as $item)
 	{{ echo $item; }}
@@ -405,6 +489,8 @@ Article Source: http://EzineArticles.com/5938962</p>
 
 <h3>Title:</h3>
 
+=======
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 <div class="row">
 	<div class="span8 well">
 		<!-- Post Title -->
@@ -490,13 +576,18 @@ Article Source: http://EzineArticles.com/5938962</p>
 <!-- span8 -->
 
 
+<<<<<<< HEAD
 <!-- <div class="charlie span5 well pull-right">
+=======
+<div class="charlie span5 well pull-right">
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 <h1>Contact Us</h1>
 				    <a href="http://facebook.com" class="social-icon">
 				    <img src="http://gristech.com/img/facebook.png" class="img-circle"></a>
 				    <a href="http://twitter.com" class="social-icon"><img src="http://gristech.com/img/twitter.png" class="img-circle"></a>
 				    <a href="http://linkedin.com" class="social-icon"><img src="http://gristech.com/buttons/linkedin.png" class="img-circle"></a>
 				    <a href="http://gmail.com" class="social-icon"><img src="http://gristech.com/buttons/email.png" class="img-circle"></a>
+<<<<<<< HEAD
 </div> -->
 
 
@@ -518,5 +609,10 @@ Article Source: http://EzineArticles.com/5938962</p>
 		</ul>
 	</div>
 </div>
+=======
+</div>
+
+
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 
 @stop

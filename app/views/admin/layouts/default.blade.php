@@ -15,11 +15,12 @@
 
 		<!-- Mobile Specific Metas
 		================================================== -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 		<!-- CSS
 		================================================== -->
         {{ Basset::show('admin-css.css') }}
+
 		
 		@section('styles')
 		<style>
@@ -37,6 +38,21 @@
 		</style>
 		@show
 
+
+
+		
+		@section('styles')
+		<style>
+		.page-header{
+			margin-top: 60px;
+		}
+/*		body {
+			padding: 60px 0;
+		}*/
+		</style>
+		@show
+		
+<link rel="stylesheet" href="/assets/css/style.css">
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -60,6 +76,20 @@
 
 
 	<body>
+
+	<!-- google analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-41528506-1', 'gristech.com');
+  ga('send', 'pageview');
+
+</script>
+
+<div class="wrap">
 		<!-- Container -->
 		<div class="container">
 			<!-- Navbar -->
@@ -75,6 +105,10 @@
 							<ul class="nav">
 								<li{{ (Request::is('admin') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin') }}}"><i class="icon-home icon-white"></i> Home</a></li>
 								<li{{ (Request::is('admin/blogs*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/blogs') }}}"><i class="icon-list-alt icon-white"></i> Blog</a></li>
+
+								<li{{ (Request::is('admin/blogs/create*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/blogs/create') }}}"><i class="icon-bullhorn icon-white"></i> New Post</a></li>
+
+
 								<li{{ (Request::is('admin/comments*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/comments') }}}"><i class="icon-bullhorn icon-white"></i> Comments</a></li>
 								<li class="dropdown{{ (Request::is('admin/users*|admin/roles*') ? ' active' : '') }}">
 									<a class="dropdown-toggle" data-toggle="dropdown" href="{{{ URL::to('admin/users') }}}">
@@ -115,11 +149,29 @@
 			@include('notifications')
 			<!-- ./ notifications -->
 
+
+<style>
+
+/*http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site*/
+
+	.contentwrap{
+padding-top: 60px;
+	}
+
+@media screen and (max-width: 979px) {
+    .contentwrap { padding-top: 0px; }
+}
+
+</style>
+<div class="contentwrap">
 			<!-- Content -->
 			@yield('content')
 			<!-- ./ content -->
+</div>
 		</div>
 		<!-- ./ container -->
+</div>
+<!-- ./ wrap -->
 
 		<!-- Javascripts
 		================================================== -->

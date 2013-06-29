@@ -122,10 +122,13 @@ class Post extends Eloquent implements PresentableInterface {
 		$tags=explode(',', $this->meta_keywords);
 // var_dump($tags);
 
+<<<<<<< HEAD
 		if(!$tags){
 
 		 array_push($tags, 'private');
 		}
+=======
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 		//return $this->hasMany('Tag');
 		return $tags;
 	}

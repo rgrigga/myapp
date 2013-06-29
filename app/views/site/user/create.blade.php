@@ -13,12 +13,16 @@
 
 <div class="page-header">
 	<h1>Signup</h1>
+<<<<<<< HEAD
 	
 
 	<ol>
 		<li>Sign in with any existing account: Facebook, Twitter, Google, Gmail, Ebay</li>
 
 	</ol>
+=======
+	<p>Please note: This is a collobaration, and your comments will help a great deal.  Please have a look around and make a comment somewhere.  Thank you!</p>
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 </div>
 
 

@@ -74,6 +74,8 @@ Route::filter('guest', function()
 // Check for role on all admin routes
 Entrust::routeNeedsRole( 'admin*', array('admin'));
 
+//duplicate for other routes...
+
 /*
 |--------------------------------------------------------------------------
 | CSRF Protection Filter

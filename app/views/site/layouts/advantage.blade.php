@@ -12,7 +12,6 @@ Meta-Keywords
 
 {{-- Update the Meta Title --}}
 @section('meta_title')
-
 Advantage Services - We treat your home as our own.
  <!-- String::title($post->title) }}} -->
 @stop

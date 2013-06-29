@@ -14,6 +14,7 @@
 	
 </ul>
 
+<<<<<<< HEAD
 <h3>Coming soon...</h3>
 <ul class="tag">
 	<li><i class="icon-tag"></i></li>
@@ -25,6 +26,9 @@
 
 	?>
 </ul>
+=======
+
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 
 <!-- 	<li><a href="101">101</a></li>
 

@@ -1,6 +1,8 @@
 <?php
 class CompanyController extends BaseController {
 
+	protected $layout = 'site.layouts.company';
+
     /**
      * Tags Model
      * @var Post

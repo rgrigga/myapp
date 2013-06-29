@@ -61,9 +61,7 @@
 		<!-- hardy har -->		
 @stop
 
-@section('nav-top')
-<h1>nav</h1>
-@stop
+
 
 {{-- Content --}}
 @section('content')

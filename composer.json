@@ -11,6 +11,7 @@
     ],
 	"require": {
 		"laravel/framework": "4.0.*",
+		"way/generators": "dev-master",
 		"greggilbert/recaptcha": "dev-master",
 		"zizaco/confide": "dev-master",
 		"zizaco/entrust": "dev-master",
@@ -19,7 +20,7 @@
 		"jasonlewis/enhanced-router": "1.0.*"
 	},
 	"require-dev": {
-        "way/generators": "dev-master",
+        
         "mockery/mockery": "dev-master@dev",
         "summerstreet/woodling": "0.1.*",
         "barryvdh/laravel-ide-helper": "dev-master"
@@ -45,7 +46,9 @@
 			"php artisan optimize"
 		],
 		"post-update-cmd": [
-			"php artisan optimize"
+			"php artisan optimize",
+			"php artisan clear-compiled",
+			"php artisan ide-helper:generate"
 		]
 	},
 	"config": {

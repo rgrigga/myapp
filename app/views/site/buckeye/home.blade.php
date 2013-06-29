@@ -1,5 +1,15 @@
 @extends('site.layouts.sandbox')
 
+<?php
+
+$company = new Company;
+
+class Company extends User{
+
+	private $
+}
+
+?>
 {{-- Update the Meta Title --}}
 <!-- THis properly overrides the default -->
 @section('meta-title')

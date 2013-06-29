@@ -9,9 +9,15 @@
 			Buckeye Mower : Mobile Lawn Mower Repair, Small Engine Service
 			@show
 		</title>
+<!-- <<<<<<< HEAD -->
 		<meta name="keywords" content="lawnmower repair, mower repair, john deere, push mower, small engine, riding mower, mower service, columbus, ohio" />
 		<meta name="author" content="Ryan Grissinger" />
 		<meta name="description" content="Buckeye Mower serves the Greater Columbus Area" />
+<!-- ======= -->
+		<meta name="keywords" content="mower repair, mower service" />
+		<meta name="author" content="Ryan Grissinger" />
+		<meta name="description" content="Lawn Mower Repair, Small Engine Repair, more." />
+<!-- >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3 -->
 
 		<!-- Mobile Specific Metas
 		================================================== -->
@@ -40,7 +46,11 @@
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
 
+<<<<<<< HEAD
 		<link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}">
+=======
+		<link rel="shortcut icon" href="{{{ asset('http://gristech.com/russ/buckeye32.png') }}}">
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 
 		<!-- <link rel="shortcut icon" href="{{{ asset('http://gristech.com/ico/favicon.png') }}}"> -->
 
@@ -49,6 +59,7 @@
 
 	<body>
 
+<<<<<<< HEAD
 <?php
 $env = App::environment();
 	if($env==="dev"){
@@ -58,6 +69,10 @@ $env = App::environment();
 ?>
 <!-- google analytics -->
 
+=======
+
+<!-- google analytics -->
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -72,6 +87,7 @@ $env = App::environment();
 
 		<!-- To make sticky footer need to wrap in a div -->
 		<div id="wrap">
+<<<<<<< HEAD
 <style>
 .foobar{
     background-color: red;
@@ -128,19 +144,29 @@ body {
 		</div>
 	        
 	</div>
+=======
+
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 		<!-- Navbar -->
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 
 				<div class="container-fluid">
 
+<<<<<<< HEAD
 <div class="brand">Buckeye Mower</div>
+=======
+<div class="brand">Buckeye Mower Repair</div>
+					
+
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 					<a class="btn btn-navbar pull-right" data-toggle="collapse" data-target=".nav-collapse">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</a>
 
+<<<<<<< HEAD
 					
 					
 					<div class="nav-collapse collapse">
@@ -150,6 +176,20 @@ body {
 							<li {{ (Request::is('russ*') ? ' class="active"' : '') }}><a href="{{{ URL::to('/russ') }}}">Home</a></li>
 							<!-- <li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('diy') }}}">DIY</a></li>  -->   
 						</ul>
+=======
+					@include('site.partials.contact')
+					
+					<div class="nav-collapse collapse">
+						<ul class="nav">
+							<li></li>
+							<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('/russ') }}}">Home</a></li>
+							<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('diy') }}}">DIY</a></li>
+							
+
+			              	
+			                  
+							<!-- </ul> -->
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 
 			                        <ul class="nav pull-right">
 			                            @if (Auth::check())
@@ -172,6 +212,7 @@ body {
 				
 				</div>
 			</div>
+<<<<<<< HEAD
 
 		</div>
 
@@ -181,11 +222,21 @@ body {
 
 
 
+=======
+		</div>
+
+		<!-- ./ navbar -->
+<div class="foobar pull-right">
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 		<div>phone, email, chat, anything!</div>
 		<div><img src="http://gristech.com/img/contactus.png" alt="buckeye mower"></div>
         <span>Whatever works for you.</span>
         
+<<<<<<< HEAD
 </div> -->
+=======
+</div>
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 		<!-- Container -->
 		<div class="container-fluid">
 			<!-- Notifications -->
@@ -218,7 +269,28 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, cumque pr
 
 	      </div>
 
+<<<<<<< HEAD
 
+=======
+<a href="/why-responsive">
+<div class="hotel hotelb">
+<!-- 	<div style="color:black; padding-bottom:50px;">resize me</div> -->
+	<div class="hotel pull-right">
+		<div class="visible-phone">
+			
+			<i class="icon-mobile-phone icon-4x"></i>
+		</div>
+		<div class="visible-tablet">
+
+			<i class="icon-tablet icon-4x"></i>
+		</div>
+			<div class="visible-desktop">
+			<i class="icon-desktop icon-4x"></i>
+		</div>
+	</div>
+</div>
+</a>
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 	    </div>
 
 		<!-- Javascripts

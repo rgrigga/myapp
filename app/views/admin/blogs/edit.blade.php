@@ -8,12 +8,21 @@ Website Update ::
 
 {{-- Content --}}
 @section('content')
+<<<<<<< HEAD
 
 
 <div class="page-header">
 					<h3>
 						Website Management
 						<div class="pull-right">
+=======
+
+<div class="page-header">
+	<h3>
+		Blog Management
+
+		<div class="pull-right">
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 			<a href="{{{ URL::to('admin/blogs/create') }}}" class="btn btn-small btn-info"><i class="icon-plus-sign icon-white"></i> Create</a>
 		</div>
 		<div class="pull-right">
@@ -22,6 +31,7 @@ Website Update ::
 		</h3>
 </div>
 
+<<<<<<< HEAD
 
 <!-- <div class="page-header"> -->
 
@@ -30,6 +40,20 @@ Website Update ::
 
 
 
+=======
+<!-- {{{ var_dump($post->tags()) }}} -->
+<style>
+
+/*	ul.tag li{
+	    display: inline;
+	    background-color: orange;
+	    padding: 5px;
+	}*/
+</style>
+		<div class="pull-right">
+			<a href="{{{ URL::to('admin/blogs') }}}" class="btn btn-small btn-inverse"><i class="icon-circle-arrow-left icon-white"></i> Back to Post List</a>
+		</div>
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 
 <form class="form-horizontal" method="post" action="" autocomplete="off">
 	<!-- CSRF Token -->
@@ -45,6 +69,7 @@ Website Update ::
 </div>
 
 
+<<<<<<< HEAD
 <img src="" alt="">
 <script type="text/javascript">
 
@@ -148,6 +173,10 @@ $(document).ready(
 
  <div class="accordion" id="accordion">
 <!--  	<div class="accordion-group">
+=======
+ <div class="accordion" id="accordion">
+ 	<div class="accordion-group">
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
  		<div class="accordion-heading">
  			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
  				<h3>
@@ -157,6 +186,7 @@ $(document).ready(
 					</h3>
  			</a>
  		</div>
+<<<<<<< HEAD
  		 		<!-- add class 'in' to the next div to expand on pageload ->
 
  		<div id="collapseOne" class="accordion-body collapse">
@@ -164,6 +194,32 @@ $(document).ready(
  				
  			</div>
  		</div> -->
+=======
+ 		 		<!-- add class 'in' to the next div to expand on pageload -->
+
+ 		<div id="collapseOne" class="accordion-body collapse">
+ 			<div class="accordion-inner">
+ 				<div class="page-header">
+					
+					<h4><em>Title: </em>{{{ $post->title }}}</h4>
+					<h5><em>Link: </em><a href="{{{ URL::to('blog/'.$post->slug) }}}">{{{ URL::to('blog/'.$post->slug) }}}</a></h5>
+
+
+
+						<ul class='tag'>
+							<li><i class="icon-tag"></i> tags:</li>
+					@foreach($post->tags() as $tag)
+
+					    <li>{{ $tag }}</li>
+					    
+					@endforeach
+					</ul>
+
+
+				</div>
+ 			</div>
+ 		</div>
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
  	</div>
  	<div class="accordion-group">
  		<div class="accordion-heading">
@@ -181,18 +237,26 @@ $(document).ready(
 				<div class="control-group {{{ $errors->has('meta-title') ? 'error' : '' }}}">
 					<label class="control-label" for="meta-title">Meta Title</label>
 					<div class="controls">
+<<<<<<< HEAD
 						
 						<input type="text" name="meta-title" id="meta-title" 
 
 						value="{{{ Input::old('meta-title', $post->meta_title) }}}" />
+=======
+						<input type="text" name="meta-title" id="meta-title" value="{{{ Input::old('meta-title', $post->meta_title) }}}" />
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 						{{{ $errors->first('meta-title', '<span class="help-inline">:message</span>') }}}
 					</div>
 				</div>
 				<!-- ./ meta title -->
 
 				<!-- Meta Description -->
+<<<<<<< HEAD
 				<p><i class="icon-facebook"></i> Meta Description is a 158 character summary of your post.  The Meta-Description may be displayed as the text for a google result, for example...</p>
 				<p>It is also used on facebook</p>
+=======
+				<p>Meta Description is a 158 character summary of your post.  The Meta-Description may be displayed as the text for a google result, for example...</p>
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 
 				<div class="control-group {{{ $errors->has('meta-description') ? 'error' : '' }}}">
 					
@@ -220,11 +284,17 @@ $(document).ready(
 				<!-- ./ meta image -->
 
 				<!-- Meta Keywords -->
+<<<<<<< HEAD
 				<p>Enter keywords and/or key phrases as a list separated by commas.  For example: "seo, php, security".  These also help your content appear correctly.  Your posts already automagically contain an internal tag that links your post to your site.  </p>
 				<p>Once thought to be important to SEO, google stopped using keywords in 2009.  More info soon...</p>
 				<p>The keywords tag is tied to tags on this site.  So, this is a comma-separated list of tags.  It works the same way in wordpress.</p>
 				<div class="control-group {{{ $errors->has('meta-keywords') ? 'error' : '' }}}">
 					<label class="control-label" for="meta-keywords">Tags, aka<br>Meta Keywords</label>
+=======
+				<p>Enter keywords and/or key phrases as a list separated by commas.  For example: "".  The keywords or "tags" are one of the most important factors in SEO.  These also help your content appear correctly.  Your posts already automagically contain an internal tag that links your post to your site.  </p>
+				<div class="control-group {{{ $errors->has('meta-keywords') ? 'error' : '' }}}">
+					<label class="control-label" for="meta-keywords">Meta Keywords</label>
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 
 
 					<div class="controls">
@@ -286,7 +356,11 @@ $(document).ready(
  			</div>
  		</div>
  	</div>
+<<<<<<< HEAD
  <!-- </div> -->
+=======
+ </div>
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 
 
 

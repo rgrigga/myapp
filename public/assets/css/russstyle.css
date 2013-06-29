@@ -17,7 +17,10 @@ body {
 
     /*padding:0;*/
 }
+<<<<<<< HEAD
 /*http://colorschemedesigner.com/#3341Uw0w0w0w0*/
+=======
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 
 body {
     /*margin-left: 10px;*/
@@ -166,8 +169,12 @@ p{
     background-color: rgba(36,136,41,0.5);
 }
 .navbar-inverse{
+<<<<<<< HEAD
     background-color: red;
     height:200px;
+=======
+    background-color: green;
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 /*padding-right: 20px;*/
     /*These correct a problem with the responsive margin:*/
     /*margin-right:0;*/
@@ -226,8 +233,12 @@ h1, h2, h3 {
 }
 
 .foobar{
+<<<<<<< HEAD
     background-color: red;
 /*    background-color: rgba(235,200,176,.5);*/
+=======
+    background-color: rgba(235,200,176,.5);
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
     padding:5px; 
     /*margin-top: 40px; */
     margin-right: 20px;
@@ -235,8 +246,11 @@ h1, h2, h3 {
     border-bottom-right-radius:20px;
     text-align: center;
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 /*from the bootstrap docs:*/
     /* Large desktop */
     @media (min-width: 1200px) { 
@@ -297,15 +311,19 @@ background-color: red;
             .hotel{
                 background-color: green;
             }
+<<<<<<< HEAD
 
             .navbar-fixed-top .navbar-inner, .navbar-fixed-bottom .navbar-inner {
             padding: 5px;
             padding-left: 40px;
             }
+=======
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
          }
      
     /* Landscape phones and down */
     @media (max-width: 480px) { 
+<<<<<<< HEAD
             .hotel{
                 background-color: orange;
             }
@@ -314,6 +332,11 @@ background-color: red;
                 padding-left: 50px;
             }*/
 
+=======
+                .hotel{
+                background-color: orange;
+            }
+>>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
         }
 
 

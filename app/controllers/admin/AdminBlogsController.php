@@ -2,7 +2,6 @@
 
 class AdminBlogsController extends AdminController {
 
-
     /**
      * Post Model
      * @var Post
@@ -24,13 +23,12 @@ class AdminBlogsController extends AdminController {
      *
      * @return View
      */
-    public function getIndex($tag="")
+    public function getIndex($tag="",$paginate=10)
     {
-
 
         if($tag){
             $tag='%'.$tag.'%';
-            $posts = $this->post->where('meta_keywords', 'LIKE', "$tag")->paginate(5);      
+            $posts = $this->post->where('meta_keywords', 'LIKE', "$tag")->paginate($paginate);      
             
             $tags=array();
 
@@ -59,7 +57,7 @@ class AdminBlogsController extends AdminController {
 
         // Grab all the blog posts
         
-        $posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);
+        $posts = $this->post->orderBy('created_at', 'DESC')->paginate($paginate);
 
         // Show the page
         return View::make('admin/blogs/index', compact('posts'));

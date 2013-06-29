@@ -1,4 +1,4 @@
-@extends('site.layouts.buckeye')
+@extends('site.layouts.company')
 
 @section('meta-title')
 Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
