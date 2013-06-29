@@ -1,15 +1,16 @@
 @extends('site.layouts.russ')
 
 @section('favicons')
-		<!-- Favicons
-		================================================== -->
+<!-- Favicons
+	================================================== -->
 
-<!-- It would be great generate these on the fly.  For now, they are located in X asset file -->
+<!-- It would be great generate these on the fly.  For now, they are located in asset file -->
+<!-- http://theksmith.com/technology/howto-website-icons-browsersdevices-favicon-apple-touch-icon-etc/ -->
 
-		<!-- http://theksmith.com/technology/howto-website-icons-browsersdevices-favicon-apple-touch-icon-etc/ -->
-		<!-- (this step is required for Android support, android ignores the non-pre-composed version): -->
+<!-- (this step is required for Android support, android ignores the non-pre-composed version): -->
+<!-- Which step? -->
 
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}}">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/{{{$company}}}ico/apple-touch-icon-144-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
@@ -41,17 +42,9 @@
 <style>
 
 /**
-
-
 h1.JUMBOTRON II
-
 p.
 t.span
-
-
-
-
-
 */
 
 /*Change the */
@@ -59,19 +52,13 @@ t.span
 	padding-left: 5%;
 }
 
-
 /* */
 .jumbotron h1{
 	font-size: 5em;
 	text-align: left;
 }
 
-
-
 </style>	      		
-
-
-
 
 <div class="jumbotron masthead">
 <div class="row">

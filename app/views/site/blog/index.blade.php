@@ -25,20 +25,19 @@
 
 	<div class="span6">
 
-		<p>Wanna see something kinda cool?</p>
-		<h3>This website is sort of alive.</h3>
-		<p>You can talk to it using the URL.</p>
-		<p>It can understand nouns and verbs.</p>
-		<p>Here are a few things you can try:</p>
+	<p>Here are a few things you can try:</p>
+	<h3>Security</h3>
 		<ul>
+			<li>About</li>
 			<li>Tools</li>
 			<li>Features</li>
 			<li>Security</li>
 			<li>Licensing</li>
 			<li>seo</li>
 			<li>search/seo</li>
-
 		</ul>
+
+		<p>You see, I have built a database of logic and structure for all of these topics.  Some pages integrate facebook.  Some integrate twitter.  Some integrate Google Products.  Here is a list of available API's:</p>
 		<p>In other words, type in:</p>
 		<ul>
 			<li>myapp.gristech.com/<b>tools</b></li>
@@ -46,6 +45,7 @@
 			<li>myapp.gristech.com/<b>seo</b></li>
 		</ul>
 
+		So those are views... but there are also controllers and underlying logic which pertain to each field.  For example, we can configure Google Analytics.
 		<p>You can also <b>force</b> it to use something, like this:</p>
 		<ul>
 			<li>myapp.gristech.com/<b>search/seo</b></li>

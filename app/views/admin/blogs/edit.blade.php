@@ -2,7 +2,7 @@
 
 {{-- Web site Title --}}
 @section('title')
-Blog Post Update ::
+Website Update ::
 @parent
 @stop
 
@@ -12,53 +12,138 @@ Blog Post Update ::
 
 <div class="page-header">
 					<h3>
-						Blog Management
-
+						Website Management
 						<div class="pull-right">
-							<a href="{{{ URL::to('admin/blogs/create') }}}" class="btn btn-small btn-info"><i class="icon-plus-sign icon-white"></i> Create</a>
-						</div>
-					</h3>
+			<a href="{{{ URL::to('admin/blogs/create') }}}" class="btn btn-small btn-info"><i class="icon-plus-sign icon-white"></i> Create</a>
+		</div>
+		<div class="pull-right">
+			<a href="{{{ URL::to('admin/blogs') }}}" class="btn btn-small btn-inverse"><i class="icon-circle-arrow-left icon-white"></i> Back to List</a>
+		</div>					
+		</h3>
+</div>
+
+
+<!-- <div class="page-header"> -->
+
+
+		
+
+
+
+
+<form class="form-horizontal" method="post" action="" autocomplete="off">
+	<!-- CSRF Token -->
+	<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+	<!-- ./ csrf token -->
+					
+<div class="span2 pull-left">
+	<ul class="nav nav-list">
+    <li class="nav-header">List header</li>
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#">Library</a></li>
+    </ul>
+</div>
+
+
+<img src="" alt="">
+<script type="text/javascript">
+
+
+$(document).ready(
+	function()
+	{
+		$('#blog').redactor();
+	}
+);
+
+
+    // $(function() {
+        // $('#blog').redactor({
+            // imageUpload: '/redactorUpload'
+        // });
+     // });
+</script>
+<div class="control-group">
+     <textarea name="body" id="blog">Demo</textarea>
+</div>
 					<h4>
 						<em>Title: </em>{{{ $post->title }}}
 					</h4>
 					<h5>
 						<em>Link: </em><a href="{{{ URL::to('blog/'.$post->slug) }}}">{{{ URL::to('blog/'.$post->slug) }}}</a>
 					</h5>
-
-
-
-					<ul class='tag'>
+					<h5>
+						Tags: <ul class='tag'>
 						<li><i class="icon-tag"></i> tags:</li>
 						@foreach($post->tags() as $tag)
 				    <li>{{ $tag }}</li>
 					    
 					@endforeach
 					</ul>
+					</h5>
 
+
+				<!-- Meta Title -->
+
+				<p>Meta Title is the text that appears at the top of the browser window when the user looks at your page. It also helps search engines understand what your page is about.  Therefore, it should be simple, descriptive, and use a keyword or two.</p>
+				<div class="control-group {{{ $errors->has('meta-title') ? 'error' : '' }}}">
+					<label class="control-label" for="meta-title">Meta Title</label>
+					<div class="controls">
+						
+						<input type="text" name="meta-title" id="meta-title" 
+
+						value="{{{ Input::old('meta-title', $post->meta_title) }}}" />
+						{{{ $errors->first('meta-title', '<span class="help-inline">:message</span>') }}}
+					</div>
+				</div>
+				<!-- ./ meta title -->
+
+				<!-- Meta Description -->
+				<p><i class="icon-facebook"></i> Meta Description is a 158 character summary of your post.  The Meta-Description may be displayed as the text for a google result, for example...</p>
+				<p>It is also used on facebook</p>
+
+				<div class="control-group {{{ $errors->has('meta-description') ? 'error' : '' }}}">
+					
+					<label class="control-label" for="meta-description">Meta Description</label>
+
+					<div class="controls">
+						<!-- <textarea class="full-width span10 wysihtml5" name="content" value="content" rows="20">{{{ Input::old('content', $post->content) }}}</textarea> -->
+					
+						<textarea class="full-width span10 wysihtml5" rows="4" name="meta-description" id="meta-description">{{{ Input::old('meta-description', $post->meta_description) }}}</textarea>
+
+						{{{ $errors->first('meta-description', '<span class="help-inline">:message</span>') }}}
+					</div>
 
 				</div>
+				<!-- ./ meta description -->
 
-<div class="page-header">
+				<!-- Meta Image -->
+	<!-- 			<div class="control-group {{{ $errors->has('meta-image') ? 'error' : '' }}}">
+					<label class="control-label" for="meta-image">Meta Image</label>
+					<div class="controls">
+						<input type="text" name="meta-image" id="meta-image" value="{{{ Input::old('meta-image', $post->meta_image) }}}" />
+						{{{ $errors->first('meta-image', '<span class="help-inline">:message</span>') }}}
+					</div>
+				</div> -->
+				<!-- ./ meta image -->
+
+				<!-- Meta Keywords -->
+				<p>Enter keywords and/or key phrases as a list separated by commas.  For example: "seo, php, security".  These also help your content appear correctly.  Your posts already automagically contain an internal tag that links your post to your site.  </p>
+				<p>Once thought to be important to SEO, google stopped using keywords in 2009.  More info soon...</p>
+				<p>The keywords tag is tied to tags on this site.  So, this is a comma-separated list of tags.  It works the same way in wordpress.</p>
+				
+
+				<div class="control-group {{{ $errors->has('meta-keywords') ? 'error' : '' }}}">
+					<label class="control-label" for="meta-keywords">Tags, aka<br>Meta Keywords</label>
 
 
+					<div class="controls">
+						<input type="text" name="meta-keywords" id="meta-keywords" value="{{{ Input::old('meta-keywords', $post->meta_keywords) }}}" />
+						{{{ $errors->first('meta-keywords', '<span class="help-inline">:message</span>') }}}
+					</div>
+				</div>
+				<!-- ./ meta keywords -->
 
-<!-- {{{ var_dump($post->tags()) }}} -->
-<style>
-
-/*	ul.tag li{
-	    display: inline;
-	    background-color: orange;
-	    padding: 5px;
-	}*/
-</style>
-		<div class="pull-right">
-			<a href="{{{ URL::to('admin/blogs') }}}" class="btn btn-small btn-inverse"><i class="icon-circle-arrow-left icon-white"></i> Back to Post List</a>
-		</div>
-
-<form class="form-horizontal" method="post" action="" autocomplete="off">
-	<!-- CSRF Token -->
-	<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-	<!-- ./ csrf token -->
 
 
  <div class="accordion" id="accordion">
@@ -201,7 +286,7 @@ Blog Post Update ::
  			</div>
  		</div>
  	</div>
- </div>
+ <!-- </div> -->
 
 
 

@@ -1,16 +1,15 @@
-@extends('site.layouts.default')
+@extends('site.layouts.company')
 
 {{-- Update the Meta Title --}}
 @section('meta_title')
-
 Buckeye Mower - Mobile Mower Services
  <!-- String::title($post->title) }}} -->
-@show
+@stop
 
 {{-- Update the Meta Description --}}
 @section('meta_description')
 <meta name="description" content="Buckeye Mower offers engine repair services in Columbus Ohio." />
-<!-- {{{$post->content}}}? -->
+<!-- $post->content}}}? -->
 @stop
 
 {{-- Update the Meta Keywords --}}
@@ -40,11 +39,13 @@ Buckeye Mower - Mobile Mower Services
 </style>
 
 
-@show
+@stop
 
 @section('favicons')
 		<!-- Favicons
 		================================================== -->
+
+<!-- http://www.jonathantneal.com/blog/understand-the-favicon/ -->
 
 <!-- It would be great generate these on the fly.  For now, they are located in X asset file -->
 
@@ -61,15 +62,15 @@ Buckeye Mower - Mobile Mower Services
 		<link rel="shortcut icon" href="{{{ asset('assets/ico/buckeye/favicon.png') }}}">
 
 		<!-- hardy har -->		
-@show
+@stop
+
+@section('nav')
+@include('site.partials.nav-top-inverse')
+@stop
 
 {{-- Content --}}
 @section('content')
 <!-- @parent -->
-	@section('nav')
-	@include('site.partials.nav-top')
-
-	@show
 
 
-@show
+@stop

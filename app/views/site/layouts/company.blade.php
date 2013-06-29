@@ -2,7 +2,8 @@
 
 {{-- Update the Meta Title --}}
 @section('meta_title')
-Company Name
+@parent
+Company: {{$company}}
  <!-- String::title($post->title) }}} -->
 @stop
 
@@ -21,7 +22,7 @@ Company Name
 @parent
 <!-- //http://colorschemedesigner.com/#3711Tw0w0w0w0 -->
 <!-- \@ stylesheets("public-css") -->
-	<link rel="stylesheet" href="/assets/css/style.css">
+	<!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
 
 	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
@@ -43,7 +44,7 @@ Company Name
 </style>
 
 
-@show
+@stop
 
 @section('favicons')
 		<!-- Favicons
@@ -62,6 +63,15 @@ Company Name
 		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
 		<!-- <link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}"> -->
 		<link rel="shortcut icon" href="{{{ asset('assets/ico/buckeye/favicon.png') }}}">
+		<link rel="icon" href="{{{ asset('assets/ico/buckeye/favicon.png') }}}">
+
+
+<!-- <link rel="apple-touch-icon" href="path/to/touchicon.png"> -->
+<!-- <link rel="icon" href="path/to/favicon.png"> -->
+  <!--[if IE]><link rel="shortcut icon" href="path/to/favicon.ico"><![endif]-->
+  <!-- or, set /favicon.ico for IE10 win -->
+<!-- <meta name="msapplication-TileColor" content="#D83434"> -->
+<!-- <meta name="msapplication-TileImage" content="path/to/tileicon.png"> -->
 
 		<!-- hardy har -->		
 @stop

@@ -1,10 +1,13 @@
 		<style>
+		body{
+			padding-top: 60px;
+		}
 		.navbar-fixed-top{
 			position:fixed;
 		}
-		.brand{
+/*		.brand{
 			margin-left: 30px;
-		}
+		}*/
 		</style>
 		<div class="navbar navbar-inverse navbar-fixed-top">
 
@@ -21,8 +24,9 @@
 					</a>
 
 					<?php 
-					$company='';
-					$company="MegaCorp"; ?>
+					if(!$company){
+					$company="MegaCorp";
+					} ?>
 					<a class="brand" href="#">{{{$company}}}</a>
 
 					<div class="nav-collapse collapse">
@@ -32,8 +36,9 @@
 						<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
 
 						<?php 
-						$menus= array();
+						if(!$menus){
 						$menus=array('','tools','features','tags');
+						}
 						?>
 
 						@foreach ($menus as $menu)

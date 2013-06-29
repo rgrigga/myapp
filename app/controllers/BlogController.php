@@ -111,7 +111,7 @@ class BlogController extends BaseController {
 				// $myphotos->paginate(10);
 			$posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
 			// $data = array();
-			return View::make('site/blog/index', compact('posts'),compact('tags'),compact('alltags'),compact('photos'));
+			return View::make('site/blog/index', array(compact('posts'),compact('tags'),compact('alltags'),compact('photos')));
 		}
 		// Show the page
 		// return View::make('site/blog/index', compact('posts'));

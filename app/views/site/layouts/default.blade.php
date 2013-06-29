@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-<!-- meta -->
+<html lang="en">
+
+<?php
+$company="gristech";
+$menus=array('foo','bar');
+?>
+<!-- 
+	meta -->
 <!-- CSS/styles -->
 <!-- JS -->
 
@@ -10,19 +17,17 @@
 <h4>meta-keywords</h4>
 <h3>Styles</h3> 
 -->
-
-<html lang="en">
 	<head>
 		<!-- Basic Page Needs
 		================================================== -->
 		<meta charset="utf-8" />
 		<title>
 			@section('meta-title')
-			Gristech Default Layout
-			<!-- should be overridden in children -->
+			Default
 			@show
 		</title>
-
+			<!-- Gristech Default Layout -->
+			<!-- should be overridden in children -->
 
 {{-- Update the Meta Title --}}
 <!-- @section('meta_title') -->
@@ -65,28 +70,27 @@
 <!-- font-awesome -->
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
 
-<style>
+
+	<style>
 	/*http://css-tricks.com/almanac/properties/z/z-index/*/
+
 		.mycontentwrap{
 			margin-top: 40px;
 			position: relative;
 			/*z-index: -3;*/
 		}
 	</style>
-
 @show
 
 <!-- prettify -->
 <!-- NOTE: I had an experience with a lengthy pageload on this today.  It's a good lesson NOT to include prettify on the main layout page.  Load it in a child page where you need it. -->
 <!-- <link href="prettify.css" type="text/css" rel="stylesheet" /> -->
 
-@section('js')
+@section('myjs')
 <!-- I prefer to keep javascript to a minimum when possible. -->
 <!-- <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&amp;skin=sunburst&amp;lang=css"></script> -->
 
 <!-- google.com/analytics -->
-
-
 @show
 
 @section('favicons')
@@ -98,6 +102,8 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 
 <!-- http://theksmith.com/technology/howto-website-icons-browsersdevices-favicon-apple-touch-icon-etc/ -->
 <!-- (this step is required for Android support, android ignores the non-pre-composed version): -->
+
+<!-- http://www.jonathantneal.com/blog/understand-the-favicon/ -->
 
 		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}}">
@@ -118,9 +124,9 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
   ga('create', 'UA-41528506-1', 'gristech.com');
   ga('send', 'pageview');
 </script>
+<meta name="google-site-verification" content="U8zCfNgj-23MojmUwyxkij6AqrU30NWhgJgTtiBl3WI" />
 @show
 
-<meta name="google-site-verification" content="U8zCfNgj-23MojmUwyxkij6AqrU30NWhgJgTtiBl3WI" />
 </head>
 
 <!-- body -->
@@ -128,11 +134,10 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 <!-- To make sticky footer need to wrap in a div -->
 	<div id="wrap">
 <!-- http://twitter.github.io/bootstrap/examples/sticky-footer-navbar.html -->
-	@section('nav')
-	@include('site.partials.nav-top-inverse')
-	@show
+		@section('nav')
+		@include('site.partials.nav-top-inverse')
+		@show
 
-	
 		<!-- Container -->
 		<div class="container-fluid">
 			<!-- Notifications -->
@@ -149,27 +154,20 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 		<!-- this sticky footer is broken.  there is a working example at bootstrap -->
 			<div id="push"></div>
 		</div>
-		<!-- ./ container -->
+		<!-- ./ container-fluid -->
+	</div>
 		<!-- ./wrap -->
 
 
-		    <div id="footer">
-
-
-
-				<div class="container">
-
-				        
-
-				      
-				<!-- <span><a href="http://en.wikipedia.org/wiki/Perpetual_beta">Always Beta</a></span> -->
-
-				</div>
-
+	    <div id="footer">
+			<div class="container">
+			<span><a href="http://en.wikipedia.org/wiki/Perpetual_beta">Always Beta</a></span>
 			</div>
 
-	    </div>
+		</div>
 
+
+	    <!-- //wrap -->
 
 		<!-- Javascripts
 		================================================== -->

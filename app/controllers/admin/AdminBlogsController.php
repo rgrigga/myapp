@@ -105,8 +105,16 @@ class AdminBlogsController extends AdminController {
             $this->post->slug             = Str::slug(Input::get('title'));
             $this->post->content          = Input::get('content');
             // var_dump(Input::get('image'));
-            $this->post->image            = Input::get('image');
-            $this->post->meta_title       = Input::get('meta-title');
+
+            if(!Input::get('image')){
+                $this->post->image='brand.png';
+            }
+            else{
+                $this->post->image            = Input::get('image');    
+            }
+            
+// Changed this from meta-title to make the title seo stuff work! --->
+            $this->post->meta_title       = Input::get('title');
             $this->post->meta_description = Input::get('meta-description');
             $this->post->meta_keywords    = Input::get('meta-keywords');
             $this->post->user_id          = $user->id;

@@ -166,7 +166,8 @@ p{
     background-color: rgba(36,136,41,0.5);
 }
 .navbar-inverse{
-    background-color: green;
+    background-color: red;
+    height:200px;
 /*padding-right: 20px;*/
     /*These correct a problem with the responsive margin:*/
     /*margin-right:0;*/

@@ -26,6 +26,14 @@
 		body {
 			padding: 60px 0;
 		}
+
+		/*http://stackoverflow.com/questions/5506258/horizontal-scroll-overflowing-html-lis-without-knowing-width*/
+		ul.tag li{
+		    display: inline-block;
+		    background-color: orange;
+		    padding: 5px;
+		    margin:2px;
+		}
 		</style>
 		@show
 
@@ -41,6 +49,13 @@
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
 		<link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}">
+
+
+
+<!-- redactor -->
+<link rel="stylesheet" href="/assets/js/redactor/redactor.css" />
+<script src="/assets/js/redactor/redactor.js"></script>
+
 	</head>
 
 

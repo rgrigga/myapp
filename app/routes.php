@@ -16,14 +16,28 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
     // die("BAM!");
     
     Route::get('/{tag}', 'CompanyController@getIndex');
+
     Route::get('/', function(){
         $name='buckeye';
-        return View::make('site/'.$name.'/home');
+        return View::make('site/'.$name.'/home',array(
+            'company'=>'Buckeye Mower',
+            'menus'=>array('#services','#contact','#about')
+            ));
     });
     
     // Route::controller('russ','RussController');
 
     //Set group to 
+});
+
+// Redactor Blog Upload
+Route::post('redactorUpload', function()
+{
+    $file = Input::file('file');
+    $fileName = $file->getClientOriginalName();
+
+    $file->move(public_path().'/img', $fileName);
+    return Response::json(array('filelink' => '/img/' . $fileName));
 });
 
 // Route::get('advantage'),function()

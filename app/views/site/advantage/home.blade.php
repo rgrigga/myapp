@@ -1,4 +1,4 @@
-@extends('site.layouts.advantage')
+@extends('site.layouts.company')
 
 {{-- Update the Meta Title --}}
 @section('meta_title')
@@ -17,11 +17,6 @@
 @parent
 <!-- <meta name="keywords" content="Lawn Mower Repair, Lawn Mower Service" /> -->
 @stop
-
-
-
-
-
 
 @section('styles')
 @parent
@@ -64,6 +59,10 @@
 		<link rel="shortcut icon" href="{{{ asset('assets/ico/buckeye/favicon.png') }}}">
 
 		<!-- hardy har -->		
+@stop
+
+@section('nav-top')
+<h1>nav</h1>
 @stop
 
 {{-- Content --}}

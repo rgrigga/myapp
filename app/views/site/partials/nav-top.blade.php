@@ -2,6 +2,9 @@
 		.navbar-fixed-top{
 			position:fixed;
 		}
+		.body{
+			padding-top: 60px;
+		}
 		</style>
 		<div class="navbar navbar-fixed-top">
 
@@ -16,8 +19,10 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</a>
-
-					<a class="brand" style="margin-left:30px;" href="#">Company</a>
+					<?php 
+						if(!$company){$company="MegaCorp";} 
+					?>
+					<a class="brand" style="margin-left:30px;" href="#">{{{$company}}}</a>
 
 					<div class="nav-collapse collapse">
 						
@@ -26,9 +31,9 @@
 						<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
 
 						<?php 
-						$menus= array();
-						//this is the main navigation menu
+						if(!$menus){
 						$menus=array('','tools','features','tags');
+						}
 						?>
 
 						@foreach ($menus as $menu)

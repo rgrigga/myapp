@@ -56,7 +56,7 @@ return array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
 			'database'  => 'gristech_myapp6',
-			'username'  => 'gristech_foo',
+			'username'  => 'gristech_myapp6',
 			'password'  => 'JLEgriss22',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
