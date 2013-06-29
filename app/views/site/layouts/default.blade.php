@@ -22,7 +22,7 @@ $menus=array('foo','bar');
 		================================================== -->
 		<meta charset="utf-8" />
 		<title>
-<<<<<<< HEAD
+<!-- <<<<<<< HEAD -->
 			@section('meta-title')
 			Default
 			@show
@@ -57,7 +57,7 @@ $menus=array('foo','bar');
 
 <!-- // branding -->
 <!-- // marketing-->
-=======
+<!-- ======= -->
 			@section('title')
 			Gristech MyApp
 			@show
@@ -77,14 +77,14 @@ $menus=array('foo','bar');
     @stylesheets("public-css")
 		
 		<link rel="stylesheet" href="/assets/css/style.css">
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
+<!-- >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3 -->
 
 <!-- CSS================================================== -->
 @section('styles')
 @stylesheets("public-css") <!-- //interesting... -->	
 <link rel="stylesheet" href="/assets/css/style.css">
 
-<<<<<<< HEAD
+<!-- <<<<<<< HEAD -->
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -117,7 +117,7 @@ $menus=array('foo','bar');
 @show
 
 @section('favicons')
-=======
+<!-- ======= -->
 <!-- prettify -->
 <!-- <link href="prettify.css" type="text/css" rel="stylesheet" /> -->
 <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&amp;skin=sunburst&amp;lang=css"></script>
@@ -126,7 +126,7 @@ $menus=array('foo','bar');
 <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
 
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
+<!-- >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3 -->
 		<!-- Favicons
 		================================================== -->
 
@@ -138,21 +138,22 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 
 <!-- http://www.jonathantneal.com/blog/understand-the-favicon/ -->
 
+
 		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
 
 		<link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}">
-<<<<<<< HEAD
+<!-- <<<<<<< HEAD -->
 
 		<!-- hardy har -->		
 @show
 
 @section('analytics')
-=======
+<!-- ======= -->
 		<meta name="google-site-verification" content="U8zCfNgj-23MojmUwyxkij6AqrU30NWhgJgTtiBl3WI" />
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
+<!-- >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3 -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -176,7 +177,7 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 		@section('nav')
 		@include('site.partials.nav-top-inverse')
 		@show
-=======
+<!-- ======= -->
 
 </script>
 	</head>
@@ -259,14 +260,14 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 			</div>
 		</div>
 		<!-- ./ navbar -->
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
+<!-- >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3 -->
 
 		<!-- Container -->
 		<div class="container-fluid">
 			<!-- Notifications -->
 			@include('notifications')
 			<!-- ./ notifications -->
-<<<<<<< HEAD
+<!-- <<<<<<< HEAD -->
 
 			<div class="mycontentwrap">
 				<!-- Content -->
@@ -292,7 +293,7 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 
 
 	    <!-- //wrap -->
-=======
+<!-- ======= -->
 			<style>
 			/*http://css-tricks.com/almanac/properties/z/z-index/*/
 			.contentwrap{
@@ -344,7 +345,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, cumque pr
 	      </div>
 
 	    </div>
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
+<!-- >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3 -->
 
 <a href="/whyresponsive">
 <div class="hotel hotelb">
