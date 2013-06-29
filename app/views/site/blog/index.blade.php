@@ -11,7 +11,6 @@
 
 {{-- Content --}}
 @section('content')
-<<<<<<< HEAD
 
 <div class="spacer" style="margin-top:80px;"></div>
 
@@ -689,7 +688,7 @@ BLAH BLAH
 				</div>
 				<!-- span8 -->
 			</div>
-=======
+<!-- ======= -->
 			</div>
 			<!-- ./ post content -->
 
@@ -719,7 +718,7 @@ BLAH BLAH
 				</div>
 				<!-- span8 -->
 			</div>
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
+<!-- >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3 -->
 			<!-- row -->
 			<!-- ./ post footer -->
 		</div>
