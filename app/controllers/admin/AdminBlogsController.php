@@ -104,11 +104,13 @@ class AdminBlogsController extends AdminController {
             $this->post->content          = Input::get('content');
             // var_dump(Input::get('image'));
 
+            die($user->group);
+
             if(!Input::get('image')){
-                $this->post->image='brand.png';
+                $this->post->image=$company.".png";
             }
             else{
-                $this->post->image            = Input::get('image');    
+                $this->post->image = Input::get('image');    
             }
             
 // Changed this from meta-title to make the title seo stuff work! --->
