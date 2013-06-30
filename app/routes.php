@@ -16,7 +16,7 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
 {
     // die("BAM!");
     
-    Route::get('/{tag}', 'CompanyController@getIndex');
+    // Route::get('/{tag}', 'CompanyController@getIndex');
 
     Route::get('/', function(){
         $name='buckeye';

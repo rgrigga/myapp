@@ -504,8 +504,9 @@ BLAH BLAH
 				</div>
 			</div>
 			<!-- ./ post title -->
-
-=======
+@endforeach
+</div>
+<!-- ======= -->
 
 	<!-- Main hero unit for a primary marketing message or call to action -->
 <div class="hero-unit">
@@ -628,7 +629,7 @@ BLAH BLAH
 			</div>
 			<!-- ./ post title -->
 
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
+<!-- >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3 -->
 			<!-- Post Content -->
 			<div class="row">
 				<div class="span3">
@@ -658,7 +659,7 @@ BLAH BLAH
 					</p>
 
 				</div>
-<<<<<<< HEAD
+<!-- <<<<<<< HEAD -->
 			</div>
 			<!-- ./ post content -->
 

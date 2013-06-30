@@ -10,7 +10,7 @@ Create a New Blog Post ::
 @section('content')
 <div class="page-header">
 	<h3>
-		Create Something Beautiful
+		Create Something <em>Awesome</em>
 
 		<div class="pull-right">
 			<a href="{{{ URL::to('admin/blogs') }}}" class="btn btn-small btn-inverse"><i class="icon-circle-arrow-left icon-white"></i> Back</a>
