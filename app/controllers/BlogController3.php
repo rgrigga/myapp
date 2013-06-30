@@ -2,18 +2,6 @@
 
 //http://www.coderanch.com/t/443740/patterns/UML-multiple-inheritance-domain-model
 
-// http://www.vogella.com/articles/Git/article.html
-// http://www.vogella.com/articles/Git/article.html#gitpushbranch
-
-
-//  In general using the stash command should be the exception in using Git. Typically you would create new branches for new features and switch between branches. You can also commit frequently in your local Git repository and use interactive rebase to combine these commits later before pushing them to another Git repository.
-// Tip
-
-// You can avoid using the git stash command. In this case you commit the changes you want to put aside and use the git commit --amend command to change the commit later. If you use the approach of creating a commit, you typically put a marker in the commit message to mark it as a draft, e.g. "[DRAFT] implement feature x".
-
-// http://gitref.org/branching/
-
-
 class BlogController extends BaseController {
 
     /**
@@ -295,37 +283,4 @@ class BlogController extends BaseController {
 	// 	return $first_img;
 	// }
 
-//REDACTOR
-
-// <script>$('#editor').redactor({ imageUpload: "/{{$post->id}}/postimage"});</script>
-
-	// http://stackoverflow.com/questions/16736196/how-to-use-redactor-image-upload-in-laravel-4?rq=1
-
-	public function postImage($blogId) 
-	{
-
-	    $path = base_path().'/public/uploads/img/posts/' . (int)$blogId;
-
-	    $image = Input::file('photo');
-
-	    if (Input::hasFile('photo'))
-	    {
-	        $fileName = $file->getClientOriginalName();
-
-	        $image->move($path,$fileName);
-	        $image = new Image;
-	        $image->name = $fileName.name;
-	        $image->save();
-
-	        // resizing an uploaded file
-	        Image::make($image->getRealPath())->resize(300, 200)->save($path.'thumb-'.$fileName);
-	        Image::make($image->getRealPath())->resize(300, 200)->save($path.'thumb-'.$fileName);
-
-	        // Return Image path as JSON
-	       if ($file->move($path, $fileName))
-	       {
-	           return Response::json(array('filelink' => $path . '/' . $fileName));
-	       }
-	    }
-	}
 }
