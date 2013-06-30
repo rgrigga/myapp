@@ -18,6 +18,8 @@
 <div class="page-header">
 	<h1>Login into your account here</h1>
 </div>
+
+<p>By the way, we only ask for email to verify that you are you.  You can also login with Google.</p>
 <form method="POST" action="{{ URL::to('user/login') }}" accept-charset="UTF-8">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <fieldset>
