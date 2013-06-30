@@ -15,20 +15,22 @@
 
 		<!-- Mobile Specific Metas
 		================================================== -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- CSS
 		================================================== -->
         {{ Basset::show('admin-css.css') }}
 
-		
+// http://stackoverflow.com/questions/5506258/horizontal-scroll-overflowing-html-lis-without-knowing-width*/
 		@section('styles')
 		<style>
-		body {
-			padding: 60px 0;
+		.page-header{
+			margin-top: 60px;
 		}
-
-		/*http://stackoverflow.com/questions/5506258/horizontal-scroll-overflowing-html-lis-without-knowing-width*/
+/*		body {
+			padding: 60px 0;
+		}*/
+		
 		ul.tag li{
 		    display: inline-block;
 		    background-color: orange;
@@ -38,20 +40,6 @@
 		</style>
 		@show
 
-
-
-		
-		@section('styles')
-		<style>
-		.page-header{
-			margin-top: 60px;
-		}
-/*		body {
-			padding: 60px 0;
-		}*/
-		</style>
-		@show
-		
 <link rel="stylesheet" href="/assets/css/style.css">
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
@@ -73,7 +61,6 @@
 <script src="/assets/js/redactor/redactor.js"></script>
 
 	</head>
-
 
 	<body>
 
@@ -105,10 +92,6 @@
 							<ul class="nav">
 								<li{{ (Request::is('admin') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin') }}}"><i class="icon-home icon-white"></i> Home</a></li>
 								<li{{ (Request::is('admin/blogs*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/blogs') }}}"><i class="icon-list-alt icon-white"></i> Blog</a></li>
-
-								<li{{ (Request::is('admin/blogs/create*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/blogs/create') }}}"><i class="icon-bullhorn icon-white"></i> New Post</a></li>
-
-
 								<li{{ (Request::is('admin/comments*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/comments') }}}"><i class="icon-bullhorn icon-white"></i> Comments</a></li>
 								<li class="dropdown{{ (Request::is('admin/users*|admin/roles*') ? ' active' : '') }}">
 									<a class="dropdown-toggle" data-toggle="dropdown" href="{{{ URL::to('admin/users') }}}">
@@ -167,11 +150,8 @@ padding-top: 60px;
 			<!-- Content -->
 			@yield('content')
 			<!-- ./ content -->
-</div>
 		</div>
 		<!-- ./ container -->
-</div>
-<!-- ./ wrap -->
 
 		<!-- Javascripts
 		================================================== -->

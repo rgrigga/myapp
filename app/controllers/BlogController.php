@@ -2,6 +2,18 @@
 
 //http://www.coderanch.com/t/443740/patterns/UML-multiple-inheritance-domain-model
 
+// http://www.vogella.com/articles/Git/article.html
+// http://www.vogella.com/articles/Git/article.html#gitpushbranch
+
+
+//  In general using the stash command should be the exception in using Git. Typically you would create new branches for new features and switch between branches. You can also commit frequently in your local Git repository and use interactive rebase to combine these commits later before pushing them to another Git repository.
+// Tip
+
+// You can avoid using the git stash command. In this case you commit the changes you want to put aside and use the git commit --amend command to change the commit later. If you use the approach of creating a commit, you typically put a marker in the commit message to mark it as a draft, e.g. "[DRAFT] implement feature x".
+
+// http://gitref.org/branching/
+
+
 class BlogController extends BaseController {
 
     /**
@@ -10,7 +22,7 @@ class BlogController extends BaseController {
      * @var Tags
      */
     protected $tags;
- 
+
     /**
      * Post Model
      * @var Post
@@ -45,6 +57,11 @@ class BlogController extends BaseController {
 	{
 		return self::getIndex('$tag');
 	}
+
+
+
+
+
     
 // process a many to many relationship amongst tags
 
@@ -55,9 +72,6 @@ class BlogController extends BaseController {
 	 */
 	public function getIndex($tag="")
 	{
-
-
-
 
 		$alltags=array();		
 
@@ -90,6 +104,7 @@ class BlogController extends BaseController {
 
 			}			
 			
+			
 			// die(var_dump(count($posts)));
 
 			if(count($posts)==0){
@@ -104,9 +119,11 @@ class BlogController extends BaseController {
 		// $posts = $this->post->where('tag','seo');
 		// Get all the blog posts
 		else{
-
+			// $myphotos=self::listImages("screen/");
+			// $photos=Paginator::make($myphotos,count($myphotos),10);
+				// $myphotos->paginate(10);
 			$posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
-			return View::make('site/blog/index', compact('posts'),compact('tags'),compact('alltags'));
+			return View::make('site/blog/index', compact('posts'),compact('tags'),compact('alltags'),compact('photos'));
 		}
 		// Show the page
 		// return View::make('site/blog/index', compact('posts'));
@@ -164,7 +181,6 @@ class BlogController extends BaseController {
 
 		return View::make('site/blog/tags', compact('posts'),compact('tags'));
 	}
-
 
 
 	/**
@@ -266,7 +282,6 @@ class BlogController extends BaseController {
 
 	//return posts where has tag
 
-// <<<<<<< HEAD
 	// public function catch_that_image() {
 	// 	// global $post, $posts;
 	// 	$first_img = '';
@@ -281,6 +296,37 @@ class BlogController extends BaseController {
 	// 	return $first_img;
 	// }
 
-// =======
-// >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
+//REDACTOR
+
+// <script>$('#editor').redactor({ imageUpload: "/{{$post->id}}/postimage"});</script>
+
+	// http://stackoverflow.com/questions/16736196/how-to-use-redactor-image-upload-in-laravel-4?rq=1
+
+	public function postImage($blogId) 
+	{
+
+	    $path = base_path().'/public/uploads/img/posts/' . (int)$blogId;
+
+	    $image = Input::file('photo');
+
+	    if (Input::hasFile('photo'))
+	    {
+	        $fileName = $file->getClientOriginalName();
+
+	        $image->move($path,$fileName);
+	        $image = new Image;
+	        $image->name = $fileName.name;
+	        $image->save();
+
+	        // resizing an uploaded file
+	        Image::make($image->getRealPath())->resize(300, 200)->save($path.'thumb-'.$fileName);
+	        Image::make($image->getRealPath())->resize(300, 200)->save($path.'thumb-'.$fileName);
+
+	        // Return Image path as JSON
+	       if ($file->move($path, $fileName))
+	       {
+	           return Response::json(array('filelink' => $path . '/' . $fileName));
+	       }
+	    }
+	}
 }
