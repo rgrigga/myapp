@@ -2,6 +2,8 @@ notes2.blade.php
 @extends('site.layouts.default')
 @section('content')
 
+<!-- //Wow.  All I can say is "thank you". -->
+
 <!-- http://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ -->
 
 <style>
@@ -23,14 +25,10 @@ notes2.blade.php
   		/*border-color: #4C58AD;*/
 	/*}*/
 
-
-
-
 </style>
 
 
 <div class="jumbotron masthead">
-
 
 	<h1>Notes<small> where I cut and paste stuff</small></h1>
 	<!-- <h2>blah</h2> -->
@@ -149,7 +147,7 @@ p.photocredit {
 <div class="span2 pull-right text-center foxtrot">
 	      			<!-- <a href="http://http://www.siteground.com/"> -->
 
-					<h3>How to set up Sublime Text, Github, Filezilla, Remote Webhost over SFTP (SSH) with a Laravel 4 Web Application.</h3>
+<h3>How to set up Sublime Text, Github, Filezilla, Remote Webhost over SFTP (SSH) with a Laravel 4 Web Application.</h3>
 <p>
 
 I have an existing project under development.  I am switching workstations.  I want to move my project from Computer A to Computer B.  Here it is in just a few minutes:
@@ -252,7 +250,6 @@ wordpress vs. TDD
 wordpress vs. Jeffrey Way
 
 
-
     <code><pre>return View::make('you'('Winner/Laravel')</pre> </code>
 
 Wordpress MVC Laravel MVC
@@ -260,8 +257,6 @@ Wordpress MVC Laravel MVC
 <a href="http://laravel.com/" title="Laravel Features" target="_blank">http://laravel.com/</a>
 
 Wordpress is my preferred blog tool, except for the bugs... 
-
-
 
 Why re-write any code that you don't have to?  Use the program, or one of it's available plugins.  Make your own plugin.  Make your own theme.  Re-use it.
 
@@ -341,11 +336,7 @@ Thank you and all for the same!
 // 		// $navpath = Url::to($input);
 // 	}
 
-
-
-
 ?>
-
 
 <ul class="thumbnails">
 	<li class="span4">
@@ -375,10 +366,8 @@ As a result, today, such manipulations usually result in less rather than more s
 	</li>
 </ul>
 
-<h3>Today's Links</h3>
+<h3>A collection of Links:</h3>
 <ul>
-
-
 <li><a href="http://www.wprecipes.com/how-to-get-the-first-image-from-the-post-and-display-it">http://www.wprecipes.com/how-to-get-the-first-image-from-the-post-and-display-it</a>
 </li>
 <li><a href="http://www.score.org/resources/online-presence-toolkit">http://www.score.org/resources/online-presence-toolkit</a></li>
@@ -392,6 +381,7 @@ As a result, today, such manipulations usually result in less rather than more s
 </ul>
 
 <div class="note">
+	<h2>Exciting possibilities:</h2>
 	<a href="http://en.wikipedia.org/wiki/Handwriting_recognition#Software">http://en.wikipedia.org/wiki/Handwriting_recognition#Software </a>
 	<a href="http://risujin.org/cellwriter/">CellWriter </a>
 	<p>is an Open Source handwriting recognition program written for Linux. It was developed primarily by Michael Levin, working under the University of Minnesota's Undergraduate Research Opportunity Program. CellWriter is designed to be writer-dependent, so input training is required prior to use. It includes an English word-recognition engine to aid recognition accuracy, an on-screen keyboard and the ability to fine tune or correct mistakes through a context menu. Unlike most recognition engines, the source code and algorithms are available and free to download.</p>
@@ -403,14 +393,12 @@ User logs in using demo/demo as password.  authenticate as demo.  no email.
 
 <pre>
 security
-
 https://howsecureismypassword.net/
 
 oath2.0
 http://brentertainment.com/oauth2/
 
 linux
-
 https://www.google.com/search?client=ubuntu&channel=fs&q=linux+security&ie=utf-8&oe=utf-8
 
 javascript security
@@ -436,9 +424,22 @@ $('table').append('<tr title="'+row.title+'"><td>'+row.description+'</td></tr>')
 
 This is just as vulnerable as server-side HTML injection and authors really need to stop building content this way. You can HTML-encode text content at the client side, but since JS doesn't have a built-in HTML encoder you'd have to do it yourself:
 
-function encodeHTML(s) {
-    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
-}
+<!-- //A custom function to ease the woes of prettyprint: -->
+<?php
+	function mycode($input = "", $lang = ""){
+
+	$mycode =  e($input);
+	if ($lang){
+		$lang = " lang=".$lang;
+	}
+	"<pre class='prettyprint>".$lang."'><code>".$input."</code></pre>";
+	return $mycode;
+	}
+?>
+
+<pre><code>{{e("function encodeHTML(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/\"/g, '&quot;');
+")}}</code></pre>
 
 somediv.innerHTML= '<p>Hello, '+encodeHTML(name)+'</p>';
 
@@ -455,10 +456,8 @@ $('table').append(
     )
 );"
 
-What do you think about this?  Please elaborate!
+//note to all: What do you think about this?  Please elaborate!
 </pre>
-
-
 
 <a href="http://www.bythecutlawncare.com/manatee-county-grass-cutting-service/">grass cutting</a>
 
@@ -492,7 +491,7 @@ public function listImages($dir){
 }
 
 // $myphotos=self::listImages("screen/");
-			// $photos=Paginator::make($myphotos,count($myphotos),10);
+// $photos=Paginator::make($myphotos,count($myphotos),10);
 </pre>
 
 		@foreach ($photos as $myfile)
@@ -509,12 +508,8 @@ public function listImages($dir){
       		<img src="http://gristech.com/img/thinker.png" alt="">
       		<p class="muted credit">p.muted credit</p>
 
-
     	<!-- </div> -->
 	</li>
-
-
-
 
 <li>
 	<pre>
@@ -533,27 +528,25 @@ Google
 
 The answers all get consolidated at Stack Overflow.
 
+//scrollspy menu here
 
-scrollspy menu here
 
-
+Development Environment/Hardware:
 I configured Unubtu 12.04 LTS 64bit Dual Boot with Windows 7.  
 
-After testing both environments, I find linux is better than windows for one main reason:
-The internet works on linux, so all the conventions are already established.  If 
-you want to run a local machine, upload files to a web server, etc., it's all got to be done 
-in linux.  80% of webservers use it for a reason.
+After testing both environments, I find linux is better than windows for one main reason:  COMMUNITY.
 
-Read about <a href="{{URL::to('security')}}"></a>
+The internet works on linux, so all the conventions are already established.  If 
+you want to run a local machine, upload files to a web server, etc., it's all got to be done in linux.  80% of webservers use it for a reason.
+
+Read about <a href="{{URL::to('security')}}">Security</a>
 
 Windows 
-offers a GUI and therefore it feels easy to work with.  However, there are certain limits
-you will encounter later if you switch.  You'll have to re-learn it.  Unless you are
-trapped in a windows environment, there is no reason to continue to use it.
+Offers a GUI for everything, and therefore it feels easy to work with.  However, there are certain limits you will encounter later if you want to switch, which you will.  You'll have to re-learn it.  Unless you are trapped in a windows environment, there is no reason to continue to use it.
 
-Consider  I am thoroughly convinced that
+After having tested both, I am thoroughly convinced that Linux is well worth the jump.
 
-
+//link to linux vs windows...
 
 <!-- //collapsing accordian buttons -->
 
@@ -691,13 +684,11 @@ Initialized empty Git repository in /home/ryan/gristech/.git/
 	</pre>
 </code>
 
-
 In fact, if your server disk gets corrupted, you can use any of the clones on any client to set the server back to the state it was in when it was cloned (you may lose some server-side hooks and such, but all the versioned data would be there — see Chapter 4 for more details)
 
 It's automatically backed up to the cloud.
 
-
-Composer
+<h3>Composer</h3>
 curl -sS https://getcomposer.org/installer | php
 
 1. <a href="http://getcomposer.org/doc/01-basic-usage.md#installation">Step 1</a>
@@ -726,19 +717,16 @@ composer.json
 	</code>
 </pre>
 
+<pre><code>
 ryan@Grisbuntu:~/gristech-dev$ mkdir public
 ryan@Grisbuntu:~/gristech-dev$ chmod -R 777 public
+</code></pre>
 
-
-
-
-rom the correct directory, place the 
+From the correct directory, place the 
 http://stackoverflow.com/questions/12448912/apache-mod-rewrite-for-laravel
 
-</pre>
-
-</li>
-
+</pre>//yuck
+</li>//yuck
 
   <li class="span3">
     <div class="thumbnail delta">
@@ -752,37 +740,20 @@ http://stackoverflow.com/questions/12448912/apache-mod-rewrite-for-laravel
       <h3>Search</h3>
       <img src="http://gristech.com/img/screen/scr.1465.png" alt="">
       <p>
-
 			<a href="http://www.thesitewizard.com/archive/searchengine.shtml">3 Ways of putting search on your site</a>
       </p>
 
     </div>
-  </li>
-     <li class="span3">
-    <div class="thumbnail delta">
-      <h3>Domain Names</h3>
-      <img src="http://gristech.com/img/screen/scr.1465.png" alt="">
-      <p>Thumbnail caption...</p>
-    </div>
-  </li>
-     <li class="span3">
-	    <div class="thumbnail delta">
-	      <h3>Domain Names</h3>
-	      <img src="http://gristech.com/img/screen/scr.1465.png" alt="">
-	      <p>Thumbnail caption...</p>
-	    </div>
-  	</li>
   
 <li>
 	<div class="thumbnail delta">
 		<a href="https://tutsplus.com/forums/topic/can-laravel-be-applied-to-wordpress/">Laravel vs. Wordpress</a>
-		
 	</div>
 </li>
 <li>
 	<div class="thumbnail">
-		<a href="http://webdesign.tutsplus.com/articles/workflow/backing-up-your-website-the-ultimate-guide/"><h3></h3></a>
-		<a href=""></a>
+		<a href="http://webdesign.tutsplus.com/articles/workflow/backing-up-your-website-the-ultimate-guide/"><h3>Ultimate Guide to backing up Your Website</h3></a>
+		<a href="#">Another Link</a>
 	</div>
 </li>
 
@@ -822,14 +793,13 @@ http://stackoverflow.com/questions/12448912/apache-mod-rewrite-for-laravel
 		<a href="http://en.wikipedia.org/wiki/Webring">Webring</a>
 	</div>
 	<div class="span4">
-		<a href="http://lmgtfy.com/?q=does+it+matter+who+i+buy+my+domain+name+from"></a>
+		<a href="http://lmgtfy.com/?q=does+it+matter+who+i+buy+my+domain+name+from">Your Fancy Domain Name</a>
 	</div>
 
 	<div class="span4">
 		 <a href="http://www.smashingmagazine.com/2009/08/26/vital-tips-for-effective-logo-design/"><img src="http://gristech.com/img/underconstruction.gif" alt="beta">http://www.smashingmagazine.com/2009/08/26/vital-tips-for-effective-logo-design/</a>
 	</div>
 </div>
-
 
 <div class="row-fluid">
 	<div class="span12">
@@ -842,6 +812,7 @@ http://stackoverflow.com/questions/12448912/apache-mod-rewrite-for-laravel
 <h3>domain names</h3>
 <ul>
 	<li><a href="http://moz.com/blog/how-to-choose-the-right-domain-name">http://moz.com/blog/how-to-choose-the-right-domain-name</a></li>
+
 </ul>
 
 <a href="http://www.hobo-web.co.uk/best-screen-size/">Best Screen Size</a>
@@ -1012,8 +983,7 @@ I lift my lamp beside the golden door!"</span></p>
 
 <!-- 	<div class="jumbotron masthead">
 
-		<a href="https://groups.google.com/forum/?fromgroups#!topic/twitter-bootstrap/hCUy_n1Mkks
-		"><em>Jumbotron Masthead</em></a>
+		<a href="https://groups.google.com/forum/?fromgroups#!topic/twitter-bootstrap/hCUy_n1Mkks"><em>Jumbotron Masthead</em></a>
 
 		<div class="span1">&copy; Ryan Grissinger 
 			<img src="http://lorempixel.com/400/200/nature.png" alt="thinker.png"></div>
@@ -1030,8 +1000,5 @@ I lift my lamp beside the golden door!"</span></p>
 	</p>
 	<p>landscape photo &copy; <a href="http://www.flickr.com/photos/65978013@N03/6472678173/">flickr</a></p>
 </div>
-
-
-
 		
 @stop

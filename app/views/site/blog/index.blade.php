@@ -29,11 +29,6 @@
 
 	<div class="span6">
 
-
-
-
-
-
 		<p>Wanna see something kinda cool?</p>
 		<h3>This website is sort of alive.</h3>
 		<p>You can talk to it using the URL.</p>
@@ -150,8 +145,6 @@ Here is an example of something that rubs me the wrong way:
 
 I searched twitter for "small business" within "people you follow".  That yielded the following:
 
-
-
 <ul class="thumbnails">
   <li class="span4">
     <a href="#" class="thumbnail">
@@ -173,8 +166,7 @@ I searched twitter for "small business" within "people you follow".  That yielde
 
 I find this tweet first:</p>
 <div class="thumbnail span6 pull-right">
-	
-
+	//?
 </div>
 <p>
 Which leads me to this link:
@@ -183,7 +175,7 @@ which leads to this:
 <a href="http://holykaw.alltop.com/a-step-by-step-guide-to-starting-a-small-business-website?tu4=1">2nd reblog</a>
 <a href="">3rd reblog</a>
 <a href="">Original content?</a>
-
+<pre>
 On the one hand, I dislike others representing it as relavent, semi-original content.  
 
 The extra clicks and stream of info is alot of wasted time, space, energy, and it might be diluted or warped from it's original intent.  That is the problem with this approach from a tactical point of view.  Irrelevant content, thus irrelevant users and/or bad user experience.  Not to mention the convoluted maintenance of an over complicated system.  Trust is precious thing.  
@@ -206,14 +198,18 @@ I can say: flickr get photo
 
 or photo flickr stream
 
-and an app will come up to do that.  mow grass columbus
+and an app will come up to do that.
+
+mow grass columbus
+
 health insurance columbus
-
-
+</pre>
+<!-- ?? -->
 
 <img src="facebook-meta-description" alt="">
 
 <a href="http://holykaw.alltop.com/a-step-by-step-guide-to-starting-a-small-business-website?tu4=1">Leecher</a>
+
 
 Some people I have discussed this idea with include:
 <ul>
@@ -257,7 +253,8 @@ Regardless of which of these group you belong to, you should be able to find goo
 	<!-- <p>I have a "Feature-Function-Benefit"</p> -->
 	<p>I find it appropriate to speak to a wide audience whenever possible... to all of those groups above.  However, being a large and complex idea, this also requires some detailed explanation geared toward <em>your</em> group.  I am a perfectionist, and I want to give you a good explanation.  That takes time.  Simultaneously, I am also trying to explain to the other groups.  And be a good provider, father, husband, and whatever I am to other people.  Time is precious.</p>
 	<p>With that all said, here is an attempt at a 2-minute explanation I would give to someone at a party:</p>
-	<p>Oops- one more thing: I find it best to learn by doing - so, please play around on this site a bit.  Browse some of the content, log in, leave comments on some of my posts/pages.  It will REALLY help me out to know what other people think of the ideas around this site.</p>
+	<p>Coming soon, lol</p>
+	<p>Oops- one more thing: I find it best to learn by doing - so, please play around on this site a bit.  Browse some of the content, log in, leave comments on some of my posts/pages.  It will REALLY help me out to know what other people think of the ideas around this site.  To anyone who has done so: THANK YOU!</p>
  			</div>
  		</div>
  	</div>
@@ -271,10 +268,11 @@ Regardless of which of these group you belong to, you should be able to find goo
  			<div class="accordion-inner">
 	<p>In short, this is a Web Application that can be used across a large number of industries.</p>
 	<p>There is also an educational component which helps developers to learn how to program, how to manage websites, how to build web applications, and how to administer teams of people to do all of these things.  In essence, anyone in this industry has an opportunity to contribute.</p>
-	<p>I am looking to monetize a community project.  Perhaps 100 people will share in $100 dollars in profit.  Perhaps 100 people will share in $1,000,000.  Tumblr just sold for over $1B.  So did Maze.  I should not declare that this project will be the next Tumblr, but I want everyone to understand and agree that there is no practical limit.  This is a unique and quite american opportunity: for a community of like-minded people to  to the </p>
-	<p>Presto: imagine that $1,000,000...</p>
-	<p>By the way, this is about to venture into a conversation that could turn into discussion about ponzi schemes and .  I am talking about a large influx of ownership.  Network marketing is a sore and taboo for me.  I have never been able to get over this: in roughly 1992, my buddy aske dme: "do you want to go to a party"?  It was him and one other guy.  Very much like the great movie "Go".  some doche bag convinced my buddy to invite me to an Amway meeting.  He came to me and said, "Hey, do you want to go to a party?" </p>
-	<p>The ownership structure can be like that of </p>
+	<p>I am looking to monetize a community project.  Perhaps 100 people will share in $100 dollars in profit.  Perhaps 100 people will share in $1,000,000.  Tumblr just sold for over $1B.  So did Maze.  I should not declare that this project will be the next Tumblr, but I want everyone to understand and agree that there is no practical limit.  This is a unique and quite "american" opportunity, in the sense of the word "opportunity" as I have come to understand it.  For a community of like-minded people to build something... more.</p>
+	
+	<p>By the way, this is about to venture into a conversation that could turn into discussion about ponzi schemes and such.  I am talking about a large influx of ownership.  Network marketing is a sore and taboo for me.  I have never been able to get over this: in roughly 1992, my buddy asked me: "do you want to go to a party"?  It was him and one other guy.  Very much like the great movie "Go".  some doche bag convinced my buddy to invite me to an Amway meeting.  He came to me and said, "Hey, do you want to go to a party?"</p>
+	<h3>Pardon my rambling :)</h3>
+	<p>Could the ownership structure of something like this can be like that of </p>
 	<p>It's not just a web app though: it's a <em>living</em>app.</p>
 	<p>I made the mistake of describing a feature to an experienced developer as "it's like facebook" or "it does this just like gmail does".  One mistake in saying that is that is NOT facebook, or gmail, or hootsuite.  It is arrogant to assume this will be "like" facebook.  Besides, after reading some other aspirations others have written, it may be true that "everyone wants to build the next facebook" or "everyone wants to be the next gates/jobs/zuckerberg (insert current kingpin here)."</p>
 	<p>If you catch me talking like that, let me apologize now.  This program will <em>not</em> encourage any reverse engineering or anything like that.  The goal is not to copy facebook.</p>
@@ -305,8 +303,7 @@ Regardless of which of these group you belong to, you should be able to find goo
 	<p>I'll tell you, what, though- I get the job done though.  Ask anyone I've ever worked for or with if </p>
 	<p>Also: I am intentionally <a href="http://www.mindtools.com/brainstm.html">brainstorming</a>.  </p>
 	<p>I can personally teach Advanced HTML, Advanced CSS, Beginners Javascript, *Advanced PHP,...</p>
-	<p class="muted">* I use the word 'Advanced' relative to the average non-developer.  I understand advanced PHP, Laravel, Javascript, etc., but I cannot hold a candle to the guys that invented it, wrote it, maintained it, built it, etc.  Amongst the pool of developers whom I respect the most, I am easily humbled, and sometimes a bit shy.  Relative to anyone with 5 or less years experience in this industry, I think I am qualified to hold a solid conversation and demonstrate leadership.  I have great respect for the leaders of this community.  How do I feel about the leaders of my local community?  Have I become so disgusted with Government that I am not aware of their actions?  Which is better: my government or my community?</p>
-
+	<p class="muted">* I use the word 'Advanced' relative to the average non-developer.  I understand "advanced" PHP, Laravel, Javascript, etc., but I cannot hold a candle to the guys that invented it, wrote it, maintained it, built it, etc.  Amongst the pool of developers whom I respect the most, I am easily humbled, and sometimes a bit shy.  Relative to anyone with 5 or less years experience in this industry, I think I am qualified to hold a solid conversation and demonstrate leadership.  I have great respect for the leaders of this community.  How do I feel about the leaders of my local community?  Have I become so disgusted with Government that I am not aware of their actions?  Which is better: my government or my community?</p>
  			</div>
  		</div>
  	</div>
@@ -332,7 +329,7 @@ Regardless of which of these group you belong to, you should be able to find goo
 			  That environment is opposite from this in many ways.  It is HIGHLY regualted.  HIGHLY organized in small details, to a. comply with regulations, b. save profits via security, transaction detail, etc.  The ultimate security systems are required because it is high-stakes, highly personal information.  It is also much to the bank's favor.
 			Here's the thing... I did not mention above that the software helps to create a better experience for the customer.  Nor did I mention that it improves employee efficiency.  Never before has software been so heavily capable of being user friendly.
 
-			Let me say that again: Never before has software been so heavily capable of being user friendly.  What I mean by that is that the technology we have today is truly amazing if you think about it in the scope of the last 10-50 years.  "They" said .
+			Let me say that again: Never before has software been so heavily capable of being user friendly.  What I mean by that is that the technology we have today is truly amazing if you think about it in the scope of the last 10-50 years.  "They" said...
 
 			What did "they" tell you about the stock market?  This is a fascinating thing: where on the priority scale does Improving Customer Service fall?
 
@@ -344,8 +341,6 @@ Regardless of which of these group you belong to, you should be able to find goo
 			</ol>
 
 			I will not put in writing, but do have experience to dwell upon and knowledge of the interior processes of the banks.  Some of the processes I could describe are public to any 'intutive consumer'.  Others could violate a non-disclosure agreement I have with the bank, but I could discuss some things in an appropriate environment.
-
-			by the way, here is a 
 		</div>
 
 		<div class="idea pull-right well">
@@ -361,16 +356,13 @@ Regardless of which of these group you belong to, you should be able to find goo
 
 					<p>From a layman's perspective, it's very simple, right?</p>
 					<p>Problem is, from a programmer's perspective it is very long and tedious process.  Especially in the past, we were talking about a large, compiled codebase optimized for X technological limitation.  </p>
-					<p>Today, the only limitation is bandwidth.  We have limitless storage capabilites.  Here is a paper I wrote in Business 101 in 1996 about the future of computer technology.  //ref. I argued that the US was more interested in pop culture than in science and technology.  How things have changed over the past ~20 years...</p>
+					<p>Today, the only limitation is bandwidth.  We have limitless storage capabilites.  Here is a paper I wrote in Business 101 in 1996 about the future of computer technology.  //ref. I argued that the US was more interested in pop culture than in science and technology.  How things have changed over the past ~20 years... (not much in the regard... depends on who you ask, I guess.)</p>
 					What is to become of the future?
 				</li>
 				<li>
 					<a href="ow.ly/lYMIl">Hootsuite said: </a><img src="http://gristech.com/img/screen/hoottweet.png" alt="hoottweet">
 				</li>
 			</ul>
-
-			calc
-
 		</div>
  		</div>
  	</div>
@@ -381,18 +373,7 @@ Regardless of which of these group you belong to, you should be able to find goo
 
 	<!-- Main hero unit for a primary marketing message or call to action -->
 <div class="hero-unit">
-
-			
 	<div class="row">
-
-
-
-
-
-
-
-
-
 		<!-- <div class="span6"> -->
 			<img class="pull-right img-circle" src="http://gristech.com/img/automation-busn.jpg" alt="think about it">
 			<h1>The Next Level<br><small>How can a Custom Web Application help your business?</small></h1>
@@ -482,13 +463,10 @@ BLAH BLAH
       </div>
       <a class="btn" data-toggle="collapse" data-target=".span2">Toggle</a>
     </div> -->
-
     <div class="span10">
       <!--Body content-->
     </div>
-
   </div>
-
 </div>
 			
 <div class="span12">
