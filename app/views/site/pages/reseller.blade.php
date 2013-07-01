@@ -9,6 +9,7 @@
 {{-- Content --}}
 @section('content')
 
+foobar
 
 <gcse:search></gcse:search>
 
