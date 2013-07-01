@@ -40,12 +40,13 @@
 		    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
 
 	@show
-<!-- prettify -->
 
-<!-- NOTE: I had an experience with a lengthy pageload on this today.  It's a good lesson NOT to include prettify on the main layout page -->
 
 <!-- <link href="prettify.css" type="text/css" rel="stylesheet" /> -->
 @section('js')
+<!-- prettify -->
+
+<!-- NOTE: I had an experience with a lengthy pageload on this today.  It's a good lesson NOT to include prettify on the main layout page... but you can load prettify here if you want: -->
 <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&amp;skin=sunburst&amp;lang=css"></script>
 
 <!-- font-awesome -->
