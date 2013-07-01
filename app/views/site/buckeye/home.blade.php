@@ -1,14 +1,13 @@
 @extends('site.layouts.sandbox')
 
 <?php
-
-$company = new Company;
-
 class Company extends User{
 
-	private $
+	public $name="Buckeye Mower!";
 }
 
+$obj = new Company;
+$company = $obj->name;
 ?>
 {{-- Update the Meta Title --}}
 <!-- THis properly overrides the default -->
@@ -63,15 +62,17 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 <!-- http://theksmith.com/technology/howto-website-icons-browsersdevices-favicon-apple-touch-icon-etc/ -->
 
 <!-- (this step is required for Android support, android ignores the non-pre-composed version): -->
-
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/{{{$company}}}ico/apple-touch-icon-144-precomposed.png') }}}">
+<?php 
+// $company = "gristech"; 
+?>
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('assets/'.$company.'/ico/apple-touch-icon-144-precomposed.png') }}">
 
 		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
 		<!-- <link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}"> -->
-		<link rel="shortcut icon" href="{{{ asset('assets/ico/{{{'company'}}}/favicon.png') }}}">
+		<link rel="shortcut icon" href="{{{ asset('assets/ico/'.$company.'/favicon.png') }}}">
 
 		<!-- hardy har -->
 				<!-- Very Funny -->
