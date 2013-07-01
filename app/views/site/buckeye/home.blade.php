@@ -3,7 +3,7 @@
 <?php
 class Company extends User{
 
-	public $name="Buckeye Mower!";
+	public $name="Buckeye Mower";
 }
 
 $obj = new Company;
