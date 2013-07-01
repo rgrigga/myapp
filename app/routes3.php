@@ -10,9 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-// Route::group(array('domain' => '{sub}.gristech.com'),function($sub){
-//     Redirect::route('{$sub}');
-// });
+
 
 Route::group(array('domain' => 'buckeyemower.com'),function()
 {
@@ -20,14 +18,14 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
     
     // Route::get('/{tag}', 'CompanyController@getIndex');
 
-Route::get('/', function(){
-    $name='buckeye';
-    
-    return View::make('site/'.$name.'/home',array(
-        'company'=>'Buckeye Mower',
-        'menus'=>array('#services','#contact','#about')
-        ));
-});
+    Route::get('/', function(){
+        $name='buckeye';
+        
+        return View::make('site/'.$name.'/home',array(
+            'company'=>'Buckeye Mower',
+            'menus'=>array('#services','#contact','#about')
+            ));
+    });
     
     // Route::controller('russ','RussController');
 
