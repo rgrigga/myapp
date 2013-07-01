@@ -132,5 +132,4 @@
 {{ $posts->links() }}
 <!-- https://github.com/andrew13/Laravel-4-Bootstrap-Starter-Site/issues/49 -->
 
-
 @stop
