@@ -59,6 +59,7 @@ Route::model('user', 'User');
 Route::model('comment', 'Comment');
 Route::model('post', 'Post');
 Route::model('role', 'Role');
+//Company?
 //http://stackoverflow.com/questions/7770728/group-vs-role-any-real-difference
 
 
@@ -205,8 +206,6 @@ Route::get('pages/{page}', function($page)
 
     Redirect::to('tags/'.$page);
 
-
-
 });
 
 
@@ -244,9 +243,9 @@ Route::get('russ/{tag}', 'RussController@getIndex');
 // Route::get('tags/{tag}', 'BlogController@getIndex');
 
 // <<<<<<< HEAD
-Route::get('/advantage/','CompanyController@getIndex');
+Route::get('/advantage/','CompanyController@getIndex',array('name'=>'advantage'));
 Route::get('advantage', 'CompanyController@getIndex',array('name'=>'advantage'));
-Route::get('company/{name}', 'CompanyController@getIndex');
+Route::get('company/{name}', 'CompanyController@getIndex', array('name'=>'advantage'));
 
 // =======
 // >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
