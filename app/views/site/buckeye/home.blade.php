@@ -1,13 +1,13 @@
-@extends('site.layouts.buckeye')
+@extends('site.layouts.sandbox')
 
 <?php
 
+$company = new Company;
 
 class Company extends User{
 
-	private $foo;
+	private $
 }
-$company = new Company;
 
 ?>
 {{-- Update the Meta Title --}}
