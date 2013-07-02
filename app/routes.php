@@ -20,14 +20,14 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
     
     // Route::get('/{tag}', 'CompanyController@getIndex');
 
-Route::get('/', function(){
-    $name='buckeye';
-    
-    return View::make('site/'.$name.'/home',array(
-        'company'=>'Buckeye Mower',
-        'menus'=>array('#services','#contact','#about')
-        ));
-});
+    Route::get('/', function(){
+        $name='buckeye';
+        
+        return View::make('site/'.$name.'/home',array(
+            'company'=>'Buckeye Mower',
+            'menus'=>array('#services','#contact','#about')
+            ));
+    });
     
     // Route::controller('russ','RussController');
 
@@ -305,6 +305,7 @@ Route::get('/{tag}', function($tag){
         "notes",
         "git",
         "advantage",
+        "reseller",
         "");
 // =======
 Route::get('/{tag}', 'BlogController@getIndex');
@@ -315,17 +316,27 @@ Route::get('/{tag}', 'BlogController@getIndex');
         die("RUSS!");
     }
 
-    if(in_array($tag, $mypages)){
-        $view = View::make('site/pages/'.$tag);
-        return $view;
-    }
-    else{
-        return Redirect::to('search/'.$tag);
+    $path='/home/gristech/myapp/app/views/site/pages/';
+
+    $mypages = array();
+    foreach (glob($path."*.blade.php") as $filename) {
+        $filename=str_replace($path, "", $filename);
+        $filename=str_replace(".blade.php", "", $filename);
+        array_push($mypages,$filename);
+        // echo "$filename" . "<br>";
     }
 
+    // die (var_dump($path));
 
-    // 'BlogController@getIndex'
-});
+        if(in_array($tag, $mypages)){
+            $view = View::make('site/pages/'.$tag);
+            return $view;
+        }
+        else{
+            return Redirect::to('search/'.$tag);
+        }
+
+    });
 
 // Route::post('/{tag}', 'BlogController@postView');
 

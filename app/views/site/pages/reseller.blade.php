@@ -14,8 +14,4 @@
 
 Welcome to the reseller page.
 
-<gcse:search></gcse:search>
-
-The 
-
 @stop

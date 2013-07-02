@@ -57,11 +57,6 @@ class BlogController extends BaseController {
 	{
 		return self::getIndex('$tag');
 	}
-
-
-
-
-
     
 // process a many to many relationship amongst tags
 
