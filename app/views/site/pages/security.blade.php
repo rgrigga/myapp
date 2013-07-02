@@ -112,14 +112,20 @@ font-family: 'Fauna One', serif;
 
 <h2>Passwords</h2>
 <img src="" alt="">
-<p class="title"><a href="https://howsecureismypassword.net/">Password Security Test</a></p>
+<p class="title">Take the <a href="https://howsecureismypassword.net/">Password Security Test</a></p>
 
-<p>Passwords are not very secure.  Nowadays, hackers can hack passwords with relative ease.  Read a little about <a href="http://www.joeydevilla.com/2013/04/15/how-to-mine-bitcoins-for-fun-and-probably-very-little-profit/">bitcoin mining</a> sometime: 
-
-
-they link and hash cracking  if they want to.  </p>
+<p>Passwords are not very secure.  Nowadays, hackers can hack passwords with relative ease.  Read a little about <a href="http://www.joeydevilla.com/2013/04/15/how-to-mine-bitcoins-for-fun-and-probably-very-little-profit/">bitcoin mining</a> sometime: bitcoin transactions are verified by "cracking hashes".</p>
 
 <img src="assets/img/screen/bitcoin.png" alt="Diagram of a bitcoin">
+
+<p>The lesson as applied to your password is that there are those who can crack it if they want to.</p> 
+<!-- http://www.joeydevilla.com/wordpress/wp-content/uploads/2013/04/bitcoin-diagram.jpg -->
+<!-- http://bitcoin.org/bitcoin.pdf -->
+
+<p>Here are some more links:</p>
+<ul>
+	<li><a href="http://lifehacker.com/5966214/how-often-should-i-change-my-passwords">How Often to Change Passwords?</a></li>
+</ul>
 
 <div class="thumbnail"><img src="assets/img/screen/bitcoinmining.png" alt="mining rig"></div>
 
@@ -217,8 +223,6 @@ OpenSSH is a FREE version of the SSH connectivity tools that technical users of 
 	</div>
 </div>
 
-
-
 The OpenSSH suite replaces rlogin and telnet with the ssh program, rcp with scp, and ftp with sftp. Also included is sshd (the server side of the package), and the other utilities like ssh-add, ssh-agent, ssh-keysign, ssh-keyscan, ssh-keygen and sftp-server.
 
 OpenSSH is developed by the OpenBSD Project. The software is developed in countries that permit cryptography export and is freely useable and re-useable by everyone under a BSD license. However, development has costs, so if you find OpenSSH useful (particularly if you use it in a <b>commercial system that is distributed</b>) please consider donating to help fund the project.
@@ -234,7 +238,6 @@ We sell OpenSSH T-shirts and posters. Sales of these items also help to fund dev
 </div>
 
 <p>
-
 OpenSSH is a <b>FREE</b> version of the SSH connectivity
 tools that technical users of the Internet rely on.
 Users of telnet, rlogin, and ftp may not realize
@@ -267,7 +270,7 @@ The software is developed in countries that permit cryptography export
 and is freely useable and re-useable by everyone under a BSD license.
 However, development has costs, so if you find OpenSSH useful
 (particularly if you use it in a commercial system that is distributed)
-please consider <a href="donations.html">
+please consider <a href="http://www.openbsd.org/donations.html">
 donating to help fund the project</a>.
 <p>
 
