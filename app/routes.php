@@ -302,7 +302,8 @@ Route::get('/{tag}', function($tag){
         "contact",
         "licensing",
         "responsive",
-        "notes3",
+        "notes",
+        "git",
         "advantage",
         "");
 // =======
