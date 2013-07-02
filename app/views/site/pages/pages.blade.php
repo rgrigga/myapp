@@ -5,30 +5,30 @@
 @parent
 @stop
 
+
+
 {{-- Content --}}
-@section('about')
-
-<h1>About {{$company->$name}}</h1>
+@section('content')
 
 
-<abbr title="title='this is an abbreviation'">abbr</abbr>
+<?php
+class Company extends User{
+	public $name = "Gristech";
+	public $address = "Westerville, OH";
+}
+$company = new Company;
+?>
+
+<h1>About {{$company->name}}</h1>
+
+<abbr title='this is an abbreviation'>abbr</abbr>
 <address>
-	
+	{{$company->address}}
 </address>
 <!-- //address tags -->
-{{$company->show_address}}
-
-{{$company->address}}
-{{$company->address}}
-{{$company->address}}
-{{$company->address}}
-{{$company->address}}
 
 
 
-
-
-
-@include('site.russ.contact')
+{{-- <!-- @include('site.russ.contact') --> --}}
 
 @stop
