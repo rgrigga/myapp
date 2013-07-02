@@ -43,6 +43,7 @@ class CompanyController extends BaseController {
 	 */
 	public function getIndex($company="")
 	{
+		die(var_dump($company));
 		$str='%'.$company.'%';
 		$posts = $this->post->where('meta_keywords', 'LIKE', "$company")->paginate(5);
 		// $posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);

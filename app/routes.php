@@ -246,7 +246,10 @@ Route::get('russ/{tag}', 'RussController@getIndex');
 
 // <<<<<<< HEAD
 Route::get('/advantage/','CompanyController@getIndex');
-Route::get('advantage', 'CompanyController@getIndex',array('name'=>'advantage'));
+Route::get('advantage', 'CompanyController@getIndex',array(
+    'company'=>'Advantage',
+    'menus'=>array('#services','#contact','#about')
+    ));
 Route::get('company/{name}', 'CompanyController@getIndex');
 
 // =======
