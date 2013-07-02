@@ -10,14 +10,12 @@
 
 <h1>About {{$company->name}}</h1>
 
-
-<abbr title="title='this is an abbreviation'">abbr</abbr>
 <address>
-	
+	{{$company->address}}
 </address>
 <!-- //address tags -->
 
-{{$company->address}}
+<abbr title="title='this is an abbreviation'">abbr</abbr>
 
 @include('site.russ.contact')
 
