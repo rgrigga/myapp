@@ -2,7 +2,7 @@
 
 {{-- Update the Meta Title --}}
 @section('meta_title')
-@parent
+<!-- @parent -->
 Company: {{$company}}
  <!-- String::title($post->title) }}} -->
 @stop

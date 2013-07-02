@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'gristech_myapp6',
 			'username'  => 'gristech_myapp6',
-			'password'  => 'JLEgriss22',
+			'password'  => 'JePenseDoncJe$uis',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

@@ -37,9 +37,19 @@ Route::get('/advantage', function(){
         
     return View::make('site/'.$name.'/home',array(
         'company'=>'Advantage',
+        'menus'=>array('services','contact','about','products')
+        ));
+});
+
+Route::get('/buckeye', function(){
+    $name='buckeye';
+        
+    return View::make('site/'.$name.'/home',array(
+        'company'=>'Buckeye Mower',
         'menus'=>array('services','contact','about')
         ));
 });
+
 
 // Redactor Blog Upload
 Route::post('redactorUpload', function()
