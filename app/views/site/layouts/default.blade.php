@@ -2,9 +2,23 @@
 <html lang="en">
 
 <?php
+
+$name = Cookie::get('name');
+if (!$name){
+	$name='Stranger';
+}
+
+
 $company="gristech";
 $menus=array('foo','bar');
 ?>
+
+
+
+<!-- <p>If you give me your email, I'll want to keep it safe, so you can also choose a password.  I won't show anyone else your email address without your consent.  I also won't spam you a bunch, although I might send you something nice once in a while.  If you'd like updates, coupons, etc., you can get those any way you like.</p> -->
+
+<!-- <p>If you give me a private email, it won't be possible for me to share it with anyone.  I can email, but I won't have your email address.  I will <em>hash</em> it on this end.</p> -->
+
 <!-- 
 	meta -->
 <!-- CSS/styles -->

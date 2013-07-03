@@ -267,29 +267,20 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 	<div class="hero-unit">
     <h2>Mobile Mower Repair</h2>
 		<div class="h2">Mobile Mower Repair</div>
-    icon-flag on icon-circle<br>
-
-		<p>We will come to you! <span class="icon-stack">
+    <!-- icon-flag on icon-circle<br> -->
+<span class="icon-stack">
+  <i class="icon-circle icon4x icon-stack-base"></i>
+  <i class="icon-flag icon4x icon-light"></i>
+</span>
+		<img src="asset(assets/buckeye/buckeye-logo_png" alt="">
+    <p>We will come to you! <span class="icon-stack">
   <i class="icon-circle icon4x icon-stack-base"></i>
   <i class="icon-rocket icon4x icon-light"></i>
 </span></p>
 	</div>
 </div>
 
-@foreach ($posts as $post)
-<section></section>
-<p>{{ $post->content }} </p>
-  @foreach (get_object_vars($post) as $prop)
-  {{$prop}}
-  @endforeach
 
-  <? $myarray=array('title','description'); ?>
-  <ol>
-  @foreach ($myarray as $item)
-    <li>{{ $post->$item; }}</li>
-  @endforeach
-  </ol>
-@endforeach
 
 
 

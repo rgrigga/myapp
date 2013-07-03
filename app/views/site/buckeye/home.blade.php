@@ -1,15 +1,6 @@
-@extends('site.layouts.sandbox')
+@extends('site.layouts.buckeye')
 
-<?php
-class Company extends User{
-	public $name="Gristech";
-}
 
-$obj = new Company;
-// $company = $obj->name;
-$company = $obj->username;
-$posts = array("foo","bar");
-?>
 {{-- Update the Meta Title --}}
 <!-- THis properly overrides the default -->
 @section('meta-title')
@@ -41,14 +32,15 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 	<!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-<!-- 	    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
-	    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"> -->
+	    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
 
 
 <!-- //This is not responsive! -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/cosmo/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/cosmo/bootstrap.min.css"> -->
 
-<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/flatly/bootstrap.min.css"> -->
+<!-- this one is! -->
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+
 @stop
 
 @section('favicons')
@@ -80,10 +72,10 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 @stop
 
 @section('nav')
-	<h1>
+	<!-- <h1> -->
 	@parent
-	 :: Child
-	</h1>
+<!-- 	 :: Child
+	</h1> -->
 @stop
 
 {{-- Content --}}
@@ -93,7 +85,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 <div class="row-fluid">
 	<div class="span8">
 		<h1>Welcome Home.</h1>
-		<h2>{{{$company}}}</h2>
+		<h2>{{$company}}</h2>
 	</div>
 </div>
 
@@ -103,6 +95,9 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 	}
 </style>
 <div class="row-fluid">
+
+<div class="span6"><img src="{{asset('assets/buckeye/buckeye_logo3.png')}}" alt="Buckeye Mower"></div>
+
 	
 	<div class="span2 pull-left sidebar-left">
 		<ul class="nav nav-list">

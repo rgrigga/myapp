@@ -10,29 +10,27 @@
 			margin-left: 30px;
 		}*/
 		</style>
-		<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar navbar-fixed-top">
 
 			<div class="navbar-inner">
 
 				<div class="container-fluid">
-
 					<a class="btn btn-navbar pull-left" data-toggle="collapse" data-target=".nav-collapse">
 
 
 
 						<!-- <i class="icon-collapse icon-2x"></i> -->
-						<span class="icon-bar"></span>
+						<span>menu</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</a>
 
 					<?php 
 					// if(!$company){
-					$company="Buckeye Mower";
+					// $company="Buckeye Mower";
 					// } 
 					?>
-					
-					<a class="brand" href="#">{{{$company}}}</a>
+					<a class="brand" href="#">{{$company}}</a>
 
 					<div class="nav-collapse collapse">
 						
@@ -42,12 +40,12 @@
 
 						<?php 
 						if(!$menus){
-						$menus=array('about','contact','services');
+						$menus=array('myservice','contact','services');
 						}
 						?>
 
 						@foreach ($menus as $menu)
-						<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to('/'.$menu) }}}">{{{$menu}}}</a></li>
+						<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to($menu) }}}">{{$menu}}</a></li>
 
 						@endforeach
 

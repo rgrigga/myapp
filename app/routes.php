@@ -21,7 +21,7 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
     Route::get('/', function(){
         $name='buckeye';
         
-        return View::make('site/'.$name.'/home',array(
+        return View::make('site/'.$name.'/index',array(
             'company'=>'Buckeye Mower',
             'menus'=>array('#services','#contact','#about')
             ));

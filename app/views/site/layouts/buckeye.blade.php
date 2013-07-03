@@ -85,10 +85,11 @@ Buckeye Mower - Mobile Mower Services
 
 <!-- It would be great generate these on the fly.  For now, they are located in X asset file -->
 
-		<!-- http://theksmith.com/technology/howto-website-icons-browsersdevices-favicon-apple-touch-icon-etc/ -->
-		<!-- (this step is required for Android support, android ignores the non-pre-composed version): -->
+<!-- http://theksmith.com/technology/howto-website-icons-browsersdevices-favicon-apple-touch-icon-etc/ -->
 
-		<!-- http://demosthenes.info/blog/467/Creating-MultiResolution-Favicons-For-Web-Pages-With-GIMP -->
+<!-- (this step is required for Android support, android ignores the non-pre-composed version): -->
+
+<!-- http://demosthenes.info/blog/467/Creating-MultiResolution-Favicons-For-Web-Pages-With-GIMP -->
 
 		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}}">
@@ -97,11 +98,10 @@ Buckeye Mower - Mobile Mower Services
 		<!-- <link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}"> -->
 		<link rel="shortcut icon" href="{{{ asset('assets/ico/buckeye/favicon.png') }}}">
 
-		<!-- hardy har -->		
 @stop
 
 @section('nav')
-@include('site.partials.nav-top-inverse')
+@include('site.partials.nav-buckeye');
 @stop
 
 {{-- Content --}}
