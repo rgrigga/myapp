@@ -93,6 +93,9 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 	.sidebar-left{
 		background-color: rgba(5,5,0,.2);
 	}
+	.india{
+		background-color: rgba(82,23,58,.4);
+	}
 </style>
 <div class="row-fluid">
 

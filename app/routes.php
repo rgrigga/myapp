@@ -23,8 +23,13 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
         
         return View::make('site/'.$name.'/index',array(
             'company'=>'Buckeye Mower',
-            'menus'=>array('#services','#contact','#about')
+            'menus'=>array('About ','Rates & Services','Schedule')
             ));
+    });
+
+    Route::get('/{tag}',function(){
+        //try to make page
+        //if page not in allowed array, show home
     });
     
     // Route::controller('russ','RussController');

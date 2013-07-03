@@ -77,7 +77,7 @@
 			<div class="india pull-right">
 					<!-- <div>phone, email, chat, anything!</div> -->
 				<div>
-					<img src="http://gristech.com/img/contactus.png" alt="learn php laravel web design">
+					<img src="{{asset('assets/buckeye/scheduleonline.png')}}" alt="mobile mower repair">
 				</div>
 			        
 			</div>

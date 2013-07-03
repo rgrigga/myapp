@@ -246,6 +246,18 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
       }
 
     }
+
+
+  /* Q & D */
+   img.center {
+        display: block;
+        margin:auto;
+        /*margin-left: auto;*/
+        /*margin-right: auto;*/
+      }
+   .india{
+    background-color: rgba(82,233,58,.4);
+  }
     </style>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -254,7 +266,9 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
     <![endif]-->
 
     <!-- Fav and touch icons -->
-    
+    <style>
+
+    </style>
 
 
     <!-- Marketing messaging and featurettes
@@ -263,44 +277,61 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 
     <div class="container marketing">
 
-<div class="row">
+<div class="row-fluid">
 	<div class="hero-unit">
-    <h2>Mobile Mower Repair</h2>
-		<div class="h2">Mobile Mower Repair</div>
-    <!-- icon-flag on icon-circle<br> -->
-<span class="icon-stack">
-  <i class="icon-circle icon4x icon-stack-base"></i>
-  <i class="icon-flag icon4x icon-light"></i>
-</span>
-		<img src="asset(assets/buckeye/buckeye-logo_png" alt="">
-    <p>We will come to you! <span class="icon-stack">
-  <i class="icon-circle icon4x icon-stack-base"></i>
-  <i class="icon-rocket icon4x icon-light"></i>
-</span></p>
-	</div>
+    <div class="row-fluid">
+      <div class="span6 pull-right">
+        <!-- http://stackoverflow.com/questions/7055393/css-center-image-using-text-align-center -->
+        <img class ="center" src="{{asset('assets/buckeye/buckeye_logo.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
+      </div>
+      <div class="span6">
+        <h1>Buckeye Mower</h1>
+        <h3>Mobile Mower Repair</h3>
+        <p></p>
+      </div>
+      
+    </div>
+  </div>
 </div>
-
-
-
-
+      <!-- <div class="span5"> -->
+      <!-- <h2>Mobile Mower Repair</h2> -->
+      <!-- <div class="h2">Mobile Mower Repair</div> -->
+      <!-- icon-flag on icon-circle<br> -->
+      <!-- <span class="icon-stack"> -->
+        <!-- <i class="icon-circle icon4x icon-stack-base"></i> -->
+        <!-- <i class="icon-flag icon4x icon-light"></i> -->
+      <!-- </span> -->
+      
+      <!-- <p>We will come to you!  -->
+  <!-- <span class="icon-stack"> -->
+  <!--   <i class="icon-circle icon4x icon-stack-base"></i>
+    <i class="icon-rocket icon4x icon-light"></i> -->
+  <!-- </span> -->
+      <!-- </p> -->
+    <!-- </div> -->
+    <!-- <div class="span5"> -->
+      <!-- <img src="{{asset('assets/buckeye/buckeye_logo2.png')}}" alt=""> -->
+    <!-- </div> -->
+	<!-- </div> -->
+<!-- </div> -->
 
       <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="span4">
-          <img class="img-circle" data-src="holder.js/140x140">
-          <h2 #href="{{{URL::to('About')}}}">Heading</h2>
-          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+          <img class="img-circle" src="http://placehold.it/200x200">
+          <h2 #href="{{{URL::to('About')}}}">Residential</h2>
+          <p>Push Mower. Riding Mower.  Chainsaw.  Weedeater.  If it has a small engine, I can help you fix it.  I'll come to your house for you.</p>
           <p><a class="btn" href="#">View details &raquo;</a></p>
         </div><!-- /.span4 -->
         <div class="span4">
-          <img class="img-circle" data-src="holder.js/140x140">
-          <h2>Heading</h2>
+          <img class="img-circle" src="http://placehold.it/200x200">
+          <h2>Commercial</h2>
           <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
           <p><a class="btn" href="#">View details &raquo;</a></p>
         </div><!-- /.span4 -->
         <div class="span4">
-          <img class="img-circle" data-src="holder.js/140x140">
-          <h2>Heading</h2>
+          <img class="img-circle" src="http://placehold.it/200x200">
+          <h2>Small Engine</h2>
           <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
           <p><a class="btn" href="#">View details &raquo;</a></p>
         </div><!-- /.span4 -->
@@ -313,8 +344,11 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 
       <div class="featurette">
         <img class="featurette-image pull-right" src="http://placehold.it/300x300">
-        <h2 class="featurette-heading">First featurette headling. <span class="muted">It'll blow your mind.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <h2 class="featurette-heading">I will come to you. <span class="muted">Wide Service Area.</span></h2>
+        <p class="lead">We generally service the Greater Columbus Area, south of 36/37.  For Example, I've done service near Westerville, Lewis Center, Polaris, Easton, Delaware, Marysville, Hilliard, Dublin, Gahanna, Pickerington, Pataskala</p>
+        <!-- http://openclipart.org/may-clipart-be-used-comparison -->
+        <!-- http://clipartist.info/RSS/openclipart.org/2011/May/29-Sunday/lawn_mower.svg.html -->
+        <!-- http://openclipart.org/detail/663/lawn-mower-by-jicjac -->
       </div>
 
       <hr class="featurette-divider">
@@ -322,7 +356,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
       <div class="featurette">
 
         <img class="featurette-image pull-left" src="http://placehold.it/300x300">
-        <h2 class="featurette-heading">Oh yeah, it's that good. <span class="muted">See for yourself.</span></h2>
+        <h2 class="featurette-heading">Factory Trained. <span class="muted">Humble Expertise.</span></h2>
         <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
       </div>
 
