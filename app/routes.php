@@ -11,10 +11,29 @@
 |
 */
 
+/** ------------------------------------------
+ *  Route model binding
+ *  ------------------------------------------
+ */
+Route::model('user', 'User');
+Route::model('comment', 'Comment');
+Route::model('post', 'Post');
+Route::model('role', 'Role');
+// now, calls to "user->username" should work.  effectively a singleton representing the session data or database info.
+
+// Route::get('/', array('before' => 'guest', function(){
+//     // echo "You're not logged in!";
+//     return Redirect::to('user/login/');
+// }));
+
+// Route::any('/', array('before' => 'auth', function(){
+    
+// }));
 
 Route::group(array('domain' => 'buckeyemower.com'),function()
 {
     // die("BAM!");
+
     
     // Route::get('/{tag}', 'CompanyController@getIndex');
 
@@ -23,11 +42,18 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
         
         return View::make('site/'.$name.'/index',array(
             'company'=>'Buckeye Mower',
-            'menus'=>array('About ','Rates & Services','Schedule')
+            'menus'=>array('About ','Rates','Schedule','Map')
             ));
     });
 
     Route::get('/{tag}',function(){
+
+
+
+        return View::make('site/'.$tag.'/home',array(
+            'request'=>'$tag',
+            'menus'=>array('services','contact','about')
+        ));
         //try to make page
         //if page not in allowed array, show home
     });
@@ -47,24 +73,27 @@ Route::get('/advantage', function(){
 });
 
 Route::get('/buckeye', function(){
-    $name='buckeye';
+    // $name='buckeye';
         
-    return View::make('site/'.$name.'/home',array(
-        'company'=>'Buckeye Mower',
-        'menus'=>array('services','contact','about')
-        ));
+    // return View::make('site/'.$name.'/home',array(
+    //     'company'=>'Buckeye Mower',
+    //     'menus'=>array('services','contact','about')
+    //     ));
+    return Redirect::to('http://buckeyemower.com');
 });
+
+
 
 
 // Redactor Blog Upload
-Route::post('redactorUpload', function()
-{
-    $file = Input::file('file');
-    $fileName = $file->getClientOriginalName();
+// Route::post('redactorUpload', function()
+// {
+//     $file = Input::file('file');
+//     $fileName = $file->getClientOriginalName();
 
-    $file->move(public_path().'/img', $fileName);
-    return Response::json(array('filelink' => '/img/' . $fileName));
-});
+//     $file->move(public_path().'/img', $fileName);
+//     return Response::json(array('filelink' => '/img/' . $fileName));
+// });
 
 // Route::get('advantage'),function()
 // {
@@ -77,14 +106,7 @@ Route::post('redactorUpload', function()
 //     //Set group to 
 // });
 
-/** ------------------------------------------
- *  Route model binding
- *  ------------------------------------------
- */
-Route::model('user', 'User');
-Route::model('comment', 'Comment');
-Route::model('post', 'Post');
-Route::model('role', 'Role');
+
 //http://stackoverflow.com/questions/7770728/group-vs-role-any-real-difference
 
 
@@ -95,7 +117,7 @@ Route::model('role', 'Role');
  */
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 {
-
+    
     # Comment Management
     Route::get('comments/{comment}/edit', 'AdminCommentsController@getEdit')
         ->where('comment', '[0-9]+');
@@ -197,7 +219,9 @@ Route::get('technical', function()
 Route::get('tools', function()
 {
     // Return about us page
-    return View::make('site/tools');
+    if(Auth::check()){
+        return View::make('site/tools');
+    }
 });
 
 Route::get('responsive', function()

@@ -10,6 +10,8 @@
 @section('content')
 <div class="page-header">
 	<h1>User Profile</h1>
+{{var_dump($user)}}
+    <img src="{{$user->img}}" alt="user image">
 </div>
 <table class="table table-striped">
     <thead>
@@ -39,4 +41,6 @@
 
     </ul>
 </div>
+
+
 @stop

@@ -56,6 +56,7 @@ class BlogController extends BaseController {
 	public function getIndex($tag="")
 	{
 
+		
 
 
 
