@@ -38,19 +38,7 @@
 			"app/tests/library"
 		]
 	},
-	"scripts": {
-		"pre-update-cmd": [
-			"php artisan clear-compiled"
-		],
-		"post-install-cmd": [
-			"php artisan optimize"
-		],
-		"post-update-cmd": [
-			"php artisan optimize",
-			"php artisan clear-compiled",
-			"php artisan ide-helper:generate"
-		]
-	},
+
 	"config": {
 		"preferred-install": "dist"
 	},

@@ -46,7 +46,7 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
             ));
     });
 
-    Route::get('/{tag}',function(){
+    Route::get('/{tag}',function($tag){
 
 
 
