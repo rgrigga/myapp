@@ -17,10 +17,8 @@
 				<div class="container-fluid">
 					<a class="btn btn-navbar pull-left" data-toggle="collapse" data-target=".nav-collapse">
 
-
-
 						<!-- <i class="icon-collapse icon-2x"></i> -->
-						<span>menu</span>
+						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</a>

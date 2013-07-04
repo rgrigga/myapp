@@ -33,7 +33,7 @@
    guidetolerance="10"
    inkscape:pageopacity="0"
    inkscape:pageshadow="2"
-   inkscape:window-width="1482"
+   inkscape:window-width="1756"
    inkscape:window-height="1037"
    id="namedview1607"
    showgrid="false"
@@ -43,7 +43,7 @@
    inkscape:window-x="49"
    inkscape:window-y="24"
    inkscape:window-maximized="0"
-   inkscape:current-layer="Layer_1" />
+   inkscape:current-layer="g8" />
 	
 		<switch
    id="switch4">
@@ -904,12 +904,7 @@
 						
 					
 					
-					<path
-   i:knockout="Off"
-   d="m 500.844,166.512 c 1.768,-1.844 5.454,-5.224 1.152,-5.224 m 0.001,0 c -2.995,0 -5.494,1.541 -7.067,4.686 m -376.882,10.385 c -3.088,1.171 -3.949,6.456 -1.922,11.805 2.026,5.35 6.173,8.737 9.262,7.567"
-   id="path1575"
-   inkscape:connector-curvature="0"
-   style="fill:none;stroke:#000000;stroke-width:0.85039997;stroke-linecap:round" />
+					
 					
 					
 					
@@ -10635,7 +10630,7 @@ MQ==
    id="metadata1605"><rdf:RDF><cc:Work><dc:format>image/svg+xml</dc:format><dc:type
          rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><cc:license
          rdf:resource="http://creativecommons.org/licenses/publicdomain/" /><dc:publisher><cc:Agent
-           rdf:about="http://openclipart.org/"><dc:title>Open Clip Art Library</dc:title></cc:Agent></dc:publisher><dc:title></dc:title><dc:date>2006-10-16T09:01:10</dc:date><dc:description /><dc:source>http://openclipart.org/detail/663/lawn-mower-by-jicjac</dc:source><dc:creator><cc:Agent><dc:title>JicJac</dc:title></cc:Agent></dc:creator><dc:subject><rdf:Bag><rdf:li>clip art</rdf:li><rdf:li>clipart</rdf:li><rdf:li>editorial pick</rdf:li><rdf:li>image</rdf:li><rdf:li>lawn care</rdf:li><rdf:li>lawn care</rdf:li><rdf:li>lawn mower</rdf:li><rdf:li>lawn mower</rdf:li><rdf:li>lawnmower</rdf:li><rdf:li>lawnmower</rdf:li><rdf:li>maintenance</rdf:li><rdf:li>maintenance</rdf:li><rdf:li>media</rdf:li><rdf:li>mulcher</rdf:li><rdf:li>mulcher</rdf:li><rdf:li>png</rdf:li><rdf:li>public domain</rdf:li><rdf:li>rider mower</rdf:li><rdf:li>rider mower</rdf:li><rdf:li>svg</rdf:li></rdf:Bag></dc:subject></cc:Work><cc:License
+           rdf:about="http://openclipart.org/"><dc:title>Open Clip Art Library</dc:title></cc:Agent></dc:publisher><dc:title /><dc:date>2006-10-16T09:01:10</dc:date><dc:description /><dc:source>http://openclipart.org/detail/663/lawn-mower-by-jicjac</dc:source><dc:creator><cc:Agent><dc:title>JicJac</dc:title></cc:Agent></dc:creator><dc:subject><rdf:Bag><rdf:li>clip art</rdf:li><rdf:li>clipart</rdf:li><rdf:li>editorial pick</rdf:li><rdf:li>image</rdf:li><rdf:li>lawn care</rdf:li><rdf:li>lawn care</rdf:li><rdf:li>lawn mower</rdf:li><rdf:li>lawn mower</rdf:li><rdf:li>lawnmower</rdf:li><rdf:li>lawnmower</rdf:li><rdf:li>maintenance</rdf:li><rdf:li>maintenance</rdf:li><rdf:li>media</rdf:li><rdf:li>mulcher</rdf:li><rdf:li>mulcher</rdf:li><rdf:li>png</rdf:li><rdf:li>public domain</rdf:li><rdf:li>rider mower</rdf:li><rdf:li>rider mower</rdf:li><rdf:li>svg</rdf:li></rdf:Bag></dc:subject></cc:Work><cc:License
        rdf:about="http://creativecommons.org/licenses/publicdomain/"><cc:permits
          rdf:resource="http://creativecommons.org/ns#Reproduction" /><cc:permits
          rdf:resource="http://creativecommons.org/ns#Distribution" /><cc:permits
