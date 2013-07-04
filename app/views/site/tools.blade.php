@@ -378,7 +378,6 @@ p.photocredit {
 </style>
 
 <pre>
-
 Tango Icons
 ------------
 In the preparation of the 0.8.90 release Novell took care of tracking
@@ -388,10 +387,7 @@ into Public Domain.
 The COPYING file of the tarball states the following:
 | The icons in this repository are herefore released into the Public Domain.
 
-Additionally the copyright status of the files was tracked in the CVS and the
-rdf properties of the SVGs adjusted for all files that were put into Public
-Domain (see rdf:about and rdf:resource).  Both fields contain a link to the
-Creative Commons Public Domain Dediciation[0] as reproduced below:
+Additionally the copyright status of the files was tracked in the CVS and the rdf properties of the SVGs adjusted for all files that were put into Public Domain (see rdf:about and rdf:resource).  Both fields contain a link to the Creative Commons Public Domain Dediciation[0] as reproduced below:
 </pre>
 
 
