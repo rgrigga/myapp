@@ -22,7 +22,7 @@ class BlogController extends BaseController {
      * @var Tags
      */
     protected $tags;
-
+ 
     /**
      * Post Model
      * @var Post
@@ -68,6 +68,9 @@ class BlogController extends BaseController {
 	public function getIndex($tag="")
 	{
 
+
+
+
 		$alltags=array();		
 
 		foreach ($this->post->get() as $post) {
@@ -98,7 +101,6 @@ class BlogController extends BaseController {
 				}
 
 			}			
-			
 			
 			// die(var_dump(count($posts)));
 
@@ -176,6 +178,7 @@ class BlogController extends BaseController {
 
 		return View::make('site/blog/tags', compact('posts'),compact('tags'));
 	}
+
 
 
 	/**
@@ -277,6 +280,7 @@ class BlogController extends BaseController {
 
 	//return posts where has tag
 
+// <<<<<<< HEAD
 	// public function catch_that_image() {
 	// 	// global $post, $posts;
 	// 	$first_img = '';

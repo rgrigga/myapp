@@ -10,15 +10,12 @@
 			margin-left: 30px;
 		}*/
 		</style>
-		<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar navbar-fixed-top">
 
 			<div class="navbar-inner">
 
 				<div class="container-fluid">
-
 					<a class="btn btn-navbar pull-left" data-toggle="collapse" data-target=".nav-collapse">
-
-
 
 						<!-- <i class="icon-collapse icon-2x"></i> -->
 						<span class="icon-bar"></span>
@@ -28,11 +25,10 @@
 
 					<?php 
 					// if(!$company){
-					$company="Buckeye Mower";
+					// $company="Buckeye Mower";
 					// } 
 					?>
-					
-					<a class="brand" href="#">{{{$company}}}</a>
+					<a class="brand" href="#">{{$company}}</a>
 
 					<div class="nav-collapse collapse">
 						
@@ -42,12 +38,12 @@
 
 						<?php 
 						if(!$menus){
-						$menus=array('about','contact','services');
+						$menus=array('myservice','contact','services');
 						}
 						?>
 
 						@foreach ($menus as $menu)
-						<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to('/'.$menu) }}}">{{{$menu}}}</a></li>
+						<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to($menu) }}}">{{$menu}}</a></li>
 
 						@endforeach
 
@@ -60,7 +56,7 @@
 
                                     <li{{ (Request::is('admin/blogs/create*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/blogs/create') }}}"><i class="icon-bullhorn icon-white"></i> New</a></li>
 
-		                            <li><a href="{{{ URL::to('admin') }}}">Dashboard</a></li>
+		                            <li><a href="{{{ URL::to('admin') }}}">Dash</a></li>
                                 @endif
 	                            <li><a href="{{{ URL::to('user') }}}">Name: {{{ Auth::user()->username }}}</a></li>
 	                            <li><a href="{{{ URL::to('user/logout') }}}">Logout</a></li>
@@ -79,7 +75,7 @@
 			<div class="india pull-right">
 					<!-- <div>phone, email, chat, anything!</div> -->
 				<div>
-					<img src="http://gristech.com/img/contactus.png" alt="learn php laravel web design">
+					<img src="{{asset('assets/buckeye/scheduleonline.png')}}" alt="mobile mower repair">
 				</div>
 			        
 			</div>

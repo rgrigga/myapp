@@ -10,9 +10,25 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-// Route::group(array('domain' => '{sub}.gristech.com'),function($sub){
-//     Redirect::route('{$sub}');
-// });
+
+/** ------------------------------------------
+ *  Route model binding
+ *  ------------------------------------------
+ */
+Route::model('user', 'User');
+Route::model('comment', 'Comment');
+Route::model('post', 'Post');
+Route::model('role', 'Role');
+// now, calls to "user->username" should work.  effectively a singleton representing the session data or database info.
+
+// Route::get('/', array('before' => 'guest', function(){
+//     // echo "You're not logged in!";
+//     return Redirect::to('user/login/');
+// }));
+
+// Route::any('/', array('before' => 'auth', function(){
+    
+// }));
 
 Route::group(array('domain' => 'buckeyemower.com'),function()
 {
@@ -23,10 +39,22 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
     Route::get('/', function(){
         $name='buckeye';
         
-        return View::make('site/'.$name.'/home',array(
+        return View::make('site/'.$name.'/index',array(
             'company'=>'Buckeye Mower',
-            'menus'=>array('#services','#contact','#about')
+            'menus'=>array('About ','Rates','Schedule','Map')
             ));
+    });
+
+    Route::get('/{tag}',function(){
+
+
+
+        return View::make('site/'.$tag.'/home',array(
+            'request'=>'$tag',
+            'menus'=>array('services','contact','about')
+        ));
+        //try to make page
+        //if page not in allowed array, show home
     });
     
     // Route::controller('russ','RussController');
@@ -302,10 +330,8 @@ Route::get('/{tag}', function($tag){
         "contact",
         "licensing",
         "responsive",
-        "notes",
-        "git",
+        "notes3",
         "advantage",
-        "reseller",
         "");
 // =======
 Route::get('/{tag}', 'BlogController@getIndex');

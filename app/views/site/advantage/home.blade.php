@@ -28,16 +28,11 @@
 	<!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-	    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+	    <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine"> -->
 	    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-
-
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/cosmo/bootstrap.min.css">
 
 	    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/flatly/bootstrap.min.css"> -->
-
-
-
 @stop
 
 @section('favicons')
@@ -61,13 +56,13 @@
 		<!-- hardy har -->		
 @stop
 
-
-
 {{-- Content --}}
 @section('content')
 <!-- @parent -->
 <h1>Welcome Home.</h1>
 
+<p>Company: {{$company}}</p>
+<p>Icon: </p>
 <!-- About -->
 <!-- Contact -->
 <!-- Services -->

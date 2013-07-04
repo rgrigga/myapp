@@ -1,7 +1,7 @@
 @extends('site.layouts.default')
 {{-- Web site Title --}}
 @section('meta-title')
-{{{ "Maintenance" }}} ::
+{{{ "Git" }}} ::
 @parent
 @stop
 

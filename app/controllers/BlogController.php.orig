@@ -57,11 +57,6 @@ class BlogController extends BaseController {
 	{
 		return self::getIndex('$tag');
 	}
-
-
-
-
-
     
 // process a many to many relationship amongst tags
 
@@ -73,6 +68,13 @@ class BlogController extends BaseController {
 	public function getIndex($tag="")
 	{
 
+<<<<<<< HEAD
+=======
+		
+
+
+
+>>>>>>> buckeye
 		$alltags=array();		
 
 		foreach ($this->post->get() as $post) {
