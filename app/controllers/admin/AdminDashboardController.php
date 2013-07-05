@@ -24,15 +24,16 @@ class AdminDashboardController extends AdminController {
 	 */
 	public function getIndex($tag='admin')
 	{
+        // die("ADMIN DASHBOARD GET INDEX");
 
 		// if(!$tag){
 		// 	$tag='admin';
 		// }
 
-		$posts=$this->post->getIndex('$tag',3);
-		//show list of recent posts
+		// $posts=$this->post->getIndex('$tag',3);
 
-        return View::make('admin/dashboard')->with($posts);
+		//show list of recent posts
+        return View::make('admin/dashboard');
 	}
 
 }

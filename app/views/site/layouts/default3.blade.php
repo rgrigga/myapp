@@ -1,33 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php
-
-$name = Cookie::get('name');
-if (!$name){
-	$name='Stranger';
-}
-
-
-$company="gristech";
-$menus=array('foo','bar');
-?>
-
 	<head>
 		<!-- Basic Page Needs
 		================================================== -->
-
-		{{-- Update the Meta Title --}}
-		<!-- @section('meta_title') -->
 		<meta charset="utf-8" />
 		<title>
 <!-- <<<<<<< HEAD -->
 			@section('meta-title')
 			Default
 			@show
-			{{-- @section('title') --}}
-			{{-- Gristech MyApp --}}
-			{{-- @show --}}
 		</title>
 			<!-- Gristech Default Layout -->
 			<!-- should be overridden in children -->

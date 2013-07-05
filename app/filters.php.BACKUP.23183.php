@@ -31,7 +31,6 @@ App::after(function($request, $response)
 | session is logged into this application. The "basic" filter easily
 | integrates HTTP Basic authentication for quick, simple checking.
 |
-	see confide docs https://github.com/zizaco/confide
 */
 
 Route::filter('auth', function()
@@ -74,7 +73,13 @@ Route::filter('guest', function()
 
 // Check for role on all admin routes
 Entrust::routeNeedsRole( 'admin*', array('admin'));
+<<<<<<< HEAD
+
+//duplicate for other routes...
+
+=======
 // Entrust::routeNeedsRole( 'buckeye*', array('admin','buckeye'));
+>>>>>>> tools
 /*
 |--------------------------------------------------------------------------
 | CSRF Protection Filter
