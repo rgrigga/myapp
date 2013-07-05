@@ -1,3 +1,4 @@
+
 		<style>
 		body{
 			padding-top: 60px;
@@ -17,6 +18,8 @@
 
 					<a class="btn btn-navbar pull-left" data-toggle="collapse" data-target=".nav-collapse">
 
+
+
 						<!-- <i class="icon-collapse icon-2x"></i> -->
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -24,9 +27,11 @@
 					</a>
 
 					<?php 
-					if(!$company){
-					$company="MegaCorp";
-					} ?>
+					// if(!$company){
+					$company="Buckeye Mower";
+					// } 
+					?>
+					
 					<a class="brand" href="#">{{{$company}}}</a>
 
 					<div class="nav-collapse collapse">
@@ -37,7 +42,7 @@
 
 						<?php 
 						if(!$menus){
-						$menus=array('','tools','features','tags');
+						$menus=array('about','contact','services');
 						}
 						?>
 

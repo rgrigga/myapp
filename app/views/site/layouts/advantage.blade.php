@@ -3,12 +3,13 @@
 <!-- 
 Company Properties:
 Styles
+Name?
+Favicons?
+Meta-Title?
 Meta_Description
 Meta-Keywords
 
  -->
-
-
 
 {{-- Update the Meta Title --}}
 @section('meta_title')
@@ -26,10 +27,6 @@ Advantage Services - We treat your home as our own.
 @section('meta_keywords')
 <meta name="keywords" content="Lawn Mower Repair, Lawn Mower Service" />
 @stop
-
-
-
-
 
 @section('styles')
 @parent

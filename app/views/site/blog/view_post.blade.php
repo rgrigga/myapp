@@ -23,7 +23,6 @@
 @parent
 {{{ String::title($post->title) }}} ::
 
-
 @stop
 
 {{-- Content --}}
@@ -36,7 +35,7 @@
 	<div class="span11 text-center">
 		<a href="{{{ $post->url() }}}" class="thumbnail">
 			<!-- http://placehold.it/260x180 -->
-			<img src="http://gristech.com/img/{{{$post->image}}} " alt="{{{$post->image}}}">
+			<img src="/assets/img/{{$post->image}} " alt="{{$post->image}}">
 		</a>
 	</div>
 	<div class="span12">

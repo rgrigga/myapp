@@ -56,59 +56,8 @@ class BlogController extends BaseController {
 	public function getIndex($tag="")
 	{
 
+		
 
-		$alltags=array();		
-
-		foreach ($this->post->get() as $post) {
-
-			foreach ($post->tags() as $mytag) {
-				if(!in_array($mytag, $alltags)){
-					array_push($alltags, trim($mytag));
-				}
-			}
-
-		}
-
-		//check to see if the tag works
-		//
-		// http://stackoverflow.com/questions/13386774/using-eloquent-orm-in-laravel-to-perform-search-of-database-using-like
-		if($tag){
-			$tag='%'.$tag.'%';
-			$posts = $this->post->where('meta_keywords', 'LIKE', "$tag")->paginate(5);		
-			
-			$tags=array();
-
-			foreach ($posts as $post) {
-
-				foreach ($post->tags() as $mytag) {
-					if(!in_array($mytag, $tags)){
-						array_push($tags, trim($mytag));
-					}
-				}
-
-			}			
-			
-			
-			// die(var_dump(count($posts)));
-
-			if(count($posts)==0){
-
-			return View::make('site/blog/tags', compact('posts'),compact('tags'),compact('alltags'));
-
-			}
-
-			return View::make('site/blog/tags', compact('posts'),compact('user')->with('error', 'There was a problem!'));
-		}
-
-		// $posts = $this->post->where('tag','seo');
-		// Get all the blog posts
-		else{
-			// $myphotos=self::listImages("screen/");
-			// $photos=Paginator::make($myphotos,count($myphotos),10);
-				// $myphotos->paginate(10);
-			$posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
-			// $data = array();
-			return View::make('site/blog/index', array(compact('posts'),compact('tags'),compact('alltags'),compact('photos')));
 
 
 		$alltags=array();		
@@ -217,47 +166,7 @@ class BlogController extends BaseController {
 		return View::make('site/blog/tags', compact('posts'),compact('tags'));
 	}
 
-// =======
-	
 
-	public function getTags($tag="")
-	{
-		// return Redirect::to("tags", "all");
-		// 
-		$alltags=array();		
-
-		foreach ($this->post->get() as $post) {
-
-			foreach ($post->tags() as $posttag) {
-				if(!in_array($posttag, $alltags)){
-					array_push($alltags, trim($posttag));
-				}
-			}
-
-		}
-
-		$posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
-
-		$tags=array();
-		foreach ($posts as $post) {
-
-			foreach ($post->tags() as $mytag) {
-				if(!in_array($mytag, $tags)){
-					array_push($tags, trim($mytag));
-				}
-			}
-
-		}
-
-		// $tags=array_unique($tags);
-		// die(var_dump($tags));
-		// return var_dump($tags);
-// View::make($view, $data);
-
-		return View::make('site/blog/tags', compact('posts'),compact('tags'));
-	}
-
-// >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 
 	/**
 	 * View a blog post.

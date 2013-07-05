@@ -1,5 +1,8 @@
 <?php
 
+// GOOGLE DOCS:
+// http://www.google.com/intx/en/enterprise/apps/business/
+
 class BaseController extends Controller {
 
     /**

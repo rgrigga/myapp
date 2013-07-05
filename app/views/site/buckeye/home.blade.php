@@ -1,15 +1,6 @@
-@extends('site.layouts.sandbox')
+@extends('site.layouts.buckeye')
 
-<?php
 
-$company = new Company;
-
-class Company extends User{
-
-	private $
-}
-
-?>
 {{-- Update the Meta Title --}}
 <!-- THis properly overrides the default -->
 @section('meta-title')
@@ -41,14 +32,15 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 	<!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-<!-- 	    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
-	    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"> -->
+	    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
 
 
 <!-- //This is not responsive! -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/cosmo/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/cosmo/bootstrap.min.css"> -->
 
-<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/flatly/bootstrap.min.css"> -->
+<!-- this one is! -->
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+
 @stop
 
 @section('favicons')
@@ -63,25 +55,27 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 <!-- http://theksmith.com/technology/howto-website-icons-browsersdevices-favicon-apple-touch-icon-etc/ -->
 
 <!-- (this step is required for Android support, android ignores the non-pre-composed version): -->
-
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/{{{$company}}}ico/apple-touch-icon-144-precomposed.png') }}}">
+<?php 
+// $company = "gristech"; 
+?>
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('assets/'.$company.'/ico/apple-touch-icon-144-precomposed.png') }}">
 
 		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
 		<!-- <link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}"> -->
-		<link rel="shortcut icon" href="{{{ asset('assets/ico/{{{'company'}}}/favicon.png') }}}">
+		<link rel="shortcut icon" href="{{{ asset('assets/ico/'.$company.'/favicon.png') }}}">
 
 		<!-- hardy har -->
 				<!-- Very Funny -->
 @stop
 
 @section('nav')
-	<h1>
+	<!-- <h1> -->
 	@parent
-	 :: Child
-	</h1>
+<!-- 	 :: Child
+	</h1> -->
 @stop
 
 {{-- Content --}}
@@ -91,7 +85,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 <div class="row-fluid">
 	<div class="span8">
 		<h1>Welcome Home.</h1>
-		<h2>{{{$company}}}</h2>
+		<h2>{{$company}}</h2>
 	</div>
 </div>
 
@@ -99,8 +93,14 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 	.sidebar-left{
 		background-color: rgba(5,5,0,.2);
 	}
+	.india{
+		background-color: rgba(82,23,58,.4);
+	}
 </style>
 <div class="row-fluid">
+
+<div class="span6"><img src="{{asset('assets/buckeye/buckeye_logo3.png')}}" alt="Buckeye Mower"></div>
+
 	
 	<div class="span2 pull-left sidebar-left">
 		<ul class="nav nav-list">

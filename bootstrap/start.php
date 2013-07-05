@@ -26,7 +26,9 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('your-machine-name'),
+//this is case-sensitive
+	'local' => array('Grisbuntu'),
+	// 'dev' => array('Grisbuntu'),
 
 ));
 

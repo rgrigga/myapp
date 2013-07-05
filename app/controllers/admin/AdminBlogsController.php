@@ -84,8 +84,7 @@ class AdminBlogsController extends AdminController {
         // Declare the rules for the form validation
         $rules = array(
             'title'   => 'required|min:3',
-            'content' => 'required|min:3'
-            // ,
+            'content' => 'required|min:3',
             // 'image' => 'required|min:3'
         );
 
@@ -104,11 +103,19 @@ class AdminBlogsController extends AdminController {
             $this->post->content          = Input::get('content');
             // var_dump(Input::get('image'));
 
+            // die(var_dump($user));
+
             if(!Input::get('image')){
-                $this->post->image='brand.png';
+                $un=$user->username;
+                if(glob($un.".svg")){
+                    $this->post->image=$user->username.".svg";
+                }
+                else{
+                    $this->post->image='desktop.svg';
+                }
             }
             else{
-                $this->post->image            = Input::get('image');    
+                $this->post->image = Input::get('image');    
             }
             
 // Changed this from meta-title to make the title seo stuff work! --->
