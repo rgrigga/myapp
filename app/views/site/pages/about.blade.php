@@ -5,10 +5,13 @@
 @parent
 @stop
 
+$company = "MegaCorp";
+
+
 {{-- Content --}}
 @section('about')
 
-<h1>About {{$company->$name}}</h1>
+<h1>About {{$company->name}}</h1>
 
 
 <abbr title="title='this is an abbreviation'">abbr</abbr>
@@ -16,7 +19,6 @@
 	
 </address>
 <!-- //address tags -->
-{{$company->show_address}}
 
 {{$company->address}}
 {{$company->address}}

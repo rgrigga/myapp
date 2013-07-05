@@ -1,4 +1,11 @@
 <?php
+
+// ??GIT:
+// git
+// http://gitref.org/branching/
+// http://stackoverflow.com/questions/1616957/how-do-you-roll-back-reset-a-git-repository-to-a-particular-commit
+
+//images: http://placehold.it/
 class RussController extends BaseController {
 
     /**

@@ -60,7 +60,7 @@
 
                                     <li{{ (Request::is('admin/blogs/create*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/blogs/create') }}}"><i class="icon-bullhorn icon-white"></i> New</a></li>
 
-		                            <li><a href="{{{ URL::to('admin') }}}">Dash</a></li>
+		                            <li><a href="{{{ URL::to('admin') }}}">Dashboard</a></li>
                                 @endif
 	                            <li><a href="{{{ URL::to('user') }}}">Name: {{{ Auth::user()->username }}}</a></li>
 	                            <li><a href="{{{ URL::to('user/logout') }}}">Logout</a></li>

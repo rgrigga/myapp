@@ -11,24 +11,6 @@
 |
 */
 
-/** ------------------------------------------
- *  Route model binding
- *  ------------------------------------------
- */
-Route::model('user', 'User');
-Route::model('comment', 'Comment');
-Route::model('post', 'Post');
-Route::model('role', 'Role');
-// now, calls to "user->username" should work.  effectively a singleton representing the session data or database info.
-
-// Route::get('/', array('before' => 'guest', function(){
-//     // echo "You're not logged in!";
-//     return Redirect::to('user/login/');
-// }));
-
-// Route::any('/', array('before' => 'auth', function(){
-    
-// }));
 
 Route::group(array('domain' => 'buckeyemower.com'),function()
 {
@@ -39,22 +21,10 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
     Route::get('/', function(){
         $name='buckeye';
         
-        return View::make('site/'.$name.'/index',array(
+        return View::make('site/'.$name.'/home',array(
             'company'=>'Buckeye Mower',
-            'menus'=>array('About ','Rates','Schedule','Map')
+            'menus'=>array('#services','#contact','#about')
             ));
-    });
-
-    Route::get('/{tag}',function($tag){
-
-
-
-        return View::make('site/'.$tag.'/home',array(
-            'request'=>'$tag',
-            'menus'=>array('services','contact','about')
-        ));
-        //try to make page
-        //if page not in allowed array, show home
     });
     
     // Route::controller('russ','RussController');
@@ -157,9 +127,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::controller('roles', 'AdminRolesController');
 
     # Admin Dashboard
-
     Route::controller('/', 'AdminDashboardController');
-    
 });
 
 
@@ -279,10 +247,7 @@ Route::get('russ/{tag}', 'RussController@getIndex');
 
 // <<<<<<< HEAD
 Route::get('/advantage/','CompanyController@getIndex');
-Route::get('advantage', 'CompanyController@getIndex',array(
-    'company'=>'Advantage',
-    'menus'=>array('#services','#contact','#about')
-    ));
+Route::get('advantage', 'CompanyController@getIndex',array('name'=>'advantage'));
 Route::get('company/{name}', 'CompanyController@getIndex');
 
 // =======
@@ -347,27 +312,17 @@ Route::get('/{tag}', 'BlogController@getIndex');
         die("RUSS!");
     }
 
-    $path='/home/gristech/myapp/app/views/site/pages/';
-
-    $mypages = array();
-    foreach (glob($path."*.blade.php") as $filename) {
-        $filename=str_replace($path, "", $filename);
-        $filename=str_replace(".blade.php", "", $filename);
-        array_push($mypages,$filename);
-        // echo "$filename" . "<br>";
+    if(in_array($tag, $mypages)){
+        $view = View::make('site/pages/'.$tag);
+        return $view;
+    }
+    else{
+        return Redirect::to('search/'.$tag);
     }
 
-    // die (var_dump($path));
 
-        if(in_array($tag, $mypages)){
-            $view = View::make('site/pages/'.$tag);
-            return $view;
-        }
-        else{
-            return Redirect::to('search/'.$tag);
-        }
-
-    });
+    // 'BlogController@getIndex'
+});
 
 // Route::post('/{tag}', 'BlogController@postView');
 

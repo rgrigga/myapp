@@ -12,7 +12,7 @@
 {{-- Content --}}
 @section('content')
 
-<div class="spacer" style="margin-top:80px;"></div>
+<!-- <div class="spacer" style="margin-top:80px;"></div> -->
 
 <div class="row">
 	<div class="span6 pull-right">
@@ -24,17 +24,33 @@
 
 
 	<div class="span6">
+<?php
+    $path='/home/gristech/myapp/app/views/site/pages/';
+    $mypages = array();
+    foreach (glob($path."*.blade.php") as $filename) {
+        $filename=str_replace($path, "", $filename);
+        $filename=str_replace(".blade.php", "", $filename);
+        array_push($mypages,$filename);
+        // echo "$filename" . "<br>";
+    }
+?>
+
+
 
 	<p>Here are a few things you can try:</p>
 	<h3>Security</h3>
 		<ul>
-			<li>About</li>
+			@foreach($mypages as $page)
+			<li><a href="{{URL::to($page)}}">{{$page}}</a></li>
+			@endforeach
+
+<!-- 			<li>About</li>
 			<li>Tools</li>
 			<li>Features</li>
 			<li>Security</li>
 			<li>Licensing</li>
 			<li>seo</li>
-			<li>search/seo</li>
+			<li>search/seo</li> -->
 		</ul>
 
 		<p>You see, I have built a database of logic and structure for all of these topics.  Some pages integrate facebook.  Some integrate twitter.  Some integrate Google Products.  Here is a list of available API's:</p>

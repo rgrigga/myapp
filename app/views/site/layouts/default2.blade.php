@@ -2,32 +2,30 @@
 <html lang="en">
 
 <?php
-
-$name = Cookie::get('name');
-if (!$name){
-	$name='Stranger';
-}
-
-
 $company="gristech";
 $menus=array('foo','bar');
 ?>
+<!-- 
+	meta -->
+<!-- CSS/styles -->
+<!-- JS -->
 
+<!-- 
+<h3>meta</h3>
+<h4>meta-title</h4>
+<h4>meta-description</h4>
+<h4>meta-keywords</h4>
+<h3>Styles</h3> 
+-->
 	<head>
 		<!-- Basic Page Needs
 		================================================== -->
-
-		{{-- Update the Meta Title --}}
-		<!-- @section('meta_title') -->
 		<meta charset="utf-8" />
 		<title>
 <!-- <<<<<<< HEAD -->
 			@section('meta-title')
 			Default
 			@show
-			{{-- @section('title') --}}
-			{{-- Gristech MyApp --}}
-			{{-- @show --}}
 		</title>
 			<!-- Gristech Default Layout -->
 			<!-- should be overridden in children -->
@@ -151,7 +149,26 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 		<!-- hardy har -->		
 @show
 
+
+<script>
+// I think this is a webmaster tracking code...
+// originally located on each individual page, it is a part of the layout.
+// It should probably be in the parent layout
+// Moved July 1st
+  (function() {
+    var cx = '012277204628171564007:sik_hha9myk';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+
 @section('analytics')
+<!-- //need bing, yahoo -->
 <!-- ======= -->
 		<meta name="google-site-verification" content="U8zCfNgj-23MojmUwyxkij6AqrU30NWhgJgTtiBl3WI" />
 <!-- >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3 -->
