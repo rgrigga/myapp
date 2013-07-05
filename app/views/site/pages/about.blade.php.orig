@@ -1,0 +1,38 @@
+@extends('site.layouts.default')
+{{-- Web site Title --}}
+@section('title')
+{{{ Lang::get('site.about') }}} ::
+@parent
+@stop
+
+$company = "MegaCorp";
+
+
+{{-- Content --}}
+@section('about')
+
+<h1>About {{$company->name}}</h1>
+
+<address>
+	{{$company->address}}
+</address>
+<!-- //address tags -->
+<<<<<<< HEAD:app/views/site/pages/about.blade.php
+
+{{$company->address}}
+{{$company->address}}
+{{$company->address}}
+{{$company->address}}
+{{$company->address}}
+
+
+
+
+=======
+>>>>>>> tools:app/views/site/pages/pages.blade.php
+
+<abbr title="title='this is an abbreviation'">abbr</abbr>
+
+@include('site.russ.contact')
+
+@stop
