@@ -19,12 +19,12 @@
 		"robclancy/presenter": "1.0.*",
 		"jasonlewis/enhanced-router": "1.0.*"
 	},
-	"require-dev": {
+	//"require-dev": {
         
-        "mockery/mockery": "dev-master@dev",
-        "summerstreet/woodling": "0.1.*",
-        "barryvdh/laravel-ide-helper": "dev-master"
-	},
+        //"mockery/mockery": "dev-master@dev",
+        //"summerstreet/woodling": "0.1.*",
+        //"barryvdh/laravel-ide-helper": "dev-master"
+	//},
 	"autoload": {
 		"classmap": [
 

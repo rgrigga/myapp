@@ -50,7 +50,6 @@ Website Management ::
 			<td>mk{{{ $post->meta_keywords }}}</td>
 			<td>{{{ $post->author->username }}}</td>
 			<td>{{{ $post->views }}}</td>
-
 			<td>{{{ $post->comments()->count() }}}</td>
 			<td>{{{ $post->created_at() }}}</td>
 			<td>
