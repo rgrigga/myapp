@@ -53,109 +53,6 @@ Post Update ::
 	     <textarea name="body" id="blog">Demo blog textarea</textarea>
 	</div>
 
-					<h4>
-						<em>Title: </em>{{{ $post->title }}}
-					</h4>
-					<h5>
-						<em>Link: </em><a href="{{{ URL::to('blog/'.$post->slug) }}}">{{{ URL::to('blog/'.$post->slug) }}}</a>
-					</h5>
-					<h5>
-						Tags: <ul class='tag'>
-						<li><i class="icon-tag"></i> tags:</li>
-						@foreach($post->tags() as $tag)
-				    		<li>{{ $tag }}</li> 
-						@endforeach
-					</ul>
-					</h5>
-
-
-				<!-- Meta Title -->
-				<p>Meta Title is the text that appears at the top of the browser window when the user looks at your page. It also helps search engines understand what your page is about.  Therefore, it should be simple, descriptive, and use a keyword or two.</p>
-				
-
-				<div class="control-group {{{ $errors->has('meta-title') ? 'error' : '' }}}">
-					<label class="control-label" for="meta-title">Meta Title</label>
-					<div class="controls">
-						
-						<input type="text" name="meta-title" id="meta-title" 
-
-						value="{{{ Input::old('meta-title', $post->meta_title) }}}" />
-						{{{ $errors->first('meta-title', '<span class="help-inline">:message</span>') }}}
-					</div>
-				</div>
-				<!-- ./ meta title -->
-
-				<!-- Meta Description -->
-				<p><i class="icon-facebook"></i> Meta Description is a 158 character summary of your post.  The Meta-Description may be displayed as the text for a google result, for example...</p>
-				<p>It is also used on facebook</p>
-
-				<div class="control-group {{{ $errors->has('meta-description') ? 'error' : '' }}}">
-					
-					<label class="control-label" for="meta-description">Meta Description</label>
-
-					<div class="controls">
-						<!-- <textarea class="full-width span10 wysihtml5" name="content" value="content" rows="20">{{{ Input::old('content', $post->content) }}}</textarea> -->
-					
-						<textarea class="full-width span10 wysihtml5" rows="4" name="meta-description" id="meta-description">{{{ Input::old('meta-description', $post->meta_description) }}}</textarea>
-
-						{{{ $errors->first('meta-description', '<span class="help-inline">:message</span>') }}}
-					</div>
-
-				</div>
-				<!-- ./ meta description -->
-
-				<!-- Meta Image -->
-	<!-- 			<div class="control-group {{{ $errors->has('meta-image') ? 'error' : '' }}}">
-					<label class="control-label" for="meta-image">Meta Image</label>
-					<div class="controls">
-						<input type="text" name="meta-image" id="meta-image" value="{{{ Input::old('meta-image', $post->meta_image) }}}" />
-						{{{ $errors->first('meta-image', '<span class="help-inline">:message</span>') }}}
-					</div>
-				</div> -->
-				<!-- ./ meta image -->
-
-				<!-- Meta Keywords -->
-				<p>Enter keywords and/or key phrases as a list separated by commas.  For example: "seo, php, security".  These also help your content appear correctly.  Your posts already automagically contain an internal tag that links your post to your site.  </p>
-				<p>Once thought to be important to SEO, google stopped using keywords in 2009.  More info soon...</p>
-				<p>The keywords tag is tied to tags on this site.  So, this is a comma-separated list of tags.  It works the same way in wordpress.</p>
-				
-
-				<div class="control-group {{{ $errors->has('meta-keywords') ? 'error' : '' }}}">
-					<label class="control-label" for="meta-keywords">Tags, aka<br>Meta Keywords</label>
-
-
-					<div class="controls">
-						<input type="text" name="meta-keywords" id="meta-keywords" value="{{{ Input::old('meta-keywords', $post->meta_keywords) }}}" />
-						{{{ $errors->first('meta-keywords', '<span class="help-inline">:message</span>') }}}
-					</div>
-				</div>
-				<!-- ./ meta keywords -->
-
-
-
- <div class="accordion" id="accordion">
-<!--  	<div class="accordion-group">
-=======
- <div class="accordion" id="accordion">
- 	<div class="accordion-group">
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
- 		<div class="accordion-heading">
- 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
- 				<h3>
-						Blog Post Update
-
-						
-					</h3>
- 			</a>
- 		</div>
-<<<<<<< HEAD
- 		 		<!- - add class 'in' to the next div to expand on pageload ->
-
- 		<div id="collapseOne" class="accordion-body collapse">
- 			<div class="accordion-inner">
- 				
- 			</div>
- 		</div> -->
 
  		 		<!-- add class 'in' to the next div to expand on pageload -->
 
@@ -200,7 +97,9 @@ Post Update ::
 					<label class="control-label" for="meta-title">Meta Title</label>
 					<div class="controls">
 
+
 						<input type="text" name="meta-title" id="meta-title" value="{{{ Input::old('meta-title', $post->meta_title) }}}" />
+
 						{{{ $errors->first('meta-title', '<span class="help-inline">:message</span>') }}}
 					</div>
 				</div>
@@ -238,17 +137,13 @@ Post Update ::
 				<!-- ./ meta image -->
 
 				<!-- Meta Keywords -->
-<<<<<<< HEAD
+
 				<p>Enter keywords and/or key phrases as a list separated by commas.  For example: "seo, php, security".  These also help your content appear correctly.  Your posts already automagically contain an internal tag that links your post to your site.  </p>
 				<p>Once thought to be important to SEO, google stopped using keywords in 2009.  More info soon...</p>
 				<p>The keywords tag is tied to tags on this site.  So, this is a comma-separated list of tags.  It works the same way in wordpress.</p>
 				<div class="control-group {{{ $errors->has('meta-keywords') ? 'error' : '' }}}">
 					<label class="control-label" for="meta-keywords">Tags, aka<br>Meta Keywords</label>
-=======
-				<p>Enter keywords and/or key phrases as a list separated by commas.  For example: "".  The keywords or "tags" are one of the most important factors in SEO.  These also help your content appear correctly.  Your posts already automagically contain an internal tag that links your post to your site.  </p>
-				<div class="control-group {{{ $errors->has('meta-keywords') ? 'error' : '' }}}">
-					<label class="control-label" for="meta-keywords">Meta Keywords</label>
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
+
 
 
 					<div class="controls">
@@ -310,11 +205,9 @@ Post Update ::
  			</div>
  		</div>
  	</div>
-<<<<<<< HEAD
- <!-- </div> -->
-=======
+
  </div>
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
+
 
 
 
