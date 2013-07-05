@@ -48,16 +48,13 @@ Website Management ::
 			
 		</div>
 		<tr>
-<<<<<<< HEAD
+
 			<td>t{{{ $post->title }}}</td>
 			<td>md{{{ $post->meta_description }}}</td>			
 			<td>mk{{{ $post->meta_keywords }}}</td>
 			<td>{{{ $post->author->username }}}</td>
 			<td>{{{ $post->views }}}</td>
-=======
-			<td>{{{ $post->title }}}</td>
-			<td>{{{ $post->meta_keywords }}}</td>
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
+
 			<td>{{{ $post->comments()->count() }}}</td>
 			<td>{{{ $post->created_at() }}}</td>
 			<td>
