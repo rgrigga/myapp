@@ -23,6 +23,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
     text-align: center;
     background-color: rgb(214,198,150);
     box-shadow: 10px 10px 5px rgb(115,78,0);
+    border-radius: 40% 40%;
     }
   /*.hero-unit img {*/
     /*width: 100%;*/
@@ -396,6 +397,9 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
+
+
+<img src="{{asset('assets/buckeye/grass.svg')}}" alt="grass.svg">
 
     <div class="container marketing">
 
