@@ -9,46 +9,65 @@ Post Update ::
 {{-- Content --}}
 @section('content')
 
+<style>
+	.alpha{
+		height: 400px;
+		background-color: rgba(20,20,20,.5);
+	}
+	.beta{
+		height: 400px;
+		background-color: rgba(200,200,200,.5);
+	}
+</style>
+<h3>post edit</h3>
 <div class="page-header">
-					<h3>
-						post edit
-						<div class="pull-right">
-
-			<a href="{{{ URL::to('admin/blogs/create') }}}" class="btn btn-small btn-info"><i class="icon-plus-sign icon-white"></i> Create</a>
+	<div class="row-fluid">
+		<div class="span4 beta thumbnail">
+			<!-- <div class="thumbnail span4"> -->
+			<!-- <h4>Beta</h4> -->
+			<img src="{{asset('/assets/img/'.$post->image)}}" alt="{{$post->image}}">
+			<h3>{{$post->title}}</h3>
+			<p>{{$post->meta_description}}</p>	
+			<!-- </div> -->
 		</div>
-		<div class="pull-right">
+		<div class="span4 beta thumbnail">
+			foo
+		</div>
+		<div class="span4 alpha thumbnail">
+			<h4>Elsewhere:</h4>
+			<a href="{{{ URL::to('admin/blogs/create') }}}" class="btn btn-small btn-info"><i class="icon-plus-sign icon-white"></i> Create</a>
 			<a href="{{{ URL::to('admin/blogs') }}}" class="btn btn-small btn-inverse"><i class="icon-circle-arrow-left icon-white"></i> Back to List</a>
-		</div>					
-		</h3>
+
+			
+
+		</div>
+	</div>
+	
 </div>
 
 <!-- {{{ var_dump($post->tags()) }}} -->
 <style>
-
-/*	ul.tag li{
+	ul.tag li{
 	    display: inline;
 	    background-color: orange;
 	    padding: 5px;
-	}*/
+	}
 </style>
-		<div class="pull-right">
-			<a href="{{{ URL::to('admin/blogs') }}}" class="btn btn-small btn-inverse"><i class="icon-circle-arrow-left icon-white"></i> Back to Post List</a>
-		</div>
-
 
 <form class="form-horizontal" method="post" action="" autocomplete="off">
 	<!-- CSRF Token -->
 	<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 	<!-- ./ csrf token -->
-					
-<!-- <div class="span2 pull-left">
-	<ul class="nav nav-list">
-    <li class="nav-header">List header</li>
-    <li class="active"><a href="#">Home</a></li>
-    <li><a href="#">Library</a></li>
-    </ul>
-</div> -->
+			<div class="control-group">
 
+				<div class="controls">
+					<h4>This Post:</h4>
+					<a class="btn btn-info" href="{{{ URL::to('admin/blogs') }}}">Cancel</a>
+					<button type="reset" class="btn">Reset</button>
+					<button type="submit" class="btn btn-success">Publish</button>
+				</div>
+			</div>
+					
 	<div class="control-group">
 	     <textarea name="body" id="blog">Demo blog textarea</textarea>
 	</div>
@@ -197,8 +216,9 @@ Post Update ::
 					{{{ $errors->first('image', '<span class="help-inline">:message</span>') }}}
 				</div>
 				<div class="thumbnail span6 controls">
-					<img src="http://gristech.com/img/{{ $post->image }}" alt="The Old Image should appear here">
-					<p class="muted text-center">http://gristech.com/img/{{ $post->image }}</p>
+					<img src="{{asset('/assets/img/'.$post->image)}}" alt="{{$post->image}}">
+					<!-- <img src="http://gristech.com/img/{{ $post->image }}" alt="The Old Image should appear here"> -->
+					<p class="muted text-center">http://gristech.com/img/{{ $post->image }} {{asset('/assets/img/'.$post->image)}}</p>
 				</div>
 			</div>
 			<!-- ./ image -->
@@ -239,13 +259,7 @@ Post Update ::
 <!-- ./ tabs content -->
 
 	<!-- Form Actions -->
-	<div class="control-group">
-		<div class="controls">
-			<a class="btn btn-link" href="{{{ URL::to('admin/blogs') }}}">Cancel</a>
-			<button type="reset" class="btn">Reset</button>
-			<button type="submit" class="btn btn-success">Publish</button>
-		</div>
-	</div>
+
 	<!-- ./ form actions -->
 </form>
 @stop
