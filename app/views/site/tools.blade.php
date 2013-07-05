@@ -377,8 +377,9 @@ p.photocredit {
 
 </style>
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-<pre class="prettyprint">
 
+
+<pre>
 Tango Icons
 ------------
 In the preparation of the 0.8.90 release Novell took care of tracking
@@ -388,10 +389,7 @@ into Public Domain.
 The COPYING file of the tarball states the following:
 | The icons in this repository are herefore released into the Public Domain.
 
-Additionally the copyright status of the files was tracked in the CVS and the
-rdf properties of the SVGs adjusted for all files that were put into Public
-Domain (see rdf:about and rdf:resource).  Both fields contain a link to the
-Creative Commons Public Domain Dediciation[0] as reproduced below:
+Additionally the copyright status of the files was tracked in the CVS and the rdf properties of the SVGs adjusted for all files that were put into Public Domain (see rdf:about and rdf:resource).  Both fields contain a link to the Creative Commons Public Domain Dediciation[0] as reproduced below:
 </pre>
 
 
@@ -604,6 +602,7 @@ $code='foo';
 						<ul>
 							<li><a href="http://clipartist.info/RSS/openclipart.org/2011/May/29-Sunday/lawn_mower.svg.html">Open Clip Art Library</a>
 							</li>
+							<li>lorempixum</li>
 							<li><a href="http://www.flickr.com/creativecommons/">flickr</a></li>
 							<li><a href="http://www.kozzi.com/?ref=146452">Kozzi</a></li>
 							<li><a href="http://www.deviantart.com/"></a>deviantart</li>

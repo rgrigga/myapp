@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+
+<!-- a quick note to all those that helped with this: -->
+<!-- THANK YOU!!! -->
+<!-- I am humbled.  I am in awe.  I hope I am worth of contributing, and I wish you all riches. -->
+
 		<!-- Basic Page Needs
 		================================================== -->
 		<meta charset="utf-8" />
@@ -13,7 +18,15 @@
 
 		@section('meta')
 
-		<!-- Metatags are super important. -->
+		<!-- Metatags are super important.-->
+		
+		<!-- Google's SEO Starter Guide: http://static.googleusercontent.com/external_content/untrusted_dlcp/www.google.com/en/us/webmasters/docs/search-engine-optimization-starter-guide.pdf -->
+
+		<!-- http://www.seologic.com/faq/meta-keywords -->
+
+		<!-- Meta keywords tags should adhere to the following guidelines: (1) keep your list of keywords or keyword phrases down to 10 - 15 unique words or phrases; (2) separate the words or phrases using a comma (you do not need to leave a space between words separated by commas); (3) do not repeat words or phrases; (4) put your most important word or phrases at the beginning of your list. -->
+
+		<!-- //Conclusion: Keywords are not as important as the description.  I once read google doesn't use them anymore.  Bing/Yahoo might? -->
 
 			<meta name="keywords" content="php, laravel, web application, development, learning, software, business, design" />
 			<meta name="author" content="Ryan Grissinger" />
@@ -22,7 +35,7 @@
 			<!-- Mobile Specific Metas
 			================================================== -->
 
-			<!-- MOre info on this: http://coding.smashingmagazine.com/2011/01/12/guidelines-for-responsive-web-design/ -->
+			<!-- More info on this: http://coding.smashingmagazine.com/2011/01/12/guidelines-for-responsive-web-design/ -->
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		@show
 
@@ -30,24 +43,28 @@
 		<!-- CSS
 		================================================== -->
     @section('styles')
+    
+    <!-- Here are two methods of accomplishing the same thing: -->
     @stylesheets("public-css")
-		
-		<link rel="stylesheet" href="/assets/css/style.css">
+	<link rel="stylesheet" href="/assets/css/style.css">
+
+	<!-- 
+	Next, let's talk about global styles on the default page. <style> Tags help me to understand what's going on on a particular page during development.  The assets can later be moved to external stylesheets and finally compiled assets when pushed to production, right?-->
 
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
-
+		
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
 
 	@show
+
+@section('js')
+<!-- <link href="prettify.css" type="text/css" rel="stylesheet" /> -->
 <!-- prettify -->
 
-<!-- NOTE: I had an experience with a lengthy pageload on this today.  It's a good lesson NOT to include prettify on the main layout page -->
-
-<!-- <link href="prettify.css" type="text/css" rel="stylesheet" /> -->
-@section('js')
+<!-- NOTE: I had an experience with a lengthy pageload on this today.  It's a good lesson NOT to include prettify on the main layout page.  Move to the bottom? -->
 <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&amp;skin=sunburst&amp;lang=css"></script>
 
 <!-- font-awesome -->
@@ -62,6 +79,7 @@
 		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
 
 		<link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}">
+		
 		<meta name="google-site-verification" content="U8zCfNgj-23MojmUwyxkij6AqrU30NWhgJgTtiBl3WI" />
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -80,9 +98,6 @@
 	<body>
 
 <!-- google analytics -->
-
-
-
 
 		<!-- To make sticky footer need to wrap in a div -->
 	<div id="wrap">

@@ -5,9 +5,6 @@
 @parent
 @stop
 
-$company = "MegaCorp";
-
-
 {{-- Content --}}
 @section('about')
 
@@ -16,20 +13,11 @@ $company = "MegaCorp";
 
 <abbr title="title='this is an abbreviation'">abbr</abbr>
 <address>
-	
+	{{$company->address}}
 </address>
 <!-- //address tags -->
 
 {{$company->address}}
-{{$company->address}}
-{{$company->address}}
-{{$company->address}}
-{{$company->address}}
-
-
-
-
-
 
 @include('site.russ.contact')
 

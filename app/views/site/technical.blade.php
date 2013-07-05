@@ -2,7 +2,6 @@
 @section('content')
 
 <!-- http://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ -->
-
 <style>
 
 	/*.jumbotron{*/

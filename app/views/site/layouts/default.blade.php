@@ -21,9 +21,8 @@ $menus=array('foo','bar');
 		<!-- @section('meta_title') -->
 		<meta charset="utf-8" />
 		<title>
-<!-- <<<<<<< HEAD -->
-			@section('meta-title')
-			Default
+			@section('title')
+			Gristech MyApp
 			@show
 			{{-- @section('title') --}}
 			{{-- Gristech MyApp --}}
@@ -32,8 +31,7 @@ $menus=array('foo','bar');
 			<!-- Gristech Default Layout -->
 			<!-- should be overridden in children -->
 
-{{-- Update the Meta Title --}}
-<!-- @section('meta_title') -->
+		@section('meta')
 
 <!-- Buckeye Mower ::  -->
  <!-- String::title($post->title) }}} -->
@@ -44,59 +42,33 @@ $menus=array('foo','bar');
 @section('meta_description')
 <meta name="description" content="Gristech will do things that will help you do what you do better.  We will make you make more money.  We will therefore make you want to give us lots of money. We will make you lots of money.">
 
- 
-{{-- Update the Meta Keywords --}}
-@show
+			<meta name="keywords" content="php, laravel, web application, development, learning, software, business, design" />
+			<meta name="author" content="Ryan Grissinger" />
+			<meta name="description" content="A flexible, customizable web application" />
 
-@section('meta_keywords')
-<meta name="keywords" content="Gristech" />
-@show
+			<!-- Mobile Specific Metas
+			================================================== -->
 
-{{-- Update the Meta Description --}}
-@section('meta_description')
-<meta name="description" content="You are experiencing a flexible, fully customizable web application" />
-@show
+			<!-- MOre info on this: http://coding.smashingmagazine.com/2011/01/12/guidelines-for-responsive-web-design/ -->
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		@show
 
-<!-- // branding -->
-<!-- // marketing-->
-<!-- ======= -->
-			@section('title')
-			Gristech MyApp
-			@show
-		</title>
-		<meta name="keywords" content="php, laravel, development, learning, software, business" />
-		<meta name="author" content="Ryan Grissinger" />
-		<meta name="description" content="A flexible, customizable web application" />
-
-		<!-- Mobile Specific Metas
-		================================================== -->
-
-		<!-- MOre info on this: http://coding.smashingmagazine.com/2011/01/12/guidelines-for-responsive-web-design/ -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<!-- CSS
 		================================================== -->
+    @section('styles')
     @stylesheets("public-css")
 		
 		<link rel="stylesheet" href="/assets/css/style.css">
-<!-- >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3 -->
 
-<!-- CSS================================================== -->
-@section('styles')
-@stylesheets("public-css") <!-- //interesting... -->	
-<link rel="stylesheet" href="/assets/css/style.css">
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+	
 
-<!-- <<<<<<< HEAD -->
-<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
-<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-
-<!-- font-awesome -->
-<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-
-
-	<style>
+<style>
 	/*http://css-tricks.com/almanac/properties/z/z-index/*/
 
 		.mycontentwrap{
@@ -105,28 +77,22 @@ $menus=array('foo','bar');
 			/*z-index: -3;*/
 		}
 	</style>
-@show
+	
+	@show
 
 <!-- prettify -->
 <!-- NOTE: I had an experience with a lengthy pageload on this today.  It's a good lesson NOT to include prettify on the main layout page.  Load it in a child page where you need it. -->
 <!-- <link href="prettify.css" type="text/css" rel="stylesheet" /> -->
-
-@section('myjs')
-<!-- I prefer to keep javascript to a minimum when possible. -->
-<!-- <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&amp;skin=sunburst&amp;lang=css"></script> -->
-
-<!-- google.com/analytics -->
-@show
-
 @section('favicons')
 <!-- ======= -->
 <!-- prettify -->
 <!-- <link href="prettify.css" type="text/css" rel="stylesheet" /> -->
+@section('js')
 <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&amp;skin=sunburst&amp;lang=css"></script>
 
 <!-- font-awesome -->
 <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
-<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
 <!-- >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3 -->
 		<!-- Favicons
@@ -146,15 +112,12 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
 
 		<link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}">
-<!-- <<<<<<< HEAD -->
+
 
 		<!-- hardy har -->		
 @show
 
 @section('analytics')
-<!-- ======= -->
-		<meta name="google-site-verification" content="U8zCfNgj-23MojmUwyxkij6AqrU30NWhgJgTtiBl3WI" />
-<!-- >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3 -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -163,24 +126,24 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 
   ga('create', 'UA-41528506-1', 'gristech.com');
   ga('send', 'pageview');
-// <<<<<<< HEAD
+
 </script>
 <meta name="google-site-verification" content="U8zCfNgj-23MojmUwyxkij6AqrU30NWhgJgTtiBl3WI" />
 @show
 
-</head>
+		<!-- Favicons
+		================================================== -->
 
-<!-- body -->
-<body>
-<!-- To make sticky footer need to wrap in a div -->
-	<div id="wrap">
-<!-- http://twitter.github.io/bootstrap/examples/sticky-footer-navbar.html -->
-		@section('nav')
-		@include('site.partials.nav-top-inverse')
-		@show
-<!-- ======= -->
+		<!-- http://theksmith.com/technology/howto-website-icons-browsersdevices-favicon-apple-touch-icon-etc/ -->
+		<!-- (this step is required for Android support, android ignores the non-pre-composed version): -->
 
-</script>
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}}">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}}">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
+		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
+
+		<link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}">
+		<meta name="google-site-verification" content="U8zCfNgj-23MojmUwyxkij6AqrU30NWhgJgTtiBl3WI" />
 	</head>
 
 	<body>
@@ -194,13 +157,21 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 	<div id="wrap">
 		<!-- Navbar -->
 
+		<style>
+		.navbar-fixed-top{
+			position:fixed;
+		}
+		</style>
+
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container-fluid">
 
 @include('site.partials.contact')
 
-<!-- //moved -->
+
+
+
 <!-- 					<div class="pull-right">
 						<a href="http://facebook.com" class="social-icon">
 					    	<img src="http://gristech.com/img/facebook.png" class="img-circle">
@@ -222,16 +193,17 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 						<span class="icon-bar"></span>
 					</a>
 
+					<a class="brand" style="margin-left:30px;" href="#">MyApp</a>
 					<div class="nav-collapse collapse">
 						<ul class="nav">
 							<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
-							<li {{ (Request::is('technical') ? ' class="active"' : '') }}><a href="{{{ URL::to('/technical') }}}">Technical</a></li>
+							<li {{ (Request::is('tools') ? ' class="active"' : '') }}><a href="{{{ URL::to('/tools') }}}">Tools</a></li>
 							<li {{ (Request::is('features') ? ' class="active"' : '') }}><a href="{{{ URL::to('/features') }}}">Features</a></li>
 							<li {{ (Request::is('tags') ? ' class="active"' : '') }}><a href="{{{ URL::to('/tags') }}}">Tags</a></li>
 						</ul>
 
 						<!-- admin/user nav -->
-                        <ul class="nav pull-right">
+                        <ul class="nav pull-right">				
                             @if (Auth::check())
                                 @if (Auth::user()->hasRole('admin'))
 
@@ -243,8 +215,9 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 	                            <li><a href="{{{ URL::to('user/logout') }}}">Logout</a></li>
                             @else
 	                            <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">Login</a></li>
-	                            <li {{ (Request::is('user/register') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/create') }}}">Join (Free)</a></li>
+	                            <li {{ (Request::is('user/register') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/create') }}}">Welcome</a></li>
                             @endif
+                            @include('site.partials.contact')
                         </ul>
 					</div>
 					<!-- ./ nav-collapse -->
@@ -261,40 +234,12 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 			</div>
 		</div>
 		<!-- ./ navbar -->
-<!-- >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3 -->
 
 		<!-- Container -->
 		<div class="container-fluid">
 			<!-- Notifications -->
 			@include('notifications')
 			<!-- ./ notifications -->
-<!-- <<<<<<< HEAD -->
-
-			<div class="mycontentwrap">
-				<!-- Content -->
-				@yield('content')
-				<!-- ./ content -->
-			</div>
-
-		<!-- the following div is needed to make a sticky footer -->
-		<!-- this sticky footer is broken.  there is a working example at bootstrap -->
-			<div id="push"></div>
-		</div>
-		<!-- ./ container-fluid -->
-	</div>
-		<!-- ./wrap -->
-
-
-	    <div id="footer">
-			<div class="container">
-			<span><a href="http://en.wikipedia.org/wiki/Perpetual_beta">Always Beta</a></span>
-			</div>
-
-		</div>
-
-
-	    <!-- //wrap -->
-<!-- ======= -->
 			<style>
 			/*http://css-tricks.com/almanac/properties/z/z-index/*/
 			.contentwrap{
@@ -346,9 +291,11 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, cumque pr
 	      </div>
 
 	    </div>
-<!-- >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3 -->
 
-<a href="/whyresponsive">
+<a href="/responsive">
+
+
+
 <div class="hotel hotelb">
 <!-- 	<div style="color:black; padding-bottom:50px;">resize me</div> -->
 	<div class="hotel pull-right">

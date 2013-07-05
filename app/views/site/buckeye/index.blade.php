@@ -294,7 +294,6 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
         font-size: 18px;
       }*/
 
-
       .marketing .span4 + .span4 {
         margin-top: 40px;
       }
@@ -391,9 +390,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
     <![endif]-->
 
     <!-- Fav and touch icons -->
-    <style>
-
-    </style>
+    
 
 
     <!-- Marketing messaging and featurettes
@@ -404,13 +401,11 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 
 
 <div class="row-fluid">
-
   <div class="kilo delta">
     <img src="{{asset('assets/buckeye/yard.jpg')}}" alt="" />  
     <h1><span>Buckeye Mower</span></h1>
     <p><span><em>Time to get your grass in gear!</em></span></p>
   </div>
-
 </div>
 
 <div class="row-fluid">

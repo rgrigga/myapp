@@ -5,7 +5,6 @@
 @parent
  <!-- String::title($post->title) }}} -->
 @stop
-
 {{-- Update the Meta Description --}}
 @section('meta_description')
 @parent
