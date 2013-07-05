@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 @extends('site.layouts.buckeye')
 
-
-=======
-@extends('site.layouts.sandbox')
-
 <?php
+<<<<<<< HEAD
 
 // $company = new Company;
 
@@ -13,9 +9,16 @@
 
 // 	private $
 // }
+=======
+class Company extends User{
 
+	public $name="Buckeye Mower";
+}
+>>>>>>> test
+
+$obj = new Company;
+$company = $obj->name;
 ?>
->>>>>>> tools
 {{-- Update the Meta Title --}}
 <!-- THis properly overrides the default -->
 @section('meta-title')
@@ -47,8 +50,8 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 	<!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-<<<<<<< HEAD
-	    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+<!-- 	    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+	    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"> -->
 
 
 <!-- //This is not responsive! -->
@@ -57,16 +60,6 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 <!-- this one is! -->
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
 
-=======
-<!-- 	    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
-	    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"> -->
-
-
-<!-- //This is not responsive! -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/cosmo/bootstrap.min.css">
-
-<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/flatly/bootstrap.min.css"> -->
->>>>>>> tools
 @stop
 
 @section('favicons')
@@ -82,14 +75,14 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 
 <!-- (this step is required for Android support, android ignores the non-pre-composed version): -->
 <<<<<<< HEAD
+
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/buckeye/ico/apple-touch-icon-144-precomposed.png') }}}">
+=======
 <?php 
 // $company = "gristech"; 
 ?>
 		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('assets/'.$company.'/ico/apple-touch-icon-144-precomposed.png') }}">
-=======
-
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/buckeye/ico/apple-touch-icon-144-precomposed.png') }}}">
->>>>>>> tools
+>>>>>>> test
 
 		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}}">
@@ -97,27 +90,20 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
 		<!-- <link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}"> -->
 <<<<<<< HEAD
-		<link rel="shortcut icon" href="{{{ asset('assets/ico/'.$company.'/favicon.png') }}}">
-=======
 		<link rel="shortcut icon" href="{{{ asset('assets/ico/buckeye/favicon.png') }}}">
->>>>>>> tools
+=======
+		<link rel="shortcut icon" href="{{{ asset('assets/ico/'.$company.'/favicon.png') }}}">
+>>>>>>> test
 
 		<!-- hardy har -->
 				<!-- Very Funny -->
 @stop
 
 @section('nav')
-<<<<<<< HEAD
 	<!-- <h1> -->
 	@parent
 <!-- 	 :: Child
 	</h1> -->
-=======
-	<h1>
-	@parent
-	 :: Child
-	</h1>
->>>>>>> tools
 @stop
 
 {{-- Content --}}
@@ -127,11 +113,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 <div class="row-fluid">
 	<div class="span8">
 		<h1>Welcome Home.</h1>
-<<<<<<< HEAD
 		<h2>{{$company}}</h2>
-=======
-		<h2>{{{$company}}}</h2>
->>>>>>> tools
 	</div>
 </div>
 
@@ -139,7 +121,6 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 	.sidebar-left{
 		background-color: rgba(5,5,0,.2);
 	}
-<<<<<<< HEAD
 	.india{
 		background-color: rgba(82,23,58,.4);
 	}
@@ -148,10 +129,6 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 
 <div class="span6"><img src="{{asset('assets/buckeye/buckeye_logo3.png')}}" alt="Buckeye Mower"></div>
 
-=======
-</style>
-<div class="row-fluid">
->>>>>>> tools
 	
 	<div class="span2 pull-left sidebar-left">
 		<ul class="nav nav-list">

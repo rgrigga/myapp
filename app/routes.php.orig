@@ -10,12 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-<<<<<<< HEAD
-// Route::group(array('domain' => '{sub}.gristech.com'),function($sub){
-//     Redirect::route('{$sub}');
-// });
-=======
-
+// bam!
 /** ------------------------------------------
  *  Route model binding
  *  ------------------------------------------
@@ -34,12 +29,10 @@ Route::model('role', 'Role');
 // Route::any('/', array('before' => 'auth', function(){
     
 // }));
->>>>>>> buckeye
 
 Route::group(array('domain' => 'buckeyemower.com'),function()
 {
     // die("BAM!");
-
     
     // Route::get('/{tag}', 'CompanyController@getIndex');
 
@@ -52,7 +45,7 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
             ));
     });
 
-    Route::get('/{tag}',function(){
+    Route::get('/{tag}',function($tag){
 
 
 
@@ -69,37 +62,15 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
     //Set group to 
 });
 
-Route::get('/advantage', function(){
-    $name='advantage';
-        
-    return View::make('site/'.$name.'/home',array(
-        'company'=>'Advantage',
-        'menus'=>array('services','contact','about','products')
-        ));
-});
-
-Route::get('/buckeye', function(){
-    // $name='buckeye';
-        
-    // return View::make('site/'.$name.'/home',array(
-    //     'company'=>'Buckeye Mower',
-    //     'menus'=>array('services','contact','about')
-    //     ));
-    return Redirect::to('http://buckeyemower.com');
-});
-
-
-
-
 // Redactor Blog Upload
-// Route::post('redactorUpload', function()
-// {
-//     $file = Input::file('file');
-//     $fileName = $file->getClientOriginalName();
+Route::post('redactorUpload', function()
+{
+    $file = Input::file('file');
+    $fileName = $file->getClientOriginalName();
 
-//     $file->move(public_path().'/img', $fileName);
-//     return Response::json(array('filelink' => '/img/' . $fileName));
-// });
+    $file->move(public_path().'/img', $fileName);
+    return Response::json(array('filelink' => '/img/' . $fileName));
+});
 
 // Route::get('advantage'),function()
 // {
@@ -112,7 +83,15 @@ Route::get('/buckeye', function(){
 //     //Set group to 
 // });
 
-
+/** ------------------------------------------
+ *  Route model binding
+ *  ------------------------------------------
+ */
+Route::model('user', 'User');
+Route::model('comment', 'Comment');
+Route::model('post', 'Post');
+Route::model('role', 'Role');
+//Company?
 //http://stackoverflow.com/questions/7770728/group-vs-role-any-real-difference
 
 
@@ -123,7 +102,7 @@ Route::get('/buckeye', function(){
  */
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 {
-    
+
     # Comment Management
     Route::get('comments/{comment}/edit', 'AdminCommentsController@getEdit')
         ->where('comment', '[0-9]+');
@@ -179,7 +158,9 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::controller('roles', 'AdminRolesController');
 
     # Admin Dashboard
+
     Route::controller('/', 'AdminDashboardController');
+    
 });
 
 
@@ -225,9 +206,7 @@ Route::get('technical', function()
 Route::get('tools', function()
 {
     // Return about us page
-    if(Auth::check()){
-        return View::make('site/tools');
-    }
+    return View::make('site/tools');
 });
 
 Route::get('responsive', function()
@@ -260,8 +239,6 @@ Route::get('pages/{page}', function($page)
     }
 
     Redirect::to('tags/'.$page);
-
-
 
 });
 
@@ -300,9 +277,18 @@ Route::get('russ/{tag}', 'RussController@getIndex');
 // Route::get('tags/{tag}', 'BlogController@getIndex');
 
 // <<<<<<< HEAD
+<<<<<<< HEAD
 Route::get('/advantage/','CompanyController@getIndex');
-Route::get('advantage', 'CompanyController@getIndex',array('name'=>'advantage'));
+Route::get('advantage', 'CompanyController@getIndex',array(
+    'company'=>'Advantage',
+    'menus'=>array('#services','#contact','#about')
+    ));
 Route::get('company/{name}', 'CompanyController@getIndex');
+=======
+Route::get('/advantage/','CompanyController@getIndex',array('name'=>'advantage'));
+Route::get('advantage', 'CompanyController@getIndex',array('name'=>'advantage'));
+Route::get('company/{name}', 'CompanyController@getIndex', array('name'=>'advantage'));
+>>>>>>> test
 
 // =======
 // >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
@@ -354,10 +340,8 @@ Route::get('/{tag}', function($tag){
         "contact",
         "licensing",
         "responsive",
-        "notes",
-        "git",
+        "notes3",
         "advantage",
-        "reseller",
         "");
 // =======
 Route::get('/{tag}', 'BlogController@getIndex');
@@ -377,7 +361,6 @@ Route::get('/{tag}', 'BlogController@getIndex');
         array_push($mypages,$filename);
         // echo "$filename" . "<br>";
     }
-<<<<<<< HEAD
 
     // die (var_dump($path));
 
@@ -390,10 +373,6 @@ Route::get('/{tag}', 'BlogController@getIndex');
         }
 
     });
-=======
-    // 'BlogController@getIndex'
-});
->>>>>>> buckeye
 
 // Route::post('/{tag}', 'BlogController@postView');
 
