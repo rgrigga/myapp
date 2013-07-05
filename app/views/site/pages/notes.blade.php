@@ -149,6 +149,12 @@ p.photocredit {
 <div class="container">
 	<div class="row">
 
+<h3>Google Apps</h3>
+<p>
+	<a href="http://new.googlepartnerconnect.com/Home/guided-learning">Partner Connect</a>
+	<a href="https://www.google.com/a/cpanel/reseller.gristech.com/AdminHome?wmc=1&sig=ALjLGbNUUzvlV1qVJUEDk7iRLdU0iS2LJQ#Home:">Admin Console</a>
+</p>
+
 <h3>chmod</h3>
 <p>http://stackoverflow.com/questions/3740152/how-to-set-chmod-for-a-folder-and-all-of-its-subfolders-and-files-in-linux-ubunt</p>
 

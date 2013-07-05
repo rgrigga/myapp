@@ -6,18 +6,23 @@
 @stop
 
 {{-- Content --}}
-@section('about')
+@section('content')
 
-<h1>About {{$company->name}}</h1>
+<?php
+class Company extends User{
+	public $name = "Gristech";
+	public $address = "Westerville, OH";
+}
+$company = new Company;
+?>
 
+<h1>About <em>{{$company->name}}</em></h1>
 
 <abbr title="title='this is an abbreviation'">abbr</abbr>
 <address>
 	{{$company->address}}
 </address>
 <!-- //address tags -->
-
-{{$company->address}}
 
 @include('site.russ.contact')
 

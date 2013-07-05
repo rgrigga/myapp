@@ -5,33 +5,31 @@
 @parent
 @stop
 
-$company = "MegaCorp";
-
-
 {{-- Content --}}
-@section('about')
+@section('content')
 
-<h1>About {{$company->name}}</h1>
+<h1>About {{$company->$name}}</h1>
 
+<?php
+class Company extends User{
+	public $name = "Gristech";
+	public $address = "Westerville, OH";
+}
+$company = new Company;
+?>
+
+<abbr title='this is an abbreviation'>abbr</abbr>
 <address>
 	{{$company->address}}
 </address>
 <!-- //address tags -->
-<<<<<<< HEAD:app/views/site/pages/about.blade.php
-
-{{$company->address}}
-{{$company->address}}
-{{$company->address}}
-{{$company->address}}
-{{$company->address}}
 
 
 
 
-=======
->>>>>>> tools:app/views/site/pages/pages.blade.php
 
-<abbr title="title='this is an abbreviation'">abbr</abbr>
+// tools:app/views/site/pages/pages.blade.php
+
 
 @include('site.russ.contact')
 
