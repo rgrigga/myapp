@@ -11,7 +11,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-// bam!
+ // bam!
 /** ------------------------------------------
  *  Route model binding
  *  ------------------------------------------
@@ -31,6 +31,31 @@ Route::model('role', 'Role');
     
 // }));
 
+$env=App::environment();
+if($env === 'local2'){
+    // Route::get('/buckeye')
+
+    Route::get('/', function(){
+        $name='buckeye';
+        return View::make('site/'.$name.'/index',array(
+//return View::make('site/'.$name.'/home',array(
+            'company'=>'Buckeye Mower',
+            'menus'=>array('About ','Rates','Schedule','Map')
+            ));
+    });
+
+    Route::get('/{tag}',function($tag){
+        $name='buckeye';
+        return View::make('site/'.$name.'/home/'.$tag,array(
+            'request'=>'$tag',
+            'menus'=>array('services','contact','about')
+        ));
+        //try to make page
+        //if page not in allowed array, show home
+    });
+
+}
+
 Route::group(array('domain' => 'buckeyemower.com'),function()
 {
     // die("BAM!");
@@ -47,10 +72,8 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
     });
 
     Route::get('/{tag}',function($tag){
-
-
-
-        return View::make('site/'.$tag.'/home',array(
+        $name='buckeye';
+        return View::make('site/'.$name.'/home/'.$tag,array(
             'request'=>'$tag',
             'menus'=>array('services','contact','about')
         ));
