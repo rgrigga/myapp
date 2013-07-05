@@ -2,27 +2,18 @@
 
 {{-- Web site Title --}}
 @section('title')
-Website Update ::
+Post Update ::
 @parent
 @stop
 
 {{-- Content --}}
 @section('content')
-<<<<<<< HEAD
-
 
 <div class="page-header">
 					<h3>
-						Website Management
+						post edit
 						<div class="pull-right">
-=======
 
-<div class="page-header">
-	<h3>
-		Blog Management
-
-		<div class="pull-right">
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 			<a href="{{{ URL::to('admin/blogs/create') }}}" class="btn btn-small btn-info"><i class="icon-plus-sign icon-white"></i> Create</a>
 		</div>
 		<div class="pull-right">
@@ -31,16 +22,6 @@ Website Update ::
 		</h3>
 </div>
 
-<<<<<<< HEAD
-
-<!-- <div class="page-header"> -->
-
-
-		
-
-
-
-=======
 <!-- {{{ var_dump($post->tags()) }}} -->
 <style>
 
@@ -53,44 +34,25 @@ Website Update ::
 		<div class="pull-right">
 			<a href="{{{ URL::to('admin/blogs') }}}" class="btn btn-small btn-inverse"><i class="icon-circle-arrow-left icon-white"></i> Back to Post List</a>
 		</div>
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
+
 
 <form class="form-horizontal" method="post" action="" autocomplete="off">
 	<!-- CSRF Token -->
 	<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 	<!-- ./ csrf token -->
 					
-<div class="span2 pull-left">
+<!-- <div class="span2 pull-left">
 	<ul class="nav nav-list">
     <li class="nav-header">List header</li>
     <li class="active"><a href="#">Home</a></li>
     <li><a href="#">Library</a></li>
     </ul>
-</div>
+</div> -->
 
+	<div class="control-group">
+	     <textarea name="body" id="blog">Demo blog textarea</textarea>
+	</div>
 
-<<<<<<< HEAD
-<img src="" alt="">
-<script type="text/javascript">
-
-
-$(document).ready(
-	function()
-	{
-		$('#blog').redactor();
-	}
-);
-
-
-    // $(function() {
-        // $('#blog').redactor({
-            // imageUpload: '/redactorUpload'
-        // });
-     // });
-</script>
-<div class="control-group">
-     <textarea name="body" id="blog">Demo</textarea>
-</div>
 					<h4>
 						<em>Title: </em>{{{ $post->title }}}
 					</h4>
@@ -101,16 +63,16 @@ $(document).ready(
 						Tags: <ul class='tag'>
 						<li><i class="icon-tag"></i> tags:</li>
 						@foreach($post->tags() as $tag)
-				    <li>{{ $tag }}</li>
-					    
-					@endforeach
+				    		<li>{{ $tag }}</li> 
+						@endforeach
 					</ul>
 					</h5>
 
 
 				<!-- Meta Title -->
-
 				<p>Meta Title is the text that appears at the top of the browser window when the user looks at your page. It also helps search engines understand what your page is about.  Therefore, it should be simple, descriptive, and use a keyword or two.</p>
+				
+
 				<div class="control-group {{{ $errors->has('meta-title') ? 'error' : '' }}}">
 					<label class="control-label" for="meta-title">Meta Title</label>
 					<div class="controls">
@@ -187,14 +149,14 @@ $(document).ready(
  			</a>
  		</div>
 <<<<<<< HEAD
- 		 		<!-- add class 'in' to the next div to expand on pageload ->
+ 		 		<!- - add class 'in' to the next div to expand on pageload ->
 
  		<div id="collapseOne" class="accordion-body collapse">
  			<div class="accordion-inner">
  				
  			</div>
  		</div> -->
-=======
+
  		 		<!-- add class 'in' to the next div to expand on pageload -->
 
  		<div id="collapseOne" class="accordion-body collapse">
@@ -219,7 +181,7 @@ $(document).ready(
 				</div>
  			</div>
  		</div>
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
+
  	</div>
  	<div class="accordion-group">
  		<div class="accordion-heading">
@@ -237,26 +199,18 @@ $(document).ready(
 				<div class="control-group {{{ $errors->has('meta-title') ? 'error' : '' }}}">
 					<label class="control-label" for="meta-title">Meta Title</label>
 					<div class="controls">
-<<<<<<< HEAD
-						
-						<input type="text" name="meta-title" id="meta-title" 
 
-						value="{{{ Input::old('meta-title', $post->meta_title) }}}" />
-=======
 						<input type="text" name="meta-title" id="meta-title" value="{{{ Input::old('meta-title', $post->meta_title) }}}" />
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 						{{{ $errors->first('meta-title', '<span class="help-inline">:message</span>') }}}
 					</div>
 				</div>
 				<!-- ./ meta title -->
 
 				<!-- Meta Description -->
-<<<<<<< HEAD
+
 				<p><i class="icon-facebook"></i> Meta Description is a 158 character summary of your post.  The Meta-Description may be displayed as the text for a google result, for example...</p>
 				<p>It is also used on facebook</p>
-=======
-				<p>Meta Description is a 158 character summary of your post.  The Meta-Description may be displayed as the text for a google result, for example...</p>
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
+
 
 				<div class="control-group {{{ $errors->has('meta-description') ? 'error' : '' }}}">
 					

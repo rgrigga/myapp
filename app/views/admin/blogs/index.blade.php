@@ -27,11 +27,7 @@ Website Management ::
 	</div>
 	<a href="http://www.make-rss-feeds.com/making-an-rss-feed.htm">RSS Feeds</a>
 </div>
-
-<div>
-	
-</div>
-
+{{ $posts->links() }}
 <table class="table table-bordered table-hover">
 	<thead>
 		<tr>
@@ -44,20 +40,17 @@ Website Management ::
 	</thead>
 	<tbody>
 		@foreach ($posts as $post)
-		<div class="thumbnail">
-			
-		</div>
+<!-- 		<div class="thumbnail">
+			<img src="{{URL::to($post->image)}}" alt="">
+		</div> -->
 		<tr>
-<<<<<<< HEAD
+
 			<td>t{{{ $post->title }}}</td>
 			<td>md{{{ $post->meta_description }}}</td>			
 			<td>mk{{{ $post->meta_keywords }}}</td>
 			<td>{{{ $post->author->username }}}</td>
 			<td>{{{ $post->views }}}</td>
-=======
-			<td>{{{ $post->title }}}</td>
-			<td>{{{ $post->meta_keywords }}}</td>
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
+
 			<td>{{{ $post->comments()->count() }}}</td>
 			<td>{{{ $post->created_at() }}}</td>
 			<td>
