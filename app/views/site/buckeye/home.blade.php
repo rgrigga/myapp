@@ -1,14 +1,13 @@
 @extends('site.layouts.buckeye')
 
 <?php
+class Company extends User{
 
-// $company = new Company;
+	public $name="Buckeye Mower";
+}
 
-// class Company extends User{
-
-// 	private $
-// }
-
+$obj = new Company;
+$company = $obj->name;
 ?>
 {{-- Update the Meta Title --}}
 <!-- THis properly overrides the default -->

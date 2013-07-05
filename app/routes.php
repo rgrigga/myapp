@@ -38,8 +38,8 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
 
     Route::get('/', function(){
         $name='buckeye';
-        
         return View::make('site/'.$name.'/index',array(
+//return View::make('site/'.$name.'/home',array(
             'company'=>'Buckeye Mower',
             'menus'=>array('About ','Rates','Schedule','Map')
             ));
@@ -91,6 +91,7 @@ Route::model('user', 'User');
 Route::model('comment', 'Comment');
 Route::model('post', 'Post');
 Route::model('role', 'Role');
+//Company?
 //http://stackoverflow.com/questions/7770728/group-vs-role-any-real-difference
 
 
@@ -157,9 +158,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::controller('roles', 'AdminRolesController');
 
     # Admin Dashboard
-
     Route::controller('/', 'AdminDashboardController');
-    
 });
 
 
@@ -239,8 +238,6 @@ Route::get('pages/{page}', function($page)
 
     Redirect::to('tags/'.$page);
 
-
-
 });
 
 
@@ -278,12 +275,9 @@ Route::get('russ/{tag}', 'RussController@getIndex');
 // Route::get('tags/{tag}', 'BlogController@getIndex');
 
 // <<<<<<< HEAD
-Route::get('/advantage/','CompanyController@getIndex');
-Route::get('advantage', 'CompanyController@getIndex',array(
-    'company'=>'Advantage',
-    'menus'=>array('#services','#contact','#about')
-    ));
-Route::get('company/{name}', 'CompanyController@getIndex');
+Route::get('/advantage/','CompanyController@getIndex',array('name'=>'advantage'));
+Route::get('advantage', 'CompanyController@getIndex',array('name'=>'advantage'));
+Route::get('company/{name}', 'CompanyController@getIndex', array('name'=>'advantage'));
 
 // =======
 // >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
@@ -301,19 +295,14 @@ Route::get('blog', 'BlogController@getTags');
 Route::post('blog/{postSlug}', 'BlogController@postView');
 
 Route::get('tags', 'BlogController@getTags');
-// <<<<<<< HEAD
 Route::post('tags', 'BlogController@getTags');
 Route::get('tags/{tag}', 'BlogController@getIndex');
 // Route::post('tags/{tag}', 'BlogController@postIndex');
-// =======
-Route::get('tags/{tag}', 'BlogController@getIndex');
-// >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 
 # Posts - Second to last set, match slug
 Route::get('blog/{postSlug}', 'BlogController@getView');
 Route::post('blog/{postSlug}', 'BlogController@postView');
 
-// <<<<<<< HEAD
 Route::get('show/{tag}','BlogController@show');
 Route::get('search/{tag}','BlogController@getIndex');
 

@@ -112,14 +112,20 @@ font-family: 'Fauna One', serif;
 
 <h2>Passwords</h2>
 <img src="" alt="">
-<p class="title"><a href="https://howsecureismypassword.net/">Password Security Test</a></p>
+<p class="title">Take the <a href="https://howsecureismypassword.net/">Password Security Test</a></p>
 
-<p>Passwords are not very secure.  Nowadays, hackers can hack passwords with relative ease.  Read a little about <a href="http://www.joeydevilla.com/2013/04/15/how-to-mine-bitcoins-for-fun-and-probably-very-little-profit/">bitcoin mining</a> sometime: 
-
-
-they link and hash cracking  if they want to.  </p>
+<p>Passwords are not very secure.  Nowadays, hackers can hack passwords with relative ease.  Read a little about <a href="http://www.joeydevilla.com/2013/04/15/how-to-mine-bitcoins-for-fun-and-probably-very-little-profit/">bitcoin mining</a> sometime: bitcoin transactions are verified by "cracking hashes".</p>
 
 <img src="assets/img/screen/bitcoin.png" alt="Diagram of a bitcoin">
+
+<p>The lesson as applied to your password is that there are those who can crack it if they want to.</p> 
+<!-- http://www.joeydevilla.com/wordpress/wp-content/uploads/2013/04/bitcoin-diagram.jpg -->
+<!-- http://bitcoin.org/bitcoin.pdf -->
+
+<p>Here are some more links:</p>
+<ul>
+	<li><a href="http://lifehacker.com/5966214/how-often-should-i-change-my-passwords">How Often to Change Passwords?</a></li>
+</ul>
 
 <div class="thumbnail"><img src="assets/img/screen/bitcoinmining.png" alt="mining rig"></div>
 
@@ -217,8 +223,6 @@ OpenSSH is a FREE version of the SSH connectivity tools that technical users of 
 	</div>
 </div>
 
-
-
 The OpenSSH suite replaces rlogin and telnet with the ssh program, rcp with scp, and ftp with sftp. Also included is sshd (the server side of the package), and the other utilities like ssh-add, ssh-agent, ssh-keysign, ssh-keyscan, ssh-keygen and sftp-server.
 
 OpenSSH is developed by the OpenBSD Project. The software is developed in countries that permit cryptography export and is freely useable and re-useable by everyone under a BSD license. However, development has costs, so if you find OpenSSH useful (particularly if you use it in a <b>commercial system that is distributed</b>) please consider donating to help fund the project.
@@ -234,7 +238,6 @@ We sell OpenSSH T-shirts and posters. Sales of these items also help to fund dev
 </div>
 
 <p>
-
 OpenSSH is a <b>FREE</b> version of the SSH connectivity
 tools that technical users of the Internet rely on.
 Users of telnet, rlogin, and ftp may not realize
@@ -267,7 +270,7 @@ The software is developed in countries that permit cryptography export
 and is freely useable and re-useable by everyone under a BSD license.
 However, development has costs, so if you find OpenSSH useful
 (particularly if you use it in a commercial system that is distributed)
-please consider <a href="donations.html">
+please consider <a href="http://www.openbsd.org/donations.html">
 donating to help fund the project</a>.
 <p>
 
@@ -305,21 +308,35 @@ project (despite numerous requests).
 <p>
 OpenSSH is a suite of tools to help secure your network connections. Here is a list of features:
 
-Strong authentication. Closes several security holes (e.g., IP, routing, and DNS spoofing).
-Improved privacy. All communications are automatically and transparently encrypted.
-Secure X11 sessions. The program automatically sets DISPLAY on the server machine, and forwards any X11 connections over the secure channel.
-Arbitrary TCP/IP ports can be redirected through the encrypted channel in both directions (e.g., for e-cash transactions).
-No retraining needed for normal users.
-Never trusts the network. Minimal trust on the remote side of the connection. Minimal trust on domain name servers. Pure RSA authentication never trusts anything but the private key.
-Client RSA-authenticates the server machine in the beginning of every connection to prevent trojan horses (by routing or DNS spoofing) and man-in-the-middle attacks, and the server RSA-authenticates the client machine before accepting .rhosts or /etc/hosts.equiv authentication (to prevent DNS, routing, or IP-spoofing).
-Host authentication key distribution can be centrally by the administration, automatically when the first connection is made to a machine.
-Any user can create any number of user authentication RSA keys for his/her own use.
-The server program has its own server RSA key which is automatically regenerated every hour.
-An authentication agent, running in the user's laptop or local workstation, can be used to hold the user's RSA authentication keys.
-The software can be installed and used (with restricted functionality) even without root privileges.
-The client is customizable in system-wide and per-user configuration files.
-Optional compression of all data with gzip (including forwarded X11 and TCP/IP port data), which may result in significant speedups on slow connections.
-Complete replacement for rlogin, rsh, and rcp.
+	<li>Strong authentication. Closes several security holes (e.g., IP, routing, and DNS spoofing).</li>
+	<li>Improved privacy. All communications are automatically and transparently encrypted.
+	</li>
+	<li>Secure X11 sessions. The program automatically sets DISPLAY on the server machine, and forwards any X11 connections over the secure channel.
+	</li>
+	<li>Arbitrary TCP/IP ports can be redirected through the encrypted channel in both directions (e.g., for e-cash transactions).
+</li>
+	<li>No retraining needed for normal users.
+</li>
+	<li>Never trusts the network. Minimal trust on the remote side of the connection. Minimal trust on domain name servers. Pure RSA authentication never trusts anything but the private key.
+</li>
+<li>Client RSA-authenticates the server machine in the beginning of every connection to prevent trojan horses (by routing or DNS spoofing) and man-in-the-middle attacks, and the server RSA-authenticates the client machine before accepting .rhosts or /etc/hosts.equiv authentication (to prevent DNS, routing, or IP-spoofing).
+</li>
+<li>Host authentication key distribution can be centrally by the administration, automatically when the first connection is made to a machine.
+</li>
+<li>Any user can create any number of user authentication RSA keys for his/her own use.
+</li>
+<li>The server program has its own server RSA key which is automatically regenerated every hour.
+</li>
+<li>An authentication agent, running in the user's laptop or local workstation, can be used to hold the user's RSA authentication keys.
+</li>
+<li>The software can be installed and used (with restricted functionality) even without root privileges.
+</li>
+<li>The client is customizable in system-wide and per-user configuration files.
+</li>
+<li>Optional compression of all data with gzip (including forwarded X11 and TCP/IP port data), which may result in significant speedups on slow connections.
+</li>
+<li>Complete replacement for rlogin, rsh, and rcp.
+</li>
 Currently, almost all communications in computer networks are done without encryption. As a consequence, anyone who has access to any machine connected to the network can listen in on any communication. This is being done by hackers, curious administrators, employers, criminals, industrial spies, and governments. Some networks leak off enough electromagnetic radiation that data may be captured even from a distance.
 
 When you log in, your password goes in the network in plain text. Thus, any listener can then use your account to do any evil he likes. Many incidents have been encountered worldwide where crackers have started programs on workstations without the owner's knowledge just to listen to the network and collect passwords. Programs for doing this are available on the Internet, or can be built by a competent programmer in a few hours.
@@ -329,16 +346,12 @@ Businesses have trade secrets, patent applications in preparation, pricing infor
 Many companies are not aware that information can so easily be recovered from the network. They trust that their data is safe since nobody is supposed to know that there is sensitive information in the network, or because so much other data is transferred in the network. This is not a safe policy.
 </p>
 
-
 Several Methods of Data Transfer are available over SSH.
 <h2>SFTP</h2>
 <h5><a href="">Wikipedia</a></h5>
-
 <p>
-	
 
-
-
+<h5><em>More Reading...</em></h5>
 <a href="http://www.tuxfiles.org/linuxhelp/filepermissions.html">Linux File Permissions</a>
 
 <a href="https://www.digitalocean.com/community/articles/how-to-set-up-apache-virtual-hosts-on-ubuntu-12-04-lts">Virtual Hosts</a>

@@ -12,7 +12,18 @@ if (!$name){
 $company="gristech";
 $menus=array('foo','bar');
 ?>
+<!-- 
+	meta -->
+<!-- CSS/styles -->
+<!-- JS -->
 
+<!-- 
+<h3>meta</h3>
+<h4>meta-title</h4>
+<h4>meta-description</h4>
+<h4>meta-keywords</h4>
+<h3>Styles</h3> 
+-->
 	<head>
 		<!-- Basic Page Needs
 		================================================== -->
@@ -31,8 +42,6 @@ $menus=array('foo','bar');
 			<!-- Gristech Default Layout -->
 			<!-- should be overridden in children -->
 
-		@section('meta')
-
 <!-- Buckeye Mower ::  -->
  <!-- String::title($post->title) }}} -->
 <!-- @stop -->
@@ -41,25 +50,33 @@ $menus=array('foo','bar');
 <!-- http://moz.com/learn/seo/meta-description -->
 @section('meta_description')
 <meta name="description" content="Gristech will do things that will help you do what you do better.  We will make you make more money.  We will therefore make you want to give us lots of money. We will make you lots of money.">
+@show
 
-			<meta name="keywords" content="php, laravel, web application, development, learning, software, business, design" />
-			<meta name="author" content="Ryan Grissinger" />
-			<meta name="description" content="A flexible, customizable web application" />
+@section('meta_keywords')
+<meta name="keywords" content="php, laravel, development, learning, software, business" />
+@show
 
-			<!-- Mobile Specific Metas
-			================================================== -->
+<!-- // branding -->
+<!-- // marketing-->
 
-			<!-- MOre info on this: http://coding.smashingmagazine.com/2011/01/12/guidelines-for-responsive-web-design/ -->
-			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		@show
+			@section('title')
+			Gristech MyApp
+			@show
+		</title>
 
+		<meta name="author" content="Ryan Grissinger" />
+
+
+		<!-- Mobile Specific Metas
+		================================================== -->
+
+		<!-- MOre info on this: http://coding.smashingmagazine.com/2011/01/12/guidelines-for-responsive-web-design/ -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<!-- CSS
 		================================================== -->
-    @section('styles')
     @stylesheets("public-css")
-		
-		<link rel="stylesheet" href="/assets/css/style.css">
+	<link rel="stylesheet" href="/assets/css/style.css">
 
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
@@ -67,7 +84,6 @@ $menus=array('foo','bar');
 		<![endif]-->
 		    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
 	
-
 <style>
 	/*http://css-tricks.com/almanac/properties/z/z-index/*/
 
@@ -77,24 +93,30 @@ $menus=array('foo','bar');
 			/*z-index: -3;*/
 		}
 	</style>
-	
-	@show
+@show
 
 <!-- prettify -->
 <!-- NOTE: I had an experience with a lengthy pageload on this today.  It's a good lesson NOT to include prettify on the main layout page.  Load it in a child page where you need it. -->
 <!-- <link href="prettify.css" type="text/css" rel="stylesheet" /> -->
+
+@section('myjs')
+<!-- I prefer to keep javascript to a minimum when possible. -->
+<!-- <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&amp;skin=sunburst&amp;lang=css"></script> -->
+
+<!-- google.com/analytics -->
+@show
+
 @section('favicons')
-<!-- ======= -->
+
 <!-- prettify -->
 <!-- <link href="prettify.css" type="text/css" rel="stylesheet" /> -->
-@section('js')
 <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&amp;skin=sunburst&amp;lang=css"></script>
 
 <!-- font-awesome -->
 <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
-<!-- >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3 -->
+
 		<!-- Favicons
 		================================================== -->
 
@@ -152,7 +174,7 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 
 
 
-
+<!-- http://twitter.github.io/bootstrap/examples/sticky-footer-navbar.html -->
 		<!-- To make sticky footer need to wrap in a div -->
 	<div id="wrap">
 		<!-- Navbar -->
@@ -169,9 +191,7 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 
 @include('site.partials.contact')
 
-
-
-
+<!-- //moved -->
 <!-- 					<div class="pull-right">
 						<a href="http://facebook.com" class="social-icon">
 					    	<img src="http://gristech.com/img/facebook.png" class="img-circle">
