@@ -19,7 +19,7 @@
 | loading of any our classes "manually". Feels great to relax.
 |
 */
-
+// die("public/index");
 require __DIR__.'/../bootstrap/autoload.php';
 
 /*

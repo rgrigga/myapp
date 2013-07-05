@@ -1,7 +1,7 @@
 <?php
 // http://four.laravel.com/docs/configuration#environment-configuration
 
-  die("DEV MODE config/dev/app");
+  // die("DEV MODE config/local/app");
 
 return array(
 	'debug' => true,
@@ -59,7 +59,7 @@ return array(
         /* Uncomment for use in development */
        'Way\Generators\GeneratorsServiceProvider', // Generators
        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider', // IDE Helpers
-       'Woodling\Woodling',
+       // 'Woodling\Woodling',
 
 
     ),
