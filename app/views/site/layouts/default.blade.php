@@ -1,32 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<?php
-// $name = Cookie::get('name');
-// if (!$name){
-// 	$name='Stranger';
-// }
-// $company="gristech";
-// $menus=array('foo','bar');
-?>
-<!-- 
-	meta -->
-<!-- CSS/styles -->
-<!-- JS -->
-
-<!-- 
-<h3>meta</h3>
-<h4>meta-title</h4>
-<h4>meta-description</h4>
-<h4>meta-keywords</h4>
-<h3>Styles</h3> 
--->
 	<head>
 		<!-- Basic Page Needs
 		================================================== -->
 
 		{{-- Update the Meta Title --}}
-		<!-- @section('meta_title') -->
+
 		<meta charset="utf-8" />
 		<title>
 			@section('title')
