@@ -396,16 +396,28 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
    max-width: 80%;
 }
 
+  .icon6{
+    font-size:10em;
+  }
+  .mysvg{
+    width:300px;
+    color: #fff;
+    text-shadow: 1px 1px 1px #ccc;
+  }
+
     </style>
 @stop
 
+@section('nav')
+@include('site.partials.nav-buckeye')
+@stop
+
 @section('content')
-@parent
+
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 <div class="container marketing">
-
 
 <!-- ************* INTRO OPTION 1 **************-->
 <!-- <img src="{{asset('assets/buckeye/grass.svg')}}" alt="grass.svg"> -->
@@ -441,31 +453,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
   </div>
 </div>
 
-
-
 <!-- END INTRO -->
-
-      <!-- <div class="span5"> -->
-      <!-- <h2>Mobile Mower Repair</h2> -->
-      <!-- <div class="h2">Mobile Mower Repair</div> -->
-      <!-- icon-flag on icon-circle<br> -->
-      <!-- <span class="icon-stack"> -->
-        <!-- <i class="icon-circle icon4x icon-stack-base"></i> -->
-        <!-- <i class="icon-flag icon4x icon-light"></i> -->
-      <!-- </span> -->
-      
-      <!-- <p>We will come to you!  -->
-  <!-- <span class="icon-stack"> -->
-  <!--   <i class="icon-circle icon4x icon-stack-base"></i>
-    <i class="icon-rocket icon4x icon-light"></i> -->
-  <!-- </span> -->
-      <!-- </p> -->
-    <!-- </div> -->
-    <!-- <div class="span5"> -->
-      <!-- <img src="{{asset('assets/buckeye/buckeye_logo2.png')}}" alt=""> -->
-    <!-- </div> -->
-	<!-- </div> -->
-<!-- </div> -->
 
       <!-- Three columns of text below the carousel -->
       <div class="row">
@@ -519,17 +507,6 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
       </div>
 
       <hr class="featurette-divider">
-<style>
-  .icon6{
-    font-size:10em;
-  }
-  .mysvg{
-    width:300px;
-    color: #fff;
-    text-shadow: 1px 1px 1px #ccc;
-  }
-</style>
-
 
       <div class="featurette">
 
@@ -570,11 +547,8 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
         </div>
 
         <div id="example">
-          <ul>
-                  
-                  
-                  
-                </ul>
+          <ul>        
+          </ul>
         </div>
         
       </div>
@@ -582,21 +556,9 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
       <hr class="featurette-divider">
 
       <!-- /END THE FEATURETTES -->
-
-
-
-
-
-
 @stop
 
 @section('footer')
-
-<style>
-  div.span12{
-    font-size: 10px;
-  }
-</style>
 
 <div class="span12">
   <p class="muted credit">
@@ -607,4 +569,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
   </p>
 </div>
 
+@stop
+
+@section('hotel')
 @stop

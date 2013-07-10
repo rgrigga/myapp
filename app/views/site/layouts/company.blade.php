@@ -56,4 +56,5 @@ Buckeye Footer
 @stop
 
 @section('hotel')
+Nothin
 @stop
