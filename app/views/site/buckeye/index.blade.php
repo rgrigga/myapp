@@ -6,10 +6,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 
 @section('styles')
 @parent
-@stop
 
-@section('content')
-@parent
     <style>
 
     /* GLOBAL STYLES
@@ -400,16 +397,10 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 }
 
     </style>
+@stop
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="../assets/js/html5shiv.js"></script>
-    <![endif]-->
-
-    <!-- Fav and touch icons -->
-    
-
-
+@section('content')
+@parent
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->

@@ -20,30 +20,6 @@
 
 @section('styles')
 @parent
-<!-- //http://colorschemedesigner.com/#3711Tw0w0w0w0 -->
-<!-- \@ stylesheets("public-css") -->
-	<!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
-
-	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-	<!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-	<!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine"> -->
-	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-
-	<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/cosmo/bootstrap.min.css"> -->
-    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/flatly/bootstrap.min.css"> -->
-<style>
-	body{
-		/*background-color: green;*/
-		/*background-color:rgba(255,0,0,0.5);*/
-	}
-	
-	.hero-unit{
-		/*background-color:rgba(255,0,0,0.5);*/
-	}
-</style>
-
 
 @stop
 
