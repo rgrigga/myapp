@@ -200,12 +200,13 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
     }
 
     .featurette {
-      padding-top: 40px; /* Vertically center images part 1: add padding above and below text. */
+      padding: 40px; /* Vertically center images part 1: add padding above and below text. */
       overflow: hidden; /* Vertically center images part 2: clear their floats. */
       background-color: rgb(214,198,150);;
     }
     .featurette-image {
-      margin-top: -40px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+
+      margin-top: -20px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
     }
 
     /* Give some space on the sides of the floated elements so text doesn't run right into it. */
@@ -218,6 +219,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 
     /* Thin out the marketing headings */
     .featurette-heading {
+      margin-left: 5%;
       font-size: 50px;
       font-weight: 300;
       line-height: 1;
@@ -257,7 +259,8 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
         display: block;
         float: none;
         max-width: 40%;
-        margin: 0 auto 20px;
+        /*margin: 0 auto 20px;*/
+        margin: 30px;
       }
     }
 
