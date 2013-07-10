@@ -1,15 +1,12 @@
 @extends('site.layouts.default')
 
-{{-- Update the Meta Title --}}
 @section('meta_title')
-<!-- @parent -->
-Company: {{$company}}
- <!-- String::title($post->title) }}} -->
+{{$company}}
 @stop
 
 {{-- Update the Meta Description --}}
 @section('meta_description')
-<meta name="description" content="$company->description" />
+<meta name="description" content="{{$description}}" />
 @stop
 
 {{-- Update the Meta Keywords --}}
@@ -62,21 +59,9 @@ Company: {{$company}}
 		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
-		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
-		<!-- <link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}"> -->
-		
+		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">		
 		<link rel="shortcut icon" href="{{{ asset('assets/ico/buckeye/favicon.png') }}}">
-		<link rel="icon" href="{{{ asset('assets/ico/buckeye/favicon.png') }}}">
-
-
-<!-- <link rel="apple-touch-icon" href="path/to/touchicon.png"> -->
-<!-- <link rel="icon" href="path/to/favicon.png"> -->
-  <!--[if IE]><link rel="shortcut icon" href="path/to/favicon.ico"><![endif]-->
-  <!-- or, set /favicon.ico for IE10 win -->
-<!-- <meta name="msapplication-TileColor" content="#D83434"> -->
-<!-- <meta name="msapplication-TileImage" content="path/to/tileicon.png"> -->
-
-		<!-- hardy har -->		
+		<link rel="icon" href="{{{ asset('assets/ico/buckeye/favicon.png') }}}">	
 @stop
 
 	@section('nav')
@@ -85,9 +70,5 @@ Company: {{$company}}
 	@stop
 {{-- Content --}}
 @section('content')
-<!-- @parent -->
-
 <!-- Your Company Page Here -->
-
-
 @stop

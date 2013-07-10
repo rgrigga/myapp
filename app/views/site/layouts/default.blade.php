@@ -2,15 +2,12 @@
 <html lang="en">
 
 <?php
-
-$name = Cookie::get('name');
-if (!$name){
-	$name='Stranger';
-}
-
-
-$company="gristech";
-$menus=array('foo','bar');
+// $name = Cookie::get('name');
+// if (!$name){
+// 	$name='Stranger';
+// }
+// $company="gristech";
+// $menus=array('foo','bar');
 ?>
 <!-- 
 	meta -->
