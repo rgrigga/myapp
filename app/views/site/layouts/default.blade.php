@@ -32,6 +32,7 @@
 @section('styles')
     @stylesheets("public-css")
 	<link rel="stylesheet" href="/assets/css/style.css">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -100,12 +101,12 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 <!-- http://twitter.github.io/bootstrap/examples/sticky-footer-navbar.html -->
 		<!-- To make sticky footer need to wrap in a div -->
 	<div id="wrap">
-		<!-- Navbar -->
+	
+	<!-- Navbar -->
+	@section('nav')
 
+	@show
 
-	@yield('nav')
-
-	<!-- ./ nav section -->
 	
 	<!-- Container -->
 	<div class="container-fluid">

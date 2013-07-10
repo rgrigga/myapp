@@ -20,7 +20,6 @@
 
 @section('styles')
 @parent
-
 @stop
 
 @section('favicons')

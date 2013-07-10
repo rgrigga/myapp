@@ -68,12 +68,6 @@ Buckeye Mower - Mobile Mower Services
 	<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/cosmo/bootstrap.min.css"> -->
 
 	    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/flatly/bootstrap.min.css"> -->
-<style>
-	body{
-		background-color: green;
-	}
-</style>
-
 
 @stop
 

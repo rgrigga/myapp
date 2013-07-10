@@ -1,14 +1,4 @@
-		<style>
-		body{
-			padding-top: 60px;
-		}
-		.navbar-fixed-top{
-			position:fixed;
-		}
-/*		.brand{
-			margin-left: 30px;
-		}*/
-		</style>
+
 		<div class="navbar navbar-fixed-top">
 
 			<div class="navbar-inner">
@@ -59,11 +49,10 @@
 			</div>
 			<!-- //this is the only place to put india! -->
 			<div class="india pull-right">
-					<!-- <div>phone, email, chat, anything!</div> -->
+				<!-- <div>phone, email, chat, anything!</div> -->
 				<div>
 					<img src="{{asset('assets/buckeye/scheduleonline.png')}}" alt="mobile mower repair">
 				</div>
-			        
 			</div>
 		</div>
 		<!-- ./ navbar -->

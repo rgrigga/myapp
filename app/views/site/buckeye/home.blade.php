@@ -1,8 +1,7 @@
-@extends('site.layouts.buckeye')
+@extends('site.layouts.company')
 
 <?php
 class Company extends User{
-
 	public $name="Buckeye Mower";
 }
 
@@ -41,7 +40,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 <!-- 	    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
-	    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"> -->
+	     -->
 
 
 <!-- //This is not responsive! -->

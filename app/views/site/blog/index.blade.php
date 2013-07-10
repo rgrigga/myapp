@@ -5,10 +5,12 @@
 @parent
 @stop
 
-@section('meta')
-	@parent
-@stop
 
+<!-- Navbar -->
+@section('nav')
+@include('site.partials.nav2')
+@show
+	<!-- ./ nav section -->
 {{-- Content --}}
 @section('content')
 
@@ -35,8 +37,6 @@
         // echo "$filename" . "<br>";
     }
 ?>
-
-
 
 	<p>Here are a few things you can try:</p>
 	<h3>Security</h3>
