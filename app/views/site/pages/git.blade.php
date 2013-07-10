@@ -35,6 +35,7 @@ Fork my example: <a href="https://github.com/rgrigga/Spoon-Knife">rgrigga/Spoon-
         <ul>
             <li><a href="http://stackoverflow.com/questions/6520905/git-octopus-merge-order-of-multiple-branches">Octopus Merge</a></li>
             <li><a href="http://stackoverflow.com/questions/366860/when-would-you-use-the-different-git-merge-strategies">Different Merging strategies</a></li>
+            <li><a href="http://www.atlassian.com/git/tutorial/git-branches#!merge">Atlassian Tutorial</a></li>
         </ul>
     </li>
 </ul>

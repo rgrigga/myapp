@@ -43,8 +43,6 @@ Company: {{$company}}
 		/*background-color:rgba(255,0,0,0.5);*/
 	}
 </style>
-
-
 @stop
 
 @section('favicons')
@@ -75,13 +73,10 @@ Company: {{$company}}
   <!-- or, set /favicon.ico for IE10 win -->
 <!-- <meta name="msapplication-TileColor" content="#D83434"> -->
 <!-- <meta name="msapplication-TileImage" content="path/to/tileicon.png"> -->
-
-		<!-- hardy har -->		
 @stop
 
 	@section('nav')
 	@include('site.partials.nav-buckeye')
-
 	@stop
 {{-- Content --}}
 @section('content')

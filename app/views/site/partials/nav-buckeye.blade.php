@@ -43,7 +43,7 @@
 						?>
 
 						@foreach ($menus as $menu)
-						<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to($menu) }}}">{{$menu}}</a></li>
+						<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to('#'.$menu) }}}">{{ucfirst($menu)}}</a></li>
 
 						@endforeach
 
@@ -61,10 +61,9 @@
 	                            <li><a href="{{{ URL::to('user') }}}">Name: {{{ Auth::user()->username }}}</a></li>
 	                            <li><a href="{{{ URL::to('user/logout') }}}">Logout</a></li>
                             @else
-	                            <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">Login</a></li>
-	                            
+	                            <!-- <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">Login</a></li> -->
                             @endif
-                            @include('site.partials.contact')
+                            @include('site.partials.contact-buckeye')
                         </ul>
 					</div>
 					<!-- ./ nav-collapse -->

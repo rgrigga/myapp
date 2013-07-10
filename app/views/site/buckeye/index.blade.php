@@ -5,6 +5,10 @@
 Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 @stop
 
+@section('styles')
+
+@stop
+
 @section('content')
 @parent
     <style>
@@ -211,13 +215,14 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
     }
 
     /* Give some space on the sides of the floated elements so text doesn't run right into it. */
-    .featurette-image.pull-left {
-      margin-right: 40px;
+    @media (min-width: 980px){
+      .featurette-image.pull-left {
+        margin-right: 40px;
+      }
+      .featurette-image.pull-right {
+        margin-left: 40px;
+      }
     }
-    .featurette-image.pull-right {
-      margin-left: 40px;
-    }
-
     /* Thin out the marketing headings */
     .featurette-heading {
       margin-left: 5%;
@@ -260,8 +265,8 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
         display: block;
         float: none;
         max-width: 40%;
-        /*margin: 0 auto 20px;*/
-        margin: 30px;
+        margin: 20px auto 20px;
+        /*margin-top: 30px;*/
       }
     }
 
@@ -309,6 +314,15 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
         font-size: 18px;
         line-height: 1.5;
       }
+
+      .featurette-image{
+        /*text-align: center;*/
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+
 
     }
 
@@ -400,21 +414,24 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
+<div class="container marketing">
 
 
-<img src="{{asset('assets/buckeye/grass.svg')}}" alt="grass.svg">
+<!-- ************* INTRO OPTION 1 **************-->
+<!-- <img src="{{asset('assets/buckeye/grass.svg')}}" alt="grass.svg"> -->
 
-    <div class="container marketing">
 
-
-<div class="row-fluid">
+<!-- ************* INTRO OPTION 2 **************-->
+<!-- <div class="row-fluid">
   <div class="kilo delta">
     <img src="{{asset('assets/buckeye/yard.jpg')}}" alt="" />  
     <h1><span>Buckeye Mower</span></h1>
     <p><span><em>Time to get your grass in gear!</em></span></p>
   </div>
-</div>
+</div> -->
 
+
+<!-- ************* INTRO OPTION 3 **************-->
 <div class="row-fluid">
 	<div class="hero-unit">
     <!-- <img src="{{asset('assets/buckeye/crocus.jpg')}}" alt=""> -->
@@ -433,6 +450,11 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
     </div>
   </div>
 </div>
+
+
+
+<!-- END INTRO -->
+
       <!-- <div class="span5"> -->
       <!-- <h2>Mobile Mower Repair</h2> -->
       <!-- <div class="h2">Mobile Mower Repair</div> -->
@@ -497,7 +519,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 
       <hr class="featurette-divider">
 
-      <div class="featurette">
+      <div class="featurette" id="map" name="map">
         <img class="featurette-image pull-right" src="{{asset('assets/buckeye/ohio.png')}}" alt="serving central ohio">
         <h2 class="featurette-heading">I will come to you. <span class="muted">Wide Service Area.</span></h2>
         <p class="lead">We generally service the Greater Columbus Area, south of 36/37.  For Example, I've done service near Westerville, Lewis Center, Polaris, Easton, Delaware, Marysville, Hilliard, Dublin, Gahanna, Pickerington, Pataskala, New Albany and more.  If I can help you, I'll do my best!</p>
@@ -572,11 +594,20 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
       <!-- /END THE FEATURETTES -->
 
 
+
+
+
+
+@stop
+
+@section('footer')
+
 <style>
   div.span12{
     font-size: 10px;
   }
 </style>
+
 <div class="span12">
   <p class="muted credit">
     <a href="http://thenounproject.com/noun/race-car/#icon-No3019" target="_blank">Race Car</a> designed by <a href="http://thenounproject.com/ianfrid" target="_blank">Ian Friday</a> from The Noun Project
@@ -585,7 +616,5 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
     <a href="http://thenounproject.com/noun/truck/#icon-No7504" target="_blank">Truck</a> designed by <a href="http://thenounproject.com/misirlou" target="_blank">Benjamin Orlovski</a> from The Noun Project
   </p>
 </div>
-
-
 
 @stop

@@ -543,10 +543,10 @@ $code='foo';
 					<div class="span4 thumbnail delta">
 		      			<a href="http://OAuth2.0">
 		      			<img src="http://gristech.com/img/logo/twitter-bootstrap.jpg" alt="laravel rocks">
-						<h5><span>Bootstrap</span></h5>
+						<h5><span>OAuth</span></h5>
 						</a>
-						<h6>Front-End Framework (Light, Responsive CSS & Javascript)</h6>
-						<p>Allows rapid development</p>
+						<h6>Security</h6>
+						<p>Supported by many APIs</p>
 		      		</div>
 					
 
@@ -609,6 +609,9 @@ $code='foo';
 							<li><a href="http://search.creativecommons.org/">Creative Commons</a></li>
 							<li><a href="http://pixabay.com/en/rome-italy-fontana-statue-statues-107889/">pixabay</a></li>
 							<li><a href="http://yourbusiness.azcentral.com/give-copyright-credit-images-2791.html">About copyrighting</a></li>
+							<li><a href="http://www.colorpicker.com/">ColorPicker</a></li>
+							<li><a href="http://thenounproject.com/">THe Noun Project</a></li>
+							<li><a href="http://colorschemedesigner.com/#4r42Ew0w0w0w0">Color Scheme Designer</a></li>
 						</ul>
 
 						<!-- http://yourbusiness.azcentral.com/give-copyright-credit-images-2791.html -->
@@ -763,10 +766,13 @@ $code='foo';
 	</ul>
 </div>
 
-
-
-
-
+<div>
+	<ul>
+		<li>
+			<a href="https://sites.google.com/a/webpagetest.org/docs/other-resources/optimization-resources">Webpage Speed Optimization</a>
+		</li>
+	</ul>
+</div>
 
 <div class="kilo delta">
 <!-- 				<img src="http://gristech.com/img/mini-tools.jpg" alt=""> -->

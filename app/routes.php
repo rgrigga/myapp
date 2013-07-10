@@ -40,8 +40,13 @@ if($env === 'local2'){
         return View::make('site/'.$name.'/index',array(
 //return View::make('site/'.$name.'/home',array(
             'company'=>'Buckeye Mower',
-            'menus'=>array('About ','Rates','Schedule','Map')
+            'menus'=>array('about ','rates','schedule','map')
             ));
+    });
+
+    Route::get('login',function(){
+        // die("BAM");
+        return Redirect::to('user/login');
     });
 
     Route::get('/{tag}',function($tag){
@@ -53,6 +58,8 @@ if($env === 'local2'){
         //try to make page
         //if page not in allowed array, show home
     });
+
+
 
 }
 
@@ -67,10 +74,15 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
         return View::make('site/'.$name.'/index',array(
 //return View::make('site/'.$name.'/home',array(
             'company'=>'Buckeye Mower',
-            'menus'=>array('About ','Rates','Schedule','Map')
+            'menus'=>array('about ','rates','schedule','map')
             ));
     });
 
+    Route::get('login',function(){
+        // die("BAM");
+        return Redirect::to('user/login');
+    });
+    
     Route::get('/{tag}',function($tag){
         $name='buckeye';
         return View::make('site/'.$name.'/home/'.$tag,array(
