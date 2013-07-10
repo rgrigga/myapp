@@ -1,12 +1,11 @@
 @extends('site.layouts.company')
-<!-- http://thenounproject.com/noun/lawn-mower/#icon-No5075 -->
 
-@section('meta-title')
+@section('title')
 Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 @stop
 
 @section('styles')
-
+@parent
 @stop
 
 @section('content')

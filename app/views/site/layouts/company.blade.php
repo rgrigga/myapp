@@ -1,21 +1,21 @@
 @extends('site.layouts.default')
 
 {{-- Update the Meta Title --}}
-@section('meta_title')
+@section('title')
 <!-- @parent -->
-Company: {{$company}}
+{{$company}} : 
  <!-- String::title($post->title) }}} -->
 @stop
 
 {{-- Update the Meta Description --}}
 @section('meta_description')
-<meta name="description" content="$company->description" />
+<meta name="description" content="{{$description}}" />
 @stop
 
 {{-- Update the Meta Keywords --}}
 @section('meta_keywords')
 <!-- Company Default Keywords/tags -->
-<meta name="keywords" content="Describe Company Services Here, with SEO in mind" />
+<meta name="keywords" content="Mobile Mower Repair, Mower Service, Engine Repair, Weedeater, Chainsaw, Trimmer" />
 @stop
 
 @section('styles')
@@ -29,20 +29,20 @@ Company: {{$company}}
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine"> -->
-	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+	
 
 	<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/cosmo/bootstrap.min.css"> -->
     <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/flatly/bootstrap.min.css"> -->
-<style>
-	body{
-		/*background-color: green;*/
-		/*background-color:rgba(255,0,0,0.5);*/
-	}
-	
-	.hero-unit{
-		/*background-color:rgba(255,0,0,0.5);*/
-	}
-</style>
+	<style>
+		body{
+			background-color: green;
+			/*background-color:rgba(255,0,0,0.5);*/
+		}
+		
+		.hero-unit{
+			/*background-color:rgba(255,0,0,0.5);*/
+		}
+	</style>
 @stop
 
 @section('favicons')
@@ -75,14 +75,19 @@ Company: {{$company}}
 <!-- <meta name="msapplication-TileImage" content="path/to/tileicon.png"> -->
 @stop
 
-	@section('nav')
-	@include('site.partials.nav-buckeye')
-	@stop
+@section('nav')
+@include('site.partials.nav-buckeye')
+@stop
 {{-- Content --}}
 @section('content')
 <!-- @parent -->
 
 <!-- Your Company Page Here -->
+@stop
 
+@section('footer')
+Buckeye Footer
+@stop
 
+@section('hotel')
 @stop

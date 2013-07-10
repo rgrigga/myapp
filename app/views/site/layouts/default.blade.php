@@ -1,39 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<?php
-
-$name = Cookie::get('name');
-if (!$name){
-	$name='Stranger';
-}
-
-$company="gristech";
-$menus=array('foo','bar');
-?>
 <head>
+	<meta charset="utf-8" />
 	<!-- Basic Page Needs
 	================================================== -->
-
-	{{-- Update the Meta Title --}}
-	<!-- @section('meta_title') -->
-	<meta charset="utf-8" />
 	<title>
 		@section('title')
 		Gristech MyApp
 		@show
-		{{-- @section('title') --}}
-		{{-- Gristech MyApp --}}
-		{{-- @show --}}
 	</title>
 		<!-- Gristech Default Layout -->
 		<!-- should be overridden in children -->
 
-<!-- Buckeye Mower ::  -->
- <!-- String::title($post->title) }}} -->
-<!-- @stop -->
-
-{{-- Update the Meta Description --}}
 <!-- http://moz.com/learn/seo/meta-description -->
 @section('meta_description')
 <meta name="description" content="Gristech will do things that will help you do what you do better.  We will make you make more money.  We will therefore make you want to give us lots of money. We will make you lots of money.">
@@ -43,40 +21,37 @@ $menus=array('foo','bar');
 <meta name="keywords" content="php, laravel, development, learning, software, business" />
 @show
 
-<!-- // branding -->
-<!-- // marketing-->
-
-		<meta name="author" content="Ryan Grissinger" />
-		<!-- Mobile Specific Metas
-		================================================== -->
-		<!-- More info on this: http://coding.smashingmagazine.com/2011/01/12/guidelines-for-responsive-web-design/ -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!-- CSS
-		================================================== -->
+<meta name="author" content="Ryan Grissinger" />
+<!-- Mobile Specific Metas
+================================================== -->
+<!-- More info on this: http://coding.smashingmagazine.com/2011/01/12/guidelines-for-responsive-web-design/ -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- CSS
+================================================== -->
 
 @section('styles')
-	    @stylesheets("public-css")
-		<link rel="stylesheet" href="/assets/css/style.css">
-
+    @stylesheets("public-css")
+	<link rel="stylesheet" href="/assets/css/style.css">
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
+
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
-	
+		<!-- http://css-tricks.com/almanac/properties/z/z-index/ -->
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<style>
-			/*http://css-tricks.com/almanac/properties/z/z-index/*/
 				.mycontentwrap{
 					margin-top: 40px;
 					position: relative;
 					/*z-index: -3;*/
 				}
 		</style>
-@show
+
 <!-- prettify -->
 <!-- NOTE: I had an experience with a lengthy pageload on this today.  It's a good lesson NOT to include prettify on the main layout page.  Load it in a child page where you need it. -->
 <!-- <link href="prettify.css" type="text/css" rel="stylesheet" /> -->
-
+@show
 @section('myjs')
 	<!-- I prefer to keep javascript to a minimum when possible. -->
 	<!-- <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&amp;skin=sunburst&amp;lang=css"></script> -->
@@ -84,11 +59,9 @@ $menus=array('foo','bar');
 	<!-- google.com/analytics -->
 	<!-- prettify -->
 	<!-- <link href="prettify.css" type="text/css" rel="stylesheet" /> -->
+<!--
 	<script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&amp;skin=sunburst&amp;lang=css"></script>
-
-	<!-- font-awesome -->
-	<!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
-	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+-->
 @show
 
 @section('analytics')

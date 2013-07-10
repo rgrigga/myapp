@@ -74,6 +74,7 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
         return View::make('site/'.$name.'/index',array(
 //return View::make('site/'.$name.'/home',array(
             'company'=>'Buckeye Mower',
+            'description'=>'Mobile Mower and Small Engine Repair',
             'menus'=>array('about ','rates','schedule','map')
             ));
     });
