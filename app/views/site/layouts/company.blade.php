@@ -29,20 +29,22 @@
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine"> -->
-	
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 
 	<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/cosmo/bootstrap.min.css"> -->
     <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/flatly/bootstrap.min.css"> -->
-	<style>
-		body{
-			background-color: green;
-			/*background-color:rgba(255,0,0,0.5);*/
-		}
-		
-		.hero-unit{
-			/*background-color:rgba(255,0,0,0.5);*/
-		}
-	</style>
+<style>
+	body{
+		/*background-color: green;*/
+		/*background-color:rgba(255,0,0,0.5);*/
+	}
+	
+	.hero-unit{
+		/*background-color:rgba(255,0,0,0.5);*/
+	}
+</style>
+
+
 @stop
 
 @section('favicons')
@@ -60,19 +62,9 @@
 		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
-		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
-		<!-- <link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}"> -->
-		
+		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">		
 		<link rel="shortcut icon" href="{{{ asset('assets/ico/buckeye/favicon.png') }}}">
-		<link rel="icon" href="{{{ asset('assets/ico/buckeye/favicon.png') }}}">
-
-
-<!-- <link rel="apple-touch-icon" href="path/to/touchicon.png"> -->
-<!-- <link rel="icon" href="path/to/favicon.png"> -->
-  <!--[if IE]><link rel="shortcut icon" href="path/to/favicon.ico"><![endif]-->
-  <!-- or, set /favicon.ico for IE10 win -->
-<!-- <meta name="msapplication-TileColor" content="#D83434"> -->
-<!-- <meta name="msapplication-TileImage" content="path/to/tileicon.png"> -->
+		<link rel="icon" href="{{{ asset('assets/ico/buckeye/favicon.png') }}}">	
 @stop
 
 @section('nav')
@@ -80,8 +72,6 @@
 @stop
 {{-- Content --}}
 @section('content')
-<!-- @parent -->
-
 <!-- Your Company Page Here -->
 @stop
 

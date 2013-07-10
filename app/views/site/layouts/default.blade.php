@@ -53,8 +53,8 @@
 <!-- <link href="prettify.css" type="text/css" rel="stylesheet" /> -->
 @show
 @section('myjs')
-	<!-- I prefer to keep javascript to a minimum when possible. -->
-	<!-- <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&amp;skin=sunburst&amp;lang=css"></script> -->
+<!-- I prefer to keep javascript to a minimum when possible. -->
+<!-- <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&amp;skin=sunburst&amp;lang=css"></script> -->
 
 	<!-- google.com/analytics -->
 	<!-- prettify -->
@@ -142,7 +142,6 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
                                 @endif
 	                            <li><a href="{{{ URL::to('user') }}}">Logged in as {{{ Auth::user()->username }}}</a></li>
 	                            <li><a href="{{{ URL::to('user/logout') }}}">Logout</a></li>
-                            
                             @else
 	                            <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">Login</a></li>
 	                            <li {{ (Request::is('user/register') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/create') }}}">Welcome</a></li>

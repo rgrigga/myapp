@@ -23,31 +23,19 @@
 						<span class="icon-bar"></span>
 					</a>
 
-					<?php 
-					// if(!$company){
-					// $company="Buckeye Mower";
-					// } 
-					?>
-					<a class="brand" href="#">{{$company}}</a>
+			<a class="brand" href="#">{{$company}}</a>
 
-					<div class="nav-collapse collapse">
-						
-						<ul class="nav">
+			<div class="nav-collapse collapse">
+				
+				<ul class="nav">
+					<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a>
+					</li>
 
-						<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
+					@foreach ($menus as $menu)
+					<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to('#'.$menu) }}}">{{ucfirst($menu)}}</a></li>
+					@endforeach
 
-						<?php 
-						if(!$menus){
-						$menus=array('myservice','contact','services');
-						}
-						?>
-
-						@foreach ($menus as $menu)
-						<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to('#'.$menu) }}}">{{ucfirst($menu)}}</a></li>
-
-						@endforeach
-
-						</ul>
+				</ul>
 
 						<!-- admin/user nav -->
                         <ul class="nav pull-right">
