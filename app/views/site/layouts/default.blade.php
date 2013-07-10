@@ -37,21 +37,18 @@
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
-		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
-		<!-- http://css-tricks.com/almanac/properties/z/z-index/ -->
-		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-		<style>
-				.mycontentwrap{
-					margin-top: 40px;
-					position: relative;
-					/*z-index: -3;*/
-				}
-		</style>
+		.mycontentwrap{
+			margin-top: 40px;
+			position: relative;
+			/*z-index: -3;*/
+		}
+	</style>
+@show
 
 <!-- prettify -->
 <!-- NOTE: I had an experience with a lengthy pageload on this today.  It's a good lesson NOT to include prettify on the main layout page.  Load it in a child page where you need it. -->
 <!-- <link href="prettify.css" type="text/css" rel="stylesheet" /> -->
-@show
+
 @section('myjs')
 <!-- I prefer to keep javascript to a minimum when possible. -->
 <!-- <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&amp;skin=sunburst&amp;lang=css"></script> -->
@@ -70,8 +67,10 @@
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
   ga('create', 'UA-41528506-1', 'gristech.com');
   ga('send', 'pageview');
+
 </script>
 <meta name="google-site-verification" content="U8zCfNgj-23MojmUwyxkij6AqrU30NWhgJgTtiBl3WI" />
 @show
@@ -213,10 +212,9 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 				<i class="icon-mobile-phone icon-4x"></i>
 			</div>
 			<div class="visible-tablet">
-
 				<i class="icon-tablet icon-4x"></i>
 			</div>
-				<div class="visible-desktop">
+			<div class="visible-desktop">
 				<i class="icon-desktop icon-4x"></i>
 			</div>
 		</div>
