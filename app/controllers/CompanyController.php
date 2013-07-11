@@ -25,19 +25,27 @@ class CompanyController extends BaseController {
      */
     protected $user;
 
+     /**
+     * User Model
+     * @var Company
+     */
+    protected $company;
+
     /**
      * Inject the models.
      * @param Post $post
      * @param User $user
+     * @param Tags $tags
      * @param Tags $tags    
      */
-    public function __construct(Post $post, User $user)
+    public function __construct(Company $company)
     {
         parent::__construct();
 
-        $this->post = $post;
-        $this->user = $user;
-        $this->tags = $post->tags();
+        // $this->post = $post;
+        // $this->user = $user;
+        $this->company = $company;
+        // $this->tags = $post->tags();
     }
     
 	/**
@@ -45,17 +53,17 @@ class CompanyController extends BaseController {
 	 *
 	 * @return View
 	 */
-	public function getIndex($company="")
+	public function getIndex($id="")
 	{
-		die(var_dump($company));
-		$str='%'.$company.'%';
-		$posts = $this->post->where('meta_keywords', 'LIKE', "$company")->paginate(5);
+		// die(var_dump($id));
+		// $str='%'.$company.'%';
+		$company = $this->company->where('id', '=', "$id");
 		// $posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);
 
-// die(var_dump($posts));
+die(var_dump($company));
 
 		// Show the page
-		return View::make('site/'.$company.'/home', compact('posts'));
+		return View::make('site/'.$company->brand().'/home', compact('$company'));
 		
 	}
 

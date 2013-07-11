@@ -5,11 +5,8 @@
 @parent
 @stop
 
+	@include('site.partials.nav2')
 
-<!-- Navbar -->
-@section('nav')
-@include('site.partials.nav2')
-@show
 	<!-- ./ nav section -->
 {{-- Content --}}
 @section('content')

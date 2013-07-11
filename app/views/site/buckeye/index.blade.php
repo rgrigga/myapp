@@ -423,7 +423,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
     </style>
 @stop
 
-@section('nav')
+@section('mynav')
 @include('site.partials.nav-buckeye')
 @stop
 

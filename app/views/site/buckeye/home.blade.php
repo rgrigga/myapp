@@ -1,6 +1,10 @@
 @extends('site.layouts.advantage')
 
+
+
 <?php
+die("DEPRECIATED");
+
 class Company extends User{
 	public $name="Buckeye Mower";
 }

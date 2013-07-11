@@ -20,8 +20,9 @@ Route::model('user', 'User');
 Route::model('comment', 'Comment');
 Route::model('post', 'Post');
 Route::model('role', 'Role');
+Route::model('company','Company');
 // now, calls to "user->username" should work.  effectively a singleton representing the session data or database info.
-
+Route::resource('companies', 'CompaniesController');
 // Route::get('/', array('before' => 'guest', function(){
 //     // echo "You're not logged in!";
 //     return Redirect::to('user/login/');
@@ -148,6 +149,8 @@ Route::get('/advantage',function()
 
     //Set group to 
 });
+
+Route::controller('/company/{id}','CompanyController');
 
         Route::get('/advantage/foo/{name?}', function($name = 'John')
         {
@@ -463,5 +466,8 @@ Route::get('/{tag}', 'BlogController@getIndex');
 // Route::get('/', 'BlogController@getIndex');
 # Index Page - Last route, no matches
 Route::get('/', 'BlogController@getIndex');
+
+
+
 
 
