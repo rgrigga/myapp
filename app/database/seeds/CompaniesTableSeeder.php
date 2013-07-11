@@ -18,6 +18,7 @@ class CompaniesTableSeeder extends Seeder {
         	'description'=>'Mobile Mower Repair',
         	'slogan'=>'Get your Grass in gear',
         	'image'=>'buckeye.png',
+        	'menus'=>'services, about'
         	
         );
 
