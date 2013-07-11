@@ -14,35 +14,9 @@
 	
 </ul>
 
-<<<<<<< HEAD
-<h3>Coming soon...</h3>
-<ul class="tag">
-	<li><i class="icon-tag"></i></li>
-	<?php
-
-		foreach ($tags as $mytag) {
-			echo "<li><a href='/tags/$mytag'>$mytag</a></li>";
-		}
-
-	?>
-</ul>
-=======
-
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
-
-<!-- 	<li><a href="101">101</a></li>
-
-	<li>foo</li>
-	<li>bar</li>
-	<li>wer</li>
-	<li>ger</li>
-	<li>dfg</li>
-	<li>etg</li> -->
-
-
 
 	<h1>Tags<small>Find what you came for:</small></h1>
-	<!-- Route::get('russ', 'RussController@getIndex'); -->
+
 </div>
 
 

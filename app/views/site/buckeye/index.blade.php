@@ -207,7 +207,8 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
     }
     .featurette-image {
 
-      margin-top: -20px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+      /*margin-top: -20px;*/
+       /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
     }
 
     /* Give some space on the sides of the floated elements so text doesn't run right into it. */
@@ -215,7 +216,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
       .featurette-image.pull-left {
         margin-right: 40px;
       }
-      .featurette-image.pull-right {
+      .featurette-image.pull-right, .featurette-map.pull-right {
         margin-left: 40px;
       }
     }
@@ -256,13 +257,24 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
         height: auto;
         padding: 0;
       }
+      .featurette ul{
+        /*color: red;*/
+        margin-left: 20%;
+      }
+
       .featurette-image.pull-left,
       .featurette-image.pull-right {
         display: block;
         float: none;
-        max-width: 40%;
+        max-width: 50%;
         margin: 20px auto 20px;
         /*margin-top: 30px;*/
+      }
+      .featurette-map{
+        display: block;
+        float:none;
+        max-width: 80%;
+        margin: 20px auto 20px;
       }
     }
 
@@ -464,7 +476,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
           <!-- <img class="img-circle" src="http://placehold.it/200x200"> -->
           <h2 #href="{{{URL::to('About')}}}">Riding Lawn Mower Service</h2>
           <ul>
-            <li>Change Oil, Oil FIlter, Spark Plus(s), AIr and Fuel Filter</li>
+            <li>Change Oil, Oil FIlter, Spark Plus(s), Air and Fuel Filter</li>
             <li>Deck Ceaning</li>
             <li>Deck Leveling</li>
             <li>Blade Sharpening</li>
@@ -475,20 +487,21 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
             <li>Inspect all hoses, belts, pulleys, etc.</li>
           </ul>
           
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+          <!-- <p><a class="btn" href="#">View details &raquo;</a></p> -->
+
         </div><!-- /.span4 -->
         <div class="span4">
           <img class ="center" src="{{asset('assets/buckeye/truck_button.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
           <h2>Commercial</h2>
 
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+          <p>No account or machine is too big.  I have references available for whom I service fleets of dozens of commercial mowers.  I am also a certified deisel mechanic.  Please contact me by phone or email to discuss your fleet's maintenance needs.</p>
+          <!-- <p><a class="btn" href="#">View details &raquo;</a></p> -->
         </div><!-- /.span4 -->
         <div class="span4">
           <img class ="center" src="{{asset('assets/buckeye/push_button.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
           <h2>Small Engine</h2>
-          <p>Push Mower. Riding Mower.  Chainsaw.  Weedeater.  If it has a small engine, I can help you fix it.  I'll come to your house for you.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+          <p>Push Mower. Riding Mower.  Chainsaw.  Weedeater.  If it has a small engine, I can help you fix it.  Remember, I'll come to your house for you - no need for truck, trailer, or travel.</p>
+          <!-- <p><a class="btn" href="#">View details &raquo;</a></p> -->
         </div><!-- /.span4 -->
       </div><!-- /.row -->
 
@@ -497,10 +510,20 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 
       <hr class="featurette-divider">
 
+      <style>
+        .featurette-map{
+
+        }
+      </style>
+
       <div class="featurette" id="map" name="map">
-        <img class="featurette-image pull-right" src="{{asset('assets/buckeye/ohio.png')}}" alt="serving central ohio">
+<!--         <img class="featurette-map pull-right" src="http://maps.googleapis.com/maps/api/staticmap?center=Westerville,Ohio&zoom=9&size=600x600&markers=color:blue%7Clabel:B%7C517+Westerville+OH|color:blue%7Clabel:B%7C517+Hilliard+OH&sensor=false" alt="Hilliard, OH"> -->
+
+        <img class="featurette-map pull-right" src="http://maps.googleapis.com/maps/api/staticmap?center=Westerville,Ohio&zoom=9&size=600x600&markers=Westerville+OH|Hilliard+OH|Columbus+OH|Gahanna+OH|Marengo+OH|Delaware+OH|Pickerington+OH|Grove+City+OH|Pataskala+OH|West+Jefferson+OH&sensor=false" alt="Central Ohio">
+
+<!--         <img class="featurette-image pull-right" src="{{asset('assets/buckeye/ohio.png')}}" alt="serving central ohio"> -->
         <h2 class="featurette-heading">I will come to you. <span class="muted">Wide Service Area.</span></h2>
-        <p class="lead">We generally service the Greater Columbus Area, south of 36/37.  For Example, I've done service near Westerville, Lewis Center, Polaris, Easton, Delaware, Marysville, Hilliard, Dublin, Gahanna, Pickerington, Pataskala, New Albany and more.  If I can help you, I'll do my best!</p>
+        <p class="lead">My general service area is the Greater Columbus Area, anywhere south of 36/37.  For Example, I've done service near Westerville, Lewis Center, Polaris, Easton, Delaware, Marysville, Hilliard, Dublin, Gahanna, Pickerington, Pataskala, New Albany and more.  If I can help you, I'll do my best!</p>
         <!-- http://openclipart.org/may-clipart-be-used-comparison -->
         <!-- http://clipartist.info/RSS/openclipart.org/2011/May/29-Sunday/lawn_mower.svg.html -->
         <!-- http://openclipart.org/detail/663/lawn-mower-by-jicjac -->
@@ -512,20 +535,20 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 
         <img class="featurette-image pull-left mysvg" src="{{asset('assets/buckeye/noun_project_13832.svg')}}" alt="serving central ohio">
         <!-- <i class="icon-cogs icon6"></i> -->
-        <h2 class="featurette-heading">Factory Trained. <span class="muted">Humble Expertise.</span></h2>
+        <h2 class="featurette-heading">Factory Trained. <span class="muted">Multi-Brand Expertise.</span></h2>
         
         <p class="lead">I am <strong>Factory Trained</strong>, and I regularly work on all major brands: John Deere, Toro, Craftsman, Cub Cadet, and more.  I have a passion for this equipment: and I will treat your equipment like it was my own.</p>
       </div>
 
       <hr class="featurette-divider">
 
-      <div class="featurette">
+      <div class="featurette" name="services" id ="services">
         <img class="featurette-image pull-right mysvg" src="{{asset('assets/buckeye/chainsaw.svg')}}" alt="serving central ohio">
         <h2 class="featurette-heading">Not Just Mowers. <span class="muted">Any Small Engine.</span></h2>
         <p class="lead">I regularly service all brands of all kinds of equipment.  If it has an engine...</p>
 
         <div class="row-fluid">
-          <div class="span5">
+          <div class="span3 offset 1">
             <ul>
               <li>Compact Tractors</li>
               <li>Utility Vehicles</li>
@@ -533,7 +556,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
               <li>Trimmers, Edgers, Hedgers</li>
             </ul>
           </div>
-          <div class="span5">
+          <div class="span3">
             <ul>
               <li>Chainsaws</li>
               <li>Leaf Blowers</li>
@@ -560,14 +583,14 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 
 @section('footer')
 
-<div class="span12">
+<!-- <div class="span12">
   <p class="muted credit">
     <a href="http://thenounproject.com/noun/race-car/#icon-No3019" target="_blank">Race Car</a> designed by <a href="http://thenounproject.com/ianfrid" target="_blank">Ian Friday</a> from The Noun Project
   </p>
   <p class="muted credit">
     <a href="http://thenounproject.com/noun/truck/#icon-No7504" target="_blank">Truck</a> designed by <a href="http://thenounproject.com/misirlou" target="_blank">Benjamin Orlovski</a> from The Noun Project
   </p>
-</div>
+</div> -->
 
 @stop
 

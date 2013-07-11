@@ -147,9 +147,9 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 @show
 
 @section('hotel')
-<!-- <a href="/responsive">
+<a href="/responsive">
 	<div class="hotel hotelb">
-		<div style="color:black; padding-bottom:50px;">resize me</div>
+		<!-- <div style="color:black; padding-bottom:50px;">resize me</div> -->
 		<div class="hotel pull-right">
 			<div class="visible-phone">
 				
@@ -163,7 +163,7 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 			</div>
 		</div>
 	</div>
-</a> -->
+</a>
 @show
 		<!-- Javascripts
 		================================================== -->
