@@ -104,7 +104,7 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 	
 	<!-- Navbar -->
 	@section('mynav')
-
+<!-- @ include('site.partials.nav') -->
 	@show
 
 	
