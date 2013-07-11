@@ -1,9 +1,9 @@
-@extends('site.layouts.company')
+@extends('site.layouts.advantage')
 
 {{-- Update the Meta Title --}}
-@section('meta_title')
+@section('title')
 @parent
- <!-- String::title($post->title) }}} -->
+
 @stop
 {{-- Update the Meta Description --}}
 @section('meta_description')

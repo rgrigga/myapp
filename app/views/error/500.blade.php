@@ -102,6 +102,15 @@
 		<div role="main" class="main">
 			<?php $messages = array('Ouch.', 'Oh no!', 'Whoops!'); ?>
 
+<?php 
+			function random_pic($dir = 'assets/img/404')
+				{
+				    $files = glob($dir.'/*.*');
+				    $file = array_rand($files);
+				    return $files[$file];
+				}
+?>
+
 			<h1><?php echo $messages[mt_rand(0, 2)]; ?></h1>
 
 			<h2>Server Error: 500 (Internal Server Error)</h2>
@@ -119,6 +128,9 @@
 			<p>
 				Perhaps you would like to go to our <a href="{{{ URL::to('/') }}}">home page</a>?
 			</p>
+
+			<img src="http://myapp.gristech.com/<?php echo random_pic();?>" alt="Error :(">
+			
 		</div>
 	</div>
 </body>

@@ -29,6 +29,7 @@ $env = $app->detectEnvironment(array(
 //this is case-sensitive
 	'local' => array('Grisbuntu'),
 	// 'dev' => array('Grisbuntu'),
+	'buckeye' => array('domain' => 'buckeyemower.com' ),
 
 ));
 

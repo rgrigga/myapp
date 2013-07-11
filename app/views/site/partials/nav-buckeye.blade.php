@@ -1,9 +1,17 @@
+<style>
+/*body{
+	padding-top: 60px;
+}*/
+.navbar-fixed-top{
+	position:fixed;
+}
 
+</style>
 		<div class="navbar navbar-fixed-top">
 
 			<div class="navbar-inner">
 
-				<div class="container-fluid">
+				<div class="container">
 					<a class="btn btn-navbar pull-left" data-toggle="collapse" data-target=".nav-collapse">
 
 						<!-- <i class="icon-collapse icon-2x"></i> -->

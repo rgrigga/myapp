@@ -291,20 +291,7 @@
 	</div>
 </div>
 
-@foreach ($posts as $post)
-<section></section>
-<p>{{ $post->content }} </p>
-  @foreach (get_object_vars($post) as $prop)
-  {{$prop}}
-  @endforeach
 
-  <? $myarray=array('title','description'); ?>
-  <ol>
-  @foreach ($myarray as $item)
-    <li>{{ $post->$item; }}</li>
-  @endforeach
-  </ol>
-@endforeach
 
 
 

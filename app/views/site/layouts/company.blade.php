@@ -48,12 +48,13 @@
 {{-- Content --}}
 @section('content')
 <!-- Your Company Page Here -->
+Content
 @stop
 
 @section('footer')
-Buckeye Footer
+Footer
 @stop
 
 @section('hotel')
-Nothin
+Hotel
 @stop

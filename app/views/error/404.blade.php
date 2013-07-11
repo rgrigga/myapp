@@ -100,7 +100,16 @@
 	<div class="wrapper">
 		<div class="error-spacer"></div>
 		<div role="main" class="main">
-			<?php $messages = array('We need a map.', 'I think we\'re lost.', 'We took a wrong turn.'); ?>
+			<?php $messages = array('We need a map.', 'I think we\'re lost.', 'We took a wrong turn.'); 
+				
+				function random_pic($dir = 'assets/img/404')
+				{
+				    $files = glob($dir.'/*.*');
+				    $file = array_rand($files);
+				    return $files[$file];
+				}
+
+			?>
 
 			<h1><?php echo $messages[mt_rand(0, 2)]; ?></h1>
 
@@ -119,6 +128,8 @@
 			<p>
 				Perhaps you would like to go to our <a href="{{{ URL::to('/') }}}">home page</a>?
 			</p>
+
+			<img src="http://myapp.gristech.com/<?php echo random_pic();?>" alt="Error :(">
 		</div>
 	</div>
 </body>

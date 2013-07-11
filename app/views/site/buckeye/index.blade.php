@@ -235,7 +235,10 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
     -------------------------------------------------- */
 
     @media (max-width: 979px) {
-
+.navbar .container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
 /*      .container.navbar-wrapper {
         margin-bottom: 0;
         width: auto;
@@ -426,6 +429,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 
 @section('content')
 
+
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
@@ -565,9 +569,9 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
             </ul>
           </div>
         </div>
-        <div class="row-fluid">
-          <h2>All 2-Cycle or 4 cycle Equipment</h2>
-        </div>
+        <!-- <div class="row-fluid"> -->
+          <h2 class="featurette-heading"> 2-cycle or 4-cycle, No Problem!</h2>
+        <!-- </div> -->
 
         <div id="example">
           <ul>        
@@ -582,17 +586,37 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 @stop
 
 @section('footer')
-
-<!-- <div class="span12">
-  <p class="muted credit">
+<style>
+  #myfooter{
+    margin-left: 10px;
+  }
+</style>
+<h3 id="myfooter">Let's get your gr<em>ass</em> in gear!</h3>
+<!-- <div class="span12"> -->
+<!--   <p class="muted credit">
     <a href="http://thenounproject.com/noun/race-car/#icon-No3019" target="_blank">Race Car</a> designed by <a href="http://thenounproject.com/ianfrid" target="_blank">Ian Friday</a> from The Noun Project
   </p>
   <p class="muted credit">
     <a href="http://thenounproject.com/noun/truck/#icon-No7504" target="_blank">Truck</a> designed by <a href="http://thenounproject.com/misirlou" target="_blank">Benjamin Orlovski</a> from The Noun Project
-  </p>
-</div> -->
+  </p> -->
+<!-- </div> -->
+
+
 
 @stop
 
 @section('hotel')
+<style>
+  .hotel{
+    background-color: transparent;
+
+  }
+  .hotel a{
+    color: green;
+  }
+</style>
+<div class="hotel" style:"background-color:transparent">
+  <a href="{{URL::to('#')}}"><i class="icon-circle-arrow-up icon-3x"></i></a>
+</div>
 @stop
+

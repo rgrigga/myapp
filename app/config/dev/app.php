@@ -1,5 +1,5 @@
 <?php
 // http://four.laravel.com/docs/configuration#environment-configuration
-return array{
+return array(
 	'debug' => true,
-}
+)

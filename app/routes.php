@@ -32,36 +32,34 @@ Route::model('role', 'Role');
 // }));
 
 $env=App::environment();
-if($env === 'local2'){
-    // Route::get('/buckeye')
+// if($env === 'local2'){
+//     // Route::get('/buckeye')
 
-    Route::get('/', function(){
-        $name='buckeye';
-        return View::make('site/'.$name.'/index',array(
-//return View::make('site/'.$name.'/home',array(
-            'company'=>'Buckeye Mower',
-            'menus'=>array('about ','rates','schedule','map')
-            ));
-    });
+//     Route::get('/', function(){
+//         $name='buckeye';
+//         return View::make('site/'.$name.'/index',array(
+// //return View::make('site/'.$name.'/home',array(
+//             'company'=>'Buckeye Mower',
+//             'menus'=>array('about ','rates','schedule','map')
+//             ));
+//     });
 
-    Route::get('login',function(){
-        // die("BAM");
-        return Redirect::to('user/login');
-    });
+//     Route::get('login',function(){
+//         // die("BAM");
+//         return Redirect::to('user/login');
+//     });
 
-    Route::get('/{tag}',function($tag){
-        $name='buckeye';
-        return View::make('site/'.$name.'/home/'.$tag,array(
-            'request'=>'$tag',
-            'menus'=>array('services','contact','about')
-        ));
-        //try to make page
-        //if page not in allowed array, show home
-    });
+//     Route::get('/{tag}',function($tag){
+//         $name='buckeye';
+//         return View::make('site/'.$name.'/home/'.$tag,array(
+//             'request'=>'$tag',
+//             'menus'=>array('services','contact','about')
+//         ));
+//         //try to make page
+//         //if page not in allowed array, show home
+//     });
 
-
-
-}
+// }
 
 Route::group(array('domain' => 'buckeyemower.com'),function()
 {
@@ -75,7 +73,7 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
 //return View::make('site/'.$name.'/home',array(
             'company'=>'Buckeye Mower',
             'description'=>'Mobile Mower and Small Engine Repair',
-            'menus'=>array('about ','rates','schedule','map')
+            'menus'=>array('about ','rates','map','schedule')
             ));
     });
 
@@ -85,6 +83,13 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
     });
     
     Route::get('/{tag}',function($tag){
+
+        $allowed=array('schedule','map','login');
+
+        if(!in_array($tag, $allowed)){
+            App::abort(404);
+        }
+
         $name='buckeye';
         return View::make('site/'.$name.'/home/'.$tag,array(
             'request'=>'$tag',
@@ -109,16 +114,24 @@ Route::post('redactorUpload', function()
     return Response::json(array('filelink' => '/img/' . $fileName));
 });
 
-// Route::get('advantage'),function()
-// {
-//     // die("BAM!");
-//     Route::get('advantage/{tag}', 'RussController@getIndex');
-//     Route::get('/advantage/', 'RussController@getIndex');
-    
-//     // Route::controller('russ','RussController');
+Route::get('/advantage',function()
+{
+    // die("BAM!");
+    $name='advantage';
+    return View::make('site/'.$name.'/index',array(
+//return View::make('site/'.$name.'/home',array(
+        'company'=>'Advantage',
+        'description'=>'Painting, Other Home Services',
+        'menus'=>array('about ','services','map','schedule')
+        ));
 
-//     //Set group to 
-// });
+    Route::get('advantage/{tag}', 'RussController@getIndex');
+    Route::get('/advantage/', 'RussController@getIndex');
+    
+    // Route::controller('russ','RussController');
+
+    //Set group to 
+});
 
 /** ------------------------------------------
  *  Route model binding
