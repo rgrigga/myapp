@@ -48,8 +48,21 @@ Advantage Services - We treat your home as our own.
 	<!-- <link rel="shortcut icon" href="{{{ asset('assets/ico/buckeye/favicon.png') }}}"> -->
 @stop
 
+@section('mynav')
+	<!-- <h1> -->
+
+<!-- 	 :: Child
+	</h1> -->
+@stop
+
 {{-- Content --}}
 @section('content')
+<h2>
+<?php 
+$env=App::environment();
+echo $env;
+?>
+</h2>
 @stop
 
 @section('footer')

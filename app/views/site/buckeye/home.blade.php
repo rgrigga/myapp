@@ -1,4 +1,4 @@
-@extends('site.layouts.company')
+@extends('site.layouts.advantage')
 
 <?php
 class Company extends User{
@@ -77,12 +77,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 				<!-- Very Funny -->
 @stop
 
-@section('nav')
-	<!-- <h1> -->
-	@parent
-<!-- 	 :: Child
-	</h1> -->
-@stop
+
 
 {{-- Content --}}
 @section('content')

@@ -20,7 +20,7 @@
 						<span class="icon-bar"></span>
 					</a>
 
-			<a class="brand" href="#">{{$company}}</a>
+			<a class="brand" href="#">{{$brand}}</a>
 
 			<div class="nav-collapse collapse">
 				

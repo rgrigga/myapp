@@ -1,13 +1,6 @@
 <?php
 
-class Company extends User{
-	public $name="Gristech";
-}
 
-// $obj = new Company;
-// $company = $obj->name;
-// $company = $obj->name;
-// $posts = array("foo","bar");
 
 
 class CompanyController extends BaseController {

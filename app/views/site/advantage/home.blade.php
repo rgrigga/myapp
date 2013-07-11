@@ -57,10 +57,12 @@
 
 {{-- Content --}}
 @section('content')
+
+
 <!-- @parent -->
 <h1>Welcome Home.</h1>
-
-<p>Company: {{$company}}</p>
+<h2>Company:{{$company->name}}</h2>
+<?php var_dump($company)?>
 <p>Icon: </p>
 <!-- About -->
 <!-- Contact -->

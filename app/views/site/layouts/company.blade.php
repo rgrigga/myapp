@@ -3,7 +3,7 @@
 {{-- Update the Meta Title --}}
 @section('title')
 <!-- @parent -->
-{{$company}} : 
+{{-- $company  --}} : 
  <!-- String::title($post->title) }}} -->
 @stop
 
@@ -42,8 +42,8 @@
 		<link rel="icon" href="{{{ asset('assets/ico/buckeye/favicon.png') }}}">	
 @stop
 
-@section('nav')
-@include('site.partials.nav-buckeye')
+@section('mynav')
+
 @stop
 {{-- Content --}}
 @section('content')

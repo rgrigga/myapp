@@ -64,6 +64,7 @@ $env=App::environment();
 Route::group(array('domain' => 'buckeyemower.com'),function()
 {
     // die("BAM!");
+
     
     // Route::get('/{tag}', 'CompanyController@getIndex');
 
@@ -71,10 +72,11 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
         $name='buckeye';
         return View::make('site/'.$name.'/index',array(
 //return View::make('site/'.$name.'/home',array(
-            'company'=>'Buckeye Mower',
+            'brand'=>'Buckeye Mower',
             'description'=>'Mobile Mower and Small Engine Repair',
             'menus'=>array('about ','rates','map','schedule')
             ));
+    
     });
 
     Route::get('login',function(){
@@ -117,21 +119,69 @@ Route::post('redactorUpload', function()
 Route::get('/advantage',function()
 {
     // die("BAM!");
-    $name='advantage';
-    return View::make('site/'.$name.'/index',array(
-//return View::make('site/'.$name.'/home',array(
-        'company'=>'Advantage',
-        'description'=>'Painting, Other Home Services',
-        'menus'=>array('about ','services','map','schedule')
-        ));
 
-    Route::get('advantage/{tag}', 'RussController@getIndex');
-    Route::get('/advantage/', 'RussController@getIndex');
+    $name='advantage';
+    $description=array('Painting, Other Home Services');
+    return View::make('site/'.$name.'/index',array(
+        'brand'=>'Advantage',
+        'description'=>'Painting & More',
+        'menus'=>array('about ','services','map','schedule')))->nest('mynav','site.partials.nav-top',array(
+        'brand'=>'Advantage',
+        'description'=>'Painting & More',
+        'menus'=>array('about ','services','map','schedule')));
+
+// class Company extends User{
+//     public $name="Advantage Services";
+// }
+
+
+// $obj = new Company;
+// $company = $obj->name;
+// $company = $obj->name;
+// $posts = array("foo","bar");
+
+    
+    // Route::get('advantage/{tag}', 'CompanyController@getIndex')->with($company);
+    // Route::get('/advantage/', 'CompanyController@getIndex');
     
     // Route::controller('russ','RussController');
 
     //Set group to 
 });
+
+        Route::get('/advantage/foo/{name?}', function($name = 'John')
+        {
+            return "hi ".$name;
+        });
+
+        Route::get('/advantage/{slug?}', function($slug = 'John')
+        {
+            $description="Painting & Other Services";
+            $company=array(
+//return View::make('site/'.$name.'/home',array(
+            'name'=>'Advantage Services',
+            'description'=>'Painting, Other Home Services',
+            // 'menus'=>array('about ','services','map','schedule')
+            'pages'=>array('about','schedule','services'=>array('painting','roofing','concrete','blacktop','power washing','heating & cooling','windows')),
+            'slogan'=>"We Paint & More");
+
+            // $pages=
+            // $company=array('name'=>'Advantage Services','slogan'=>'We Paint & More!');
+            
+            return View::make('site/advantage/'.$slug,array('company'=>$company,'description'=>'Painting & other services','menus'=>array('about','schedule'
+                // ,'services'=>array('painting','roofing','concrete','blacktop','power washing','heating & cooling','windows'
+                //     )
+                ),
+            'slogan'=>"We Paint & More"))->nest('mynav','site.partials.nav2',array(
+        'brand'=>'Advantage',
+        'description'=>'Painting & More',
+        'menus'=>array('about ','services','map','schedule')));
+
+            // return View::make('site/'.$name.'/home/'.$tag,array(
+            // 'request'=>'$tag',
+            // 'menus'=>array('services','contact','about')
+
+        });
 
 /** ------------------------------------------
  *  Route model binding
@@ -325,8 +375,8 @@ Route::get('russ/{tag}', 'RussController@getIndex');
 // Route::get('tags/{tag}', 'BlogController@getIndex');
 
 // <<<<<<< HEAD
-Route::get('/advantage/','CompanyController@getIndex',array('name'=>'advantage'));
-Route::get('advantage', 'CompanyController@getIndex',array('name'=>'advantage'));
+// Route::get('/advantage/','CompanyController@getIndex',array('name'=>'advantage'));
+// Route::get('advantage', 'CompanyController@getIndex',array('name'=>'advantage'));
 Route::get('company/{name}', 'CompanyController@getIndex', array('name'=>'advantage'));
 
 // =======

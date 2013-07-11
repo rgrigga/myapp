@@ -20,9 +20,9 @@
 						<span class="icon-bar"></span>
 					</a>
 					<?php 
-						if(!$company){$company="MegaCorp";} 
+						// if(!$company){$company="MegaCorp";} 
 					?>
-					<a class="brand" style="margin-left:30px;" href="#">{{{$company}}}</a>
+					<a class="brand" style="margin-left:30px;" href="#">{{{$brand}}}</a>
 
 					<div class="nav-collapse collapse">
 						

@@ -2,6 +2,7 @@
 		<style>
 		body{
 			padding-top: 60px;
+			background-color: red;
 		}
 		.navbar-fixed-top{
 			position:fixed;
@@ -28,11 +29,11 @@
 
 					<?php 
 					// if(!$company){
-					$company="Buckeye Mower";
+					// $company="Buckeye Mower";
 					// } 
 					?>
 					
-					<a class="brand" href="#">{{{$company}}}</a>
+					<a class="brand" href="#">{{{$brand}}}</a>
 
 					<div class="nav-collapse collapse">
 						

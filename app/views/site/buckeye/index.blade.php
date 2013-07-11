@@ -427,6 +427,8 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 @include('site.partials.nav-buckeye')
 @stop
 
+
+
 @section('content')
 
 
@@ -589,9 +591,11 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 <style>
   #myfooter{
     margin-left: 10px;
+    text-align: center;
   }
 </style>
-<h3 id="myfooter">Let's get your gr<em>ass</em> in gear!</h3>
+<img class="center" src="{{asset('assets/buckeye/grass2.png')}}" alt="">
+<h3 class="center" id="myfooter">Let's get your gr<em>ass</em> in gear!</h3>
 <!-- <div class="span12"> -->
 <!--   <p class="muted credit">
     <a href="http://thenounproject.com/noun/race-car/#icon-No3019" target="_blank">Race Car</a> designed by <a href="http://thenounproject.com/ianfrid" target="_blank">Ian Friday</a> from The Noun Project

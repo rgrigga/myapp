@@ -265,12 +265,9 @@
 
 <div class="row">
 	<div class="hero-unit">
-    <h2>Advantage Services</h2>
-		
+    <h1>Advantage Services</h1>
     <?php 
-
         $items = array('Painting','Roofing', 'Concrete', 'Blacktop');
-
     ?>
 
     <ul>
@@ -286,15 +283,10 @@
 
 		<p>We will come to you! <span class="icon-stack">
   <i class="icon-circle icon4x icon-stack-base"></i>
-  <i class="icon-rocket icon4x icon-light"></i>
+  <i class="icon-flag icon4x icon-light"></i>
 </span></p>
 	</div>
 </div>
-
-
-
-
-
       <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="span4">
