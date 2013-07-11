@@ -1,6 +1,7 @@
 @extends('layouts.scaffold')
 
 @section('main')
+
 <h1>Edit Company</h1>
 {{ Form::model($company, array('method' => 'PATCH', 'route' => array('companies.update', $company->id))) }}
     <ul>
@@ -16,7 +17,11 @@
 
         <li>
             {{ Form::label('email', 'Email:') }}
+<<<<<<< HEAD
+            {{ Form::textarea('email') }}
+=======
             {{ Form::text('email') }}
+>>>>>>> company
         </li>
 
         <li>
@@ -26,7 +31,11 @@
 
         <li>
             {{ Form::label('phone', 'Phone:') }}
+<<<<<<< HEAD
+            {{ Form::textarea('phone') }}
+=======
             {{ Form::text('phone') }}
+>>>>>>> company
         </li>
 
         <li>

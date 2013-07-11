@@ -1,8 +1,10 @@
 @extends('layouts.scaffold')
 
 @section('main')
-<h1>Edit Company</h1>
-{{ Form::model($company, array('method' => 'PATCH', 'route' => array('companies.update', $company->id))) }}
+
+<h1>Create Company</h1>
+
+{{ Form::open(array('route' => 'companies.store')) }}
     <ul>
         <li>
             {{ Form::label('brand', 'Brand:') }}
@@ -16,7 +18,11 @@
 
         <li>
             {{ Form::label('email', 'Email:') }}
+<<<<<<< HEAD
+            {{ Form::textarea('email') }}
+=======
             {{ Form::text('email') }}
+>>>>>>> company
         </li>
 
         <li>
@@ -26,12 +32,15 @@
 
         <li>
             {{ Form::label('phone', 'Phone:') }}
+<<<<<<< HEAD
+            {{ Form::textarea('phone') }}
+=======
             {{ Form::text('phone') }}
+>>>>>>> company
         </li>
 
         <li>
-            {{ Form::submit('Update', array('class' => 'btn btn-info')) }}
-            {{ link_to_route('companies.show', 'Cancel', $company->id, array('class' => 'btn')) }}
+            {{ Form::submit('Submit', array('class' => 'btn')) }}
         </li>
     </ul>
 {{ Form::close() }}
@@ -43,3 +52,5 @@
 @endif
 
 @stop
+
+

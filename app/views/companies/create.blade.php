@@ -18,7 +18,7 @@
 
         <li>
             {{ Form::label('email', 'Email:') }}
-            {{ Form::textarea('email') }}
+            {{ Form::text('email') }}
         </li>
 
         <li>
@@ -28,7 +28,7 @@
 
         <li>
             {{ Form::label('phone', 'Phone:') }}
-            {{ Form::textarea('phone') }}
+            {{ Form::text('phone') }}
         </li>
 
         <li>

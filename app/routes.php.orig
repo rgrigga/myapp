@@ -1,4 +1,5 @@
 <?php
+// die("ROUTES");
 
 /*
 |--------------------------------------------------------------------------
@@ -10,11 +11,14 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-// bam!
+ // bam!
 /** ------------------------------------------
  *  Route model binding
  *  ------------------------------------------
  */
+Route::resource('companies', 'CompaniesController');
+Route::resource('tweets', 'TweetsController');
+
 Route::model('user', 'User');
 Route::model('comment', 'Comment');
 Route::model('post', 'Post');
@@ -30,26 +34,69 @@ Route::model('role', 'Role');
     
 // }));
 
+$env=App::environment();
+// if($env === 'local2'){
+//     // Route::get('/buckeye')
+
+//     Route::get('/', function(){
+//         $name='buckeye';
+//         return View::make('site/'.$name.'/index',array(
+// //return View::make('site/'.$name.'/home',array(
+//             'company'=>'Buckeye Mower',
+//             'menus'=>array('about ','rates','schedule','map')
+//             ));
+//     });
+
+//     Route::get('login',function(){
+//         // die("BAM");
+//         return Redirect::to('user/login');
+//     });
+
+//     Route::get('/{tag}',function($tag){
+//         $name='buckeye';
+//         return View::make('site/'.$name.'/home/'.$tag,array(
+//             'request'=>'$tag',
+//             'menus'=>array('services','contact','about')
+//         ));
+//         //try to make page
+//         //if page not in allowed array, show home
+//     });
+
+// }
+
 Route::group(array('domain' => 'buckeyemower.com'),function()
 {
     // die("BAM!");
+
     
     // Route::get('/{tag}', 'CompanyController@getIndex');
 
     Route::get('/', function(){
         $name='buckeye';
-        
         return View::make('site/'.$name.'/index',array(
-            'company'=>'Buckeye Mower',
-            'menus'=>array('About ','Rates','Schedule','Map')
+//return View::make('site/'.$name.'/home',array(
+            'brand'=>'Buckeye Mower',
+            'description'=>'Mobile Mower and Small Engine Repair',
+            'menus'=>array('about ','rates','map','schedule')
             ));
+    
     });
 
+    Route::get('login',function(){
+        // die("BAM");
+        return Redirect::to('user/login');
+    });
+    
     Route::get('/{tag}',function($tag){
 
+        $allowed=array('schedule','map','login');
 
+        if(!in_array($tag, $allowed)){
+            App::abort(404);
+        }
 
-        return View::make('site/'.$tag.'/home',array(
+        $name='buckeye';
+        return View::make('site/'.$name.'/home/'.$tag,array(
             'request'=>'$tag',
             'menus'=>array('services','contact','about')
         ));
@@ -72,16 +119,72 @@ Route::post('redactorUpload', function()
     return Response::json(array('filelink' => '/img/' . $fileName));
 });
 
-// Route::get('advantage'),function()
-// {
-//     // die("BAM!");
-//     Route::get('advantage/{tag}', 'RussController@getIndex');
-//     Route::get('/advantage/', 'RussController@getIndex');
-    
-//     // Route::controller('russ','RussController');
+Route::get('/advantage',function()
+{
+    // die("BAM!");
 
-//     //Set group to 
-// });
+    $name='advantage';
+    $description=array('Painting, Other Home Services');
+    return View::make('site/'.$name.'/index',array(
+        'brand'=>'Advantage',
+        'description'=>'Painting & More',
+        'menus'=>array('about ','services','map','schedule')))->nest('mynav','site.partials.nav-top',array(
+        'brand'=>'Advantage',
+        'description'=>'Painting & More',
+        'menus'=>array('about ','services','map','schedule')));
+
+// class Company extends User{
+//     public $name="Advantage Services";
+// }
+
+
+// $obj = new Company;
+// $company = $obj->name;
+// $company = $obj->name;
+// $posts = array("foo","bar");
+
+    
+    // Route::get('advantage/{tag}', 'CompanyController@getIndex')->with($company);
+    // Route::get('/advantage/', 'CompanyController@getIndex');
+    
+    // Route::controller('russ','RussController');
+
+    //Set group to 
+});
+
+        Route::get('/advantage/foo/{name?}', function($name = 'John')
+        {
+            return "hi ".$name;
+        });
+
+        Route::get('/advantage/{slug?}', function($slug = 'John')
+        {
+            $description="Painting & Other Services";
+            $company=array(
+//return View::make('site/'.$name.'/home',array(
+            'name'=>'Advantage Services',
+            'description'=>'Painting, Other Home Services',
+            // 'menus'=>array('about ','services','map','schedule')
+            'pages'=>array('about','schedule','services'=>array('painting','roofing','concrete','blacktop','power washing','heating & cooling','windows')),
+            'slogan'=>"We Paint & More");
+
+            // $pages=
+            // $company=array('name'=>'Advantage Services','slogan'=>'We Paint & More!');
+            
+            return View::make('site/advantage/'.$slug,array('company'=>$company,'description'=>'Painting & other services','menus'=>array('about','schedule'
+                // ,'services'=>array('painting','roofing','concrete','blacktop','power washing','heating & cooling','windows'
+                //     )
+                ),
+            'slogan'=>"We Paint & More"))->nest('mynav','site.partials.nav2',array(
+        'brand'=>'Advantage',
+        'description'=>'Painting & More',
+        'menus'=>array('about ','services','map','schedule')));
+
+            // return View::make('site/'.$name.'/home/'.$tag,array(
+            // 'request'=>'$tag',
+            // 'menus'=>array('services','contact','about')
+
+        });
 
 /** ------------------------------------------
  *  Route model binding
@@ -158,9 +261,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::controller('roles', 'AdminRolesController');
 
     # Admin Dashboard
-
     Route::controller('/', 'AdminDashboardController');
-    
 });
 
 
@@ -277,18 +378,9 @@ Route::get('russ/{tag}', 'RussController@getIndex');
 // Route::get('tags/{tag}', 'BlogController@getIndex');
 
 // <<<<<<< HEAD
-<<<<<<< HEAD
-Route::get('/advantage/','CompanyController@getIndex');
-Route::get('advantage', 'CompanyController@getIndex',array(
-    'company'=>'Advantage',
-    'menus'=>array('#services','#contact','#about')
-    ));
-Route::get('company/{name}', 'CompanyController@getIndex');
-=======
-Route::get('/advantage/','CompanyController@getIndex',array('name'=>'advantage'));
-Route::get('advantage', 'CompanyController@getIndex',array('name'=>'advantage'));
+// Route::get('/advantage/','CompanyController@getIndex',array('name'=>'advantage'));
+// Route::get('advantage', 'CompanyController@getIndex',array('name'=>'advantage'));
 Route::get('company/{name}', 'CompanyController@getIndex', array('name'=>'advantage'));
->>>>>>> test
 
 // =======
 // >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
@@ -306,19 +398,14 @@ Route::get('blog', 'BlogController@getTags');
 Route::post('blog/{postSlug}', 'BlogController@postView');
 
 Route::get('tags', 'BlogController@getTags');
-// <<<<<<< HEAD
 Route::post('tags', 'BlogController@getTags');
 Route::get('tags/{tag}', 'BlogController@getIndex');
 // Route::post('tags/{tag}', 'BlogController@postIndex');
-// =======
-Route::get('tags/{tag}', 'BlogController@getIndex');
-// >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 
 # Posts - Second to last set, match slug
 Route::get('blog/{postSlug}', 'BlogController@getView');
 Route::post('blog/{postSlug}', 'BlogController@postView');
 
-// <<<<<<< HEAD
 Route::get('show/{tag}','BlogController@show');
 Route::get('search/{tag}','BlogController@getIndex');
 
@@ -381,3 +468,11 @@ Route::get('/{tag}', 'BlogController@getIndex');
 Route::get('/', 'BlogController@getIndex');
 
 
+
+
+<<<<<<< HEAD
+
+
+=======
+Route::resource('companies', 'CompaniesController');
+>>>>>>> company
