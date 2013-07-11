@@ -1,6 +1,7 @@
 <?php
+use Robbo\Presenter\PresentableInterface;
 
-class Company extends Eloquent {
+class Company extends Eloquent implements PresentableInterface{
     protected $guarded = array();
 
     public static $rules = array(
@@ -8,4 +9,9 @@ class Company extends Eloquent {
 		'phone' => 'required',
 		'menus' => 'required'
 	);
+
+	public function getPresenter()
+    {
+        return new CompanyPresenter($this);
+    }
 }

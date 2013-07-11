@@ -53,17 +53,19 @@ class CompanyController extends BaseController {
 	 *
 	 * @return View
 	 */
-	public function getIndex($id="")
+
+	public function getIndex($name="")
 	{
+		$name=strtolower($name);
 		// die(var_dump($id));
 		// $str='%'.$company.'%';
-		$company = $this->company->where('id', '=', "$id");
+		$company = $this->company->where('brand', '=', $name)->first();
 		// $posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);
 
-die(var_dump($company));
+// die(var_dump($company));
 
 		// Show the page
-		return View::make('site/'.$company->brand().'/home', compact('$company'));
+		return View::make('site/'.$name.'/home');
 		
 	}
 

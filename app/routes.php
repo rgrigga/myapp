@@ -16,8 +16,7 @@
  *  Route model binding
  *  ------------------------------------------
  */
-Route::resource('companies', 'CompaniesController');
-Route::resource('tweets', 'TweetsController');
+
 
 Route::model('user', 'User');
 Route::model('comment', 'Comment');
@@ -25,7 +24,11 @@ Route::model('post', 'Post');
 Route::model('role', 'Role');
 Route::model('company','Company');
 // now, calls to "user->username" should work.  effectively a singleton representing the session data or database info.
+
+
 Route::resource('companies', 'CompaniesController');
+Route::resource('tweets', 'TweetsController');
+
 // Route::get('/', array('before' => 'guest', function(){
 //     // echo "You're not logged in!";
 //     return Redirect::to('user/login/');
@@ -263,6 +266,19 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
         ->where('role', '[0-9]+');
     Route::controller('roles', 'AdminRolesController');
 
+    //     # Company Management
+    // Route::get('companies/{company}/show', 'AdminCompaniesController@getShow')
+    //     ->where('company', '[0-9]+');
+    // Route::get('companies/{company}/edit', 'AdminCompaniesController@getEdit')
+    //     ->where('company', '[0-9]+');
+    // Route::post('companies/{company}/edit', 'AdminCompaniesController@postEdit')
+    //     ->where('company', '[0-9]+');
+    // Route::get('companies/{company}/delete', 'AdminCompaniesController@getDelete')
+    //     ->where('company', '[0-9]+');
+    // Route::post('companies/{company}/delete', 'AdminCompaniesController@postDelete')
+    //     ->where('company', '[0-9]+');
+    // Route::controller('companies', 'AdminCompaniesController');
+
     # Admin Dashboard
     Route::controller('/', 'AdminDashboardController');
 });
@@ -383,7 +399,7 @@ Route::get('russ/{tag}', 'RussController@getIndex');
 // <<<<<<< HEAD
 // Route::get('/advantage/','CompanyController@getIndex',array('name'=>'advantage'));
 // Route::get('advantage', 'CompanyController@getIndex',array('name'=>'advantage'));
-Route::get('company/{name}', 'CompanyController@getIndex', array('name'=>'advantage'));
+Route::get('company/{name}', 'CompanyController@getIndex');
 
 // =======
 // >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
@@ -438,9 +454,6 @@ Route::get('/{tag}', 'BlogController@getIndex');
 // Route::post('/{tag}', 'BlogController@postView');
 // >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 
-    if($tag==="russ"){
-        die("RUSS!");
-    }
 
     $path='/home/gristech/myapp/app/views/site/pages/';
 
