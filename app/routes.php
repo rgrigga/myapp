@@ -16,6 +16,9 @@
  *  Route model binding
  *  ------------------------------------------
  */
+Route::resource('companies', 'CompaniesController');
+Route::resource('tweets', 'TweetsController');
+
 Route::model('user', 'User');
 Route::model('comment', 'Comment');
 Route::model('post', 'Post');
@@ -463,5 +466,9 @@ Route::get('/{tag}', 'BlogController@getIndex');
 // Route::get('/', 'BlogController@getIndex');
 # Index Page - Last route, no matches
 Route::get('/', 'BlogController@getIndex');
+
+
+
+
 
 
