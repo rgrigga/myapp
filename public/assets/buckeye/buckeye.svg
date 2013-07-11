@@ -19,7 +19,7 @@
    inkscape:version="0.48.3.1 r9886"
    sodipodi:docname="buckeye.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
-   inkscape:export-filename="/home/ryan/MyApp6/public/assets/img/buckeye-mobile.png"
+   inkscape:export-filename="/home/ryan/MyApp6/public/assets/buckeye/buckeye150.png"
    inkscape:export-xdpi="71.97197"
    inkscape:export-ydpi="71.97197">
   <metadata
@@ -30,7 +30,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -703,7 +703,7 @@
        xlink:href="#linearGradient6375"
        id="radialGradient19389"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(-0.719825,-8.7148952,32.275175,-3.0208075,-736.63933,214.19372)"
+       gradientTransform="matrix(-0.5885159,-4.6820803,26.387599,-1.6229298,-586.67051,34.52265)"
        cx="19.11957"
        cy="26.32127"
        fx="19.11957"
@@ -1035,8 +1035,8 @@
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccsssssc" />
     <path
-       style="fill:url(#radialGradient19389);fill-opacity:1;stroke:#ddb27e;stroke-width:8.40188026;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:0.79908675;stroke-dasharray:none;display:inline;enable-background:new"
-       d="m 62.835723,-58.533243 c 11.443319,-5.922966 78.143367,-10.793404 85.314017,3.936607 4.53606,9.318001 10.68342,8.05138 11.85026,18.034739 C 158.39603,-23.473031 151.19894,-19.39772 139.93401,-12 118.82756,-9.573566 62.963738,-7.3584746 50,-18.769429 40.112368,-26.140094 49.941,-53.604074 62.835723,-58.533243 z"
+       style="fill:url(#radialGradient19389);fill-opacity:1;stroke:#ddb27e;stroke-width:5.56840086;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:0.79908675;stroke-dasharray:none;display:inline;enable-background:new"
+       d="m 66.965835,-112 c 9.355851,-3.18212 63.888605,-5.79876 69.751195,2.11494 3.7086,5.0061 8.73457,4.32561 9.68856,9.68917 C 145.09421,-93.16389 139.21,-90.974427 130,-87 112.74375,-85.696398 67.070498,-84.506339 56.47158,-90.636878 48.387631,-94.59677 56.423343,-109.3518 66.965835,-112 z"
        id="path5977-0"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cscccc" />
@@ -1141,24 +1141,24 @@
          style="fill:#d45500" /></text>
     <text
        xml:space="preserve"
-       style="font-size:32.26145554px;font-style:normal;font-weight:normal;line-height:100%;letter-spacing:0px;word-spacing:0px;fill:#8ea46c;fill-opacity:1;stroke:#455824;stroke-width:1.35344803;stroke-miterlimit:4.9000001;stroke-opacity:1;stroke-dasharray:none;font-family:Sans"
-       x="98.338371"
-       y="-58.265667"
+       style="font-size:32.32985306px;font-style:normal;font-weight:normal;line-height:100%;letter-spacing:0px;word-spacing:0px;fill:#8ea46c;fill-opacity:1;stroke:#455824;stroke-width:1.35631752;stroke-miterlimit:4.9000001;stroke-opacity:1;stroke-dasharray:none;font-family:Sans"
+       x="98.549286"
+       y="-53.040878"
        id="text6881"
        sodipodi:linespacing="100%"
-       transform="scale(1.0222047,0.97827763)"><tspan
+       transform="scale(1.0200169,0.9803759)"><tspan
          sodipodi:role="line"
-         x="97.827759"
-         y="-58.265667"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:-1.02121675px;text-anchor:middle;fill:#8ea46c;fill-opacity:1;stroke:#455824;stroke-width:1.35344803;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.9000001;stroke-opacity:1;stroke-dasharray:none;font-family:Nimbus Sans L;-inkscape-font-specification:Nimbus Sans L"
+         x="98.03759"
+         y="-53.040878"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:-1.02338183px;text-anchor:middle;fill:#8ea46c;fill-opacity:1;stroke:#455824;stroke-width:1.35631752;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.9000001;stroke-opacity:1;stroke-dasharray:none;font-family:Nimbus Sans L;-inkscape-font-specification:Nimbus Sans L"
          id="tspan6893"
-         dy="-19.25">Buckeye</tspan><tspan
+         dy="0">Buckeye</tspan><tspan
          sodipodi:role="line"
-         x="101.79091"
-         y="-26.004213"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:-1.02121675px;text-anchor:middle;fill:#8ea46c;fill-opacity:1;stroke:#455824;stroke-width:1.35344803;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.9000001;stroke-opacity:1;stroke-dasharray:none;font-family:Nimbus Sans L;-inkscape-font-specification:Nimbus Sans L"
-         dy="0 0 0 0 0 19.25 0 0 0 0 0 0 -4.7188916"
-         dx="0 0 0 0 0 0 0 0 0 0 0 0 0.27103373"
+         x="102.00915"
+         y="-20.711027"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:-1.02338183px;text-anchor:middle;fill:#8ea46c;fill-opacity:1;stroke:#455824;stroke-width:1.35631752;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.9000001;stroke-opacity:1;stroke-dasharray:none;font-family:Nimbus Sans L;-inkscape-font-specification:Nimbus Sans L"
+         dy="0 0 0 0 0 0 0 0 0 0 0 0 -4.7288961"
+         dx="0 0 0 0 0 0 0 0 0 0 0 0 0.27160835"
          id="tspan19377">Mower </tspan></text>
     <text
        xml:space="preserve"
