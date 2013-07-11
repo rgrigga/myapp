@@ -1,9 +1,11 @@
 <?php
 
 class CompaniesTableSeeder extends Seeder {
+
     public function run()
     {
     	// Uncomment the below to wipe the table clean before populating
+<<<<<<< HEAD
     	DB::table('companies')->delete();
 
         $companies = array(
@@ -23,6 +25,16 @@ class CompaniesTableSeeder extends Seeder {
 
         // Uncomment the below to run the seeder
         DB::table('companies')->insert($companies);
+=======
+    	// DB::table('companies')->delete();
+
+        $companies = array(
+
+        );
+
+        // Uncomment the below to run the seeder
+        // DB::table('companies')->insert($companies);
+>>>>>>> c2
     }
 
 }

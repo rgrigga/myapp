@@ -10,6 +10,13 @@
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
+<<<<<<< HEAD
+                <th>Brand</th>
+				<th>Description</th>
+				<th>Email</th>
+				<th>Menus</th>
+				<th>Phone</th>
+=======
                 <th>id</th>
                 <th>Brand</th>
 				<th>Phone</th>
@@ -17,13 +24,20 @@
 				<th>Slogan</th>
 				<th>Image</th>
 				<th>Menus</th>
-				<th>Email</th>
+>>>>>>> c2
             </tr>
         </thead>
 
         <tbody>
             @foreach ($companies as $company)
                 <tr>
+<<<<<<< HEAD
+                    <td>{{{ $company->brand }}}</td>
+					<td>{{{ $company->description }}}</td>
+					<td>{{{ $company->email }}}</td>
+					<td>{{{ $company->menus }}}</td>
+					<td>{{{ $company->phone }}}</td>
+=======
                     <td>{{{ $company->id }}}</td>
                     <td>{{{ $company->brand }}}</td>
 					<td>{{{ $company->phone }}}</td>
@@ -31,7 +45,7 @@
 					<td>{{{ $company->slogan }}}</td>
 					<td>{{{ $company->image }}}</td>
 					<td>{{{ $company->menus }}}</td>
-					<td>{{{ $company->email }}}</td>
+>>>>>>> c2
                     <td>{{ link_to_route('companies.edit', 'Edit', array($company->id), array('class' => 'btn btn-info')) }}</td>
                     <td>
                         {{ Form::open(array('method' => 'DELETE', 'route' => array('companies.destroy', $company->id))) }}

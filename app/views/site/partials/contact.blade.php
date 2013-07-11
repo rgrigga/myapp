@@ -25,6 +25,4 @@
     	<i class="icon-linkedin-sign icon-2x"></i>
         <!-- <img src="http://gristech.com/buttons/linkedin.png" class="img-circle"> -->
     </a>
-
-
 </div>

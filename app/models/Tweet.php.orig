@@ -1,15 +1,13 @@
 <?php
 
-class Company extends Eloquent {
+class Tweet extends Eloquent {
     protected $guarded = array();
 
     public static $rules = array(
+		'author' => 'required',
 <<<<<<< HEAD
-		'brand' => 'required',
-		'phone' => 'required',
-		'menus' => 'required'
+		'body' => 'required'
 =======
-		'menus' => 'required',
 		'description' => 'required'
 >>>>>>> c2
 	);

@@ -19,8 +19,9 @@ class DatabaseSeeder extends Seeder {
     	// $this->call('TweetsTableSeeder');
 		$this->call('CompaniesTableSeeder');
 =======
-    	$this->call('CompaniesTableSeeder');
->>>>>>> company
+    	// $this->call('CompaniesTableSeeder');
+
+>>>>>>> c2
 	}
 
 }

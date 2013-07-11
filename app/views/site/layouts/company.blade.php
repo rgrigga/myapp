@@ -43,7 +43,8 @@
 @stop
 
 @section('mynav')
-
+<!-- Navbar -->
+@include('site.partials.nav-buckeye')
 @stop
 {{-- Content --}}
 @section('content')

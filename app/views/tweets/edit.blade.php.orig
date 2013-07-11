@@ -1,6 +1,7 @@
 @extends('layouts.scaffold')
 
 @section('main')
+
 <h1>Edit Tweet</h1>
 {{ Form::model($tweet, array('method' => 'PATCH', 'route' => array('tweets.update', $tweet->id))) }}
     <ul>
@@ -10,8 +11,13 @@
         </li>
 
         <li>
+<<<<<<< HEAD
             {{ Form::label('body', 'Body:') }}
             {{ Form::textarea('body') }}
+=======
+            {{ Form::label('description', 'Description:') }}
+            {{ Form::textarea('description') }}
+>>>>>>> c2
         </li>
 
         <li>
