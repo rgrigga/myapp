@@ -465,3 +465,6 @@ Route::get('/{tag}', 'BlogController@getIndex');
 Route::get('/', 'BlogController@getIndex');
 
 
+
+
+Route::resource('companies', 'CompaniesController');
