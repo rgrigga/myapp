@@ -97,16 +97,16 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 </head>
 
 <body>
-<?php echo $mynav; ?>
+
 <!-- http://twitter.github.io/bootstrap/examples/sticky-footer-navbar.html -->
 		<!-- To make sticky footer need to wrap in a div -->
 	<div id="wrap">
 	
 	<!-- Navbar -->
 	@section('mynav')
-<h1>BAM</h1>
+
 	@show
-<h1>bam</h1>
+
 	
 	<!-- Container -->
 	<div class="container-fluid">
