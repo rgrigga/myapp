@@ -21,7 +21,8 @@
 					</a>
 
 			<a class="brand" href="#">{{$brand}}</a>
-
+			@include('site.partials.contact-buckeye')
+			
 			<div class="nav-collapse collapse">
 				
 				<ul class="nav">
@@ -48,7 +49,7 @@
                             @else
 	                            <!-- <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">Login</a></li> -->
                             @endif
-                            @include('site.partials.contact-buckeye')
+                            
                         </ul>
 					</div>
 					<!-- ./ nav-collapse -->
@@ -56,11 +57,10 @@
 
 			</div>
 			<!-- //this is the only place to put india! -->
-			<div class="india pull-right">
-				<!-- <div>phone, email, chat, anything!</div> -->
+<!-- 			<div class="india pull-right">
 				<div>
 					<img src="{{asset('assets/buckeye/scheduleonline.png')}}" alt="mobile mower repair">
 				</div>
-			</div>
+			</div> -->
 		</div>
 		<!-- ./ navbar -->

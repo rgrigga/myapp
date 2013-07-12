@@ -21,7 +21,7 @@ body {
 #footer {
     height: 60px;
 }
-#footer {
+footer {
     background-color: #f5f5f5;
 }
 
@@ -31,13 +31,13 @@ body {
 padding-top: 60px;
   }
 
-<<<<<<< HEAD
+
 @media screen and (max-width: 767px) {
     /*.contentwrap { padding-top: 0px; }*/
-=======
+  }
+
 @media screen and (max-width: 979px) {
     .contentwrap { padding-top: 0px; }
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 }
 
 #wrap > .container {
@@ -61,12 +61,7 @@ iframe.wysihtml5-sandbox{
     height:600px;
 }
 
-<<<<<<< HEAD
 
-
-
-=======
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 /*http://stackoverflow.com/questions/5506258/horizontal-scroll-overflowing-html-lis-without-knowing-width*/
 ul.tag li{
     display: inline-block;
@@ -198,19 +193,10 @@ background-color: red;
                 color:red;
 
             }*/
-<<<<<<< HEAD
-/*
 
- */
-            .jumbotron{
-              margin-top: -40px;
-=======
-            .navbar-fixed-top {
-                /*margin-bottom: 0px;*/
-            }
+
             .jumbotron{
               margin-top: -20px;
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
               z-index: -3;
             }
 
@@ -254,30 +240,24 @@ background-color: red;
 
 }
 
-<<<<<<< HEAD
-=======
+
 .img-circle{
     /*border: 30px solid #888888;*/
 
     /*border-color: #888888;*/
 }
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
+
 
 
   .navbar a{
     color:orange;
   }
 
-<<<<<<< HEAD
+
 .HL {background: #ffff00;
 color: #000000;}
 
-=======
 
-  .container{
-
-  }
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 
 
 
@@ -433,15 +413,11 @@ only screen and ( -o-min-device-pixel-ratio: 2/1) {
   padding-right: 0px;
 }*/
 
-<<<<<<< HEAD
-/*.navbar-fixed-top {
-    margin-bottom: 0px;
-  }*/
-=======
+
 .navbar-fixed-top {
     /*margin-bottom: 0px;*/
   }
->>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
+
 
 .jumbotron{
   .margin-left: -20px;

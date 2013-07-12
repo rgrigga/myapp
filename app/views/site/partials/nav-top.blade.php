@@ -22,22 +22,18 @@
 					<?php 
 						// if(!$company){$company="MegaCorp";} 
 					?>
-					<a class="brand" style="margin-left:30px;" href="#">{{{$brand}}}</a>
+					<a class="brand" style="margin-left:30px;" href="#">{{{$company->brand}}}</a>
 
 					<div class="nav-collapse collapse">
 						
 						<ul class="nav">
 
-						<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
+<!-- 						<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('#') }}}">Home</a></li> -->
 
-						<?php 
-						if(!$menus){
-						$menus=array('','tools','features','tags');
-						}
-						?>
 
-						@foreach ($menus as $menu)
-						<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to('/'.$menu) }}}">{{{$menu}}}</a></li>
+
+						@foreach ($company->menus() as $menu)
+						<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to('#'.$menu) }}}">{{{ucfirst($menu)}}}</a></li>
 
 						@endforeach
 

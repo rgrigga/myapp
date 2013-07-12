@@ -1,8 +1,7 @@
-
 		<style>
 		body{
-			padding-top: 60px;
-			background-color: red;
+			/*padding-top: 60px;*/
+			/*background-color: red;*/
 		}
 		.navbar-fixed-top{
 			position:fixed;
@@ -18,9 +17,6 @@
 				<div class="container-fluid">
 
 					<a class="btn btn-navbar pull-left" data-toggle="collapse" data-target=".nav-collapse">
-
-
-
 						<!-- <i class="icon-collapse icon-2x"></i> -->
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -33,21 +29,16 @@
 					// } 
 					?>
 					
-					<a class="brand" href="#">{{{$brand}}}</a>
-
+					<a class="brand" href="#">{{{$company->brand}}}</a>
+					<i class="icon-calendar"></i>
 					<div class="nav-collapse collapse">
 						
 						<ul class="nav">
 
 						<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
 
-						<?php 
-						if(!$menus){
-						$menus=array('about','contact','services');
-						}
-						?>
 
-						@foreach ($menus as $menu)
+						@foreach ($company->menus() as $menu)
 						<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to('/'.$menu) }}}">{{{$menu}}}</a></li>
 
 						@endforeach
@@ -69,6 +60,7 @@
 	                            <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">Login</a></li>
 	                            
                             @endif
+
                             @include('site.partials.contact')
                         </ul>
 					</div>

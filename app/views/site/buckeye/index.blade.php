@@ -1,4 +1,4 @@
-@extends('site.layouts.company')
+@extends('layouts.scaffold')
 
 @section('title')
 Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
@@ -6,7 +6,8 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 
 @section('styles')
 @parent
-
+<link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
+<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <style>
 
     /* GLOBAL STYLES
@@ -15,15 +16,17 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 
     body {
       padding-bottom: 40px;
-      color: #5a5a5a;
-      background-color: rgb(240,240,207);
+      background-color: rgba(147,208,109,.3);
+      font-family: Lato;
+      color:rgba(26,92,76,1);
     }
 
   .hero-unit{
+    color:rgba(34,120,100,.7);
     text-align: center;
-    background-color: rgb(214,198,150);
-    box-shadow: 10px 10px 5px rgb(115,78,0);
-    border-radius: 40% 40%;
+    background-color: rgba(214,198,150,.7);
+    box-shadow: 10px 10px 10px rgba(115,78,0,.7);
+    /*border-radius: 40% 40%;*/
     }
   /*.hero-unit img {*/
     /*width: 100%;*/
@@ -49,24 +52,24 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
     /* Remove border and change up box shadow for more contrast */
     .navbar .navbar-inner {
       /*background-color: green;*/
-      border: 0;
+/*      border: 0;
       -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
          -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
-              box-shadow: 0 2px 10px rgba(0,0,0,.25);
+              box-shadow: 0 2px 10px rgba(0,0,0,.25);*/
     }
 
     .navbar .navbar-inner{
-      color: yellow;
+      /*color: yellow;*/
     }
     .navbar .nav > li > a {
-      color: yellow;
+      /*color: yellow;*/
     }
 
     /* Downsize the brand/project name a bit */
     .navbar .brand {
-      color: yellow;
+      /*color: yellow;*/
       padding: 14px 20px 16px; /* Increase vertical padding to match navbar links */
-      font-size: 20px;
+      font-size: 24px;
       font-weight: bold;
       text-shadow: 0 -1px 0 rgba(255,255,255,.5);
     }
@@ -77,22 +80,27 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
     }
 
     .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
-      color: green;
-      background-color: yellow;
+      color: rgba(34,120,100,1);
+      background-color: rgba(245,227,70,1);
     }
     /* Offset the responsive button for proper vertical alignment */
     .navbar .btn-navbar {
       margin-top: 10px;
     }
 
-    .navbar-inner{
+    .navbar .brand{
+      color: rgba(34,120,100,1);
+    }
+
+    
+/*    .navbar-inner{
     background: -webkit-gradient(linear, 0 100%, 0 0, from(#b4ddb4), color-stop(0.1, #83c783), color-stop(0.95, #002400), color-stop(1, #52b152), color-stop(1, #005700), to(#002400));
     background: -webkit-linear-gradient(#b4ddb4 0%, #83c783 10%, #002400 95%, #52b152 100%, #005700 100%, #002400 100%);
     background: -moz-linear-gradient(#b4ddb4 0%, #83c783 10%, #002400 95%, #52b152 100%, #005700 100%, #002400 100%);
     background: -o-linear-gradient(#b4ddb4 0%, #83c783 10%, #002400 95%, #52b152 100%, #005700 100%, #002400 100%);
     background: linear-gradient(#b4ddb4 0%, #83c783 10%, #002400 95%, #52b152 100%, #005700 100%, #002400 100%);
     
-      }
+      }*/
 
 
     /* CUSTOMIZE THE CAROUSEL
@@ -203,7 +211,8 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
     .featurette {
       padding: 40px; /* Vertically center images part 1: add padding above and below text. */
       overflow: hidden; /* Vertically center images part 2: clear their floats. */
-      background-color: rgb(214,198,150);;
+      color: rgba(147,208,109,1);
+      background-color: rgba(34,120,100,1);
     }
     .featurette-image {
 
@@ -363,7 +372,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
   width: 100%;
 }
 
-.delta h1, h4{ 
+.delta h1, .delta h4{ 
    position: absolute; 
    top: 50px; 
    left: 0; 
@@ -420,22 +429,68 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
     text-shadow: 1px 1px 1px #ccc;
   }
 
+img.myimage{
+  background-color: rgba(189,219,123,.7);
+}
+
+.nav-pills {
+    margin: 15px auto;
+    padding: 0;
+    width: 400px;
+}
+
+.nav-tabs > li{
+  background-color: rgba(147,208,108,.3);
+  margin-right:7px;
+}
+
+.nav-tabs>li>a{
+  border-color: rgba(189,219,123,.7);
+}
+
+.nav-tabs{
+  border-bottom-color: rgba(189,219,123,.7);
+}
+
+a{
+  color:rgba(229,83,60,1);
+}
+
+.navbar a{
+  color:rgb(80,172,106);
+}
+
+.nav-tabs>li>a:hover, 
+.nav-tabs>a:focus{
+  background-color: rgba(245,227,70,.4)
+}
+
+.nav-tabs>.active>a, .nav-tabs>.active>a:hover, 
+.nav-tabs>.active>a:focus{
+  background-color: rgba(245,227,70,.9)
+}
+
+
+
+.page-header{
+  padding-top:40px;
+  }
     </style>
 @stop
 
-@section('mynav')
+@section('nav')
 @include('site.partials.nav-buckeye')
 @stop
 
 
 
-@section('content')
+@section('main')
 
 
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
-<div class="container marketing">
+<div class="container-fluid marketing">
 
 <!-- ************* INTRO OPTION 1 **************-->
 <!-- <img src="{{asset('assets/buckeye/grass.svg')}}" alt="grass.svg"> -->
@@ -453,7 +508,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 
 <!-- ************* INTRO OPTION 3 **************-->
 <div class="row-fluid">
-	<div class="hero-unit">
+	<div class='page-header'>
     <!-- <img src="{{asset('assets/buckeye/crocus.jpg')}}" alt=""> -->
     <div class="row-fluid">
       <div class="span6">
@@ -464,23 +519,62 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
         <!-- <h1>Buckeye Mower</h1> -->
         <h2><strong>Mobile Mower Repair</strong></h2>
         <p><em>We travel, so you don't have to...</em></p>
-        <p><strong>Fast.  Affordable.  Simple.</strong></p>
+        <p><strong>Fast.  Affordable.  Simple.</strong>
+At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</strong> with the highest level of customer satisfaction.  With a variety of offerings to choose from, we’re sure you’ll be happy working with us. Look around our website and if you have any comments or questions, please feel free to contact us. We hope to see you again soon.
+        </p>
       </div>
-      <a href="contact" class="btn btn-success btn-large">Schedule Online Now</a>
+      <div class="text-center">
+        <a href="contact" class="btn btn-large">Schedule Online Now<br/><strong>get 10% Off</strong></a>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- END INTRO -->
 
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="span4">
 
-          <img class ="center" src="{{asset('assets/buckeye/riding_button.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
 
-          <!-- <img class="img-circle" src="http://placehold.it/200x200"> -->
-          <h2 #href="{{{URL::to('About')}}}">Riding Lawn Mower Service</h2>
+<!-- <div class="row">
+    <div class="span4">
+
+    </div>
+  <div class="span4">
+
+  </div>
+  <div class="span4">
+
+  </div>
+</div> -->
+<div class="row-fluid">
+  <div class="tabbable"> <!-- Only required for left/right tabs -->
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#tab1" data-toggle="tab">
+          <h4>Residential</h4>
+        </a>
+      </li>
+
+      <li> 
+        <a href="#tab2" data-toggle="tab">
+          <h4>Commercial</h2>
+        </a>
+      </li>
+
+      <li>
+        <a href="#tab3" data-toggle="tab">
+          <h4>Small Engine</h2>
+        </a>
+      </li>
+    </ul>
+    
+    <div class="tab-content">
+      <div class="tab-pane active featurette" id="tab1">
+        <!-- <div class="pull-right"> -->
+          <img class ="featurette-image myimage img-circle pull-right" src="{{asset('assets/buckeye/riding.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
+          <!-- <img class ="center" src="{{asset('assets/buckeye/push_button.png')}}" alt="Buckeye Mower, Mobile Engine Repair"> -->
+        <!-- </div> -->
+        <h2 class='featurette-heading' href="{{{URL::to('#about')}}}">Riding Lawn Mower Services</h2>
+        <p class='lead'>
           <ul>
             <li>Change Oil, Oil FIlter, Spark Plus(s), Air and Fuel Filter</li>
             <li>Deck Ceaning</li>
@@ -492,24 +586,32 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
             <li>Grease Entire Machine</li>
             <li>Inspect all hoses, belts, pulleys, etc.</li>
           </ul>
-          
-          <!-- <p><a class="btn" href="#">View details &raquo;</a></p> -->
+        </p>
+        <h5>Starting at $49<h5>
+      </div>
+      <div class="tab-pane featurette" id="tab2">
+        <!-- <div class="pull-left"> -->
+          <img class ="myimage img-circle featurette-image pull-left" src="{{asset('assets/buckeye/commercial.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
+        <!-- </div> -->
+        <h2 class='featurette-heading'>No Engine too Big.</h2>
+        <p class='lead'>No account or machine is too big.  I have references available for whom I service fleets of dozens of commercial mowers.  I am also a certified deisel mechanic.  Please contact me by phone or email to discuss your fleet's maintenance needs.</p>
+      </div>
+      <div class="tab-pane featurette" id="tab3">
+        <!-- <div class="pull-right"> -->
+          <img class ="featurette-image myimage img-circle pull-right" src="{{asset('assets/buckeye/push.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
+        <!-- </div> -->
+        
+        <h2 class='featurette-heading'>No Engine too Small.</h2>
+          <p class='lead'>Push Mower. Riding Mower.  Chainsaw.  Weedeater.  If it has a small engine, I can help you fix it.  Remember, I'll come to your house for you - no need for truck, trailer, or travel.</p>
+      </div>
+    </div>
+  <!-- //tab-content -->
+  </div>
+  <!-- tabbable -->
+</div>
+<!-- //row -->
 
-        </div><!-- /.span4 -->
-        <div class="span4">
-          <img class ="center" src="{{asset('assets/buckeye/truck_button.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
-          <h2>Commercial</h2>
 
-          <p>No account or machine is too big.  I have references available for whom I service fleets of dozens of commercial mowers.  I am also a certified deisel mechanic.  Please contact me by phone or email to discuss your fleet's maintenance needs.</p>
-          <!-- <p><a class="btn" href="#">View details &raquo;</a></p> -->
-        </div><!-- /.span4 -->
-        <div class="span4">
-          <img class ="center" src="{{asset('assets/buckeye/push_button.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
-          <h2>Small Engine</h2>
-          <p>Push Mower. Riding Mower.  Chainsaw.  Weedeater.  If it has a small engine, I can help you fix it.  Remember, I'll come to your house for you - no need for truck, trailer, or travel.</p>
-          <!-- <p><a class="btn" href="#">View details &raquo;</a></p> -->
-        </div><!-- /.span4 -->
-      </div><!-- /.row -->
 
 
       <!-- START THE FEATURETTES -->
@@ -573,13 +675,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
         </div>
         <!-- <div class="row-fluid"> -->
           <h2 class="featurette-heading"> 2-cycle or 4-cycle, No Problem!</h2>
-        <!-- </div> -->
-
-        <div id="example">
-          <ul>        
-          </ul>
-        </div>
-        
+        <!-- </div> -->        
       </div>
 
       <hr class="featurette-divider">

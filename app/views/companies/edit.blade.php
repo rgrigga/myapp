@@ -10,8 +10,33 @@
         </li>
 
         <li>
+            {{ Form::label('name', 'Name:') }}
+            {{ Form::text('name') }}
+        </li>
+
+        <li>
             {{ Form::label('phone', 'Phone:') }}
             {{ Form::text('phone') }}
+        </li>
+
+        <li>
+            {{ Form::label('email', 'Email:') }}
+            {{ Form::text('email') }}
+        </li>
+
+        <li>
+            {{ Form::label('facebook', 'Facebook:') }}
+            {{ Form::text('facebook') }}
+        </li>
+
+        <li>
+            {{ Form::label('twitter', 'twitter:') }}
+            {{ Form::text('twitter') }}
+        </li>
+
+        <li>
+            {{ Form::label('linkedin', 'linkedin:') }}
+            {{ Form::text('linkedin') }}
         </li>
 
         <li>
@@ -27,6 +52,12 @@
         <li>
             {{ Form::label('image', 'Image:') }}
             {{ Form::text('image') }}
+        </li>
+
+
+        <li>
+            {{ Form::label('home', 'Home Page:') }}
+            {{ Form::text('home') }}
         </li>
 
         <li>

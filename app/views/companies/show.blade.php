@@ -11,11 +11,12 @@
             	<th>id</th>
             	<th>Brand</th>
 				<th>Phone</th>
+                <th>Email</th>
 				<th>Description</th>
 				<th>Slogan</th>
 				<th>Image</th>
 				<th>Menus</th>
-				<th>Email</th>
+				
         </tr>
     </thead>
 
@@ -24,11 +25,12 @@
             <td>{{{ $company->id }}}</td>
             <td>{{{ $company->brand }}}</td>
 					<td>{{{ $company->phone }}}</td>
+                    <td>{{{ $company->email }}}</td>
 					<td>{{{ $company->description }}}</td>
 					<td>{{{ $company->slogan }}}</td>
 					<td>{{{ $company->image }}}</td>
 					<td>{{{ $company->menus }}}</td>
-					<td>{{{ $company->email }}}</td>
+					
                     <td>{{ link_to_route('companies.edit', 'Edit', array($company->id), array('class' => 'btn btn-info')) }}</td>
                     <td>
                         {{ Form::open(array('method' => 'DELETE', 'route' => array('companies.destroy', $company->id))) }}

@@ -1,38 +1,41 @@
-@extends('site.layouts.advantage')
+@extends('layouts.scaffold')
 
-{{-- Update the Meta Title --}}
 @section('title')
 @parent
-
+{{{ $company->name }}} - {{{$company->slogan}}}
 @stop
-{{-- Update the Meta Description --}}
+
 @section('meta_description')
 @parent
-
+{{$company->description}}
 @stop
 
-{{-- Update the Meta Keywords --}}
 @section('meta_keywords')
 @parent
-<!-- <meta name="keywords" content="Lawn Mower Repair, Lawn Mower Service" /> -->
+
 @stop
 
 @section('styles')
-@parent
-<!-- \@ stylesheets("public-css") -->
-	
-	<link rel="stylesheet" href="/assets/css/style.css">
 
-	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-	<!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-	    <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine"> -->
-	    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/cosmo/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
 
-	    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/flatly/bootstrap.min.css"> -->
+<style>
+	html,body{
+		background-color: rgba(235,196,162,.2);
+	}
+	.well{
+		background-color: rgba(121,186,242,.6);
+		box-shadow: 2px 2px 1px #8285E6;
+	}
+	h1,h2{
+		color:rgba(18,124,166,1);
+		/*font-size: 32px;*/
+		/*box-shadow: 5px 5px 3px #666666;*/
+	}
+</style>
 @stop
+
+
 
 @section('favicons')
 		<!-- Favicons
@@ -50,22 +53,137 @@
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
 		<!-- <link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}"> -->
-		<link rel="shortcut icon" href="{{{ asset('assets/ico/buckeye/favicon.png') }}}">
-
-		<!-- hardy har -->		
+		<link rel="shortcut icon" href="{{{ asset('assets/ico/'.$company->name.'/favicon.png') }}}">
 @stop
 
-{{-- Content --}}
-@section('content')
+@section('nav')
+@include('site.partials.nav-top-min')
+@show
+
+@section('main')
+<?php
+	$env=App::environment();
+	echo "<div class='alert alert-info'>Welcome to the <strong>".$env."</strong> environment.</div>";
+
+	if($env=="local"){
+		$path='/home/ryan/MyApp6/app/views/site/pages/';
+	}
+	else{
+    	$path='/home/gristech/myapp/app/views/site/pages/';
+    }
+    $mypages = array();
+    foreach (glob($path."*.blade.php") as $filename) {
+        $filename=str_replace($path, "", $filename);
+        $filename=str_replace(".blade.php", "", $filename);
+        array_push($mypages,$filename);
+        // echo "$filename" . "<br>";
+    }
+?>
+
+<div data-spy="affix" data-offset-top="80">
+	<img src="{{asset($company->image)}}" alt="MyImage">
+</div>
+
+	<div class="tabbable"> <!-- Only required for left/right tabs -->
+	  <ul class="nav nav-pills">
+		@foreach($company->menus() as $menu)
+	    <li><a href="#{{$menu}}" data-toggle="tab"><i class="icon-rocket icon-4x"></i> {{{$menu}}}</a></li>
+	    @endforeach
+	    <li class="active"><a href="#tab1" data-toggle="tab">Section 2</a></li>
+	  </ul>
+	  
+	  <div class="tab-content">
+	    @foreach($company->menus() as $menu)
+	    <div class="tab-pane" id="{{{$menu}}}">
+	      <p>Howdy, I'm {{{$menu}}}.</p>
+	    </div>
+	    @endforeach
+	    <div class="tab-pane active" id="tab1">
+	      <p>I'm in Section 1.</p>
+	    </div>
+	  </div>
+	</div>
+
+<div class="row page-header">
+	<div class="span4">
+		<!-- <div class="pull-right"> -->
+		<img src="{{asset($company->image)}}" alt="MyImage">
+	<!-- </div> -->
+	<div>ID: {{{ $company->id }}}</div>
+	<div>Name: {{{ $company->name }}}</div>
+	<div>Brand: {{{ $company->brand }}}</div>
+	<div>Phone: {{{ $company->phone }}}</div>
+	<div>Email: {{{ $company->email }}}</div>
+	<div>Description: {{{ $company->description }}}</div>
+	<div>Slogan: {{{ $company->slogan }}}</div>
+	<div>Image: {{{ $company->image }}}</div>
+	<div>Menus: {{{ $company->menus }}}</div>
+	</div>
+</div>
+
+<div class="span8 offset4">
+<h1>Posts:</h1>
+<div class="text-center">
+{{ $posts->links() }}
+</div>
+
+@foreach ($posts as $post)
+	<div class="row">
+		<div class="span3">
+			<p></p>
+			<p>
+		<!-- Edit/Delete Buttons -->
+			<div class="metabuttons pull-left">
+				@if (Auth::check())
+	                @if (Auth::user()->hasRole('admin'))
+						<p>
+							<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
+							<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
+						| </p>
+					@endif
+				@endif
+			</div>
+
+			<!-- Comments -->
+				&nbsp;<i class="icon-user"></i> by <span class="muted">{{{ $post->author->username }}}</span>
+				| <i class="icon-calendar"></i> <!--Sept 16th, 2012-->{{{ $post->date() }}}
+				| <i class="icon-comment"></i> <a href="{{{ $post->url() }}}#comments">{{$post->comments()->count()}} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
+			</p>
+		</div>
+	</div>
+	
+
+	<div class="well">
+		{{$post->title}}
+		{{$post->img}}
+
+		<h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
+		<p>
+		{{ String::tidy(Str::limit($post->meta_description, 158)) }}
+		</p>
+		<p>
+			<a class="btn btn-info" href="{{{ $post->url() }}}">more</a>
+		</p>
+	</div>
+
+	<ul class='tag'>
+		<li><i class="icon-tag"></i></li>
+		@foreach($post->tags() as $tag)
+			
+		    <li><a href="{{ $tag }}">{{ $tag }}</a></li>
+		    
+		@endforeach
+	</ul>
+
+@endforeach
+{{ $posts->links() }}
+</div>
+<!-- ************************************************ -->
 
 
-<!-- @parent -->
-<h1>Welcome Home.</h1>
-<h2>Company:{{$company->name}}</h2>
-<?php var_dump($company)?>
-<p>Icon: </p>
-<!-- About -->
-<!-- Contact -->
-<!-- Services -->
 
+
+	
+
+	</div>
 @stop

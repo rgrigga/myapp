@@ -1,17 +1,42 @@
 <?php
-use Robbo\Presenter\PresentableInterface;
+// use Robbo\Presenter\PresentableInterface;
 
-class Company extends Eloquent implements PresentableInterface{
+// class Company extends Eloquent implements PresentableInterface{
+class Company extends Eloquent{
     protected $guarded = array();
 
     public static $rules = array(
 		'brand' => 'required',
+		'name' => 'required',
 		'phone' => 'required',
 		'menus' => 'required'
 	);
 
-	public function getPresenter()
-    {
-        return new CompanyPresenter($this);
-    }
+	// public function getPresenter()
+ //    {
+ //        return new CompanyPresenter($this);
+ //    }
+
+    	public function menus()
+	{
+		// var_dump($this->meta_keywords);
+		$menus=array();
+		$menus=explode(',', $this->menus);
+// var_dump($menus);
+		if(!$menus){
+		 array_push($menus, 'private');
+		}
+		//return $this->hasMany('Tag');
+		return $menus;
+
+		// foreach ($this->post->get() as $post) {
+
+		// 	foreach ($post->tags() as $mytag) {
+		// 		if(!in_array($mytag, $alltags)){
+		// 			array_push($alltags, trim($mytag));
+		// 		}
+		// 	}
+
+		// }
+	}
 }

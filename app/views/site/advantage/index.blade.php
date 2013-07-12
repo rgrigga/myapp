@@ -1,7 +1,6 @@
 @extends('site.layouts.advantage')
 
 @section('meta-title')
-
 @stop
 
 @section('content')

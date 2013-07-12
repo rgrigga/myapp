@@ -1,54 +1,31 @@
 @extends('site.layouts.default')
 
 @section('title')
-{{{ $company->name }}} - {{{$company->slogan}}}
-@stop
-
-@section('meta_description')
+{{{ "Home" }}} ::
 @parent
-{{$company->description}}
 @stop
 
-@section('meta_keywords')
-@parent
-{{$company->keywords}}
+@section('meta')
+	@parent
 @stop
 
-@section('styles')
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
-<style>
-	html,body{
-		background-color: rgba(235,196,162,.2);
-	}
-	.well{
-		background-color: rgba(121,186,242,.6);
-		box-shadow: 2px 2px 1px #8285E6;
-	}
-	h1,h2{
-		color:rgba(18,124,166,1);
-		/*font-size: 32px;*/
-		/*box-shadow: 5px 5px 3px #666666;*/
-	}
-</style>
-@show
-
-@section('nav')
-@include('site.partials.nav-top-inverse')
-@show
-<!-- @ include('site.partials.nav2') -->
-	<!-- ./ nav section -->
 {{-- Content --}}
-@section('main')
-<?php
-	$env=App::environment();
-	echo "<div class='alert alert-info'>Welcome to the <strong>".$env."</strong> environment.</div>";
+@section('content')
 
-	if($env=="local"){
-		$path='/home/ryan/MyApp6/app/views/site/pages/';
-	}
-	else{
-    	$path='/home/gristech/myapp/app/views/site/pages/';
-    }
+<!-- <div class="spacer" style="margin-top:80px;"></div> -->
+
+<div class="row">
+	<div class="span6 pull-right">
+		<img src="http://gristech.com/img/robots.jpg" class="img-circle">
+		<p class="muted credit text-center">
+			<a href="http://www.flickr.com/photos/striatic/125614/">http://www.flickr.com/photos/striatic/125614/</a>
+		</p>
+	</div>
+
+
+	<div class="span6">
+<?php
+    $path='/home/gristech/myapp/app/views/site/pages/';
     $mypages = array();
     foreach (glob($path."*.blade.php") as $filename) {
         $filename=str_replace($path, "", $filename);
@@ -58,211 +35,19 @@
     }
 ?>
 
-<div class="row page-header">
-	<div class="span4">
-		<!-- <div class="pull-right"> -->
-		<img src="{{asset($company->image)}}" alt="MyImage">
-	<!-- </div> -->
-	<div>ID: {{{ $company->id }}}</div>
-	<div>Name: {{{ $company->name }}}</div>
-	<div>Brand: {{{ $company->brand }}}</div>
-	<div>Phone: {{{ $company->phone }}}</div>
-	<div>Email: {{{ $company->email }}}</div>
-	<div>Description: {{{ $company->description }}}</div>
-	<div>Slogan: {{{ $company->slogan }}}</div>
-	<div>Image: {{{ $company->image }}}</div>
-	<div>Menus: {{{ $company->menus }}}</div>
-	</div>
-	
-
-	<div class="tabbable"> <!-- Only required for left/right tabs -->
-	  <ul class="nav nav-tabs">
-
-		@foreach($company->menus() as $menu)
-	    <li><a href="#{{$menu}}" data-toggle="tab">{{{$menu}}}</a></li>
-	    @endforeach
-	    
-	    <li class="active"><a href="#tab1" data-toggle="tab">Section 2</a></li>
-	  
-
-	  </ul>
-	  <div class="tab-content">
+<<<<<<< HEAD
 
 
-
-	    
-
-	    @foreach($company->menus() as $menu)
-	    <div class="tab-pane" id="{{{$menu}}}">
-	      <p>Howdy, I'm {{{$menu}}}.</p>
-	    </div>
-	    @endforeach
-
-	    <div class="tab-pane active" id="tab1">
-	      <p>I'm in Section 1.</p>
-	    </div>
-	  </div>
-	</div>
-
-
-
-</div>
-
-<div class="span8 offset4">
-<h1>Posts:</h1>
-<div class="text-center">
-{{ $posts->links() }}
-</div>
-
-@foreach ($posts as $post)
-	<div class="row">
-		<div class="span3">
-			<p></p>
-			<p>
-		<!-- Edit/Delete Buttons -->
-			<div class="metabuttons pull-left">
-				@if (Auth::check())
-	                @if (Auth::user()->hasRole('admin'))
-						<p>
-							<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
-							<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
-						| </p>
-					@endif
-				@endif
-			</div>
-
-			<!-- Comments -->
-				&nbsp;<i class="icon-user"></i> by <span class="muted">{{{ $post->author->username }}}</span>
-				| <i class="icon-calendar"></i> <!--Sept 16th, 2012-->{{{ $post->date() }}}
-				| <i class="icon-comment"></i> <a href="{{{ $post->url() }}}#comments">{{$post->comments()->count()}} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
-			</p>
-		</div>
-	</div>
-	
-
-	<div class="well">
-		{{$post->title}}
-		{{$post->img}}
-
-		<h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
-		<p>
-		{{ String::tidy(Str::limit($post->meta_description, 158)) }}
-		</p>
-		<p>
-			<a class="btn btn-info" href="{{{ $post->url() }}}">more</a>
-		</p>
-	</div>
-
-	<ul class='tag'>
-		<li><i class="icon-tag"></i></li>
-		@foreach($post->tags() as $tag)
-			
-		    <li><a href="{{ $tag }}">{{ $tag }}</a></li>
-		    
-		@endforeach
-	</ul>
-
-@endforeach
-{{ $posts->links() }}
-</div>
-<!-- ************************************************ -->
-
-
-
-
-	<!-- <div class="row"> -->
-		<div class="span3 well">
-			
-			<!-- Post Title -->
-			<div class="row">
-				<div class="span3">
-					{{$post->title}}
-				</div>
-			</div>
-			<!-- ./ post title -->
-
-			<!-- Post Content -->
-			<div class="row">
-				<div class="span3">
-					<a href="{{{ $post->url() }}}" class="thumbnail">
-						<!-- http://placehold.it/260x180 -->
-						<img src="http://gristech.com/img/{{{$post->image}}} " alt="{{{$post->image}}}">
-					</a>
-			<!-- Tags -->
-					<p>
-						<ul class='tag'>
-							<li><i class="icon-tag"></i></li>
-							@foreach($post->tags() as $tag)
-								
-							    <li><a href="{{ $tag }}">{{ $tag }}</a></li>
-							    
-							@endforeach
-						</ul>
-					</p>
-				</div>
-				<div class="span3">
-					<h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
-					<p>
-						{{ String::tidy(Str::limit($post->content, 300)) }}
-					</p>
-					<p>
-						<a class="btn btn-info" href="{{{ $post->url() }}}">more</a>
-					</p>
-
-				</div>
-			</div>
-			<!-- ./ post content -->
-
-			<!-- Post Footer -->
-			<div class="row">
-				<div class="span3">
-					<p></p>
-					<p>
-				<!-- Edit/Delete Buttons -->
-					<div class="metabuttons pull-left">
-						@if (Auth::check())
-			                @if (Auth::user()->hasRole('admin'))
-								<p>
-									<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
-									<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
-								| </p>
-							@endif
-						@endif
-					</div>
-
-					<!-- Comments -->
-						&nbsp;<i class="icon-user"></i> by <span class="muted">{{{ $post->author->username }}}</span>
-						| <i class="icon-calendar"></i> <!--Sept 16th, 2012-->{{{ $post->date() }}}
-						| <i class="icon-comment"></i> <a href="{{{ $post->url() }}}#comments">{{$post->comments()->count()}} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
-					</p>
-
-				</div>
-				<!-- span8 -->
-			</div>
-			<!-- row -->
-			<!-- ./ post footer -->
-		</div>
-		<!-- well -->
-
-	</div>
-<!-- row -->
-	<!-- <hr /> -->
-
-
-	<!-- ************************************************ -->
-
-<div class="row">
-	<!-- <img src="holder.js/200x300" alt="HOLDER"> -->
-		<div class="span6 pull-right">
-			<img src="http://gristech.com/img/robots.jpg" class="img-circle">
-			<p class="muted credit text-center">
-				<a href="http://www.flickr.com/photos/striatic/125614/">http://www.flickr.com/photos/striatic/125614/</a>
-			</p>
-		</div>
-	<div class="span6">
 	<p>Here are a few things you can try:</p>
-	<h3>Pages:</h3>
-		<ul class='nav nav-stacked'>
+	<h3>Security</h3>
+=======
+		<p>Wanna see something kinda cool?</p>
+		<h3>This website is sort of alive.</h3>
+		<p>You can talk to it using the URL.</p>
+		<p>It can understand nouns and verbs.</p>
+		<p>Here are a few things you can try:</p>
+>>>>>>> tools
+		<ul>
 			@foreach($mypages as $page)
 			<li><a href="{{URL::to($page)}}">{{$page}}</a></li>
 			@endforeach
@@ -406,7 +191,7 @@ which leads to this:
 <a href="http://holykaw.alltop.com/a-step-by-step-guide-to-starting-a-small-business-website?tu4=1">2nd reblog</a>
 <a href="">3rd reblog</a>
 <a href="">Original content?</a>
-
+<pre>
 On the one hand, I dislike others representing it as relavent, semi-original content.  
 
 The extra clicks and stream of info is alot of wasted time, space, energy, and it might be diluted or warped from it's original intent.  That is the problem with this approach from a tactical point of view.  Irrelevant content, thus irrelevant users and/or bad user experience.  Not to mention the convoluted maintenance of an over complicated system.  Trust is precious thing.  
@@ -429,14 +214,18 @@ I can say: flickr get photo
 
 or photo flickr stream
 
-and an app will come up to do that.  mow grass columbus
+and an app will come up to do that.
+
+mow grass columbus
+
 health insurance columbus
-
-
+</pre>
+<!-- ?? -->
 
 <img src="facebook-meta-description" alt="">
 
 <a href="http://holykaw.alltop.com/a-step-by-step-guide-to-starting-a-small-business-website?tu4=1">Leecher</a>
+
 
 Some people I have discussed this idea with include:
 <ul>
@@ -496,6 +285,7 @@ Regardless of which of these group you belong to, you should be able to find goo
 	<p>In short, this is a Web Application that can be used across a large number of industries.</p>
 	<p>There is also an educational component which helps developers to learn how to program, how to manage websites, how to build web applications, and how to administer teams of people to do all of these things.  In essence, anyone in this industry has an opportunity to contribute.</p>
 	<p>I am looking to monetize a community project.  Perhaps 100 people will share in $100 dollars in profit.  Perhaps 100 people will share in $1,000,000.  Tumblr just sold for over $1B.  So did Maze.  I should not declare that this project will be the next Tumblr, but I want everyone to understand and agree that there is no practical limit.  This is a unique and quite "american" opportunity, in the sense of the word "opportunity" as I have come to understand it.  For a community of like-minded people to build something... more.</p>
+	
 	<p>By the way, this is about to venture into a conversation that could turn into discussion about ponzi schemes and such.  I am talking about a large influx of ownership.  Network marketing is a sore and taboo for me.  I have never been able to get over this: in roughly 1992, my buddy asked me: "do you want to go to a party"?  It was him and one other guy.  Very much like the great movie "Go".  some doche bag convinced my buddy to invite me to an Amway meeting.  He came to me and said, "Hey, do you want to go to a party?"</p>
 	<h3>Pardon my rambling :)</h3>
 	<p>Could the ownership structure of something like this can be like that of </p>
@@ -708,11 +498,248 @@ BLAH BLAH
 </ul> -->
 </div>
 
+<div class="span12">
+<!-- <h1>Posts:</h1> -->
+@foreach ($posts as $post)
+	<!-- <div class="row"> -->
+		<div class="span3 well">
+			
+			<!-- Post Title -->
+			<div class="row">
+				<div class="span3">
+					{{$post->title}}
+				</div>
+			</div>
+			<!-- ./ post title -->
+@endforeach
+</div>
+<!-- ======= -->
 
+	<!-- Main hero unit for a primary marketing message or call to action -->
+<div class="hero-unit">
+
+			
+	<div class="row">
+
+		<!-- <div class="span6"> -->
+			<img class="pull-right img-circle" src="http://gristech.com/img/automation-busn.jpg" alt="think about it">
+			<h1>The Next Level<br><small>How can a Custom Web Application help your business?</small></h1>
+<p>For starters, you can...</p>
+			<ul>
+				<li>Generate Traffic</li>
+				<li>Provide Better service for your clients</li>
+				<li>Make life easier for you and your employees</li>
+				<li>Save Money</li>
+				<li>Make Money</li>
+			</ul>
+			<p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+			
+		<!-- </div> -->
+		<!-- <div class="span5 text-center" style="padding:30px;"> -->
+			
+		<!-- </div> -->
+	</div>
+</div>
+<!-- end hero-unit -->
+	
+
+		<h2>What is a website, anyway?</h2>
+		<p>A website is a just organized text, images, video.  It is very, very simple.</p>
+
+		<a href="http://www.whatisawebsite.com/">http://www.whatisawebsite.com/</a>
+
+			<p>Your website is the first thing that many of your customers will know of your business, and you may only have one shot to convert "searcher" to "prospect", and "prospect" to "client".</p>
+			<p>Your website helps you turn "clients" into "happy clients" and keep them that way.</p>
+	
+			<h3>It's not just a website...</h3>
+			
+			<p>
+				Your website is a marketing machine.  On the front end, it is your 24/7 connection to clients.
+			</p>
+				<p>On the back end, it allows you to study your clients so that you may make better decisions.</p>
+				<p>
+					It's easy might put off, because you are too busy running your business to deal with it.  It may seem too expensive.  Maybe you've researched Web Designers, and you've found high prices.
+				</p>
+
+
+<!-- <div id="foobar">
+    Contact me!
+</div>
+<a href="#" id="toggle">Contact</a> -->
+<style>
+#contact
+{
+    display: none;
+    background: grey;
+    color: #FFF;
+    padding: 10px;
+}
+.well{
+	box-shadow: 10px 10px 5px #666666;
+}
+</style>
+
+<script>
+// $(function()
+// {
+//      $("a#toggle").click(function()
+//      {
+//          $("#foobar").slideToggle();
+//          return false;
+//      }); 
+// });
+</script>
+
+
+<div class="container-fluid">
+  <div class="row-fluid">
+
+<!--     <div class="collapse-group">
+      <div class="span2">
+BLAH BLAH
+      </div>
+      <a class="btn" data-toggle="collapse" data-target=".span2">Toggle</a>
+    </div> -->
+
+    <div class="span10">
+      <!--Body content-->
+    </div>
+
+  </div>
+
+</div>
+			
+<div class="span12">
+<!-- <ul class="tag">
+	<li><i class="icon-tag"></i></li>
+	<?php
+
+		// foreach ($alltags as $mytag) {
+		// 	echo "<li><a href='/tags/$mytag'>$mytag</a></li>";
+		// }
+		 // $mylist;	
+	?>
+</ul> -->
+</div>
+
+<div class="span12">
+<!-- <h1>Posts:</h1> -->
+@foreach ($posts as $post)
+	<!-- <div class="row"> -->
+		<div class="span3 well">
+			
+			<!-- Post Title -->
+			<div class="row">
+				<div class="span3">
+					{{$post->title}}
+				</div>
+			</div>
+			<!-- ./ post title -->
+
+<!-- >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3 -->
+			<!-- Post Content -->
+			<div class="row">
+				<div class="span3">
+					<a href="{{{ $post->url() }}}" class="thumbnail">
+						<!-- http://placehold.it/260x180 -->
+						<img src="http://gristech.com/img/{{{$post->image}}} " alt="{{{$post->image}}}">
+					</a>
+			<!-- Tags -->
+					<p>
+						<ul class='tag'>
+							<li><i class="icon-tag"></i></li>
+							@foreach($post->tags() as $tag)
+								
+							    <li><a href="{{ $tag }}">{{ $tag }}</a></li>
+							    
+							@endforeach
+						</ul>
+					</p>
+				</div>
+				<div class="span3">
+					<h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
+					<p>
+						{{ String::tidy(Str::limit($post->content, 300)) }}
+					</p>
+					<p>
+						<a class="btn btn-info" href="{{{ $post->url() }}}">Read more</a>
+					</p>
+
+				</div>
+<!-- <<<<<<< HEAD -->
+			</div>
+			<!-- ./ post content -->
+
+			<!-- Post Footer -->
+			<div class="row">
+				<div class="span3">
+					<p></p>
+					<p>
+				<!-- Edit/Delete Buttons -->
+					<div class="metabuttons pull-left">
+						@if (Auth::check())
+			                @if (Auth::user()->hasRole('admin'))
+								<p>
+									<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
+									<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
+								| </p>
+							@endif
+						@endif
+					</div>
+
+					<!-- Comments -->
+						&nbsp;<i class="icon-user"></i> by <span class="muted">{{{ $post->author->username }}}</span>
+						| <i class="icon-calendar"></i> <!--Sept 16th, 2012-->{{{ $post->date() }}}
+						| <i class="icon-comment"></i> <a href="{{{ $post->url() }}}#comments">{{$post->comments()->count()}} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
+					</p>
+
+				</div>
+				<!-- span8 -->
+			</div>
+<!-- ======= -->
+			</div>
+			<!-- ./ post content -->
+
+			<!-- Post Footer -->
+			<div class="row">
+				<div class="span3">
+					<p></p>
+					<p>
+				<!-- Edit/Delete Buttons -->
+					<div class="metabuttons pull-left">
+						@if (Auth::check())
+			                @if (Auth::user()->hasRole('admin'))
+								<p>
+									<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
+									<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
+								| </p>
+							@endif
+						@endif
+					</div>
+
+					<!-- Comments -->
+						&nbsp;<i class="icon-user"></i> by <span class="muted">{{{ $post->author->username }}}</span>
+						| <i class="icon-calendar"></i> <!--Sept 16th, 2012-->{{{ $post->date() }}}
+						| <i class="icon-comment"></i> <a href="{{{ $post->url() }}}#comments">{{$post->comments()->count()}} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
+					</p>
+
+				</div>
+				<!-- span8 -->
+			</div>
+<!-- >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3 -->
+			<!-- row -->
+			<!-- ./ post footer -->
+		</div>
+		<!-- well -->
+
+	<!-- </div> -->
+<!-- row -->
+	<!-- <hr /> -->
+@endforeach
+</div>
 <div class="span12 text-center">
 {{ $posts->links() }}
 </div>
 <!-- https://github.com/andrew13/Laravel-4-Bootstrap-Starter-Site/issues/49 -->
 
 @stop
-

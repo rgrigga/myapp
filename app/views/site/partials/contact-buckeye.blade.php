@@ -1,18 +1,22 @@
 <div class="iconbar pull-right" style="padding-top:5px">
 <!-- 	<div class="iconbutton">
 		
-	</div> -->
+-->
+    <a href="#schedule">
+        <i class="icon-calendar icon-3x"></i>
+	</a>
+    <!-- </div> -->
     <a href="mailto:russ@buckeyemower.com" class="social-icon">
-        <i class="icon-envelope-alt icon-2x"></i>
+        <i class="icon-envelope-alt icon-3x"></i>
         <!-- <img src="http://gristech.com/buttons/email.png" class="img-circle"> -->
     </a>
     <a href="tel:7405076198" class="social-icon">
-        <i class="icon-phone-sign icon-2x"></i>
+        <i class="icon-phone-sign icon-3x"></i>
         <!-- <img src="http://gristech.com/buttons/email.png" class="img-circle"> -->
     </a>
 	<a href="http://facebook.com/BuckeyeMower" class="social-icon">
 	    <!-- <img src="http://gristech.com/img/facebook.png" class="img-circle"> -->
-		<i class="icon-facebook-sign icon-2x"></i>
+		<i class="icon-facebook-sign icon-3x"></i>
 	</a>
 
 <!-- TWITTER -->

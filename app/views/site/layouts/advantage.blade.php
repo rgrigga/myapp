@@ -1,4 +1,4 @@
-@extends('site.layouts.company')
+@extends('site.layouts.company2')
 
 <!-- 
 Company Properties:
@@ -11,11 +11,12 @@ Meta-Keywords
  -->
 
 @section('meta_title')
-Advantage Services - We treat your home as our own.
+{{$company->brand}}
+<!-- Advantage Services - We treat your home as our own. -->
 @stop
 
 @section('meta_description')
-<meta name="description" content="23 Years local experience.  Over 1500 served." />
+<meta name="description" content="{{$company->description}}." />
 @stop
 
 @section('meta_keywords')
@@ -49,10 +50,7 @@ Advantage Services - We treat your home as our own.
 @stop
 
 @section('mynav')
-	<!-- <h1> -->
-
-<!-- 	 :: Child
-	</h1> -->
+<!-- @ include('site.partials.nav-top') -->
 @stop
 
 {{-- Content --}}

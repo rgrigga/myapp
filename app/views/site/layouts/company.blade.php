@@ -44,7 +44,8 @@
 
 @section('mynav')
 <!-- Navbar -->
-@include('site.partials.nav-buckeye')
+@include('site.partials.nav-top-inverse')
+<!-- // @ include('site.partials.nav-buckeye') -->
 @stop
 {{-- Content --}}
 @section('content')
