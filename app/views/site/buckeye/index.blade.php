@@ -50,18 +50,12 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 
     /* Remove border and change up box shadow for more contrast */
     .navbar .navbar-inner {
+      /*color: yellow;*/
       /*background-color: green;*/
-/*      border: 0;
+      /*border: 0;
       -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
          -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
               box-shadow: 0 2px 10px rgba(0,0,0,.25);*/
-    }
-
-    .navbar .navbar-inner{
-      /*color: yellow;*/
-    }
-    .navbar .nav > li > a {
-      /*color: yellow;*/
     }
 
     /* Downsize the brand/project name a bit */
@@ -73,8 +67,13 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
       text-shadow: 0 -1px 0 rgba(255,255,255,.5);
     }
 
+    .navbar .brand{
+      color: rgba(34,120,100,1);
+    }
+
     /* Navbar links: increase padding for taller navbar */
     .navbar .nav > li > a {
+      /*color: yellow;*/
       padding: 15px 20px;
     }
 
@@ -85,14 +84,13 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
       color: rgba(34,120,100,1);
       background-color: rgba(245,227,70,1);
     }
+    
     /* Offset the responsive button for proper vertical alignment */
     .navbar .btn-navbar {
       margin-top: 10px;
     }
 
-    .navbar .brand{
-      color: rgba(34,120,100,1);
-    }
+
 
     
 /*    .navbar-inner{
@@ -345,7 +343,18 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
       }
 
 
-
+      .nav-tavs>li{
+        margin: 0;
+      }
+      .nav-tabs>li>a{
+        padding:5px;
+        /*background-color: red;*/
+      }
+      .nav-tabs>li>a>h4{
+        font-size:12px;
+        margin: 2px;
+        line-height: 16px;
+      }
     }
 
 
@@ -477,6 +486,12 @@ a{
 .page-header{
   padding-top:40px;
   }
+
+  .coupon {
+    text-align: center;
+    border-style:dashed;
+  }
+
     </style>
 @stop
 
@@ -547,16 +562,39 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
         </p>
       </div>
       <div class="text-center">
-        <a href="contact" class="btn btn-large">Schedule Online Now<br/><strong>get 10% Off</strong></a>
+        <a href="#schedule" role="button" class="btn btn-large" data-toggle="modal">
+          <strong>10% Off</strong><br/>Schedule Online Now
+        </a>
       </div>
     </div>
   </div>
 </div>
-
 <!-- END INTRO -->
 
+<!-- MODAL ************************* -->
+<!-- Button to trigger modal -->
+<!--   <a href="#MyModal" role="button" class="btn" data-toggle="modal">MyModal</a> -->
 
-
+  <div id="schedule" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header text-center">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Schedule Online</h3>
+    </div>
+    <div class="modal-body">
+      <p>Sorry, the magical online schedulng tool is down.  Please Contact Us by phone or email for the moment.  Thank you!</p>
+      <div class="coupon">
+        <h4>10% Off</h4>
+        <p>Get 10% off for mentioning this coupon</p>
+      </div>
+      <h2>
+      @include('site.partials.contact-buckeye')
+      </h2>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <!-- <button class="btn btn-primary">Save changes</button> -->
+    </div>
+  </div>
 <!-- <div class="row">
     <div class="span4">
 
@@ -572,26 +610,35 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
   <div class="tabbable"> <!-- Only required for left/right tabs -->
     <ul class="nav nav-tabs">
       <li class="active">
-        <a href="#tab1" data-toggle="tab">
-          <h4>Residential</h4>
+        <a href="#ride" data-toggle="tab">
+          <h4>Riding</h4>
+        </a>
+      </li>
+
+      <li>
+        <a href="#walk" data-toggle="tab">
+          <h4>Walking</h2>
         </a>
       </li>
 
       <li> 
-        <a href="#tab2" data-toggle="tab">
+        <a href="#fleet" data-toggle="tab">
           <h4>Commercial</h2>
         </a>
       </li>
 
       <li>
-        <a href="#tab3" data-toggle="tab">
+        <a href="#small" data-toggle="tab">
           <h4>Small Engine</h2>
         </a>
       </li>
+
+      
+
     </ul>
     
     <div class="tab-content">
-      <div class="tab-pane active featurette" id="tab1">
+      <div class="tab-pane active featurette" id="ride">
         <!-- <div class="pull-right"> -->
           <img class ="featurette-image myimage img-circle pull-right" src="{{asset('assets/buckeye/riding.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
           <!-- <img class ="center" src="{{asset('assets/buckeye/push_button.png')}}" alt="Buckeye Mower, Mobile Engine Repair"> -->
@@ -612,14 +659,24 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
         </p>
         <h5>Starting at $49<h5>
       </div>
-      <div class="tab-pane featurette" id="tab2">
+      <div class="tab-pane featurette" id="fleet">
         <!-- <div class="pull-left"> -->
           <img class ="myimage img-circle featurette-image pull-left" src="{{asset('assets/buckeye/commercial.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
         <!-- </div> -->
         <h2 class='featurette-heading'>No Engine too Big.</h2>
         <p class='lead'>No account or machine is too big.  I have references available for whom I service fleets of dozens of commercial mowers.  I am also a certified deisel mechanic.  Please contact me by phone or email to discuss your fleet's maintenance needs.</p>
       </div>
-      <div class="tab-pane featurette" id="tab3">
+
+      <div class="tab-pane featurette" id="walk">
+        <!-- <div class="pull-right"> -->
+          <img class ="featurette-image myimage img-circle pull-right" src="{{asset('assets/buckeye/push.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
+        <!-- </div> -->
+        
+        <h2 class='featurette-heading'>No Engine too Small.</h2>
+          <p class='lead'>Push Mower. Riding Mower.  Chainsaw.  Weedeater.  If it has a small engine, I can help you fix it.  Remember, I'll come to your house for you - no need for truck, trailer, or travel.</p>
+      </div>
+
+      <div class="tab-pane featurette" id="small">
         <!-- <div class="pull-right"> -->
           <img class ="featurette-image myimage img-circle pull-right" src="{{asset('assets/buckeye/push.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
         <!-- </div> -->

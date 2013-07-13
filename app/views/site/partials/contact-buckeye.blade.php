@@ -1,12 +1,17 @@
-<div class="iconbar pull-right">
+<div class="iconbar">
 <!-- 	<div class="iconbutton">
 		
 -->
-
 <!-- SCHEDULE -->
-    <a href="#schedule">
+    <a href="#schedule" data-toggle="modal">
         <i class="icon-calendar"></i>
 	</a>
+
+
+
+
+
+
     <!-- </div> -->
 
 <!-- EMAIL -->

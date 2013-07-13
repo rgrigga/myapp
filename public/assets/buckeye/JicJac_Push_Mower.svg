@@ -12,12 +12,12 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.0"
-   width="200"
-   height="200"
+   width="400"
+   height="400"
    id="svg2317"
    inkscape:version="0.48.3.1 r9886"
    sodipodi:docname="JicJac_Push_Mower.svg"
-   inkscape:export-filename="/home/ryan/MyApp6/public/assets/buckeye/JicJac_Push_Mower.png"
+   inkscape:export-filename="/home/ryan/MyApp6/public/assets/buckeye/push.png"
    inkscape:export-xdpi="72"
    inkscape:export-ydpi="72">
   <sodipodi:namedview
@@ -33,17 +33,77 @@
      inkscape:window-height="850"
      id="namedview444"
      showgrid="false"
-     inkscape:zoom="3.375"
-     inkscape:cx="100"
-     inkscape:cy="100"
+     inkscape:zoom="1.6875"
+     inkscape:cx="200"
+     inkscape:cy="200"
      inkscape:window-x="49"
      inkscape:window-y="24"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg2317" />
+     inkscape:current-layer="svg2317"
+     borderlayer="true" />
   <defs
      id="defs2319" />
+  <metadata
+     id="metadata442">
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/publicdomain/" />
+        <dc:publisher>
+          <cc:Agent
+             rdf:about="http://openclipart.org/">
+            <dc:title>Open Clip Art Library</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title></dc:title>
+        <dc:date>2006-10-16T10:38:51</dc:date>
+        <dc:description />
+        <dc:source>http://openclipart.org/detail/664/push-mower-by-jicjac</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>JicJac</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>clip art</rdf:li>
+            <rdf:li>clipart</rdf:li>
+            <rdf:li>image</rdf:li>
+            <rdf:li>lawn care</rdf:li>
+            <rdf:li>lawn care</rdf:li>
+            <rdf:li>lawn mower</rdf:li>
+            <rdf:li>lawn mower</rdf:li>
+            <rdf:li>lawncare</rdf:li>
+            <rdf:li>lawncare</rdf:li>
+            <rdf:li>lawnmower</rdf:li>
+            <rdf:li>lawnmower</rdf:li>
+            <rdf:li>media</rdf:li>
+            <rdf:li>mulcher</rdf:li>
+            <rdf:li>mulcher</rdf:li>
+            <rdf:li>png</rdf:li>
+            <rdf:li>public domain</rdf:li>
+            <rdf:li>push mower</rdf:li>
+            <rdf:li>push mower</rdf:li>
+            <rdf:li>svg</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
   <g
-     transform="matrix(0.74304562,0,0,0.68167232,-177.10089,-262.28331)"
+     transform="matrix(1.2162137,0,0,0.9004044,-251.05513,-277.25682)"
      id="layer1">
     <g
        transform="translate(261.05155,387.3605)"
@@ -839,14 +899,14 @@
              style="fill:none;stroke:#000000;stroke-width:0.28349999;stroke-linecap:round"
              inkscape:connector-curvature="0" />
           <polygon
-             points="138.367,183.15 138.6,183.354 138.684,183.544 138.512,183.712 138.512,183.712 138.285,183.725 138.066,183.743 137.855,183.768 137.855,183.768 137.621,183.752 137.381,183.709 137.178,183.628 137.178,183.628 136.725,183.287 135.439,183.517 135.896,183.86 135.896,183.86 135.963,183.961 135.926,184.049 135.809,184.124 135.809,184.124 135.604,184.177 135.412,184.234 135.244,184.297 135.244,184.297 134.793,184.239 134.441,184.097 134.15,183.903 134.15,183.903 133.75,184.048 133.451,184.185 133.301,184.316 133.348,184.438 133.348,184.438 133.674,184.633 134.037,184.743 134.443,184.812 134.443,184.812 134.379,185.108 134.512,185.415 134.82,185.719 134.82,185.719 135.969,186.585 135.969,186.585 136.139,186.698 136.332,186.806 136.547,186.902 136.779,186.991 137.027,187.07 137.293,187.14 137.568,187.2 137.854,187.251 138.148,187.29 138.449,187.317 138.754,187.335 139.057,187.34 139.361,187.333 139.664,187.314 139.959,187.283 140.248,187.24 140.248,187.24 141.77,186.969 141.77,186.969 142.127,186.891 142.445,186.797 142.717,186.687 142.947,186.563 143.131,186.428 143.268,186.283 143.354,186.132 143.391,185.974 143.377,185.813 143.307,185.651 143.182,185.488 143.002,185.328 143.002,185.328 141.852,184.462 141.852,184.462 141.639,184.317 141.393,184.182 141.119,184.059 140.816,183.951 140.492,183.859 140.143,183.785 140.143,183.785 140.143,183.785 140.244,183.626 140.221,183.454 140.01,183.249 140.01,183.249 139.834,183.173 139.566,183.132 139.221,183.119 138.814,183.127 138.367,183.15 "
+             points="135.809,184.124 135.809,184.124 135.604,184.177 135.412,184.234 135.244,184.297 135.244,184.297 134.793,184.239 134.441,184.097 134.15,183.903 134.15,183.903 133.75,184.048 133.451,184.185 133.301,184.316 133.348,184.438 133.348,184.438 133.674,184.633 134.037,184.743 134.443,184.812 134.443,184.812 134.379,185.108 134.512,185.415 134.82,185.719 134.82,185.719 135.969,186.585 135.969,186.585 136.139,186.698 136.332,186.806 136.547,186.902 136.779,186.991 137.027,187.07 137.293,187.14 137.568,187.2 137.854,187.251 138.148,187.29 138.449,187.317 138.754,187.335 139.057,187.34 139.361,187.333 139.664,187.314 139.959,187.283 140.248,187.24 140.248,187.24 141.77,186.969 141.77,186.969 142.127,186.891 142.445,186.797 142.717,186.687 142.947,186.563 143.131,186.428 143.268,186.283 143.354,186.132 143.391,185.974 143.377,185.813 143.307,185.651 143.182,185.488 143.002,185.328 143.002,185.328 141.852,184.462 141.852,184.462 141.639,184.317 141.393,184.182 141.119,184.059 140.816,183.951 140.492,183.859 140.143,183.785 140.143,183.785 140.143,183.785 140.244,183.626 140.221,183.454 140.01,183.249 140.01,183.249 139.834,183.173 139.566,183.132 139.221,183.119 138.814,183.127 138.367,183.15 138.367,183.15 138.6,183.354 138.684,183.544 138.512,183.712 138.512,183.712 138.285,183.725 138.066,183.743 137.855,183.768 137.855,183.768 137.621,183.752 137.381,183.709 137.178,183.628 137.178,183.628 136.725,183.287 135.439,183.517 135.896,183.86 135.896,183.86 135.963,183.961 135.926,184.049 "
              id="polygon16714" />
           <polygon
-             points="140.453,184.446 140.65,184.569 140.65,184.569 141.871,185.49 141.871,185.49 142.064,185.689 142.131,185.889 142.072,186.079 141.898,186.248 141.613,186.389 141.225,186.489 141.225,186.489 139.557,186.787 139.557,186.787 139.256,186.826 138.941,186.842 138.623,186.833 138.307,186.802 138,186.75 137.711,186.679 137.443,186.589 137.209,186.48 137.014,186.357 137.014,186.357 135.793,185.437 135.793,185.437 135.598,185.237 135.533,185.038 135.592,184.85 135.766,184.68 136.051,184.539 136.439,184.438 136.439,184.438 136.439,184.438 138.107,184.14 138.107,184.14 138.408,184.101 138.721,184.086 139.041,184.095 139.357,184.126 139.664,184.177 139.953,184.249 140.219,184.34 "
+             points="137.711,186.679 137.443,186.589 137.209,186.48 137.014,186.357 137.014,186.357 135.793,185.437 135.793,185.437 135.598,185.237 135.533,185.038 135.592,184.85 135.766,184.68 136.051,184.539 136.439,184.438 136.439,184.438 136.439,184.438 138.107,184.14 138.107,184.14 138.408,184.101 138.721,184.086 139.041,184.095 139.357,184.126 139.664,184.177 139.953,184.249 140.219,184.34 140.453,184.446 140.65,184.569 140.65,184.569 141.871,185.49 141.871,185.49 142.064,185.689 142.131,185.889 142.072,186.079 141.898,186.248 141.613,186.389 141.225,186.489 141.225,186.489 139.557,186.787 139.557,186.787 139.256,186.826 138.941,186.842 138.623,186.833 138.307,186.802 138,186.75 "
              id="polygon16716"
              style="fill:#ffffff" />
           <polygon
-             points="139.178,186.547 138.26,186.71 135.848,184.892 135.848,184.892 135.848,184.892 136.764,184.729 137.697,185.432 139.486,185.112 138.553,184.408 139.471,184.244 141.885,186.063 140.967,186.228 140.033,185.523 138.244,185.844 "
+             points="136.764,184.729 137.697,185.432 139.486,185.112 138.553,184.408 139.471,184.244 141.885,186.063 140.967,186.228 140.033,185.523 138.244,185.844 139.178,186.547 138.26,186.71 135.848,184.892 135.848,184.892 135.848,184.892 "
              id="polygon16718" />
           <line
              id="line16720"
@@ -2636,63 +2696,4 @@
       </g>
     </g>
   </g>
-  <metadata
-     id="metadata442">
-    <rdf:RDF>
-      <cc:Work>
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <cc:license
-           rdf:resource="http://creativecommons.org/licenses/publicdomain/" />
-        <dc:publisher>
-          <cc:Agent
-             rdf:about="http://openclipart.org/">
-            <dc:title>Open Clip Art Library</dc:title>
-          </cc:Agent>
-        </dc:publisher>
-        <dc:title></dc:title>
-        <dc:date>2006-10-16T10:38:51</dc:date>
-        <dc:description />
-        <dc:source>http://openclipart.org/detail/664/push-mower-by-jicjac</dc:source>
-        <dc:creator>
-          <cc:Agent>
-            <dc:title>JicJac</dc:title>
-          </cc:Agent>
-        </dc:creator>
-        <dc:subject>
-          <rdf:Bag>
-            <rdf:li>clip art</rdf:li>
-            <rdf:li>clipart</rdf:li>
-            <rdf:li>image</rdf:li>
-            <rdf:li>lawn care</rdf:li>
-            <rdf:li>lawn care</rdf:li>
-            <rdf:li>lawn mower</rdf:li>
-            <rdf:li>lawn mower</rdf:li>
-            <rdf:li>lawncare</rdf:li>
-            <rdf:li>lawncare</rdf:li>
-            <rdf:li>lawnmower</rdf:li>
-            <rdf:li>lawnmower</rdf:li>
-            <rdf:li>media</rdf:li>
-            <rdf:li>mulcher</rdf:li>
-            <rdf:li>mulcher</rdf:li>
-            <rdf:li>png</rdf:li>
-            <rdf:li>public domain</rdf:li>
-            <rdf:li>push mower</rdf:li>
-            <rdf:li>push mower</rdf:li>
-            <rdf:li>svg</rdf:li>
-          </rdf:Bag>
-        </dc:subject>
-      </cc:Work>
-      <cc:License
-         rdf:about="http://creativecommons.org/licenses/publicdomain/">
-        <cc:permits
-           rdf:resource="http://creativecommons.org/ns#Reproduction" />
-        <cc:permits
-           rdf:resource="http://creativecommons.org/ns#Distribution" />
-        <cc:permits
-           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
-      </cc:License>
-    </rdf:RDF>
-  </metadata>
 </svg>

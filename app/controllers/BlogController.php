@@ -171,6 +171,9 @@ class BlogController extends BaseController {
 			$posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
 			$data = array(compact('posts'),compact('tags'),compact('alltags'),$company);
 			// die(var_dump($data));
+
+			// die("BAM");
+
 			return View::make('site/blog/index')
 				->with(compact('company'))
 				->with(compact('tags'))

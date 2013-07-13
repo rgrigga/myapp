@@ -63,11 +63,9 @@
 			</div>
 			<!-- //this is the only place to put india! -->
 			<div class="india pull-right">
-					<!-- <div>phone, email, chat, anything!</div> -->
 				<div>
 					<img src="http://gristech.com/img/contactus.png" alt="learn php laravel web design">
 				</div>
-			        
 			</div>
 		</div>
 		<!-- ./ navbar -->
