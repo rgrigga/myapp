@@ -21,6 +21,7 @@
 					</a>
 
 			<a class="brand" href="#">{{$brand}}</a>
+			
 			@include('site.partials.contact-buckeye')
 			
 			<div class="nav-collapse collapse">
@@ -57,10 +58,10 @@
 
 			</div>
 			<!-- //this is the only place to put india! -->
-<!-- 			<div class="india pull-right">
+			<div class="india pull-right">
 				<div>
 					<img src="{{asset('assets/buckeye/scheduleonline.png')}}" alt="mobile mower repair">
 				</div>
-			</div> -->
+			</div>
 		</div>
 		<!-- ./ navbar -->

@@ -5,7 +5,6 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 @stop
 
 @section('styles')
-@parent
 <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
 <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <style>
@@ -66,9 +65,9 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
     }
 
     /* Downsize the brand/project name a bit */
-    .navbar .brand {
+    .navbar .brand, .navbar .iconbar {
       /*color: yellow;*/
-      padding: 14px 20px 16px; /* Increase vertical padding to match navbar links */
+      padding: 14px 10px 16px 20px; /* Increase vertical padding to match navbar links */
       font-size: 24px;
       font-weight: bold;
       text-shadow: 0 -1px 0 rgba(255,255,255,.5);
@@ -79,7 +78,10 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
       padding: 15px 20px;
     }
 
-    .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
+    .navbar .nav > .active > a, 
+    .navbar .nav > .active > a:hover, 
+    .navbar .nav > .active > a:focus 
+    {
       color: rgba(34,120,100,1);
       background-color: rgba(245,227,70,1);
     }
@@ -478,14 +480,34 @@ a{
     </style>
 @stop
 
+@section('favicons')
+<!-- Favicons
+================================================== -->
+
+<!-- http://theksmith.com/technology/howto-website-icons-browsersdevices-favicon-apple-touch-icon-etc/ -->
+<!-- (this step is required for Android support, android ignores the non-pre-composed version): -->
+<!-- http://demosthenes.info/blog/467/Creating-MultiResolution-Favicons-For-Web-Pages-With-GIMP -->
+
+<!-- It would be great generate these on the fly.  For now, they are located in asset file -->
+<!-- http://theksmith.com/technology/howto-website-icons-browsersdevices-favicon-apple-touch-icon-etc/ -->
+
+<!-- (this step is required for Android support, android ignores the non-pre-composed version): -->
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/ico/buckeye/apple-touch-icon-144-precomposed.png') }}}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/buckeye/apple-touch-icon-114-precomposed.png') }}}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/buckeye/apple-touch-icon-72-precomposed.png') }}}">
+    <link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/buckeye/apple-touch-icon-57-precomposed.png') }}}">
+
+    <link rel="shortcut icon" href="{{{ asset('assets/ico/buckeye/favicon.png') }}}">
+    <link rel="icon" href="{{{ asset('assets/ico/buckeye/favicon.png') }}}">
+
+@stop
+
 @section('nav')
 @include('site.partials.nav-buckeye')
 @stop
 
-
-
 @section('main')
-
 
     <!-- Marketing messaging and featurettes
     ================================================== -->
@@ -509,7 +531,8 @@ a{
 <!-- ************* INTRO OPTION 3 **************-->
 <div class="row-fluid">
 	<div class='page-header'>
-    <!-- <img src="{{asset('assets/buckeye/crocus.jpg')}}" alt=""> -->
+
+    <!-- <img src="{{asset('assets/ico/buckeye/favicon.png')}}" alt=""> -->
     <div class="row-fluid">
       <div class="span6">
         <!-- http://stackoverflow.com/questions/7055393/css-center-image-using-text-align-center -->

@@ -12,8 +12,16 @@
     </title>
 
 <!-- META ************************************-->
-        <meta charset="utf-8">
-        @yield('meta')
+    <meta charset="utf-8">
+    <meta name="author" content="Ryan Grissinger" />
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <!-- More info on this: http://coding.smashingmagazine.com/2011/01/12/guidelines-for-responsive-web-design/ -->
+
+    <!-- One time, at band camp, i forgot to stick this line in the page.  The full site appeared on a mobile device... -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    @yield('meta')
 
 <!-- STYLES **********************************-->
         
@@ -57,7 +65,7 @@
     
     </head>
     <body>
-        <div class="container-fluid">
+        <div class="container">
             @yield('nav')
 
             @if (Session::has('message'))
@@ -65,6 +73,7 @@
                     <p>{{ Session::get('message') }}</p>
                 </div>
             @endif
+
             @yield('main')
             @yield('footer')
             @yield('hotel')
