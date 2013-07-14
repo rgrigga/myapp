@@ -14,7 +14,7 @@
    id="svg19912"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="New document 43">
+   sodipodi:docname="gristech.svg">
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -30,8 +30,8 @@
      showgrid="false"
      inkscape:window-width="1312"
      inkscape:window-height="835"
-     inkscape:window-x="413"
-     inkscape:window-y="98"
+     inkscape:window-x="418"
+     inkscape:window-y="85"
      inkscape:window-maximized="0" />
   <defs
      id="defs19914">
@@ -237,41 +237,53 @@
      inkscape:label="Layer 1"
      id="layer1">
     <rect
-       ry="45.898518"
-       rx="268.45941"
-       y="99.760643"
-       x="157.9933"
-       height="184.51706"
-       width="329.00101"
+       ry="20.282768"
+       rx="123.6968"
+       y="27.817015"
+       x="76.693359"
+       height="81.538948"
+       width="151.59227"
        id="rect19920"
-       style="fill:#6c5353;fill-opacity:0.64383563;stroke:none" />
+       style="fill:#6c5353;fill-opacity:0.64383563;stroke:none"
+       inkscape:export-filename="/home/ryan/MyApp6/public/assets/gristech/gristech.png"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72" />
     <rect
-       ry="40.875843"
-       rx="812.90826"
-       y="95.354042"
-       x="217.10233"
-       height="171.87093"
-       width="286.49786"
+       ry="18.063227"
+       rx="374.55997"
+       y="25.869719"
+       x="103.92875"
+       height="75.950562"
+       width="132.0083"
        id="rect19922-7"
-       style="fill:#50538f;fill-opacity:0.52968038;stroke:none" />
+       style="fill:#50538f;fill-opacity:0.52968038;stroke:none"
+       inkscape:export-filename="/home/ryan/MyApp6/public/assets/gristech/gristech.png"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72" />
     <rect
-       ry="45.898518"
-       rx="268.45941"
-       y="113.81689"
-       x="128.96048"
-       height="184.51706"
-       width="329.00101"
+       ry="20.282768"
+       rx="123.6968"
+       y="34.02853"
+       x="63.31604"
+       height="81.538948"
+       width="151.59227"
        id="rect19920-2"
-       style="fill:#b1a764;fill-opacity:0.64383563;stroke:none" />
+       style="fill:#b1a764;fill-opacity:0.64383563;stroke:none"
+       inkscape:export-filename="/home/ryan/MyApp6/public/assets/gristech/gristech.png"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72" />
     <rect
-       ry="45.898518"
-       rx="268.45941"
-       y="126.53497"
-       x="99.910439"
-       height="184.51706"
-       width="329.00101"
+       ry="20.282768"
+       rx="123.6968"
+       y="39.648708"
+       x="49.930786"
+       height="81.538948"
+       width="151.59227"
        id="rect19920-2-7"
-       style="fill:#6c5353;fill-opacity:0.64383563;stroke:none" />
+       style="fill:#6c5353;fill-opacity:0.64383563;stroke:none"
+       inkscape:export-filename="/home/ryan/MyApp6/public/assets/gristech/gristech.png"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72" />
     <rect
        ry="62.931847"
        rx="322.29614"
@@ -281,11 +293,17 @@
        width="394.97873"
        id="rect19920-2-7-9"
        style="fill:#6c5353;fill-opacity:0.64383563;stroke:none;filter:url(#filter21084)"
-       transform="matrix(0.83295882,0,0,0.72933691,27.423813,61.491004)" />
+       transform="matrix(0.38379858,0,0,0.32229739,16.531461,10.905484)"
+       inkscape:export-filename="/home/ryan/MyApp6/public/assets/gristech/gristech.png"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72" />
     <g
        id="text19926"
        style="font-size:199.64938354px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;filter:url(#filter22084);font-family:Sans"
-       transform="matrix(0.87094589,-0.14457038,0.21234403,1.0329084,-16.336484,19.928985)">
+       transform="matrix(0.40130171,-0.06388633,0.09784078,0.45644704,-3.6317678,-7.460966)"
+       inkscape:export-filename="/home/ryan/MyApp6/public/assets/gristech/gristech.png"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72">
       <path
          sodipodi:nodetypes="ccccccccssscccscssccsccscsc"
          inkscape:connector-curvature="0"
@@ -333,6 +351,6 @@
     <g
        id="g22014"
        transform="matrix(1.1349679,0,0,0.99100214,431.92145,377.20841)"
-       inkscape:label="Cube:x0.00:x0.00:x0.00:x0.00:x0.00:x0.00" />
+       inkscape:label="Cube :x0.00:x0.00:x0.00:x0.00:x0.00:x0.00" />
   </g>
 </svg>

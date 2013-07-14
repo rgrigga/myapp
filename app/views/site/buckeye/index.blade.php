@@ -197,7 +197,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 
 
     .featurette-divider {
-      margin: 60px 0; /* Space out the Bootstrap <hr> more */
+      /*margin: 60px 0;  Space out the Bootstrap <hr> more */
       border-width: 3px 0px;
       border-style: solid none;
       border-color: rgb(0,0,0) 
@@ -244,9 +244,24 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
     -------------------------------------------------- */
 
     @media (max-width: 979px) {
+
+.navbar .brand{
+  font-size: 18px;
+  padding-bottom: 0px;
+/*    padding: 5px 15px 5px; */
+}
+.navbar .iconbar{
+  font-size: 36px;
+  padding: 0px 15px 0px; 
+}
+
 .navbar .container {
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.page-header{
+  margin-top: 60px;
 }
 /*      .container.navbar-wrapper {
         margin-bottom: 0;
@@ -486,6 +501,13 @@ a{
 .page-header{
   padding-top:40px;
   }
+  .page-header h2{
+    text-align: center;
+  }
+
+  .page-header .span12{
+    margin-bottom: 20px;
+  }
 
   .coupon {
     text-align: center;
@@ -546,12 +568,17 @@ a{
 <!-- ************* INTRO OPTION 3 **************-->
 <div class="row-fluid">
 	<div class='page-header'>
+    <div class="span12 text-center">
+      <img src="http://sbt.blob.core.windows.net/storyboards/rgrissinger/mower.png" alt="The Story of how Mobile Mower Repair saves a marriage" />
+    </div>
 
     <!-- <img src="{{asset('assets/ico/buckeye/favicon.png')}}" alt=""> -->
     <div class="row-fluid">
       <div class="span6">
+
         <!-- http://stackoverflow.com/questions/7055393/css-center-image-using-text-align-center -->
         <img class ="center" src="{{asset('assets/buckeye/buckeye_logo.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
+        <h2>740-507-6198</h2>
       </div>
       <div class="span6">
         <!-- <h1>Buckeye Mower</h1> -->
@@ -581,12 +608,14 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
       <h3 id="myModalLabel">Schedule Online</h3>
     </div>
     <div class="modal-body">
-      <p>Sorry, the magical online schedulng tool is down.  Please Contact Us by phone or email for the moment.  Thank you!</p>
+      <p>Sorry, the magical online schedulng tool is down at the moment.  Please Contact Us by phone or email.  Thank you!</p>
+      <h2 class="text-center" href="tel:7405076198">740-507-6198</h2>
+      <h4 class="text-center">russ@buckeyemower.com</h4>
       <div class="coupon">
         <h4>10% Off</h4>
-        <p>Get 10% off for mentioning this coupon</p>
+        <p>Get 10% off for mentioning this coupon. How? <strong>Just Ask!</strong></p>
       </div>
-      <h2>
+      <h2 class="text-center">
       @include('site.partials.contact-buckeye')
       </h2>
     </div>
@@ -637,9 +666,20 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
 
     </ul>
     
+    <style>
+      .price{
+        position:absolute;
+        /*top:10%;*/
+        right:7%;
+        max-width: 30%;
+        z-index:2;
+      }
+    </style>
     <div class="tab-content">
+
       <div class="tab-pane active featurette" id="ride">
         <!-- <div class="pull-right"> -->
+        <img src="{{asset('assets/buckeye/89.png')}}" alt="Starting at $89" class="pull-right price">
           <img class ="featurette-image myimage img-circle pull-right" src="{{asset('assets/buckeye/riding.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
           <!-- <img class ="center" src="{{asset('assets/buckeye/push_button.png')}}" alt="Buckeye Mower, Mobile Engine Repair"> -->
         <!-- </div> -->
@@ -659,30 +699,52 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
         </p>
         <h5>Starting at $49<h5>
       </div>
+
+      <div class="tab-pane featurette" id="walk">
+        <!-- <div class="pull-right"> -->
+        <div class="price-star">
+          <img src="{{asset('assets/buckeye/49.png')}}" alt="Starting at $49" class="pull-right price">
+          <p>Price Star Text</p>
+          <h6>$49</h6>
+        </div>
+        
+          <img class ="featurette-image myimage img-circle pull-right" src="{{asset('assets/buckeye/push.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
+        <!-- </div> -->
+        
+        <h2 class='featurette-heading'>Push Mower Services.</h2>
+          <p class='lead'>We'll get you back in business in no time!</p>
+          <ul>
+            <li>Change Oil, Air Filter, Spark Plug(s)</li>
+            <li>Deck Cleaning</li>
+            <li>Blade Sharpening</li>
+            <li>Inspection of entire machine
+              <ul>
+                <li>Cables</li>
+                <li>Belt</li>
+                <li>Drive System, etc.</li>
+              </ul>
+            </li>
+          </ul>
+      </div>
+
       <div class="tab-pane featurette" id="fleet">
         <!-- <div class="pull-left"> -->
+
           <img class ="myimage img-circle featurette-image pull-left" src="{{asset('assets/buckeye/commercial.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
         <!-- </div> -->
         <h2 class='featurette-heading'>No Engine too Big.</h2>
         <p class='lead'>No account or machine is too big.  I have references available for whom I service fleets of dozens of commercial mowers.  I am also a certified deisel mechanic.  Please contact me by phone or email to discuss your fleet's maintenance needs.</p>
       </div>
 
-      <div class="tab-pane featurette" id="walk">
-        <!-- <div class="pull-right"> -->
-          <img class ="featurette-image myimage img-circle pull-right" src="{{asset('assets/buckeye/push.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
-        <!-- </div> -->
-        
-        <h2 class='featurette-heading'>No Engine too Small.</h2>
-          <p class='lead'>Push Mower. Riding Mower.  Chainsaw.  Weedeater.  If it has a small engine, I can help you fix it.  Remember, I'll come to your house for you - no need for truck, trailer, or travel.</p>
-      </div>
-
       <div class="tab-pane featurette" id="small">
         <!-- <div class="pull-right"> -->
-          <img class ="featurette-image myimage img-circle pull-right" src="{{asset('assets/buckeye/push.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
+          <!-- <img class ="featurette-image myimage img-circle pull-right" src="{{asset('assets/buckeye/push.png')}}" alt="Buckeye Mower, Mobile Engine Repair"> -->
+          <img class="featurette-image img-circle pull-right myimage" src="{{asset('assets/buckeye/chainsaw.svg')}}" alt="serving central ohio">
         <!-- </div> -->
         
         <h2 class='featurette-heading'>No Engine too Small.</h2>
-          <p class='lead'>Push Mower. Riding Mower.  Chainsaw.  Weedeater.  If it has a small engine, I can help you fix it.  Remember, I'll come to your house for you - no need for truck, trailer, or travel.</p>
+          <p class='lead'>Push Mower. Riding Mower.  Chainsaw.  Weedeater. Snowblower.  If it has a small engine, I can help you fix it.</p>
+          <p>Remember, I'll come to your house for you - no need for truck, trailer, or travel.</p>
       </div>
     </div>
   <!-- //tab-content -->
@@ -705,9 +767,11 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
       </style>
 
       <div class="featurette" id="map" name="map">
+
+        
 <!--         <img class="featurette-map pull-right" src="http://maps.googleapis.com/maps/api/staticmap?center=Westerville,Ohio&zoom=9&size=600x600&markers=color:blue%7Clabel:B%7C517+Westerville+OH|color:blue%7Clabel:B%7C517+Hilliard+OH&sensor=false" alt="Hilliard, OH"> -->
 
-        <img class="featurette-map pull-right" src="http://maps.googleapis.com/maps/api/staticmap?center=Westerville,Ohio&zoom=9&size=600x600&markers=Westerville+OH|Hilliard+OH|Columbus+OH|Gahanna+OH|Marengo+OH|Delaware+OH|Pickerington+OH|Grove+City+OH|Pataskala+OH|West+Jefferson+OH&sensor=false" alt="Central Ohio">
+        <img class="featurette-map pull-right" src="http://maps.googleapis.com/maps/api/staticmap?center=Westerville,Ohio&zoom=9&size=400x600&markers=Westerville+OH|Hilliard+OH|Columbus+OH|Gahanna+OH|Marengo+OH|Delaware+OH|Pickerington+OH|Grove+City+OH|Pataskala+OH|West+Jefferson+OH&sensor=false" alt="Central Ohio">
 
 <!--         <img class="featurette-image pull-right" src="{{asset('assets/buckeye/ohio.png')}}" alt="serving central ohio"> -->
         <h2 class="featurette-heading">I will come to you. <span class="muted">Wide Service Area.</span></h2>
@@ -721,9 +785,9 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
 
       <div class="featurette">
 
-        <img class="featurette-image pull-left mysvg" src="{{asset('assets/buckeye/noun_project_13832.svg')}}" alt="serving central ohio">
+        <img class="featurette-image pull-left mysvg myimage img-circle" src="{{asset('assets/buckeye/noun_project_13832.svg')}}" alt="serving central ohio">
         <!-- <i class="icon-cogs icon6"></i> -->
-        <h2 class="featurette-heading">Factory Trained. <span class="muted">Multi-Brand Expertise.</span></h2>
+        <h2 class="featurette-heading">Factory Trained. <span class="muted">Any Brand.</span></h2>
         
         <p class="lead">I am <strong>Factory Trained</strong>, and I regularly work on all major brands: John Deere, Toro, Craftsman, Cub Cadet, and more.  I have a passion for this equipment: and I will treat your equipment like it was my own.</p>
       </div>
@@ -731,7 +795,7 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
       <hr class="featurette-divider">
 
       <div class="featurette" name="services" id ="services">
-        <img class="featurette-image pull-right mysvg" src="{{asset('assets/buckeye/chainsaw.svg')}}" alt="serving central ohio">
+        <img class="featurette-image pull-right mysvg myimage img-circle" src="{{asset('assets/buckeye/chainsaw.svg')}}" alt="serving central ohio">
         <h2 class="featurette-heading">Not Just Mowers. <span class="muted">Any Small Engine.</span></h2>
         <p class="lead">I regularly service all brands of all kinds of equipment.  If it has an engine...</p>
 
@@ -765,13 +829,23 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
 
 @section('footer')
 <style>
-  #myfooter{
+  .myfooter{
+    padding-top: 30px;
+    background-color: rgba(189,219,123,.7);
     margin-left: 10px;
     text-align: center;
+    margin-right: -60px;
+    margin-left: -60px;
   }
 </style>
-<img class="center" src="{{asset('assets/buckeye/grass2.png')}}" alt="">
-<h3 class="center" id="myfooter">Let's get your gr<em>ass</em> in gear!</h3>
+<div class="myfooter">
+  <img class="center" src="{{asset('assets/buckeye/grass2.png')}}" alt="">
+  <h3 class="center" id="myfooter">Let's get your gr<em>ass</em> in gear!</h3>
+  <a class="btn btn-large" href="tel:7405076198"><h2>740-507-6198</h2></a>
+  <p class="muted credit">&copy; 2013, Buckeye Mower & Gristech, All Rights Reserved</p>
+  <p><a href="#credits">credits</a></p>
+</div>
+
 <!-- <div class="span12"> -->
 <!--   <p class="muted credit">
     <a href="http://thenounproject.com/noun/race-car/#icon-No3019" target="_blank">Race Car</a> designed by <a href="http://thenounproject.com/ianfrid" target="_blank">Ian Friday</a> from The Noun Project
@@ -792,11 +866,13 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
 
   }
   .hotel a{
-    color: green;
+    color: rgba(229,83,60,.7);
   }
 </style>
-<div class="hotel" style:"background-color:transparent">
-  <a href="{{URL::to('#')}}"><i class="icon-circle-arrow-up icon-3x"></i></a>
+<div class="hotel">
+  <a href="{{URL::to('#')}}"><i class="icon-circle-arrow-up icon-4x"></i></a>
 </div>
 @stop
 
+<!-- Linux/Security -->
+<!-- 10 Basic Linux Security Tips to Implement  -->

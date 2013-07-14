@@ -7,11 +7,6 @@
         <i class="icon-calendar"></i>
 	</a>
 
-
-
-
-
-
     <!-- </div> -->
 
 <!-- EMAIL -->
