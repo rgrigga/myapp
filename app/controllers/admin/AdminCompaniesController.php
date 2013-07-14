@@ -9,7 +9,7 @@ class AdminCompaniesController extends AdminController {
      */
     protected $company;
 
-    public function missingMethod($parameters)
+    // public function missingMethod($parameters)
 {
     // var_dump($parameters);
 }

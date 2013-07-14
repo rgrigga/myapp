@@ -572,7 +572,7 @@ a{
 <div class="row-fluid">
 	<div class='page-header'>
     <div class="span12 text-center">
-      <img src="http://sbt.blob.core.windows.net/storyboards/rgrissinger/mower.png" alt="The Story of how Mobile Mower Repair saves a marriage" />
+      
     </div>
 
     <!-- <img src="{{asset('assets/ico/buckeye/favicon.png')}}" alt=""> -->
@@ -621,6 +621,34 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
       <h2 class="text-center">
       @include('site.partials.contact-buckeye')
       </h2>
+    </div>
+    
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <!-- <button class="btn btn-primary">Save changes</button> -->
+    </div>
+  </div>
+
+<!-- ***********************************************8 -->
+
+<a href="#story" role="button" class="btn btn-large pull-right" data-toggle="modal">
+          <strong>:)</strong>
+        </a>
+
+<style>
+  #story{
+    /*width: 70%;*/
+    /*margin: auto;*/
+    /*height: 80%;*/
+  }
+</style>
+    <div id="story" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+    <div class="modal-header text-center">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel2">Buckeye Mower will save your weekend.</h3>
+    </div>
+    <div class="modal-body">
+      <img src="http://sbt.blob.core.windows.net/storyboards/rgrissinger/mower.png" alt="The Story of how Mobile Mower Repair saves a marriage" />
     </div>
     <div class="modal-footer">
       <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
@@ -810,7 +838,9 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
     </a>
   </li>
 </ul>
-         John Deere, Toro, Craftsman, Cub Cadet, and more.  I have a passion for this equipment: and I will treat your equipment like it was my own.</p>
+         <p class="lead">Looking for a mower?  Here is the <a href="http://www.consumerreports.org/cro/lawn-mowers/buying-guide.htm">Lawn Mower Buying Guide</a> from consumer reports.</p>
+         <p>
+         I have a passion for this equipment: and I will treat your equipment like it was my own.</p>
       </div>
 
       <hr class="featurette-divider">

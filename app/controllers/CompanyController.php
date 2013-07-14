@@ -55,7 +55,7 @@ class CompanyController extends BaseController {
 	public function getIndex($name="gristech")
 	{
 		$name=strtolower($name);
-		// die(var_dump($id));
+		// die(var_dump($name));
 		// $str='%'.$company.'%';
 		$company = $this->company->where('brand', '=', $name)->first();
 		

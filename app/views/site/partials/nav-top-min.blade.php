@@ -3,11 +3,13 @@
 			position:fixed;
 		}
 		.body{
-			padding-top: 60px;
+			/*padding-top: 60px;*/
 		}
 		</style>
 		<div class="navbar navbar-fixed-top">
-<h1>Howdy</h1>
+<!-- <h1>Howdy</h1> -->
+
+
 			<div class="navbar-inner">
 
 				<a class="brand" style="margin-left:30px;" href="#">{{{$company->brand}}}</a>
@@ -17,10 +19,10 @@
 						@foreach ($company->menus() as $menu)
 						<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to('#'.$menu) }}}">{{{ucfirst($menu)}}}</a></li>
 						@endforeach
-						
+
 					</ul> -->
 
-			@include('site.partials.contact')
+			
 
 					<!-- admin/user nav -->
                 	<ul class="nav pull-right">
@@ -38,18 +40,19 @@
                         @endif
                         
                     </ul>
-				</div>
+			</div>
 					<!-- ./ nav-collapse -->
-				</div>
-
-			</div>
-			<!-- //this is the only place to put india! -->
-			<div class="india pull-right">
-					<!-- <div>phone, email, chat, anything!</div> -->
-				<div>
-					<img src="http://gristech.com/img/contactus.png" alt="learn php laravel web design">
-				</div>
-			        
-			</div>
+			
 		</div>
+
+			<!-- </div> -->
+			<!-- //this is the only place to put india! -->
+			<!-- <div class="india pull-right"> -->
+					<!-- <div>phone, email, chat, anything!</div> -->
+				<!-- <div> -->
+					<!-- <img src="http://gristech.com/img/contactus.png" alt="learn php laravel web design"> -->
+				<!-- </div> -->
+			        
+			<!-- </div> -->
+		<!-- </div> -->
 		<!-- ./ navbar -->

@@ -55,10 +55,10 @@
         </li>
 
 
-        <li>
-            {{ Form::label('home', 'Home Page:') }}
-            {{ Form::text('home') }}
-        </li>
+        <!-- <li> -->
+            <!-- {{ Form::label('home', 'Home Page:') }} -->
+            <!-- {{ Form::text('home') }} -->
+        <!-- </li> -->
 
         <li>
             {{ Form::label('menus', 'Menus:') }}

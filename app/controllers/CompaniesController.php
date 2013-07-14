@@ -2,6 +2,8 @@
 
 class CompaniesController extends BaseController {
 
+    // public $layout = 'admin.layouts.default';
+    // @extends('admin.layouts.default')
     /**
      * Company Repository
      *
@@ -131,5 +133,5 @@ class CompaniesController extends BaseController {
     }
 
 
-    
+
 }

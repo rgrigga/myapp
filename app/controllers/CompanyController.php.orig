@@ -1,8 +1,6 @@
 <?php
 
 
-
-
 class CompanyController extends BaseController {
 
 	protected $layout = 'site.layouts.company';
@@ -60,7 +58,7 @@ class CompanyController extends BaseController {
 		$company = $this->company->where('id', '=', "$id");
 		// $posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);
 
-die(var_dump($company));
+// die(var_dump($company));
 
 		// Show the page
 		return View::make('site/'.$company->brand().'/home', compact('$company'));

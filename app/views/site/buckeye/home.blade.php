@@ -73,6 +73,12 @@
 @section('content')
 <!-- @parent -->
 
+
+<!-- @section('contact') -->
+
+
+
+
 <div class="row-fluid">
 	<div class="span8">
 		<h1>Welcome Home.</h1>
