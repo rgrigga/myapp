@@ -27,15 +27,30 @@ Route::model('comment', 'Comment');
 Route::model('post', 'Post');
 Route::model('role', 'Role');
 Route::model('company','Company');
+// View::share('company', $company);
+
 // now, calls to "user->username" should work.  effectively a singleton representing the session data or database info.
 
+// Route::group(array('prefix' => 'companies', 'before' => 'admin'), function()
+// {
 
-Route::resource('companies', 'CompaniesController');
+// Route::group(array('prefix' => 'companies', 'before' => 'admin-auth'),function(){
+//     // die("BAM");
+//     Route::resource('companies', 'AdminCompaniesController');
+// });
+
+
+
+
 Route::resource('tweets', 'TweetsController');
 
 
 
 
+// , function()
+// {
+//     return 'You are over 200 years old!';
+// }));
 
 
 // Route::get('/', array('before' => 'guest', function(){
@@ -92,7 +107,6 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
             'description'=>'Mobile Mower and Small Engine Repair',
             'menus'=>array('rates','map')
             ));
-    
     });
 
     Route::get('login',function(){
@@ -254,9 +268,9 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     //     ->where('company', '[0-9]+');
     // Route::get('companies/{company}/delete', 'AdminCompaniesController@getDelete')
     //     ->where('company', '[0-9]+');
-    // Route::post('companies/{company}/delete', 'AdminCompaniesController@postDelete')
+    // Route::post('companies/{company}/delete', 'AdminCompaniesController@destroy')
     //     ->where('company', '[0-9]+');
-    // Route::controller('companies', 'AdminCompaniesController');
+    // Route::controller('companies', 'CompaniesController');
 
     # Admin Dashboard
     Route::controller('/', 'AdminDashboardController');
@@ -269,10 +283,12 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
  */
 
 
+
 Route::get('company/{id}','CompanyController@show')
     ->where('id', '[0-9]+');
 Route::get('company/{name}','CompanyController@getIndex')
     ->where('id', '[a-zA-Z_]+');
+Route::controller('companies', 'CompaniesController');
 
 // User reset routes
 Route::post('user/reset/{id}', 'UserController@getReset')
@@ -284,14 +300,49 @@ Route::post('user/{user}/edit', 'UserController@postEdit')
 //:: User Account Routes ::
 Route::post('user/login', 'UserController@postLogin');
 
+
 # User RESTful Routes (Login, Logout, Register, etc)
 Route::controller('user', 'UserController');
-
-
+Route::resource('companies', 'CompaniesController');
+// die("bam");
 // STATIC PAGES: ///////////////////////////////////////////////////
 # Technical/Development Static Page
 
+Route::get('login',function(){
+    return Redirect::to('user/login');
+});
 
+
+// View::composer('company', function($view)
+// {
+//     $view->with('count', User::count());
+// });
+
+
+Route::get('blog', 'BlogController@getTags');
+Route::post('blog/{postSlug}', 'BlogController@postView');
+
+Route::get('tags', 'BlogController@getTags');
+Route::post('tags', 'BlogController@getTags');
+Route::get('tags/{tag}', 'BlogController@getIndex');
+// Route::post('tags/{tag}', 'BlogController@postIndex');
+
+# Posts - Second to last set, match slug
+Route::get('blog/{postSlug}', 'BlogController@getView');
+Route::post('blog/{postSlug}', 'BlogController@postView');
+
+Route::get('show/{tag}','BlogController@show');
+Route::get('search/{tag}','BlogController@getIndex');
+
+Route::get('/{tag}', 'BlogController@getIndex');
+Route::get('/', 'CompanyController@getIndex');
+    // ->with($company)
+    // ->where(array('id','=',3));
+
+
+
+
+//////////////////////////////////////////////////////////////
 // Route::get('features', function()
 // {
 //     // Return about us page
@@ -394,20 +445,20 @@ Route::controller('user', 'UserController');
 // });
 // 
 
-Route::get('blog', 'BlogController@getTags');
-Route::post('blog/{postSlug}', 'BlogController@postView');
+// Route::get('blog', 'BlogController@getTags');
+// Route::post('blog/{postSlug}', 'BlogController@postView');
 
-Route::get('tags', 'BlogController@getTags');
-Route::post('tags', 'BlogController@getTags');
-Route::get('tags/{tag}', 'BlogController@getIndex');
-// Route::post('tags/{tag}', 'BlogController@postIndex');
+// Route::get('tags', 'BlogController@getTags');
+// Route::post('tags', 'BlogController@getTags');
+// Route::get('tags/{tag}', 'BlogController@getIndex');
+// // Route::post('tags/{tag}', 'BlogController@postIndex');
 
-# Posts - Second to last set, match slug
-Route::get('blog/{postSlug}', 'BlogController@getView');
-Route::post('blog/{postSlug}', 'BlogController@postView');
+// # Posts - Second to last set, match slug
+// Route::get('blog/{postSlug}', 'BlogController@getView');
+// Route::post('blog/{postSlug}', 'BlogController@postView');
 
-Route::get('show/{tag}','BlogController@show');
-Route::get('search/{tag}','BlogController@getIndex');
+// Route::get('show/{tag}','BlogController@show');
+// Route::get('search/{tag}','BlogController@getIndex');
 
 // Route::get('/{tag}', function($tag){
 
@@ -431,7 +482,7 @@ Route::get('search/{tag}','BlogController@getIndex');
 //         "advantage",
 //         "");
 // =======
-Route::get('/{tag}', 'BlogController@getIndex');
+// Route::get('/{tag}', 'BlogController@getIndex');
 // Route::post('/{tag}', 'BlogController@postView');
 // >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 
@@ -443,8 +494,14 @@ Route::get('/{tag}', 'BlogController@getIndex');
 // Route::get('/', 'BlogController@getIndex');
 # Index Page - Last route, no matches
 
-Route::get('/', 'BlogController@getIndex');
-
+// Route::get('/', 'CompanyController@getIndex');
+//         $name='buckeye';
+//         return View::make('site/'.$name.'/index',array(
+// //return View::make('site/'.$name.'/home',array(
+//             'brand'=>'Buckeye Mower',
+//             'description'=>'Mobile Mower and Small Engine Repair',
+//             'menus'=>array('rates','map')
+//             ));
 
 
 

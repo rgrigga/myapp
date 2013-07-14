@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8" />
 	<!-- Basic Page Needs
 	================================================== -->
-	<title>
-		@section('title')
-		Gristech MyApp
-		@show
-	</title>
+	
 		<!-- Gristech Default Layout -->
 		<!-- should be overridden in children -->
 

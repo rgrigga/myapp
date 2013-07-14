@@ -52,7 +52,7 @@ class CompanyController extends BaseController {
 	 * @return View
 	 */
 
-	public function getIndex($name="")
+	public function getIndex($name="gristech")
 	{
 		$name=strtolower($name);
 		// die(var_dump($id));

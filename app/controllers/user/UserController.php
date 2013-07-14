@@ -8,14 +8,22 @@ class UserController extends BaseController {
      */
     protected $user;
 
+        /**
+     * Company Model
+     * @var Company
+     */
+    protected $company;
+
     /**
      * Inject the models.
      * @param User $user
+     * @param Company $company
      */
-    public function __construct(User $user)
+    public function __construct(User $user, Company $company)
     {
         parent::__construct();
         $this->user = $user;
+        $this->company = $company;
     }
 
     /**
@@ -29,7 +37,11 @@ class UserController extends BaseController {
         if($redirect){return $redirect;}
 
         // Show the page
-        return View::make('site/user/index', compact('user'));
+        $company=$this->company->findOrFail(3);
+        // die("BAM");
+        return View::make('site/user/index')
+            ->with(compact('user'))
+            ->with(compact('company'));
     }
 
     /**
@@ -164,7 +176,14 @@ class UserController extends BaseController {
             return Redirect::to('/');
         }
 
-        return View::make('site/user/login');
+        // $company = $this->company->where('brand', '=', 'gristech')->first();
+        $company = $this->company->findOrFail(3);
+
+        // die("BAM");
+
+        return View::make('site/user/login')
+            ->with(compact('user'))
+            ->with(compact('company'));
     }
 
     /**

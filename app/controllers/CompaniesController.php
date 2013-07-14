@@ -12,6 +12,7 @@ class CompaniesController extends BaseController {
     public function __construct(Company $company)
     {
         $this->company = $company;
+
     }
 
     /**
@@ -21,6 +22,7 @@ class CompaniesController extends BaseController {
      */
     public function index()
     {
+
         $companies = $this->company->all();
 
         return View::make('companies.index', compact('companies'));
@@ -128,4 +130,6 @@ class CompaniesController extends BaseController {
         return Redirect::route('companies.index');
     }
 
+
+    
 }

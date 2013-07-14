@@ -566,6 +566,9 @@ a{
 
 
 <!-- ************* INTRO OPTION 3 **************-->
+
+<!-- Storyboard -->
+<!-- http://www.storyboardthat.com/userboards/rgrissinger/mower -->
 <div class="row-fluid">
 	<div class='page-header'>
     <div class="span12 text-center">
@@ -697,15 +700,19 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
             <li>Inspect all hoses, belts, pulleys, etc.</li>
           </ul>
         </p>
-        <h5>Starting at $49<h5>
       </div>
 
       <div class="tab-pane featurette" id="walk">
         <!-- <div class="pull-right"> -->
-        <div class="price-star">
+        
+        <style>
+
+        </style>
+        <div class="price-star delta">
           <img src="{{asset('assets/buckeye/49.png')}}" alt="Starting at $49" class="pull-right price">
-          <p>Price Star Text</p>
+          <p>As Low As</p>
           <h6>$49</h6>
+          <p></p>
         </div>
         
           <img class ="featurette-image myimage img-circle pull-right" src="{{asset('assets/buckeye/push.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
@@ -789,7 +796,21 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
         <!-- <i class="icon-cogs icon6"></i> -->
         <h2 class="featurette-heading">Factory Trained. <span class="muted">Any Brand.</span></h2>
         
-        <p class="lead">I am <strong>Factory Trained</strong>, and I regularly work on all major brands: John Deere, Toro, Craftsman, Cub Cadet, and more.  I have a passion for this equipment: and I will treat your equipment like it was my own.</p>
+        <p class="lead">I am <strong>Factory Trained</strong>, and I regularly work on all major brands:
+<ul>
+  <li>
+    <a href="http://www.toro.com/en-us/homeowner/mowers/Pages/default.aspx">
+      <img src="{{asset('assets/buckeye/cubcadet.jpg')}}" alt="">
+    </a>
+  </li>
+
+  <li>
+    <a href="http://www.toro.com/en-us/homeowner/mowers/Pages/default.aspx">
+      <img src="{{asset('assets/buckeye/1968_logo.jpg')}}" alt="">
+    </a>
+  </li>
+</ul>
+         John Deere, Toro, Craftsman, Cub Cadet, and more.  I have a passion for this equipment: and I will treat your equipment like it was my own.</p>
       </div>
 
       <hr class="featurette-divider">
@@ -876,3 +897,17 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
 
 <!-- Linux/Security -->
 <!-- 10 Basic Linux Security Tips to Implement  -->
+<!-- http://www.linuxhaxor.net/2007/11/21/10-basic-linux-security-tips-to-implement/ -->
+
+<!-- The following is a list of rules and tips you might find useful in dealing with basic security concerns:
+
+1. Avoid doing your regular jobs when you are logged in as root. This reduces the risk of getting a cuckoo egg or a virus and protects you from your own mistakes.
+
+2. If possible, always try to use encrypted connections to work on a remote machine. Using SSH (secure shell) to replace telnet, ftp, rsh, and rlogin should be standard practice.
+
+3. Avoid using authentic method based on ip address alone. -->
+
+<!-- <a href="http://www.linuxsecurity.com/component/option,com_whitepaper/id,9/"></a>
+<h2>Exploiting the Potential of Linux</h2>
+<p>Linux is ideally suited as an enterprise-class operating system for many reasons. One is its reliability. Linux systems offer mainframe-class stability with reported system uptimes of a year or more. Google, one of the Internet's foremost search engines, runs on Linux servers and has run continuously for more than one-and-a-half years without any downtime, according to Google Chairman Eric Schmidt.</p> -->
+

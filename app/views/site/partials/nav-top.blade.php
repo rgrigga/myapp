@@ -6,6 +6,7 @@
 			padding-top: 60px;
 		}
 		</style>
+
 		<div class="navbar navbar-fixed-top">
 
 			<div class="navbar-inner">
@@ -20,6 +21,7 @@
 						<span class="icon-bar"></span>
 					</a>
 					<?php 
+					
 						// if(!$company){$company="MegaCorp";} 
 					?>
 					<a class="brand" style="margin-left:30px;" href="#">{{{$company->brand}}}</a>

@@ -57,8 +57,14 @@
         // echo "$filename" . "<br>";
     }
 ?>
-
+<style>
+	.page-header{
+		background-color: yellow;
+	}
+</style>
 <div class="row page-header">
+	
+	<h1>Welcome</h1>
 	<div class="span4">
 		<!-- <div class="pull-right"> -->
 		<img src="{{asset($company->image)}}" alt="MyImage">
@@ -103,23 +109,23 @@
 <div class="span4">
 	<h2>Sidebar</h2>
 
-<!-- Button to trigger modal -->
-<a href="#MyModal" role="button" class="btn" data-toggle="modal">MyModal</a>
- 
-<!-- Modal -->
-<div id="MyModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Modal header</h3>
-  </div>
-  <div class="modal-body">
-    <p>One fine body…</p>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button class="btn btn-primary">Save changes</button>
-  </div>
-</div>
+	<!-- Button to trigger modal -->
+	<a href="#MyModal" role="button" class="btn" data-toggle="modal">MyModal</a>
+	 
+	<!-- Modal -->
+	<div id="MyModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    <h3 id="myModalLabel">Modal header</h3>
+	  </div>
+	  <div class="modal-body">
+	    <p>One fine body…</p>
+	  </div>
+	  <div class="modal-footer">
+	    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+	    <button class="btn btn-primary">Save changes</button>
+	  </div>
+	</div>
 
 	
 </div>
