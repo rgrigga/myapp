@@ -132,7 +132,6 @@ a:hover {text-decoration: none}
 
 @section('nav')
 @include('site.partials.nav-top-min')
-
 @stop
 
 @section('myjs')

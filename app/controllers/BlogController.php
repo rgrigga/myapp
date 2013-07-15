@@ -112,12 +112,12 @@ class BlogController extends BaseController {
 	    // we'll send the user to the search page.
         if(in_array($tag, $mypages)){
         	// die("BAM");
-            $view = View::make('site/pages/'.$tag)
+            return View::make('site/pages/'.$tag)
             ->with(compact('company'))
 			->with(compact('tags'))
 			->with(compact('alltags'))
 			->with(compact('posts'));
-            return $view;
+             // $view;
         }
         // else{
         // 	die($tag." Not Found in ".$path);
@@ -154,12 +154,12 @@ class BlogController extends BaseController {
 					->with('message','I couldn\'t find anything');
 			}
 			//else
-			return View::make('site/blog/tags')
-				->with(compact('company'))
-				->with(compact('tags'))
-				->with(compact('alltags'))
-				->with(compact('posts'))
-				->with('message','I couldn\'t find anything');
+			// return View::make('site/blog/tags')
+			// 	->with(compact('company'))
+			// 	->with(compact('tags'))
+			// 	->with(compact('alltags'))
+			// 	->with(compact('posts'))
+			// 	->with('message','I couldn\'t find anything');
 		}
 
 		// $posts = $this->post->where('tag','seo');
@@ -169,7 +169,7 @@ class BlogController extends BaseController {
 			// $photos=Paginator::make($myphotos,count($myphotos),10);
 				// $myphotos->paginate(10);
 			$posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
-			$data = array(compact('posts'),compact('tags'),compact('alltags'),$company);
+			// $data = array(compact('posts'),compact('tags'),compact('alltags'),$company);
 			// die(var_dump($data));
 
 			// die("BAM");

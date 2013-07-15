@@ -33,8 +33,8 @@
 @show
 
 @section('nav')
-@include('site.partials.nav-top-inverse')
-@show
+@include('site.partials.nav-top-min')
+@stop
 <!-- @ include('site.partials.nav2') -->
 	<!-- ./ nav section -->
 {{-- Content --}}

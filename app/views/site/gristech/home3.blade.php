@@ -1,26 +1,24 @@
-@extends('site.layouts.default')
+@extends('layouts.scaffold')
 
 @section('title')
 {{$company->slogan}}
 @parent
 @stop
 
-@section('content')
+@section('main')
 
-<a href="http://myapp.gristech.com/company/advantage" class="btn">http://myapp.gristech.com/company/advantage</a>
-
-<div class="row">
-	<div class="span6 pull-right">
-		<img src="http://gristech.com/img/robots.jpg" class="img-circle">
-		<p class="muted credit text-center">
-			<a href="http://www.flickr.com/photos/striatic/125614/">http://www.flickr.com/photos/striatic/125614/</a>
-		</p>
-	</div>
-
-	<div class="span6">
 
 <?php
-    $path='/home/gristech/myapp/app/views/site/pages/';
+	$env=App::environment();
+	echo "<div class='alert alert-info'>Welcome to the <strong>".$env."</strong> environment.</div>";
+
+	if($env=="local"){
+		$path='/home/ryan/MyApp6/app/views/site/pages/';
+	}
+	else{
+    	$path='/home/gristech/myapp/app/views/site/pages/';
+    }
+
     $mypages = array();
     foreach (glob($path."*.blade.php") as $filename) {
         $filename=str_replace($path, "", $filename);
@@ -31,13 +29,48 @@
 ?>
 
 
-	<p>Here are a few things you can try:</p>
-	<h3>Security</h3>
-		<ul class='nav nav-list'>
+
+<img src="asset({{$company.'/'.$company->image}})" alt="MyImage">
+<div>ID: {{{ $company->id }}}</div>
+<div>Name: {{{ $company->name }}}</div>
+<div>Brand: {{{ $company->brand }}}</div>
+<div>Phone: {{{ $company->phone }}}</div>
+<div>Email: {{{ $company->email }}}</div>
+<div>Description: {{{ $company->description }}}</div>
+<div>Slogan: {{{ $company->slogan }}}</div>
+<div>Image: {{{ $company->image }}}</div>
+<div>Menus: {{{ $company->menus }}}</div>
+
+<a href="{{URL::to('company/advantage')}}" class="btn">/company/advantage</a>
+Building a website...
+
+Press Control-U now, and have a look at the source code of this page.
+
+Using this site, (and your site) you will participate in the building of a marketing toolbox.  Much of the work has already been done, but we need your help to make it better.
+
+If you are a business, you will share your profit if these tools are successful in helping you make money.  Each contribution will go toward improving "the site", which is actually your site.
+
+Now, you can learn how to build all of this for yourself.   
+
+<div class="row">
+	<div class="span6 pull-right">
+		<img src="http://gristech.com/img/robots.jpg" class="img-circle">
+		<p class="muted credit text-center">
+			<a href="http://www.flickr.com/photos/striatic/125614/">http://www.flickr.com/photos/striatic/125614/</a>
+		</p>
+	</div>
+
+<ul class='thumbnails'>
 			@foreach($mypages as $page)
-			<li><a href="{{URL::to($page)}}">{{$page}}</a></li>
+			<li class="span4">
+				<a class="thumbnail" href="{{URL::to($page)}}">{{$page}}</a></li>
 			@endforeach
 		</ul>
+	<div class="span6">
+
+	<p>Here are a few things you can try:</p>
+	<h3>Security</h3>
+
 
 		<p>I have built attempted to prepare a solid foundation of logic and structure for all of these topics.  It has been built with stable, scalable tools, in a way that adheres to best practices, and encourages extensibility.</p>
 

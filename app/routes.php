@@ -17,10 +17,10 @@
  *  Route model binding
  *  ------------------------------------------
  */
-Route::get('/',function(){
-    die('bam');
-    return View::make('site.gristech.demo');
-});
+// Route::any('/',function(){
+//     die('bam');
+//     return View::make('site.pages.debug');
+// });
 /** ------------------------------------------
  *  Route model binding
  *  ------------------------------------------
@@ -365,8 +365,9 @@ Route::get('login',function(){
 // });
 
 
-Route::get('blog', 'BlogController@getTags');
+
 Route::post('blog/{postSlug}', 'BlogController@postView');
+Route::get('blog', 'BlogController@getIndex');
 
 Route::get('tags', 'BlogController@getTags');
 Route::post('tags', 'BlogController@getTags');
