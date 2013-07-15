@@ -17,7 +17,10 @@
  *  Route model binding
  *  ------------------------------------------
  */
-
+Route::get('/',function(){
+    die('bam');
+    return View::make('site.gristech.demo');
+});
 /** ------------------------------------------
  *  Route model binding
  *  ------------------------------------------
@@ -231,6 +234,8 @@ Route::post('redactorUpload', function()
 
 //         });
 
+
+
 Route::get('login',function(){
         // die("BAM");
         return Redirect::to('user/login');
@@ -324,7 +329,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
  */
 
 
-Route::get('advantage','CompanyController@getIndex',array('name'=>'advantage'));
+// Route::get('advantage','CompanyController@getIndex',array('name'=>'advantage'));
 
 Route::get('company/{id}','CompanyController@show')
     ->where('id', '[0-9]+');

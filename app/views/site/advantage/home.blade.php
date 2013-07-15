@@ -21,13 +21,47 @@
 <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Graduate' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Patrick+Hand' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Monsieur+La+Doulaise' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Mr+De+Haviland' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
 <style>
+
+	/*this has ramifications:*/
+	.container{
+		width: 100%;
+	}
+
 	html,body {
-		background-color: rgba(3,71,105,1);
+		
 		/*background-color: rgba(235,196,162,.2);*/
 		color: white;
 		font-family: 'EB Garamond', serif;
 
+	}
+
+	@font-face {
+	font-family: 'Archive';
+	src: url('/assets/font/Archive.otf') format("opentype");
+	}
+
+	.page-header{
+		/*poition: static;*/
+		/*width:100%;*/
+		background-color: rgba(3,71,105,1);	
+		margin-left:-80px;
+		margin-right:-80px;
+	}
+	.page-header h1, .sidebar h3{
+		/*font-family: 'Mr De Haviland', cursive;*/
+		/*font-family: 'Monsieur La Doulaise', cursive;*/
+		font-family: 'Kaushan Script', cursive;
+		/*color:#ffbe73;*/
+		color: #ffe9b9;
+		text-shadow: 8px 8px 8px #A63A00;
+	}
+
+	.sidebar h3{
+		text-shadow: 4px 4px 4px #A63A00;
 	}
 
 	.navbar-inner{
@@ -39,28 +73,36 @@
 		text-shadow:none;
 	}
 	.well{
-		background-color: rgba(121,186,242,.6);
+		background-color: rgba(121,186,242,1);
+		/*border-bottom-radius: 30px;*/
+		border-bottom-left-radius: 30px;
+		border-bottom-right-radius: 30px;
 		/*box-shadow: 2px 2px 1px #8285E6;*/
 		/*font-family: */
 	}
-
+	.sidebar p{
+		text-align: right;
+	}
 	p {
 		font-size: 24px;
 	}
 
 	h1,h2{
 		color:rgba(18,124,166,1);
-		font-family: 'Graduate' serif;
-		/*font-size: 32px;*/
-		/*box-shadow: 5px 5px 3px #666666;*/
 	}
 
 	h1 {
-		font-size: 72;
+		/*font-family: 'Archive', sans-serif;*/
+		
 	}
 	h2{
-		font-size: 40;
+		/*font-family: 'Graduate', sans-serif;*/
 	}
+
+/*A:link {text-decoration: none}*/
+/*A:visited {text-decoration: none}*/
+/*A:active {text-decoration: none}*/
+a:hover {text-decoration: none}
 </style>
 @stop
 
@@ -91,9 +133,37 @@
 @section('nav')
 @include('site.partials.nav-top-min')
 
-@show
+@stop
 
+@section('myjs')
+    <script type="text/javascript">
 
+	$('#side-wrapper').height($("#sidebar").height());
+
+	// $('#accordian').margin-top($("#name").height());
+    window.onload = function()
+    {
+    	// alert('bam!');
+        if(!window.jQuery)
+        {
+            alert('jQuery not loaded');
+        }
+        else
+        {
+            // $(document).ready(function(){
+            //     $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
+            // });
+        }
+    }
+
+    $('.collapse-group .btn').on('click', function(e) {
+	    e.preventDefault();
+	    var $this = $(this);
+	    var $collapse = $this.closest('.collapse-group').find('.collapse');
+	    $collapse.collapse('toggle');
+	});
+</script>
+@stop
 
 @section('main')
 <?php
@@ -116,143 +186,308 @@
 ?>
 
 <style>
+.accordion{
+	z-index: 1;
+}
 	.accordion-group{
 		border: none;
 	}
 	.page-header{
-		margin-top: 60px;
+		min-width: 100%;
+		min-height:120px;
+		padding-top: 20px;
+		/*margin-top: 60px;*/
+		/*margin-right: 0px;*/
+		/*margin-left: 0px;*/
+		margin-bottom: 20px;
+
+		background-color: rgba(3,71,105,1);
 		border-bottom: 0;
 	}
 	.page-header h1{
-		line-height: 1.2em;
+		/*line-height: 1.2em;*/
+		margin-top: 90px;
+		margin-bottom: 20px;
+		letter-spacing:-7px;
+		font-size: 144px;
+
 	}
 	.page-header h2{
+		font-family: 'Archive', sans-serif;
+		font-size: 40;
 		margin: 0;
 	}
 	.page-header h2:hover{
 		color: orange;
 	}
+	a:hover{
+		color:orange;
+	}
 	.iconbar{
 		font-size: 24px;
 	}
+	.well img{
+		/*min-height: 100px;*/
+		/*min-width: 100px;*/
+		/*padding:15px;*/
+		/*background-color: white;*/
+	}
+
+		.affix{
+		/*position: fixed;*/
+		/*width: 40%;*/
+		right:20px;
+	}
+
+	.accordion{
+		padding-left: 15%;
+	}
+	.page-header h1{
+		margin-left: 15%;
+	}
+
+	@media (min-width: 980px){
+		.accordion{
+			margin-top:80px;
+		}
+	}
+
+	@media (max-width: 979px) {
+		.page-header h1{
+			font-size: 72px;
+			padding-bottom: 15px;
+		}
+
+	}
+
+	.affix{
+		/*position: fixed;*/
+		/*width: 60%;*/
+		z-index:2;
+		right:20px;
+		left:20px;
+	}
+	.corner{
+		position: fixed;
+		left:-10px;
+		/*margin-top: -10px;*/
+		/*margin-left: -10px;*/
+	}
+
+	.sidebar h2, .sidebar h3{
+		text-align: right;
+	}
+
+	.sidebar h2{
+		text-shadow: 2px 2px 2px #A63A00;
+	}
+	
+
+
 </style>
 
+
+
 <div class="page-header">
-<h1>Advantage Services</h1>
-	<div class="span3 pull-right">
-		<!-- //sidebar -->
-		<!-- <div data-spy="affix" data-offset-top="60"> -->
-			<div class="iconbar" style="padding-top:5px">
-			<!-- 	<div class="iconbutton">
-					
-				</div> -->
-			    <a href="mailto:{{$company->email}}">
-			        <i class="icon-envelope-alt icon-2x"></i>
-			        <!-- <img src="http://gristech.com/buttons/email.png" class="img-circle"> -->
-			    </a>
-			    <a href="tel:{{$company->phone}}" class="social-icon">
-			        <i class="icon-phone-sign icon-2x"></i>
-			        <!-- <img src="http://gristech.com/buttons/email.png" class="img-circle"> -->
-			    </a>
-				<a href="http://facebook.com/{{$company->facebook}}" class="social-icon">
-				    <!-- <img src="http://gristech.com/img/facebook.png" class="img-circle"> -->
-					<i class="icon-facebook-sign icon-2x"></i>
-				</a>
-			    <!-- <a href="http://twitter.com/{{$company->twitter}}" class="social-icon"> -->
-
-			    	<!-- <i class="icon-twitter-sign icon-2x"></i> -->
-			        <!-- <img src="http://gristech.com/img/twitter.png" class="img-circle"> -->
-			    <!-- </a> -->
-			    <!-- <a href="http://linkedin.com/{{$company->linkedin}}" class="social-icon">
-			    	<i class="icon-linkedin-sign icon-2x"></i> -->
-			        <!-- <img src="http://gristech.com/buttons/linkedin.png" class="img-circle"> -->
-			    <!-- </a> -->
-			</div>
-			<p>We treat your home as our own</p>
-			<img src="{{asset($company->image)}}" alt="MyImage">
-		<!-- </div> -->
-	</div>
- <div class="accordion" id="accordion">
- 	<div class="accordion-group">
- 		<div class="accordion-heading">
- 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
- 				<h2>Painting</h2>
- 			</a>
- 		</div>
- 		<div id="collapseOne" class="accordion-body collapse">
- 			<!-- //add in to open on load -->
- 			<div class="accordion-inner">
- 				<h3>Exterior</h3>
-				<h3>Interior</h3>
-				<h3>Decks And Fences</h3>
- 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
- 			</div>
- 		</div>
- 	</div>
- 	<div class="accordion-group">
- 		<div class="accordion-heading">
- 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
- 				<h2>Roofing</h2>
- 			</a>
- 		</div>
- 		<div id="collapseTwo" class="accordion-body collapse">
- 			<div class="accordion-inner">
- 				
-				<h3>Repairs</h3>
-				<h3>Replacement</h3>
- 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
- 			</div>
- 		</div>
- 	</div>
- 	<div class="accordion-group">
- 		<div class="accordion-heading">
- 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
- 				<h2>Power Washing</h2>
- 			</a>
- 		</div>
- 		<div id="collapseThree" class="accordion-body collapse">
- 			<div class="accordion-inner">
- 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
- 			</div>
- 		</div>
- 	</div>
- 	<div class="accordion-group">
- 		<div class="accordion-heading">
- 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
- 				<h2>Gutter Cleaning</h2>
- 			</a>
- 		</div>
- 		<div id="collapseFour" class="accordion-body collapse">
- 			<div class="accordion-inner">
- 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
- 			</div>
- 		</div>
- 	</div>
- 	<div class="accordion-group">
- 		<div class="accordion-heading">
- 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
- 				<h2>Concrete Cleaning & Sealing</h2>
- 			</a>
- 		</div>
- 		<div id="collapseFive" class="accordion-body collapse">
- 			<div class="accordion-inner">
- 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
- 			</div>
- 		</div>
- 	</div>
- </div>
-
-
-	
-	
-		
-	
-	
-	
-	
+	<div class="corner">
+	<img src="{{asset('assets/advantage/corner.png')}}" alt="le corner">
 </div>
 
-<div class="notes">
+
+
+	<div class="row-fluid">
+		<div class="span4 pull-right" id="side-wrapper">
+			<!-- <div class="sidebar well"> -->
+			<div id="sidebar" class="sidebar well" data-spy="affix" data-offset='1'>
+			<!-- //sidebar -->
+				<!-- <img class="img-circle" src="{{asset($company->image)}}" alt="MyImage"> -->
+
+				<div class="tab-content">    
+					<div class="tab-pane active" id="about">
+					  <h2>About Us</h2>
+					  <div class="collapse-group">
+						<div class="collapse in">
+						  	<img class="img-circle pull-left" src="http://placehold.it/64x64/BF6230/123456">
+
+						    <h3>We treat your home as our own</h3>
+
+						    <p>Advantage Services is a family owned business with a standard of excellence in all aspects of Residential and Commercial Painting, Roofing, Deck and Fence Staining, and Power Washing. Formerly known as Advantage Painting, Advantage Services has been known throughout Columbus and it's surrounding areas as the first name in professionalism and quality, since 1990.</p>							
+						</div>
+						<p><a class="btn" href="#">~Toggle~<i class="icon-hand-up"></i></a></p>
+					  </div>
+					</div>
+					<div class="tab-pane" id="exterior">
+						<h2>Exterior</h2>
+						<!-- <div class="text-center span5"> -->
+							<img class="img-circle" src="http://placehold.it/300x300/867345/123456">
+						<!-- </div> -->
+						<!-- <div class="span5"> -->
+							<h3>Craftsmanship Matters</h3>
+						<!-- </div> -->
+					  	<p>Here is a beautiful home we painted recently.</p>
+					</div>
+					<div class="tab-pane" id="interior">
+					  <h2>Interior</h2>
+					  <p>Howdy, I'm interior.</p>
+					</div>
+					<div class="tab-pane" id="decks">
+					  <h2>Decks</h2>
+					  <p>Howdy, I'm decks.</p>
+					</div>
+					<div class="tab-pane" id="repairs">
+					  <h2>Repairs</h2>
+					  <p>Howdy, I'm repairs.</p>
+					</div>
+					<div class="tab-pane" id="replacement">
+					  <h2>Full Roof</h2>
+					  
+					  <p>Howdy, I'm replacement.</p>
+					</div>
+					<div class="tab-pane" id="power">
+					  <h2>Power</h2>
+					  <p>Howdy, I'm power.</p>
+					</div>
+					<div class="tab-pane" id="gutter">
+					  <h2>Gutter</h2>
+					  <p>Howdy, I'm gutter.</p>
+					</div>
+					<div class="tab-pane" id="concrete">
+					  <h2>Concrete</h2>
+					  <p>Howdy, I'm concrete.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="span7">
+			<a href="#about" data-toggle="tab">
+				<h1>Advantage Services</h1>
+			</a>
+
+			<div class="accordion" id="accordion">
+			 	<div class="accordion-group">
+			 		<div class="accordion-heading">
+			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+			 				<h2>Painting</h2>
+			 			</a>
+			 		</div>
+			 		<div id="collapseOne" class="accordion-body collapse">
+			 			<!-- //add in to open on load -->
+			 			<div class="accordion-inner">
+			 				<a href="#exterior" data-toggle="tab">
+			 					<h3 >Exterior</h3>
+			 				</a>
+
+			 				<a href="#interior" data-toggle="tab">
+								<h3>Interior</h3>
+			 				</a>
+
+							<a href="#decks" data-toggle="tab">
+								<h3>Decks And Fences</h3>
+							</a>
+
+			 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+			 			</div>
+			 		</div>
+			 	</div>
+			 	<div class="accordion-group">
+			 		<div class="accordion-heading">
+			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+			 				<h2>Roofing</h2>
+			 			</a>
+			 		</div>
+			 		<div id="collapseTwo" class="accordion-body collapse">
+			 			<div class="accordion-inner">
+			 				
+			 				<a href="#repairs" data-toggle="tab">
+			 					<h3>Repairs</h3>
+			 				</a>
+
+
+
+
+							<a href="#replacement" data-toggle="tab">
+			 					<h3>Replacement</h3>
+			 				</a>
+			 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+			 			</div>
+			 		</div>
+			 	</div>
+			 	<div class="accordion-group">
+			 		<div class="accordion-heading">
+			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+							<h2>Power Washing</h2>
+			 			</a>
+			 		</div>
+			 		<div id="collapseThree" class="accordion-body collapse">
+
+			 			<div class="accordion-inner">
+			 				<a href="#power" data-toggle="tab">
+								<h3>Power</h3>
+							</a>
+			 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+			 			</div>
+			 		</div>
+			 	</div>
+			 	<div class="accordion-group">
+			 		<div class="accordion-heading">
+			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+			 				<h2>Gutter Cleaning</h2>
+			 			</a>
+			 		</div>
+			 		<div id="collapseFour" class="accordion-body collapse">
+			 			<div class="accordion-inner">
+			 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+			 			</div>
+			 		</div>
+			 	</div>
+			 	<div class="accordion-group">
+			 		<div class="accordion-heading">
+			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
+			 				<h2>Concrete Cleaning & Sealing</h2>
+			 			</a>
+			 		</div>
+			 		<div id="collapseFive" class="accordion-body collapse">
+			 			<div class="accordion-inner">
+			 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+			 			</div>
+			 		</div>
+			 		<!-- ./collapse -->
+			 	</div>
+			 	<!-- ./ accordian-group -->
+			</div>
+			<!-- ./ accordian -->
+
+		</div>
+	</div>
+	
+<!-- 	<div class="span4 pull-right">
+		<div class="well" data-spy="affix" data-offset-top="200">
+			<h2>Foobar</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, impedit, recusandae eius modi cumque obcaecati iusto corporis harum omnis ea expedita possimus sequi aliquam enim consequuntur soluta veniam a nihil.</p>
+		</div>
+	</div> -->
+
+
+
+	<div class="tabbable"> <!-- Only required for left/right tabs -->
+		<a href="#about" data-toggle="tab"> about</a>
+		<a href="#contact" data-toggle="tab"> contact</a>
+		<a href="#payments" data-toggle="tab">payments</a>
+	</div>
+	<!-- ./ tabbable -->
+</div>
+<!-- ./ page-header -->
+
+<style>
+	.note{
+		background-color: #ffa640;
+		border-style:solid;
+		border-width:medium;
+		border-color: #a63a00;
+	}
+</style>
+
+<div class="note">
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, ratione magni illo nam iusto accusantium distinctio optio consectetur aliquid eveniet.</p>
 </div>
 
@@ -347,6 +582,9 @@ font-family:myFirstFont;
 
 	<div class="span8 offset4">
 		<h1>Posts:</h1>
+<?
+// var_dump($posts);
+?>
 		<div class="text-center">
 		{{ $posts->links() }}
 		</div>

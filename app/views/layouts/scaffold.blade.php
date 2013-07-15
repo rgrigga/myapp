@@ -75,11 +75,13 @@
             @endif
 
             @yield('main')
-            @yield('footer')
+            
             @yield('hotel')
         </div>
-    @yield('myjs')
+        @yield('footer')
     @javascripts('public-js')
+    @yield('myjs')
+
     </body>
 
 </html>

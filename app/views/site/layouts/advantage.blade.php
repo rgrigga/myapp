@@ -1,5 +1,6 @@
 @extends('site.layouts.company2')
 
+die("layout");
 <!-- 
 Company Properties:
 Styles
