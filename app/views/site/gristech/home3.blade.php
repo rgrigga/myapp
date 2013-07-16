@@ -5,6 +5,10 @@
 @parent
 @stop
 
+@section('nav')
+
+@stop
+
 @section('main')
 
 

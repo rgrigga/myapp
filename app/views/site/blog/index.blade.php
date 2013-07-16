@@ -30,14 +30,15 @@
 		/*box-shadow: 5px 5px 3px #666666;*/
 	}
 </style>
-@show
+@stop
 
 @section('nav')
-@include('site.partials.nav-top-min')
-@stop
+@include('site.partials.nav-top-inverse')
 <!-- @ include('site.partials.nav2') -->
 	<!-- ./ nav section -->
 {{-- Content --}}
+@show
+
 @section('main')
 <?php
 	$env=App::environment();

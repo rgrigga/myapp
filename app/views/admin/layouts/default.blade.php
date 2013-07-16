@@ -21,7 +21,7 @@
 		================================================== -->
         {{ Basset::show('admin-css.css') }}
 
-// http://stackoverflow.com/questions/5506258/horizontal-scroll-overflowing-html-lis-without-knowing-width*/
+<!-- // http://stackoverflow.com/questions/5506258/horizontal-scroll-overflowing-html-lis-without-knowing-width*/ -->
 		@section('styles')
 		<style>
 		.page-header{

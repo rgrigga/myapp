@@ -30,6 +30,10 @@
 	.container{
 		width: 100%;
 	}
+	.below{
+		padding-right: 20px;
+		padding-left:20px;
+	}
 
 	html,body {
 		
@@ -208,6 +212,7 @@ a:hover {text-decoration: none}
 		margin-top: 90px;
 		margin-bottom: 20px;
 		letter-spacing:-7px;
+		line-height: .5em;
 		font-size: 144px;
 
 	}
@@ -289,10 +294,8 @@ a:hover {text-decoration: none}
 
 <div class="page-header">
 	<div class="corner">
-	<img src="{{asset('assets/advantage/corner.png')}}" alt="le corner">
-</div>
-
-
+		<img src="{{asset('assets/advantage/corner.png')}}" alt="le corner">
+	</div>
 
 	<div class="row-fluid">
 		<div class="span4 pull-right" id="side-wrapper">
@@ -486,100 +489,83 @@ a:hover {text-decoration: none}
 	}
 </style>
 
-<div class="note">
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, ratione magni illo nam iusto accusantium distinctio optio consectetur aliquid eveniet.</p>
-</div>
 
-<style> 
-/*@font-face
-{
-font-family: myFirstFont;
-src: url(sansation_light.ttf);
-}
+<!-- ************************************** -->
+<!-- BOTTOM -->
 
-div
-{
-font-family:myFirstFont;
-}*/
-</style>
-
-<div class="row-fluid">
-
-	<!-- sidebar -->
-
-	<div class="row9">
-		<!-- //main area -->
-
+<div class="below">
+	
+	<div class="note">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, ratione magni illo nam iusto accusantium distinctio optio consectetur aliquid eveniet.</p>
 	</div>
-</div>
-
-<style>
-	.hero-unit{
-		color: black;
-	}
-</style>
 
 
-<div class="row-fluid">
-	<div class="hero-unit">
-    <h1>Advantage Services</h1>
-    <?php 
-        $items = array('Painting','Roofing', 'Concrete', 'Blacktop');
-    ?>
+	<style>
+		.hero-unit{
+			color: black;
+		}
+	</style>
 
-    <ul>
-    @foreach($items as $item)
-        <li>{{$item}}</li> 
-    @endforeach
-    </ul>
-    
-    <div class="h2">We treat Your Home as our own.</div>
-    <p>
-    	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, pariatur, repudiandae, minima reprehenderit perferendis suscipit aperiam earum vitae animi a obcaecati ducimus corporis necessitatibus atque expedita harum quod ea dicta tenetur asperiores alias corrupti distinctio consequatur culpa possimus aspernatur modi fugiat consectetur facilis officia ad debitis sapiente nulla inventore error!
-    </p>
-  </div>
-</div>
+	<div class="row-fluid">
+		<div class="hero-unit">
+	    <h1>Advantage Services</h1>
+	    <?php 
+	        $items = array('Painting','Roofing', 'Concrete', 'Blacktop');
+	    ?>
 
-<div class="row-fluid">
-	<div class="tabbable"> <!-- Only required for left/right tabs -->
-	  <ul class="nav nav-pills">
-		@foreach($company->menus() as $menu)
-	    <li><a href="#{{$menu}}" data-toggle="tab"><i class="icon-rocket icon-4x"></i> {{{$menu}}}</a></li>
+	    <ul>
+	    @foreach($items as $item)
+	        <li>{{$item}}</li> 
 	    @endforeach
-	    <li class="active"><a href="#tab1" data-toggle="tab">Section 2</a></li>
-	  </ul>
-	  
-	  <div class="tab-content">
-	    @foreach($company->menus() as $menu)
-	    <div class="tab-pane" id="{{{$menu}}}">
-	      <p>Howdy, I'm {{{$menu}}}.</p>
-	    </div>
-	    @endforeach
-	    <div class="tab-pane active" id="tab1">
-	      <p>Advantage Services is a family owned business with a standard of excellence in all aspects of Residential and Commercial Painting, Roofing, Deck and Fence Staining, and Power Washing. Formerly known as Advantage Painting, Advantage Services has been known throughout Columbus and it's surrounding areas as the first name in professionalism and quality, since 1990.</p>
-	    </div>
+	    </ul>
+	    
+	    <div class="h2">We treat Your Home as our own.</div>
+	    <p>
+	    	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, pariatur, repudiandae, minima reprehenderit perferendis suscipit aperiam earum vitae animi a obcaecati ducimus corporis necessitatibus atque expedita harum quod ea dicta tenetur asperiores alias corrupti distinctio consequatur culpa possimus aspernatur modi fugiat consectetur facilis officia ad debitis sapiente nulla inventore error!
+	    </p>
 	  </div>
 	</div>
-</div>
 
-<div class="row-fluid">
-	<div class="span4">
-		<!-- <div class="pull-right"> -->
-		<!-- <img src="{{asset($company->image)}}" alt="MyImage"> -->
-	<!-- </div> -->
-	<div>ID: {{{ $company->id }}}</div>
-	<div>Name: {{{ $company->name }}}</div>
-	<div>Brand: {{{ $company->brand }}}</div>
-	<div>Phone: {{{ $company->phone }}}</div>
-	<div>Email: {{{ $company->email }}}</div>
-	<div>Description: {{{ $company->description }}}</div>
-	<div>Slogan: {{{ $company->slogan }}}</div>
-	<div>Image: {{{ $company->image }}}</div>
-	<div>Menus: {{{ $company->menus }}}</div>
+	<div class="row-fluid">
+		<div class="tabbable"> <!-- Only required for left/right tabs -->
+		  <ul class="nav nav-pills">
+			@foreach($company->menus() as $menu)
+		    <li><a href="#{{$menu}}" data-toggle="tab"><i class="icon-rocket icon-4x"></i> {{{$menu}}}</a></li>
+		    @endforeach
+		    <li class="active"><a href="#tab1" data-toggle="tab">Section 2</a></li>
+		  </ul>
+		  
+		  <div class="tab-content">
+		    @foreach($company->menus() as $menu)
+		    <div class="tab-pane" id="{{{$menu}}}">
+		      <p>Howdy, I'm {{{$menu}}}.</p>
+		    </div>
+		    @endforeach
+		    <div class="tab-pane active" id="tab1">
+		      <p>Advantage Services is a family owned business with a standard of excellence in all aspects of Residential and Commercial Painting, Roofing, Deck and Fence Staining, and Power Washing. Formerly known as Advantage Painting, Advantage Services has been known throughout Columbus and it's surrounding areas as the first name in professionalism and quality, since 1990.</p>
+		    </div>
+		  </div>
+		</div>
 	</div>
-</div>
 
-	<div class="span8 offset4">
+	<div class="row-fluid">
+		<div class="span4">
+			<!-- <div class="pull-right"> -->
+			<!-- <img src="{{asset($company->image)}}" alt="MyImage"> -->
+		<!-- </div> -->
+		<div>ID: {{{ $company->id }}}</div>
+		<div>Name: {{{ $company->name }}}</div>
+		<div>Brand: {{{ $company->brand }}}</div>
+		<div>Phone: {{{ $company->phone }}}</div>
+		<div>Email: {{{ $company->email }}}</div>
+		<div>Description: {{{ $company->description }}}</div>
+		<div>Slogan: {{{ $company->slogan }}}</div>
+		<div>Image: {{{ $company->image }}}</div>
+		<div>Menus: {{{ $company->menus }}}</div>
+		</div>
+	</div>
+
+	<div class="row-fluid" id="posts">
 		<h1>Posts:</h1>
 <?
 // var_dump($posts);
@@ -588,57 +574,60 @@ font-family:myFirstFont;
 		{{ $posts->links() }}
 		</div>
 	
-@foreach ($posts as $post)
-	<div class="row-fluid">
-		<div class="span3">
-			<p></p>
-			<p>
-		<!-- Edit/Delete Buttons -->
-			<div class="metabuttons pull-left">
-				@if (Auth::check())
-	                @if (Auth::user()->hasRole('admin'))
-						<p>
-							<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
-							<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
-						| </p>
-					@endif
-				@endif
+		@foreach ($posts as $post)
+			<div class="row-fluid">
+				<div class="span3">
+					<p></p>
+					<p>
+				<!-- Edit/Delete Buttons -->
+					<div class="metabuttons pull-left">
+						@if (Auth::check())
+			                @if (Auth::user()->hasRole('admin'))
+								<p>
+									<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
+									<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
+								| </p>
+							@endif
+						@endif
+					</div>
+
+					<!-- Comments -->
+						&nbsp;<i class="icon-user"></i> by <span class="muted">{{{ $post->author->username }}}</span>
+						| <i class="icon-calendar"></i> <!--Sept 16th, 2012-->{{{ $post->date() }}}
+						| <i class="icon-comment"></i> <a href="{{{ $post->url() }}}#comments">{{$post->comments()->count()}} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
+					</p>
+				</div>
+			</div>
+			
+
+			<div class="well">
+				{{$post->title}}
+				{{$post->img}}
+
+				<h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
+				<p>
+				{{ String::tidy(Str::limit($post->meta_description, 158)) }}
+				</p>
+				<p>
+					<a class="btn btn-info" href="{{{ $post->url() }}}">more</a>
+				</p>
 			</div>
 
-			<!-- Comments -->
-				&nbsp;<i class="icon-user"></i> by <span class="muted">{{{ $post->author->username }}}</span>
-				| <i class="icon-calendar"></i> <!--Sept 16th, 2012-->{{{ $post->date() }}}
-				| <i class="icon-comment"></i> <a href="{{{ $post->url() }}}#comments">{{$post->comments()->count()}} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
-			</p>
-		</div>
-	</div>
-	
+			<ul class='tag'>
+				<li><i class="icon-tag"></i></li>
+				@foreach($post->tags() as $tag)
+					
+				    <li><a href="{{ $tag }}">{{ $tag }}</a></li>
+				    
+				@endforeach
+			</ul>
 
-	<div class="well">
-		{{$post->title}}
-		{{$post->img}}
-
-		<h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
-		<p>
-		{{ String::tidy(Str::limit($post->meta_description, 158)) }}
-		</p>
-		<p>
-			<a class="btn btn-info" href="{{{ $post->url() }}}">more</a>
-		</p>
-	</div>
-
-	<ul class='tag'>
-		<li><i class="icon-tag"></i></li>
-		@foreach($post->tags() as $tag)
-			
-		    <li><a href="{{ $tag }}">{{ $tag }}</a></li>
-		    
 		@endforeach
-	</ul>
-
-@endforeach
-{{ $posts->links() }}
-</div></div>
+		{{ $posts->links() }}
+	</div>
+	<!-- ./ row -->
+</div>
+<!-- ./below -->
 <!-- ************************************************ -->
 
 
@@ -646,5 +635,9 @@ font-family:myFirstFont;
 
 	
 
-	</div>
+	<!-- </div> -->
+
+<!-- </div> -->
+<!-- ./below -->
+
 @stop
