@@ -16,7 +16,7 @@
 @stop
 
 @section('styles')
-
+<!-- http://colorschemedesigner.com/#0k41Jw0w0w0w0 -->
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
 <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Graduate' rel='stylesheet' type='text/css'>

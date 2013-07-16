@@ -77,6 +77,29 @@ class BlogController extends BaseController {
 
 // die("BAM CONZTROLLER");
 
+		$views=array();
+
+		//try 
+
+
+
+		$companies=$this->company->get();
+		// $names=$names->get('names');
+		$names = array();
+		foreach ($this->company->get() as $c) {
+			array_push($names, $c->brand);
+			// foreach ($c->tags() as $mytag) {
+				// if(!in_array($mytag, $alltags)){
+					// array_push($alltags, trim($mytag));
+				// }
+			// }
+		}		
+
+		if(in_array($tag, $names)){
+			return View::make('site.'.$tag.'.home');
+		}
+		// die(var_dump($names));
+
 		//Loads the default company
 		$company = $this->company->findOrFail(3);
 		// die(var_dump($company));
@@ -94,12 +117,20 @@ class BlogController extends BaseController {
 			
 		//let's check to see if a page exists for this tag:
 		$env=App::environment();
+
 	    if($env=="local"){
 	    	$path='/home/ryan/MyApp6/app/views/site/pages/';
 	    }
 	    else{
 	    	$path='/home/gristech/myapp/app/views/site/pages/';
 	    }
+
+	    //check to see if company name exists
+	    // foreach($this->company->name){
+	    // 	$tag
+	    // }
+
+
 	    $mypages = array();
 	    foreach (glob($path."*.blade.php") as $filename) {
 	        $filename=str_replace($path, "", $filename);

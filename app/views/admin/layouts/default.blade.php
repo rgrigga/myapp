@@ -6,7 +6,7 @@
 		<meta charset="utf-8" />
 		<title>
 			@section('title')
-			Administration
+			admin.layouts.default
 			@show
 		</title>
 		<meta name="keywords" content="your, awesome, keywords, here" />
@@ -162,17 +162,17 @@
 /*http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site*/
 
 	.contentwrap{
-padding-top: 60px;
+	padding-top: 60px;
 	}
 
-@media screen and (max-width: 979px) {
-    .contentwrap { padding-top: 0px; }
-}
+	@media screen and (max-width: 979px) {
+	    .contentwrap { padding-top: 0px; }
+	}
 
 </style>
 <div class="contentwrap">
 			<!-- Content -->
-			@yield('content')
+			@yield('main')
 			<!-- ./ content -->
 		</div>
 		<!-- ./ container -->

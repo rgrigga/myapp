@@ -19,7 +19,7 @@
 						<span class="icon-bar"></span>
 					</a> -->
 
-			<a class="brand" href="#">{{$brand}}</a>
+			<a class="brand" href="#">{{{$company->brand}}}</a>
 			
 			<div class="pull-right">
 			    @include('site.partials.contact-buckeye')
@@ -30,9 +30,9 @@
 				<ul class="nav">
 					<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a>
 					</li>
-
+					<?php $menus=$company->menus(); ?>
 					@foreach ($menus as $menu)
-					<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to('#'.$menu) }}}">{{ucfirst($menu)}}</a></li>
+					<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to('#'.$menu) }}}">{{{ucfirst($menu)}}}</a></li>
 					@endforeach
 
 				</ul>

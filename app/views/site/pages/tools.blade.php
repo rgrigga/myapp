@@ -319,8 +319,8 @@ p.photocredit {
 	margin:1em auto 80px;
 	border:10px solid #c81e2b; 
 	text-align:center;
-	color:#333; 
-	background:#fff;
+	color:purple; 
+	background:green;
 	/* css3 */
 	/*
 	NOTES:
@@ -346,7 +346,7 @@ p.photocredit {
 	width:50px; 
 	height:50px;
 	border:10px solid #c81e2b;
-	background:#fff;
+	background:blue;
 	/* css3 */
 	-webkit-border-radius:50px;
 	-moz-border-radius:50px;
@@ -365,7 +365,7 @@ p.photocredit {
 	width:25px; 
 	height:25px; 
 	border:10px solid #c81e2b;
-	background:#fff;
+	background:orange;
 	/* css3 */
 	-webkit-border-radius:25px;
 	-moz-border-radius:25px;
@@ -375,8 +375,27 @@ p.photocredit {
 }
 
 
+
+
 </style>
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+<div class="kilo delta">
+<h1>h1</h1>
+<h2>h2</h2>
+<h3>h3</h3>	
+<h4>h4</h4>
+<h5>h5</h5>
+<h6>h6</h6>
+<p>p</p>
+
+
+
+
+
+
+
+</div>
 
 
 <pre>
@@ -471,14 +490,14 @@ $code='foo';
 	<div class="span3 thumbnail">
 		<img src="http://gristech.com/img/thinker.png" alt="think about it">
 
-		<a href="http://nicolasgallagher.com/pure-css-speech-bubbles/demo/">Speech Bubble</a>
+		
 	</div>
 	<div class="span3 triangle-obtuse">
-		<p>Lorem ipsum <div class="HL">Lorem ipsum dolor.</div>dolor sit amet, consectetur adipisicing elit. Cumque, labore.</p>
+		<p>Lorem ipsum <div class="HL">This is class=\"HL\"</div><a href="http://nicolasgallagher.com/pure-css-speech-bubbles/demo/">Speech Bubble</a></p>
 		
 
 	</div>
-	<div class="span2 oval-thought-border">Lorem ipsum dolor sit amet.</div>
+	<div class="span2 oval-thought-border">This bubble is entirely CSS.</div>
 
 </div>
 <h3>Search Laravel Docs:</h3>
@@ -786,7 +805,6 @@ $code='foo';
 <p><span>A random nature image</span></p>
 
 </div>
-<p></p>
 <p><span>Not like the brazen giant of Greek fame,
 With conquering limbs astride from land to land;
 Here at our sea-washed, sunset gates shall stand
