@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateTweetsTable extends Migration {
+class AddNameToCompaniesTable extends Migration {
 
     /**
      * Run the migrations.
@@ -12,11 +12,8 @@ class CreateTweetsTable extends Migration {
      */
     public function up()
     {
-        Schema::create('tweets', function(Blueprint $table) {
-            $table->increments('id');
-            $table->string('author');
-			$table->text('description');
-            $table->timestamps();
+        Schema::table('companies', function(Blueprint $table) {
+            $table->string('name');
         });
     }
 
@@ -27,7 +24,9 @@ class CreateTweetsTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('tweets');
+        Schema::table('companies', function(Blueprint $table) {
+            $table->dropColumn('name');
+        });
     }
 
 }

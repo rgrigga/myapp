@@ -12,16 +12,19 @@
 			<div class="navbar-inner">
 
 				<div class="container">
-					<a class="btn btn-navbar pull-left" data-toggle="collapse" data-target=".nav-collapse">
-
-						<!-- <i class="icon-collapse icon-2x"></i> -->
+<!-- 					<a class="btn btn-navbar pull-left" data-toggle="collapse" data-target=".nav-collapse">
+						<i class="icon-collapse icon-2x"></i>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
-					</a>
+					</a> -->
 
 			<a class="brand" href="#">{{$brand}}</a>
-
+			
+			<div class="pull-right">
+			    @include('site.partials.contact-buckeye')
+			</div>
+			
 			<div class="nav-collapse collapse">
 				
 				<ul class="nav">
@@ -48,7 +51,7 @@
                             @else
 	                            <!-- <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">Login</a></li> -->
                             @endif
-                            @include('site.partials.contact-buckeye')
+                            
                         </ul>
 					</div>
 					<!-- ./ nav-collapse -->
@@ -56,11 +59,10 @@
 
 			</div>
 			<!-- //this is the only place to put india! -->
-			<div class="india pull-right">
-				<!-- <div>phone, email, chat, anything!</div> -->
+<!-- 			<div class="india pull-right">
 				<div>
 					<img src="{{asset('assets/buckeye/scheduleonline.png')}}" alt="mobile mower repair">
 				</div>
-			</div>
+			</div> -->
 		</div>
 		<!-- ./ navbar -->

@@ -28,12 +28,35 @@ return array(
 
     'collections' => array(
 
+        
+        'buckeye-css' => function($collection)
+        {
+            $collection->directory('assets/buckeye/css', function($collection)
+            {
+                $collection->add('bootstrap.min.css');
+                $collection->add('bootstrap-responsive.min.css');
+                $collection->add('buckeye.css');
+            })->apply('UriRewriteFilter')->setArguments(public_path());
+        },
+
+        'buckeye-js' => function($collection)
+        {
+            $collection->directory('assets/buckeye/js', function($collection)
+            {
+                $collection->add('jquery.v1.8.3.min.js');
+                $collection->add('bootstrap/bootstrap.min.js');
+            })->apply('UriRewriteFilter')->setArguments(public_path());
+        },
+
+
+
         'public-css' => function($collection)
         {
             $collection->directory('assets/css', function($collection)
             {
                 $collection->add('bootstrap.min.css');
                 $collection->add('bootstrap-responsive.min.css');
+                // $collection->add('redactor/redactor.min.js');
                 $collection->add('style.css');
             })->apply('UriRewriteFilter')->setArguments(public_path());
         },
@@ -43,8 +66,13 @@ return array(
             {
                 $collection->add('jquery.v1.8.3.min.js');
                 $collection->add('bootstrap/bootstrap.min.js');
+                $collection->add('redactor/redactor.min.js');
+                $collection->add('redactor/redactor.css');
             })->apply('UriRewriteFilter')->setArguments(public_path());
         },
+
+
+
         'admin-css' => function($collection)
         {
             $collection->directory('assets/css', function($collection)
@@ -65,6 +93,8 @@ return array(
                 $collection->add('prettify.js');
                 $collection->add('bootstrap/bootstrap.min.js');
                 $collection->add('wysihtml5/bootstrap-wysihtml5.js');
+                $collection->add('redactor/redactor.min.js');
+                $collection->add('redactor/redactor.css');
             })->apply('UriRewriteFilter')->setArguments(public_path());
         },
 

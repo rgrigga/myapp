@@ -1,4 +1,4 @@
-@extends('layouts.scaffold')
+@extends('admin.layouts.default')
 
 @section('main')
 
@@ -12,8 +12,18 @@
         </li>
 
         <li>
+            {{ Form::label('name', 'Name:') }}
+            {{ Form::text('name') }}
+        </li>
+
+        <li>
             {{ Form::label('phone', 'Phone:') }}
             {{ Form::text('phone') }}
+        </li>
+
+        <li>
+            {{ Form::label('email', 'Email:') }}
+            {{ Form::text('email') }}
         </li>
 
         <li>
@@ -29,11 +39,6 @@
         <li>
             {{ Form::label('image', 'Image:') }}
             {{ Form::text('image') }}
-        </li>
-
-        <li>
-            {{ Form::label('email', 'Email:') }}
-            {{ Form::text('email') }}
         </li>
 
         <li>

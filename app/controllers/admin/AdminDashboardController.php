@@ -8,14 +8,22 @@ class AdminDashboardController extends AdminController {
      */
     protected $post;
 
+        /**
+     * Company Model
+     * @var Company
+     */
+    protected $company;
+
     /**
      * Inject the models.
      * @param post $post
+     * @param company $company
      */
-    public function __construct(Post $post)
+    public function __construct(Post $post, Company $company)
     {
         parent::__construct();
         $this->post = $post;
+        $this->company = $company;
     }
 
 	/**

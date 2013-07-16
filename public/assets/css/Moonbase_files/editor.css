@@ -1,0 +1,60 @@
+/*
+
+Save/Publish
+
+*/
+
+.project-menu {
+  color: #86868f;
+  float: left;
+  margin: 16px 0 0 18px;
+}
+
+.project-menu .save, .project-menu .publish, .project-menu .new {
+  text-transform: uppercase;
+  cursor: pointer;
+  display: block;
+  float: left;
+}
+
+.project-menu .divider {
+  display: block;
+  float: left;
+  margin: -3px 5px 0 5px;
+  font-size: 130%;
+}
+
+/*#editor-menu-bar .title {*/
+.header .title {
+  float: right;
+  margin: 16px 0px 0 0;
+  text-align: right;
+  font-size: 18px;
+  letter-spacing: .08em;
+  color: #86868f;
+}
+
+.header .edit-icon {
+  font-size: 12px;
+  margin: 22px 10px 0 5px;
+  background: none;
+  float: right;
+  text-decoration: none;
+  color: #5a5a66;
+}
+
+.header .title input, .header .title input:focus {
+  font-weight: normal;
+  font-size: 18px;
+  width: 140px;
+  outline: none;
+  float: right;
+  text-align: right;
+  letter-spacing: .08em;
+  color: white;
+  border: none;
+  border-bottom: 1px dashed rgba(255,255,255,0.2);
+  background-color: transparent;
+}
+
+/* { outline: 1px dotted red; } * * { outline: 1px dotted green;} * * * { outline: 1px dotted orange;} * * * * { outline: 1px dotted blue;} * * * * * { outline: 1px solid fuchsia;} * * * * * * { outline: 1px solid teal;} * * * * * * * { outline: 1px solid indigo;} * * * * * * * * { outline: 1px solid brown;

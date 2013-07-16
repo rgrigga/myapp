@@ -1,49 +1,42 @@
-@extends('layouts.scaffold')
+@extends('admin.layouts.default')
 
-@section('main')
+@section('nav')
+<!-- @ include('admin') -->
+@stop
+@section('content')
 
 <h1>All Companies</h1>
 
 <p>{{ link_to_route('companies.create', 'Add new company') }}</p>
 
 @if ($companies->count())
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>Brand</th>
-				<th>Phone</th>
-				<th>Description</th>
-				<th>Slogan</th>
-				<th>Image</th>
-				<th>Menus</th>
-				<th>Email</th>
-            </tr>
-        </thead>
-
-        <tbody>
+<div class="row">
             @foreach ($companies as $company)
-                <tr>
-                    <td>{{{ $company->id }}}</td>
-                    <td>{{{ $company->brand }}}</td>
-					<td>{{{ $company->phone }}}</td>
-					<td>{{{ $company->description }}}</td>
-					<td>{{{ $company->slogan }}}</td>
-					<td>{{{ $company->image }}}</td>
-					<td>{{{ $company->menus }}}</td>
-					<td>{{{ $company->email }}}</td>
-                    <td>{{ link_to_route('companies.edit', 'Edit', array($company->id), array('class' => 'btn btn-info')) }}</td>
-                    <td>
-                        {{ Form::open(array('method' => 'DELETE', 'route' => array('companies.destroy', $company->id))) }}
-                            {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
-                        {{ Form::close() }}
-                    </td>
-                </tr>
+            
+            
+            <div class="well span4">
+                <h2>{{{ $company->id }}}: {{{ $company->name }}}</h2>
+                <img src="{{{asset($company->image)}}}" alt="">
+                
+                <p>{{{ $company->brand }}}</p>
+                <p>"{{{ $company->slogan }}}"</p>
+                <p>{{{ $company->description }}}</p>
+
+                <p>{{{ $company->phone }}}</p>
+                <p>{{{ $company->email }}}</p>
+                {{ link_to_route('companies.edit', 'Edit', array($company->id), array('class' => 'btn btn-info')) }}
+                {{ Form::open(array('method' => 'DELETE', 'route' => array('companies.destroy', $company->id))) }}
+                {{ Form::submit('Delete', array('class'=> 'btn btn-danger')) }}
+                {{ Form::close() }}
+            </div>
+
+
+                
             @endforeach
-        </tbody>
-    </table>
-@else
+            </div>
+            @else
     There are no companies
 @endif
 
 @stop
+                

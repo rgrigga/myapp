@@ -6,6 +6,7 @@
 			padding-top: 60px;
 		}
 		</style>
+
 		<div class="navbar navbar-fixed-top">
 
 			<div class="navbar-inner">
@@ -20,24 +21,21 @@
 						<span class="icon-bar"></span>
 					</a>
 					<?php 
+					
 						// if(!$company){$company="MegaCorp";} 
 					?>
-					<a class="brand" style="margin-left:30px;" href="#">{{{$brand}}}</a>
+					<a class="brand" style="margin-left:30px;" href="#">{{{$company->brand}}}</a>
 
 					<div class="nav-collapse collapse">
 						
 						<ul class="nav">
 
-						<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
+<!-- 						<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('#') }}}">Home</a></li> -->
 
-						<?php 
-						if(!$menus){
-						$menus=array('','tools','features','tags');
-						}
-						?>
 
-						@foreach ($menus as $menu)
-						<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to('/'.$menu) }}}">{{{$menu}}}</a></li>
+
+						@foreach ($company->menus() as $menu)
+						<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to('#'.$menu) }}}">{{{ucfirst($menu)}}}</a></li>
 
 						@endforeach
 
@@ -67,11 +65,9 @@
 			</div>
 			<!-- //this is the only place to put india! -->
 			<div class="india pull-right">
-					<!-- <div>phone, email, chat, anything!</div> -->
 				<div>
 					<img src="http://gristech.com/img/contactus.png" alt="learn php laravel web design">
 				</div>
-			        
 			</div>
 		</div>
 		<!-- ./ navbar -->

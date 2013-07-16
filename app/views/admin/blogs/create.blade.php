@@ -17,21 +17,16 @@ Create a New Blog Post ::
 		</div>
 	</h3>
 
-<!-- <<<<<<< HEAD -->
 	<p>Howdy. This is the create page... Required fields are:</p>
 	 
 	 <ul>
 	 	<li>"Title"</li>
-	 	<!-- <li>""</li> -->
 		<li>"Content"</li>
 	 	<li>"Image"</li> 
 	 </ul>
 
 	 <p>Please create those, then click "publish", then we'll add some better details through the "Edit" page.</p>
 
-<!-- ======= -->
-	<p>Howdy. This is the create post page... Required fields are "Title" "Content" and "Image".  Please create those, then click "publish", then we'll add some better details through the "Update" page.</p>
-<!-- >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3 -->
 </div>
 
 <!-- Tabs -->

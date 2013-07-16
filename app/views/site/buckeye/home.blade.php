@@ -1,28 +1,13 @@
-@extends('site.layouts.advantage')
+@extends('site.layouts.company2')
+<!-- //this is a layer 3 layout -->
 
-
-
-<?php
-die("DEPRECIATED");
-
-class Company extends User{
-	public $name="Buckeye Mower";
-}
-
-$obj = new Company;
-$company = $obj->name;
-?>
-{{-- Update the Meta Title --}}
-<!-- THis properly overrides the default -->
 @section('meta-title')
-Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
+@parent
+{{$company->slogan}}
 @stop
 
-<!-- http://stackoverflow.com/questions/16032861/laravel-passing-data-to-default-blade-php-from-base-controller/16034358#16034358 -->
-
-{{-- Update the Meta Description --}}
 @section('meta_description')
-<meta name="description" content="Buckeye Mower offers engine repair services in Columbus Ohio." />
+<meta name="description" content="{{$company->description}}" />
 @stop
 
 {{-- Update the Meta Keywords --}}
@@ -32,7 +17,14 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 
 @section('styles')
 @parent
-
+<style>
+	.sidebar-left{
+		background-color: rgba(5,5,0,.2);
+	}
+	.india{
+		background-color: rgba(82,23,58,.4);
+	}
+</style>
 <!-- http://stackoverflow.com/questions/806000/css-semi-transparent-background-but-not-text -->
 
 <!-- \@ stylesheets("public-css") -->
@@ -51,7 +43,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/cosmo/bootstrap.min.css"> -->
 
 <!-- this one is! -->
-<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+
 
 @stop
 
@@ -68,44 +60,36 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 
 <!-- (this step is required for Android support, android ignores the non-pre-composed version): -->
 
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/buckeye/ico/apple-touch-icon-144-precomposed.png') }}}">
-
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/'.$company->brand.'/ico/apple-touch-icon-144-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
-		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
+		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/'.$company->name.'/apple-touch-icon-57-precomposed.png') }}}">
 		<!-- <link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}"> -->
-		<link rel="shortcut icon" href="{{{ asset('assets/ico/buckeye/favicon.png') }}}">
-
-		<!-- hardy har -->
-				<!-- Very Funny -->
+		<link rel="shortcut icon" href="{{{ asset('assets/ico/'.$company->name.'/favicon.png') }}}">
 @stop
-
-
 
 {{-- Content --}}
 @section('content')
 <!-- @parent -->
 
+
+<!-- @section('contact') -->
+
+
+
+
 <div class="row-fluid">
 	<div class="span8">
 		<h1>Welcome Home.</h1>
-		<h2>{{$company}}</h2>
+		<h2>{{$company->name}}</h2>
+		<img src="{{asset($company->image)}}" alt="">
 	</div>
 </div>
 
-<style>
-	.sidebar-left{
-		background-color: rgba(5,5,0,.2);
-	}
-	.india{
-		background-color: rgba(82,23,58,.4);
-	}
-</style>
 <div class="row-fluid">
 
-<div class="span6"><img src="{{asset('assets/buckeye/buckeye_logo3.png')}}" alt="Buckeye Mower"></div>
-
+<div class="span6">
 	
 	<div class="span2 pull-left sidebar-left">
 		<ul class="nav nav-list">
@@ -167,7 +151,10 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 	</div>
 	
 </div>
-
+<script>
+	// $('.modal').appendTo($('body'));
+</script>
+<!-- $('.modal').appendTo($('body')); -->
 
 
 @stop

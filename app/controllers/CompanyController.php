@@ -1,8 +1,4 @@
 <?php
-
-
-
-
 class CompanyController extends BaseController {
 
 	protected $layout = 'site.layouts.company';
@@ -38,13 +34,15 @@ class CompanyController extends BaseController {
      * @param Tags $tags
      * @param Tags $tags    
      */
-    public function __construct(Company $company)
+    public function __construct(Company $company, Post $post)
     {
         parent::__construct();
 
-        // $this->post = $post;
+
+        $this->post = $post;
         // $this->user = $user;
         $this->company = $company;
+
         // $this->tags = $post->tags();
     }
     
@@ -53,19 +51,43 @@ class CompanyController extends BaseController {
 	 *
 	 * @return View
 	 */
-	public function getIndex($id="")
+
+	public function getIndex($name="gristech")
 	{
-		// die(var_dump($id));
+		$name=strtolower($name);
+		// die(var_dump($name));
 		// $str='%'.$company.'%';
-		$company = $this->company->where('id', '=', "$id");
+		$company = $this->company->where('brand', '=', $name)->first();
+		
+		$posts = $this->post->where('meta_keywords', 'LIKE', "%".$company->brand."%")->paginate(5);
 		// $posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);
 
-die(var_dump($company));
+// die(var_dump($company));
 
 		// Show the page
-		return View::make('site/'.$company->brand().'/home', compact('$company'));
+		return View::make('site/'.$name.'/home')
+			->with(compact('company'))
+			->with(compact('tags'))
+			->with(compact('alltags'))
+			->with(compact('posts'));;
 		
 	}
+
+    public function show($id)
+    {
+        $company = $this->company->findOrFail($id);
+// die(var_dump($company));
+        $name=strtolower($company->brand);
+        // die($name);
+
+        return View::make('site.'.$name.'.home')
+        	// ->with(compact('company'));
+        	->with(compact('company'))
+			->with(compact('tags'))
+			->with(compact('alltags'))
+			->with(compact('posts'));
+
+    }
 
 	/**
 	 * View a blog post.
