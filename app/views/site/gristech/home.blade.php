@@ -136,9 +136,6 @@ a:hover {text-decoration: none}
 		<link rel="shortcut icon" href="{{{ asset('assets/ico/'.$company->name.'/favicon.png') }}}">
 @stop
 
-
-<!-- <h2>YO</h2> -->
-
 @section('nav')
 @include('site.partials.nav-top-min')
 
@@ -467,11 +464,12 @@ a:hover {text-decoration: none}
 
 </style>
 
+
 		<div class="span7">
 			<a href="#about" data-toggle="tab">
 				<h1>{{{$company->name}}}</h1>
 			</a>
-			
+			<p>{{$company->description}}</p>
 			<div class="accordion" id="accordion">
 			 	<div class="accordion-group">
 			 		<div class="accordion-heading">
@@ -567,6 +565,7 @@ a:hover {text-decoration: none}
 		</div>
 		<!-- span7 -->
 		<div class="span3">
+			<!-- <h1>BAM!</h1> -->
 			<div class="note">
 				<!-- <h1>h1 <span>h1span</span></h1> -->
 				<!-- <h4>h4 <span>h4span</span></h4> -->
@@ -577,16 +576,16 @@ a:hover {text-decoration: none}
 						}
 					</style>
 					<span>Write this down: 
-						<ul class="nav">
+<!-- 						<ul class="nav">
 							<li>
 								<a href="#">&#10004; He's fast</a>
 							</li>
 							<li>
 							 	<a href="#">&#10004; He's furious</a>
 							</li>
-						</ul>
+						</ul> -->
 						<div class="phone">{{$company->phone}}</div> 
-						{{$company->description}}
+						(my phone) - call anytime
 						
 					</span>
 				</div>
@@ -731,9 +730,7 @@ font-family:myFirstFont;
 
 	<div class="span8 offset4">
 		<h1>Posts:</h1>
-<?
-var_dump($posts);
-?>
+
 		<div class="text-center">
 		{{ $posts->links() }}
 		</div>

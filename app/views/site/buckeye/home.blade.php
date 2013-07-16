@@ -1,4 +1,5 @@
 @extends('layouts.scaffold')
+<!-- @ extends('site.layouts.buckeye') -->
 
 @section('title')
 Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
@@ -242,6 +243,13 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 
     /* RESPONSIVE CSS
     -------------------------------------------------- */
+
+@media (min-width: 980px){
+  .page-header{
+    margin-top:60px;
+    /*background-color: red;*/
+  }
+}
 
     @media (max-width: 979px) {
 
@@ -498,9 +506,9 @@ a{
 
 
 
-.page-header{
+/*.page-header{
   padding-top:40px;
-  }
+  }*/
   .page-header h2{
     text-align: center;
   }
@@ -541,8 +549,12 @@ a{
 @stop
 
 @section('nav')
+<?php
+// die(var_dump($company));
+?>
 @include('site.partials.nav-buckeye')
-@show
+<!-- @ include('site.partials.nav-top-min') -->
+@stop
 
 @section('main')
 
@@ -572,9 +584,7 @@ a{
 <!-- http://www.storyboardthat.com/userboards/rgrissinger/mower -->
 <div class="row-fluid">
 	<div class='page-header'>
-    <div class="span12 text-center">
-      
-    </div>
+
 
     <!-- <img src="{{asset('assets/ico/buckeye/favicon.png')}}" alt=""> -->
     <div class="row-fluid">

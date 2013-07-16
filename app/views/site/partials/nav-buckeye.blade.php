@@ -18,8 +18,11 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</a> -->
-
+{{--
+			<a class="brand" href="#">Buckeye</a>
+--}}
 			<a class="brand" href="#">{{{$company->brand}}}</a>
+			
 			
 			<div class="pull-right">
 			    @include('site.partials.contact-buckeye')

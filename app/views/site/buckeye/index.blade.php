@@ -1,4 +1,5 @@
-@extends('layouts.scaffold')
+<!-- @ extends('layouts.scaffold') -->
+@extends('site.layouts.buckeye')
 
 @section('title')
 Buckeye Mower - Fast, Mobile Mower and Small Engine Repair

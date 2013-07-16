@@ -1,7 +1,7 @@
 <?php
 class CompanyController extends BaseController {
 
-	protected $layout = 'site.layouts.company';
+	// protected $layout = 'site.layouts.company';
 
     /**
      * Tags Model
@@ -52,28 +52,34 @@ class CompanyController extends BaseController {
 	 * @return View
 	 */
 
+	public function buckeye(){
+		return $this->getIndex('buckeye');
+	}
+
 	public function getIndex($name="gristech")
 	{
+		// die("BAM2");
 		$name=strtolower($name);
-		// die(var_dump($name));
+		
 		// $str='%'.$company.'%';
 		$company = $this->company->where('brand', '=', $name)->first();
-		$brand = "russ";
-		// $posts = $this->post->where('meta_keywords', 'LIKE', "%".$company->brand."%")->paginate(5);
+		$brand = "advantage";
+		// $posts=$this->post->get();
+		// $posts = $this->post->where('meta_keywords', 'LIKE', "%".$name."%")->paginate(5);
 		// $posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);
+		// $posts = $this->post->where('meta_keywords', 'LIKE', "%russ%")->paginate(5);
 		$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$brand.'%')->paginate(5);
 
-		$brand='MegaCorp';
+		// $brand='MegaCorp';
 		// die(var_dump($brand));
 		// Show the page
 		return View::make('site/'.$name.'/home')
-			
+			->nest('posts','site.blog.index2')
 			->with(compact('company'))
 			->with(compact('tags'))
 			->with(compact('alltags'))
 			->with(compact('posts'))
 			->with(compact('brand'))
-			// ->nest('nav','site.partials.nav-buckeye')
 			;
 		
 	}

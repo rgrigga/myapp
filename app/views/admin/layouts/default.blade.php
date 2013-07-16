@@ -15,6 +15,7 @@
 
 		<!-- Mobile Specific Metas
 		================================================== -->
+		<!-- //Needed for bootstrap responsive! -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- CSS
@@ -37,9 +38,21 @@
 		    padding: 5px;
 		    margin:2px;
 		}
+
+
+		.wrap{
+			/*background-color: rgba(100,85,255,.1);*/
+			background-color: rgba(3,71,105,.3);
+		}
+
+		div{
+			background-color: rgba(255,89,0,.1);
+		}
 		</style>
 		@show
 
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>

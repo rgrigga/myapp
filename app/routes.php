@@ -45,33 +45,56 @@ $env=App::environment();
 Route::group(array('domain' => 'buckeyemower.com'),function()
 {
 
-    Route::get('/', function(){
-        $name='buckeye';
-        return View::make('site/'.$name.'/index',array(
-//return View::make('site/'.$name.'/home',array(
-            'brand'=>'Buckeye Mower',
-            'description'=>'Mobile Mower and Small Engine Repair',
-            'menus'=>array('rates','map')
-            ));
-    });
+    Route::get('/', 'CompanyController@buckeye');
+
+//     Route::get('/foo', function(){
+// $name='buckeye';
+// $company = DB::table('companies')->where('brand', '=', $name)->first();
+
+// // die("BAM");
+// // var_dump($company);
+// // foreach ($users as $user)
+// // {
+// //     var_dump($user->name);
+// // }
+//     // });
+// //     {
+
+// // die("BAM");
+//         // $company=DB::table('companies')->where('name','gristech');
+        
+//         // $post=new Post()
+//         // $company='buckeye';
+//         // $name='buckeye';
+//         // die(var_dump($company));
+//         return View::make('site/buckeye/home')
+
+//         ->with(compact($company));
+        // ,array(
+        // return View::make('site/'.$name.'/home',array(
+            // 'brand'=>'Buckeye Mower',
+            // 'description'=>'Mobile Mower and Small Engine Repair',
+            // 'menus'=>array('rates','map')->with('company')
+            // ));
+    // });
 
 });
 
-Route::group(array('domain' => '{sub}.myapp.dev'),function()
-{
+// Route::group(array('domain' => '{sub}.myapp.dev'),function()
+// {
 
-    Route::get('/', function(){
-        $name='buckeye';
+//     Route::get('/', function(){
+//         $name='buckeye';
 
-        return View::make('site/'.$name.'/index',array(
-//return View::make('site/'.$name.'/home',array(
-            'brand'=>'Buckeye Mower',
-            'description'=>'Mobile Mower and Small Engine Repair',
-            'menus'=>array('rates','map')
-            ));
-    });
+//         return View::make('site/'.$name.'/index',array(
+// //return View::make('site/'.$name.'/home',array(
+//             'brand'=>'Buckeye Mower',
+//             'description'=>'Mobile Mower and Small Engine Repair',
+//             'menus'=>array('rates','map')
+//             ));
+//     });
 
-});
+// });
 
 // Redactor Blog Upload
 Route::post('redactorUpload', function()
@@ -226,6 +249,7 @@ Route::get('search/{tag}','BlogController@getIndex');
 // });
 
 Route::get('/{tag}', 'BlogController@getIndex');
+
 Route::get('/', 'CompanyController@getIndex');
     // ->with($company)
     // ->where(array('id','=',3));

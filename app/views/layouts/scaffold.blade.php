@@ -76,6 +76,7 @@
             
             <!-- @ yield('content') -->
             @yield('main')
+
             
             @yield('hotel')
         </div>
