@@ -34,14 +34,21 @@ class AdminDashboardController extends AdminController {
 	{
         // die("ADMIN DASHBOARD GET INDEX");
 
-		// if(!$tag){
-		// 	$tag='admin';
-		// }
+		if($tag=="foobar"){
+			die("Conratulations!");
+		}
 
 		// $posts=$this->post->getIndex('$tag',3);
+        // $obj = DB::table('posts')->get();
+        $company = DB::table('companies')->where('name','gristech')->first();
+        // die(var_dump($obj));
 
 		//show list of recent posts
-        return View::make('admin/dashboard');
+        // $company=$this->company->where('name','gristech')->first();
+        
+        
+
+        return View::make('admin.dashboard')->with(compact('company'));
 	}
 
 }

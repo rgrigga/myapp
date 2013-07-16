@@ -58,18 +58,23 @@ class CompanyController extends BaseController {
 		// die(var_dump($name));
 		// $str='%'.$company.'%';
 		$company = $this->company->where('brand', '=', $name)->first();
-		
-		$posts = $this->post->where('meta_keywords', 'LIKE', "%".$company->brand."%")->paginate(5);
+		$brand = "russ";
+		// $posts = $this->post->where('meta_keywords', 'LIKE', "%".$company->brand."%")->paginate(5);
 		// $posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);
+		$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$brand.'%')->paginate(5);
 
-// die(var_dump($company));
-
+		$brand='MegaCorp';
+		// die(var_dump($brand));
 		// Show the page
 		return View::make('site/'.$name.'/home')
+			
 			->with(compact('company'))
 			->with(compact('tags'))
 			->with(compact('alltags'))
-			->with(compact('posts'));;
+			->with(compact('posts'))
+			->with(compact('brand'))
+			// ->nest('nav','site.partials.nav-buckeye')
+			;
 		
 	}
 

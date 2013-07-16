@@ -3,7 +3,7 @@
 @section('nav')
 <!-- @ include('admin') -->
 @stop
-@section('content')
+@section('main')
 
 <h1>All Companies</h1>
 

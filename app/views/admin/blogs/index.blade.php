@@ -7,7 +7,7 @@ Website Management ::
 @stop
 
 {{-- Content --}}
-@section('content')
+@section('main')
 <div class="page-header">
 	<h3>
 		Website Management
@@ -28,10 +28,6 @@ Website Management ::
 	<a href="http://www.make-rss-feeds.com/making-an-rss-feed.htm">RSS Feeds</a>
 </div>
 
-<div>
-	
-</div>
-
 <table class="table table-bordered table-hover">
 	<thead>
 		<tr>
@@ -43,10 +39,19 @@ Website Management ::
 		</tr>
 	</thead>
 	<tbody>
+		<ul class="thumbnails">
+			@foreach ($posts as $post)
+			<li>
+				<div class="thumbnail span2">
+					<h4>{{{ $post->title }}}</h4>
+					<p>{{{$post->image}}}</p>
+					<p><img src="http{{{ $post->image }}}" alt=""></p>
+				</div>
+			</li>
+			@endforeach
+		</ul>
 		@foreach ($posts as $post)
-		<div class="thumbnail">
-			
-		</div>
+		
 		<tr>
 
 			<td>t{{{ $post->title }}}</td>

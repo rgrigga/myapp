@@ -44,6 +44,15 @@
 	src: url('/assets/font/Archive.otf') format("opentype");
 	}
 
+	@font-face {
+	font-family: 'aescrawl';
+	src: url('/assets/font/aescrawl.ttf') format("truetype");
+	}
+
+	.font-test{
+		font-family: 'aescrawl', serif;
+	}
+
 	.page-header{
 		/*poition: static;*/
 		/*width:100%;*/
@@ -297,27 +306,188 @@ a:hover {text-decoration: none}
 
 	<div class="row-fluid">
 
+<style>
+.note2 p{ 
+   position: relative; 
+   /*top: 50px; */
+   /*left: 0; */
+   /*width: 100%; */
+
+	top: 30%;
+	left: 20%;
+
+   color: white; 
+   font:  20px/32px Helvetica, Sans-Serif; 
+   /*letter-spacing: 1px;*/
+   background: rgb(0, 0, 0); 
+   background: rgba(0, 0, 0, 0.6);
+   opacity: 70%;
+   padding: 20px; 
+   /*float: right;*/
+   max-width: 80%;
+}
+
+.note { 
+	/*background-color: green;*/
+	overflow: hidden;
+	margin-top: 20px;
+    position: relative; 
+    max-width: 300px;
+    /*text-align: center;*/
+    /*padding:10px;*/
+   /*width: 100%;  for IE 6 */
+   /*background-color: blue;*/
+       /*background-color: #cccccc;*/
+    /*box-shadow: 10px 10px 5px #666666;*/
+}
+
+.note .mydiv2{ 
+   position: absolute; 
+   top: 10%;
+   /*margin-bottom:50%;*/
+   left: 30px; 
+/*background-color: red;*/
+   /*width: 100%; */
+}
+
+.note .mydiv2 span { 
+   color: black; 
+   font: bold 24px/45px Aescrawl, Helvetica, Sans-Serif; 
+   /*letter-spacing: -1px;  */
+   /*background: rgb(0, 0, 0); /* fallback color */*/
+   /*background: rgba(0, 0, 0, 0.6);*/
+   left:20%;
+   padding: 30px; 
+}
+
+.note img{
+/*	width: 300px;
+	height: 300px;*/
+	/*width: 100%;*/
+	/*height: cover;*/
+	/*background-size: 100% 100%;*/
+	/*background-size: cover;*/
+
+}
+
+.note .mydiv{ 
+	background-color: red;
+   /*position: absolute; */
+   top: 50px; 
+   left: 0;
+   /*padding:10px;*/
+   /*padding-bottom: 20px; */
+   /*width: 100%; */
+}
+.note .mydiv{
+	/*padding-left: 20px;*/
+	position: absolute; 
+	top: 20%;
+	left: 20%;
+	color: black; 
+   /*left: 0;*/
+	/*background-color: red;*/
+	/*top:0;*/
+}
+
+.note .mydiv span {
+	color: white; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.6);
+   padding: 10px; 
+}
+
+.note h1{ 
+   position: absolute; 
+   top: 50px; 
+   left: 0; 
+   /*width: 100%; */
+}
+
+.note h1 span {
+	color: white; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.6);
+   padding: 10px; 
+}
+
+.note p{ 
+   position: absolute; 
+   /*top: 50px; */
+   /*left: 0; */
+   /*width: 100%; */
+
+	top: 0%;
+	left: 0%;
+
+   color: red; 
+   font:  20px/32px Helvetica, Sans-Serif; 
+   /*letter-spacing: 1px;*/
+   background: rgb(0, 0, 0); 
+   background: rgba(0, 0, 0, 0.6);
+   opacity: 70%;
+   padding: 20px; 
+   /*float: right;*/
+   max-width: 80%;
+}
+.note p span {
+	color: white; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.6);
+   padding: 10px; 
+}
+
+
+
+.note h4{ 
+   position: absolute; 
+   top: 50px; 
+   left: 0; 
+
+   /*width: 100%; */
+}
+
+.note h4 span { 
+   color: white; 
+   font: bold 24px/45px Helvetica, Sans-Serif; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.6);
+   padding: 10px; 
+}
+
+.note{
+	left:10%;
+}
+
+
+
+</style>
+
 		<div class="span7">
 			<a href="#about" data-toggle="tab">
 				<h1>{{{$company->name}}}</h1>
 			</a>
-
+			
 			<div class="accordion" id="accordion">
 			 	<div class="accordion-group">
 			 		<div class="accordion-heading">
 			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-			 				<h2>Painting</h2>
+			 				<h2>Design</h2>
 			 			</a>
 			 		</div>
 			 		<div id="collapseOne" class="accordion-body collapse">
 			 			<!-- //add in to open on load -->
 			 			<div class="accordion-inner">
 			 				<a href="#exterior" data-toggle="tab">
-			 					<h3 >Exterior</h3>
+			 					<h3>CSS</h3>
 			 				</a>
 
 			 				<a href="#interior" data-toggle="tab">
-								<h3>Interior</h3>
+								<h3>Javascript</h3>
 			 				</a>
 
 							<a href="#decks" data-toggle="tab">
@@ -341,12 +511,10 @@ a:hover {text-decoration: none}
 			 					<h3>Repairs</h3>
 			 				</a>
 
-
-
-
 							<a href="#replacement" data-toggle="tab">
 			 					<h3>Replacement</h3>
 			 				</a>
+
 			 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
 			 			</div>
 			 		</div>
@@ -398,7 +566,59 @@ a:hover {text-decoration: none}
 
 		</div>
 		<!-- span7 -->
+		<div class="span3">
+			<div class="note">
+				<!-- <h1>h1 <span>h1span</span></h1> -->
+				<!-- <h4>h4 <span>h4span</span></h4> -->
+				<div class = "mydiv2">
+					<style>
+						.phone{
+							font-size: 1.5em;
+						}
+					</style>
+					<span>Write this down: 
+						<ul class="nav">
+							<li>
+								<a href="#">&#10004; He's fast</a>
+							</li>
+							<li>
+							 	<a href="#">&#10004; He's furious</a>
+							</li>
+						</ul>
+						<div class="phone">{{$company->phone}}</div> 
+						{{$company->description}}
+						
+					</span>
+				</div>
+				<!-- <div class="mydiv"> -->
+					<!-- Note to self: make more notes. -->
+					<!-- <p>p <span>pspan</span> ZThis is a demo of the note. -->
+<!-- 					<ul>
+						<li>li 1</li>
+						<li>item 2</li>
+					</ul> -->
+<!-- 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, magnam, facere excepturi suscipit voluptates fugit sunt sed quam ab ullam?
+
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, doloremque ipsa natus cupiditate temporibus libero asperiores obcaecati ullam cumque nostrum minima nam delectus aliquam ad eum fugiat sapiente. Quibusdam, amet. -->
+
+				<!-- </div> -->
+				<img src="{{asset('assets/img/note.png')}}" alt="">
+<!-- 			<p>p <span>pspan</span> ZThis is a demo of the note.
+				<ul>
+					<li>li 1</li>
+					<li>item 2</li>
+				</ul>
+			</p> -->
+			<!-- <p>Note to self: <span>Make more notes.</span></p><a href="http://www.fuzzimo.com/free-vector-post-it-notes-push-pins/">  -->
+<!-- http://www.fuzzimo.com/free-vector-post-it-notes-push-pins/ -->
+			</div>
+			<!-- ./note -->
+		</div>
+<!-- ./note span3 -->
+
+
 	</div>
+	<!-- ./row -->
 	
 <!-- 	<div class="span4 pull-right">
 		<div class="well" data-spy="affix" data-offset-top="200">
@@ -418,18 +638,7 @@ a:hover {text-decoration: none}
 </div>
 <!-- ./ page-header -->
 
-<style>
-	.note{
-		background-color: #ffa640;
-		border-style:solid;
-		border-width:medium;
-		border-color: #a63a00;
-	}
-</style>
 
-<div class="note">
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, ratione magni illo nam iusto accusantium distinctio optio consectetur aliquid eveniet.</p>
-</div>
 
 <style> 
 /*@font-face
@@ -523,7 +732,7 @@ font-family:myFirstFont;
 	<div class="span8 offset4">
 		<h1>Posts:</h1>
 <?
-// var_dump($posts);
+var_dump($posts);
 ?>
 		<div class="text-center">
 		{{ $posts->links() }}

@@ -7,7 +7,7 @@ Blog Post Delete ::
 @stop
 
 {{-- Content --}}
-@section('content')
+@section('main')
 <div class="page-header">
 	<h3>
 		Blog Post Delete

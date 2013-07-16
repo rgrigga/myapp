@@ -11,7 +11,7 @@ return array(
 	*/
 
 	'register'              => 'Register',
-	'login'                 => 'Login',
+	'login'                 => 'Howdy, Stranger',
 	'login_first'           => 'Login first',
 	'account'               => 'Account',
 	'forgot_password'       => 'Forgot Password',

@@ -1,4 +1,4 @@
-@extends('admin/layouts.default')
+@extends('admin.layouts.default')
 
 {{-- Web site Title --}}
 @section('title')
@@ -7,7 +7,7 @@ Create a New Blog Post ::
 @stop
 
 {{-- Content --}}
-@section('content')
+@section('main')
 <div class="page-header">
 	<h3>
 		Create Something <em>Awesome</em>

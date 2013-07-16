@@ -1,5 +1,6 @@
 <?php
-// use Robbo\Presenter\PresentableInterface;
+use Robbo\Presenter\PresentableInterface;
+// https://github.com/robclancy/presenter#usage
 
 // class Company extends Eloquent implements PresentableInterface{
 class Company extends Eloquent{
@@ -12,10 +13,10 @@ class Company extends Eloquent{
 		'menus' => 'required'
 	);
 
-	// public function getPresenter()
- //    {
- //        return new CompanyPresenter($this);
- //    }
+public function getPresenter()
+    {
+        return new CompanyPresenter($this);
+    }
 
     	public function menus()
 	{
