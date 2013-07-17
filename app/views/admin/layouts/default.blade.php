@@ -89,10 +89,39 @@
 
 </script>
 
+
+
+
 <div class="wrap">
+
+
 		<!-- Container -->
 		<div class="container">
 			<!-- Navbar -->
+@section('logo')
+<style>
+	.logo{
+		/*background-color: red;*/
+		position:fixed;
+		left:20px;
+		top:100px;
+		z-index: -1;
+		opacity: .3;
+
+/*		bottom:-20px;
+		position:fixed;
+		right:0px;
+		z-index:10;
+		max-height: 30%;
+		overflow: hidden;
+		max-width: 300px;*/
+	}
+</style>
+<div class="logo">
+	<img src="{{asset('assets/gristech/gristech.png')}}" alt="Company Logo">
+</div>
+@show
+
 			<div class="navbar navbar-inverse navbar-fixed-top">
 				<div class="navbar-inner">
 					<div class="container">
@@ -184,6 +213,7 @@
 
 </style>
 <div class="contentwrap">
+
 			<!-- Content -->
 			@yield('main')
 			<!-- ./ content -->
