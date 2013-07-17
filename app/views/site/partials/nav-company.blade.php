@@ -1,7 +1,4 @@
 <style>
-/*body{
-	padding-top: 60px;
-}*/
 .navbar-fixed-top{
 	position:fixed;
 }

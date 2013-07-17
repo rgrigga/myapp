@@ -1,6 +1,10 @@
 <!-- @ extends('layouts.scaffold') -->
 @extends('site.layouts.buckeye')
 
+@section('analytics')
+@require('site.buckeye.analytics')
+@stop
+
 @section('title')
 Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 @stop

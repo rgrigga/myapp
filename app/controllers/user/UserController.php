@@ -31,13 +31,13 @@ class UserController extends BaseController {
      *
      * @return View
      */
-    public function getIndex()
+    public function getIndex($company='buckeye')
     {
         list($user,$redirect) = $this->user->checkAuthAndRedirect('user');
         if($redirect){return $redirect;}
 
         // Show the page
-        $company=$this->company->findOrFail(3);
+        $company=$this->company->where('brand','LIKE',$company)->first();
         // die("BAM");
         return View::make('site/user/index')
             ->with(compact('user'))
@@ -169,22 +169,26 @@ class UserController extends BaseController {
      * Displays the login form
      *
      */
-    public function getLogin()
+    public function getLogin($company='gristech')
     {
         $user = Auth::user();
         if(!empty($user->id)){
             return Redirect::to('/');
         }
 
-        // $company = $this->company->where('brand', '=', 'gristech')->first();
-        $company = $this->company->findOrFail(3);
+        $company = $this->company->where('brand', 'LIKE', $company)->first();
+        // $company = $this->company->findOrFail(3);
 
-        // die("BAM");
+        // die(var_dump($company));
 
         return View::make('site/user/login')
             ->with(compact('user'))
             ->with(compact('company'));
     }
+
+    // public function buckeye(){
+        
+    // }
 
     /**
      * Attempt to do login

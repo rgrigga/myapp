@@ -44,8 +44,25 @@ $env=App::environment();
 
 Route::group(array('domain' => 'buckeyemower.com'),function()
 {
+    // Route::get('admin*','before')
 
+    Route::filter('buckeye', function()
+    {
+        if (! Entrust::can('buckeye') ) // Checks the current user
+        {
+            return Redirect::to('user/login');
+        }
+        die("BAM");
+        Route::controller('admin', 'AdminDashController@getIndex');
+    });
+
+    Route::when('/admin','buckeye');
+    Route::get('/{tag}','BlogController@getIndex','buckeye');
     Route::get('/', 'CompanyController@buckeye');
+
+// Only users with roles that have the 'manage_posts' permission will
+// be able to access any admin/post route.
+    // Route::when('admin', 'buckeye'); 
 
 //     Route::get('/foo', function(){
 // $name='buckeye';

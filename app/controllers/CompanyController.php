@@ -62,13 +62,13 @@ class CompanyController extends BaseController {
 		$name=strtolower($name);
 		
 		// $str='%'.$company.'%';
-		$company = $this->company->where('brand', '=', $name)->first();
-		$brand = "advantage";
+		$company = $this->company->where('brand', 'LIKE', $name)->first();
+		// $brand = $company->brand;
 		// $posts=$this->post->get();
 		// $posts = $this->post->where('meta_keywords', 'LIKE', "%".$name."%")->paginate(5);
 		// $posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);
 		// $posts = $this->post->where('meta_keywords', 'LIKE', "%russ%")->paginate(5);
-		$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$brand.'%')->paginate(5);
+		$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$name.'%')->paginate(5);
 
 		// $brand='MegaCorp';
 		// die(var_dump($brand));
@@ -79,7 +79,7 @@ class CompanyController extends BaseController {
 			->with(compact('tags'))
 			->with(compact('alltags'))
 			->with(compact('posts'))
-			->with(compact('brand'))
+			// ->with(compact('brand'))
 			;
 		
 	}

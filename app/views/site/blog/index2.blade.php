@@ -1,3 +1,5 @@
+
+<h1>HOWDY FROM INDEX2</h1>
 @section('posts')
 
 <div class="posts">

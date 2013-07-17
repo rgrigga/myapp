@@ -72,17 +72,15 @@ class BlogController extends BaseController {
 	 *
 	 * @return View
 	 */
-	public function getIndex($tag="")
+	public function getIndex($tag="",$company="gristech")
 	{
 
 // die("BAM CONZTROLLER");
 
 		$views=array();
 
-		//try 
-
-
-
+//there must be a better way to check if company exists?
+		$company=$this->company->where('brand','LIKE',$company);
 		$companies=$this->company->get();
 		// $names=$names->get('names');
 		$names = array();
@@ -95,14 +93,37 @@ class BlogController extends BaseController {
 			// }
 		}		
 
-		if(in_array($tag, $names)){
-			return View::make('site.'.$tag.'.home');
+		if(in_array($company, $names)){
+			//We know that the company exists.
+
+			if($tag==$company){
+				//the request is "gristech/company"
+				return View::make('site.'.$tag.'.home');
+			}
+			//Here, the company exists, but the request is something different.
+
+			$brand = $company->brand;
+			$posts=$this->posts->where('has',array('tag'=>$brand))->paginate(10);
+
+			// return $this->show();
+			//check for post title
+			//check for 
+
+
+		}
+		else{
+		//Here, the request is NOT gristech, buckeye, advantage, megacorp...
+		//Loads the default company
+			// $company = $this->company->findOrFail(3);
+
+
+
 		}
 		// die(var_dump($names));
 
-		//Loads the default company
-		$company = $this->company->findOrFail(3);
-		// die(var_dump($company));
+
+		
+		die(var_dump($company));
 
 		//prepare the alltags collection
 		$alltags=array();		

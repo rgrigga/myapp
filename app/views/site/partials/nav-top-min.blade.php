@@ -7,7 +7,7 @@
 		}
 		</style>
 		<div class="navbar navbar-fixed-top">
-<!-- <h1>Howdy</h1> -->
+
 
 
 			<div class="navbar-inner">
@@ -15,12 +15,7 @@
 				<a class="brand" style="margin-left:30px;" href="#">{{{$company->brand}}}</a>
 						
 
-<!-- 					<ul class="nav">
-						@foreach ($company->menus() as $menu)
-						<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to('#'.$menu) }}}">{{{ucfirst($menu)}}}</a></li>
-						@endforeach
 
-					</ul> -->
 
 			
 

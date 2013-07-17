@@ -9,6 +9,13 @@
 {{-- Content --}}
 @section('main')
 
+<ul class="nav">
+	<li><a href="#">CLICK</a></li>
+	<li><a href="#">CLICK</a></li>
+	<li><a href="#">CLICK</a></li>
+	<li><a href="#">CLICK</a></li>
+</ul>
+
 <div class="page-header">
 	<h1>3 Steps</h1>
 	<ol>

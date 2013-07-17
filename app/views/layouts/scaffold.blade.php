@@ -66,6 +66,7 @@
     </head>
     <body>
         <div class="container">
+            
             @yield('nav')
 
             @if (Session::has('message'))

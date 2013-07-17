@@ -5,6 +5,10 @@
 Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 @stop
 
+@section('analytics')
+@include('site.buckeye.analytics')
+@stop
+
 @section('styles')
 <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
 <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
@@ -554,16 +558,18 @@ a{
 ?>
 @include('site.partials.nav-buckeye')
 <!-- @ include('site.partials.nav-top-min') -->
+
 @stop
 
 @section('main')
 
-<!-- // die(var_dump($company)); -->
+<?php
+// die(var_dump($company)); 
+ ?> 
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 <div class="container-fluid marketing">
-
 <!-- ************* INTRO OPTION 1 **************-->
 <!-- <img src="{{asset('assets/buckeye/grass.svg')}}" alt="grass.svg"> -->
 
@@ -576,8 +582,63 @@ a{
     <p><span><em>Time to get your grass in gear!</em></span></p>
   </div>
 </div> -->
+<div class="span8 offset4">
+  <h1>Posts:</h1>
+  <div class="text-center">
+    {{ $posts->links() }}
+  </div>
 
+  @foreach ($posts as $post)
+    <div class="row">
+      <div class="span3">
+        <p></p>
+        <p>
+      <!-- Edit/Delete Buttons -->
+        <div class="metabuttons pull-left">
+          @if (Auth::check())
+                    @if (Auth::user()->hasRole('admin'))
+              <p>
+                <a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
+                <a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
+              | </p>
+            @endif
+          @endif
+        </div>
 
+        <!-- Comments -->
+          &nbsp;<i class="icon-user"></i> by <span class="muted">{{{ $post->author->username }}}</span>
+          | <i class="icon-calendar"></i> <!--Sept 16th, 2012-->{{{ $post->date() }}}
+          | <i class="icon-comment"></i> <a href="{{{ $post->url() }}}#comments">{{$post->comments()->count()}} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
+        </p>
+      </div>
+    </div>
+    
+
+    <div class="well">
+      {{$post->title}}
+      {{$post->img}}
+
+      <h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
+      <p>
+      {{ String::tidy(Str::limit($post->meta_description, 158)) }}
+      </p>
+      <p>
+        <a class="btn btn-info" href="{{{ $post->url() }}}">more</a>
+      </p>
+    </div>
+
+    <ul class='tag'>
+      <li><i class="icon-tag"></i></li>
+      @foreach($post->tags() as $tag)
+        
+          <li><a href="{{ $tag }}">{{ $tag }}</a></li>
+          
+      @endforeach
+    </ul>
+
+  @endforeach
+  {{ $posts->links() }}
+</div>
 <!-- ************* INTRO OPTION 3 **************-->
 
 <!-- Storyboard -->
@@ -612,6 +673,8 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
 </div>
 <!-- END INTRO -->
 
+
+
 <!-- MODAL ************************* -->
 <!-- Button to trigger modal -->
 <!--   <a href="#MyModal" role="button" class="btn" data-toggle="modal">MyModal</a> -->
@@ -637,6 +700,11 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
     <div class="modal-footer">
       <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
       <!-- <button class="btn btn-primary">Save changes</button> -->
+
+<!--       BUT WAIT, THERE"S MORE: -->
+@yield('signup')
+
+
     </div>
   </div>
 

@@ -7,8 +7,7 @@
 @stop
 
 @section('nav')
-<!-- <h1>yo</h1> -->
-<!-- @include('site.partials.nav-top-inverse') -->
+@include('site.partials.nav-buckeye')
 @stop
 
 {{-- Content --}}
@@ -21,13 +20,9 @@
 </style>
 
 <div class="page-header">
-	<h1>Welcome Home</h1>
+	<h1>Welcome Home.</h1>
 </div>
 
-<p>By the way, we only ask for email to verify that you are you.</p>
-<p>That and to communicate with you, if that's best for you.  We can email invoices, you can schedule online, even make a payment or deposit.  It's all very secure, and we won't sell your info, etc.</p>
-
-More about that later.  For now, You can go back and look around the main site, or you 
 
 <form method="POST" action="{{ URL::to('user/login') }}" accept-charset="UTF-8">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -60,9 +55,9 @@ More about that later.  For now, You can go back and look around the main site, 
     </fieldset>
 </form>
 
+More about that later.  For now, You can go back and look around the main site, or you 
+
 Not A Member?
         <a class="btn btn-large btn-primary" href="{{{ URL::to('user/create') }}}">Sign Up</a>
-
-
 
 @stop
