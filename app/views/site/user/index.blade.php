@@ -1,4 +1,4 @@
-@extends('site.layouts.default')
+@extends('layouts.scaffold')
 
 {{-- Web site Title --}}
 @section('title')
@@ -15,7 +15,7 @@ body {
 @stop
 
 {{-- Content --}}
-@section('content')
+@section('main')
 <div class="page-header">
 	<h3>Edit your settings</h3>
 </div>

@@ -15,6 +15,7 @@
 
 		<!-- Mobile Specific Metas
 		================================================== -->
+		<!-- //Needed for bootstrap responsive! -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- CSS
@@ -37,9 +38,21 @@
 		    padding: 5px;
 		    margin:2px;
 		}
+
+
+		.wrap{
+			/*background-color: rgba(100,85,255,.1);*/
+			background-color: rgba(3,71,105,.3);
+		}
+
+		div{
+			background-color: rgba(255,89,0,.1);
+		}
 		</style>
 		@show
 
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
@@ -76,10 +89,39 @@
 
 </script>
 
+
+
+
 <div class="wrap">
+
+
 		<!-- Container -->
 		<div class="container">
 			<!-- Navbar -->
+@section('logo')
+<style>
+	.logo{
+		/*background-color: red;*/
+		position:fixed;
+		left:20px;
+		top:100px;
+		z-index: -1;
+		opacity: .3;
+
+/*		bottom:-20px;
+		position:fixed;
+		right:0px;
+		z-index:10;
+		max-height: 30%;
+		overflow: hidden;
+		max-width: 300px;*/
+	}
+</style>
+<div class="logo">
+	<img src="{{asset('assets/gristech/gristech.png')}}" alt="Company Logo">
+</div>
+@show
+@section('nav')
 			<div class="navbar navbar-inverse navbar-fixed-top">
 				<div class="navbar-inner">
 					<div class="container">
@@ -151,7 +193,7 @@
 				<!-- ./ navbar-inner -->
 			</div>
 			<!-- ./ navbar -->
-
+@show
 			<!-- Notifications -->
 			@include('notifications')
 			<!-- ./ notifications -->
@@ -171,6 +213,7 @@
 
 </style>
 <div class="contentwrap">
+
 			<!-- Content -->
 			@yield('main')
 			<!-- ./ content -->
@@ -188,5 +231,7 @@
         <script type="text/javascript" charset="utf-8">
             $(prettyPrint);
         </script>
+
+            <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js&skin=sunburst"></script>
 	</body>
 </html>

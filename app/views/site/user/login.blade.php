@@ -7,12 +7,15 @@
 @stop
 
 @section('nav')
-<!-- <h1>yo</h1> -->
-<!-- @include('site.partials.nav-top-inverse') -->
+<!-- @ parent -->
+<!-- @ include('site.partials.nav-top-min') -->
 @stop
 
 {{-- Content --}}
 @section('main')
+<h1>
+    {{{$company->brand}}}
+</h1>
 
 <style>
     .page-header{
@@ -21,10 +24,10 @@
 </style>
 
 <div class="page-header">
-	<h1>Login into your account here</h1>
+	<h1>Welcome Home.</h1>
 </div>
 
-<p>By the way, we only ask for email to verify that you are you.</p>
+
 <form method="POST" action="{{ URL::to('user/login') }}" accept-charset="UTF-8">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <fieldset>
@@ -52,13 +55,17 @@
         <div class="alert">{{ Session::get('notice') }}</div>
         @endif
 
+        @if ( Session::get('info') )
+        <div class="alert">{{ Session::get('info') }}</div>
+        @endif
+
         <button tabindex="3" type="submit" class="btn">{{ Lang::get('confide::confide.login.submit') }}</button>
     </fieldset>
 </form>
 
-Not A Member?
+<p>Not A Member?  Security and Privacy are of the utmost importance.  More about that later.</p>
+
         <a class="btn btn-large btn-primary" href="{{{ URL::to('user/create') }}}">Sign Up</a>
-
-
+<!-- // Popup form here?-->
 
 @stop

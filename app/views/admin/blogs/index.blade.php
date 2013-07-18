@@ -8,6 +8,16 @@ Website Management ::
 
 {{-- Content --}}
 @section('main')
+
+<style>
+img.thumby{
+	height: 64px;
+}
+	.thumbnail{
+		background-color: red;
+		min-height: 20%;
+}
+</style>
 <div class="page-header">
 	<h3>
 		Website Management
@@ -27,7 +37,20 @@ Website Management ::
 	</div>
 	<a href="http://www.make-rss-feeds.com/making-an-rss-feed.htm">RSS Feeds</a>
 </div>
-
+		<ul class="thumbnails">
+			@foreach ($posts as $post)
+			<li>
+				<div class="thumbnail span2">
+					<h4>{{{ $post->title }}}</h4>
+					<a href="{{{URL::to($post->slug)}}}">{{{URL::to($post->slug)}}}</a>
+					<img class="thumby" src="{{asset('assets/'.$post->image)}}" alt="{{$post->image}}">
+					{{asset('assets'.$post->image)}}
+					<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini"><i class="icon-edit"></i> {{{ Lang::get('button.edit') }}}</a>
+				<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger"><i class="icon-trash"></i> {{{ Lang::get('button.delete') }}}</a>
+				</div>
+			</li>
+			@endforeach
+		</ul>
 <table class="table table-bordered table-hover">
 	<thead>
 		<tr>
@@ -39,17 +62,7 @@ Website Management ::
 		</tr>
 	</thead>
 	<tbody>
-		<ul class="thumbnails">
-			@foreach ($posts as $post)
-			<li>
-				<div class="thumbnail span2">
-					<h4>{{{ $post->title }}}</h4>
-					<p>{{{$post->image}}}</p>
-					<p><img src="http{{{ $post->image }}}" alt=""></p>
-				</div>
-			</li>
-			@endforeach
-		</ul>
+
 		@foreach ($posts as $post)
 		
 		<tr>

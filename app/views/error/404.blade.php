@@ -110,7 +110,7 @@
 				}
 
 			?>
-
+			<img class="pull-right" src="http://myapp.gristech.com/<?php echo random_pic();?>" alt="Error :(">
 			<h1><?php echo $messages[mt_rand(0, 2)]; ?></h1>
 
 			<h2>Server Error: 404 (Not Found)</h2>

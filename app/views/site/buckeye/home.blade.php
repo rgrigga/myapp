@@ -1,7 +1,12 @@
 @extends('layouts.scaffold')
+<!-- @ extends('site.layouts.buckeye') -->
 
 @section('title')
 Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
+@stop
+
+@section('analytics')
+@include('site.buckeye.analytics')
 @stop
 
 @section('styles')
@@ -242,6 +247,13 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 
     /* RESPONSIVE CSS
     -------------------------------------------------- */
+
+@media (min-width: 980px){
+  .page-header{
+    margin-top:60px;
+    /*background-color: red;*/
+  }
+}
 
     @media (max-width: 979px) {
 
@@ -498,9 +510,9 @@ a{
 
 
 
-.page-header{
+/*.page-header{
   padding-top:40px;
-  }
+  }*/
   .page-header h2{
     text-align: center;
   }
@@ -541,17 +553,22 @@ a{
 @stop
 
 @section('nav')
+<?php
+// die(var_dump($company));
+?>
 @include('site.partials.nav-buckeye')
-@show
+<!-- @ include('site.partials.nav-top-min') -->
+@stop
 
 @section('main')
 
-<!-- // die(var_dump($company)); -->
+<?php
+// die(var_dump($company)); 
+ ?> 
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 <div class="container-fluid marketing">
-
 <!-- ************* INTRO OPTION 1 **************-->
 <!-- <img src="{{asset('assets/buckeye/grass.svg')}}" alt="grass.svg"> -->
 
@@ -565,16 +582,13 @@ a{
   </div>
 </div> -->
 
-
 <!-- ************* INTRO OPTION 3 **************-->
 
 <!-- Storyboard -->
 <!-- http://www.storyboardthat.com/userboards/rgrissinger/mower -->
 <div class="row-fluid">
 	<div class='page-header'>
-    <div class="span12 text-center">
-      
-    </div>
+
 
     <!-- <img src="{{asset('assets/ico/buckeye/favicon.png')}}" alt=""> -->
     <div class="row-fluid">
@@ -602,6 +616,8 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
 </div>
 <!-- END INTRO -->
 
+
+
 <!-- MODAL ************************* -->
 <!-- Button to trigger modal -->
 <!--   <a href="#MyModal" role="button" class="btn" data-toggle="modal">MyModal</a> -->
@@ -627,6 +643,11 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
     <div class="modal-footer">
       <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
       <!-- <button class="btn btn-primary">Save changes</button> -->
+
+<!--       BUT WAIT, THERE"S MORE: -->
+@yield('signup')
+
+
     </div>
   </div>
 
@@ -656,17 +677,10 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
       <!-- <button class="btn btn-primary">Save changes</button> -->
     </div>
   </div>
-<!-- <div class="row">
-    <div class="span4">
 
-    </div>
-  <div class="span4">
 
-  </div>
-  <div class="span4">
 
-  </div>
-</div> -->
+
 <div class="row-fluid">
   <div class="tabbable"> <!-- Only required for left/right tabs -->
     <ul class="nav nav-tabs">
@@ -737,14 +751,14 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
         <style>
 
         </style>
-        <div class="price-star delta">
+        <div class="price-star">
           <img src="{{asset('assets/buckeye/49.png')}}" alt="Starting at $49" class="pull-right price">
           <p>As Low As</p>
           <h6>$49</h6>
           <p></p>
         </div>
         
-          <img class ="featurette-image myimage img-circle pull-right" src="{{asset('assets/buckeye/push.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
+        <img class ="featurette-image myimage img-circle pull-right" src="{{asset('assets/buckeye/push.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
         <!-- </div> -->
         
         <h2 class='featurette-heading'>Push Mower Services.</h2>
@@ -875,6 +889,64 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
       </div>
 
       <hr class="featurette-divider">
+
+<div class="span8 offset4">
+  <h1>Some More Ideas...</h1>
+  <div class="text-center">
+    {{ $posts->links() }}
+  </div>
+
+  @foreach ($posts as $post)
+    <div class="row">
+      <div class="span3">
+        <p></p>
+        <p>
+      <!-- Edit/Delete Buttons -->
+        <div class="metabuttons pull-left">
+          @if (Auth::check())
+                    @if (Auth::user()->hasRole('admin'))
+              <p>
+                <a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
+                <a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
+              | </p>
+            @endif
+          @endif
+        </div>
+
+        <!-- Comments -->
+          &nbsp;<i class="icon-user"></i> by <span class="muted">{{{ $post->author->username }}}</span>
+          | <i class="icon-calendar"></i> <!--Sept 16th, 2012-->{{{ $post->date() }}}
+          | <i class="icon-comment"></i> <a href="{{{ $post->url() }}}#comments">{{$post->comments()->count()}} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
+        </p>
+      </div>
+    </div>
+    
+
+    <div class="well">
+      {{$post->title}}
+      {{$post->img}}
+
+      <h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
+      <p>
+      {{ String::tidy(Str::limit($post->meta_description, 158)) }}
+      </p>
+      <p>
+        <a class="btn btn-info" href="{{{ $post->url() }}}">more</a>
+      </p>
+    </div>
+
+    <ul class='tag'>
+      <li><i class="icon-tag"></i></li>
+      @foreach($post->tags() as $tag)
+        
+          <li><a href="{{ $tag }}">{{ $tag }}</a></li>
+          
+      @endforeach
+    </ul>
+
+  @endforeach
+  {{ $posts->links() }}
+</div>
 
       <!-- /END THE FEATURETTES -->
 @stop

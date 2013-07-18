@@ -7,7 +7,7 @@ Role Update ::
 @stop
 
 {{-- Content --}}
-@section('content')
+@section('main')
 <div class="page-header">
 	<h3>
 		Role Update

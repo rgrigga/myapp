@@ -7,20 +7,7 @@
 
 @section('main')
 
-	{{--
-	<pre><code>
-{{{__FILE__}}}
-</br>
-{{basename($_SERVER['PHP_SELF'])}}
-<br>
-{{basename($_SERVER["SCRIPT_FILENAME"], '.php')}}
-<br>
-{{basename($_SERVER['REQUEST_URI'], ".php")}}
-<br>
-{{pathinfo(__FILE__, PATHINFO_FILENAME);}}
-<br>
-</code></pre>
---}}
+
 
 <!-- basename($filename, '.php')}} -->
 

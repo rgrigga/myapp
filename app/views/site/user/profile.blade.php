@@ -1,4 +1,4 @@
-@extends('site.layouts.default')
+@extends('layouts.scaffold')
 
 {{-- Web site Title --}}
 @section('title')
@@ -7,10 +7,10 @@
 @stop
 
 {{-- Content --}}
-@section('content')
+@section('main')
 <div class="page-header">
 	<h1>User Profile</h1>
-{{var_dump($user)}}
+{{-- var_dump($user) --}}
     <img src="{{$user->img}}" alt="user image">
 </div>
 <table class="table table-striped">

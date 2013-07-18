@@ -7,22 +7,9 @@
 		}
 		</style>
 		<div class="navbar navbar-fixed-top">
-<!-- <h1>Howdy</h1> -->
-
-
 			<div class="navbar-inner">
 
 				<a class="brand" style="margin-left:30px;" href="#">{{{$company->brand}}}</a>
-						
-
-<!-- 					<ul class="nav">
-						@foreach ($company->menus() as $menu)
-						<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to('#'.$menu) }}}">{{{ucfirst($menu)}}}</a></li>
-						@endforeach
-
-					</ul> -->
-
-			
 
 					<!-- admin/user nav -->
                 	<ul class="nav pull-right">
@@ -36,9 +23,7 @@
                             <li><a href="{{{ URL::to('user/logout') }}}">Logout</a></li>
                         @else
                             <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">Login</a></li>
-                            
                         @endif
-                        
                     </ul>
 			</div>
 					<!-- ./ nav-collapse -->

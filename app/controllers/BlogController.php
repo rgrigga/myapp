@@ -65,6 +65,11 @@ class BlogController extends BaseController {
 		return self::getIndex('$tag');
 	}
     
+    public function buckeyeIndex($tag=""){
+    	$company=  Company::where('brand',"LIKE",'buckeye')->first();
+		return $this->getIndex('company',$tag);
+	}
+
 // process a many to many relationship amongst tags
 
 	/**
@@ -72,36 +77,73 @@ class BlogController extends BaseController {
 	 *
 	 * @return View
 	 */
-	public function getIndex($tag="")
+	public function getIndex(Company $company ,$tag="")
 	{
-
+// $company=  Company::where('brand',"LIKE",'buckeye')->first();
 // die("BAM CONZTROLLER");
-
 		$views=array();
+		// $companies=$this->company->get();
+	// 	var_dump($brand);
+	// die(var_dump($tag));
+//there must be a better way to check if company exists?
+		$company=$this->company->where('brand','LIKE',$brand)->first();
+				// var_dump($brand);
 
-		//try 
+	// die(var_dump($company));
 
-
-
-		$companies=$this->company->get();
+		// var_dump($brand);
 		// $names=$names->get('names');
 		$names = array();
-		foreach ($this->company->get() as $c) {
-			array_push($names, $c->brand);
+		// var_dump($companies->brand);
+
+		foreach ($companies as $c) {
+			// var_dump($c->brand);
+			$lbrand=strtolower($c->brand);
+			array_push($names, $lbrand);
 			// foreach ($c->tags() as $mytag) {
 				// if(!in_array($mytag, $alltags)){
 					// array_push($alltags, trim($mytag));
 				// }
 			// }
 		}		
+// var_dump($names);
+		if(in_array($brand, $names)){
+			// die("exists! ".var_dump($brand));
+			//We know that the company exists.
 
-		if(in_array($tag, $names)){
-			return View::make('site.'.$tag.'.home');
+			if($tag==$company){
+				//the request is "gristech/company"
+				return View::make('site.'.$tag.'.home');
+			}
+			//Here, the company exists, but the request is something different.
+
+			// $brand = $company->brand;
+			// $posts=$this->posts->where('has',array('tag'=>'$brand'))->paginate(10);
+			$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$brand.'%')->paginate(5);
+			// return $this->show();
+			//check for post title
+			//check for 
+			// die(var_dump($company));
+
+			return View::make('site.'.$brand.'.home')
+				->with(compact('company'))
+				->with(compact('posts'));
+
+			// die("exist! ".var_dump($brand));
+
+		}
+		else{
+		//Here, the request is NOT gristech, buckeye, advantage, megacorp...
+		//Loads the default company
+			// $company = $this->company->findOrFail(3);
+
+		// die("does not exist! ".var_dump($brand));
+
 		}
 		// die(var_dump($names));
 
-		//Loads the default company
-		$company = $this->company->findOrFail(3);
+
+		
 		// die(var_dump($company));
 
 		//prepare the alltags collection
