@@ -13,8 +13,6 @@
 |
 */
 
-
-// die(var_dump($value));
 // Route::any('/',function(){
 //     die('bam');
 //     return View::make('site.pages.debug');

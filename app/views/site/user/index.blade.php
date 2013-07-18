@@ -16,12 +16,14 @@
 </style>
 @stop
 
-@section('nav')
 
 
 {{-- Content --}}
 @section('main')
-{{var_dump($company)}}
+<style>
+    .main{padding-top: 60px;}
+</style>
+<div class="main">
 <div class="page-header">
 	<h3>Edit your settings</h3>
 </div>
@@ -81,4 +83,13 @@
     </div>
     <!-- ./ form actions -->
 </form>
+</div>
+@stop
+
+@section('admin-bottom')
+@parent
+<div class="nav-bottom">
+    <h2>Bam!</h2>
+<p class="muted credit"> </p>
+</div>
 @stop
