@@ -1,4 +1,6 @@
 <?php
+
+// class Buckeyeontroller ext
 class CompanyController extends BaseController {
 
 	// protected $layout = 'site.layouts.company';
@@ -56,25 +58,31 @@ class CompanyController extends BaseController {
 		return $this->getIndex('buckeye');
 	}
 
-	public function getIndex($name="gristech")
+	public function getIndex($brand="")
 	{
 		// die("BAM2");
-		$name=strtolower($name);
-		
-		// $str='%'.$company.'%';
-		$company = $this->company->where('brand', 'LIKE', $name)->first();
+		$brand=strtolower($brand);
+		if(!$brand){
+			// $brand=strtolower($brand);
+			$company = $this->company->where('brand', 'LIKE', $brand)->first();
+		}
+		else{
+			$brand='gristech';
+		}
+		// die('CompanyController@getIndex $company:' var_dump($company));
+		$company = $this->company->where('brand', 'LIKE', $brand)->first();
 		// $brand = $company->brand;
 		// $posts=$this->post->get();
-		// $posts = $this->post->where('meta_keywords', 'LIKE', "%".$name."%")->paginate(5);
+		// $posts = $this->post->where('meta_keywords', 'LIKE', "%".$brand."%")->paginate(5);
 		// $posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);
 		// $posts = $this->post->where('meta_keywords', 'LIKE', "%russ%")->paginate(5);
-		$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$name.'%')->paginate(5);
+		$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$brand.'%')->paginate(5);
 
 		// $brand='MegaCorp';
 		// die(var_dump($brand));
 		// Show the page
-		return View::make('site/'.$name.'/home')
-			->nest('posts','site.blog.index2')
+		return View::make('site/'.$brand.'/home')
+			->nest('posts','site.blog.miniindex')
 			->with(compact('company'))
 			->with(compact('tags'))
 			->with(compact('alltags'))

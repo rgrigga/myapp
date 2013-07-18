@@ -144,7 +144,7 @@ a:hover {text-decoration: none}
 @section('myjs')
     <script type="text/javascript">
 
-	$('#side-wrapper').height($("#sidebar").height());
+	// $('#side-wrapper').height($("#sidebar").height());
 
 	// $('#accordian').margin-top($("#name").height());
     window.onload = function()
@@ -156,9 +156,10 @@ a:hover {text-decoration: none}
         }
         else
         {
-            // $(document).ready(function(){
-            //     $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
-            // });
+        		// alert('jQuery is loaded');
+            $(document).ready(function(){
+                $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
+            });
         }
     }
 
@@ -210,8 +211,17 @@ a:hover {text-decoration: none}
 		background-color: rgba(3,71,105,1);
 		border-bottom: 0;
 	}
+
+	.headline{
+		margin-left: 15%;
+	}
 	.page-header h1{
-		/*line-height: 1.2em;*/
+			max-width: 100%;
+	/*padding-left: 10%;*/
+	    margin-right: 10%;
+		padding-left: 10%;
+		/*text-align: center;*/
+		line-height: .7em;
 		margin-top: 90px;
 		margin-bottom: 20px;
 		letter-spacing:-7px;
@@ -248,9 +258,7 @@ a:hover {text-decoration: none}
 	.accordion{
 		padding-left: 15%;
 	}
-	.page-header h1{
-		margin-left: 15%;
-	}
+
 
 	@media (min-width: 980px){
 		.accordion{
@@ -289,21 +297,6 @@ a:hover {text-decoration: none}
 	}
 	
 
-
-</style>
-
-
-
-<div class="page-header">
-	<div class="corner">
-	<img src="{{asset('assets/advantage/corner.png')}}" alt="le corner">
-</div>
-
-
-
-	<div class="row-fluid">
-
-<style>
 .note2 p{ 
    position: relative; 
    /*top: 50px; */
@@ -325,34 +318,24 @@ a:hover {text-decoration: none}
 }
 
 .note { 
-	/*background-color: green;*/
 	overflow: hidden;
 	margin-top: 20px;
     position: relative; 
-    max-width: 300px;
-    /*text-align: center;*/
-    /*padding:10px;*/
-   /*width: 100%;  for IE 6 */
-   /*background-color: blue;*/
-       /*background-color: #cccccc;*/
-    /*box-shadow: 10px 10px 5px #666666;*/
+    width: 300px;
+    margin: auto;
 }
 
-.note .mydiv2{ 
-   position: absolute; 
-   top: 10%;
-   /*margin-bottom:50%;*/
-   left: 30px; 
-/*background-color: red;*/
-   /*width: 100%; */
+.note > .inner {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    margin-left: -150px;
+    padding-left: 30px;
 }
 
-.note .mydiv2 span { 
+.note > .inner span { 
    color: black; 
    font: bold 24px/45px Aescrawl, Helvetica, Sans-Serif; 
-   /*letter-spacing: -1px;  */
-   /*background: rgb(0, 0, 0); /* fallback color */*/
-   /*background: rgba(0, 0, 0, 0.6);*/
    left:20%;
    padding: 30px; 
 }
@@ -459,58 +442,93 @@ a:hover {text-decoration: none}
 .note{
 	left:10%;
 }
-
-
+.headline{
+	max-width: 100%;
+	padding-left: 10%;
+	margin-right: 5%;
+}
 
 </style>
 
+<div class="page-header">
+	<div class="corner">
+	<img src="{{asset('assets/advantage/corner.png')}}" alt="le corner">
+</div>
 
+	<div class="row-fluid">
 		<div class="span7">
-			<a href="#about" data-toggle="tab">
-				<h1>{{{$company->name}}}</h1>
+			<a href="#" data-toggle="tab">
+				<h1 class="headline">{{{$company->name}}}</h1>
 			</a>
-			<p>{{$company->description}}</p>
+			<h2 class='text-center'>the demo...</h2>
+			<h3 class='text-center'>{{$company->description}}</h3>
 			<div class="accordion" id="accordion">
 			 	<div class="accordion-group">
 			 		<div class="accordion-heading">
 			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-			 				<h2>Design</h2>
+			 				<h2>Web Design</h2>
 			 			</a>
 			 		</div>
+			 		<!-- Here's a little diddy used on this page: -->
 			 		<div id="collapseOne" class="accordion-body collapse">
 			 			<!-- //add in to open on load -->
+			 			Here's some examples used on this page:
 			 			<div class="accordion-inner">
-			 				<a href="#exterior" data-toggle="tab">
+			 				<a href="css" data-toggle="tab">
 			 					<h3>CSS</h3>
 			 				</a>
+			 					This little diddy makes the 'note':
+			 					<pre class='prettyprint'><code>
+	.note { 
+		overflow: hidden;
+		margin-top: 20px;
+	    position: relative; 
+	    max-width: 300px;
+	}
 
-			 				<a href="#interior" data-toggle="tab">
-								<h3>Javascript</h3>
+	.note > .inner{ 
+	   position: absolute; 
+	   top: 10%;
+	   left: 30px; 
+	}
+
+	.note > .inner span { 
+	   color: black; 
+	   font: bold 24px/45px Aescrawl, Helvetica, Sans-Serif; 
+	   left:20%;
+	   padding: 30px; 
+	}
+			 					</code></pre>
+			 				
+
+			 				<a href="interior" data-toggle="tab">
+								<h3>HTML 5</h3>
 			 				</a>
-
-							<a href="#decks" data-toggle="tab">
-								<h3>Decks And Fences</h3>
+							<p>I beleive in standards, and try to code to them as such.</p>
+							<a href="decks" data-toggle="tab">
+								<h3>Responsive Design</h3>
 							</a>
+							<p>Learn about <a href="{{URL::to('responsive')}}"></a></p>
 
-			 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+			 				
 			 			</div>
 			 		</div>
 			 	</div>
 			 	<div class="accordion-group">
 			 		<div class="accordion-heading">
 			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-			 				<h2>Roofing</h2>
+			 				<h2>Development</h2>
 			 			</a>
 			 		</div>
 			 		<div id="collapseTwo" class="accordion-body collapse">
 			 			<div class="accordion-inner">
 			 				
 			 				<a href="#repairs" data-toggle="tab">
-			 					<h3>Repairs</h3>
+			 					<h3>PHP</h3>
 			 				</a>
 
 							<a href="#replacement" data-toggle="tab">
-			 					<h3>Replacement</h3>
+			 					<h3>Laravel</h3>
 			 				</a>
 
 			 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
@@ -520,14 +538,14 @@ a:hover {text-decoration: none}
 			 	<div class="accordion-group">
 			 		<div class="accordion-heading">
 			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-							<h2>Power Washing</h2>
+							<h2>Marketing</h2>
 			 			</a>
 			 		</div>
 			 		<div id="collapseThree" class="accordion-body collapse">
 
 			 			<div class="accordion-inner">
 			 				<a href="#power" data-toggle="tab">
-								<h3>Power</h3>
+								<h3>SEO</h3>
 							</a>
 			 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
 			 			</div>
@@ -536,7 +554,7 @@ a:hover {text-decoration: none}
 			 	<div class="accordion-group">
 			 		<div class="accordion-heading">
 			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
-			 				<h2>Gutter Cleaning</h2>
+			 				<h2>More</h2>
 			 			</a>
 			 		</div>
 			 		<div id="collapseFour" class="accordion-body collapse">
@@ -548,12 +566,12 @@ a:hover {text-decoration: none}
 			 	<div class="accordion-group">
 			 		<div class="accordion-heading">
 			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
-			 				<h2>Concrete Cleaning & Sealing</h2>
+			 				<h2>Dirty Deeds</h2>
 			 			</a>
 			 		</div>
 			 		<div id="collapseFive" class="accordion-body collapse">
 			 			<div class="accordion-inner">
-			 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+			 				Done dirt cheap.
 			 			</div>
 			 		</div>
 			 		<!-- ./collapse -->
@@ -569,71 +587,41 @@ a:hover {text-decoration: none}
 			<div class="note">
 				<!-- <h1>h1 <span>h1span</span></h1> -->
 				<!-- <h4>h4 <span>h4span</span></h4> -->
-				<div class = "mydiv2">
+				<div class = "inner">
 					<style>
 						.phone{
 							font-size: 1.5em;
 						}
 					</style>
 					<span>Write this down: 
-<!-- 						<ul class="nav">
+					<ul class="nav">
 							<li>
 								<a href="#">&#10004; He's fast</a>
 							</li>
 							<li>
 							 	<a href="#">&#10004; He's furious</a>
 							</li>
-						</ul> -->
+						</ul>
 						<div class="phone">{{$company->phone}}</div> 
-						(my phone) - call anytime
-						
+						<div class="text-center">
+							call anytime
+						</div>		
+						<!-- < ? php echo $contact ?>	 -->
+						<!-- @ include('site.partials.contact')			 -->
 					</span>
 				</div>
-				<!-- <div class="mydiv"> -->
-					<!-- Note to self: make more notes. -->
-					<!-- <p>p <span>pspan</span> ZThis is a demo of the note. -->
-<!-- 					<ul>
-						<li>li 1</li>
-						<li>item 2</li>
-					</ul> -->
-<!-- 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, magnam, facere excepturi suscipit voluptates fugit sunt sed quam ab ullam?
 
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, doloremque ipsa natus cupiditate temporibus libero asperiores obcaecati ullam cumque nostrum minima nam delectus aliquam ad eum fugiat sapiente. Quibusdam, amet. -->
-
-				<!-- </div> -->
 				<img src="{{asset('assets/img/note.png')}}" alt="">
-<!-- 			<p>p <span>pspan</span> ZThis is a demo of the note.
-				<ul>
-					<li>li 1</li>
-					<li>item 2</li>
-				</ul>
-			</p> -->
-			<!-- <p>Note to self: <span>Make more notes.</span></p><a href="http://www.fuzzimo.com/free-vector-post-it-notes-push-pins/">  -->
+
 <!-- http://www.fuzzimo.com/free-vector-post-it-notes-push-pins/ -->
 			</div>
 			<!-- ./note -->
 		</div>
 <!-- ./note span3 -->
 
-
 	</div>
-	<!-- ./row -->
-	
-<!-- 	<div class="span4 pull-right">
-		<div class="well" data-spy="affix" data-offset-top="200">
-			<h2>Foobar</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, impedit, recusandae eius modi cumque obcaecati iusto corporis harum omnis ea expedita possimus sequi aliquam enim consequuntur soluta veniam a nihil.</p>
-		</div>
-	</div> -->
-
-
-
-	<div class="tabbable"> <!-- Only required for left/right tabs -->
-		<a href="#about" data-toggle="tab"> about</a>
-		<a href="#contact" data-toggle="tab"> contact</a>
-		<a href="#payments" data-toggle="tab">payments</a>
-	</div>
-	<!-- ./ tabbable -->
+<!-- ./row -->
+<h1>But Wait, There's More!!! <i class="icon-arrow-down"></i></h1>
 </div>
 <!-- ./ page-header -->
 
@@ -658,6 +646,7 @@ font-family:myFirstFont;
 
 	<div class="row9">
 		<!-- //main area -->
+		This is span9.
 
 	</div>
 </div>
@@ -670,10 +659,15 @@ font-family:myFirstFont;
 
 
 <div class="row-fluid">
-	<div class="hero-unit">
-    <h1>Advantage Services</h1>
+	<div class="hero-unit" name='services' id='services'>
+    <h1>Gristech Services</h1>
     <?php 
-        $items = array('Painting','Roofing', 'Concrete', 'Blacktop');
+        $items = array(
+        	'Painting',
+        	'Roofing', 
+        	'Concrete', 
+        	'Blacktop'
+        	);
     ?>
 
     <ul>
@@ -682,9 +676,9 @@ font-family:myFirstFont;
     @endforeach
     </ul>
     
-    <div class="h2">We treat Your Home as our own.</div>
+    <h2>We treat Your Home as our own.</h2>
     <p>
-    	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, pariatur, repudiandae, minima reprehenderit perferendis suscipit aperiam earum vitae animi a obcaecati ducimus corporis necessitatibus atque expedita harum quod ea dicta tenetur asperiores alias corrupti distinctio consequatur culpa possimus aspernatur modi fugiat consectetur facilis officia ad debitis sapiente nulla inventore error!
+    	This section is called a Hero-Unit.  Sell your widget!
     </p>
   </div>
 </div>
@@ -695,17 +689,19 @@ font-family:myFirstFont;
 		@foreach($company->menus() as $menu)
 	    <li><a href="#{{$menu}}" data-toggle="tab"><i class="icon-rocket icon-4x"></i> {{{$menu}}}</a></li>
 	    @endforeach
-	    <li class="active"><a href="#tab1" data-toggle="tab">Section 2</a></li>
+	    <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
 	  </ul>
 	  
 	  <div class="tab-content">
 	    @foreach($company->menus() as $menu)
+	    bam!
 	    <div class="tab-pane" id="{{{$menu}}}">
 	      <p>Howdy, I'm {{{$menu}}}.</p>
 	    </div>
 	    @endforeach
+
 	    <div class="tab-pane active" id="tab1">
-	      <p>Advantage Services is a family owned business with a standard of excellence in all aspects of Residential and Commercial Painting, Roofing, Deck and Fence Staining, and Power Washing. Formerly known as Advantage Painting, Advantage Services has been known throughout Columbus and it's surrounding areas as the first name in professionalism and quality, since 1990.</p>
+	      <p>Some text here.</p>
 	    </div>
 	  </div>
 	</div>
@@ -727,7 +723,8 @@ font-family:myFirstFont;
 	<div>Menus: {{{ $company->menus }}}</div>
 	</div>
 </div>
-
+@stop
+@section('dev')
 	<div class="span8 offset4">
 		<h1>Posts:</h1>
 
@@ -787,11 +784,8 @@ font-family:myFirstFont;
 {{ $posts->links() }}
 </div></div>
 <!-- ************************************************ -->
-
-
-
-
-	
-
 	</div>
+
+
+
 @stop

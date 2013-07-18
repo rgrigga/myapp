@@ -1,4 +1,4 @@
-@extends('layouts.scaffold')
+@extends('site.layouts.default')
 
 {{-- Web site Title --}}
 @section('title')
@@ -7,11 +7,14 @@
 @stop
 
 @section('nav')
-@include('site.partials.nav-buckeye')
+@include('site.partials.nav-top-min')
 @stop
 
 {{-- Content --}}
 @section('main')
+<h1>
+    {{{$company->brand}}}
+</h1>
 
 <style>
     .page-header{
@@ -45,6 +48,10 @@
 
         @if ( Session::get('error') )
         <div class="alert alert-error">{{ Session::get('error') }}</div>
+        @endif
+
+        @if ( Session::get('notice') )
+        <div class="alert">{{ Session::get('notice') }}</div>
         @endif
 
         @if ( Session::get('notice') )

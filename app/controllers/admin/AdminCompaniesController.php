@@ -9,11 +9,6 @@ class AdminCompaniesController extends AdminController {
      */
     protected $company;
 
-    // public function missingMethod($parameters)
-{
-    // var_dump($parameters);
-}
-
     public function __construct(Company $company)
     {
         $this->company = $company;
@@ -132,5 +127,10 @@ class AdminCompaniesController extends AdminController {
 
         return Redirect::route('companies.index');
     }
+    
+    // public function missingMethod($parameters)
+    // {
+    //     // var_dump($parameters);
+    // }
 
 }

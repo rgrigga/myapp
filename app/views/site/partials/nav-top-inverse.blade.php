@@ -1,3 +1,4 @@
+@section('nav')		
 		<style>
 		body{
 			/*padding-top: 60px;*/
@@ -23,12 +24,6 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</a>
-
-					<?php 
-					// if(!$company){
-					// $company="Buckeye Mower";
-					// } 
-					?>
 					
 					<a class="brand" href="#">{{{$company->brand}}}</a>
 					<i class="icon-calendar"></i>
@@ -79,3 +74,4 @@
 			</div>
 		</div>
 		<!-- ./ navbar -->
+@stop

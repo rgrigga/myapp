@@ -50,7 +50,7 @@
 	                            <li><a href="{{{ URL::to('user') }}}">Name: {{{ Auth::user()->username }}}</a></li>
 	                            <li><a href="{{{ URL::to('user/logout') }}}">Logout</a></li>
                             @else
-	                            <!-- <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">Login</a></li> -->
+	                            <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">Login</a></li>
                             @endif
                             
                         </ul>

@@ -231,5 +231,7 @@
         <script type="text/javascript" charset="utf-8">
             $(prettyPrint);
         </script>
+
+            <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js&skin=sunburst"></script>
 	</body>
 </html>

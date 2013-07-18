@@ -134,61 +134,61 @@
 </div>
 
 <div class="span8 offset4">
-<h1>Posts:</h1>
-<div class="text-center">
-{{ $posts->links() }}
-</div>
+	<h1>Posts:</h1>
+	<div class="text-center">
+		{{ $posts->links() }}
+	</div>
 
-@foreach ($posts as $post)
-	<div class="row">
-		<div class="span3">
-			<p></p>
-			<p>
-		<!-- Edit/Delete Buttons -->
-			<div class="metabuttons pull-left">
-				@if (Auth::check())
-	                @if (Auth::user()->hasRole('admin'))
-						<p>
-							<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
-							<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
-						| </p>
+	@foreach ($posts as $post)
+		<div class="row">
+			<div class="span3">
+				<p></p>
+				<p>
+			<!-- Edit/Delete Buttons -->
+				<div class="metabuttons pull-left">
+					@if (Auth::check())
+		                @if (Auth::user()->hasRole('admin'))
+							<p>
+								<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
+								<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
+							| </p>
+						@endif
 					@endif
-				@endif
-			</div>
+				</div>
 
-			<!-- Comments -->
-				&nbsp;<i class="icon-user"></i> by <span class="muted">{{{ $post->author->username }}}</span>
-				| <i class="icon-calendar"></i> <!--Sept 16th, 2012-->{{{ $post->date() }}}
-				| <i class="icon-comment"></i> <a href="{{{ $post->url() }}}#comments">{{$post->comments()->count()}} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
+				<!-- Comments -->
+					&nbsp;<i class="icon-user"></i> by <span class="muted">{{{ $post->author->username }}}</span>
+					| <i class="icon-calendar"></i> <!--Sept 16th, 2012-->{{{ $post->date() }}}
+					| <i class="icon-comment"></i> <a href="{{{ $post->url() }}}#comments">{{$post->comments()->count()}} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
+				</p>
+			</div>
+		</div>
+		
+
+		<div class="well">
+			{{$post->title}}
+			{{$post->img}}
+
+			<h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
+			<p>
+			{{ String::tidy(Str::limit($post->meta_description, 158)) }}
+			</p>
+			<p>
+				<a class="btn btn-info" href="{{{ $post->url() }}}">more</a>
 			</p>
 		</div>
-	</div>
-	
 
-	<div class="well">
-		{{$post->title}}
-		{{$post->img}}
+		<ul class='tag'>
+			<li><i class="icon-tag"></i></li>
+			@foreach($post->tags() as $tag)
+				
+			    <li><a href="{{ $tag }}">{{ $tag }}</a></li>
+			    
+			@endforeach
+		</ul>
 
-		<h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
-		<p>
-		{{ String::tidy(Str::limit($post->meta_description, 158)) }}
-		</p>
-		<p>
-			<a class="btn btn-info" href="{{{ $post->url() }}}">more</a>
-		</p>
-	</div>
-
-	<ul class='tag'>
-		<li><i class="icon-tag"></i></li>
-		@foreach($post->tags() as $tag)
-			
-		    <li><a href="{{ $tag }}">{{ $tag }}</a></li>
-		    
-		@endforeach
-	</ul>
-
-@endforeach
-{{ $posts->links() }}
+	@endforeach
+	{{ $posts->links() }}
 </div>
 <!-- ************************************************ -->
 

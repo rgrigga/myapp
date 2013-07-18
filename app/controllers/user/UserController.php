@@ -172,11 +172,15 @@ class UserController extends BaseController {
     public function getLogin($company='gristech')
     {
         $user = Auth::user();
-        if(!empty($user->id)){
+            if(!empty($user->id)){
             return Redirect::to('/');
         }
 
         $company = $this->company->where('brand', 'LIKE', $company)->first();
+
+        if(!$company){
+            $company = $this->company->findOrFail(3);
+        }
         // $company = $this->company->findOrFail(3);
 
         // die(var_dump($company));

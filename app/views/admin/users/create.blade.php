@@ -7,7 +7,7 @@ Create a User ::
 @stop
 
 {{-- Content --}}
-@section('content')
+@section('main')
 <div class="page-header">
 	<h3>
 		Create a New User

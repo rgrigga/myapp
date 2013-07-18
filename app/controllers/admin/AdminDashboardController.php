@@ -30,25 +30,15 @@ class AdminDashboardController extends AdminController {
 	 * Admin dashboard
 	 *
 	 */
-	public function getIndex($tag='admin')
+	public function getIndex($tag='gristech')
 	{
         // die("ADMIN DASHBOARD GET INDEX");
 
-		if($tag=="foobar"){
-			die("Conratulations!");
-		}
-
-		// $posts=$this->post->getIndex('$tag',3);
-        // $obj = DB::table('posts')->get();
-        $company = DB::table('companies')->where('name','gristech')->first();
-        // die(var_dump($obj));
-
-		//show list of recent posts
-        // $company=$this->company->where('name','gristech')->first();
+        $company = $this->company->where('brand','LIKE','%'.$tag.'%')->first();
         
-        
-
         return View::make('admin.dashboard')->with(compact('company'));
 	}
 
 }
+
+
