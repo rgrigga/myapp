@@ -53,7 +53,12 @@ Route::resource('tweets', 'TweetsController');
 
 // $env=App::environment();
 
+    App::bind('company', function($app)
+    {
+        return Company::where('brand','like','gristech')->first();
+    });
 
+    $company=App::make('company');
 
 // Redactor Blog Upload
 Route::post('redactorUpload', function()
@@ -75,6 +80,7 @@ Route::group(array('domain' => 'myapp.dev'),function()
         return Company::where('brand','like','gristech')->first();
     });
 
+    $company=App::make('company');
 
     // Javascript?
     // capture hash tag route.
@@ -86,6 +92,8 @@ Route::group(array('domain' => 'myapp.dev'),function()
 
     Route::model('company','Company',function(){
         $company=  Company::where('brand',"LIKE",'gristech')->first();
+        $company=App::make('company');
+        // die(var_dump($company);
         return $company;
     });
 
@@ -196,11 +204,13 @@ Route::group(array('domain' => 'myapp.dev'),function()
     });
 
     // $company=Company::where('brand','like','gristech')->first();
-    $brand="gristech";
+    // $brand="gristech";
+    // $company=App::make('company');
+// die(var_dump($company));
 
-    Route::get('/{tag?}','BlogController@getTags',compact('brand','tag','company'));
+    Route::get('/{tag}','BlogController@getIndex');
     
-    
+
     Route::get('/', 'CompanyController@gristech');
     // Route::get('/', function(){
         // echo "HI THERE";
@@ -268,7 +278,7 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
 
         Route::get('login',function(){
             // die("BAM");
-            $company=  Company::where('brand',"LIKE",'buckeye')->first();
+            // $company=  Company::where('brand',"LIKE",'buckeye')->first();
             return Redirect::to('user/login')
 
                 // ->withInput(Input::except('password'))
@@ -277,13 +287,17 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
 
         Route::get('protected',function(){
             return "To see this, you must be a memeber of the buckeye group.";
+            die(var_dump($company));
         });
 
         Route::get('fail',function(){
             return "This failed as expected!";
+            die(var_dump($company));
         });
+
     });
 
+    Route::get('admin','AdminDashboardController@getIndex');
     // Route::get('admin',array('before'=>'buckeye'));
     
     // $company='buckeye';
@@ -301,11 +315,12 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
     // Here are several Routing techniques:
     // 
     // 1. pass data as a parameter.
+
     
-    Route::get('/{tag}','BlogController@buckeyeIndex');
+    Route::get('/{tag}','BlogController@getIndex');
     
     // 2. use a custom method.
-    Route::get('/', 'CompanyController@buckeye');
+    Route::get('/', 'BlogController@getIndex');
 
     // Only users with roles that have the 'buckeye' permission will
     // be able to access any admin/post route.
@@ -374,7 +389,10 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
 
 Route::get('login',function(){
     // die("BAM");
-    $company=Company::where('brand','like','buckeye')->first();
+    // $company=Company::where('brand','like','buckeye')->first();
+
+
+    $company=App::make('company');
     return Redirect::to('user/login')
         ->with(compact('company'))
         ->with( 'info', "Welcome to the jungle." );
@@ -506,8 +524,8 @@ Route::resource('companies', 'CompaniesController');
 
 
 
-Route::get('tags', 'BlogController@getTags');
-Route::post('tags', 'BlogController@getTags');
+Route::get('tags', 'BlogController@getIndex');
+Route::post('tags', 'BlogController@getIndex');
 Route::get('tags/{tag}', 'BlogController@getIndex');
 // Route::post('tags/{tag}', 'BlogController@postIndex');
 
@@ -529,14 +547,14 @@ Route::get('mytest',function(){
     return View::make('site.gristech.test');
 });
 
-$company=Company::where('brand','like','buckeye')->first();
+// $company=Company::where('brand','like','buckeye')->first();
 // die(var_dump($company));
 
-Route::get('/{tag}', 'BlogController@getIndex',array(compact('company'),'{$tag}'));
+Route::get('/{tag}', 'BlogController@getIndex');
 
 
-$company=Company::where('brand','like','gristech')->first();
-Route::get('/', 'CompanyController@getIndex',array(compact('company')));
+// $company=Company::where('brand','like','gristech')->first();
+Route::get('/', 'CompanyController@getIndex');
     // ->with($company)
     // ->where(array('id','=',3));
 

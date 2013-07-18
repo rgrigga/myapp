@@ -1,4 +1,4 @@
-@extends('layouts.scaffold')
+@extends('admin.layouts.default')
 
 {{-- Web site Title --}}
 @section('title')
@@ -8,14 +8,20 @@
 
 {{-- New Laravel 4 Feature in use --}}
 @section('styles')
-@parent
-body {
-	background: #f2f2f2;
+<!-- @ parent -->
+<style>
+    body {
+    background: #f2f2f2;
 }
+</style>
 @stop
+
+@section('nav')
+
 
 {{-- Content --}}
 @section('main')
+{{var_dump($company)}}
 <div class="page-header">
 	<h3>Edit your settings</h3>
 </div>
@@ -74,6 +80,5 @@ body {
         </div>
     </div>
     <!-- ./ form actions -->
-</form>
 </form>
 @stop

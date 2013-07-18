@@ -38,14 +38,14 @@ class CompanyController extends BaseController {
      */
     public function __construct(Company $company, Post $post)
     {
-        parent::__construct();
 
 
+// die(var_dump($company));
         $this->post = $post;
         // $this->user = $user;
-        $this->company = $company;
+        $this->company = App::make('company');
 
-
+    // die("bam");
         // $this->tags = $post->tags();
     }
     
@@ -65,11 +65,18 @@ class CompanyController extends BaseController {
 		return $this->getIndex('gristech',5);
 	}
 
+	// public function tags(Company $company, $tag=""){
+	// 		// $this->company=$company;
+
+
+	// 	$value = App::make('company');
+ //    // die(var_dump($value));
+
+	// }
 
 	public function getIndex($brand="",$num='10')
 	{
 
-		
 		// die("Brand: $brand");
 		$brand=strtolower($brand);
 		if(!$brand){

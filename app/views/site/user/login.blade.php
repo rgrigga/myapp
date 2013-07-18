@@ -1,4 +1,4 @@
-@extends('layouts.scaffold')
+@extends('site.layouts.default')
 
 {{-- Web site Title --}}
 @section('title')
@@ -8,7 +8,7 @@
 
 @section('nav')
 <!-- @ parent -->
-<!-- @ include('site.partials.nav-top-min') -->
+@include('site.partials.nav-buckeye')
 @stop
 
 {{-- Content --}}
@@ -63,9 +63,10 @@
     </fieldset>
 </form>
 
-<p>Not A Member?  Security and Privacy are of the utmost importance.  More about that later.</p>
+<p>Not A Member?  Security and Privacy are of the utmost importance.  More about that later...</p>
 
         <a class="btn btn-large btn-primary" href="{{{ URL::to('user/create') }}}">Sign Up</a>
+        <p>No spam, etc.</p>
 <!-- // Popup form here?-->
 
 @stop

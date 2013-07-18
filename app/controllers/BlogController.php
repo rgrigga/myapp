@@ -50,7 +50,7 @@ class BlogController extends BaseController {
     {
         parent::__construct();
 
-        $env=App::environment();
+        // $env=App::environment();
         // die(var_dump($company));
         // $company = App::make('company');
     	// die(var_dump($company));
@@ -58,6 +58,7 @@ class BlogController extends BaseController {
         $this->post = $post;//These are basically empty objects.
         $this->user = $user;
         $this->company = $company;
+
     }
 
 	/**
@@ -70,10 +71,10 @@ class BlogController extends BaseController {
 		return self::getIndex('$tag');
 	}
     
-    public function buckeyeIndex($tag=""){
-    	$company=  Company::where('brand',"LIKE",'buckeye')->first();
-		return $this->getIndex($company,$tag);
-	}
+ //    public function buckeyeIndex($tag=""){
+ //    	// $company=  Company::where('brand',"LIKE",'buckeye')->first();
+	// 	return $this->getIndex($company,$tag);
+	// }
 
 // process a many to many relationship amongst tags
 
@@ -82,18 +83,23 @@ class BlogController extends BaseController {
 	 *
 	 * @return View
 	 */
-	public function getIndex(Company $company ,$tag="")
+	public function getIndex($tag="")
 	{
+
+		// $company=App::make('company');
+		// die(var_dump($company));
 // $company=  Company::where('brand',"LIKE",'buckeye')->first();
 // die("BAM CONZTROLLER");
-		$views=array();
+		// $views=array();
 		// $companies=$this->company->get();
 	// 	var_dump($brand);
 	// die(var_dump($tag));
 //there must be a better way to check if company exists?
 		// $company=$this->company->where('brand','LIKE',$brand)->first();
 				// var_dump($brand);
-		$company=App::make('company');
+
+    	$company=App::make('company');
+		// die(var_dump($company));
 		$brand = strtolower($company->brand);
 		$names = array();
 	// die(var_dump($company));
@@ -121,6 +127,7 @@ class BlogController extends BaseController {
 			//We know that the company exists.
 
 			if($tag==strtolower($brand)){
+
 				//the request is "gristech/company"
 				// die(var_dump($company, $brand, $names, $tag));
 				return View::make('site.'.$brand.'.home');
@@ -238,12 +245,13 @@ class BlogController extends BaseController {
 					->with('message','I couldn\'t find anything');
 			}
 			//else
-			// return View::make('site/blog/tags')
-			// 	->with(compact('company'))
-			// 	->with(compact('tags'))
-			// 	->with(compact('alltags'))
-			// 	->with(compact('posts'))
-			// 	->with('message','I couldn\'t find anything');
+			$str="I found ".count($posts)." posts.";
+			return View::make('site/blog/tags')
+				->with(compact('company','tags','alltags','posts'))
+				// ->with(compact('tags'))
+				// ->with(compact('alltags'))
+				// ->with(compact('posts'))
+				->with('info',$str);
 		}
 
 		// $posts = $this->post->where('tag','seo');
@@ -252,9 +260,10 @@ class BlogController extends BaseController {
 			// $myphotos=self::listImages("screen/");
 			// $photos=Paginator::make($myphotos,count($myphotos),10);
 				// $myphotos->paginate(10);
-			$posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
+			$posts = $this->post->where('meta_keywords', 'LIKE', "$tag")->paginate(5);
+			// $posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
 			// $data = array(compact('posts'),compact('tags'),compact('alltags'),$company);
-			// die(var_dump($data));
+			
 
 			// die("BAM");
 
@@ -291,22 +300,24 @@ class BlogController extends BaseController {
 	{
 		// return Redirect::to("tags", "all");
 		// 
-    $company = App::make('company');
+    	$company = App::make('company');
     // die(var_dump($company));
 		// die(var_dump($tag,$brand));
-		$alltags=array();		
+		$alltags=$this->getAllTags();		
 
 		// $company=Company::where('brand','like',$brand)->first();
 
-		foreach ($this->post->get() as $post) {
+		// foreach ($this->post->get() as $post) {
 
-			foreach ($post->tags() as $posttag) {
-				if(!in_array($posttag, $alltags)){
-					array_push($alltags, trim($posttag));
-				}
-			}
+		// 	foreach ($post->tags() as $posttag) {
+		// 		if(!in_array($posttag, $alltags)){
+		// 			array_push($alltags, trim($posttag));
+		// 		}
+		// 	}
+		// }
+		//$alltags now contains all the tags
 
-		}
+		$posts = $this->post->where('tag','like');
 
 		$posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
 

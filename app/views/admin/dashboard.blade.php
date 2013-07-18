@@ -7,16 +7,11 @@
 
 @section('main')
 
-
-
 <!-- basename($filename, '.php')}} -->
-
-
 
 <h1>admin dashboard</h1>
 <h6>{{$company->image}}</h6>
 <img src="{{URL::to($company->image)}}" alt="">
-
 
 <div class="container">
 	<a href="{{URL::to('admin/dashboard');}}">{{URL::to('admin/dashboard');}}</a>
