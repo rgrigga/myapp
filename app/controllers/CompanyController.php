@@ -45,6 +45,7 @@ class CompanyController extends BaseController {
         // $this->user = $user;
         $this->company = $company;
 
+
         // $this->tags = $post->tags();
     }
     
@@ -58,12 +59,18 @@ class CompanyController extends BaseController {
 		return $this->getIndex('buckeye',5);
 	}
 
-
+	public function gristech(){
+		// die('company.gristech')
+		// die("Brand: $brand");
+		return $this->getIndex('gristech',5);
+	}
 
 
 	public function getIndex($brand="",$num='10')
 	{
-		// die("BAM2");
+
+		
+		// die("Brand: $brand");
 		$brand=strtolower($brand);
 		if(!$brand){
 			// $brand=strtolower($brand);

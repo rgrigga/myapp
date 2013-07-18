@@ -13,6 +13,8 @@
 |
 */
 
+
+// die(var_dump($value));
 // Route::any('/',function(){
 //     die('bam');
 //     return View::make('site.pages.debug');
@@ -67,11 +69,20 @@ Route::post('redactorUpload', function()
 
 Route::group(array('domain' => 'myapp.dev'),function()
 {
+// http://codehappy.daylerees.com/ioc-container
+    App::bind('company', function($app)
+    {
+        return Company::where('brand','like','gristech')->first();
+    });
+
 
     // Javascript?
     // capture hash tag route.
     // if it's on the page, go there.
     // if not, send get request to server.
+    // $value = App::make('company','gristech');
+
+
 
     Route::model('company','Company',function(){
         $company=  Company::where('brand',"LIKE",'gristech')->first();
@@ -113,7 +124,7 @@ Route::group(array('domain' => 'myapp.dev'),function()
     });
 
   
-    $data=array(compact('company'));
+    // $data=array(compact('company'));
 // ->with('warning',$message);
     View::composer('home', function($view)
         {
@@ -184,16 +195,19 @@ Route::group(array('domain' => 'myapp.dev'),function()
         ->with(compact('company'));
     });
 
-    Route::get('companytest','BlogController@getIndex',$data);
-    
+    // $company=Company::where('brand','like','gristech')->first();
+    $brand="gristech";
 
-    Route::get('/', function(){
+    Route::get('/{tag?}','BlogController@getTags',compact('brand','tag','company'));
+    
+    
+    Route::get('/', 'CompanyController@gristech');
+    // Route::get('/', function(){
         // echo "HI THERE";
-        $company=Company::where('brand','like','gristech')->first();
+        // $company=Company::where('brand','like','gristech')->first();
         // die(var_dump($company));
-        return View::make('site.gristech.home')
-        ->with(array($company));
-    });
+        
+    // });
 });
 
 /**
@@ -218,8 +232,13 @@ Route::group(array('domain' => 'myapp.dev'),function()
 
 Route::group(array('domain' => 'buckeyemower.com'),function()
 {
-    // Route::get('admin*','before')?
-    // $mycompany=2;?
+
+    // http://codehappy.daylerees.com/ioc-container
+    App::bind('company', function($app)
+    {
+        return Company::where('brand','like','buckeye')->first();
+    });
+
     $company='buckeye';
     
     Route::model('company','Company',function(){

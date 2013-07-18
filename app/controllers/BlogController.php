@@ -50,6 +50,11 @@ class BlogController extends BaseController {
     {
         parent::__construct();
 
+        $env=App::environment();
+        // die(var_dump($company));
+        // $company = App::make('company');
+    	// die(var_dump($company));
+
         $this->post = $post;//These are basically empty objects.
         $this->user = $user;
         $this->company = $company;
@@ -67,7 +72,7 @@ class BlogController extends BaseController {
     
     public function buckeyeIndex($tag=""){
     	$company=  Company::where('brand',"LIKE",'buckeye')->first();
-		return $this->getIndex('company',$tag);
+		return $this->getIndex($company,$tag);
 	}
 
 // process a many to many relationship amongst tags
@@ -86,16 +91,18 @@ class BlogController extends BaseController {
 	// 	var_dump($brand);
 	// die(var_dump($tag));
 //there must be a better way to check if company exists?
-		$company=$this->company->where('brand','LIKE',$brand)->first();
+		// $company=$this->company->where('brand','LIKE',$brand)->first();
 				// var_dump($brand);
-
+		$company=App::make('company');
+		$brand = strtolower($company->brand);
+		$names = array();
 	// die(var_dump($company));
 
 		// var_dump($brand);
 		// $names=$names->get('names');
-		$names = array();
+		
 		// var_dump($companies->brand);
-
+		$companies=$this->company->get();
 		foreach ($companies as $c) {
 			// var_dump($c->brand);
 			$lbrand=strtolower($c->brand);
@@ -106,14 +113,17 @@ class BlogController extends BaseController {
 				// }
 			// }
 		}		
-// var_dump($names);
+
+
 		if(in_array($brand, $names)){
+
 			// die("exists! ".var_dump($brand));
 			//We know that the company exists.
 
-			if($tag==$company){
+			if($tag==strtolower($brand)){
 				//the request is "gristech/company"
-				return View::make('site.'.$tag.'.home');
+				// die(var_dump($company, $brand, $names, $tag));
+				return View::make('site.'.$brand.'.home');
 			}
 			//Here, the company exists, but the request is something different.
 
@@ -132,14 +142,14 @@ class BlogController extends BaseController {
 			// die("exist! ".var_dump($brand));
 
 		}
-		else{
-		//Here, the request is NOT gristech, buckeye, advantage, megacorp...
-		//Loads the default company
-			// $company = $this->company->findOrFail(3);
+		// else{
+		// //Here, the request is NOT gristech, buckeye, advantage, megacorp...
+		// //Loads the default company
+		// 	// $company = $this->company->findOrFail(3);
 
-		// die("does not exist! ".var_dump($brand));
+		// // die("does not exist! ".var_dump($brand));
 
-		}
+		// }
 		// die(var_dump($names));
 
 
@@ -185,6 +195,7 @@ class BlogController extends BaseController {
 	    // we'll send the user to the search page.
         if(in_array($tag, $mypages)){
         	// die("BAM");
+
             return View::make('site/pages/'.$tag)
             ->with(compact('company'))
 			->with(compact('tags'))
@@ -274,11 +285,18 @@ class BlogController extends BaseController {
 		return $alltags;
 	}
 
-	public function getTags($tag="")
+
+
+	public function getTags($tag="",$brand="")
 	{
 		// return Redirect::to("tags", "all");
 		// 
+    $company = App::make('company');
+    // die(var_dump($company));
+		// die(var_dump($tag,$brand));
 		$alltags=array();		
+
+		// $company=Company::where('brand','like',$brand)->first();
 
 		foreach ($this->post->get() as $post) {
 
@@ -309,12 +327,17 @@ class BlogController extends BaseController {
 // View::make($view, $data);
 
 		// return View::make('site/blog/tags', compact('posts'),compact('tags'));
+		// $company=Company::where('brand','like',$brand)->first();
+		// 
+		    $company = App::make('company');
+    // die(var_dump($company));
 		return View::make('site/blog/tags')
 				->with(compact('company'))
 				->with(compact('tags'))
 				->with(compact('alltags'))
 				->with(compact('posts'))
-				->with('message','I couldn\'t find anything');
+				// ->with('message','I couldn\'t find anything')
+				;
 	}
 
 
@@ -338,6 +361,7 @@ class BlogController extends BaseController {
 			// $post = $this->post->where('tags', 'has', $slug);
 			
 			// if (is_null($post))
+
 			// {
 
 
