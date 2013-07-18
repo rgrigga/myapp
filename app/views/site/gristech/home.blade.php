@@ -156,7 +156,7 @@ a:hover {text-decoration: none}
         }
         else
         {
-        		// alert('jQuery is loaded');
+        		alert('jQuery is loaded');
             $(document).ready(function(){
                 $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
             });
@@ -624,21 +624,10 @@ a:hover {text-decoration: none}
 <h1>But Wait, There's More!!! <i class="icon-arrow-down"></i></h1>
 </div>
 <!-- ./ page-header -->
+<h2>Look!</h2>
+<p>Non-web marketing is important, too.  Let's make some postcards, business cards, etc...</p>
+<img src="{{asset('assets/gristech/flyer.png')}}" alt="flyer">
 
-
-
-<style> 
-/*@font-face
-{
-font-family: myFirstFont;
-src: url(sansation_light.ttf);
-}
-
-div
-{
-font-family:myFirstFont;
-}*/
-</style>
 
 <div class="row-fluid">
 
@@ -656,6 +645,8 @@ font-family:myFirstFont;
 		color: black;
 	}
 </style>
+
+
 
 
 <div class="row-fluid">
@@ -682,6 +673,12 @@ font-family:myFirstFont;
     </p>
   </div>
 </div>
+
+<style>
+	html{
+		background-color:rgba(50,50,50,.5);
+	}
+</style>
 
 <div class="row-fluid">
 	<div class="tabbable"> <!-- Only required for left/right tabs -->

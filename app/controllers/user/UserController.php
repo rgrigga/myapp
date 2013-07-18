@@ -169,21 +169,22 @@ class UserController extends BaseController {
      * Displays the login form
      *
      */
-    public function getLogin($company='gristech')
+    public function getLogin($brand='gristech')
     {
         $user = Auth::user();
             if(!empty($user->id)){
             return Redirect::to('/');
         }
 
-        $company = $this->company->where('brand', 'LIKE', $company)->first();
+        $company = $this->company->where('brand', 'LIKE', $brand)->first();
 
         if(!$company){
+            die(var_dump($brand));
             $company = $this->company->findOrFail(3);
         }
         // $company = $this->company->findOrFail(3);
 
-        // die(var_dump($company));
+        
 
         return View::make('site/user/login')
             ->with(compact('user'))

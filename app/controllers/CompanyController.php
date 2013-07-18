@@ -55,32 +55,32 @@ class CompanyController extends BaseController {
 	 */
 
 	public function buckeye(){
-		return $this->getIndex('buckeye');
+		return $this->getIndex('buckeye',5);
 	}
 
-	public function getIndex($brand="")
+
+
+
+	public function getIndex($brand="",$num='10')
 	{
 		// die("BAM2");
 		$brand=strtolower($brand);
 		if(!$brand){
 			// $brand=strtolower($brand);
-			$company = $this->company->where('brand', 'LIKE', $brand)->first();
-		}
-		else{
+			// $company = $this->company->where('brand', 'LIKE', $brand)->first();
 			$brand='gristech';
 		}
+		// else{
+			
+		// }
 		// die('CompanyController@getIndex $company:' var_dump($company));
 		$company = $this->company->where('brand', 'LIKE', $brand)->first();
-		// $brand = $company->brand;
-		// $posts=$this->post->get();
-		// $posts = $this->post->where('meta_keywords', 'LIKE', "%".$brand."%")->paginate(5);
-		// $posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);
-		// $posts = $this->post->where('meta_keywords', 'LIKE', "%russ%")->paginate(5);
-		$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$brand.'%')->paginate(5);
 
-		// $brand='MegaCorp';
-		// die(var_dump($brand));
-		// Show the page
+		$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$brand.'%')->paginate($num);
+
+
+		$views=array('foo','bar');
+
 		return View::make('site/'.$brand.'/home')
 			->nest('posts','site.blog.miniindex')
 			->with(compact('company'))

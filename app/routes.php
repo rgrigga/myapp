@@ -44,6 +44,10 @@ Route::resource('tweets', 'TweetsController');
 // });
 
 
+App::bind('company', function($app)
+{
+    return new Company;
+});
 
 $env=App::environment();
 
@@ -52,7 +56,26 @@ $env=App::environment();
 Route::group(array('domain' => 'myapp.dev'),function()
 {
 
-    $company=Company::where('brand','like','gristech')->first();
+    // Javascript?
+    // capture hash tag route.
+    // if it's on the page, go there.
+    // if not, send get request to server.
+
+    Route::model('company','Company',function(){
+        $company=  Company::where('brand',"LIKE",'gristech')->first();
+        return $company;
+    });
+
+    // http://laravel.com/docs/ioc#basic-usage
+
+    // App::singleton('company', function()
+    // {
+    //     return new Company::where('brand',"LIKE",'company')->first();
+    // });
+    // App::instance('foo', $foo);
+
+    // $company=Company::where('brand','like','gristech')->first();
+
     // Route::get('register', function()
     // {
     //     return View::make('user.register');
@@ -79,7 +102,7 @@ Route::group(array('domain' => 'myapp.dev'),function()
 
   
     $data=array(compact('company'));
-
+// ->with('warning',$message);
     View::composer('home', function($view)
         {
             $view->with('company', $company);
@@ -110,14 +133,17 @@ Route::group(array('domain' => 'myapp.dev'),function()
             ->with( 'info', $info );
     });
     
-    Route::get('mytest/{company?}',function(Company $company){
+    Route::get('mytest/{brand?}',function($brand){
         //http://gristech.com/mytest/1
         // var_dump($company);
-        return "Your company is ".$company->brand;
-
+        $company=  Company::where('brand','LIKE','gristech')->first();
+        // return "Your company is ".$company->brand;
+        // $company=
         // $brand = strtolower($company->brand);
-        return View::make('site.'.$brand.'.home');
-        // ->with(compact('company'));
+        // $company
+
+        return View::make('site.'.$brand.'.home')
+         ->with(compact('company'));
     });
 
     // $data=array('company'=>'buckeye');
@@ -158,13 +184,29 @@ Route::group(array('domain' => 'myapp.dev'),function()
     });
 });
 
+
+// ********************************************************************************
+// ********************************************************************************
+// ********************************************************************************
+// ********************************************************************************
+// **************************BUCKEYE***********************************************
+// ********************************************************************************
+// **********************************MOWER*****************************************
+// ********************************************************************************
+// ********************************************************************************
+// ********************************************************************************
+// ********************************************************************************
+// ********************************************************************************
+// ********************************************************************************
+
 Route::group(array('domain' => 'buckeyemower.com'),function()
 {
     // Route::get('admin*','before')
     // $mycompany=2;
     $company='buckeye';
-        Route::model('company','Company',function(){
-        $company=  Company::where('brand',"LIKE",'gristech')->first();
+    
+    Route::model('company','Company',function(){
+        $company=  Company::where('brand',"LIKE",'buckeye')->first();
         return $company;
     });
 
@@ -177,8 +219,8 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
             // die("BAM");
             $message="Sorry. You are not authorized to view that.  Would you like to log in?";
             return Redirect::to('user/login')
-                ->with('warning',$message)
-                ->with('howdy',$message);
+                ->with('info',$message);
+                // ->with('howdy',$message);
         }
         // die("BAM");
         // Route::controller('admin', 'AdminDashboardController');
@@ -188,10 +230,11 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
 
         Route::get('login',function(){
             // die("BAM");
+            $company=  Company::where('brand',"LIKE",'buckeye')->first();
             return Redirect::to('user/login')
-                // ->withInput(Input::except('password'))
 
-                ->with( 'success', 'You did it!' );
+                // ->withInput(Input::except('password'))
+                ->with( 'info', 'Please login.  Thank You.' );
         });
 
         Route::get('protected',function(){
@@ -291,9 +334,12 @@ Route::post('redactorUpload', function()
 
 Route::get('login',function(){
     // die("BAM");
+    $company=Company::where('brand','like','buckeye')->first();
     return Redirect::to('user/login')
+        ->with(compact('company'))
+
         // ->with( 'notice', Lang::get('user/user.user_account_created') );
-        ->with( 'notice', "Welcome to the jungle." );
+        ->with( 'info', "Welcome to the jungle." );
     });
 
 /** ------------------------------------------
@@ -440,12 +486,18 @@ Route::get('search/{tag}','BlogController@getIndex');
 //     // var_dump($company);
 // });
 
+Route::get('mytest',function(){
+    return View::make('site.gristech.test');
+});
+
 $company=Company::where('brand','like','buckeye')->first();
 // die(var_dump($company));
 
-Route::get('/{tag}', 'BlogController@getIndex',$company);
+Route::get('/{tag}', 'BlogController@getIndex',array(compact('company'),'{$tag}'));
 
-Route::get('/', 'CompanyController@getIndex');
+
+$company=Company::where('brand','like','gristech')->first();
+Route::get('/', 'CompanyController@getIndex',array(compact('company')));
     // ->with($company)
     // ->where(array('id','=',3));
 
