@@ -54,10 +54,10 @@ class UserController extends BaseController {
         $this->user->email = Input::get( 'email' );
 
         // If using ReCaptcha, add it to the list of inputs
-        if( Confide::isUsingReCaptcha() )
-        {
-            $this->user->recaptcha_response_field = Input::get( 'recaptcha_response_field' );
-        }
+        // if( Confide::isUsingReCaptcha() )
+        // {
+        //     $this->user->recaptcha_response_field = Input::get( 'recaptcha_response_field' );
+        // }
         
 
         $password = Input::get( 'password' );
@@ -88,7 +88,9 @@ class UserController extends BaseController {
         {
             // Redirect with success message, You may replace "Lang::get(..." for your custom message.
             return Redirect::to('user/login')
-                ->with( 'notice', Lang::get('user/user.user_account_created') );
+                // ->with( 'notice', Lang::get('user/user.user_account_created') );
+                ->with( 'notice', 'Please check your email, confirm, & we\'ll see you soon.' );
+            // 
         }
         else
         {
@@ -269,10 +271,10 @@ class UserController extends BaseController {
         );
 
         // If using ReCaptcha, add his field to the Validation rules
-        if( Confide::isUsingReCaptcha() )
-        {
-            $rules['recaptcha_response_field'] = 'required|recaptcha';
-        }        
+        // if( Confide::isUsingReCaptcha() )
+        // {
+        //     $rules['recaptcha_response_field'] = 'required|recaptcha';
+        // }        
 
         $validator = Validator::make( Input::all(), $rules );
 
