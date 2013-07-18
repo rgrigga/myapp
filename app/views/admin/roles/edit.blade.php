@@ -9,6 +9,17 @@ Role Update ::
 {{-- Content --}}
 @section('main')
 <div class="page-header">
+	<ul class="breadcrumb">
+		<li>
+			<a href="#">Home</a> <span class="divider">/</span>
+		</li>
+		<li>
+			<a href="#">Library</a> <span class="divider">/</span>
+		</li>
+		<li class="active">
+			<a href="#">Data</a>
+		</li>
+	</ul>
 	<h3>
 		Role Update
 
@@ -74,4 +85,9 @@ Role Update ::
 	</div>
 	<!-- ./ form actions -->
 </form>
+<ul>
+	<li>User</li>
+	<li>User</li>
+	<li>User</li>
+</ul>
 @stop

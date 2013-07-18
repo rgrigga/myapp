@@ -227,10 +227,6 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
         return $company;
     });
 
-
-
-
-
     Route::filter('buckeye', function()
     {
         if (! Entrust::can('buckeye') ) // Checks the current user
@@ -271,22 +267,18 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
     // Route::get('admin')
 
     # User RESTful Routes (Login, Logout, Register, etc)
-    Route::controller('user', 'UserController');
-    Route::get('blog/{postSlug}', 'BlogController@getView');
-    Route::get('blog', 'BlogController@buckeyeIndex');
 
-    Route::get('test{company}',function(Company $company){
-        return View::make('site.buckeye.happy');
-    });
+
+
 
     // Here are several Routing techniques:
     // 
     // 1. pass data as a parameter.
     
     Route::get('/{tag}','BlogController@buckeyeIndex');
-    
-    // 2. use a custom method.
     Route::get('/', 'CompanyController@buckeye');
+    // 2. use a custom method.
+
 
     // Only users with roles that have the 'buckeye' permission will
     // be able to access any admin/post route.

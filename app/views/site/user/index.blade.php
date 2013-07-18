@@ -8,14 +8,22 @@
 
 {{-- New Laravel 4 Feature in use --}}
 @section('styles')
-@parent
-body {
-	background: #f2f2f2;
-}
+<!-- // @ parent -->
+<!-- body { -->
+	<!-- background: #f2f2f2; -->
+<!-- } -->
+@stop
+
+@section('nav')
+@include('site.partials.nav-top-min')
 @stop
 
 {{-- Content --}}
 @section('main')
+<style>
+    .main{padding-top: 60px;}
+</style>
+<div class="main">
 <div class="page-header">
 	<h3>Edit your settings</h3>
 </div>
@@ -75,5 +83,13 @@ body {
     </div>
     <!-- ./ form actions -->
 </form>
-</form>
+</div>
+@stop
+
+@section('admin-bottom')
+@parent
+<div class="nav-bottom">
+    <h2>Bam!</h2>
+<p class="muted credit"> </p>
+</div>
 @stop
