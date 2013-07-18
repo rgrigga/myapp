@@ -382,7 +382,9 @@ Regardless of which of these group you belong to, you should be able to find goo
 				</li>
 				<li>
 					<p>
-						Common data formats are shared by Google, Yahoo, Bing, Flickr, YouTube, Twitter, Facebook.  All we have to do is plug these things together.
+						Common security protocols and data formats exist and are shared by Google, Yahoo, Bing, Flickr, YouTube, Twitter, Facebook.
+
+						All we have to do is plug these things together.
 					</p>
 
 					<p>From a layman's perspective, it's very simple, right?</p>

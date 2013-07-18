@@ -57,8 +57,8 @@
 		/*poition: static;*/
 		/*width:100%;*/
 		background-color: rgba(3,71,105,1);	
-		margin-left:-80px;
-		margin-right:-80px;
+		margin-left:-20px;
+		margin-right:-20px;
 	}
 	.page-header h1, .sidebar h3{
 		/*font-family: 'Mr De Haviland', cursive;*/
@@ -138,9 +138,13 @@ a:hover {text-decoration: none}
 
 @section('nav')
 @include('site.partials.nav-top-min')
-
 @stop
 
+@section('admin-top')
+<!-- @ include('admin.nav') -->
+@stop
+
+<!-- //This is the correct place to put js on this page. -->
 @section('myjs')
     <script type="text/javascript">
 
@@ -156,7 +160,7 @@ a:hover {text-decoration: none}
         }
         else
         {
-        		alert('jQuery is loaded');
+        		// alert('jQuery is loaded');
             $(document).ready(function(){
                 $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
             });
@@ -179,7 +183,14 @@ a:hover {text-decoration: none}
 
 	if($env=="local"){
 		$path='/home/ryan/MyApp6/app/views/site/pages/';
+		$msg='Welcome to the Jungle';
 	}
+	// if($env=='buckeye'){
+	// 	// $brand='foo';
+	// }
+	// if($env=='gristech'){
+
+	// }
 	else{
     	$path='/home/gristech/myapp/app/views/site/pages/';
     }
@@ -267,6 +278,7 @@ a:hover {text-decoration: none}
 	}
 
 	@media (max-width: 979px) {
+		
 		.page-header h1{
 			font-size: 72px;
 			padding-bottom: 15px;
@@ -446,14 +458,18 @@ a:hover {text-decoration: none}
 	max-width: 100%;
 	padding-left: 10%;
 	margin-right: 5%;
+
+  -webkit-transform: rotate(-10deg);
+  -moz-transform: rotate(-10deg);
+  -o-transform: rotate(-10deg);
+  transform: rotate(-10deg);
 }
 
 </style>
-
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?autoload=true&amp;skin=sunburst&amp;lang=css" defer="defer"></script>
 <div class="page-header">
-	<div class="corner">
-	<img src="{{asset('assets/advantage/corner.png')}}" alt="le corner">
-</div>
+
+
 
 	<div class="row-fluid">
 		<div class="span7">
@@ -477,8 +493,10 @@ a:hover {text-decoration: none}
 			 				<a href="css" data-toggle="tab">
 			 					<h3>CSS</h3>
 			 				</a>
+			 				<div id='css'>
 			 					This little diddy makes the 'note':
-			 					<pre class='prettyprint'><code>
+			 					<pre class='prettyprint'><code 'lang=css'>
+
 	.note { 
 		overflow: hidden;
 		margin-top: 20px;
@@ -487,20 +505,21 @@ a:hover {text-decoration: none}
 	}
 
 	.note > .inner{ 
-	   position: absolute; 
-	   top: 10%;
-	   left: 30px; 
+		position: absolute; 
+		top: 10%;
+		left: 30px; 
 	}
 
 	.note > .inner span { 
-	   color: black; 
-	   font: bold 24px/45px Aescrawl, Helvetica, Sans-Serif; 
-	   left:20%;
-	   padding: 30px; 
+		color: black; 
+		font: bold 24px/45px Aescrawl, Helvetica, Sans-Serif; 
+		left:20%;
+		padding: 30px; 
 	}
 			 					</code></pre>
+			 				</div>
 			 				
-
+							
 			 				<a href="interior" data-toggle="tab">
 								<h3>HTML 5</h3>
 			 				</a>
@@ -508,9 +527,7 @@ a:hover {text-decoration: none}
 							<a href="decks" data-toggle="tab">
 								<h3>Responsive Design</h3>
 							</a>
-							<p>Learn about <a href="{{URL::to('responsive')}}"></a></p>
-
-			 				
+							<p><a class='btn btn-info' href="{{URL::to('responsive')}}"><i class="icon-code"> </i>Learn More</a></p>
 			 			</div>
 			 		</div>
 			 	</div>
@@ -530,8 +547,8 @@ a:hover {text-decoration: none}
 							<a href="#replacement" data-toggle="tab">
 			 					<h3>Laravel</h3>
 			 				</a>
-
-			 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+							
+			 				https://en.wikipedia.org/wiki/Virtual_private_server
 			 			</div>
 			 		</div>
 			 	</div>
@@ -722,6 +739,28 @@ a:hover {text-decoration: none}
 </div>
 @stop
 @section('dev')
+
+
+                    <ul class="nav pull-right">
+                        @if (Auth::check())
+                            @if (Auth::user()->hasRole('admin'))
+
+                                <li{{ (Request::is('admin/blogs/create*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/blogs/create') }}}"><i class="icon-bullhorn icon-white"></i> New</a></li>
+
+	                            <li><a href="{{{ URL::to('admin') }}}">Dashboard</a></li>
+                            @endif
+                            <li><a href="{{{ URL::to('user') }}}">Name: {{{ Auth::user()->username }}}</a></li>
+                            <li><a href="{{{ URL::to('user/logout') }}}">Logout</a></li>
+                        @else
+                            <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">Login</a></li>
+                            
+                        @endif
+                        @include('site.partials.contact')
+                    </ul>
+
+
+
+
 	<div class="span8 offset4">
 		<h1>Posts:</h1>
 
@@ -729,60 +768,58 @@ a:hover {text-decoration: none}
 		{{ $posts->links() }}
 		</div>
 	
-@foreach ($posts as $post)
-	<div class="row-fluid">
-		<div class="span3">
-			<p></p>
-			<p>
-		<!-- Edit/Delete Buttons -->
-			<div class="metabuttons pull-left">
-				@if (Auth::check())
-	                @if (Auth::user()->hasRole('admin'))
-						<p>
-							<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
-							<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
-						| </p>
-					@endif
-				@endif
+		@foreach ($posts as $post)
+			<div class="row-fluid">
+				<div class="span3">
+					<p></p>
+					<p>
+				<!-- Edit/Delete Buttons -->
+					<div class="metabuttons pull-left">
+						@if (Auth::check())
+			                @if (Auth::user()->hasRole('admin'))
+								<p>
+									<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
+									<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
+								| </p>
+							@endif
+						@endif
+					</div>
+
+					<!-- Comments -->
+						&nbsp;<i class="icon-user"></i> by <span class="muted">{{{ $post->author->username }}}</span>
+						| <i class="icon-calendar"></i> <!--Sept 16th, 2012-->{{{ $post->date() }}}
+						| <i class="icon-comment"></i> <a href="{{{ $post->url() }}}#comments">{{$post->comments()->count()}} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
+					</p>
+				</div>
+			</div>
+			
+
+			<div class="well">
+				{{$post->title}}
+				{{$post->img}}
+
+				<h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
+				<p>
+				{{ String::tidy(Str::limit($post->meta_description, 158)) }}
+				</p>
+				<p>
+					<a class="btn btn-info" href="{{{ $post->url() }}}">more</a>
+				</p>
 			</div>
 
-			<!-- Comments -->
-				&nbsp;<i class="icon-user"></i> by <span class="muted">{{{ $post->author->username }}}</span>
-				| <i class="icon-calendar"></i> <!--Sept 16th, 2012-->{{{ $post->date() }}}
-				| <i class="icon-comment"></i> <a href="{{{ $post->url() }}}#comments">{{$post->comments()->count()}} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
-			</p>
-		</div>
-	</div>
-	
+			<ul class='tag'>
+				<li><i class="icon-tag"></i></li>
+				@foreach($post->tags() as $tag)
+					
+				    <li><a href="{{ $tag }}">{{ $tag }}</a></li>
+				    
+				@endforeach
+			</ul>
 
-	<div class="well">
-		{{$post->title}}
-		{{$post->img}}
-
-		<h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
-		<p>
-		{{ String::tidy(Str::limit($post->meta_description, 158)) }}
-		</p>
-		<p>
-			<a class="btn btn-info" href="{{{ $post->url() }}}">more</a>
-		</p>
-	</div>
-
-	<ul class='tag'>
-		<li><i class="icon-tag"></i></li>
-		@foreach($post->tags() as $tag)
-			
-		    <li><a href="{{ $tag }}">{{ $tag }}</a></li>
-		    
 		@endforeach
-	</ul>
+		{{ $posts->links() }}
 
-@endforeach
-{{ $posts->links() }}
-</div></div>
-<!-- ************************************************ -->
 	</div>
 
-
-
+<!-- ************************************************ -->
 @stop

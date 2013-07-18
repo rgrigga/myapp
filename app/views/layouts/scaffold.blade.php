@@ -65,33 +65,38 @@
         *TO DO: Social? 
     -->
         @yield('favicons')
-    
     </head>
     <body>
         <div class="container">
-            
             @yield('nav')
 
+
+
             @if (Session::has('message'))
-                <div class="flash alert">
-                    <p>{{ Session::get('message') }}</p>
-                </div>
+            <div class="flash alert">
+                <p>{{ Session::get('message') }}</p>
+            </div>
             @endif
             
             <!-- @ yield('content') -->
-            @yield('main')
 
+            @yield('main')
+            
+            @section('admin-bottom')
+                @if(Auth::user('admin'))
+                <div class="bam">
+                    <h1>Admin-bottom</h1>
+                </div>
+                @endif
+            @show
             
             @yield('hotel')
         </div>
         @yield('footer')
-
-    @javascripts('public-js')
+        @javascripts('public-js')
 <!--
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js&skin=sunburst"></script>
 -->
     @yield('myjs')
-
     </body>
-
 </html>

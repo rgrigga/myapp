@@ -121,7 +121,7 @@
 	<img src="{{asset('assets/gristech/gristech.png')}}" alt="Company Logo">
 </div>
 @show
-
+@section('nav')
 			<div class="navbar navbar-inverse navbar-fixed-top">
 				<div class="navbar-inner">
 					<div class="container">
@@ -193,7 +193,7 @@
 				<!-- ./ navbar-inner -->
 			</div>
 			<!-- ./ navbar -->
-
+@show
 			<!-- Notifications -->
 			@include('notifications')
 			<!-- ./ notifications -->

@@ -43,13 +43,25 @@ Route::resource('tweets', 'TweetsController');
 //     Route::resource('companies', 'AdminCompaniesController');
 // });
 
+// ???
+// App::bind('company', function($app)
+// {
+//     return new Company;
+// });
 
-App::bind('company', function($app)
+// $env=App::environment();
+
+
+
+// Redactor Blog Upload
+Route::post('redactorUpload', function()
 {
-    return new Company;
-});
+    $file = Input::file('file');
+    $fileName = $file->getClientOriginalName();
 
-$env=App::environment();
+    $file->move(public_path().'/img', $fileName);
+    return Response::json(array('filelink' => '/img/' . $fileName));
+});
 
 // Route::group(array(''),)
 
@@ -184,25 +196,30 @@ Route::group(array('domain' => 'myapp.dev'),function()
     });
 });
 
+/**
 
+    BUCKEYE
+
+*/
 // ********************************************************************************
 // ********************************************************************************
+// *************************----------------***************************************
+// ************************-****************-**************************************
+// **********************--**BUCKEYE*********-*************************************
+// **********************-     ***************-************************************
+// *********************--     ******MOWER****-************************************
+// *********************-      ***************-************************************
+// *********************-      **************-*************************************
+// **********************-----**************-**************************************
+// ************************--************ --***************************************
+// **************************--------------****************************************
 // ********************************************************************************
-// ********************************************************************************
-// **************************BUCKEYE***********************************************
-// ********************************************************************************
-// **********************************MOWER*****************************************
-// ********************************************************************************
-// ********************************************************************************
-// ********************************************************************************
-// ********************************************************************************
-// ********************************************************************************
-// ********************************************************************************
+
 
 Route::group(array('domain' => 'buckeyemower.com'),function()
 {
-    // Route::get('admin*','before')
-    // $mycompany=2;
+    // Route::get('admin*','before')?
+    // $mycompany=2;?
     $company='buckeye';
     
     Route::model('company','Company',function(){
@@ -212,11 +229,13 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
 
 
 
+
+
     Route::filter('buckeye', function()
     {
         if (! Entrust::can('buckeye') ) // Checks the current user
         {
-            // die("BAM");
+            // die("buckeye filter");
             $message="Sorry. You are not authorized to view that.  Would you like to log in?";
             return Redirect::to('user/login')
                 ->with('info',$message);
@@ -246,7 +265,7 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
         });
     });
 
-    Route::get('admin',array('before'=>'buckeye'));
+    // Route::get('admin',array('before'=>'buckeye'));
     
     // $company='buckeye';
     // Route::get('admin')
@@ -263,7 +282,8 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
     // Here are several Routing techniques:
     // 
     // 1. pass data as a parameter.
-    Route::get('/{tag}','BlogController@buckeyeIndex','buckeye');
+    
+    Route::get('/{tag}','BlogController@buckeyeIndex');
     
     // 2. use a custom method.
     Route::get('/', 'CompanyController@buckeye');
@@ -305,6 +325,15 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
 
 });
 
+
+/**
+
+    THE END OF BUCKEYE
+
+*/
+
+// From here down, myapp routes:
+
 // Route::group(array('domain' => '{sub}.myapp.dev'),function()
 // {
 
@@ -321,15 +350,7 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
 
 // });
 
-// Redactor Blog Upload
-Route::post('redactorUpload', function()
-{
-    $file = Input::file('file');
-    $fileName = $file->getClientOriginalName();
 
-    $file->move(public_path().'/img', $fileName);
-    return Response::json(array('filelink' => '/img/' . $fileName));
-});
 
 
 Route::get('login',function(){
@@ -337,9 +358,9 @@ Route::get('login',function(){
     $company=Company::where('brand','like','buckeye')->first();
     return Redirect::to('user/login')
         ->with(compact('company'))
-
-        // ->with( 'notice', Lang::get('user/user.user_account_created') );
         ->with( 'info', "Welcome to the jungle." );
+        // ->with( 'notice', Lang::get('user/user.user_account_created') );
+
     });
 
 /** ------------------------------------------
@@ -418,9 +439,8 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 
     Route::controller('companies', 'CompaniesController');
 
-
     # Admin Dashboard
-    Route::controller('{page?}', 'AdminDashboardController');
+    // Route::controller('{page?}', 'AdminDashboardController');
     Route::controller('/', 'AdminDashboardController');
 });
 
@@ -519,11 +539,6 @@ GET requests can be distributed & shared
 GET requests can be hacked 
 
 all unsafe actions should be made idempotent as nothing can stop users from ignoring warnings.
-
-
-
-
-
 
 also:
 http://www.sublimetext.com/forum/viewtopic.php?f=3&t=12382

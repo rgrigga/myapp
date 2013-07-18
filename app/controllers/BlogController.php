@@ -66,7 +66,8 @@ class BlogController extends BaseController {
 	}
     
     public function buckeyeIndex($tag=""){
-		return $this->getIndex($tag,'buckeye');
+    	$company=  Company::where('brand',"LIKE",'buckeye')->first();
+		return $this->getIndex('company',$tag);
 	}
 
 // process a many to many relationship amongst tags
@@ -78,7 +79,7 @@ class BlogController extends BaseController {
 	 */
 	public function getIndex(Company $company ,$tag="")
 	{
-
+// $company=  Company::where('brand',"LIKE",'buckeye')->first();
 // die("BAM CONZTROLLER");
 		$views=array();
 		// $companies=$this->company->get();

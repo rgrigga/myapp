@@ -8,7 +8,7 @@
 
 @section('nav')
 <!-- @ parent -->
-@include('site.partials.nav-top-min')
+<!-- @ include('site.partials.nav-top-min') -->
 @stop
 
 {{-- Content --}}
@@ -55,17 +55,17 @@
         <div class="alert">{{ Session::get('notice') }}</div>
         @endif
 
-        @if ( Session::get('notice') )
-        <div class="alert">{{ Session::get('notice') }}</div>
+        @if ( Session::get('info') )
+        <div class="alert">{{ Session::get('info') }}</div>
         @endif
 
         <button tabindex="3" type="submit" class="btn">{{ Lang::get('confide::confide.login.submit') }}</button>
     </fieldset>
 </form>
 
-More about that later.  For now, You can go back and look around the main site, or you 
+<p>Not A Member?  Security and Privacy are of the utmost importance.  More about that later.</p>
 
-Not A Member?
         <a class="btn btn-large btn-primary" href="{{{ URL::to('user/create') }}}">Sign Up</a>
+<!-- // Popup form here?-->
 
 @stop

@@ -558,7 +558,6 @@ a{
 ?>
 @include('site.partials.nav-buckeye')
 <!-- @ include('site.partials.nav-top-min') -->
-
 @stop
 
 @section('main')
@@ -678,17 +677,10 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
       <!-- <button class="btn btn-primary">Save changes</button> -->
     </div>
   </div>
-<!-- <div class="row">
-    <div class="span4">
 
-    </div>
-  <div class="span4">
 
-  </div>
-  <div class="span4">
 
-  </div>
-</div> -->
+
 <div class="row-fluid">
   <div class="tabbable"> <!-- Only required for left/right tabs -->
     <ul class="nav nav-tabs">
