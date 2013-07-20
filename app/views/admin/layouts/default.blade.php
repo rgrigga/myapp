@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php die("BAM"); ?>
 <html lang="en">
 	<head>
 		<!-- Basic Page Needs
@@ -122,6 +123,7 @@
 </div>
 @show
 @section('nav')
+
 			<div class="navbar navbar-inverse navbar-fixed-top">
 				<div class="navbar-inner">
 					<div class="container">
@@ -147,7 +149,7 @@
 								<!-- <i class="icon-bullhorn icon-white"></i> -->
 								 Comments</a></li>
 
-								<li{{ (Request::is('admin/companies*') ? ' class="active"' : '') }}><a href="{{{ URL::to('companies') }}}">
+								<li{{ (Request::is('admin/companies*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/companies') }}}">
 
 								<!-- <i class="icon-bullhorn icon-white"></i> -->
 								 Companies</a></li>

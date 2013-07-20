@@ -1,4 +1,4 @@
-@extends('site.layouts.default')
+@extends('layouts.scaffold')
 
 {{-- Web site Title --}}
 @section('title')
@@ -8,7 +8,7 @@
 
 @section('nav')
 <!-- @ parent -->
-@include('site.partials.nav-buckeye')
+<!-- @ include('site.partials.nav-top-min') -->
 @stop
 
 {{-- Content --}}

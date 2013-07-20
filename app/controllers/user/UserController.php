@@ -24,6 +24,7 @@ class UserController extends BaseController {
         parent::__construct();
         $this->user = $user;
         $this->company = $company;
+
     }
 
     /**
@@ -31,14 +32,18 @@ class UserController extends BaseController {
      *
      * @return View
      */
-    public function getIndex($company='buckeye')
+    public function getIndex($company='')
     {
+        
+        // die(var_dump($companies));
         list($user,$redirect) = $this->user->checkAuthAndRedirect('user');
         if($redirect){return $redirect;}
 
         // Show the page
-        $company=$this->company->where('brand','LIKE',$company)->first();
+        // $company=$this->company->where('brand','LIKE',$company)->first();
+        $company=App::make('company');
         // die("BAM");
+
         return View::make('site/user/index')
             ->with(compact('user'))
             ->with(compact('company'));
@@ -177,7 +182,9 @@ class UserController extends BaseController {
             if(!empty($user->id)){
             return Redirect::to('/');
         }
+        
         $company=App::make('company');
+        // die(var_dump($company));
         // $company = $this->company->where('brand', 'LIKE', $brand)->first();
 
         if(!$company){
@@ -187,7 +194,9 @@ class UserController extends BaseController {
         // $company = $this->company->findOrFail(3);
 
         
-
+        
+        
+        // die(var_dump($company));
         return View::make('site/user/login')
             // put this somewhere?
             // ->nest('login','site.user.login')
@@ -208,7 +217,7 @@ class UserController extends BaseController {
     {
         $input = array(
             'email'    => Input::get( 'email' ), // May be the username too
-            'username' => Input::get( 'email' ), // May be the username too
+            'username' => Input::get( 'username' ), // May be the username too
             'password' => Input::get( 'password' ),
             'remember' => Input::get( 'remember' ),
         );

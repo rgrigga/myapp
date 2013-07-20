@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-
+<!-- {{die("SITE/USER/CREATE")}} -->
 {{-- Web site Title --}}
 @section('title')
 {{{ Lang::get('user/user.register') }}} ::

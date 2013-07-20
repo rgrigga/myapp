@@ -34,16 +34,17 @@ class CompanyController extends BaseController {
      * @param Post $post
      * @param User $user
      * @param Tags $tags
-     * @param Tags $tags    
+     * @param Tags $company    
      */
-    public function __construct(Company $company, Post $post)
+    public function __construct(Company $company, User $user, Post $post)
     {
 
 
 // die(var_dump($company));
         $this->post = $post;
-        // $this->user = $user;
-        $this->company = App::make('company');
+        $this->user = $user;
+        $this->company = $company;
+        
 
     // die("bam");
         // $this->tags = $post->tags();
@@ -74,21 +75,35 @@ class CompanyController extends BaseController {
 
 	// }
 
-	public function getIndex($brand="",$num='10')
+	public function getIndex($brand='',$num='10')
 	{
 
+// die("Brand: $brand");
+// $company=app::make('company');
+// die(var_dump($company));
+
+		// $brand=strtolower($brand);
+
+		// if(!$brand){
+		// 	// $brand=strtolower($brand);
+			
+		// 	$brand='gristech';
+		// }
+
+		// $company=$this->company;
+		// $company = $this->company->where('brand', 'LIKE', $brand)->first();
+        
+		// $brand=$this->company->brand;
+		$company=App::make('company');
+		// die(var_dump($company));
+		$brand=strtolower($company->brand);
+
 		// die("Brand: $brand");
-		$brand=strtolower($brand);
-		if(!$brand){
-			// $brand=strtolower($brand);
-			// $company = $this->company->where('brand', 'LIKE', $brand)->first();
-			$brand='gristech';
-		}
 		// else{
 			
 		// }
 		// die('CompanyController@getIndex $company:' var_dump($company));
-		$company = $this->company->where('brand', 'LIKE', $brand)->first();
+		// $company = $this->company->where('brand', 'LIKE', $brand)->first();
 
 		$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$brand.'%')->paginate($num);
 

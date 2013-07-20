@@ -98,7 +98,8 @@ class BlogController extends BaseController {
 		// $company=$this->company->where('brand','LIKE',$brand)->first();
 				// var_dump($brand);
 
-    	$company=App::make('company');
+    	// $company=App::make('company');
+    	$company=  Company::where('brand',"LIKE",'gristech')->first();
 		// die(var_dump($company));
 		$brand = strtolower($company->brand);
 		$names = array();
