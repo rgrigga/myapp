@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!--
+You really should check out the source code on 
+------------------------------------------------------------------------
+-------GITHUB--github.com/rgrigga/myapp---------------------------------
+------------------------------------------------------------------------
+----------ryan.grissinger@gmail.com-------------------------------------
+----------@ryangrissinger-----------------------------------------------
+------------------------------------------------------------------------
+----------thanks, I hope you enjoy.-------------------------------------
+------------------------------------------------------------------------
+-->
 	<head>
 		<!-- Basic Page Needs
 		================================================== -->
@@ -18,6 +28,14 @@
 		================================================== -->
 		<!-- //Needed for bootstrap responsive! -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- // My goal for this project is to build a flexible, maintainable web applicaiton infrastructure.  This codebase is the foundation for our organization to own a sustainable, profitable code base, which applies to multiple industries.
+
+If you contribute to this project, and it becomes profitable, I will share it with you.  If you fork it and make money, please share with me. (Don't be a D***)  If you are reading this, perhaps we can discuss a partnership.  Please get in touch.
+
+For now, you may clone this public repository and develop it as much as you like for now, but you must agree to share your contributions here at this site.  Others have done the same before you and I.  Let's help each other out.-->
+
+<!-- There is also a private repository with additional features available if you register.  If you're interested, please contact me. -->
 
 		<!-- CSS
 		================================================== -->

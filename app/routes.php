@@ -61,32 +61,33 @@ Route::resource('tweets', 'TweetsController');
 
 
 
-Route::get('dev',function(){
-    return View::make('dev');
-    // make new site meow
-    // http://laravel.com/api/class-Illuminate.Filesystem.Filesystem.html
-    // http://stackoverflow.com/questions/3303691/php-check-file-exists-without-knowing-the-extension
-    // move to github: http://stackoverflow.com/questions/10240125/working-with-readme-md-on-github-com
+    Route::get('dev',function(){
+        return View::make('site.pages.dev');
+        // make new site meow
 
-    // 1. check route
-    // 2. check sub route
-    // 3. check for file/document
-    // 4. check for page
-    // 5. check for image
-    // 6. check for post
-    // 7. check for tag* this is huge
-    // 8. check for google
-    // 9. check facebook
-    // 10. check twitter
-    // 11. check 
+        // http://laravel.com/api/class-Illuminate.Filesystem.Filesystem.html
+        // http://stackoverflow.com/questions/3303691/php-check-file-exists-without-knowing-the-extension
+        // move to github: http://stackoverflow.com/questions/10240125/working-with-readme-md-on-github-com
 
-    // compile tags from all of these sources, then search the other resources
-    // for those tags.
-    // log this path and every action.
-    // search for keywords in content & analyze them
+        // 1. check route
+        // 2. check sub route
+        // 3. check for file/document
+        // 4. check for page
+        // 5. check for image
+        // 6. check for post
+        // 7. check for tag* this is huge
+        // 8. check for google
+        // 9. check facebook
+        // 10. check twitter
+        // 11. check 
 
-    // http://tools.seobook.com/general/keyword-density/
-});
+        // compile tags from all of these sources, then search the other resources
+        // for those tags.
+        // log this path and every action.
+        // search for keywords in content & analyze them
+
+        // http://tools.seobook.com/general/keyword-density/
+    });
 
 // Redactor Blog Upload
 Route::post('redactorUpload', function()
@@ -99,6 +100,67 @@ Route::post('redactorUpload', function()
 });
 
 // Route::group(array(''),)
+
+
+
+
+/**
+
+    MYAPP.DEV
+
+*/
+
+// http://stackoverflow.com/questions/10240125/working-with-readme-md-on-github-com
+// http://stackoverflow.com/questions/194812/list-of-freely-available-programming-books/392926#392926
+// https://github.com/sokolovstas/SublimeWebInspector#installation
+
+//security:
+    // cross-site-scripting protection, 
+    // provided it is implemented using the provided forms class
+
+//create all new resources via generate with a 
+
+// http://stackoverflow.com/questions/2453408/is-it-safe-to-display-user-input-as-input-values-without-sanitization
+
+//create new company:
+    //
+    //site folder
+    //database
+        //customers
+        //
+
+    // I'd like to explain we do not keep your password.  Look at this for a technical explanation.
+    // what we keep is a "hashed" password.  
+$str="<pre>".
+
+"
+you might be a non-programmer
+inputs
+actions
+result
+
+
+
+You might be a non-programmer.  If so, ____;
+You might be a *
+
+image.big
+image.small
+image.600.400
+
+imagemagik
+a
+// http://www.imagemagick.org/script/index.php
+";
+function pre($text){
+    
+    // check for valid html
+    // Laravel Validation, csf, etc.
+
+
+
+}
+
 
 Route::group(array('domain' => 'myapp.dev'),function()
 {
@@ -284,6 +346,7 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
         $company=  Company::where('brand',"LIKE",'buckeye')->first();
         return $company;
     });
+
 
 
     Route::get('/{tag}', 'BlogController@getIndex');

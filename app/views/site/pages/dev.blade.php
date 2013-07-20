@@ -1,4 +1,7 @@
-<p></p>
+<p>
+	<a href="http://en.rian.ru/infographics/20121028/176939715.html">Infographic</a>
+	<a href="http://thechangelog.com/whoa-sublime-web-inspector/">Sublime</a>
+</p>
 
 <h3>SSH Access to </h3>
 <p>Once you have this set up, here are the commands I use to connect:</p>
