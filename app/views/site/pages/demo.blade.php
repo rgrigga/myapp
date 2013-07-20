@@ -16,7 +16,11 @@ $('.well h2').on('click', function(e) {
 </script>
 @stop
 
-
+@section('nav')
+<!-- Navbar -->
+@include('site.partials.nav-top-min')
+<!-- // @ include('site.partials.nav-buckeye') -->
+@stop
 {{-- Content --}}
 @section('main')
 

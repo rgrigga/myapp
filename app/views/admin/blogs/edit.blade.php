@@ -185,7 +185,7 @@ Post Update ::
 		 
 		<div class="collapse" id="Meta-title">
 			<input type="text" name="meta-title" id="meta-title" value="{{{ Input::old('meta-title', $post->meta_title) }}}" />
-			<p>Meta Title is the text that appears at the top of the browser window when the user looks at your page. It also helps search engines understand what your page is about.  Therefore, it should be simple, descriptive, and use a keyword or two.</p>
+			<p>Meta Title is the text that appears at the top of the browser window when the user looks at your page. It also helps search engines understand what your page is about.  Therefore, it should be simple, descriptive, and use a keyword or two. <a href="https://www.google.com/search?client=ubuntu&channel=fs&q=seo+meta-titles&ie=utf-8&oe=utf-8">google</a>-</p>
 		</div>
 	</div>
 
@@ -215,6 +215,7 @@ Post Update ::
 			
 	</div>
 
+//link to these:
 <i class="icon-facebook">icon-facebook</i>
 <i class="icon-thumbs-up">.icon-thumbs-up</i>
 <i class="icon-twitter">icon-twitter</i>

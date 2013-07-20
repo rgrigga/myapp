@@ -1,5 +1,6 @@
-@extends('site.layouts.default')
-@section('content')
+@extends('layouts.scaffold')
+<!-- // @ extends('site.layouts.default') -->
+@section('main')
 
 
 <style type="text/css">

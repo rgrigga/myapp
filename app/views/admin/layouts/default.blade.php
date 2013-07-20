@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--
-You really should check out the source code on 
+If you like this, you really should check out the source code on 
 ------------------------------------------------------------------------
 -------GITHUB--github.com/rgrigga/myapp---------------------------------
 ------------------------------------------------------------------------
@@ -10,6 +10,22 @@ You really should check out the source code on
 ------------------------------------------------------------------------
 ----------thanks, I hope you enjoy.-------------------------------------
 ------------------------------------------------------------------------
+-->
+
+<!-- Just look at all these fabulous resources: -->
+<!-- http://www.opensourcecms.com/ -->
+<!-- Want more?  Check out /tools ('myapp/tools')-->
+
+<!-- Our Competition/Partners: -->
+<!-- http://myappinc.com/ -->
+
+<!-- 
+If you have no idea what git is, please type in myapp.gristech.com/git or search the site for git. 
+
+If you know what git is, but are just learning, I have documented everything about how to connect and so on, just contact me and I'll help you.
+
+PROGRAMMERS: Demonstrate your abilities: this is a community demo site.
+
 -->
 	<head>
 		<!-- Basic Page Needs
@@ -86,12 +102,20 @@ For now, you may clone this public repository and develop it as much as you like
 		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
 		<link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}">
 
+<!-- taggies used for marketing - to contain information about a product which can automatically display on any device.  like a link, but a fully functional application.  The entire thing can be embedded on a USB stick. -->
+
+<!-- Live updates to media: billboards, etc. -->
+
+<!-- As an early adoptor, you will receive discounted pricing on the service, and perhaps more later, including stock. -->
+
 
 
 <!-- redactor -->
+<!-- redactor is not free.  please buy a license or remove these in a produciton environment. -->
 <link rel="stylesheet" href="/assets/js/redactor/redactor.css" />
 <script src="/assets/js/redactor/redactor.js"></script>
-
+<link rel="stylesheet" href="/js/redactor/redactor.css" />
+<script src="/js/redactor/redactor.js"></script>
 <!-- google analytics -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -103,6 +127,8 @@ For now, you may clone this public repository and develop it as much as you like
   ga('send', 'pageview');
 
 </script>
+
+
 
 	</head>
 

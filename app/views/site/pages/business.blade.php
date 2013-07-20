@@ -25,6 +25,7 @@
 
 @stop
 
+
 {{-- Content --}}
 @section('content')
 

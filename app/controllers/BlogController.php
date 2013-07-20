@@ -86,6 +86,7 @@ class BlogController extends BaseController {
 	public function getIndex($tag="")
 	{
 
+
 		// $company=App::make('company');
 		// die(var_dump($company));
 // $company=  Company::where('brand',"LIKE",'buckeye')->first();
@@ -113,11 +114,6 @@ class BlogController extends BaseController {
 			// var_dump($c->brand);
 			$lbrand=strtolower($c->brand);
 			array_push($names, $lbrand);
-			// foreach ($c->tags() as $mytag) {
-				// if(!in_array($mytag, $alltags)){
-					// array_push($alltags, trim($mytag));
-				// }
-			// }
 		}		
 
 
@@ -130,12 +126,8 @@ class BlogController extends BaseController {
 
 				//the request is "gristech/company"
 				// die(var_dump($company, $brand, $names, $tag));
-				return View::make('site.'.$brand.'.home');
-			}
-			//Here, the company exists, but the request is something different.
+				// return View::make('site.'.$brand.'.home');
 
-			// $brand = $company->brand;
-			// $posts=$this->posts->where('has',array('tag'=>'$brand'))->paginate(10);
 			$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$brand.'%')->paginate(5);
 			// return $this->show();
 			//check for post title
@@ -145,13 +137,60 @@ class BlogController extends BaseController {
 			return View::make('site.'.$brand.'.home')
 				->with(compact('company'))
 				->with(compact('posts'));
+			}
+			// else{
+
+				//Here, the company exists, but the request is something different.
+
+			$env=App::environment();
+
+		    if($env=="local"){
+		    	$path='/home/ryan/MyApp6/app/views/site/pages/';
+		    }
+		    else{
+		    	$path='/home/gristech/myapp/app/views/site/pages/';
+		    }
+
+		    $mypages = array();
+		    foreach (glob($path."*.blade.php") as $filename) {
+		        $filename=str_replace($path, "", $filename);
+		        $filename=str_replace(".blade.php", "", $filename);
+		        array_push($mypages,$filename);
+		        // echo "$filename" . "<br>";
+		    }
+
+		    // if services.blade.php exists, it will be returned.  Otherwise, 
+		    // we'll send the user to the search page.
+	        if(in_array($tag, $mypages)){
+	        	// die("BAM");
+
+// die(var_dump($company));
+	            return View::make('site/pages/'.$tag)
+	            ->nest('nav','site.partials.nav-top-min',compact('company'))
+	            ->with(compact('company'))
+				->with(compact('tags'))
+				->with(compact('alltags'))
+				->with(compact('posts'));
+	             // $view;
+	        }
+			// }
+			
+
+
+
+
+			// $brand = $company->brand;
+			// $posts=$this->posts->where('has',array('tag'=>'$brand'))->paginate(10);
+
 
 			// die("exist! ".var_dump($brand));
 
-		}
+
 		// else{
 		// //Here, the request is NOT gristech, buckeye, advantage, megacorp...
-		// //Loads the default company
+		// also, we do not have a company.  This should not happen.
+
+		// //Loads the default company?
 		// 	// $company = $this->company->findOrFail(3);
 
 		// // die("does not exist! ".var_dump($brand));
@@ -164,52 +203,18 @@ class BlogController extends BaseController {
 		// die(var_dump($company));
 
 		//prepare the alltags collection
-		$alltags=array();		
-		foreach ($this->post->get() as $post) {
-			foreach ($post->tags() as $mytag) {
-				if(!in_array($mytag, $alltags)){
-					array_push($alltags, trim($mytag));
+			$alltags=array();		
+			foreach ($this->post->get() as $post) {
+				foreach ($post->tags() as $mytag) {
+					if(!in_array($mytag, $alltags)){
+						array_push($alltags, trim($mytag));
+					}
 				}
 			}
-		}
 		//alltags now contains the list of tags within this set of posts.
 			
 		//let's check to see if a page exists for this tag:
-		$env=App::environment();
 
-	    if($env=="local"){
-	    	$path='/home/ryan/MyApp6/app/views/site/pages/';
-	    }
-	    else{
-	    	$path='/home/gristech/myapp/app/views/site/pages/';
-	    }
-
-	    //check to see if company name exists
-	    // foreach($this->company->name){
-	    // 	$tag
-	    // }
-
-
-	    $mypages = array();
-	    foreach (glob($path."*.blade.php") as $filename) {
-	        $filename=str_replace($path, "", $filename);
-	        $filename=str_replace(".blade.php", "", $filename);
-	        array_push($mypages,$filename);
-	        // echo "$filename" . "<br>";
-	    }
-
-	    // if services.blade.php exists, it will be returned.  Otherwise, 
-	    // we'll send the user to the search page.
-        if(in_array($tag, $mypages)){
-        	// die("BAM");
-
-            return View::make('site/pages/'.$tag)
-            ->with(compact('company'))
-			->with(compact('tags'))
-			->with(compact('alltags'))
-			->with(compact('posts'));
-             // $view;
-        }
         // else{
         // 	die($tag." Not Found in ".$path);
         //     return Redirect::to('search/'.$tag);
@@ -218,65 +223,65 @@ class BlogController extends BaseController {
 		//check to see if the tag works
 		//
 		// http://stackoverflow.com/questions/13386774/using-eloquent-orm-in-laravel-to-perform-search-of-database-using-like
-		if($tag){
-			$tag='%'.$tag.'%';
-			$posts = $this->post->where('meta_keywords', 'LIKE', "$tag")->paginate(5);					
-			$tags=array();
+			if($tag){
+				$tag='%'.$tag.'%';
+				$posts = $this->post->where('meta_keywords', 'LIKE', "$tag")->paginate(5);					
+				$tags=array();
 
-			foreach ($posts as $post) {
+				foreach ($posts as $post) {
 
-				foreach ($post->tags() as $mytag) {
-					if(!in_array($mytag, $tags)){
-						array_push($tags, trim($mytag));
+					foreach ($post->tags() as $mytag) {
+						if(!in_array($mytag, $tags)){
+							array_push($tags, trim($mytag));
+						}
 					}
-				}
 
-			}			
+				}			
 			
 			// die(var_dump(count($posts)));
 
-			if(count($posts)==0){
+				if(count($posts)==0){
 
+					return View::make('site/blog/tags')
+						->with(compact('company'))
+						->with(compact('tags'))
+						->with(compact('alltags'))
+						->with(compact('posts'))
+						->with('message','I couldn\'t find anything');
+				}
+				//else
+				$str="I found ".count($posts)." posts.";
 				return View::make('site/blog/tags')
-					->with(compact('company'))
-					->with(compact('tags'))
-					->with(compact('alltags'))
-					->with(compact('posts'))
-					->with('message','I couldn\'t find anything');
+					->with(compact('company','tags','alltags','posts'))
+					// ->with(compact('tags'))
+					// ->with(compact('alltags'))
+					// ->with(compact('posts'))
+					->with('info',$str);
 			}
-			//else
-			$str="I found ".count($posts)." posts.";
-			return View::make('site/blog/tags')
-				->with(compact('company','tags','alltags','posts'))
-				// ->with(compact('tags'))
-				// ->with(compact('alltags'))
-				// ->with(compact('posts'))
-				->with('info',$str);
-		}
 
 		// $posts = $this->post->where('tag','seo');
 		// Get all the blog posts
-		else{
-			// $myphotos=self::listImages("screen/");
-			// $photos=Paginator::make($myphotos,count($myphotos),10);
-				// $myphotos->paginate(10);
-			$posts = $this->post->where('meta_keywords', 'LIKE', "$tag")->paginate(5);
-			// $posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
-			// $data = array(compact('posts'),compact('tags'),compact('alltags'),$company);
-			
+			else{
+				// $myphotos=self::listImages("screen/");
+				// $photos=Paginator::make($myphotos,count($myphotos),10);
+					// $myphotos->paginate(10);
+				$posts = $this->post->where('meta_keywords', 'LIKE', "$tag")->paginate(5);
+				// $posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
+				// $data = array(compact('posts'),compact('tags'),compact('alltags'),$company);
+				
 
-			// die("BAM");
+				// die("BAM");
 
-			return View::make('site/blog/index')
-				->with(compact('company'))
-				->with(compact('tags'))
-				->with(compact('alltags'))
-				->with(compact('posts'));
-		}
+				return View::make('site/blog/index')
+					->with(compact('company'))
+					->with(compact('tags'))
+					->with(compact('alltags'))
+					->with(compact('posts'));
+			}
 		// Show the page
 		// return View::make('site/blog/index', compact('posts'));
+		}
 	}
-
 
 	
 	public function getAllTags(){

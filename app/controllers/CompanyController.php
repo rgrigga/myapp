@@ -90,6 +90,13 @@ class CompanyController extends BaseController {
 		// die('CompanyController@getIndex $company:' var_dump($company));
 		$company = $this->company->where('brand', 'LIKE', $brand)->first();
 
+		if(!$company){
+			die("FAIL");
+		}
+		else{
+			View::share('company', $company);
+		}
+
 		$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$brand.'%')->paginate($num);
 
 

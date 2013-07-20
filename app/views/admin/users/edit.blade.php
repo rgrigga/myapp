@@ -6,6 +6,24 @@ User Update ::
 @parent
 @stop
 
+Dear friends,
+
+// If you know me, you may have wondered what I have been doing for the last few months.  It's true, I quit my job at Chase to do... something.  I have not been very vocal or outspoken about it, because what I have been working on is very hard to explain at first glance.
+
+// I have personal contacts in all of the following areas:
+// This is a list of not simply "people i know", or "3rd generation contacts on social media".  These are all people with whom I have extended professional relationship and have discussed this project with.
+// several attorneys
+// several developers
+// real estate people
+// insurance people
+// managers
+// project managers
+// several financial advisors
+
+
+
+This website is it.  If you are reading this, I 
+
 {{-- Content --}}
 @section('main')
 <div class="page-header">
@@ -92,6 +110,8 @@ User Update ::
 				<div class="controls">
 					<select name="roles[]" id="roles[]" multiple>
 						@foreach ($roles as $role)
+						<!-- //this logic is embedded in this view.  that's bad.  iff's and fetch statements should be in the controller.
+						It is, however, escaped and protected against csf.  All user input (get) should be in three brackets, all internal (post) input should be in 2 brackets. -->
 						<option value="{{{ $role->id }}}"{{{ ( array_search($role->id, $user->currentRoleIds()) !== false && array_search($role->id, $user->currentRoleIds()) >= 0 ? ' selected="selected"' : '') }}}>{{{ $role->name }}}</option>
 						@endforeach
 					</select>
