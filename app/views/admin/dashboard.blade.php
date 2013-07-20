@@ -1,6 +1,7 @@
 @extends('admin.layouts.default')
-
+<!-- admin.layouts.default -->
 @section('title')
+
 @parent
  admin.dashboard
 @stop

@@ -57,6 +57,36 @@ Route::resource('tweets', 'TweetsController');
     });
 
     $company=App::make('company');
+    
+
+
+
+Route::get('dev',function(){
+    return View::make('dev');
+    // make new site meow
+    // http://laravel.com/api/class-Illuminate.Filesystem.Filesystem.html
+    // http://stackoverflow.com/questions/3303691/php-check-file-exists-without-knowing-the-extension
+    // move to github: http://stackoverflow.com/questions/10240125/working-with-readme-md-on-github-com
+
+    // 1. check route
+    // 2. check sub route
+    // 3. check for file/document
+    // 4. check for page
+    // 5. check for image
+    // 6. check for post
+    // 7. check for tag* this is huge
+    // 8. check for google
+    // 9. check facebook
+    // 10. check twitter
+    // 11. check 
+
+    // compile tags from all of these sources, then search the other resources
+    // for those tags.
+    // log this path and every action.
+    // search for keywords in content & analyze them
+
+    // http://tools.seobook.com/general/keyword-density/
+});
 
 // Redactor Blog Upload
 Route::post('redactorUpload', function()
@@ -86,7 +116,7 @@ Route::group(array('domain' => 'myapp.dev'),function()
     // if not, send get request to server.
     // $value = App::make('company','gristech');
 
-
+    Route::get('admin','AdminDashboardController@getIndex');
 
     Route::model('company','Company',function(){
         $company=  Company::where('brand',"LIKE",'gristech')->first();
@@ -216,6 +246,7 @@ Route::group(array('domain' => 'myapp.dev'),function()
         // die(var_dump($company));
         
     // });
+
 });
 
 /**
@@ -255,7 +286,7 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
     });
 
 
-
+    Route::get('/{tag}', 'BlogController@getIndex');
 
 
     Route::filter('buckeye', function()
@@ -473,13 +504,13 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     // Route::controller('companies', 'CompaniesController');
 
     Route::controller('companies', 'CompaniesController');
-
+    // Route::resource('companies', 'CompaniesController');
     # Admin Dashboard
     // Route::controller('{page?}', 'AdminDashboardController');
     Route::controller('/', 'AdminDashboardController');
 });
 
-
+Route::resource('companies', 'CompaniesController');
 /** ------------------------------------------
  *  Frontend Routes
  *  ------------------------------------------
@@ -487,12 +518,12 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 // Route::get('buckeye',function(){
 //     Redirect::to('http://buckeyemower.com');
 // });
-Route::get('companies',function(){
-    return Redirect::to('admin/companies')
-    // return Redirect::to('user/login')
-        // ->with( 'notice', Lang::get('user/user.user_account_created') );
-        ->with('notice', 'hello there.');
-});
+// Route::get('companies',function(){
+//     return Redirect::to('admin/companies')
+//     // return Redirect::to('user/login')
+//         // ->with( 'notice', Lang::get('user/user.user_account_created') );
+//         ->with('error', 'from routes.');
+// });
 // Route::get('advantage','CompanyController@getIndex',array('name'=>'advantage'));
 
 Route::get('company/{id}','CompanyController@show')
@@ -513,7 +544,6 @@ Route::post('user/login', 'UserController@postLogin');
 # User RESTful Routes (Login, Logout, Register, etc)
 Route::controller('user', 'UserController',compact('company'));
 
-Route::resource('companies', 'CompaniesController');
 // die("bam");
 
 
@@ -540,6 +570,7 @@ Route::get('search/{tag}','BlogController@getIndex');
 // Route::get('company/{company}',function(Company $company){
 //     // var_dump($company);
 // });
+
 
 Route::get('mytest',function(){
     return View::make('site.gristech.test');

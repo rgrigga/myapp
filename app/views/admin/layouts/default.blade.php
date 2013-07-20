@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<!-- Basic Page Needs
 		================================================== -->
@@ -73,11 +74,7 @@
 <link rel="stylesheet" href="/assets/js/redactor/redactor.css" />
 <script src="/assets/js/redactor/redactor.js"></script>
 
-	</head>
-
-	<body>
-
-	<!-- google analytics -->
+<!-- google analytics -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -89,39 +86,40 @@
 
 </script>
 
+	</head>
 
-
+	<body>
 
 <div class="wrap">
-
-
 		<!-- Container -->
 		<div class="container">
 			<!-- Navbar -->
-@section('logo')
-<style>
-	.logo{
-		/*background-color: red;*/
-		position:fixed;
-		left:20px;
-		top:100px;
-		z-index: -1;
-		opacity: .3;
+			@section('logo')
+			<style>
+				.logo{
+					/*background-color: red;*/
+					position:fixed;
+					left:20px;
+					top:100px;
+					z-index: -1;
+					opacity: .3;
 
-/*		bottom:-20px;
-		position:fixed;
-		right:0px;
-		z-index:10;
-		max-height: 30%;
-		overflow: hidden;
-		max-width: 300px;*/
-	}
-</style>
-<div class="logo">
-	<img src="{{asset('assets/gristech/gristech.png')}}" alt="Company Logo">
-</div>
-@show
-@section('nav')
+			/*		bottom:-20px;
+					position:fixed;
+					right:0px;
+					z-index:10;
+					max-height: 30%;
+					overflow: hidden;
+					max-width: 300px;*/
+				}
+			</style>
+			<div class="logo">
+				<img src="{{asset('assets/gristech/gristech.png')}}" alt="Company Logo">
+			</div>
+			@show
+
+			@include('admin.nav')
+			@section('navold')
 			<div class="navbar navbar-inverse navbar-fixed-top">
 				<div class="navbar-inner">
 					<div class="container">
@@ -193,45 +191,45 @@
 				<!-- ./ navbar-inner -->
 			</div>
 			<!-- ./ navbar -->
-@show
+			@stop
 			<!-- Notifications -->
 			@include('notifications')
 			<!-- ./ notifications -->
 
 
-<style>
+			<style>
 
-/*http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site*/
+			/*http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site*/
 
-	.contentwrap{
-	padding-top: 60px;
-	}
+				.contentwrap{
+				padding-top: 60px;
+				}
 
-	@media screen and (max-width: 979px) {
-	    .contentwrap { padding-top: 0px; }
-	}
+				@media screen and (max-width: 979px) {
+				    .contentwrap { padding-top: 0px; }
+				}
 
-</style>
-<div class="contentwrap">
+			</style>
+			<div class="contentwrap">
 
-			<!-- Content -->
-			@yield('main')
-			<!-- ./ content -->
-		</div>
-		<!-- ./ container -->
+					<!-- Content -->
+					@yield('main')
+						<!-- ./ content -->
+			</div>
+					<!-- ./ container -->
 
-		<!-- Javascripts
-		================================================== -->
-        {{ Basset::show('admin-js.js') }}
-    
-        <script>
-            $('.wysihtml5').wysihtml5();
-        </script>
+					<!-- Javascripts
+					================================================== -->
+	        {{ Basset::show('admin-js.js') }}
+	    
+	        <script>
+	            $('.wysihtml5').wysihtml5();
+	        </script>
 
-        <script type="text/javascript" charset="utf-8">
-            $(prettyPrint);
-        </script>
+			 <script type="text/javascript" charset="utf-8">
+			    $(prettyPrint);
+			</script>
 
-            <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js&skin=sunburst"></script>
+			 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js&skin=sunburst"></script>
 	</body>
 </html>
