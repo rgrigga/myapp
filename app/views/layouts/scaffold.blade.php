@@ -79,6 +79,9 @@
 
                     /*http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site*/
 
+                        .page-header{
+                          margin-top: 0px;
+                        }
                         .admin-top{
                             background-color: red;
                         padding-top: 40px;

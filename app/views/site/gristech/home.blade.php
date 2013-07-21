@@ -56,9 +56,11 @@
 	.page-header{
 		/*poition: static;*/
 		/*width:100%;*/
+		margin-top: 0px;
 		background-color: rgba(3,71,105,1);	
 		margin-left:-20px;
 		margin-right:-20px;
+		/*padding-top:100px;*/
 	}
 	.page-header h1, .sidebar h3{
 		/*font-family: 'Mr De Haviland', cursive;*/
@@ -76,6 +78,10 @@
 	.navbar-inner{
 		background-image: none;
 		background-color: rgba(3,71,105,1);
+	}
+
+	.navbar{
+		margin-bottom: 0;
 	}
 
 	.navbar .brand, .navbar .nav >li >a {
@@ -213,7 +219,7 @@ a:hover {text-decoration: none}
 	.page-header{
 		min-width: 100%;
 		min-height:120px;
-		padding-top: 20px;
+		padding-top: 60px;
 		/*margin-top: 60px;*/
 		/*margin-right: 0px;*/
 		/*margin-left: 0px;*/
@@ -279,6 +285,10 @@ a:hover {text-decoration: none}
 
 	@media (max-width: 979px) {
 		
+		.page-header{
+			padding-top: 20px;
+		}
+
 		.page-header h1{
 			font-size: 72px;
 			padding-bottom: 15px;
