@@ -11,6 +11,7 @@ Post Update ::
 @section('main')
 
 <style>
+
 	.alpha{
 		/*height: 400px;*/
 		background-color: rgba(25,20,15,.5);
@@ -31,6 +32,9 @@ Post Update ::
 		background-color: orange;
 	}
 
+	.navbar-fixed-top{
+		position: fixed;
+	}
 
 
 	.alert-block{
@@ -70,8 +74,15 @@ Post Update ::
 		.navbar-fixed-top{
 			margin-bottom: +40px;
 		}
+		.navbar-fixed-top .navbar-inner{
+			padding-left: 20px;
+		}
 		.mybutton{
 			display: inline-block;
+			/*background-color: red;*/
+		}
+		.nav2 .brand {
+			/*margin-left: 20px;*/
 			/*background-color: red;*/
 		}
 	</style>
@@ -79,6 +90,7 @@ Post Update ::
 <!-- ******************************************************* -->
 <!-- NAVBAR -->
     <div class="navbar navbar-fixed-top nav2">
+
 	    <div class="navbar-inner">
 		    <a class="brand" href="#">Post:</a>
 		    <div class="btn-group">
@@ -147,12 +159,40 @@ Post Update ::
 
 <!-- ************************************************************ -->
 <!-- TAGS -->
-<ul class='tag'>
-	<li><i class="icon-tag"></i> tags:</li>
-	@foreach($post->tags() as $tag)
-		<li>{{ $tag }}</li>
-	@endforeach
-</ul>
+
+
+	<!-- Meta Keywords -->
+	<div class="control-group {{{ $errors->has('meta-keywords') ? 'error' : '' }}}">
+		{{{ $errors->first('meta-keywords', '<span class="help-inline">:message</span>') }}}
+		<label class="control-label" for="meta-keywords">
+			<a href="#" data-toggle="collapse" data-target="#MyTags">
+				<i class="icon-pencil"></i>
+				Tags/Keywords
+			  	<i class="icon-angle-down"></i>
+			</a>
+
+			<ul class='tag'>
+				<li><i class="icon-tag"></i> tags:</li>
+				@foreach($post->tags() as $tag)
+					<li>{{ $tag }}</li>
+				@endforeach
+			</ul>
+
+		</label>
+
+		<div class="collapse" id="MyTags">
+			<div class="controls">
+				<input type="text" name="meta-keywords" id="meta-keywords" value="{{{ Input::old('meta-keywords', $post->meta_keywords) }}}" />
+			</div>
+			<p>Enter keywords and/or key phrases as a list separated by commas.  For example: "seo, php, security".  These also help your content appear correctly.  Your posts already automagically contain an internal tag that links your post to your site.  </p>
+			<p>Once thought to be important to SEO, google stopped using keywords in 2009.  More info soon...</p>
+			<p>The keywords tag is tied to tags on this site.  So, this is a comma-separated list of tags.  It works the same way in wordpress.</p>
+		</div>
+	</div>
+
+
+
+
 
 
 <!-- **********************************************? -->
@@ -280,39 +320,10 @@ Post Update ::
 	</div>
 
 <!-- ************************************************************** -->		
-	<!-- Meta Keywords -->
-	<div class="control-group {{{ $errors->has('meta-keywords') ? 'error' : '' }}}">
-		{{{ $errors->first('meta-keywords', '<span class="help-inline">:message</span>') }}}
-		<label class="control-label" for="meta-keywords">
-			<a href="#" data-toggle="collapse" data-target="#MyTags">
-				<i class="icon-pencil"></i>
-				Tags/Keywords
-			  	<i class="icon-angle-down"></i>
-			</a>
-		</label>
 
-		<div class="collapse" id="MyTags">
-			<div class="controls">
-				<input type="text" name="meta-keywords" id="meta-keywords" value="{{{ Input::old('meta-keywords', $post->meta_keywords) }}}" />
-			</div>
-			<p>Enter keywords and/or key phrases as a list separated by commas.  For example: "seo, php, security".  These also help your content appear correctly.  Your posts already automagically contain an internal tag that links your post to your site.  </p>
-			<p>Once thought to be important to SEO, google stopped using keywords in 2009.  More info soon...</p>
-			<p>The keywords tag is tied to tags on this site.  So, this is a comma-separated list of tags.  It works the same way in wordpress.</p>
-		</div>
-	</div>
 
 
 <!-- 	<div class="control-group {{{ $errors->has('content') ? 'error' : '' }}}"> -->
-		
-
-
-					
-
-					<!-- ./ meta keywords -->
-
-
-
-
 
 </form>
 

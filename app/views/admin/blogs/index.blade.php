@@ -8,17 +8,40 @@ Website Management ::
 
 {{-- Content --}}
 @section('main')
-
 <style>
-img.thumby{
-	height: 64px;
-}
+	img.thumby{
+		/*height: 64px;*/
+	}
+
 	.thumbnail{
-		background-color: red;
-		min-height: 20%;
+		/*background-color: red;*/
+		/*min-height: 20%;*/
+
 }
 </style>
+
+<?php
+function myviews(array $array){
+	$str='<ul class="dropdown-menu">';
+	foreach ($array as $item) {
+		$str.='<li>'.$item.'</li>';
+	}
+	$str.='</ul>';
+	return $str;
+}
+
+$array=array(
+	'tweet',
+	'fb',
+	'linked-in',
+	'page',
+	);
+?>
+
+
+
 <div class="page-header">
+	
 	<h3>
 		Website Management
 		<div class="pull-right">
@@ -36,6 +59,8 @@ img.thumby{
 		</ul>
 	</div>
 	<a href="http://www.make-rss-feeds.com/making-an-rss-feed.htm">RSS Feeds</a>
+			{{myviews($array)}}
+					<!-- {{myviews($array)}} -->
 </div>
 		<ul class="thumbnails">
 			@foreach ($posts as $post)
@@ -86,3 +111,4 @@ img.thumby{
 
 {{ $posts->links() }}
 @stop
+

@@ -60,6 +60,21 @@ For now, you may clone this public repository and develop it as much as you like
 <!-- // http://stackoverflow.com/questions/5506258/horizontal-scroll-overflowing-html-lis-without-knowing-width*/ -->
 		@section('styles')
 		<style>
+	/*<!-- colors:	 -->*/
+		.wrap{
+			/*background-color: rgba(100,85,255,.1);*/
+			background-color: rgba(20,40,60,.1);
+		}
+
+		div{
+			background-color: rgba(50,89,20,.3);
+		}
+
+
+		.navbar > .brand{
+			padding-left: 40px;
+		}
+
 		.page-header{
 			margin-top: 60px;
 		}
@@ -75,13 +90,9 @@ For now, you may clone this public repository and develop it as much as you like
 		}
 
 
-		.wrap{
-			/*background-color: rgba(100,85,255,.1);*/
-			background-color: rgba(3,71,105,.3);
-		}
 
-		div{
-			background-color: rgba(255,89,0,.1);
+		.thumbnail{
+			word-wrap:break-word;
 		}
 		</style>
 		@show
@@ -139,14 +150,22 @@ For now, you may clone this public repository and develop it as much as you like
 		<!-- Container -->
 		<div class="container">
 			<!-- Navbar -->
-
+			<!-- admin.nav is a navbar-inner.  wrap it in a navbar -->
+			<div class="navbar navbar-inverse navbar-fixed-top">
 			@include('admin.nav')
+
+			</div>
+			<!-- ./ navbar -->
+
 
 			<!-- Notifications -->
 			@include('notifications')
 			<!-- ./ notifications -->
 			@section('logo')
 			<style>
+			.admin-nav{
+
+			}
 				.logo{
 					/*background-color: red;*/
 					position:fixed;
@@ -174,12 +193,14 @@ For now, you may clone this public repository and develop it as much as you like
 			/*http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site*/
 
 				.contentwrap{
-				padding-top: 60px;
-				}
+					padding-top: 60px;
+					}
 
 				@media screen and (max-width: 979px) {
 				    .contentwrap { padding-top: 0px; }
 				}
+
+
 
 			</style>
 			<div class="contentwrap">
@@ -200,8 +221,99 @@ For now, you may clone this public repository and develop it as much as you like
 
 			 <script type="text/javascript" charset="utf-8">
 			    $(prettyPrint);
+
 			</script>
 
 			 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js&skin=sunburst"></script>
+
+		<script language="javascript" type="text/javascript" src="{{asset('assets/js/jquery.equalheights.js')}}"></script>
+        <script>
+            window.onload = function()
+            {
+                // alert('bam!');
+                if(!window.jQuery)
+                {
+                    alert('jQuery not loaded');
+                }
+                else
+                {
+                    // alert('jQuery is loaded');
+                    $(document).ready(function(){
+                        // $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
+                       // $('.thumbnail').equalHeights();
+                       columnConform();
+                    });
+                }
+            }
+        </script>
+
+	<script>
+		
+		// these are (ruh-roh) globals. You could wrap in an
+		// immediately-Invoked Function Expression (IIFE) if you wanted to...
+		var currentTallest = 0,
+		    currentRowStart = 0,
+		    rowDivs = new Array();
+		
+		function setConformingHeight(el, newHeight) {
+			// set the height to something new, but remember the original height in case things change
+			el.data("originalHeight", (el.data("originalHeight") == undefined) ? (el.height()) : (el.data("originalHeight")));
+			el.height(newHeight);
+		}
+		
+		function getOriginalHeight(el) {
+			// if the height has changed, send the originalHeight
+			return (el.data("originalHeight") == undefined) ? (el.height()) : (el.data("originalHeight"));
+		}
+		
+		function columnConform() {
+		
+			// find the tallest DIV in the row, and set the heights of all of the DIVs to match it.
+			$('.thumbnail').each(function() {
+			
+				// "caching"
+				var $el = $(this);
+				
+				var topPosition = $el.position().top;
+		
+				if (currentRowStart != topPosition) {
+		
+					// we just came to a new row.  Set all the heights on the completed row
+					for(currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) setConformingHeight(rowDivs[currentDiv], currentTallest);
+		
+					// set the variables for the new row
+					rowDivs.length = 0; // empty the array
+					currentRowStart = topPosition;
+					currentTallest = getOriginalHeight($el);
+					rowDivs.push($el);
+		
+				} else {
+		
+					// another div on the current row.  Add it to the list and check if it's taller
+					rowDivs.push($el);
+					currentTallest = (currentTallest < getOriginalHeight($el)) ? (getOriginalHeight($el)) : (currentTallest);
+		
+				}
+				// do the last row
+				for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) setConformingHeight(rowDivs[currentDiv], currentTallest);
+		
+			});
+		
+		}
+		
+		
+		$(window).resize(function() {
+			columnConform();
+		});
+		
+		// Dom Ready
+		// You might also want to wait until window.onload if images are the things that
+		// are unequalizing the blocks
+		$(function() {
+			// columnConform();
+		});
+		
+	</script>
+
 	</body>
 </html>

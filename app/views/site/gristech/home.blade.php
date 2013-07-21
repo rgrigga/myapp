@@ -53,15 +53,48 @@
 		font-family: 'aescrawl', serif;
 	}
 
+
 	.page-header{
-		/*poition: static;*/
-		/*width:100%;*/
 		margin-top: 0px;
-		background-color: rgba(3,71,105,1);	
 		margin-left:-20px;
 		margin-right:-20px;
-		/*padding-top:100px;*/
+
+		min-width: 100%;
+		min-height:120px;
+		padding-top: 60px;
+		/*margin-top: 60px;*/
+		/*margin-right: 0px;*/
+		/*margin-left: 0px;*/
+		margin-bottom: 20px;
+
+		background-color: rgba(3,71,105,1);
+		border-bottom: 0;
 	}
+	
+	.page-header h1{
+			max-width: 100%;
+	/*padding-left: 10%;*/
+	    margin-right: 10%;
+		padding-left: 10%;
+		/*text-align: center;*/
+		line-height: .7em;
+		margin-top: 90px;
+		margin-bottom: 20px;
+		letter-spacing:-7px;
+		font-size: 144px;
+
+	}
+
+	.page-header h2{
+		font-family: 'Archive', sans-serif;
+		font-size: 40;
+		margin: 0;
+	}
+	.page-header h2:hover{
+		color: orange;
+	}
+
+
 	.page-header h1, .sidebar h3{
 		/*font-family: 'Mr De Haviland', cursive;*/
 		/*font-family: 'Monsieur La Doulaise', cursive;*/
@@ -162,12 +195,21 @@ a:hover {text-decoration: none}
         }
         else
         {
-        		// alert('jQuery is loaded');
+        	// alert('jQuery is loaded');
             $(document).ready(function(){
-                $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
+                // $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
+            	// $('.thumbnail').equalHeights(); //promoted
             });
         }
     }
+
+	// $(document).ready(function() {
+	
+	// });
+    // $(function(){
+    //     // Ensure equal heights on thumbnail boxes
+    //     $('.thumbnail').equalHeights();
+    // });
 
     $('.collapse-group .btn').on('click', function(e) {
 	    e.preventDefault();
@@ -175,6 +217,7 @@ a:hover {text-decoration: none}
 	    var $collapse = $this.closest('.collapse-group').find('.collapse');
 	    $collapse.collapse('toggle');
 	});
+	
 </script>
 @stop
 
@@ -216,43 +259,12 @@ a:hover {text-decoration: none}
 	.accordion-group{
 		border: none;
 	}
-	.page-header{
-		min-width: 100%;
-		min-height:120px;
-		padding-top: 60px;
-		/*margin-top: 60px;*/
-		/*margin-right: 0px;*/
-		/*margin-left: 0px;*/
-		margin-bottom: 20px;
-
-		background-color: rgba(3,71,105,1);
-		border-bottom: 0;
-	}
 
 	.headline{
 		margin-left: 15%;
 	}
-	.page-header h1{
-			max-width: 100%;
-	/*padding-left: 10%;*/
-	    margin-right: 10%;
-		padding-left: 10%;
-		/*text-align: center;*/
-		line-height: .7em;
-		margin-top: 90px;
-		margin-bottom: 20px;
-		letter-spacing:-7px;
-		font-size: 144px;
 
-	}
-	.page-header h2{
-		font-family: 'Archive', sans-serif;
-		font-size: 40;
-		margin: 0;
-	}
-	.page-header h2:hover{
-		color: orange;
-	}
+
 	a:hover{
 		color:orange;
 	}
@@ -266,7 +278,7 @@ a:hover {text-decoration: none}
 		/*background-color: white;*/
 	}
 
-		.affix{
+	.affix{
 		/*position: fixed;*/
 		/*width: 40%;*/
 		right:20px;
@@ -373,7 +385,7 @@ a:hover {text-decoration: none}
 }
 
 .note .mydiv{ 
-	background-color: red;
+	/*background-color: red;*/
    /*position: absolute; */
    top: 50px; 
    left: 0;
@@ -651,18 +663,23 @@ a:hover {text-decoration: none}
 <h1>But Wait, There's More!!! <i class="icon-arrow-down"></i></h1>
 </div>
 <!-- ./ page-header -->
-<h2>Look!</h2>
-<p>Non-web marketing is important, too.  Let's make some postcards, business cards, etc...</p>
-<img src="{{asset('assets/gristech/flyer.png')}}" alt="flyer">
+
+
 
 
 <div class="row-fluid">
 
 	<!-- sidebar -->
+	<div class="span3">
+		<h2>Look!</h2>
+		<p>Non-web marketing is important, too.  Let's make some postcards, business cards, etc...</p>
+	</div>
 
-	<div class="row9">
+
+
+	<div class="span9">
 		<!-- //main area -->
-		This is span9.
+<img src="{{asset('assets/gristech/flyer.png')}}" alt="flyer">
 
 	</div>
 </div>
@@ -718,18 +735,55 @@ a:hover {text-decoration: none}
 	  
 	  <div class="tab-content">
 	    @foreach($company->menus() as $menu)
-	    bam!
 	    <div class="tab-pane" id="{{{$menu}}}">
-	      <p>Howdy, I'm {{{$menu}}}.</p>
+			
 	    </div>
 	    @endforeach
 
 	    <div class="tab-pane active" id="tab1">
 	      <p>Some text here.</p>
+
+
 	    </div>
 	  </div>
 	</div>
 </div>
+<script>
+
+</script>
+
+			<ul class="thumbnails">
+			  <li class="span4">
+			    <div class="thumbnail">
+			      <img src="http://lorempixel.com/200/300/" alt="">
+			      <h3>Thumbnail label</h3>
+			      <p>Howdy, I'm {{{$menu}}}.</p>
+			    </div>
+			  </li>
+
+			  <li class="span4">
+			    <div class="thumbnail">
+			      <img src="http://lorempixel.com/300/400/" alt="">
+			      <h3>Thumbnail label</h3>
+			      <p>Howdy, I'm {{{$menu}}}.</p>
+			    </div>
+			  </li>
+			  <li class="span4">
+			    <div class="thumbnail">
+			      <img src="http://lorempixel.com/200/400/" alt="">
+			      <h3>Thumbnail label</h3>
+			      <p>Howdy, I'm {{{$menu}}}.</p>
+			    </div>
+			  </li>
+			  <li class="span4">
+			    <div class="thumbnail">
+			      <img src="http://lorempixel.com/300/300/" alt="">
+			      <h3>Thumbnail label</h3>
+			      <p>Howdy, I'm {{{$menu}}}.</p>
+			    </div>
+			  </li>
+
+			</ul>
 
 <div class="row-fluid">
 	<div class="span4">
@@ -748,3 +802,34 @@ a:hover {text-decoration: none}
 	</div>
 </div>
 @stop
+
+
+<!-- 	      <div class="row">
+	      	<div class="span4">
+	      		<img src="http://lorempixel.com/300/300/" alt="">
+	      		<p class="muted">A random image</p>
+	      	</div>
+	      	<div class="span4">
+	      		<img src="http://lorempixel.com/300/300/" alt="">
+	      		<p class="muted">A random image</p>
+	      	</div>
+	      	<div class="span4">
+	      		<img src="http://lorempixel.com/300/300/" alt="">
+	      		<p class="muted">A random image</p>
+	      	</div>
+	      </div>
+
+	      <div class="row">
+	      	<div class="span4">
+	      		<img src="http://lorempixel.com/300/300/" alt="">
+	      		<p class="muted">A random image</p>
+	      	</div>
+	      	<div class="span4">
+	      		<img src="http://lorempixel.com/300/300/" alt="">
+	      		<p class="muted">A random image</p>
+	      	</div>
+	      	<div class="span4">
+	      		<img src="http://lorempixel.com/300/300/" alt="">
+	      		<p class="muted">A random image</p>
+	      	</div>
+	      </div> -->

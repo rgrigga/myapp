@@ -1,6 +1,5 @@
 <?php //die('views.admin.nav'); ?>
-<div class="navbar navbar-inverse admin-nav">
-				<div class="navbar-inner">
+				<div class="navbar-inner admin-nav">
 					<!-- <div class="container"> -->
 						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 							<span class="icon-bar"></span>
@@ -45,6 +44,29 @@
 										<i class="icon-user"></i> Roles</a></li>
 									</ul>
 								</li>
+
+								<!-- example of ternary operator -->
+								<li class="dropdown{{ (Request::is('admin/seo*') ? ' active' : '') }}">
+									<a class="dropdown-toggle" data-toggle="dropdown" href="{{{ URL::to('admin/users') }}}">
+
+										<!-- <i class="icon-user icon-white"></i> -->
+										 Users <span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu">
+										<li{{ (Request::is('admin/users*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/users') }}}">
+
+										<i class="icon-user"></i> Users</a></li>
+										<li{{ (Request::is('admin/roles*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/roles') }}}">
+
+										<i class="icon-user"></i> Roles</a></li>
+									</ul>
+								</li>
+
+
+https://www.google.com/analytics/web/?hl=en&pli=1#home/
+
+
+
 								<li class="dropdown{{ (Request::is('admin/share*|admin/social*') ? ' active' : '') }}">
 									<a class="dropdown-toggle" data-toggle="dropdown" href="{{{ URL::to('admin/users') }}}">
 										<!-- <i class="icon-user icon-white"></i> -->
@@ -104,7 +126,4 @@
 					<!-- ./ container-fluid -->
 				</div>
 				<!-- ./ navbar-inner -->
-			</div>
-			<!-- ./ navbar -->
-
 			

@@ -79,12 +79,10 @@
 
                     /*http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site*/
 
-                        .page-header{
-                          margin-top: 0px;
-                        }
+
                         .admin-top{
                             background-color: red;
-                        padding-top: 40px;
+                            padding-top: 40px;
                         }
 
                         @media screen and (max-width: 979px) {
@@ -145,9 +143,31 @@
         </div>
         @yield('footer')
         @javascripts('public-js')
+
+
 <!--
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js&skin=sunburst"></script>
 -->
     @yield('myjs')
+        <script language="javascript" type="text/javascript" src="{{asset('assets/js/jquery.equalheights.js')}}"></script>
+        <!-- call with $('.thumbnail').equalHeights(); -->
+        <script>
+            window.onload = function()
+            {
+                // alert('bam!');
+                if(!window.jQuery)
+                {
+                    alert('jQuery not loaded');
+                }
+                else
+                {
+                    // alert('jQuery is loaded');
+                    $(document).ready(function(){
+                        // $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
+                        // $('.thumbnail').equalHeights();
+                    });
+                }
+            }
+        </script>
     </body>
 </html>
