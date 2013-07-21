@@ -79,3 +79,89 @@
 <div>Menus: {{{ $company->menus }}}</div>
 
 @stop
+
+@section('dev')
+
+
+                    <ul class="nav pull-right">
+                        @if (Auth::check())
+                            @if (Auth::user()->hasRole('admin'))
+
+                                <li{{ (Request::is('admin/blogs/create*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/blogs/create') }}}"><i class="icon-bullhorn icon-white"></i> New</a></li>
+
+	                            <li><a href="{{{ URL::to('admin') }}}">Dashboard</a></li>
+                            @endif
+                            <li><a href="{{{ URL::to('user') }}}">Name: {{{ Auth::user()->username }}}</a></li>
+                            <li><a href="{{{ URL::to('user/logout') }}}">Logout</a></li>
+                        @else
+                            <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">Login</a></li>
+                            
+                        @endif
+                        @include('site.partials.contact')
+                    </ul>
+
+
+
+
+	<div class="span8 offset4">
+		<h1>Posts:</h1>
+
+		<div class="text-center">
+		{{ $posts->links() }}
+		</div>
+	
+		@foreach ($posts as $post)
+			<div class="row-fluid">
+				<div class="span3">
+					<p></p>
+					<p>
+				<!-- Edit/Delete Buttons -->
+					<div class="metabuttons pull-left">
+						@if (Auth::check())
+			                @if (Auth::user()->hasRole('admin'))
+								<p>
+									<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
+									<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
+								| </p>
+							@endif
+						@endif
+					</div>
+
+					<!-- Comments -->
+						&nbsp;<i class="icon-user"></i> by <span class="muted">{{{ $post->author->username }}}</span>
+						| <i class="icon-calendar"></i> <!--Sept 16th, 2012-->{{{ $post->date() }}}
+						| <i class="icon-comment"></i> <a href="{{{ $post->url() }}}#comments">{{$post->comments()->count()}} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
+					</p>
+				</div>
+			</div>
+			
+
+			<div class="well">
+				{{$post->title}}
+				{{$post->img}}
+
+				<h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
+				<p>
+				{{ String::tidy(Str::limit($post->meta_description, 158)) }}
+				</p>
+				<p>
+					<a class="btn btn-info" href="{{{ $post->url() }}}">more</a>
+				</p>
+			</div>
+
+			<ul class='tag'>
+				<li><i class="icon-tag"></i></li>
+				@foreach($post->tags() as $tag)
+					
+				    <li><a href="{{ $tag }}">{{ $tag }}</a></li>
+				    
+				@endforeach
+			</ul>
+
+		@endforeach
+		{{ $posts->links() }}
+
+	</div>
+
+<!-- ************************************************ -->
+@stop

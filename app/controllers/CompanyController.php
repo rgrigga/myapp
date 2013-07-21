@@ -93,6 +93,7 @@ class CompanyController extends BaseController {
 		if(!$company){
 			die("FAIL");
 		}
+		
 		else{
 			View::share('company', $company);
 		}
@@ -100,10 +101,11 @@ class CompanyController extends BaseController {
 		$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$brand.'%')->paginate($num);
 
 
-		$views=array('foo','bar');
-
+		// $views=array('foo','bar');
 		return View::make('site/'.$brand.'/home')
-			->nest('posts','site.blog.miniindex')
+		// die();
+		//this works, but it confused me.
+			// ->nest('posts','site.blog.miniindexfoo')
 			->with(compact('company'))
 			->with(compact('tags'))
 			->with(compact('alltags'))

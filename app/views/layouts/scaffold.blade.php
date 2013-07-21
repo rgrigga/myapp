@@ -68,25 +68,73 @@
     </head>
     <body>
         <div class="container">
+
             @yield('nav')
+            <!-- if (Auth::) -->
+            @section('admin-top')
 
 
+                @if(Auth::user('admin'))
+                    <style>
 
-            @if (Session::has('message'))
-            <div class="flash alert">
-                <p>{{ Session::get('message') }}</p>
-            </div>
-            @endif
+                    /*http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site*/
+
+                        .admin-top{
+                            background-color: red;
+                        padding-top: 40px;
+                        }
+
+                        @media screen and (max-width: 979px) {
+                            /*.contentwrap { padding-top: 80px; }*/
+                        }
+
+                    </style>
+                    <div class="admin-top">
+                        <!-- <h1>Admin-top</h1><h1>Admin-top</h1><h1>Admin-top</h1> -->
+                        @include('admin.nav')
+                    </div>
+                @else
+                    <style>
+
+                    /*http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site*/
+
+                        .contentwrap{
+                            padding-top: 0px;
+                        }
+
+                        @media screen and (max-width: 979px) {
+                            .contentwrap { padding-top: 0px; }
+                        }
+
+                    </style>
+                @endif
+            @show
+
+
             
             <!-- @ yield('content') -->
 
-            @yield('main')
+
+
+
+            <div class="contentwrap">
+
+                @if (Session::has('message'))
+                <div class="flash alert">
+                    <p>{{ Session::get('message') }}</p>
+                </div>
+                @endif
+                    <!-- Content -->
+                    @yield('main')
+                        <!-- ./ content -->
+            </div>
+            <!-- @ yield('main') -->
             
             @section('admin-bottom')
                 @if(Auth::user('admin'))
-                <div class="bam">
+                <!-- <div class="bam"> -->
                     <h1>Admin-bottom</h1>
-                </div>
+                <!-- </div> -->
                 @endif
             @show
             

@@ -61,33 +61,33 @@ Route::resource('tweets', 'TweetsController');
 
 
 
-    Route::get('dev',function(){
-        return View::make('site.pages.dev');
-        // make new site meow
+    // Route::get('dev',function(){
+    //     return View::make('site.pages.dev');
+    //     // make new site meow
 
-        // http://laravel.com/api/class-Illuminate.Filesystem.Filesystem.html
-        // http://stackoverflow.com/questions/3303691/php-check-file-exists-without-knowing-the-extension
-        // move to github: http://stackoverflow.com/questions/10240125/working-with-readme-md-on-github-com
+    //     // http://laravel.com/api/class-Illuminate.Filesystem.Filesystem.html
+    //     // http://stackoverflow.com/questions/3303691/php-check-file-exists-without-knowing-the-extension
+    //     // move to github: http://stackoverflow.com/questions/10240125/working-with-readme-md-on-github-com
 
-        // 1. check route
-        // 2. check sub route
-        // 3. check for file/document
-        // 4. check for page
-        // 5. check for image
-        // 6. check for post
-        // 7. check for tag* this is huge
-        // 8. check for google
-        // 9. check facebook
-        // 10. check twitter
-        // 11. check 
+    //     // 1. check route
+    //     // 2. check sub route
+    //     // 3. check for file/document
+    //     // 4. check for page
+    //     // 5. check for image
+    //     // 6. check for post
+    //     // 7. check for tag* this is huge
+    //     // 8. check for google
+    //     // 9. check facebook
+    //     // 10. check twitter
+    //     // 11. check 
 
-        // compile tags from all of these sources, then search the other resources
-        // for those tags.
-        // log this path and every action.
-        // search for keywords in content & analyze them
+    //     // compile tags from all of these sources, then search the other resources
+    //     // for those tags.
+    //     // log this path and every action.
+    //     // search for keywords in content & analyze them
 
-        // http://tools.seobook.com/general/keyword-density/
-    });
+    //     // http://tools.seobook.com/general/keyword-density/
+    // });
 
 // Redactor Blog Upload
 Route::post('redactorUpload', function()
@@ -131,34 +131,14 @@ Route::post('redactorUpload', function()
 
     // I'd like to explain we do not keep your password.  Look at this for a technical explanation.
     // what we keep is a "hashed" password.  
-$str="<pre>".
 
-"
-you might be a non-programmer
-inputs
-actions
-result
-
-
-
-You might be a non-programmer.  If so, ____;
-You might be a *
-
-image.big
-image.small
-image.600.400
-
-imagemagik
-a
 // http://www.imagemagick.org/script/index.php
-";
+
 function pre($text){
-    
+    $str="<pre>".$text."</pre>";
     // check for valid html
     // Laravel Validation, csf, etc.
-
-
-
+    return $str;
 }
 
 

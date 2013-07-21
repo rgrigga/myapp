@@ -166,7 +166,7 @@ class BlogController extends BaseController {
 
 // die(var_dump($company));
 	            return View::make('site/pages/'.$tag)
-	            ->nest('nav','site.partials.nav-top-min',compact('company'))
+	            // ->nest('nav','site.partials.nav-top-min',compact('company'))
 	            ->with(compact('company'))
 				->with(compact('tags'))
 				->with(compact('alltags'))
