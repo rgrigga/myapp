@@ -52,7 +52,7 @@
 		</ul>
 
 		<p>
-			{{{$post->meta_description}}}
+			{{{substr($post->meta_description, 0,148)}}}
 		</p>
 	</div>
 

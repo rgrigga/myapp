@@ -415,6 +415,7 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
     
     // 2. use a custom method.
     $company=App::make('company');
+
     Route::get('/', 'CompanyController@getIndex',compact($company));
 
     // Only users with roles that have the 'buckeye' permission will
@@ -485,7 +486,6 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
 Route::get('login',function(){
     // die("BAM");
     // $company=Company::where('brand','like','buckeye')->first();
-
 
     $company=App::make('company');
     return Redirect::to('user/login')
@@ -650,7 +650,7 @@ Route::get('/{tag}', 'BlogController@getIndex');
 
 
 // $company=Company::where('brand','like','gristech')->first();
-Route::get('/', 'CompanyController@buckeye');
+Route::get('/', 'CompanyController@getIndex');
     // ->with($company)
     // ->where(array('id','=',3));
 

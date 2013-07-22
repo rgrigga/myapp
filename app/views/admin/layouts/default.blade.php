@@ -192,8 +192,20 @@ For now, you may clone this public repository and develop it as much as you like
 					overflow: hidden;
 					max-width: 300px;*/
 				}
+
+				@media screen and (max-width: 979px) {
+				    .contentwrap { padding-top: 0px; }
+					.span50{
+						width: 50%;
+					}
+				}
+
 			</style>
 			<div class="logo">
+				<img src="{{asset('assets/gristech/gristech.png')}}" alt="Company Logo">
+			</div>
+				<div class="logo">
+				<h1>Gristech</h1>
 				<img src="{{asset('assets/gristech/gristech.png')}}" alt="Company Logo">
 			</div>
 			@show
@@ -203,15 +215,18 @@ For now, you may clone this public repository and develop it as much as you like
 			/*http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site*/
 
 				.contentwrap{
-					padding-top: 60px;
+					padding-top: 0px;
 					}
 
 				@media screen and (max-width: 979px) {
 				    .contentwrap { padding-top: 0px; }
+					.span50{
+						width: 50%;
+					}
 				}
 
 
-
+			
 			</style>
 			<div class="contentwrap">
 <?php
@@ -299,14 +314,14 @@ For now, you may clone this public repository and develop it as much as you like
                        // $('.thumbnail').equalHeights();
                        columnConform();
 
-
-
-
                     });
                 }
             }
         </script>
 
+
+	
+</div>
 	<script>
 		
 		// these are (ruh-roh) globals. You could wrap in an

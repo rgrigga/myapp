@@ -168,7 +168,7 @@ Post Update ::
 		</div>	
 	</div>
 
-	<div class="control-group {{{ $errors->has('title') ? 'error' : '' }}}">
+	<div class="control-group {{{ $errors->has('meta-title') ? 'error' : '' }}}">
 		<h2>
 			<a href="#" data-toggle="collapse" data-target="#Meta-title">
 			  <i class="icon-pencil"></i>
@@ -188,7 +188,7 @@ Post Update ::
 
 	<!-- *************************************************** -->
 
-	<div class="control-group {{{ $errors->has('title') ? 'error' : '' }}}">
+	<div class="control-group {{{ $errors->has('image') ? 'error' : '' }}}">
 
 		<h3>
 			<a href="#" data-toggle="collapse" data-target="#MyImage">
@@ -293,7 +293,7 @@ Post Update ::
 
 
 
-
+<h6>
 <ul>
 	<li class="nav-header">
 	  <a href="#" data-toggle="collapse" data-target="#alpha">
@@ -349,26 +349,55 @@ Post Update ::
 	  </ul>
 	</li>
 </ul>
+</h6>
 
 <ul>
-	<li class="active"><a href="#"><i class="icon-home"></i>Home</a></li>
-	<li><a href="#"><i class="icon-envelope-alt"></i>Messages <span class="badge badge-info">4</span></a></li>
-	<li><a href="#"><i class="icon-cogs"></i>Settings</a></li>
-	<li><a href="#"><i class="icon-comment"></i>Shoutbox</a></li>
-	<li><a href="#"><i class="icon-user"></i>Staff List</a></li>
-	<li><a href="#"><i class="icon-flag"></i>My Infractions</a></li>
-	<li><a href="#"><i class="icon-exclamation-sign"></i>Rules &amp; Regulations</a></li>
-	<li><a href="#"><i class="icon-off"></i>Logout</a></li>
+	<li class='warning'>
+		Blah
+	</li>
+	<li class='warning'>
+		Blah
+	</li>
+	<li class='warning'>
+		Blah
+	</li>	
 </ul>
 
 
+<style>
+.span50{
+	
+}
+</style>
+
+
+<div class="row-fluid">
+	<div class="span4">
+		<h1>Learn More</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, doloribus rem quos facere aspernatur autem dolorum omnis dolor itaque a!</p>
+		<ul>
+			<li class="active"><a href="#"><i class="icon-home"></i>Home</a></li>
+			<li><a href="#"><i class="icon-envelope-alt"></i>Messages <span class="badge badge-info">4</span></a></li>
+			<li><a href="#"><i class="icon-cogs"></i>Settings</a></li>
+			<li><a href="#"><i class="icon-comment"></i>Shoutbox</a></li>
+			<li><a href="#"><i class="icon-user"></i>Staff List</a></li>
+			<li><a href="#"><i class="icon-flag"></i>My Infractions</a></li>
+			<li><a href="#"><i class="icon-exclamation-sign"></i>Rules &amp; Regulations</a></li>
+			<li><a href="#"><i class="icon-off"></i>Logout</a></li>
+		</ul>
+	</div>
+	<div class="span4 pull-right">
+		<h1>Learn More</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, doloribus rem quos facere aspernatur autem dolorum omnis dolor itaque a!</p>
+	</div>
+</div>
 
 
 @stop
 @section('dev')
 
 
-
+@yield('companies.index')
 
 
 

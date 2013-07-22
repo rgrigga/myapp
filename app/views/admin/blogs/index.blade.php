@@ -72,7 +72,7 @@ $array=array(
 					<a href="{{{URL::to($post->slug)}}}">{{{URL::to($post->slug)}}}</a>
 					<img class="thumby" src="{{asset('assets/'.$post->image)}}" alt="{{$post->image}}">
 
-					<p class="muted credit">{{asset('assets'.$post->image)}}</p>
+					<p class="muted credit">{{URL::to('assets/'.$post->image)}}</p>
 					
 					<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini"><i class="icon-edit"></i> {{{ Lang::get('button.edit') }}}</a>
 				<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger"><i class="icon-trash"></i> {{{ Lang::get('button.delete') }}}</a>

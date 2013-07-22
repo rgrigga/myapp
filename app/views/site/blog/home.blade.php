@@ -16,22 +16,42 @@
 
 @section('styles')
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Sections_and_Outlines_of_an_HTML5_document -->
 <style>
+	section, article, aside, footer, header, nav, hgroup {
+	  display:block;
+	}
 	html,body{
-		/*background-color: rgba(235,196,162,.1);*/
+		background-color: rgba(235,196,162,.1);
 	}
 	.well{
-		/*background-color: rgba(121,186,242,.2);*/
+		background-color: rgba(121,186,242,.2);
 		box-shadow: 2px 2px 1px #8285E6;
 	}
 	h1,h2{
-		/*color:rgba(18,124,166,1);*/
+		color:rgba(18,124,166,1);
 		/*font-size: 32px;*/
 		/*box-shadow: 5px 5px 3px #666666;*/
 	}
-
+.myDiv{
+   background:url(
+data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAU0lEQVQYV2NkgAIf/ov/t3zUZ4TxQTSyGIYEskJkjXCFIN3IimBsmGKwQpgikCAuNopCbCaCxEAGgE2AmYTLMyA1xCvEFRzowYUSPLjcCBInWiEArudEYZQ9fzYAAAAASUVORK5CYII=
+   ) repeat;
+}
 	
 </style>
+<!--[if lt IE 9]>
+  <script>
+    document.createElement("header" );
+    document.createElement("footer" );
+    document.createElement("section"); 
+    document.createElement("aside"  );
+    document.createElement("nav"    );
+    document.createElement("article"); 
+    document.createElement("hgroup" ); 
+    document.createElement("time"   );
+  </script>
+<![endif]-->
 @stop
 
 @section('nav')

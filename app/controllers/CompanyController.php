@@ -74,11 +74,11 @@ class CompanyController extends UserController {
 		// $company = $this->company->where('brand', 'LIKE', 'gristech')->first();
 
 		// return $this->getIndex('buckeye',5);
-		App::error(function(InvalidCompanyException $exception){
-		    Log::error($exception);
+		// App::error(function(InvalidCompanyException $exception){
+		//     Log::error($exception);
 
-		    return 'Sorry! Something is wrong with this account!';
-		});
+		//     return 'Sorry! Something is wrong with this account!';
+		// });
 
 		return $this->getIndex('gristech',5);
 	}

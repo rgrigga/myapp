@@ -92,11 +92,20 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
 	<div class="span5 text-center">
 		<a href="{{{ $post->url() }}}" class="thumbnail">
 			<!-- http://placehold.it/260x180 -->
-			<img src="/assets/img/{{$post->image}} " alt="{{$post->image}}">
+			<img src="{{asset('assets/img/'.$post->image)}}" alt="{{$post->image}}">
 		</a>
 	</div>
 	<div class="span5">
+<!-- //copy and edit buttons -->
+				@if (Auth::check())
+	                @if (Auth::user()->hasRole('admin'))
 
+					<p>
+						<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
+						<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
+					</p>
+					@endif
+				@endif
 		<h2>{{ $post->title }}</h2>
 
 		<h5>Tags:</h5>
@@ -120,10 +129,12 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
 
 	<!-- // <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js&skin=sunburst"></script> -->
 	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-	<pre class="prettyprint">
-		{{var_dump($post);}}
-	</pre>
-	
+
+
+<pre class="prettyprint">
+Uncomment to view Post $post
+<?php //var_dump($post); ?>
+</pre>
 	{{{$post->content}}}
 </div>
 

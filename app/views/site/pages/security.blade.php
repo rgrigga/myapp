@@ -1,5 +1,10 @@
-@extends('layouts.scaffold')
+@extends('site.layouts.default')
 <!-- // @ extends('site.layouts.default') -->
+<?php
+// var_dump($company);
+?>
+
+
 @section('main')
 
 
@@ -212,6 +217,27 @@ Now, these same
 
 However, it is important that brand messaging and policy is consistent amongst each of these groups.  It is also important that pieces of the system that apply to X group remain functional and transferrable (or extendable) into Y group at a later date.   
 
+<section>
+	<pre><code>
+<h3>Linux Security</h3>
+
+<a href="http://www.linuxhaxor.net/2007/11/21/10-basic-linux-security-tips-to-implement/
+">10 Basic Linux Security Tips to Implement </a>
+The following is a list of rules and tips you might find useful in dealing with basic security concerns:
+
+1. Avoid doing your regular jobs when you are logged in as root. This reduces the risk of getting a cuckoo egg or a virus and protects you from your own mistakes.
+
+2. If possible, always try to use encrypted connections to work on a remote machine. Using SSH (secure shell) to replace telnet, ftp, rsh, and rlogin should be standard practice.
+
+3. Avoid using authentic method based on ip address alone.
+
+<a href="http://www.linuxsecurity.com/component/option,com_whitepaper/id,9/"></a>
+<h2>Exploiting the Potential of Linux</h2>
+<p>Linux is ideally suited as an enterprise-class operating system for many reasons. One is its reliability. Linux systems offer mainframe-class stability with reported system uptimes of a year or more. Google, one of the Internet's foremost search engines, runs on Linux servers and has run continuously for more than one-and-a-half years without any downtime, according to Google Chairman Eric Schmidt.</p>
+
+</code></pre>
+</section>
+
 <h3>OUT OF PLACE:</h3>
  Ubuntu Desktop Guide » Files › Tips and questions »
 
@@ -361,8 +387,14 @@ Several Methods of Data Transfer are available over SSH.
 <a href="Install an FTP server">Install an FTP server</a>
 
 
-
+<a href="http://textfiles.com/fun/nocredit.txt">NO CREDIT?  HERE'S HOW TO GET STARTED ON YOUR OWN!</a>
 </p>
 
 
 @stop
+
+<!-- 
+http://textfiles.com/fun/gun.txt
+http://textfiles.com/fun/hot_wate.fas
+
+ -->

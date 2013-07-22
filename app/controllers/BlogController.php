@@ -104,9 +104,7 @@ class BlogController extends BaseController {
 
     	$company=App::make('company');
 
-
-
-		// die(var_dump($company));
+				// die(var_dump($company));
 		$brand = strtolower($company->brand);
 		$names = array();
 	// die(var_dump($company));
