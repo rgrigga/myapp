@@ -71,9 +71,7 @@ For now, you may clone this public repository and develop it as much as you like
 		}
 
 
-		.navbar > .brand{
-			padding-left: 40px;
-		}
+
 
 		.page-header{
 			margin-top: 60px;
@@ -123,8 +121,8 @@ For now, you may clone this public repository and develop it as much as you like
 
 <!-- redactor -->
 <!-- redactor is not free.  please buy a license or remove these in a produciton environment. -->
-<link rel="stylesheet" href="/assets/js/redactor/redactor.css" />
-<script src="/assets/js/redactor/redactor.js"></script>
+<!-- <link rel="stylesheet" href="/assets/js/redactor/redactor.css" /> -->
+<!-- <script src="/assets/js/redactor/redactor.js"></script> -->
 
 <!-- <link rel="stylesheet" href="/js/redactor/redactor.css" />
 <script src="/js/redactor/redactor.js"></script> -->
@@ -140,6 +138,16 @@ For now, you may clone this public repository and develop it as much as you like
 
 </script>
 
+<!-- redactor -->
+		<link rel="stylesheet" href="{{asset('assets/js/redactor/redactor.css')}}" />
+		<script src="{{asset('assets/js/redactor/redactor.js')}}"></script>
+
+		<script type="text/javascript">
+		$(function() {
+			$('#redactor_content').redactor();
+		});
+		</script>
+
 
 
 	</head>
@@ -151,10 +159,12 @@ For now, you may clone this public repository and develop it as much as you like
 		<div class="container">
 			<!-- Navbar -->
 			<!-- admin.nav is a navbar-inner.  wrap it in a navbar -->
+			<!-- so should other navbars maybe -->
+			@section('nav')
 			<div class="navbar navbar-inverse navbar-fixed-top">
 			@include('admin.nav')
-
 			</div>
+			@show
 			<!-- ./ navbar -->
 
 
@@ -204,7 +214,45 @@ For now, you may clone this public repository and develop it as much as you like
 
 			</style>
 			<div class="contentwrap">
+<?php
+    $env=App::environment();
 
+    Session::flash('mymessage','Welcome to the <strong>'.$env.'</strong> environment.');
+    if($env!=="buckeye"){
+        $path='/home/ryan/MyApp6/app/views/site/pages/';
+    }
+    else
+    if($env=="local"){
+        $path='/home/ryan/MyApp6/app/views/site/pages/';
+    }
+    else{
+        $path='/home/gristech/myapp/app/views/site/pages/';
+    }
+    $mypages = array();
+    foreach (glob($path."*.blade.php") as $filename) {
+        $filename=str_replace($path, "", $filename);
+        $filename=str_replace(".blade.php", "", $filename);
+        array_push($mypages,$filename);
+        // echo "$filename" . "<br>";
+    }
+?>
+    @if (Session::has('message'))
+
+	    <div class="flash alert">
+	      <button type="button" class="close" data-dismiss="alert">&times;</button>
+	      <p>{{ Session::get('message') }}</p>
+	    </div>
+
+    @endif
+
+    @if (Session::has('mymessage'))
+
+	    <div class="flash alert alert-info">
+	      <button type="button" class="close" data-dismiss="alert">&times;</button>
+	      <p>{{ Session::get('mymessage') }}</p>
+	    </div>
+
+    @endif
 					<!-- Content -->
 					@yield('main')
 						<!-- ./ content -->
@@ -215,9 +263,17 @@ For now, you may clone this public repository and develop it as much as you like
 					================================================== -->
 	        {{ Basset::show('admin-js.js') }}
 	    
-	        <script>
-	            $('.wysihtml5').wysihtml5();
-	        </script>
+<!-- redactor -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" ></script>
+		<link rel="stylesheet" href="{{asset('assets/js/redactor/redactor.css')}}" />
+		<script src="{{asset('assets/js/redactor/redactor.js')}}"></script>
+
+		<script type="text/javascript">
+		$(function() {
+			$('.redactor').redactor();
+		});
+		</script>
+<!-- ./redactor -->
 
 			 <script type="text/javascript" charset="utf-8">
 			    $(prettyPrint);
@@ -242,6 +298,10 @@ For now, you may clone this public repository and develop it as much as you like
                         // $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
                        // $('.thumbnail').equalHeights();
                        columnConform();
+
+
+
+
                     });
                 }
             }

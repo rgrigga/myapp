@@ -1,10 +1,13 @@
 <?php
 
+// http://laravel.com/docs/responses
+// https://github.com/symfony/HttpFoundation
 // class Buckeyeontroller ext
-class CompanyController extends BaseController {
+// They say there is no tighter coupling than inheritance
+class CompanyController extends UserController {
 
 	// protected $layout = 'site.layouts.company';
-
+	protected $layout = 'layouts.scaffold';
     /**
      * Tags Model
      * @var Post
@@ -39,11 +42,14 @@ class CompanyController extends BaseController {
     public function __construct(Company $company, Post $post)
     {
 
-
+    	// parent::construct();
 // die(var_dump($company));
         $this->post = $post;
         // $this->user = $user;
+        // $env=App::environment;
         $this->company = App::make('company');
+
+        // App::abort(404,'company controller construct'.var_dump($this->company));
 
     // die("bam");
         // $this->tags = $post->tags();
@@ -55,50 +61,64 @@ class CompanyController extends BaseController {
 	 * @return View
 	 */
 
+
+
 	public function buckeye(){
+		$company = $this->company->where('brand', 'LIKE', 'buckeye')->first();
 		return $this->getIndex('buckeye',5);
 	}
 
 	public function gristech(){
 		// die('company.gristech')
 		// die("Brand: $brand");
+		// $company = $this->company->where('brand', 'LIKE', 'gristech')->first();
+
+		// return $this->getIndex('buckeye',5);
+		App::error(function(InvalidCompanyException $exception){
+		    Log::error($exception);
+
+		    return 'Sorry! Something is wrong with this account!';
+		});
+
 		return $this->getIndex('gristech',5);
 	}
-
-	// public function tags(Company $company, $tag=""){
-	// 		// $this->company=$company;
-
-
-	// 	$value = App::make('company');
- //    // die(var_dump($value));
-
-	// }
 
 	public function getIndex($brand="",$num='10')
 	{
 
+		$env=App::environment();
 		// die("Brand: $brand");
-		$brand=strtolower($brand);
+		$company=$this->company;
+		$brand = strtolower($company->brand);
 		if(!$brand){
+			// return "controller has no brand!";
+			
+			return App::error(function(RuntimeException $exception){
+			    Log::error($exception);
+			    var_dump($company);
+			    App::abort(404,'Company not present.');
+			    // return die('Sorry! Something is wrong with this account!');
+			});
+
 			// $brand=strtolower($brand);
 			// $company = $this->company->where('brand', 'LIKE', $brand)->first();
-			$brand='gristech';
+			// $brand='buckeye';
 		}
 		// else{
 			
 		// }
 		// die('CompanyController@getIndex $company:' var_dump($company));
-		$company = $this->company->where('brand', 'LIKE', $brand)->first();
+		// $company = $this->company->where('brand', 'LIKE', $brand)->first();
 
-		if(!$company){
-			die("FAIL");
-		}
+		// if(!$company){
+		// 	// die("FAIL");
+		// }
 		
 		else{
 			View::share('company', $company);
 		}
 
-		$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$brand.'%')->paginate($num);
+		$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$env.'%')->paginate($num);
 
 
 		// $views=array('foo','bar');
@@ -113,6 +133,7 @@ class CompanyController extends BaseController {
 			// ->with(compact('brand'))
 			;
 		
+
 	}
 
     public function show($id)

@@ -30,9 +30,16 @@ class AdminDashboardController extends AdminController {
 	 * Admin dashboard
 	 *
 	 */
-	public function getIndex($tag='gristech')
+	public function getIndex($tag='')
 	{
         // die("ADMIN DASHBOARD GET INDEX");
+            // return App::error(function(RuntimeException $exception){
+            //     Log::error($exception);
+            //     Session::flash('message','AdminCompaniesController@getIndex');
+            //     var_dump($company);
+            //     App::abort(404,'Company not present.');
+            //     // return die('Sorry! Something is wrong with this account!');
+            // });
 
         $company = $this->company->where('brand','LIKE','%'.$tag.'%')->first();
         

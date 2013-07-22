@@ -1,4 +1,13 @@
 <?php
+// http://subtlepatterns.com/
+// Unit Testing in mind.  There are pros and cons to Unit Testing.  I began developing 
+// without it, so we'll see...
+// better for larger projects?
+
+// Main benefits are that while time is invested into tests up front,
+// they .  Most importantly, it ensures consistency in code quality.
+
+//My goals are to gain a deep understanging of 
 
 class TweetsController extends BaseController {
 

@@ -86,20 +86,26 @@ class BlogController extends BaseController {
 	public function getIndex($tag="")
 	{
 
+// singleton versus dependency injection.
 
-		// $company=App::make('company');
-		// die(var_dump($company));
-// $company=  Company::where('brand',"LIKE",'buckeye')->first();
-// die("BAM CONZTROLLER");
-		// $views=array();
-		// $companies=$this->company->get();
+
+	// $company=App::make('company');
+	// die(var_dump($company));
+	// $company=  Company::where('brand',"LIKE",'buckeye')->first();
+	// die("BAM CONZTROLLER");
+	// $views=array();
+	// $companies=$this->company->get();
 	// 	var_dump($brand);
 	// die(var_dump($tag));
-//there must be a better way to check if company exists?
+		
+		//there must be a better way to check if company exists?
 		// $company=$this->company->where('brand','LIKE',$brand)->first();
 				// var_dump($brand);
 
     	$company=App::make('company');
+
+
+
 		// die(var_dump($company));
 		$brand = strtolower($company->brand);
 		$names = array();

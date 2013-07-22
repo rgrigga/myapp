@@ -26,6 +26,14 @@ class AdminBlogsController extends AdminController {
     public function getIndex($tag="")
     {
 
+            App::error(function(RuntimeException $exception){
+                Log::error($exception);
+                Session::flash('message','foobar');
+                var_dump($company);
+                App::abort(404,'Company not present.');
+                // return die('Sorry! Something is wrong with this account!');
+            });
+
 
         if($tag){
             $tag='%'.$tag.'%';

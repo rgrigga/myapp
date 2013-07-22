@@ -12,9 +12,10 @@ class AdminBlogsController extends AdminController {
      * Inject the models.
      * @param Post $post
      */
-    public function __construct(Post $post)
+    public function __construct(Post $post, Company $company)
     {
         parent::__construct();
+        $this->company=$company;
         $this->post = $post;
     }
 
@@ -25,6 +26,19 @@ class AdminBlogsController extends AdminController {
      */
     public function getIndex($tag="",$paginate=10)
     {
+// die("BAM");
+        // Session::flash('message','AdminCompaniesController@getIndex'.var_dump($this->company,$tag));
+            // App::error(function(RuntimeException $exception){
+            //     Log::error($exception);
+                
+                
+                // App::abort(404,'admin.blogs.controller');
+            //     // return die('Sorry! Something is wrong with this account!');
+            // });
+
+        if(!$tag){
+            $tag=App::environment();
+        }
 
         if($tag){
             $tag='%'.$tag.'%';

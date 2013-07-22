@@ -4,7 +4,8 @@
     <head>
     <title>
         @section('title')
-        Gristech MyApp
+        Gristech MyApp 
+        <!-- layouts.scaffold -->
         @show
     </title>
 <!-- META ************************************-->
@@ -49,7 +50,37 @@
             form ul { margin-left: 0; list-style: none; }
             .error { color: red; font-style: italic; }
             /*body { padding-top: 20px; }*/
+
+            /*https://developer.mozilla.org/en-US/docs/Web/HTML/Sections_and_Outlines_of_an_HTML5_document*/
+            section, article, aside, footer, header, nav, hgroup {
+              display:block;
+            }
+            .alert {
+                position: fixed;
+                margin-right: auto;
+                /*width: 100%;*/
+                top: 80px;
+                z-index: 10;
+            }
         </style>
+        <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Sections_and_Outlines_of_an_HTML5_document -->
+<!--[if lt IE 9]>
+  <script>
+    document.createElement("header" );
+    document.createElement("footer" );
+    document.createElement("section"); 
+    document.createElement("aside"  );
+    document.createElement("nav"    );
+    document.createElement("article"); 
+    document.createElement("hgroup" ); 
+    document.createElement("time"   );
+  </script>
+  <noscript>
+     <strong>Warning !</strong>
+     Because your browser does not support HTML5, some elements are simulated using JScript.
+     Unfortunately your browser has disabled scripting. Please enable it in order to display this page.
+  </noscript>
+<![endif]-->
 
     <!-- PAGE-SPECIFIC -->
         @yield('styles')
@@ -64,7 +95,11 @@
         *TO DO: Internal
         *TO DO: Social? 
     -->
+        
+<!-- FAVICONS -->
         @yield('favicons')
+
+
     </head>
     <body>
         <div class="container">
@@ -79,7 +114,6 @@
 
                     /*http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site*/
 
-
                         .admin-top{
                             background-color: red;
                             padding-top: 40px;
@@ -90,7 +124,7 @@
                         }
 
                     </style>
-                    <div class="admin-top">
+                    <div class="navbar navbar-inverse admin-top">
                         <!-- <h1>Admin-top</h1><h1>Admin-top</h1><h1>Admin-top</h1> -->
                         @include('admin.nav')
                     </div>
@@ -119,12 +153,49 @@
 
 
             <div class="contentwrap">
+<?php
+    $env=App::environment();
 
-                @if (Session::has('message'))
-                <div class="flash alert">
-                    <p>{{ Session::get('message') }}</p>
-                </div>
-                @endif
+    Session::flash('mymessage','Welcome to the <strong>'.$env.'</strong> environment.');
+    if($env!=="buckeye"){
+        $path='/home/ryan/MyApp6/app/views/site/pages/';
+    }
+    else
+    if($env=="local"){
+        $path='/home/ryan/MyApp6/app/views/site/pages/';
+    }
+    else{
+        $path='/home/gristech/myapp/app/views/site/pages/';
+    }
+    $mypages = array();
+    foreach (glob($path."*.blade.php") as $filename) {
+        $filename=str_replace($path, "", $filename);
+        $filename=str_replace(".blade.php", "", $filename);
+        array_push($mypages,$filename);
+        // echo "$filename" . "<br>";
+    }
+?>
+
+
+
+    @if (Session::has('message'))
+
+        <div class="flash alert">
+          <button type="button" class="close" data-dismiss="alert"> &times;</button>
+          <p>{{ Session::get('message') }}</p>
+        </div>
+
+    @endif
+
+    @if (Session::has('mymessage'))
+
+        <div class="flash alert alert-info">
+          <button type="button" class="close" data-dismiss="alert"><span class="label label-info">Info</span> &times;</button>
+          <p>{{ Session::get('mymessage') }}</p>
+        </div>
+
+    @endif
+                {{--var_dump($_SESSION);--}}
                     <!-- Content -->
                     @yield('main')
                         <!-- ./ content -->

@@ -24,6 +24,7 @@ class UserController extends BaseController {
         parent::__construct();
         $this->user = $user;
         $this->company = $company;
+
     }
 
     /**
@@ -31,14 +32,17 @@ class UserController extends BaseController {
      *
      * @return View
      */
-    public function getIndex($company='buckeye')
-    {
-        list($user,$redirect) = $this->user->checkAuthAndRedirect('user');
-        if($redirect){return $redirect;}
+    public function getIndex($company='')
+    {   
+        // var_dump($company);
+        // http://php.net/manual/en/function.list.php
+        // list($user,$redirect) = $this->user->checkAuthAndRedirect('user');
+        // if($redirect){return $redirect;}
 
         // Show the page
         $company=$this->company->where('brand','LIKE',$company)->first();
         // die("BAM");
+        // $company = App::make('company');
         return View::make('site/user/index')
             ->with(compact('user'))
             ->with(compact('company'));

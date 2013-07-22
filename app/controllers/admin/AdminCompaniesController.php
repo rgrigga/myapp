@@ -21,6 +21,14 @@ class AdminCompaniesController extends AdminController {
      */
     public function index()
     {
+                    App::error(function(RuntimeException $exception){
+                Log::error($exception);
+                Session::flash('message','AdminCompaniesController@getIndex');
+                var_dump($company);
+                App::abort(404,'Company not present.');
+                // return die('Sorry! Something is wrong with this account!');
+            });
+
         $companies = $this->company->all();
 
         return View::make('companies.index', compact('companies'));

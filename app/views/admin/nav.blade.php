@@ -45,12 +45,28 @@
 									</ul>
 								</li>
 
+<!-- dropdown:
+$req
+$slug
+$title
+https://www.google.com/analytics/web/?hl=en&pli=1#home/ -->
 								<!-- example of ternary operator -->
-								<li class="dropdown{{ (Request::is('admin/seo*') ? ' active' : '') }}">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="{{{ URL::to('admin/users') }}}">
+								<li class="dropdown{{ (Request::is('$request') ? ' active' : '') }}">
+									<a class="dropdown-toggle" data-toggle="dropdown" href="{{{ URL::to('admin/seo') }}}">
 
 										<!-- <i class="icon-user icon-white"></i> -->
-										 Users <span class="caret"></span>
+										 SEO <span class="caret"></span>
+									</a>
+
+
+								</li>
+
+								<!-- example of ternary operator -->
+								<li class="dropdown{{ (Request::is('admin/seo*') ? ' active' : '') }}">
+									<a class="dropdown-toggle" data-toggle="dropdown" href="{{{ URL::to('admin/seo') }}}">
+
+										<!-- <i class="icon-user icon-white"></i> -->
+										 SEO <span class="caret"></span>
 									</a>
 									<ul class="dropdown-menu">
 										<li{{ (Request::is('admin/users*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/users') }}}">
@@ -63,7 +79,7 @@
 								</li>
 
 
-https://www.google.com/analytics/web/?hl=en&pli=1#home/
+
 
 
 

@@ -67,56 +67,11 @@ Post Update ::
 <form method="post" action="" autocomplete="off">
 	<!-- CSRF Token -->
 	<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-	<style>
-		.wrap, .nav2{
-			margin-top: +40px;
-		}
-		.navbar-fixed-top{
-			margin-bottom: +40px;
-		}
-		.navbar-fixed-top .navbar-inner{
-			padding-left: 20px;
-		}
-		.mybutton{
-			display: inline-block;
-			/*background-color: red;*/
-		}
-		.nav2 .brand {
-			/*margin-left: 20px;*/
-			/*background-color: red;*/
-		}
-	</style>
+	
 
-<!-- ******************************************************* -->
-<!-- NAVBAR -->
-    <div class="navbar navbar-fixed-top nav2">
 
-	    <div class="navbar-inner">
-		    <a class="brand" href="#">Post:</a>
-		    <div class="btn-group">
-				<button type="submit" class="btn btn-success">
-					<i class="icon-save"> </i>
-					<span class="hidden-phone mybutton">Save</span>
-				</button>
-		    	<button type="reset" class="btn btn-danger">
-		    		<i class="icon-undo"> </i>
-		    		<span class="hidden-phone mybutton">Reset</span>
-		    	</button>
-<!-- 		    </div>
-		    <div class="btn-group"> -->
-			    <a href="{{{ URL::to('admin/blogs') }}}"><span class="hidden-phone mybutton">Cancel</span></a> 
-			    <a href="{{{ URL::to('admin/blogs/create') }}}" class="btn btn-info"><i class="icon-plus-sign icon-white"></i> New</a>
-				<a href="{{{ URL::to('admin/blogs') }}}" class="btn btn-inverse"><i class="icon-circle-arrow-left icon-white"></i><span class="hidden-phone mybutton">Back to List</span></a>
-			</div>
-		    <ul class="nav pull-right">
-		    	<!-- http://css-tricks.com/make-a-view-source-button/ -->
-		    	<li><a onClick='window.location="view-source:" + window.location.href'><i class="icon-code"></i> code</a></li>
-			    <li><a href="#"><i class="icon-code-fork"></i> code-fork</a></li>
+@include('admin/navbar-post-edit')
 
-			    	<!-- <a class="btn btn-info" href="{{{ URL::to('admin/blogs') }}}">Cancel</a></li> -->
-		    </ul>
-	    </div>
-    </div>
 
 <!-- ************************************************* -->
 
@@ -291,13 +246,16 @@ Post Update ::
 
 		<div class="collapse in" id="MyDescription">
 			<div class="controls">
-				<textarea class="full-width span12 wysihtml5" rows="4" name="meta-description" id="meta-description">{{{ Input::old('meta-description', $post->meta_description) }}}</textarea>
+				<textarea class="full-width span12 redactor" name="meta-description" id="meta-description">{{{ Input::old('meta-description', $post->meta_description) }}}</textarea>
 			</div>
 			<p><i class="icon-facebook"></i> Meta Description is a 158 character summary of your post.  The Meta-Description may be displayed as the text for a google result, for example...</p>
 			<p>It is also used on facebook</p>
 		</div>
 	</div>			
 	<!-- ./ meta description -->
+
+
+
 
 	<!-- *************************************************** -->
 
@@ -314,8 +272,14 @@ Post Update ::
 
 		<div class="collapse in" id="MyContent">
 			<div class="controls">
-				<textarea class="full-width span10 wysihtml5" name="content" value="content" rows="20">{{{ Input::old('content', $post->content) }}}</textarea>
+
+				<textarea class="redactor" name="content" style="height: 360px;">
+
+				{{{ Input::old('content', $post->content) }}}
+				</textarea>
+
 			</div>
+			<a href="http://imperavi.com/redactor/docs/">Redactor Docs</a>
 		</div>
 	</div>
 

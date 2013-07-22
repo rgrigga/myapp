@@ -1,6 +1,8 @@
 <?php
 // die("ROUTES");
 
+// http://www.slideshare.net/go_oh/singletons-in-php-why-they-are-bad-and-how-you-can-eliminate-them-from-your-applications
+
 //http://stackoverflow.com/questions/7770728/group-vs-role-any-real-difference
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,9 @@ Route::model('user', 'User');
 Route::model('comment', 'Comment');
 Route::model('post', 'Post');
 Route::model('role', 'Role');
+// Route::model('company','Company',function (){
+//     // die ("COMPANY MODEL NOT FOUND");
+// });
 Route::model('company','Company');
 
 Route::resource('tweets', 'TweetsController');
@@ -51,12 +56,7 @@ Route::resource('tweets', 'TweetsController');
 
 // $env=App::environment();
 
-    App::bind('company', function($app)
-    {
-        return Company::where('brand','like','gristech')->first();
-    });
 
-    $company=App::make('company');
     
 
 
@@ -144,13 +144,19 @@ function pre($text){
 
 Route::group(array('domain' => 'myapp.dev'),function()
 {
+
 // http://codehappy.daylerees.com/ioc-container
     App::bind('company', function($app)
     {
-        return Company::where('brand','like','gristech')->first();
+        $company = Company::where('brand','like','gristech')->first();
+    // App::abort(404,'Route domain company:'.var_dump($company));
+        return $company;
     });
 
-    $company=App::make('company');
+    // $company=App::make('company');
+
+
+
 
     // Javascript?
     // capture hash tag route.
@@ -158,17 +164,17 @@ Route::group(array('domain' => 'myapp.dev'),function()
     // if not, send get request to server.
     // $value = App::make('company','gristech');
 
-    Route::get('admin','AdminDashboardController@getIndex');
+    Route::get('admin','AdminDashboardController@gristech');
 
     Route::model('company','Company',function(){
-        $company=  Company::where('brand',"LIKE",'gristech')->first();
-        $company=App::make('company');
+        $company= Company::where('brand',"LIKE",'gristech')->first();
+        // $company=App::make('company');
         // die(var_dump($company);
         return $company;
     });
 
     // http://laravel.com/docs/ioc#basic-usage
-
+// http://tympanus.net/Tutorials/CSS3FluidParallaxSlideshow/
     // App::singleton('company', function()
     // {
     //     return new Company::where('brand',"LIKE",'company')->first();
@@ -200,8 +206,8 @@ Route::group(array('domain' => 'myapp.dev'),function()
         return Response::make($content)->withCookie($cookie);
 
     });
-
-  
+// http://imperavi.com/redactor/docs/license-about/
+  // http://css-tricks.com/examples/EqualHeightsInRows/
     // $data=array(compact('company'));
 // ->with('warning',$message);
     View::composer('home', function($view)
@@ -213,6 +219,20 @@ Route::group(array('domain' => 'myapp.dev'),function()
         // die("BAM");
         // $success="You did it!";
        return View::make('site.gristech.test')
+            ->with('success','You did it!');
+            // ->withInput(Input::except('password'))
+            
+            // ->with( 'success', $success )
+            // ->with( 'error', $error )
+            // ->with( 'warning', $warning )
+            // ->with( 'info', $info )
+            ;
+    });
+
+    Route::get('parallax',function(){
+        // die("BAM");
+        // $success="You did it!";
+       return View::make('site.gristech.parallax')
             ->with('success','You did it!');
             // ->withInput(Input::except('password'))
             
@@ -280,7 +300,8 @@ Route::group(array('domain' => 'myapp.dev'),function()
 
     Route::get('/{tag}','BlogController@getIndex');
     
-
+    
+    //each domain has its own method available.
     Route::get('/', 'CompanyController@gristech');
     // Route::get('/', function(){
         // echo "HI THERE";
@@ -310,10 +331,13 @@ Route::group(array('domain' => 'myapp.dev'),function()
 // **************************--------------****************************************
 // ********************************************************************************
 
-
+// http://www.jsticker.com/
+    // http://programmers.stackexchange.com/questions/160947/should-session-variables-be-avoided
 Route::group(array('domain' => 'buckeyemower.com'),function()
 {
 
+    // Session::put('company', 'gristech');
+    // var_dump($_SESSION);
     // http://codehappy.daylerees.com/ioc-container
     App::bind('company', function($app)
     {
@@ -322,12 +346,10 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
 
     $company='buckeye';
     
-    Route::model('company','Company',function(){
-        $company=  Company::where('brand',"LIKE",'buckeye')->first();
-        return $company;
-    });
-
-
+    // Route::model('company','Company',function(){
+    //     $company=  Company::where('brand',"LIKE",'buckeye')->first();
+    //     return $company;
+    // });
 
     Route::get('/{tag}', 'BlogController@getIndex');
 
@@ -345,6 +367,7 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
         // die("BAM");
         // Route::controller('admin', 'AdminDashboardController');
     });
+
 
     Route::group(array('before' => 'buckeye'), function(){
 
@@ -380,9 +403,6 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
     Route::get('blog/{postSlug}', 'BlogController@getView');
     Route::get('blog', 'BlogController@buckeyeIndex');
 
-    Route::get('test{company}',function(Company $company){
-        return View::make('site.buckeye.happy');
-    });
 
     // Here are several Routing techniques:
     // 
@@ -390,9 +410,12 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
 
     
     Route::get('/{tag}','BlogController@getIndex');
+
+    // View::make('buckeye');
     
     // 2. use a custom method.
-    Route::get('/', 'BlogController@getIndex');
+    $company=App::make('company');
+    Route::get('/', 'CompanyController@getIndex',compact($company));
 
     // Only users with roles that have the 'buckeye' permission will
     // be able to access any admin/post route.
@@ -503,6 +526,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
         ->where('post', '[0-9]+');
 
     Route::get('blogs/tag/{tag}', 'AdminBlogsController@getIndex');
+    // ???
         // ->where('post', '[0-9]+');
 
     Route::controller('blogs', 'AdminBlogsController');
@@ -626,7 +650,7 @@ Route::get('/{tag}', 'BlogController@getIndex');
 
 
 // $company=Company::where('brand','like','gristech')->first();
-Route::get('/', 'CompanyController@getIndex');
+Route::get('/', 'CompanyController@buckeye');
     // ->with($company)
     // ->where(array('id','=',3));
 

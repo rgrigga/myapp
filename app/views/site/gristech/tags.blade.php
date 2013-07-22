@@ -3,7 +3,7 @@
 {{-- Content --}}
 @section('content')
 
-<div class="hero-unit">
+<div class="page-header">
 <ul class="tag">
 	<li><i class="icon-tag"></i></li>
 

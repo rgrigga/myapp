@@ -25,6 +25,7 @@ $list=array(
 	);
 
 
+
 // http://stackoverflow.com/questions/3748/storing-images-in-db-yea-or-nay
 
 // http://stackoverflow.com/questions/1347461/saving-images-files-or-blobs
@@ -34,76 +35,11 @@ $list=array(
 		<title>
 			Hello World.
 		</title>
-	</head>
-	<body>
-		@if (Session::has('message'))
-		    <div class="flash alert">
-		        <p>{{ Session::get('message') }}</p>
-		    </div>
-		@endif
-		<h1>Welcome to the jungle</h1>
-		Errors:
-		
-		<?php 
-		var_dump($errors);
-		echo $errors->first('success'); 
-		?>
+		<!-- Bootstrap -->
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
 
-<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?autoload=true&amp;skin=sunburst&amp;lang=css" defer="defer"></script>
-
-<pre class='prettyprint'>
-	Here's some code.
-</pre>
-
-
-<h3>$SESSION:</h3>
-<?php var_dump($_SESSION) ?>
-
-
-<div class="well">
-<h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, neque.</h2>
-
-<!-- ******************************************* -->
-<ulclass="nav">
-	<li>
-		<a href="#slider">Slider Demo</a>
-	</li>
-	<li>
-		<a href="#code">Pretty Code</a>
-	</li>
-</ul>
-
-
-<style> 
-#foo{
-    height:300px;
-    overflow-y:scroll;
-}
-#bar{
-    height:600px;
-    background-color:#999;
-}
-#baz{
-    height:60px;
-    width:60px;
-    background-color:yellow;
-    color:#000;
-    position:absolute;
-    left:30px;
-    top:0px;
-}
-/*@font-face
-{
-font-family: myFirstFont;
-src: url(sansation_light.ttf);
-}
-
-div
-{
-font-family:myFirstFont;
-}*/
-</style>
-
+        <!-- Font-Awesome -->
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 <script>
 
     window.onload = function()
@@ -124,7 +60,7 @@ font-family:myFirstFont;
 				    var layer1 = $('#bar');
 				    var obj = $('#baz');
 				        $('#foo').scroll(function(){             
-				           var distance = layer1.outerHeight() + obj.outerHeight() + 20;            
+				           var distance = layer1.outerHeight() + obj.outerHeight() * .3;            
 				           var pos = this.scrollTop/$(this).innerHeight() * distance;
 				           obj.css('top', pos);
 				    });
@@ -136,67 +72,83 @@ font-family:myFirstFont;
 
 
 </script>
+        <style> 
+			#foo{
+			    /*height:300px;*/
+			    overflow-y:scroll;
+			}
+			#bar{
+			    height:600px;
+			    background-color:#999;
+			    font-size: 28px;
+			    text-shadow: -1px 0 black, 0 1px black,
+			      1px 0 black, 0 -1px black;
+			}
+			#zim{
+			    height:500px;
+			    background-color:green;
+			}
+			#baz{
+			    height:60px;
+			    width:60px;
+			    background-color:yellow;
+			    color:#000;
+			    position:absolute;
+			    left:30px;
+			    top:0px;
+			}
 
-<h3>Version 1:</h3>
-	<ul class="thumbnails">
-		@foreach ($list as $img)
-		<li class="thumbnail">
-			{{img($img);}}
-		</li>
-		@endforeach
-	</ul>
+			#zed{
+				height:400px;
+			    width:400px;
+			    background-color:yellow;
+			    color:#000;
+			    position:absolute;
+			    right:40px;
+			    top:150px;
+			}
+			/*@font-face
+			{
+			font-family: myFirstFont;
+			src: url(sansation_light.ttf);
+			}
 
-<h3>Two:</h3>
-<ul>
-@foreach ($list as $img)
-<li>
+			div
+			{
+			font-family:myFirstFont;
+			}*/
+			</style>
+	</head>
+	<body>
+<div class="container">
+	<h1>Welcome to the jungle</h1>
+	<div class="foo">
+		<div id="bar">
 
-	 {{img($img);}}
-</li>
-@endforeach
-</ul>
+			thi part is big
 
-<!-- http://tympanus.net/codrops/2011/01/03/parallax-slider/ -->
-<div id="foo">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, libero accusantium repellat impedit obcaecati sed expedita laudantium iusto eaque at. Ea, eius, magni, rem earum optio maiores aspernatur perferendis consectetur neque architecto necessitatibus sequi corporis unde atque voluptatum vitae dolore. Doloremque, quis eum delectus in aliquid temporibus culpa maxime at facilis odio! Temporibus, sequi, magnam dolores modi cum praesentium ut rerum eveniet similique dolor velit ab unde sit dignissimos quas distinctio est. Unde, facere, consequatur, labore, fugiat dolor doloremque similique blanditiis maxime numquam culpa eaque non porro odio magni tenetur in odit cum fuga temporibus ducimus adipisci ea ullam doloribus earum sunt aliquam provident quia tempore illo eius sit fugit eos accusamus delectus inventore id expedita illum nobis ut a ratione quo. Tempore, itaque, ratione iste ullam facilis harum voluptas similique quam minus cumque culpa dolore tenetur voluptatum incidunt quos obcaecati saepe repellat molestias repudiandae ipsam possimus dolor distinctio nisi ipsa iusto odio exercitationem officiis ipsum deserunt. Modi, inventore, quia, praesentium maxime asperiores omnis expedita amet consectetur sapiente sed necessitatibus debitis sequi atque nostrum aperiam ipsa quibusdam ipsam laborum. Deserunt, velit, dicta, amet nemo culpa rem natus provident repudiandae laudantium voluptatum ipsum voluptatibus officiis sapiente porro quia eum ullam non esse totam odit fugiat fuga similique vero facilis illo animi vitae at doloremque consequuntur soluta obcaecati inventore magnam alias. Omnis, adipisci, optio, sit beatae laboriosam numquam dolor illum nobis tempore reiciendis asperiores molestiae facilis repellat accusamus consequatur fugit nesciunt minus. Atque, rem soluta eius est architecto dolor quod temporibus. Velit, perferendis ad provident eaque officia? Debitis, incidunt, quod, doloribus sequi nostrum ut impedit iusto cum officiis quos atque natus ipsam magni. Minus, ea omnis minima deserunt facere! Similique, totam natus adipisci impedit placeat dolores quae odio maiores error accusantium quas recusandae dolorum unde neque quo facilis aliquid labore voluptatibus ipsa a. Adipisci, vero, animi velit ea earum voluptate quaerat. Ipsam, itaque, incidunt, molestiae, doloribus necessitatibus quidem ipsa sed ab aspernatur eaque suscipit expedita. Quis, blanditiis, quibusdam, dignissimos pariatur corporis minus sunt tempora animi odio enim ducimus ratione iure libero numquam impedit mollitia debitis aut sit alias reiciendis minima quisquam maxime ab at quia! Rerum, molestiae, incidunt consequuntur at eveniet dignissimos dolorem voluptatum ullam aperiam amet dicta deleniti dolor iste odio alias voluptate praesentium quis reprehenderit quos recusandae natus optio quasi debitis rem error vitae mollitia deserunt autem eos libero laborum magnam ab illum molestias minus eaque fugiat. Mollitia, impedit, quae.
+			<div id="baz">
+				{{img('horseshoe','jpg');}}
+				<img src="{{asset('assets/advantage/horseshoe.jpg')}}" alt="">
 
-    <div id="bar">
-Main box.  Put BIG content here.
+				this part moves.
+	        </div>
+	    </div>
+	</div>
 
-<p>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat asperiores sit quia quis. Ex odit labore cupiditate dolores perferendis voluptatem maiores impedit ducimus harum error. Unde, fugiat, quasi, alias expedita consequatur molestiae nihil corrupti placeat omnis neque tempore dolores numquam perspiciatis itaque soluta error cum possimus non ipsam laudantium a.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat asperiores sit quia quis. Ex odit labore cupiditate dolores perferendis voluptatem maiores impedit ducimus harum error. Unde, fugiat, quasi, alias expedita consequatur molestiae nihil corrupti placeat omnis neque tempore dolores numquam perspiciatis itaque soluta error cum possimus non ipsam laudantium a.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat asperiores sit quia quis. Ex odit labore cupiditate dolores perferendis voluptatem maiores impedit ducimus harum error. Unde, fugiat, quasi, alias expedita consequatur molestiae nihil corrupti placeat omnis neque tempore dolores numquam perspiciatis itaque soluta error cum possimus non ipsam laudantium a.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat asperiores sit quia quis. Ex odit labore cupiditate dolores perferendis voluptatem maiores impedit ducimus harum error. Unde, fugiat, quasi, alias expedita consequatur molestiae nihil corrupti placeat omnis neque tempore dolores numquam perspiciatis itaque soluta error cum possimus non ipsam laudantium a.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat asperiores sit quia quis. Ex odit labore cupiditate dolores perferendis voluptatem maiores impedit ducimus harum error. Unde, fugiat, quasi, alias expedita consequatur molestiae nihil corrupti placeat omnis neque tempore dolores numquam perspiciatis itaque soluta error cum possimus non ipsam laudantium a.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat asperiores sit quia quis. Ex odit labore cupiditate dolores perferendis voluptatem maiores impedit ducimus harum error. Unde, fugiat, quasi, alias expedita consequatur molestiae nihil corrupti placeat omnis neque tempore dolores numquam perspiciatis itaque soluta error cum possimus non ipsam laudantium a.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat asperiores sit quia quis. Ex odit labore cupiditate dolores perferendis voluptatem maiores impedit ducimus harum error. Unde, fugiat, quasi, alias expedita consequatur molestiae nihil corrupti placeat omnis neque tempore dolores numquam perspiciatis itaque soluta error cum possimus non ipsam laudantium a.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat asperiores sit quia quis. Ex odit labore cupiditate dolores perferendis voluptatem maiores impedit ducimus harum error. Unde, fugiat, quasi, alias expedita consequatur molestiae nihil corrupti placeat omnis neque tempore dolores numquam perspiciatis itaque soluta error cum possimus non ipsam laudantium a.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat asperiores sit quia quis. Ex odit labore cupiditate dolores perferendis voluptatem maiores impedit ducimus harum error. Unde, fugiat, quasi, alias expedita consequatur molestiae nihil corrupti placeat omnis neque tempore dolores numquam perspiciatis itaque soluta error cum possimus non ipsam laudantium a.</p>
-</p>
-
-
-
-
-
-        <div id="baz">
-
-
-
-{{img('horseshoe','jpg');}}
-<img src="{{asset('assets/advantage/horseshoe.jpg')}}" alt="">
-<img src="{{asset('assets/advantage/horseshoe.jpg')}}" alt="">
-this moves.
-        </div>
-    </div>
 </div>
+<!-- container -->
 
+<!-- 				    var layer1 = $('#bar');
+				    var obj1 = $('#baz'); -->
 
 <!-- ************************************************ -->
 
 
 @javascripts('public-js')
 
-	</body>
+</body>
 </html>
 
 
@@ -216,11 +168,11 @@ this moves.
 		Errors:
 		
 		<?php 
-		var_dump($errors);
-		echo $errors->first('success'); 
+		// var_dump($errors);
+		// echo $errors->first('success'); 
 		?>
 
 <h3>$SESSION:</h3>
-<?php var_dump($_SESSION) ?>
+<?php //var_dump($_SESSION) ?>
 	</body>
 </html> -->

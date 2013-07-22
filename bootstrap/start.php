@@ -24,6 +24,9 @@ $app = new Illuminate\Foundation\Application;
 |
 */
 
+//insert image button
+//redactor
+
 $env = $app->detectEnvironment(array(
 
 //this is case-sensitive

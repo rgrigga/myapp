@@ -1,10 +1,11 @@
-@extends('admin.layouts.default')
+@extends('layouts.scaffold')
 
 {{-- Web site Title --}}
 @section('title')
 {{{ Lang::get('user/user.register') }}} ::
 @parent
 @stop
+
 
 {{-- Content --}}
 @section('main')
@@ -25,6 +26,7 @@
 	@foreach($list as $item)
 	<li>{{a($item)}}</li>
 	@endforeach
+	<li><a href="OAuth2">OAuth2</a></li>
 </ul>
 
 <!-- <ul class="nav">

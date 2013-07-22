@@ -40,6 +40,8 @@ $array=array(
 
 
 
+ <span class="label label-info">Info</span>
+
 <div class="page-header">
 	
 	<h3>
@@ -69,7 +71,9 @@ $array=array(
 					<h4>{{{ $post->title }}}</h4>
 					<a href="{{{URL::to($post->slug)}}}">{{{URL::to($post->slug)}}}</a>
 					<img class="thumby" src="{{asset('assets/'.$post->image)}}" alt="{{$post->image}}">
-					{{asset('assets'.$post->image)}}
+
+					<p class="muted credit">{{asset('assets'.$post->image)}}</p>
+					
 					<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini"><i class="icon-edit"></i> {{{ Lang::get('button.edit') }}}</a>
 				<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger"><i class="icon-trash"></i> {{{ Lang::get('button.delete') }}}</a>
 				</div>
@@ -83,26 +87,28 @@ $array=array(
 			<th class="span2">{{{ Lang::get('keywords') }}}</th>
 			<th class="span2">{{{ Lang::get('admin/blogs/table.comments') }}}</th>
 			<th class="span2">{{{ Lang::get('admin/blogs/table.created_at') }}}</th>
+			
+			<th>views</th>
+			<th>#comments</th>
+			<th>created</th>
 			<th class="span2">{{{ Lang::get('table.actions') }}}</th>
 		</tr>
 	</thead>
 	<tbody>
 
 		@foreach ($posts as $post)
-		
 		<tr>
-
-			<td>t{{{ $post->title }}}</td>
-			<td>md{{{ $post->meta_description }}}</td>			
-			<td>mk{{{ $post->meta_keywords }}}</td>
+			<td><a href="{{{URL::to('blog/'.$post->slug)}}}">{{{ $post->title }}}</a></td>
+			<td>{{{ $post->meta_description }}}</td>			
+			<td>{{{ $post->meta_keywords }}}</td>
 			<td>{{{ $post->author->username }}}</td>
 			<td>{{{ $post->views }}}</td>
 
 			<td>{{{ $post->comments()->count() }}}</td>
 			<td>{{{ $post->created_at() }}}</td>
 			<td>
-				<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">icon {{{ Lang::get('button.edit') }}}</a>
-				<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">icon {{{ Lang::get('button.delete') }}}</a>
+				<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini"> <i class="icon-pencil"></i> {{{ Lang::get('button.edit') }}}</a>
+				<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger"><i class="icon-trash"></i> {{{ Lang::get('button.delete') }}}</a>
 			</td>
 		</tr>
 		@endforeach
