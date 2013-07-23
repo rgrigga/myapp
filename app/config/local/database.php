@@ -25,9 +25,11 @@ return array(
 	| you may use many connections at once using the Database library.
 	|
 	*/
-	// 'buckeye' => 'buckeye',
+
 	'default' => 'mysql',
 	'local'=> 'mysql2',
+	'buckeye' => 'buckeye',
+	'jcc'=>'jcc',
 
 	/*
 	|--------------------------------------------------------------------------

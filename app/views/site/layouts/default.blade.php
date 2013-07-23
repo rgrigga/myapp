@@ -10,6 +10,13 @@
 		<!-- site.layouts.default -->
 		<!-- should be overridden in children -->
 
+<!-- Page Title -->
+<title>
+@section('title')
+Layouts.Default
+@show
+</title>
+
 <!-- http://moz.com/learn/seo/meta-description -->
 @section('meta_description')
 <meta name="description" content="Gristech will do things that will help you do what you do better.  We will make you make more money.  We will therefore make you want to give us lots of money. We will make you lots of money.">
@@ -72,6 +79,7 @@
 
 </script>
 <meta name="google-site-verification" content="U8zCfNgj-23MojmUwyxkij6AqrU30NWhgJgTtiBl3WI" />
+
 @show
 
 @section('favicons')
@@ -96,45 +104,45 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 
 <body>
 
-<!-- this is hard-coded into the layouts default page -->
-<!-- http://twitter.github.io/bootstrap/examples/sticky-footer-navbar.html -->
-<!-- To make sticky footer need to wrap in a div -->
+	<!-- this is hard-coded into the layouts default page -->
+	<!-- http://twitter.github.io/bootstrap/examples/sticky-footer-navbar.html -->
+	<!-- To make sticky footer need to wrap in a div -->
 	<div id="wrap">
-	
-	<!-- Navbar -->
-	
-	@yield('nav')
+		
+		<!-- Navbar -->
+		
+		@yield('nav')
 
 
-	
-	<!-- Container -->
-	<div class="container-fluid">
-		<!-- Notifications -->
-		@include('notifications')
-		<!-- ./ notifications -->
-		<style>
-		/*http://css-tricks.com/almanac/properties/z/z-index/*/
-		.contentwrap{
-			position: relative;
-			/*z-index: -3;*/
-		}
-		</style>
+		
+		<!-- Container -->
+		<div class="container-fluid">
+			<!-- Notifications -->
+			@include('notifications')
+			<!-- ./ notifications -->
+			<style>
+			/*http://css-tricks.com/almanac/properties/z/z-index/*/
+			.contentwrap{
+				position: relative;
+				/*z-index: -3;*/
+			}
+			</style>
 
-		<div class="contentwrap">
-			<!-- Content -->
-			@yield('content')
-			@yield('main')
-			<!-- ./ content -->
+			<div class="contentwrap">
+				<!-- Content -->
+				@yield('content')
+				@yield('main')
+				<!-- ./ content -->
+			</div>
+			<!-- ./contentwrap -->
 		</div>
-		<!-- ./contentwrap -->
+		<!-- ./ container -->
+
+		<!-- the following div is needed to make a sticky footer -->
+		<div id="push"></div>
+
 	</div>
-	<!-- ./ container -->
-
-	<!-- the following div is needed to make a sticky footer -->
-	<div id="push"></div>
-
-</div>
-<!-- ./wrap -->
+	<!-- ./wrap -->
 
 @section('footer')
 <!-- <div id="footer"> -->

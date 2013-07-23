@@ -22,7 +22,7 @@ class CompaniesController extends BaseController {
      *
      * @return Response
      */
-    public function index()
+    public function getIndex()
     {
 
         $companies = $this->company->all();
@@ -86,12 +86,15 @@ class CompaniesController extends BaseController {
     {
         $company = $this->company->find($id);
 
+        //?? isnull vs empty vs !== etc
         if (is_null($company))
         {
             return Redirect::route('companies.index');
         }
-
-        return View::make('companies.edit', compact('company'));
+        //else
+        return View::make('companies.edit')
+            ->nest('about','company.about', compact('company'))
+            ->with(compact('company'));
     }
 
     /**

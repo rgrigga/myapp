@@ -5,6 +5,11 @@
 		.body{
 			padding-top: 60px;
 		}
+		.iconbar{
+			/*float: left;*/
+			display: inline;
+			font-size: 32px;
+		}
 		</style>
 
 		<div class="navbar navbar-fixed-top">
@@ -12,7 +17,9 @@
 			<div class="navbar-inner">
 
 				<div class="container-fluid">
-
+							<!-- <div class="pull-right"> -->
+                    
+                            <!-- </div> -->
 					<a class="btn btn-navbar pull-left" data-toggle="collapse" data-target=".nav-collapse">
 
 						<!-- <i class="icon-collapse icon-2x"></i> -->
@@ -25,7 +32,7 @@
 						// if(!$company){$company="MegaCorp";} 
 					?>
 					<a class="brand" style="margin-left:30px;" href="#">{{{$company->brand}}}</a>
-
+@include('site.partials.contact')
 					<div class="nav-collapse collapse">
 						
 						<ul class="nav">
@@ -56,7 +63,8 @@
 	                            <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">Login</a></li>
 	                            
                             @endif
-                            @include('site.partials.contact')
+                            
+                            
                         </ul>
 					</div>
 					<!-- ./ nav-collapse -->

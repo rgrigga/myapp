@@ -45,12 +45,16 @@ class CompanyController extends UserController {
     	// parent::construct();
 // die(var_dump($company));
         $this->post = $post;
-        // $this->user = $user;
-        // $env=App::environment;
-        $this->company = App::make('company');
+        $this->company = $company;
+
 
         // App::abort(404,'company controller construct'.var_dump($this->company));
 
+		// $env=;
+		// var_dump($env);
+        // var_dump($c);
+
+        // die();
     // die("bam");
         // $this->tags = $post->tags();
     }
@@ -85,14 +89,27 @@ class CompanyController extends UserController {
 
 	public function getIndex($brand="",$num='10')
 	{
-
 		$env=App::environment();
-		// die("Brand: $brand");
-		$company=$this->company;
-		$brand = strtolower($company->brand);
-		if(!$brand){
+		$company = $this->company->where('brand','like',$env)->first();
+		
+		// die(var_dump($company));
+		if(empty($company)){
+			$company = $this->company->where('brand','like','gristech')->first();
+			// App::abort(404,'CompanyController@getIndex: no company');
+			// App::error(function(RuntimeException $exception){
+			//     Log::error($exception);
+			//     var_dump($company);
+			// });
+		}
+		
+		if($brand==""){
+			$brand = strtolower($company->brand);
+		}
+		
+		if(empty($brand)){
 			// return "controller has no brand!";
 			
+
 			return App::error(function(RuntimeException $exception){
 			    Log::error($exception);
 			    var_dump($company);
@@ -116,23 +133,23 @@ class CompanyController extends UserController {
 		
 		else{
 			View::share('company', $company);
-		}
-
-		$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$env.'%')->paginate($num);
-
-
-		// $views=array('foo','bar');
-		return View::make('site/'.$brand.'/home')
-		// die();
-		//this works, but it confused me.
-			// ->nest('posts','site.blog.miniindexfoo')
-			->with(compact('company'))
-			->with(compact('tags'))
-			->with(compact('alltags'))
-			->with(compact('posts'))
-			// ->with(compact('brand'))
-			;
 		
+			// $posts=$this->company->posts;
+			$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$env.'%')->paginate($num);
+
+			// $views=array('foo','bar');
+			return View::make('site/'.$brand.'/home')
+				// die();
+				//this works, but it confused me.
+				// ->nest('posts','site.blog.miniindexfoo')
+
+				->with(compact('company'))
+				->with(compact('tags'))
+				->with(compact('alltags'))
+				->with(compact('posts'))
+				// ->with(compact('brand'))
+				;
+		}
 
 	}
 

@@ -30,7 +30,12 @@ Route::model('role', 'Role');
 // Route::model('company','Company',function (){
 //     // die ("COMPANY MODEL NOT FOUND");
 // });
-Route::model('company','Company');
+// Route::model('company','Company');
+Route::model('company','Company', function()
+{
+    // throw new NotFoundException;
+    throw new MyException;
+});
 
 Route::resource('tweets', 'TweetsController');
 // Route::model('company','Company',function(){
@@ -296,7 +301,7 @@ Route::group(array('domain' => 'myapp.dev'),function()
     // $company=Company::where('brand','like','gristech')->first();
     // $brand="gristech";
     // $company=App::make('company');
-// die(var_dump($company));
+    // die(var_dump($company));
 
     Route::get('/{tag}','BlogController@getIndex');
     
@@ -339,12 +344,12 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
     // Session::put('company', 'gristech');
     // var_dump($_SESSION);
     // http://codehappy.daylerees.com/ioc-container
-    App::bind('company', function($app)
-    {
-        return Company::where('brand','like','buckeye')->first();
-    });
+    // App::bind('company', function($app)
+    // {
+    //     return Company::where('brand','like','buckeye')->first();
+    // });
 
-    $company='buckeye';
+    // $company='buckeye';
     
     // Route::model('company','Company',function(){
     //     $company=  Company::where('brand',"LIKE",'buckeye')->first();
@@ -414,9 +419,14 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
     // View::make('buckeye');
     
     // 2. use a custom method.
-    $company=App::make('company');
+    // $company=App::make('company');
+    // $env=App::environment();
+    // $c = Company::where('brand','like',$env)->first();
 
-    Route::get('/', 'CompanyController@getIndex',compact($company));
+
+
+
+    // Route::get('/', 'CompanyController@getIndex',compact($c));
 
     // Only users with roles that have the 'buckeye' permission will
     // be able to access any admin/post route.
@@ -650,9 +660,20 @@ Route::get('/{tag}', 'BlogController@getIndex');
 
 
 // $company=Company::where('brand','like','gristech')->first();
-Route::get('/', 'CompanyController@getIndex');
+// Route::get('/', 'CompanyController@getIndex');
     // ->with($company)
     // ->where(array('id','=',3));
+
+
+// $company='foo';
+
+//     App::bind('company', function($app)
+//     {
+//         die(var_dump($company));
+//         return Company::where('brand','like',$company)->first();
+//     });
+
+Route::get('/','CompanyController@getIndex');
 
 /**
 GET vs POST Basics

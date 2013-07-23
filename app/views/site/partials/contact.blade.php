@@ -1,4 +1,4 @@
-<!-- @section('contact') -->
+<!-- @ section('contact') -->
 <div class="iconbar">
 <!-- 	<div class="iconbutton">
 		

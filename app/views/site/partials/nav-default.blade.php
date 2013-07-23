@@ -1,4 +1,5 @@
 @section('nav')
+
 	<style>
 	body{
 		/*padding-top: 60px;*/
@@ -11,6 +12,7 @@
 		margin-left: 30px;
 	}*/
 	</style>
+
 	<div class="navbar navbar-inverse navbar-fixed-top">
 
 		<div class="navbar-inner">
@@ -23,26 +25,22 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				
+<!-- <h1>BROKEN</h1> -->
+<!-- <h2>partials.nav-default</h2> -->
 				<a class="brand" href="#">{{{$company->brand}}}</a>
 				<div class="button-group">
 					<a href="#" class="btn"><i class="icon-cog"></i>foo</a>
 					<a href="#" class="btn"><i class="icon-cog"></i>bar</a>
 					<a href="#" class="btn"><i class="icon-cog"></i>baz</a>
 <!-- 						<a href="#" class="btn"><i class="icon-cog"></i></a>
--->					</div>
+-->				</div>
 				<div class="nav-collapse collapse">
-				
-
-
 					<ul class="nav">
+						<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
 
-					<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
-
-
-					@foreach ($company->menus() as $menu)
-					<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to('/'.$menu) }}}">{{{$menu}}}</a></li>
-					@endforeach
+						@foreach ($company->menus() as $menu)
+						<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to('/'.$menu) }}}">{{{$menu}}}</a></li>
+						@endforeach
 
 					</ul>
 
@@ -66,8 +64,9 @@
 				</div>
 				<!-- ./ nav-collapse -->
 			</div>
-
+			<!-- ./ container-fluid -->
 		</div>
+		<!-- ./ navbar-inner -->
 		<!-- //this is the only place to put india! -->
 		<div class="india pull-right">
 				<!-- <div>phone, email, chat, anything!</div> -->
