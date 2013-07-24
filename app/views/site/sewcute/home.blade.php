@@ -7,19 +7,20 @@
 
 @section('meta_description')
 @parent
-{{$company->description}}
+{{{$company->description}}}
 @stop
+
 
 @section('meta_keywords')
 @parent
-
-@stop
-//new company:
+<!-- //new company:
 	//domain
 	//environment
 	//assets
 	//routes
-	//site.megacorp.home
+	//site.megacorp.home -->
+@stop
+
 @section('styles')
 
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
@@ -29,7 +30,19 @@
 <link href='http://fonts.googleapis.com/css?family=Monsieur+La+Doulaise' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Mr+De+Haviland' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fawn+Script' rel='stylesheet' type='text/css'>
 <style>
+
+/*GIMP Palette
+Name: Color Palette by Color Scheme Designer #5n11Tw0w0w0w0Columns: 4
+
+#
+225   0  76     primary 1
+169  42  85     primary 2
+146   0  49     primary 3
+240  60 121     primary 4
+240 108 152     primary 5*/
+
 
 	/*this has ramifications:*/
 	.container{
@@ -38,8 +51,8 @@
 
 	html,body {
 		
-		/*background-color: rgba(235,196,162,.2);*/
-		color: white;
+		/*background-color: rgba(255,0,76,.15);*/
+		color: #8D003B;
 		font-family: 'EB Garamond', serif;
 
 	}
@@ -60,6 +73,8 @@
 
 
 	.page-header{
+/*		background-image: url('http://myapp.gristech.com/assets/sewcute/logo.png');
+		background-repeat: no-repeat;*/
 		margin-top: 0px;
 		margin-left:-20px;
 		margin-right:-20px;
@@ -71,21 +86,21 @@
 		/*margin-right: 0px;*/
 		/*margin-left: 0px;*/
 		margin-bottom: 20px;
-
-		background-color: rgba(3,71,105,1);
+/*169  42  85     primary 2*/
+		background-color: rgba(94,196,205,.5);
 		border-bottom: 0;
 	}
 	
 	.page-header h1{
-			max-width: 100%;
+		max-width: 100%;
 	/*padding-left: 10%;*/
 	    margin-right: 10%;
-		padding-left: 10%;
-		/*text-align: center;*/
+		/*padding-left: 10%;*/
+		text-align: center;
 		line-height: .7em;
 		margin-top: 90px;
 		margin-bottom: 20px;
-		letter-spacing:-7px;
+		/*letter-spacing:-7px;*/
 		font-size: 144px;
 
 	}
@@ -103,19 +118,19 @@
 	.page-header h1, .sidebar h3{
 		/*font-family: 'Mr De Haviland', cursive;*/
 		/*font-family: 'Monsieur La Doulaise', cursive;*/
-		font-family: 'Kaushan Script', cursive;
+		font-family: 'Fawn Script', cursive;
 		/*color:#ffbe73;*/
-		color: #ffe9b9;
-		text-shadow: 8px 8px 8px #A63A00;
+		color: #015c65;
+		text-shadow: 3px 3px 3px #A3295C;
 	}
 
 	.sidebar h3{
-		text-shadow: 4px 4px 4px #A63A00;
+		text-shadow: 4px 4px 4px #A3295C;
 	}
 
 	.navbar-inner{
 		background-image: none;
-		background-color: rgba(3,71,105,1);
+		background-color: rgba(30,109,116,.5);
 	}
 
 	.navbar{
@@ -141,7 +156,8 @@
 	}
 
 	h1,h2{
-		color:rgba(18,124,166,1);
+		/*146   0  49*/
+		color:rgba(146,0,49,.7);
 	}
 
 	h1 {
@@ -227,10 +243,17 @@ a:hover {text-decoration: none}
 @stop
 
 @section('nav')
+
 @include('site.partials.nav-top-min')
+
 @stop
 
 @section('main')
+	@if (Session::has('message'))
+	    <div class="flash alert">
+	        <p>{{ Session::get('message') }}</p>
+	    </div>
+	@endif
 <?php
 	$env=App::environment();
 	// echo "<div class='alert alert-info'>Welcome to the <strong>".$env."</strong> environment.</div>";
@@ -260,7 +283,7 @@ a:hover {text-decoration: none}
 <style>
 
 	html{
-		background-color:rgba(50,50,50,.5);
+		/*background-color:rgba(50,50,50,.5);*/
 	}
 
 	.accordion{
@@ -271,7 +294,7 @@ a:hover {text-decoration: none}
 	}
 
 	.headline{
-		margin-left: 15%;
+		/*margin-left: 15%;*/
 	}
 
 
@@ -337,7 +360,7 @@ a:hover {text-decoration: none}
 	}
 
 	.sidebar h2{
-		text-shadow: 2px 2px 2px #A63A00;
+		text-shadow: 2px 2px 2px #A3295C;
 	}
 	
 
@@ -363,18 +386,20 @@ a:hover {text-decoration: none}
 
 .note { 
 	overflow: hidden;
-	margin-top: 20px;
+	
     position: relative; 
     width: 300px;
-    margin: auto;
+    margin: 0;
+    margin-top: 20px;
+    /*left:-150px;*/
 }
 
 .note > .inner {
     position: absolute;
     top: 10%;
     left: 50%;
-    margin-left: -150px;
-    padding-left: 30px;
+    margin-left: -115px;
+    padding: 10px;
     text-align: center;
 }
 
@@ -489,8 +514,8 @@ a:hover {text-decoration: none}
 }
 .headline{
 	max-width: 100%;
-	padding-left: 10%;
-	margin-right: 5%;
+	/*padding-left: 10%;*/
+	/*margin-right: 5%;*/
 
   -webkit-transform: rotate(-10deg);
   -moz-transform: rotate(-10deg);
@@ -498,19 +523,321 @@ a:hover {text-decoration: none}
   transform: rotate(-10deg);
 }
 
+.logo{
+	text-align: center;
+	margin: auto;
+}
+
 </style>
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?autoload=true&amp;skin=sunburst&amp;lang=css" defer="defer"></script>
 <div class="page-header">
 
 
+<div class="logo">
+	<img class='logo' src="{{{asset('assets/sewcute/logo.png')}}}" alt="">
+</div>
+
 
 	<div class="row-fluid">
 		<div class="span7">
 			<a href="#" data-toggle="tab">
-				<h1 class="headline">{{{$company->name}}}</h1>
+				<h1 class="headline">{{{$company->brand}}}</h1>
 			</a>
 			<h2 class='text-center'>the demo...</h2>
-			<h3 class='text-center'>{{$company->description}}</h3>
+			<h3 class='text-center'>{{{$company->description}}}</h3>
+
+<style>
+	.MyMenu{
+		margin-left:40px;
+	}
+</style>
+<div class="MyMenu">
+	<ul class="nav nav-pills">
+		<li class="active"><a href="#">Home</a></li>
+		<li><a href="#">Profile</a></li>
+		<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Products <b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<li><a href="#">Dolls</a></li>
+				<li><a href="#">People</a></li>
+				<li><a href="#">Something else here</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Separated link</a></li>
+			</ul>
+		</li>
+		<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">New <b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<li><a href="#">Dolls</a></li>
+				<li><a href="#">People</a></li>
+				<li><a href="#">Something else here</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Separated link</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+
+		</div>
+		<!-- span7 -->
+		<div class="span3">
+			<!-- <h1>BAM!</h1> -->
+			<div class="note">
+				<!-- <h1>h1 <span>h1span</span></h1> -->
+				<!-- <h4>h4 <span>h4span</span></h4> -->
+				<div class = "inner">
+					<style>
+						.phone{
+							font-size: 1.5em;
+						}
+					</style>
+					<span>Write this down: 
+					<ul class="nav">
+							<li>
+								<a href="#">&#10004; She's Fast</a>
+							</li>
+							<li>
+							 	<a href="#">&#10004; She's Furious</a>
+							</li>
+							<li>
+							 	<a href="#">&#10004; They're Cute!</a>
+							</li>
+
+						</ul>
+						<div class="phone">{{{$company->phone}}}</div> 
+						<div class="text-center">
+							call anytime
+						</div>		
+						<!-- < ? php echo $contact ?>	 -->
+						<!-- @ include('site.partials.contact')			 -->
+					</span>
+				</div>
+
+				<img src="{{asset('assets/img/note.png')}}" alt="">
+
+<!-- http://www.fuzzimo.com/free-vector-post-it-notes-push-pins/ -->
+			</div>
+			<!-- ./note -->
+		</div>
+<!-- ./note span3 -->
+
+	</div>
+<!-- ./row -->
+<h1>But Wait, There's More!!! <i class="icon-arrow-down"></i></h1>
+</div>
+<!-- ./ page-header -->
+
+
+
+
+<div class="row-fluid">
+
+	<!-- sidebar -->
+	<div class="span3">
+		<h2>Look!</h2>
+		<p>Non-web marketing is important, too.  Let's make some postcards, business cards, etc...</p>
+	</div>
+
+
+
+	<div class="span8">
+		<!-- //main area -->
+		<img src="{{asset('assets/gristech/flyer.png')}}" alt="flyer">
+
+	</div>
+</div>
+
+<style>
+	.hero-unit{
+		color: black;
+		background-image: url('http://myapp.gristech.com/assets/sewcute/lined_paper.png');
+		/*background-image: url('http://myapp.gristech.com/assets/sewcute/logo.png');*/
+		/*background-repeat: no-repeat;*/
+	}
+</style>
+
+
+
+
+<div class="row-fluid">
+	<div class="hero-unit" name='services' id='services'>
+    <h1>{{{$company->name}}}</h1>
+
+
+<?php $items=$company->menus(); ?>
+    <ul>
+    @foreach($items as $item)
+        <li>{{{$item}}}</li> 
+    @endforeach
+    </ul>
+    
+    <h2>slogan: {{{$company->slogan}}}</h2>
+    <p>
+    	This section is called a Hero-Unit.  Sell your widget!
+    </p>
+  </div>
+</div>
+
+
+
+<div class="row-fluid">
+	<div class="tabbable"> <!-- Only required for left/right tabs -->
+	  <ul class="nav nav-pills">
+		@foreach($company->menus() as $menu)
+	    <li><a href="#{{$menu}}" data-toggle="tab"><i class="icon-rocket icon-4x"></i> {{{$menu}}}</a></li>
+	    @endforeach
+
+
+
+
+
+
+	    <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
+	    <li class="active"><a href="#tab2" data-toggle="tab">Section 2</a></li>
+	    <li class="active"><a href="#tab3" data-toggle="tab">Section 3</a></li>
+	  </ul>
+	  
+	  <div class="tab-content">
+<style>
+.tab-pane{
+	overflow: none;
+}
+	.tab-pane img{
+		max-width: 70%;
+		/*overflow: none;*/
+	}
+</style>
+
+	    <div class="tab-pane active" id="tab1">
+	      <p>This is all about us.</p>
+	      <img src="{{{asset('assets/sewcute/path5495.png')}}}" alt="">
+	    </div>
+	    <div class="tab-pane" id="tab2">
+	      <p>These are the services we provide.</p>
+	      <img src="{{{asset('assets/sewcute/g4477.png')}}}" alt="">
+	    </div>
+	    <div class="tab-pane" id="tab3">
+	      <img src="{{{asset('assets/sewcute/path3763-1-9-2.png')}}}" alt="">
+
+	      <p>And of course we do this.</p>
+
+	    </div>
+	  </div>
+	</div>
+</div>
+<script>
+
+</script>
+
+			<ul class="thumbnails">
+			  <li class="span4">
+			    <div class="thumbnail">
+			      <img src="http://lorempixel.com/300/300/" alt="">
+			      <h3>Thumbnail label</h3>
+			      <p class='lead'>One Widget</p>
+			      <p>One Thousand and One Uses.</p>
+
+			    </div>
+			  </li>
+
+			  <li class="span4">
+			    <div class="thumbnail">
+			      <img src="http://lorempixel.com/300/300/" alt="">
+			      <h3>Thumbnail label</h3>
+			      <p class='lead'>One Widget</p>
+			      <p>One Thousand and One Uses.</p>
+			    </div>
+			  </li>
+			  <li class="span4">
+			    <div class="thumbnail">
+			      <img src="http://lorempixel.com/300/300/" alt="">
+			      <h3>Thumbnail label</h3>
+			      <p class='lead'>One Widget</p>
+			      <p>One Thousand and One Uses.</p>
+			    </div>
+			  </li>
+			</ul>
+
+<ul class="thumbnails">
+	<li class="span2">
+		<div class="thumbnail">
+			<h4>Product</h4>
+			<p>This is one of our finest offerings...</p>
+			<img src="{{{asset('assets/sewcute/g6472.png')}}}" alt="">
+		</div>
+	</li>
+	<li class="span2">
+		<div class="thumbnail">
+			<h4>Product</h4>
+			<p>This is one of our finest offerings...</p>
+			<img src="{{{asset('assets/sewcute/g6472.png')}}}" alt="">
+		</div>
+	</li>
+	<li class="span2">
+		<div class="thumbnail">
+			<h4>Product</h4>
+			<p>This is one of our finest offerings...</p>
+			<img src="{{{asset('assets/sewcute/g6472.png')}}}" alt="">
+		</div>
+	</li>
+	<li class="span2">
+		<div class="thumbnail">
+			<h4>Product</h4>
+			<p>This is one of our finest offerings...</p>
+			<img src="{{{asset('assets/sewcute/g6472.png')}}}" alt="">
+		</div>
+	</li>
+	<li class="span2">
+		<div class="thumbnail">
+			<h4>Product</h4>
+			<p>This is one of our finest offerings...</p>
+			<img src="{{{asset('assets/sewcute/g6472.png')}}}" alt="">
+		</div>
+	</li>
+	<li class="span2">
+		<div class="thumbnail">
+			<h4>Product</h4>
+			<p>This is one of our finest offerings...</p>
+			<img src="{{{asset('assets/sewcute/g6472.png')}}}" alt="">
+		</div>
+	</li>
+	<li class="span2">
+		<div class="thumbnail">
+			<h4>Product</h4>
+			<p>This is one of our finest offerings...</p>
+			<img src="{{{asset('assets/sewcute/g6472.png')}}}" alt="">
+		</div>
+	</li>
+	<li class="span2">
+		<div class="thumbnail">
+			<h4>Product</h4>
+			<p>This is one of our finest offerings...</p>
+			<img src="{{{asset('assets/sewcute/g6472.png')}}}" alt="">
+		</div>
+	</li>
+	<li class="span2">
+		<div class="thumbnail">
+			<h4>Product</h4>
+			<p>This is one of our finest offerings...</p>
+			<img src="{{{asset('assets/sewcute/g6472.png')}}}" alt="">
+		</div>
+	</li>
+	<li class="span2">
+		<div class="thumbnail">
+			<h4>Product</h4>
+			<p>This is one of our finest offerings...</p>
+			<img src="{{{asset('assets/sewcute/g6472.png')}}}" alt="">
+		</div>
+	</li>
+</ul>
+
+
+<div class="row-fluid">
+
+
+	<div class="span7 pull-right">
+		<h2>About The App:</h2>
 			<div class="accordion" id="accordion">
 			 	<div class="accordion-group">
 			 		<div class="accordion-heading">
@@ -630,168 +957,10 @@ a:hover {text-decoration: none}
 			</div>
 			<!-- ./ accordian -->
 
-		</div>
-		<!-- span7 -->
-		<div class="span3">
-			<!-- <h1>BAM!</h1> -->
-			<div class="note">
-				<!-- <h1>h1 <span>h1span</span></h1> -->
-				<!-- <h4>h4 <span>h4span</span></h4> -->
-				<div class = "inner">
-					<style>
-						.phone{
-							font-size: 1.5em;
-						}
-					</style>
-					<span>Write this down: 
-					<ul class="nav">
-							<li>
-								<a href="#">&#10004; She's Fast</a>
-							</li>
-							<li>
-							 	<a href="#">&#10004; She's Furious</a>
-							</li>
-							<li>
-							 	<a href="#">&#10004; They're Cute!</a>
-							</li>
-
-						</ul>
-						<div class="phone">{{$company->phone}}</div> 
-						<div class="text-center">
-							call anytime
-						</div>		
-						<!-- < ? php echo $contact ?>	 -->
-						<!-- @ include('site.partials.contact')			 -->
-					</span>
-				</div>
-
-				<img src="{{asset('assets/img/note.png')}}" alt="">
-
-<!-- http://www.fuzzimo.com/free-vector-post-it-notes-push-pins/ -->
-			</div>
-			<!-- ./note -->
-		</div>
-<!-- ./note span3 -->
 
 	</div>
-<!-- ./row -->
-<h1>But Wait, There's More!!! <i class="icon-arrow-down"></i></h1>
-</div>
-<!-- ./ page-header -->
-
-
-
-
-<div class="row-fluid">
-
-	<!-- sidebar -->
-	<div class="span3">
-		<h2>Look!</h2>
-		<p>Non-web marketing is important, too.  Let's make some postcards, business cards, etc...</p>
-	</div>
-
-
-
-	<div class="span8">
-		<!-- //main area -->
-		<img src="{{asset('assets/gristech/flyer.png')}}" alt="flyer">
-
-	</div>
-</div>
-
-<style>
-	.hero-unit{
-		color: black;
-	}
-</style>
-
-
-
-
-<div class="row-fluid">
-	<div class="hero-unit" name='services' id='services'>
-    <h1>{{{$company->name}}}</h1>
-
-
-<?php $items=$company->menus(); ?>
-    <ul>
-    @foreach($items as $item)
-        <li>{{$item}}</li> 
-    @endforeach
-    </ul>
-    
-    <h2>We treat Your Home as our own.</h2>
-    <p>
-    	This section is called a Hero-Unit.  Sell your widget!
-    </p>
-  </div>
-</div>
-
-
-
-<div class="row-fluid">
-	<div class="tabbable"> <!-- Only required for left/right tabs -->
-	  <ul class="nav nav-pills">
-		@foreach($company->menus() as $menu)
-	    <li><a href="#{{$menu}}" data-toggle="tab"><i class="icon-rocket icon-4x"></i> {{{$menu}}}</a></li>
-	    @endforeach
-	    <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
-	  </ul>
-	  
-	  <div class="tab-content">
-	    @foreach($company->menus() as $menu)
-	    <div class="tab-pane" id="{{{$menu}}}">
-			
-	    </div>
-	    @endforeach
-
-	    <div class="tab-pane active" id="tab1">
-	      <p>Some text here.</p>
-
-
-	    </div>
-	  </div>
-	</div>
-</div>
-<script>
-
-</script>
-
-			<ul class="thumbnails">
-			  <li class="span4">
-			    <div class="thumbnail">
-			      <img src="http://lorempixel.com/200/300/" alt="">
-			      <h3>Thumbnail label</h3>
-			      <p>Howdy, I'm {{{$menu}}}.</p>
-			    </div>
-			  </li>
-
-			  <li class="span4">
-			    <div class="thumbnail">
-			      <img src="http://lorempixel.com/300/400/" alt="">
-			      <h3>Thumbnail label</h3>
-			      <p>Howdy, I'm {{{$menu}}}.</p>
-			    </div>
-			  </li>
-			  <li class="span4">
-			    <div class="thumbnail">
-			      <img src="http://lorempixel.com/200/400/" alt="">
-			      <h3>Thumbnail label</h3>
-			      <p>Howdy, I'm {{{$menu}}}.</p>
-			    </div>
-			  </li>
-			  <li class="span4">
-			    <div class="thumbnail">
-			      <img src="http://lorempixel.com/300/300/" alt="">
-			      <h3>Thumbnail label</h3>
-			      <p>Howdy, I'm {{{$menu}}}.</p>
-			    </div>
-			  </li>
-
-			</ul>
-
-<div class="row-fluid">
-	<div class="span4">
+	<!-- div -->
+	<div class="span4 pull-left">
 		<!-- <div class="pull-right"> -->
 		<!-- <img src="{{asset($company->image)}}" alt="MyImage"> -->
 	<!-- </div> -->
@@ -806,6 +975,104 @@ a:hover {text-decoration: none}
 	<div>Menus: {{{ $company->menus }}}</div>
 	</div>
 </div>
+
+<style>
+	img{
+		padding: 20px;
+	}
+</style>
+<img src="{{{asset('assets/sewcute/path3763-1-9-1-6-7.png')}}}" alt="sewcute">
+
+	<style> 
+	#foo{
+	    height:800px;
+	    overflow-y:scroll;
+	}
+	#bar{
+	    height:600px;
+	    background-color:#999;
+	}
+	#baz{
+	    height:60px;
+	    width:60px;
+	    background-color:yellow;
+	    color:#000;
+	    position:absolute;
+	    left:10%;
+	    top:0px;
+	}
+		#baz2{
+	    height:60px;
+	    width:60px;
+	    background-color:green;
+	    color:#000;
+	    position:absolute;
+	    left:50%;
+	    top:0px;
+	}
+	/*@font-face
+	{
+	font-family: myFirstFont;
+	src: url(sansation_light.ttf);
+	}
+
+	div
+	{
+	font-family:myFirstFont;
+	}*/
+	</style>
+
+
+
+<script>
+
+    window.onload = function()
+    {
+    	// alert('bam!');
+        if(!window.jQuery)
+        {
+            alert('jQuery not loaded');
+        }
+        else
+        {
+        		alert('jQuery is loaded');
+            $(document).ready(function(){
+                // $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
+
+            	$(function(){
+				    var layer1 = $('#bar');
+				    var layer2 = $('#bar');
+				    
+				    var obj = $('#baz');
+				    var obj2 = $('#baz2');
+				        
+			        $('#foo').scroll(function(){             
+			           var distance = layer1.outerHeight() + obj.outerHeight() + 20;
+			           var distance2 = layer1.outerHeight() + obj2.outerHeight() *30;            
+			           
+			           var pos = this.scrollTop/$(this).innerHeight() * distance;
+			           var pos2 = this.scrollTop/$(this).innerHeight() * distance2;
+
+			           obj.css('top', pos);
+			           obj2.css('top', pos2);
+			    	});
+
+				    // var layer1 = $('#bar');
+				    // var obj = $('#baz');
+				    //     $('#foo').scroll(function(){             
+				    //        var distance = layer1.outerHeight() + obj.outerHeight() + 20;            
+				    //        var pos = this.scrollTop/$(this).innerHeight() * distance;
+				    //        obj.css('top', pos);
+				    // });
+				});
+
+            });
+        }
+    }
+
+
+</script>
+
 @stop
 
 

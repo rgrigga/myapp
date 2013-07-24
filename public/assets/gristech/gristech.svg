@@ -22,16 +22,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.94023105"
+     inkscape:zoom="2.4240332"
      inkscape:cx="320"
-     inkscape:cy="232.55502"
+     inkscape:cy="513.07923"
      inkscape:current-layer="layer1"
      inkscape:document-units="px"
      showgrid="false"
      inkscape:window-width="1312"
      inkscape:window-height="835"
-     inkscape:window-x="418"
-     inkscape:window-y="85"
+     inkscape:window-x="441"
+     inkscape:window-y="110"
      inkscape:window-maximized="0" />
   <defs
      id="defs19914">
@@ -228,7 +228,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -300,7 +300,7 @@
     <g
        id="text19926"
        style="font-size:199.64938354px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;filter:url(#filter22084);font-family:Sans"
-       transform="matrix(0.40130171,-0.06388633,0.09784078,0.45644704,-3.6317678,-7.460966)"
+       transform="matrix(0.40130171,-0.06388633,0.09784078,0.45644704,8.3317648,-9.1111084)"
        inkscape:export-filename="/home/ryan/MyApp6/public/assets/gristech/gristech.png"
        inkscape:export-xdpi="72"
        inkscape:export-ydpi="72">

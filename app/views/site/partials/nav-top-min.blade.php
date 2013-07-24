@@ -11,8 +11,18 @@
 
 				<a class="brand" style="margin-left:30px;" href="#">{{{$company->brand}}}</a>
 
+<?php $items=$company->menus(); ?>
+                		<ul class="nav">
+					    @foreach($items as $item)
+					        <li><a href="{{URL::to($item)}}">{{{$item}}}</a>
+					        	</li> 
+					    @endforeach
+    					</ul>
+
+
 					<!-- admin/user nav -->
                 	<ul class="nav pull-right bam">
+
                         @if (Auth::check())
                         	<!-- User Roles go here -->
                             

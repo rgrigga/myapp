@@ -24,16 +24,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.83333333"
-     inkscape:cx="320"
-     inkscape:cy="230.48433"
-     inkscape:current-layer="layer1"
+     inkscape:zoom="1.5808382"
+     inkscape:cx="218.51195"
+     inkscape:cy="136.37584"
+     inkscape:current-layer="layer2"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:window-width="780"
-     inkscape:window-height="595"
-     inkscape:window-x="749"
-     inkscape:window-y="453"
+     inkscape:window-width="1310"
+     inkscape:window-height="761"
+     inkscape:window-x="262"
+     inkscape:window-y="167"
      inkscape:window-maximized="0" />
   <metadata
      id="metadata4669">
@@ -87,5 +87,53 @@
          x="153.82268"
          y="227.38846"
          style="font-weight:bold;stroke-width:1.39721489;-inkscape-font-specification:Czaristite Bold">MyApp</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="dots">
+    <g
+       id="g4517"
+       transform="translate(884.36989,-207.22213)">
+      <path
+         transform="matrix(0.38142121,0,0,0.87452619,-903.91518,550.15453)"
+         sodipodi:open="true"
+         sodipodi:end="6.2464425"
+         sodipodi:start="0"
+         d="m 580.23979,167.5517 c 0,47.1889 -91.46387,85.44307 -204.29027,85.44307 -112.8264,0 -204.29026,-38.25417 -204.29026,-85.44307 0,-47.18891 91.46386,-85.443073 204.29026,-85.443073 109.90608,0 200.11504,36.367883 204.15239,82.304353"
+         sodipodi:ry="85.443069"
+         sodipodi:rx="204.29027"
+         sodipodi:cy="167.5517"
+         sodipodi:cx="375.94952"
+         id="path2985-8"
+         style="opacity:0.76131688;fill:#63add0;stroke:#a63a00;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         sodipodi:type="arc" />
+      <text
+         transform="scale(0.92087239,1.0859268)"
+         sodipodi:linespacing="125%"
+         id="text3757-2"
+         y="660.48523"
+         x="-878.86597"
+         style="font-size:75.66096497px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Czaristite;-inkscape-font-specification:Czaristite Medium"
+         xml:space="preserve"><tspan
+           style="font-weight:bold;-inkscape-font-specification:Czaristite Bold"
+           y="660.48523"
+           x="-878.86597"
+           id="tspan3759-3"
+           sodipodi:role="line">JCC</tspan></text>
+    </g>
+    <path
+       transform="translate(767.81598,376.60399)"
+       sodipodi:type="arc"
+       style="opacity:0.76131688;fill:#ffbe73;fill-opacity:1;fill-rule:nonzero;stroke:#006d4c;stroke-width:16.87700081;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path3831-1-4-6"
+       sodipodi:cx="-464.21188"
+       sodipodi:cy="126.61785"
+       sodipodi:rx="85.072021"
+       sodipodi:ry="81.722725"
+       d="m -379.13986,126.61785 a 85.072021,81.722725 0 1 1 -0.0574,-3.00205"
+       sodipodi:start="0"
+       sodipodi:end="6.2464425"
+       sodipodi:open="true" />
   </g>
 </svg>

@@ -13,7 +13,7 @@
 <p>What the heck is responsive design?</p>
 
 
-Here is a very old example: <a href="http://www.pixelscapes.com/spatulacity/button.htm">Resposnsive Website from 1993.</a>
+
 
 <div class="hero-unit">
 
@@ -119,5 +119,10 @@ Here is a very old example: <a href="http://www.pixelscapes.com/spatulacity/butt
 
 
 </div>
+
+<p>This site is meant to be viewed on any device without changing the content.  In other words, all the content appears on the mobile site, too, and it should look pretty good.</p>
+<p>It doesn't have to be complicated.</p>
+
+Here is a very old example of a website from 1994 that looks just fine on any screen size: <a href="http://www.pixelscapes.com/spatulacity/button.htm">The Button</a>.
 
 @stop
