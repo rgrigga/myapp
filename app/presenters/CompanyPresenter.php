@@ -7,7 +7,7 @@ class CompanyPresenter extends Presenter
 
 	public function presentTags(){
 
-		return $this->tags;
+		return $this->tags();
 	}
 
 }

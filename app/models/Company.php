@@ -13,10 +13,10 @@ class Company extends Eloquent{
 		'menus' => 'required'
 	);
 
-public function getPresenter()
-    {
-        return new CompanyPresenter($this);
-    }
+	public function getPresenter()
+	    {
+	        return new CompanyPresenter($this);
+	    }
 
     	public function menus()
 	{

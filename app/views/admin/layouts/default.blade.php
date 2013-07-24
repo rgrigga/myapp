@@ -67,7 +67,7 @@ For now, you may clone this public repository and develop it as much as you like
 		}
 
 		div{
-			background-color: rgba(50,89,20,.3);
+			background-color: rgba(50,89,20,.05);
 		}
 
 

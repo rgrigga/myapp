@@ -24,14 +24,18 @@ $app = new Illuminate\Foundation\Application;
 |
 */
 
+// http://programmers.stackexchange.com/questions/40373/so-singletons-are-bad-then-what
+
 //insert image button
 //redactor
 
 $env = $app->detectEnvironment(array(
 
 //this is case-sensitive
+	'sewcute' => array('domain' => 'myapp.dev' ),
 	'local' => array('Grisbuntu'),
 	// 'dev' => array('Grisbuntu'),
+	
 	'buckeye' => array('domain' => 'buckeyemower.com' ),
 	'gristech' => array('domain' => 'myapp.gristech.com' ),
 

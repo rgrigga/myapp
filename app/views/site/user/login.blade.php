@@ -8,11 +8,12 @@
 
 @section('nav')
 <!-- @ parent -->
-@include('site.partials.nav-buckeye')
+@include('site.partials.nav-top')
 @stop
 
 {{-- Content --}}
 @section('main')
+<h1>Hello World</h1>
 <h1>
     {{{$company->brand}}}
 </h1>
@@ -21,6 +22,7 @@
     .page-header{
         padding-top:+60px;
     }
+
 </style>
 
 <div class="page-header">
@@ -68,5 +70,7 @@
         <a class="btn btn-large btn-primary" href="{{{ URL::to('user/create') }}}">Sign Up</a>
         <p>No spam, etc.</p>
 <!-- // Popup form here?-->
-
+<img src="{{asset('assets/gristech/next.png')}}" alt="next">
+<h1>You said flyer?</h1>
+<img src="{{asset('assets/gristech/flyer.png')}}" alt="next">
 @stop

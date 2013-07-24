@@ -48,6 +48,10 @@ Layouts.Default
 			position: relative;
 			/*z-index: -3;*/
 		}
+		.contentwrap{
+            .background-color: red;
+            .margin-top: 100px;
+        }
 	</style>
 @show
 
@@ -100,6 +104,7 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
 		<link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}">	
 @show
+
 </head>
 
 <body>

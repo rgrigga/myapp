@@ -19,19 +19,62 @@ class AdminCompaniesController extends AdminController {
      *
      * @return Response
      */
+
     public function index()
     {
-                    App::error(function(RuntimeException $exception){
-                Log::error($exception);
-                Session::flash('message','AdminCompaniesController@getIndex');
-                var_dump($company);
-                App::abort(404,'Company not present.');
-                // return die('Sorry! Something is wrong with this account!');
-            });
+        
+// App::error(function(RuntimeException $exception){
+//     Log::error($exception);
+//     Session::flash('message','AdminCompaniesController@getIndex');
+//     var_dump($company);
+//     App::abort(404,'Company not present.');
+//     // return die('Sorry! Something is wrong with this account!');
+// });
 
         $companies = $this->company->all();
 
         return View::make('companies.index', compact('companies'));
+    }
+
+    public function getIndex()
+    {
+        
+// App::error(function(RuntimeException $exception){
+//     Log::error($exception);
+//     Session::flash('message','AdminCompaniesController@getIndex');
+//     var_dump($company);
+//     App::abort(404,'Company not present.');
+//     // return die('Sorry! Something is wrong with this account!');
+// });
+
+        $companies = $this->company->all();
+
+        return View::make('companies.index', compact('companies'));
+    }
+
+
+
+    // public function getCreate()
+    // {
+    //     // All roles
+    //     $roles = $this->role->all();
+
+    //     // Get all the available permissions
+    //     $permissions = $this->permission->all();
+
+    //     // Selected groups
+    //     $selectedRoles = Input::old('roles', array());
+
+    //     // Selected permissions
+    //     $selectedPermissions = Input::old('permissions', array());
+
+    //     // Show the page
+    //     return View::make('admin/users/create', compact('roles', 'permissions', 'selectedRoles', 'selectedPermissions'));
+    // }
+
+    public function getCreate()
+    {
+        return View::make('companies.create');
     }
 
     /**

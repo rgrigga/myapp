@@ -40,9 +40,14 @@ class AdminDashboardController extends AdminController {
             //     App::abort(404,'Company not present.');
             //     // return die('Sorry! Something is wrong with this account!');
             // });
+        $env=App::environment();
+        $company = $this->company->where('brand','LIKE',$env)->first();
 
-        $company = $this->company->where('brand','LIKE','%'.$tag.'%')->first();
         
+        if(!$company){
+            $company = $this->company->where('brand','LIKE','gristech')->first();
+        }
+        // die(var_dump($company));
         return View::make('admin.dashboard')->with(compact('company'));
 	}
 

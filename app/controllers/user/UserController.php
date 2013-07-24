@@ -177,15 +177,21 @@ class UserController extends BaseController {
      */
     public function getLogin()
     {
+
+
+
         $user = Auth::user();
             if(!empty($user->id)){
             return Redirect::to('/');
         }
-        $company=App::make('company');
-        // $company = $this->company->where('brand', 'LIKE', $brand)->first();
+
+        // $company=App::make('company');
+        $brand=App::environment();
+        $company = $this->company->where('brand', 'LIKE', $brand)->first();
 
         if(!$company){
-            die(var_dump("Problem in user.getLogin.", $company));
+            $company = $this->company->where('brand', 'LIKE', 'gristech')->first();
+            // die(var_dump("Problem in user.getLogin.", $company));
             // $company = $this->company->findOrFail(3);
         }
         // $company = $this->company->findOrFail(3);
@@ -210,6 +216,7 @@ class UserController extends BaseController {
      */
     public function postLogin()
     {
+
         $input = array(
             'email'    => Input::get( 'email' ), // May be the username too
             'username' => Input::get( 'email' ), // May be the username too

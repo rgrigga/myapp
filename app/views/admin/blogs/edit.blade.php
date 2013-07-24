@@ -14,11 +14,11 @@ Post Update ::
 
 	.alpha{
 		/*height: 400px;*/
-		background-color: rgba(25,20,15,.5);
+		background-color: rgba(25,20,15,.1);
 	}
 	.beta{
 		/*height: 400px;*/
-		background-color: rgba(250,200,150,.5);
+		background-color: rgba(250,200,150,.1);
 	}
 
 	ul.tag li{
@@ -30,6 +30,7 @@ Post Update ::
 
 	a:hover{
 		background-color: orange;
+		text-decoration: none;
 	}
 
 	.navbar-fixed-top{
@@ -250,6 +251,7 @@ Post Update ::
 			</div>
 			<p><i class="icon-facebook"></i> Meta Description is a 158 character summary of your post.  The Meta-Description may be displayed as the text for a google result, for example...</p>
 			<p>It is also used on facebook</p>
+			<a href="https://github.com/cheeaun/mooeditable/wiki/Alternative-Javascript-WYSIWYG-editors">Alternatives to Redactor</a>
 		</div>
 	</div>			
 	<!-- ./ meta description -->

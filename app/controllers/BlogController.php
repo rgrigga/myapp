@@ -87,7 +87,18 @@ class BlogController extends BaseController {
 	{
 
 // singleton versus dependency injection.
-
+		$env=App::environment();
+		$company = $this->company->where('brand','like',$env)->first();
+		
+		// die(var_dump($company));
+		if(empty($company)){
+			$company = $this->company->where('brand','like','gristech')->first();
+			// App::abort(404,'CompanyController@getIndex: no company');
+			// App::error(function(RuntimeException $exception){
+			//     Log::error($exception);
+			//     var_dump($company);
+			// });
+		}
 
 	// $company=App::make('company');
 	// die(var_dump($company));
@@ -102,7 +113,7 @@ class BlogController extends BaseController {
 		// $company=$this->company->where('brand','LIKE',$brand)->first();
 				// var_dump($brand);
 
-    	$company=App::make('company');
+    	// $company=App::make('company');
 
 				// die(var_dump($company));
 		$brand = strtolower($company->brand);

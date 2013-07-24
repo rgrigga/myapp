@@ -27,6 +27,14 @@ class CompaniesController extends BaseController {
 
         $companies = $this->company->all();
 
+
+        return View::make('companies.index', compact('companies'));
+    }
+
+    public function index(){
+        // return Redirect::route('companies.index');
+        $companies = $this->company->all();
+
         return View::make('companies.index', compact('companies'));
     }
 
@@ -40,6 +48,10 @@ class CompaniesController extends BaseController {
         return View::make('companies.create');
     }
 
+    public function getCreate()
+    {
+        return View::make('companies.create');
+    }
     /**
      * Store a newly created resource in storage.
      *

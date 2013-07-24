@@ -68,47 +68,45 @@ class CompanyController extends UserController {
 
 
 	public function buckeye(){
-		$company = $this->company->where('brand', 'LIKE', 'buckeye')->first();
+		// $company = $this->company->where('brand', 'LIKE', 'buckeye')->first();
 		return $this->getIndex('buckeye',5);
 	}
 
+	public function sewcute(){
+
+		return $this->getIndex('sewcute',5);
+	}
+
 	public function gristech(){
-		// die('company.gristech')
-		// die("Brand: $brand");
-		// $company = $this->company->where('brand', 'LIKE', 'gristech')->first();
-
-		// return $this->getIndex('buckeye',5);
-		// App::error(function(InvalidCompanyException $exception){
-		//     Log::error($exception);
-
-		//     return 'Sorry! Something is wrong with this account!';
-		// });
 
 		return $this->getIndex('gristech',5);
 	}
 
 	public function getIndex($brand="",$num='10')
 	{
-		$env=App::environment();
-		$company = $this->company->where('brand','like',$env)->first();
+		
+		if(empty($brand)){
+			$brand=App::environment();
+		}
+		$brand=strtolower($brand);
+		// die(var_dump($brand));
+		$company = $this->company->where('brand','like',$brand)->first();
 		
 		// die(var_dump($company));
-		if(empty($company)){
-			$company = $this->company->where('brand','like','gristech')->first();
+		// if(empty($company)){
+			// $company = $this->company->where('brand','like','gristech')->first();
 			// App::abort(404,'CompanyController@getIndex: no company');
 			// App::error(function(RuntimeException $exception){
 			//     Log::error($exception);
 			//     var_dump($company);
 			// });
-		}
+		// }
 		
-		if($brand==""){
-			$brand = strtolower($company->brand);
-		}
+
 		
-		if(empty($brand)){
+		if(is_null($brand)){
 			// return "controller has no brand!";
-			
+			die('CompanyCntroller get index');
 
 			return App::error(function(RuntimeException $exception){
 			    Log::error($exception);
@@ -135,7 +133,7 @@ class CompanyController extends UserController {
 			View::share('company', $company);
 		
 			// $posts=$this->company->posts;
-			$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$env.'%')->paginate($num);
+			$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$brand.'%')->paginate($num);
 
 			// $views=array('foo','bar');
 			return View::make('site/'.$brand.'/home')

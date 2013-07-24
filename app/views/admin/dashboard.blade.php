@@ -15,7 +15,7 @@
 <img src="{{URL::to($company->image)}}" alt="">
 
 <div class="container">
-	<a href="{{URL::to('admin/dashboard');}}">{{URL::to('admin/dashboard');}}</a>
+	<a href="{{URL::to('admin');}}">{{URL::to('admin');}}</a>
 
 <!-- <<<<<<< HEAD -->
 <i class=""></i>

@@ -155,18 +155,26 @@
             <div class="contentwrap">
 <?php
     $env=App::environment();
+    // echo("<h1>ERROR"."</h1>");
+    // Session::flash('mymessage','Welcome to the <strong>'.$env.'</strong> environment.');
+    
+    // if($env!=="buckeye"){
 
-    Session::flash('mymessage','Welcome to the <strong>'.$env.'</strong> environment.');
-    if($env!=="buckeye"){
+    // }
+    if(Auth::user('admin')){
         $path='/home/ryan/MyApp6/app/views/site/pages/';
+        Session::flash('mymessage','Welcome to the <strong>'.$env.'</strong> environment.');
     }
     else
+
     if($env=="local"){
         $path='/home/ryan/MyApp6/app/views/site/pages/';
     }
     else{
         $path='/home/gristech/myapp/app/views/site/pages/';
     }
+
+
     $mypages = array();
     foreach (glob($path."*.blade.php") as $filename) {
         $filename=str_replace($path, "", $filename);

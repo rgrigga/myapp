@@ -1,15 +1,18 @@
 		<style>
+
 		.navbar-fixed-top{
 			position:fixed;
+			margin-bottom: 80px;
 		}
 		.body{
 			padding-top: 60px;
 		}
 		.iconbar{
-			/*float: left;*/
+			float: right;
 			display: inline;
 			font-size: 32px;
 		}
+
 		</style>
 
 		<div class="navbar navbar-fixed-top">
@@ -27,12 +30,13 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</a>
+					@include('site.partials.contact')
 					<?php 
 					
 						// if(!$company){$company="MegaCorp";} 
 					?>
 					<a class="brand" style="margin-left:30px;" href="#">{{{$company->brand}}}</a>
-@include('site.partials.contact')
+
 					<div class="nav-collapse collapse">
 						
 						<ul class="nav">
@@ -63,14 +67,16 @@
 	                            <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">Login</a></li>
 	                            
                             @endif
-                            
+
                             
                         </ul>
 					</div>
 					<!-- ./ nav-collapse -->
+				
 				</div>
 
 			</div>
+
 			<!-- //this is the only place to put india! -->
 			<div class="india pull-right">
 				<div>

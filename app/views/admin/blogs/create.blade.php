@@ -64,7 +64,7 @@ Create a New Blog Post ::
 			<div class="control-group {{{ $errors->has('title') ? 'error' : '' }}}">
 				<label class="control-label" for="title">Post Title</label>
 				<div class="controls">
-					<input type="text" name="title" id="title" value="{{{ Input::old('title') }}}" />
+					<input type="text" name="title" id="title" value="{{{ Input::old('title') }}} New Post" />
 					{{{ $errors->first('title', '<span class="help-inline">:message</span>') }}}
 				</div>
 			</div>
@@ -73,8 +73,13 @@ Create a New Blog Post ::
 			<!-- Content -->
 			<div class="control-group {{{ $errors->has('content') ? 'error' : '' }}}">
 				<label class="control-label" for="content">Content</label>
+
+
+				<a href="http://imperavi.com/redactor/docs/">Redactor Docs</a>
+
+
 				<div class="controls">
-					<textarea class="full-width span10 wysihtml5" name="content" value="content" rows="20">{{{ Input::old('content') }}}</textarea>
+					<textarea class="full-width span10 wysihtml5" name="content" value="content" rows="20">{{{ Input::old('content') }}} </textarea>
 					{{{ $errors->first('content', '<span class="help-inline">:message</span>') }}}
 				</div>
 			</div>
@@ -148,12 +153,12 @@ Create a New Blog Post ::
 				</div>
 			</div>
 			<!-- ./ meta description -->
-
+{{$env=App::environment();}}
 			<!-- Meta Keywords -->
 			<div class="control-group {{{ $errors->has('meta-keywords') ? 'error' : '' }}}">
 				<label class="control-label" for="meta-keywords">Meta Keywords</label>
 				<div class="controls">
-					<input type="text" name="meta-keywords" id="meta-keywords" value="{{{ Input::old('meta-keywords') }}}" />
+					<input type="text" name="meta-keywords" id="meta-keywords" value="{{{ App::environment().",".Input::old('meta-keywords')}}}"/>
 					{{{ $errors->first('meta-keywords', '<span class="help-inline">:message</span>') }}}
 				</div>
 			</div>

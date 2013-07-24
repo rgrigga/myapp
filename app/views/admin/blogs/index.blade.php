@@ -16,7 +16,6 @@ Website Management ::
 	.thumbnail{
 		/*background-color: red;*/
 		/*min-height: 20%;*/
-
 }
 </style>
 
@@ -69,10 +68,11 @@ $array=array(
 			<li>
 				<div class="thumbnail span2">
 					<h4>{{{ $post->title }}}</h4>
-					<a href="{{{URL::to($post->slug)}}}">{{{URL::to($post->slug)}}}</a>
+					{{--URL::to($post->slug)--}}
+					<a href="{{{URL::to($post->slug)}}}" class="btn">View Post</a>
 					<img class="thumby" src="{{asset('assets/'.$post->image)}}" alt="{{$post->image}}">
 
-					<p class="muted credit">{{URL::to('assets/'.$post->image)}}</p>
+					<!-- <p class="muted credit">{{--URL::to('assets/'.$post->image)--}}</p> -->
 					
 					<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini"><i class="icon-edit"></i> {{{ Lang::get('button.edit') }}}</a>
 				<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger"><i class="icon-trash"></i> {{{ Lang::get('button.delete') }}}</a>
@@ -87,10 +87,8 @@ $array=array(
 			<th class="span2">{{{ Lang::get('keywords') }}}</th>
 			<th class="span2">{{{ Lang::get('admin/blogs/table.comments') }}}</th>
 			<th class="span2">{{{ Lang::get('admin/blogs/table.created_at') }}}</th>
-			
-			<th>views</th>
-			<th>#comments</th>
-			<th>created</th>
+			<th>#views</th>
+			<th>author</th>
 			<th class="span2">{{{ Lang::get('table.actions') }}}</th>
 		</tr>
 	</thead>
@@ -99,13 +97,20 @@ $array=array(
 		@foreach ($posts as $post)
 		<tr>
 			<td><a href="{{{URL::to('blog/'.$post->slug)}}}">{{{ $post->title }}}</a></td>
-			<td>{{{ $post->meta_description }}}</td>			
+			
 			<td>{{{ $post->meta_keywords }}}</td>
-			<td>{{{ $post->author->username }}}</td>
-			<td>{{{ $post->views }}}</td>
-
-			<td>{{{ $post->comments()->count() }}}</td>
+<?php
+$url=asset('assets/img/underconstruction.gif');
+$c='<img src='.$url.'>';
+?>
+<img src="" alt="">
+			<td>{{{ $post->comments()->count() }}}{{$c}}</td>
 			<td>{{{ $post->created_at() }}}</td>
+			<td>{{{ $post->views }}}{{$c}}</td>
+			<td>{{{ $post->author->username }}}</td>
+			
+
+
 			<td>
 				<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini"> <i class="icon-pencil"></i> {{{ Lang::get('button.edit') }}}</a>
 				<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger"><i class="icon-trash"></i> {{{ Lang::get('button.delete') }}}</a>
