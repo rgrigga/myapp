@@ -48,7 +48,7 @@ Layouts.Default
 			position: relative;
 			/*z-index: -3;*/
 		}
-		.contentwrap{
+		            .contentwrap{
             .background-color: red;
             .margin-top: 100px;
         }
@@ -116,8 +116,10 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 		
 		<!-- Navbar -->
 		
-		@yield('nav')
-
+		@section('nav')
+		@include('site.partials.nav-top-min')
+		<h1>NAV</h1>
+		@show
 
 		
 		<!-- Container -->
@@ -182,5 +184,7 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 		<!-- Javascripts
 		================================================== -->
         @javascripts('public-js')
+        <!-- holder.js -->
+		<script src="{{asset('assets/js/holder.js')}}"></script>
 </body>
 </html>

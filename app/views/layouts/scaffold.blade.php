@@ -94,11 +94,16 @@
         *Yahoo
         *TO DO: Internal
         *TO DO: Social? 
+        https://bootsnipp.com/
     -->
         
 <!-- FAVICONS -->
         @yield('favicons')
 
+
+
+<!-- holder.js -->
+<script src="{{asset('assets/js/holder.js')}}"></script>
 
     </head>
     <body>

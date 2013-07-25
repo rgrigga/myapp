@@ -86,43 +86,22 @@ class BlogController extends BaseController {
 	public function getIndex($tag="")
 	{
 
-// singleton versus dependency injection.
+	// singleton versus dependency injection.
+    	// $company=App::make('company');
 		$env=App::environment();
 		$company = $this->company->where('brand','like',$env)->first();
 		
-		// die(var_dump($company));
 		if(empty($company)){
 			$company = $this->company->where('brand','like','gristech')->first();
-			// App::abort(404,'CompanyController@getIndex: no company');
-			// App::error(function(RuntimeException $exception){
-			//     Log::error($exception);
-			//     var_dump($company);
-			// });
 		}
-
-	// $company=App::make('company');
-	// die(var_dump($company));
-	// $company=  Company::where('brand',"LIKE",'buckeye')->first();
-	// die("BAM CONZTROLLER");
-	// $views=array();
-	// $companies=$this->company->get();
-	// 	var_dump($brand);
-	// die(var_dump($tag));
 		
 		//there must be a better way to check if company exists?
-		// $company=$this->company->where('brand','LIKE',$brand)->first();
-				// var_dump($brand);
 
-    	// $company=App::make('company');
-
-				// die(var_dump($company));
 		$brand = strtolower($company->brand);
 		$names = array();
-	// die(var_dump($company));
-
-		// var_dump($brand);
-		// $names=$names->get('names');
 		
+		//This next block just checks to see if the company exists, it's dumb, should delete.
+		// seems necessary for the next step
 		// var_dump($companies->brand);
 		$companies=$this->company->get();
 		foreach ($companies as $c) {
@@ -131,31 +110,35 @@ class BlogController extends BaseController {
 			array_push($names, $lbrand);
 		}		
 
-
 		if(in_array($brand, $names)){
-
-			// die("exists! ".var_dump($brand));
 			//We know that the company exists.
-
 			if($tag==strtolower($brand)){
-
-				//the request is "gristech/company"
+				// die('true');
+				//the request is "$company/$tag"
 				// die(var_dump($company, $brand, $names, $tag));
-				// return View::make('site.'.$brand.'.home');
 
-			$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$brand.'%')->paginate(5);
-			// return $this->show();
-			//check for post title
-			//check for 
-			// die(var_dump($company));
+// DRY
+// private function fetchtags($brand=""){
 
-			return View::make('site.'.$brand.'.home')
-				->with(compact('company'))
-				->with(compact('posts'));
+// }
+
+
+// http://stackoverflow.com/questions/4361553/php-public-private-protected
+				// $posts = $this->post->where('meta_keywords', 'LIKE', '%'.$brand.'%')->paginate(5);
+				
+				$posts=$company->posts('public');
+				// return $this->show();
+				//check for post title
+				//check for 
+				// die(var_dump($company));
+
+				return View::make('site.'.$brand.'.home')
+					->with(compact('company'))
+					->with(compact('posts'));
 			}
 			// else{
 
-				//Here, the company exists, but the request is something different.
+			//Here, the company exists, but the request is something different.
 
 			$env=App::environment();
 
@@ -166,6 +149,12 @@ class BlogController extends BaseController {
 		    	$path='/home/gristech/myapp/app/views/site/pages/';
 		    }
 
+		    // if(1){
+		    	
+		    // }
+// die(var_dump(file_exists($path.$tag)));
+// die(var_dump($env.$path.$tag));
+
 		    $mypages = array();
 		    foreach (glob($path."*.blade.php") as $filename) {
 		        $filename=str_replace($path, "", $filename);
@@ -173,6 +162,7 @@ class BlogController extends BaseController {
 		        array_push($mypages,$filename);
 		        // echo "$filename" . "<br>";
 		    }
+// die(var_dump($mypages));
 
 		    // if services.blade.php exists, it will be returned.  Otherwise, 
 		    // we'll send the user to the search page.
@@ -188,6 +178,9 @@ class BlogController extends BaseController {
 				->with(compact('posts'));
 	             // $view;
 	        }
+	        // elseif (condition) {
+	        	# code...
+	        // }
 			// }
 			
 
@@ -252,26 +245,33 @@ class BlogController extends BaseController {
 					}
 
 				}			
-			
+// http://php.net/manual/en/language.oop5.interfaces.php
+			// http://forums.laravel.io/viewtopic.php?id=839
 			// die(var_dump(count($posts)));
 
 				if(count($posts)==0){
 
+					Session::flash('message', 'Sorry, I couldn\'t find anything matching <strong>'.$tag.'</strong>');
 					return View::make('site/blog/tags')
+						// ->nest('index','site.blog.index')
+						->nest('carousel','site.partials.carousel')
 						->with(compact('company'))
 						->with(compact('tags'))
 						->with(compact('alltags'))
-						->with(compact('posts'))
-						->with('message','I couldn\'t find anything');
+						->with(compact('posts'));
+
+
+						// ->with('message','I couldn\'t find anything');
 				}
 				//else
-				$str="I found ".count($posts)." posts.";
+				$str="";
+				$str.="I found ".count($posts)." posts.";
 				return View::make('site/blog/tags')
 					->with(compact('company','tags','alltags','posts'))
 					// ->with(compact('tags'))
 					// ->with(compact('alltags'))
 					// ->with(compact('posts'))
-					->with('info',$str);
+					->with('message',$str);
 			}
 
 		// $posts = $this->post->where('tag','seo');

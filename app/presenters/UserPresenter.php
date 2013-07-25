@@ -5,6 +5,8 @@ use Robbo\Presenter\Presenter;
 class UserPresenter extends Presenter
 {
 
+
+
     public function isActivated()
     {
         if( $this->confirmed )
@@ -45,7 +47,7 @@ class UserPresenter extends Presenter
     {
         return String::date($this->created_at);
     }
-
+// http://laravel.com/api/
     /**
      * Returns the date of the user last update,
      * on a good and more readable format :)
@@ -55,5 +57,9 @@ class UserPresenter extends Presenter
     public function updated_at()
     {
         return String::date($this->updated_at);
+    }
+
+    public function phone(){
+        return String::
     }
 }

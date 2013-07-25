@@ -492,7 +492,19 @@ a:hover {text-decoration: none}
 <div class="page-header">
 
 
+<h1>Globals</h1>
+	<h2>Why they're bad</h2>
+		<h3></h3>
+		<p>They don't know shit from shineola</p>
 
+	<h2>Singletons</h2>
+		<h3>Heading 3</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, beatae incidunt nisi modi earum dolor dolorem maxime quas obcaecati possimus.</p>
+
+so a P 
+		why not index the site, then 
+		<hr>
+<h1>Shineola</h1>
 	<div class="row-fluid">
 		<div class="span7">
 			<a href="#" data-toggle="tab">

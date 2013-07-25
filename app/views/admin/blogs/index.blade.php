@@ -49,14 +49,15 @@ $array=array(
 			<a href="{{{ URL::to('admin/blogs/create') }}}" class="btn btn-small btn-info"><i class="icon-plus-sign icon-white"></i>Create </a>
 		</div>
 	</h3>
+
 	<div class="btn-group">
-		<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Action <span class="caret"></span></a>
+		<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Tools <span class="caret"></span></a>
 		<ul class="dropdown-menu">
-			<li><a href="#">Action</a></li>
+			<li><a href="https://bootsnipp.com/resources">https://bootsnipp.com/resources</a></li>
 			<li><a href="#">Another action</a></li>
 			<li><a href="#">Something else here</a></li>
 			<li class="divider"></li>
-			<li><a href="#">Separated link</a></li>
+			<li><a href="tools">Tools Page</a></li>
 		</ul>
 	</div>
 	<a href="http://www.make-rss-feeds.com/making-an-rss-feed.htm">RSS Feeds</a>
@@ -121,5 +122,40 @@ $c='<img src='.$url.'>';
 </table>
 
 {{ $posts->links() }}
+
+    <blockquote class="pull-right">
+    <p>The solution to this is so easy that its lack of popularity and diffusion makes us burn with nerd rage.</p>
+    <small>Someone famous <cite title="Source Title">http://ruby.bvision.com/blog/please-stop-embedding-bootstrap-classes-in-your-html</cite></small>
+    </blockquote>
+
+
+<a href="http://www.templatemonster.com/infographics/bootstrap-interactive-infographics.php"><img src="http://t.tmimgcdn.com/themes/default/images/interactive-responsive-webdesign-infographic/interactive-responsive-webdesign.jpg" alt="Responsive Bootstrap Web Design" title="Interactive Responsive Webdesign Infographic" /></a><br />Via: <a href="http://www.templatemonster.com/">TemplateMonster.com</a>
+
+<div class="span3">
+	<address>
+    <strong>Twitter, Inc.</strong><br>
+    795 Folsom Ave, Suite 600<br>
+    San Francisco, CA 94107<br>
+    <abbr title="Phone">P:</abbr> (123) 456-7890
+    </address>
+     
+    <address>
+    <strong>Full Name</strong><br>
+    <a href="mailto:#">first.last@example.com</a>
+    </address>
+</div>
+
+		      		<div class="span3 thumbnail delta pull-right">
+		      			<a href="http://opensource.org/">
+		      			<img src="http://gristech.com/img/logo/osi_standard_logo.png" alt="open source">
+						<h4><span>Open Source</span></h4>
+						</a>
+						<p class="photocredit"><a href="http://opensource.org/">logo &copy; opensource.org</a></p>
+						<h6>Free (as in freedom)</h6>
+						<h6>Free (as in free beer)</h6>
+						<h6><a href="http://opensource.org/licenses/MIT">MIT License</a></h6>
+						<p>The best thing since sliced bread.</p>
+						<p>Read about <a href="{{{ URL::to('security') }}}">Security</a> </p>
+		      		</div>
 @stop
 

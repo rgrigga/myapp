@@ -135,7 +135,7 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
 Uncomment to view Post $post
 <?php //var_dump($post); ?>
 </pre>
-	{{{$post->content}}}
+	{{$post->content}}
 </div>
 
 					

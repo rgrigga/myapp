@@ -40,11 +40,13 @@ class UserController extends BaseController {
         // if($redirect){return $redirect;}
 
         // Show the page
-        $company=$this->company->where('brand','LIKE',$company)->first();
+
+        $brand=App::environment();
+        $company=$this->company->where('brand','LIKE',$brand)->first();
         // die("BAM");
         // $company = App::make('company');
         return View::make('site/user/index')
-            ->with(compact('user'))
+            ->with('user',$this->user)
             ->with(compact('company'));
     }
 
@@ -92,6 +94,7 @@ class UserController extends BaseController {
         {
             // Redirect with success message, You may replace "Lang::get(..." for your custom message.
             return Redirect::to('user/login')
+                -with('user',$this->user)
                 // ->with( 'notice', Lang::get('user/user.user_account_created') );
                 ->with( 'notice', 'Please check your email, confirm, & we\'ll see you soon.' );
             // 

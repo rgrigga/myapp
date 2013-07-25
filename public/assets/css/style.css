@@ -2,9 +2,12 @@ html,
 body {
     /*background-color: red;*/
     height: 100%;
-
-
     /* The html and body elements cannot have any padding or margin. */
+}
+
+div.sand{
+  background-color: white;
+  height: 800px;
 }
 
 /* Wrapper for page content to push down footer */
@@ -111,7 +114,10 @@ ul.tag li{
     /*border-bottom-left-radius:50%;*/
     /*border-bottom-right-radius:50%;*/
     text-align: center;
-    z-index: -2;
+    z-index: 0;
+}
+.navbar-inner{
+  z-index: 5;
 }
 
 .foxtrot{
@@ -421,9 +427,7 @@ only screen and ( -o-min-device-pixel-ratio: 2/1) {
   padding-top: 0px;
 }
 
-.pageheader{
-  margin-top: 0px;
-}
+
 .jumbotron{
   .margin-left: -20px;
   .margin-right: -20px;

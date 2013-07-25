@@ -12,6 +12,17 @@
 <style>
     body {
     background: #f2f2f2;
+
+    .circle {
+      background-color: #F80;
+      border: 3px solid #FFF;
+      border-radius: 18px;
+      box-shadow: 0 0 2px #888;
+      height: 30px;
+      width: 30px;
+    }
+
+
 }
 </style>
 @stop
@@ -88,8 +99,17 @@
 
 @section('admin-bottom')
 @parent
-<div class="nav-bottom">
-    <h2>Bam!</h2>
-<p class="muted credit"> </p>
+@if(User::is_a('admin'))
+<div class="nav nav-bottom">
+    <h2>Welcome Administrator!!</h2>
+
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, incidunt doloremque perferendis nulla sequi quisquam laborum cumque officia explicabo excepturi. </p>
+
+
+
+
+<p class="muted credit"><a href="#credits">credits</a></p>
 </div>
+@endif
 @stop

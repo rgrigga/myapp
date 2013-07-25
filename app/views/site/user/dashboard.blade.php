@@ -2,6 +2,7 @@
 
 @section('main')
 
-<h1>User Dashboard</h1>
+<h1>DEPRECIATED</h1>
 <h2>Long Time, no see, my friend.</h2>
+<h2>Try User/Index</h2>
 @stop

@@ -385,12 +385,20 @@ Route::group(array('domain' => 'myapp.dev'),function()
     // die(var_dump($company));
 
     
-    
+// *KEEP    
+// This is very interesting
     Route::get('/foo',function(){
         return $user = Sentry::getUser();
         View::share('user', $user);
 
+        return View::make('site.user.index');
     });
+
+
+// Can you help me learn about any of these things?
+// Please let me know, I would enjoy discussing them.
+// display "featured" set of posts
+
 
 Route::get('login',function(){
     return Redirect::to('user/login');
@@ -655,9 +663,9 @@ Route::post('user/{user}/edit', 'UserController@postEdit')
 Route::post('user/login', 'UserController@postLogin');
 
 $env=App::environment();
-$company=Company::where('brand','like',$env)->first();
+// $company=Company::where('brand','like',$env)->first();
 # User RESTful Routes (Login, Logout, Register, etc)
-Route::controller('user', 'UserController',compact('company'));
+Route::controller('user', 'UserController');
 
 // die("bam");
 

@@ -373,6 +373,10 @@ p.photocredit {
     /* reduce the damage in FF3.0 */
     display:block; 
 }
+</style>
+
+
+
 
 
 <div id="prettified">
@@ -420,7 +424,7 @@ ul.tag li{
 
 </div>
 
-</style>
+
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 
 

@@ -24,7 +24,7 @@
 <h2>Google Custom Search</h2>
 
 <!-- // <script> -->
-
+<!-- //This is the google search tool -->
 <!--   (function() {
     var cx = '012277204628171564007:sik_hha9myk';
     var gcse = document.createElement('script');
@@ -97,6 +97,8 @@
         <a href="http://lucene.apache.org/solr/">Solr</a>
     </li>
 </ul>
+
+<div>One day: <a href="http://searchengineland.com/oh-good-grep-web-grepper-a-new-web-intelligence-feature-from-blekko-92730">Grep this site, or any site for that matter.  Think about that for a moment.</a></div>
 
 @stop
 

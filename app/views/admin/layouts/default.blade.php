@@ -148,6 +148,8 @@ For now, you may clone this public repository and develop it as much as you like
 		});
 		</script>
 
+<!-- holder.js -->
+<script src="{{asset('assets/js/holder.js')}}"></script>
 
 
 	</head>

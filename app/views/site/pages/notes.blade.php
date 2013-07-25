@@ -1,9 +1,14 @@
 @extends('site.layouts.default')
 @section('content')
 
+
+
+
 <!-- //Wow.  All I can say is "thank you". -->
 
 <!-- http://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ -->
+
+
 <h1>site.pages.notes</h1>
 <style>
 
@@ -35,9 +40,80 @@
 	<img src="http://gristech.com/img/notes.jpg" alt="">
 	<!-- <p>If you're interested...</p> -->
 	<!-- <h5><em>Modular, Extensible, Testable, Expressive, Elegant, Simple</em> -->
-	
-
 </div>
+<!-- let the notes begin -->
+<!-- http://www.kinvey.com/bsa-carbon-how-to-make-an-app-android?utm_source=carbon-ads-network&utm_medium=display&utm_content=ios-marketing&utm_campaign=marketing-bsa -->
+
+    <style>
+    #custom-search-form {
+    margin:0;
+    margin-top: 5px;
+    padding: 0;
+    }
+    #custom-search-form .search-query {
+    padding-right: 3px;
+    padding-right: 4px \9;
+    padding-left: 3px;
+    padding-left: 4px \9;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    }
+    #custom-search-form button {
+    border: 0;
+    background: none;
+    /** belows styles are working good */
+    padding: 2px 5px;
+    margin-top: 2px;
+    position: relative;
+    left: -28px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    }
+    .search-query:focus + button {
+    z-index: 3;
+    }
+    </style>
+
+
+    <form id="custom-search-form" class="form-search form-horizontal pull-right">
+    <div class="input-append span12">
+    <input type="text" class="search-query" placeholder="Search">
+    <button type="submit" class="btn"><i class="icon-search"></i></button>
+    </div>
+    </form>
+<section>
+	The potential workflow looks something like this:
+	<ol>
+		<li>
+			Let's say you are a programmer who has not yet discovered version control (as I recently was). You begin to learn git by doing a "hello world" checkout of our github repository.  We can teach you how to do this.
+		</li>
+	</ol>
+</section>
+
+<div class="row">
+	<div class="span4">
+		Navigation Sidebar
+	</div>
+	<div class="span6">
+		<!-- Code goes here: -->
+		<section>
+			<h1>Refactoring getIndex.</h1>
+
+		That's some nastiness, right?  
+		Messy.  Time to clean this code up.  Here it is with less comments.
+		</section>
+	</div>
+</div>
+
+<!-- 			// In my free time, I study graceful degredation. -->
+
+<!-- http://developer.netflix.com/docs -->
 <p class="muted credit">Image from <a href="http://www.flickr.com/photos/anotherphotograph/4548643188/">Flikr</a></p>
 <!-- jumbotron -->
 

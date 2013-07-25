@@ -1,5 +1,11 @@
 @extends('layouts.scaffold')
 
+@section('admin-top')
+@parent
+Welcome Administrator!
+
+@stop
+
 @section('title')
 @parent
 {{{ $company->name }}} - {{{$company->slogan}}}
@@ -22,7 +28,7 @@
 @stop
 
 @section('styles')
-
+<!-- //Too many styles hurt page speed, you should only use what you need -->
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
 <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Graduate' rel='stylesheet' type='text/css'>
@@ -31,7 +37,16 @@
 <link href='http://fonts.googleapis.com/css?family=Mr+De+Haviland' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Fawn+Script' rel='stylesheet' type='text/css'>
+
+<!-- credits -->
+
+
+
+<!-- <a href="http://packalyst.com/packages/package/thapp/jitimage">Image Magik</a> -->
 <style>
+
+/*images*/
+
 
 /*GIMP Palette
 Name: Color Palette by Color Scheme Designer #5n11Tw0w0w0w0Columns: 4
@@ -42,6 +57,10 @@ Name: Color Palette by Color Scheme Designer #5n11Tw0w0w0w0Columns: 4
 146   0  49     primary 3
 240  60 121     primary 4
 240 108 152     primary 5*/
+
+/*Am I good enough?
+Can my skills be applied in this business?
+Am I doing the right things with my time?*/
 
 
 	/*this has ramifications:*/
@@ -566,13 +585,14 @@ a:hover {text-decoration: none}
 			</ul>
 		</li>
 		<li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#">New <b class="caret"></b></a>
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Links <b class="caret"></b></a>
 			<ul class="dropdown-menu">
-				<li><a href="#">Dolls</a></li>
-				<li><a href="#">People</a></li>
-				<li><a href="#">Something else here</a></li>
+				<li><a href="http://www.thechildwithin.net/dollcatalog/amgrl_type.htm#top">http://www.thechildwithin.net/dollcatalog/amgrl_type.htm#top</a>The chile within</li>
+				<li><a href="https://www.facebook.com/CreativeThreadsNH">https://www.facebook.com/CreativeThreadsNH</a></li>
+				<li><a href="http://www.coolmompicks.com/2013/01/best_handmade_american_girl_doll_clothes_etsy.php">American Girl Handmand Clothing Review</a></li>
 				<li class="divider"></li>
-				<li><a href="#">Separated link</a></li>
+				<li><a href="http://store.americangirl.com/agshop/static/home.jsp">American Girl</a></li>
+				<li><a href="http://en.wikipedia.org/wiki/Outright">Outright</a></li>
 			</ul>
 		</li>
 	</ul>
@@ -726,9 +746,7 @@ a:hover {text-decoration: none}
 	  </div>
 	</div>
 </div>
-<script>
 
-</script>
 
 			<ul class="thumbnails">
 			  <li class="span4">

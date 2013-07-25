@@ -1,8 +1,15 @@
 @extends('site.layouts.default')
 
 {{-- Content --}}
-@section('content')
+@section('main')
+    @if (Session::has('message'))
 
+        <div class="flash alert">
+          <button type="button" class="close" data-dismiss="alert"> &times;</button>
+          <p>{{ Session::get('message') }}</p>
+        </div>
+
+    @endif
 <div class="hero-unit">
 <ul class="tag">
 	<li><i class="icon-tag"></i></li>
@@ -13,11 +20,9 @@
 		@endforeach
 	
 </ul>
-
-
 	<h1>Tags<small>Find what you came for:</small></h1>
-
 </div>
+
 
 
 <div class="span8">

@@ -40,6 +40,10 @@
 						@endforeach
 
 						</ul>
+<!-- @if (Auth::user()->hasRole('admin')) -->
+
+<!-- @if (Auth::check()) -->
+<!-- @if (Auth::guest()) //I think this works...rtfm-->
 
 						<!-- admin/user nav -->
                         <ul class="nav pull-right">
@@ -64,14 +68,23 @@
 				</div>
 
 			</div>
+
 			<!-- //this is the only place to put india! -->
+			<!-- navbar-inner -->
+			<!-- india -->
+			<!-- navbar -->
+
 			<div class="india pull-right">
-					<!-- <div>phone, email, chat, anything!</div> -->
+				<!-- <div>INDIA</div> -->
 				<div>
 					<img src="http://gristech.com/img/contactus.png" alt="learn php laravel web design">
 				</div>
-			        
 			</div>
+
 		</div>
 		<!-- ./ navbar -->
+		{{View::make('site.sewcute.home')}}
 @stop
+
+<!-- Rest API -->
+<!-- http://developer.netflix.com/docs -->

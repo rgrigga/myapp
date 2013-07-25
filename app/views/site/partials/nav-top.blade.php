@@ -77,7 +77,9 @@
 
 			</div>
 
-			<!-- //this is the only place to put india! -->
+			<!-- //this is the only place to put india! Just inside navbar.  search india for more info. -->
+
+
 			<div class="india pull-right">
 				<div>
 					<img src="http://gristech.com/img/contactus.png" alt="learn php laravel web design">

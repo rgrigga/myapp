@@ -1,4 +1,3 @@
-carousel.blade.php
     <!-- Carousel
     ================================================== -->
     <div id="myCarousel" class="carousel slide">
