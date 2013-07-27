@@ -9,7 +9,7 @@
 
 {{-- Update the Meta Description --}}
 @section('meta_description')
-<meta name="description" content="{{$description}}" />
+<meta name="description" content="{{$company->description}}" />
 @stop
 
 {{-- Update the Meta Keywords --}}

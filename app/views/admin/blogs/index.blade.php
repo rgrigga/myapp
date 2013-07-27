@@ -8,6 +8,7 @@ Website Management ::
 
 {{-- Content --}}
 @section('main')
+
 <style>
 	img.thumby{
 		/*height: 64px;*/
@@ -20,6 +21,14 @@ Website Management ::
 </style>
 
 <?php
+
+$array=array(
+	'tweet',
+	'fb',
+	'linked-in',
+	'page',
+	);
+
 function myviews(array $array){
 	$str='<ul class="dropdown-menu">';
 	foreach ($array as $item) {
@@ -29,12 +38,8 @@ function myviews(array $array){
 	return $str;
 }
 
-$array=array(
-	'tweet',
-	'fb',
-	'linked-in',
-	'page',
-	);
+
+
 ?>
 
 
@@ -44,7 +49,7 @@ $array=array(
 <div class="page-header">
 	
 	<h3>
-		Website Management
+		Website Management :)
 		<div class="pull-right">
 			<a href="{{{ URL::to('admin/blogs/create') }}}" class="btn btn-small btn-info"><i class="icon-plus-sign icon-white"></i>Create </a>
 		</div>
@@ -109,9 +114,6 @@ $c='<img src='.$url.'>';
 			<td>{{{ $post->created_at() }}}</td>
 			<td>{{{ $post->views }}}{{$c}}</td>
 			<td>{{{ $post->author->username }}}</td>
-			
-
-
 			<td>
 				<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini"> <i class="icon-pencil"></i> {{{ Lang::get('button.edit') }}}</a>
 				<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger"><i class="icon-trash"></i> {{{ Lang::get('button.delete') }}}</a>
@@ -157,6 +159,8 @@ $c='<img src='.$url.'>';
 						<p>The best thing since sliced bread.</p>
 						<p>Read about <a href="{{{ URL::to('security') }}}">Security</a> </p>
 		      		</div>
-{{$dashboard}}
+
+
+
 @stop
 

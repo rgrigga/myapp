@@ -1,7 +1,17 @@
-@extends('layouts.scaffold')
+@extends('site.layouts.company')
 
-@section('title')
-@parent
+die("layout");
+<!-- 
+Company Properties:
+Styles
+Name?
+Favicons?
+Meta-Title?
+Meta_Description
+Meta-Keywords
+ -->
+
+@section('meta_title')
 {{$company->brand}}
 <!-- Advantage Services - We treat your home as our own. -->
 @stop
@@ -40,12 +50,19 @@
 	<!-- <link rel="shortcut icon" href="{{{ asset('assets/ico/buckeye/favicon.png') }}}"> -->
 @stop
 
-@section('nav')
+@section('mynav')
 <!-- @ include('site.partials.nav-top') -->
 @stop
 
 {{-- Content --}}
-
+@section('content')
+<h2>
+<?php 
+$env=App::environment();
+echo $env;
+?>
+</h2>
+@stop
 
 @section('footer')
 @stop

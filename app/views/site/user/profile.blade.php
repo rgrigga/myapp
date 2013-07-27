@@ -10,6 +10,8 @@
 @section('main')
 <div class="page-header">
 	<h1>User Profile</h1>
+    <h2>View</h2>
+    <h3>Settings</h3>
 {{-- var_dump($user) --}}
     <img src="{{$user->img}}" alt="user image">
 </div>
@@ -32,13 +34,12 @@
 
 <div id="usertodo" class="todo">
     <h2>To do:</h2>
-    <ul>
-        <li>Photo</li>
-        <li>Gravatar</li>
+    <ul class="thumbnails">
+        <li class="thumbnail">Photo</li>
+        <li>Avatar</li>
         <li>Sync with Facebook</li>
         <li>Sync with Twitter</li>
         <li>sync with LinkedIn</li>
-
     </ul>
 </div>
 

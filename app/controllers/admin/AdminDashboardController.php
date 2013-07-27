@@ -43,12 +43,12 @@ class AdminDashboardController extends AdminController {
         $env=App::environment();
         $company = $this->company->where('brand','LIKE',$env)->first();
 
-        
+
         if(!$company){
             $company = $this->company->where('brand','LIKE','gristech')->first();
         }
         // die(var_dump($company));
-        return View::make('admin.dashboard')->with(compact('company'));
+        return View::make('admin.blogs.index')->with(compact('company'));
 	}
 
 }

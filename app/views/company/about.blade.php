@@ -1,3 +1,7 @@
+<pre><code>
+View::make('company/about');
+e("View::make('company/about');");
+</code></pre>
 <h1>{{{$company->name}}}}</h1>
 <h2>{{{$company->slogan}}}</h2>
 <h3>Company Asseet Directory:{{{$company->directory}}}</h3>

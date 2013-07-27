@@ -1,7 +1,11 @@
 <?php
 
 class AdminBlogsController extends AdminController {
-
+    // should also inherit from and extend blogs controller.
+    // admin is a much simpler class. Why not just create a 
+    // method (interface) for admin and change the inheritance
+    // to Blog?  Better yet, why not use polymorphism?
+    
     /**
      * Post Model
      * @var Post
@@ -35,12 +39,17 @@ class AdminBlogsController extends AdminController {
                 // App::abort(404,'admin.blogs.controller');
             //     // return die('Sorry! Something is wrong with this account!');
             // });
+        $env=App::environment();
+        $company = $this->company->where('brand','like',$env)->first();
 
         if(!$tag){
-            $tag=App::environment();
+            $tag=$env;
+            // die(var_dump($tag));
         }
 
         if($tag){
+
+
             $tag='%'.$tag.'%';
             $posts = $this->post->where('meta_keywords', 'LIKE', "$tag")->paginate($paginate);      
             
@@ -60,14 +69,17 @@ class AdminBlogsController extends AdminController {
             // out of place
             // http://stackoverflow.com/questions/16695300/check-for-file-existence-if-laravels-blade-template
 
-            if(count($posts)==0){
+            if(count($posts)>0){
 
-            return View::make('admin/blogs/index', compact('posts','tags'))
-            ->nest('dashboard','admin.dashboard');
+            return View::make('admin/blogs/index', compact('posts','tags','company'))
+                ->with(compact('company'))
+            // ->nest('dashboard','admin.dashboard')
+            ;
 
             }
 
-            return View::make('admin/blogs/index', compact('posts'),compact('tags'))->with('error', 'There was a problem!');
+            return View::make('admin/blogs/index', compact('posts','tags','company'))
+            ->with('error', 'There was a problem!');
         }
 
         //else tag was empty
@@ -77,7 +89,7 @@ class AdminBlogsController extends AdminController {
         $posts = $this->post->orderBy('created_at', 'DESC')->paginate($paginate);
 
         // Show the page
-        return View::make('admin/blogs/index', compact('posts'));
+        return View::make('admin/blogs/index', compact('posts','company'));
     }
 
 	/**

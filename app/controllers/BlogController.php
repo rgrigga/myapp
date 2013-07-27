@@ -59,6 +59,8 @@ class BlogController extends BaseController {
         $this->user = $user;
         $this->company = $company;
 
+        $this->todo = array('','bar','');
+
     }
 
 	/**
@@ -71,6 +73,9 @@ class BlogController extends BaseController {
 		return self::getIndex('$tag');
 	}
     
+
+
+
  //    public function buckeyeIndex($tag=""){
  //    	// $company=  Company::where('brand',"LIKE",'buckeye')->first();
 	// 	return $this->getIndex($company,$tag);
@@ -88,13 +93,30 @@ class BlogController extends BaseController {
 
 	// singleton versus dependency injection.
     	// $company=App::make('company');
+		if($tag){
+		$company = $this->company->where('brand','like',$tag)->first();
+		}
+
+		//die('blogcontroller index');
+
+		if(!is_null($company)){
+			// $posts=$company->posts('public');
+			// return Redirect::action('CompanyController@getIndex',$tag);
+			return View::make('site.'.strtolower($company->brand).'.home')
+			->with(compact('company','posts'));
+		}
+		// die(var_dump($company));
+
 		$env=App::environment();
+
+
 		$company = $this->company->where('brand','like',$env)->first();
 		
 		if(empty($company)){
+			die("company not found");
 			$company = $this->company->where('brand','like','gristech')->first();
 		}
-		
+		View::share('company',$company);
 		//there must be a better way to check if company exists?
 
 		$brand = strtolower($company->brand);

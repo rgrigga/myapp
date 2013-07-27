@@ -81,30 +81,39 @@
     </style>
 
 
-    <form id="custom-search-form" class="form-search form-horizontal pull-right">
+<section>
+	<form id="custom-search-form" class="form-search form-horizontal pull-right">
     <div class="input-append span12">
-    <input type="text" class="search-query" placeholder="Search">
-    <button type="submit" class="btn"><i class="icon-search"></i></button>
+	    <input type="text" class="search-query" placeholder="Search">
+	    <button type="submit" class="btn"><i class="icon-search"></i></button>
     </div>
     </form>
+</section>
+
 <section>
 	The potential workflow looks something like this:
 	<ol>
 		<li>
 			Let's say you are a programmer who has not yet discovered version control (as I recently was). You begin to learn git by doing a "hello world" checkout of our github repository.  We can teach you how to do this.
 		</li>
+		<li>
+			I need a goal, a deadline, and and advisor.  I have developing skills in developing.
+		</li>
+		<li>
+			We work on live projects.  They are typically 
+		</li>
 	</ol>
 </section>
 
 <div class="row">
 	<div class="span4">
-		Navigation Sidebar
+		<h6>Navigation Sidebar</h6>
 	</div>
 	<div class="span6">
 		<!-- Code goes here: -->
 		<section>
 			<h1>Refactoring getIndex.</h1>
-
+<a href="http://vimeo.com/63892510">Unrelated Laravel Vimeo Video</a>
 		That's some nastiness, right?  
 		Messy.  Time to clean this code up.  Here it is with less comments.
 		</section>
@@ -852,7 +861,7 @@ sudo cp default gristech.dev
 		    DocumentRoot /home/www/hostname2
 		</VirtualHost>
 	
-	//now do:
+	//now do something like this:
 
 composer.json
 

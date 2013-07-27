@@ -12,6 +12,7 @@ If you like this, you really should check out the source code on
 ------------------------------------------------------------------------
 -->
 
+
 <!-- Just look at all these fabulous resources: -->
 <!-- http://www.opensourcecms.com/ -->
 <!-- Want more?  Check out /tools ('myapp/tools')-->
@@ -20,7 +21,7 @@ If you like this, you really should check out the source code on
 <!-- http://myappinc.com/ -->
 
 <!-- 
-If you have no idea what git is, please type in myapp.gristech.com/git or search the site for git. 
+If you have no idea what git is, please type in myapp.gristech.com/git or search this site for git. 
 
 If you know what git is, but are just learning, I have documented everything about how to connect and so on, just contact me and I'll help you.
 

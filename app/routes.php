@@ -181,12 +181,12 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     // Route::controller('companies', 'AdminCompaniesController');
 
 
-    // Route::controller('companies', 'AdminCompaniesController');
+    Route::controller('companies', 'AdminCompaniesController');
 
     # Admin Dashboard
     // Route::controller('{page?}', 'AdminDashboardController');
 
-    Route::controller('/', 'AdminDashboardController');
+    Route::controller('/', 'AdminBlogsController');
 
 });
 
@@ -481,6 +481,7 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
     Route::group(array('before' => 'buckeye'), function(){
 
         Route::get('admin',function(){
+            // die(var_dump($company));
             // die("BAM");
             // $company=  Company::where('brand',"LIKE",'buckeye')->first();
             return Redirect::to('user/login')
@@ -491,7 +492,7 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
 
         Route::get('protected',function(){
             return "To see this, you must be a memeber of the buckeye group.";
-            die(var_dump($company));
+            // die(var_dump($company));
         });
 
         
@@ -622,8 +623,8 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
  *  Admin Routes
  *  ------------------------------------------
  */
-
-Route::get('admin','AdminDashboardController@getIndex');
+        // die("ROUTES 626 ADMIN DASHBOARD GET INDEX");
+Route::get('admin','AdminBlogsController@getIndex');
 
     // Route::get('admin','AdminDashboardController@getIndex');
 // Route::resource('companies', 'CompaniesController');

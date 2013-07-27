@@ -74,8 +74,6 @@
 // var_dump($monolog);
 // =======
 
-$monolog = Log::getMonolog();
-var_dump($monolog);
 // >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 
 ?>

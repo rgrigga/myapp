@@ -1,5 +1,8 @@
+[How to use Markdown Syntax](http://daringfireball.net/projects/markdown/syntax#html)
+http://daringfireball.net/projects/markdown/syntax#html
 
-http://stackoverflow.com/questions/10240125/working-with-readme-md-on-github-com
+[markdown on github](http://stackoverflow.com/questions/10240125/working-with-readme-md-on-github-com)
+
 
 #Laravel 4 Bootstrap Starter Site 
 `Version: 1.2.1 Stable` [![ProjectStatus](http://stillmaintained.com/andrew13/Laravel-4-Bootstrap-Starter-Site.png)](http://stillmaintained.com/andrew13/Laravel-4-Bootstrap-Starter-Site)

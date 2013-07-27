@@ -245,8 +245,9 @@
                 }
                 else
                 {
-                    // alert('jQuery is loaded');
+                    alert('jQuery is loaded');
                     $(document).ready(function(){
+                        
                         // $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
                         // $('.thumbnail').equalHeights();
                     });

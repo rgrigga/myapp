@@ -1,4 +1,3 @@
-@section('nav')		
 		<style>
 		body{
 			/*padding-top: 60px;*/
@@ -40,10 +39,10 @@
 						@endforeach
 
 						</ul>
-<!-- @if (Auth::user()->hasRole('admin')) -->
+<!-- @ if (Auth::user()->hasRole('admin')) -->
 
-<!-- @if (Auth::check()) -->
-<!-- @if (Auth::guest()) //I think this works...rtfm-->
+<!-- @ if (Auth::check()) -->
+<!-- @ if (Auth::guest()) //I think this works...rtfm-->
 
 						<!-- admin/user nav -->
                         <ul class="nav pull-right">
@@ -83,8 +82,7 @@
 
 		</div>
 		<!-- ./ navbar -->
-		{{View::make('site.sewcute.home')}}
-@stop
+
 
 <!-- Rest API -->
 <!-- http://developer.netflix.com/docs -->
