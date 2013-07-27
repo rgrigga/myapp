@@ -123,14 +123,14 @@ class BlogController extends BaseController {
 // }
 
 
-// http://stackoverflow.com/questions/4361553/php-public-private-protected
+				// http://stackoverflow.com/questions/4361553/php-public-private-protected
 				// $posts = $this->post->where('meta_keywords', 'LIKE', '%'.$brand.'%')->paginate(5);
 				
 				$posts=$company->posts('public');
 				// return $this->show();
 				//check for post title
 				//check for 
-				// die(var_dump($company));
+				die(var_dump($posts));
 
 				return View::make('site.'.$brand.'.home')
 					->with(compact('company'))

@@ -29,6 +29,9 @@
 	<h1>Welcome Home.</h1>
 </div>
 
+<ul class="nav navbar">
+    <li>The WWW is fixed.</li>
+</ul>
 
 <form method="POST" action="{{ URL::to('user/login') }}" accept-charset="UTF-8">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">

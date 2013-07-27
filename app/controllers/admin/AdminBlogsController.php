@@ -57,10 +57,13 @@ class AdminBlogsController extends AdminController {
             }           
             
             // die(var_dump(count($posts)));
+            // out of place
+            // http://stackoverflow.com/questions/16695300/check-for-file-existence-if-laravels-blade-template
 
             if(count($posts)==0){
 
-            return View::make('admin/blogs/index', compact('posts'),compact('tags'));
+            return View::make('admin/blogs/index', compact('posts','tags'))
+            ->nest('dashboard','admin.dashboard');
 
             }
 

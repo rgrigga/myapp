@@ -1,4 +1,12 @@
+@extends('admin.layouts.default')
+<!-- admin.layouts.default -->
+@section('title')
 
+@parent
+ admin.dashboard
+@stop
+
+@section('main')
 
 <!-- basename($filename, '.php')}} -->
 
@@ -60,7 +68,17 @@
 
 <h3>please enjoy var_dump(monolog):</h3>
 
+<?php
+// <<<<<<< HEAD
+// $monolog = Log::getMonolog();
+// var_dump($monolog);
+// =======
 
+$monolog = Log::getMonolog();
+var_dump($monolog);
+// >>>>>>> 0fb60f1021e1f0efddc9f11b7ed11f5781fc41a3
 
+?>
 
 </div>
+@stop

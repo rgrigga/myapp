@@ -7,3 +7,6 @@
     ga('create', 'UA-42520107-1', 'buckeyemower.com');
     ga('send', 'pageview');
   </script>
+
+<!--   sliding navbar
+  remember user's preference/state -->

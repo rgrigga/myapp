@@ -157,5 +157,6 @@ $c='<img src='.$url.'>';
 						<p>The best thing since sliced bread.</p>
 						<p>Read about <a href="{{{ URL::to('security') }}}">Security</a> </p>
 		      		</div>
+{{$dashboard}}
 @stop
 

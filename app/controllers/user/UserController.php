@@ -181,8 +181,6 @@ class UserController extends BaseController {
     public function getLogin()
     {
 
-
-
         $user = Auth::user();
             if(!empty($user->id)){
             return Redirect::to('/');
@@ -233,6 +231,11 @@ class UserController extends BaseController {
         // Check that the user is confirmed.
         if ( Confide::logAttempt( $input, true ) )
         {
+
+            if(Auth::user()->hasRole('admin')){
+                return Redirect::to('admin');    
+            }
+
             $r = Session::get('loginRedirect');
             if (!empty($r))
             {

@@ -68,6 +68,7 @@
 <div class="row page-header">
 	
 	<h1>Welcome</h1>
+
 	<h2>Blog Index</h2>
 	<div class="span4">
 		<!-- <div class="pull-right"> -->
