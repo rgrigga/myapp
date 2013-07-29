@@ -130,6 +130,6 @@ class Post extends Eloquent implements PresentableInterface {
 		//return $this->hasMany('Tag');
 		return $tags;
 	}
-
+// http://laravel.io/
 
 }

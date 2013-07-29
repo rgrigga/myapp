@@ -263,7 +263,7 @@ a:hover {text-decoration: none}
 
 @section('nav')
 
-@include('site.partials.nav-affix-min')
+@include('site.partials.nav-top-min')
 
 @stop
 
@@ -547,42 +547,9 @@ a:hover {text-decoration: none}
 	margin: auto;
 }
 
-.mystory{
-	font-family: 'Tangerine', serif;
-/*	color: #690037;*/
-
-
-	float: none;
-	min-height: 2000px;
-}
-
-.mystory img{
-	position: relative;
-	padding-left: 0px;
-	left: -20px;
-}
-
-.mystory h1{
-		padding-top: 20%;
-	color: #690037;
-	text-align: center;
-	font-size: 60px;
-	margin-bottom: 300px;
-}
-
 </style>
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?autoload=true&amp;skin=sunburst&amp;lang=css" defer="defer"></script>
-
-<div class="row-fluid mystory">
-	<h1>Hand Crafted</h1>
-	<img src="{{asset('assets/sewcute/g7078.png')}}" alt="">
-	<h1>Quality Matters</h1>
-</div>
-
 <div class="page-header">
-
-
-
 
 
 <div class="logo">
@@ -787,7 +754,7 @@ a:hover {text-decoration: none}
 			<ul class="thumbnails">
 			  <li class="span4">
 			    <div class="thumbnail">
-			       <img src="holder.js/300x300"> 
+			      <img src="http://lorempixel.com/300/300/" alt="">
 			      <h3>Thumbnail label</h3>
 			      <p class='lead'>One Widget</p>
 			      <p>One Thousand and One Uses.</p>
@@ -797,7 +764,7 @@ a:hover {text-decoration: none}
 
 			  <li class="span4">
 			    <div class="thumbnail">
-			      <img src="holder.js/300x300"> 
+			      <img src="http://lorempixel.com/300/300/" alt="">
 			      <h3>Thumbnail label</h3>
 			      <p class='lead'>One Widget</p>
 			      <p>One Thousand and One Uses.</p>
@@ -805,7 +772,7 @@ a:hover {text-decoration: none}
 			  </li>
 			  <li class="span4">
 			    <div class="thumbnail">
-			      <img src="holder.js/300x300"> 
+			      <img src="http://lorempixel.com/300/300/" alt="">
 			      <h3>Thumbnail label</h3>
 			      <p class='lead'>One Widget</p>
 			      <p>One Thousand and One Uses.</p>

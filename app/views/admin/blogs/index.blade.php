@@ -18,6 +18,23 @@ Website Management ::
 		/*background-color: red;*/
 		/*min-height: 20%;*/
 }
+
+.page-header{
+	padding-left: 20px;
+	padding-right:20px;
+}
+    @media screen and (min-width: 979px) {
+    	.page-header {
+	background-color: red;
+	margin-left: -80px;
+	margin-right: -80px;
+	padding-left: 80px;
+	padding-right: 80px;
+}
+
+        /*.contentwrap { padding-top: 20px; }*/
+    }
+
 </style>
 
 <?php
@@ -41,11 +58,9 @@ function myviews(array $array){
 
 
 ?>
-
-
-
- <span class="label label-info">Info</span>
-
+<div>
+	 <span class="label label-info">Info</span> Need help?  Please ask!
+</div>
 <div class="page-header">
 	
 	<h3>
@@ -56,7 +71,7 @@ function myviews(array $array){
 	</h3>
 
 	<div class="btn-group">
-		<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Tools <span class="caret"></span></a>
+		<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">Tools <span class="caret"></span></a>
 		<ul class="dropdown-menu">
 			<li><a href="https://bootsnipp.com/resources">https://bootsnipp.com/resources</a></li>
 			<li><a href="#">Another action</a></li>

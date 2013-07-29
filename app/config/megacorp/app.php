@@ -6,16 +6,11 @@
 return array(
 	'debug' => true,
 
-    'providers' => array(
-
-		/* Uncomment for use in development */
-		// 'Way\Generators\GeneratorsServiceProvider', // Generators
-		// 'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider', // IDE Helpers
-		// 'Woodling\Woodling',
-		'Way\Generators\GeneratorsServiceProvider', // Generators
-		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider', // IDE Helpers
-		// 'Woodling\Woodling',
-
+        /* Uncomment for use in development */
+       // 'Way\Generators\GeneratorsServiceProvider', // Generators
+       // 'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider', // IDE Helpers
+       // 'Woodling\Woodling',
+            'providers' => array(
         /* Laravel Base Providers */
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
 		'Illuminate\Auth\AuthServiceProvider',
@@ -59,6 +54,13 @@ return array(
         'Robbo\Presenter\PresenterServiceProvider', // Presenter
    
     	// 'EnhancedRouter\EnhancedRouterServiceProvider',
+
+
+        /* Uncomment for use in development */
+       'Way\Generators\GeneratorsServiceProvider', // Generators
+       'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider', // IDE Helpers
+       // 'Woodling\Woodling',
+
 
     ),
 );

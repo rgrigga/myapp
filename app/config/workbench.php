@@ -29,3 +29,20 @@ return array(
 	'email' => 'rgrigga@gmail.com',
 
 );
+
+// File Sharing
+// :: Send or receive documents securely via any of the following methods:
+
+// WebDav
+// Dropbox
+// Google
+// Email
+
+// Example: 
+
+// You have a signed contract you want to share with a user.  Your company uses secure email, but the user does not.
+// However, the user uses facebook.  You send them a facebook link to the document.
+
+// In fact, you don't even have to specify that you want to send them a facebook link,
+// although you can if you want.  All you have to do is set up a document, 
+// and say "share document." 

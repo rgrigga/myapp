@@ -57,14 +57,12 @@
 	.page-header{
 		margin-top: 0px;
 		margin-left:-20px;
-		margin-right:-20px;
+		margin-right:0px;
 
 		min-width: 100%;
 		min-height:120px;
 		padding-top: 60px;
-		/*margin-top: 60px;*/
-		/*margin-right: 0px;*/
-		/*margin-left: 0px;*/
+
 		margin-bottom: 20px;
 
 		background-color: rgba(3,71,105,1);
@@ -183,9 +181,9 @@ a:hover {text-decoration: none}
 @section('myjs')
     <script type="text/javascript">
 
-	// $('#side-wrapper').height($("#sidebar").height());
+	
 
-	// $('#accordian').margin-top($("#name").height());
+	
     window.onload = function()
     {
     	// alert('bam!');
@@ -199,6 +197,8 @@ a:hover {text-decoration: none}
             $(document).ready(function(){
                 // $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
             	// $('.thumbnail').equalHeights(); //promoted
+            	$('#accordian').margin-top($("#name").height());
+            	// $('#side-wrapper').height($("#sidebar").height());
             });
         }
     }
@@ -230,29 +230,34 @@ a:hover {text-decoration: none}
 	$env=App::environment();
 	// echo "<div class='alert alert-info'>Welcome to the <strong>".$env."</strong> environment.</div>";
 
-	if($env=="local"){
-		$path='/home/ryan/MyApp6/app/views/site/pages/';
-		$msg='Welcome to the Jungle';
-	}
-	// if($env=='buckeye'){
-	// 	// $brand='foo';
+//Moved to controller
+	// if($env=="local"){
+	// 	$path='/home/ryan/MyApp6/app/views/site/pages/';
+	// 	$msg='Welcome to the Jungle';
 	// }
-	// if($env=='gristech'){
+	// // if($env=='buckeye'){
+	// // 	// $brand='foo';
+	// // }
+	// // if($env=='gristech'){
 
-	// }
-	else{
-    	$path='/home/gristech/myapp/app/views/site/pages/';
-    }
-    $mypages = array();
-    foreach (glob($path."*.blade.php") as $filename) {
-        $filename=str_replace($path, "", $filename);
-        $filename=str_replace(".blade.php", "", $filename);
-        array_push($mypages,$filename);
-        // echo "$filename" . "<br>";
-    }
+	// // }
+	// else{
+ //    	$path='/home/gristech/myapp/app/views/site/pages/';
+ //    }
+ //    $mypages = array();
+ //    foreach (glob($path."*.blade.php") as $filename) {
+ //        $filename=str_replace($path, "", $filename);
+ //        $filename=str_replace(".blade.php", "", $filename);
+ //        array_push($mypages,$filename);
+ //        // echo "$filename" . "<br>";
+ //    }
 ?>
 
 <style>
+
+
+
+
 .accordion{
 	z-index: 1;
 }
@@ -298,7 +303,7 @@ a:hover {text-decoration: none}
 	@media (max-width: 979px) {
 		
 		.page-header{
-			padding-top: 20px;
+			/*padding-top: 20px;*/
 		}
 
 		.page-header h1{
@@ -492,20 +497,24 @@ a:hover {text-decoration: none}
 <div class="page-header">
 
 
-<h1>Globals</h1>
+
+<!-- BEGIN CONTENT -->
+
+
+
+<a href="#about" class="btn">about</a>
+<h1>Globals and Singletons</h1>
 	<h2>Why they're bad</h2>
-		<h3></h3>
-		<p>They don't know shit from shineola</p>
+	<p>They cause problems in your application.</p>
+	<h2>The solution</h2>
+	<p>IOC Container</p>
 
-	<h2>Singletons</h2>
-		<h3>Heading 3</h3>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, beatae incidunt nisi modi earum dolor dolorem maxime quas obcaecati possimus.</p>
-
-so a P 
-		why not index the site, then 
 		<hr>
-<h1>Shineola</h1>
+
 	<div class="row-fluid">
+	<div class="span4">
+		{{$about}}
+	</div>
 		<div class="span7">
 			<a href="#" data-toggle="tab">
 				<h1 class="headline">{{{$company->name}}}</h1>
@@ -798,6 +807,7 @@ so a P
 			</ul>
 
 <div class="row-fluid">
+
 	<div class="span4">
 		<!-- <div class="pull-right"> -->
 		<!-- <img src="{{asset($company->image)}}" alt="MyImage"> -->
@@ -813,6 +823,11 @@ so a P
 	<div>Menus: {{{ $company->menus }}}</div>
 	</div>
 </div>
+
+
+<a href="#" class="btn">Top</a>
+
+
 @stop
 
 

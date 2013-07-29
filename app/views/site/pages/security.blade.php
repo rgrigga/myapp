@@ -111,6 +111,11 @@ font-family: 'Fauna One', serif;
 
 </style>
 
+	Search Wikipedia
+	
+    <p>Ideas: Please crack the super-secret password to continue: </p>
+    <a href="http://arstechnica.com/security/2013/05/how-crackers-make-minced-meat-out-of-your-passwords/"></a>
+
 <div class="row">
 
 	<div class="span4">

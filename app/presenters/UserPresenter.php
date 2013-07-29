@@ -5,8 +5,6 @@ use Robbo\Presenter\Presenter;
 class UserPresenter extends Presenter
 {
 
-
-
     public function isActivated()
     {
         if( $this->confirmed )
@@ -59,7 +57,7 @@ class UserPresenter extends Presenter
         return String::date($this->updated_at);
     }
 
-    public function phone(){
-        return String::
-    }
+    // public function phone(){
+        // return String::
+    // }
 }

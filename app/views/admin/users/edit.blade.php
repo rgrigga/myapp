@@ -6,7 +6,7 @@ User Update ::
 @parent
 @stop
 
-Dear friends,
+<!-- Dear friends,
 
 // If you know me, you may have wondered what I have been doing for the last few months.  It's true, I quit my job at Chase to do... something.  I have not been very vocal or outspoken about it, because what I have been working on is very hard to explain at first glance.
 
@@ -22,7 +22,7 @@ Dear friends,
 
 
 
-This website is it.  If you are reading this, I 
+This website is it.  If you are reading this, I  -->
 
 {{-- Content --}}
 @section('main')

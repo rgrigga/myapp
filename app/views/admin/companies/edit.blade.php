@@ -1,7 +1,7 @@
 @extends('layouts.scaffold')
 
 @section('main')
-<h1>Edit Company</h1>
+<h1>BAM Edit Company</h1>
 <div class="row">
     <div class="span4">
         {{ Form::model($company, array('method' => 'PATCH', 'route' => array('companies.update', $company->id))) }}

@@ -12,11 +12,11 @@
 @if ($companies->count())
 <div class="row">
             @foreach ($companies as $company)
-            
+
             
             <div class="well span4">
                 <h2>{{{ $company->id }}}: {{{ $company->name }}}</h2>
-                <img src="{{{asset($company->image)}}}" alt="">
+                <img src="{{{asset('assets/'.strtolower($company->brand).'/'.$company->image)}}}" alt="LOGO">
                 
                 <p>{{{ $company->brand }}}</p>
                 <p>"{{{ $company->slogan }}}"</p>
@@ -38,5 +38,15 @@
     There are no companies
 @endif
 
+todo:
+<ul>
+    <li>
+        <a href="https://github.com/yhbyun/laravel-bookmark">Bookmarks</a>
+    </li>
+    <li>
+        <a href="http://www.siteground.com/tutorials/sitemap/">Sitemap</a>
+    </li>
+</ul>
+            
 @stop
                 

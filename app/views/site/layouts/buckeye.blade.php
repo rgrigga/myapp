@@ -33,7 +33,7 @@ Buckeye Mower - Mobile Mower Services
 {{-- 148 charachter max, might as well make it 140.  Used by search engines, facebook, twitter, and elsewhere.  A Summary for your site.  Quick tip: just type in a tweet to test stringlength,  --}}
 @section('meta_description')
 <meta name="description" content="Mower Probelm? Buckeye Mower is MOBILE: we come to you!  Repair & Service your Push Mower, Riding Mower, and other small engines.  Schedule Online!" />
-<!-- $post->content}}}? -->
+<!-- $post->meta_description}}}? -->
 @stop
 
 {{-- Update the Meta Keywords --}}

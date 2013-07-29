@@ -48,7 +48,7 @@ class AdminDashboardController extends AdminController {
             $company = $this->company->where('brand','LIKE','gristech')->first();
         }
         // die(var_dump($company));
-        return View::make('admin.blogs.index')->with(compact('company'));
+        return View::make('admin.blogs.index')->with(compact('company','posts'));
 	}
 
 }

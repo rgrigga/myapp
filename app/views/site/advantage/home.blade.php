@@ -7,11 +7,30 @@
 @section('main')
 
 <!-- <div class="container"> -->
-	<div class="row-fluid">
+<style>
+	html, body{
+		background-color: rgba(52, 152, 219,1.0);
+	}
+	.page-header{
+		width: 100% static;
+		padding-top: 60px;
+		
+	}
+</style>
+
+
+
+	<div class="row-fluid page-header">
 
 		<div class="span12">
-			
-			 
+			 <ul class = "navbar">
+				@foreach($company->menus() as $menu)
+
+				<li onclick="loadXMLDoc('{{{$menu}}}')">{{{$menu}}}</li>
+				@endforeach	 	
+			 </ul>
+
+
 			<h1>ajax</h1>
 			<h2>{{{$company->name}}}</h2>
 
@@ -22,12 +41,15 @@
 			<div id="myDiv"><h2>Let AJAX change this text</h2></div>
 
 
-
 		</div>
 		<!-- span12 -->
 
 	</div>
 	<!-- </div> -->
+<div class="row text-center">
+	<a href="#" class="btn btn-large btn-success"><i class="icon-thumbs-up"></i> cool</a>
+<a href="#" class="btn btn-large btn-danger"><i class="icon-thumbs-down"></i> dumb</a>
+</div>
 
 	<script>
 
@@ -54,6 +76,16 @@
 					xmlhttp.open("GET",input,true);
 					xmlhttp.send();
 					}
-
 	</script>	
+@stop
+
+@section('admin-bottom')
+<!-- @parent -->
+<style>
+	.admin-bottom{
+		background-color:black;
+	}
+</style>
+
+<a href="http://ruby.bvision.com/blog/please-stop-embedding-bootstrap-classes-in-your-html">Bootstrap Mixins</a>
 @stop

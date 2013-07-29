@@ -12,9 +12,46 @@
 	<h1>User Profile</h1>
     <h2>View</h2>
     <h3>Settings</h3>
+
+<?php
+function getRealIpAddr()
+{
+  if (!empty($_SERVER['HTTP_CLIENT_IP']))
+  //check ip from share internet
+  {
+    $ip=$_SERVER['HTTP_CLIENT_IP'];
+  }
+  elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+  //to check ip is pass from proxy
+  {
+    $ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+  }
+  else
+  {
+    $ip=$_SERVER['REMOTE_ADDR'];
+  }
+  return $ip;
+}
+
+echo getRealIpAddr();
+
+?>
+<a href="http://stackoverflow.com/questions/55768/how-do-i-find-a-users-ip-address-with-php">source</a>
 {{-- var_dump($user) --}}
     <img src="{{$user->img}}" alt="user image">
 </div>
+
+    <div class="span4 well">
+    <div class="row">
+    <div class="span1"><a href="http://critterapp.pagodabox.com/others/admin" class="thumbnail"><img src="http://critterapp.pagodabox.com/img/user.jpg" alt=""></a></div>
+    <div class="span3">
+    <p>admin</p>
+    <p><strong>First Last Name</strong></p>
+    <span class=" badge badge-warning">8 messages</span> <span class=" badge badge-info">15 followers</span>
+    </div>
+    </div>
+    </div>
+
 <table class="table table-striped">
     <thead>
     <tr>

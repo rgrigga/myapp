@@ -10,4 +10,6 @@
 
 Licensing
 
+<a href="http://bootsnipp.com/license">Bootsnip</a>
+
 @stop

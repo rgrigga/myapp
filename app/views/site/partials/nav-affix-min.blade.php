@@ -1,20 +1,21 @@
 		<style>
-/*		.mytopnav{
+		.mytopnav{
 			position:fixed;
-		}*/
+		}
 		.body{
 			/*padding-top: 60px;*/
 		}
 		</style>
-		<div class="navbar navbar-fixed-top nav-top-min">
+		<div class="navbar navbar-fixed-top mytopnav">
 			<div class="navbar-inner">
 
 				<a class="brand" style="margin-left:30px;" href="#">{{{$company->brand}}}</a>
 
-
+<?php $items=$company->menus(); ?>
                 		<ul class="nav">
-					    @foreach($company->menus() as $item)
-					        <li><a href="#{{{$item}}}{{--URL::to($item)--}}">{{{$item}}}</a></li> 
+					    @foreach($items as $item)
+					        <li><a href="{{URL::to($item)}}">{{{$item}}}</a>
+					        	</li> 
 					    @endforeach
     					</ul>
 

@@ -395,20 +395,26 @@ Route::group(array('domain' => 'myapp.dev'),function()
     });
 
 
-// Can you help me learn about any of these things?
+// Can anyone help me learn more about any of these things?
 // Please let me know, I would enjoy discussing them.
-// display "featured" set of posts
 
 
-Route::get('login',function(){
-    return Redirect::to('user/login');
-});
+// idea: display "featured" set of posts?
+
+    Route::get('login',function(){
+        return Redirect::to('user/login');
+    });
 
     Route::controller('admin','AdminBlogsController');
 
-    //each domain has its own method available.
+    Route::get('bootstrap',function(){
+        return View::make('site.pages.bootstrap');
+    });
+
+    //each domain has its own method available in CompanyController.
     Route::get('/{tag}','BlogController@getIndex');
-    Route::get('/', 'CompanyController@gristech');
+    Route::get('/', 'BlogController@getIndex');
+
     // Route::get('/', function(){
         // echo "HI THERE";
         // $company=Company::where('brand','like','gristech')->first();

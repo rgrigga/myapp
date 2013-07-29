@@ -65,8 +65,6 @@ class CompanyController extends UserController {
 	 * @return View
 	 */
 
-
-
 	public function buckeye(){
 		// $company = $this->company->where('brand', 'LIKE', 'buckeye')->first();
 		return $this->getIndex('buckeye',5);
@@ -89,10 +87,13 @@ class CompanyController extends UserController {
 			$brand=App::environment();
 		}
 		$brand=strtolower($brand);
-		// die(var_dump($brand));
+
 		$company = $this->company->where('brand','like',$brand)->first();
-		
+
+		// die(var_dump($brand));
+		// die(var_dump(App::environment()));
 		// die(var_dump($company));
+		
 		// if(empty($company)){
 			// $company = $this->company->where('brand','like','gristech')->first();
 			// App::abort(404,'CompanyController@getIndex: no company');
@@ -139,7 +140,7 @@ class CompanyController extends UserController {
 			return View::make('site/'.$brand.'/home')
 				// die();
 				//this works, but it confused me.
-				// ->nest('posts','site.blog.miniindexfoo')
+				->nest('about','company.about')
 
 				->with(compact('company'))
 				->with(compact('tags'))

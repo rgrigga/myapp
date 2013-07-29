@@ -22,16 +22,30 @@
     .page-header{
         padding-top:+60px;
     }
+    .navbar a{
+
+        padding: 3px;
+        color:orange;
+    }
+    
+    .navbar a:hover, .navbar a:focus{
+        text-decoration: none;
+        color:red;
+        /*font-size: 1.2em;*/
+    }
 
 </style>
 
 <div class="page-header">
-	<h1>Welcome Home.</h1>
+
+	<ul class="thumbnails">
+        <li class="thumbnail">The WWW is fixed. 
+            <a href="http:www.buckeyemower.com" class="btn">Try it!</a>
+        </li>
+    </ul>
 </div>
 
-<ul class="nav navbar">
-    <li>The WWW is fixed.</li>
-</ul>
+
 
 <form method="POST" action="{{ URL::to('user/login') }}" accept-charset="UTF-8">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -64,7 +78,7 @@
         <div class="alert">{{ Session::get('info') }}</div>
         @endif
 
-        <button tabindex="3" type="submit" class="btn">{{ Lang::get('confide::confide.login.submit') }}</button>
+        <button tabindex="3" type="submit" class="btn btn-large btn-warning">{{ Lang::get('confide::confide.login.submit') }}</button>
     </fieldset>
 </form>
 

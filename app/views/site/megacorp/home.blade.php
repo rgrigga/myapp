@@ -48,13 +48,7 @@
 	src: url('/assets/font/Archive.otf') format("opentype");
 	}
 
-	.page-header{
-		/*poition: static;*/
-		/*width:100%;*/
-		background-color: rgba(3,71,105,1);	
-		margin-left:-80px;
-		margin-right:-80px;
-	}
+
 	.page-header h1, .sidebar h3{
 		/*font-family: 'Mr De Haviland', cursive;*/
 		/*font-family: 'Monsieur La Doulaise', cursive;*/
@@ -141,7 +135,7 @@ a:hover {text-decoration: none}
 @section('myjs')
     <script type="text/javascript">
 
-	$('#side-wrapper').height($("#sidebar").height());
+	
 
 	// $('#accordian').margin-top($("#name").height());
     window.onload = function()
@@ -153,18 +147,22 @@ a:hover {text-decoration: none}
         }
         else
         {
+        	
+$('#side-wrapper').height($("#sidebar").height());
             // $(document).ready(function(){
             //     $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
             // });
         }
     }
 
-    $('.collapse-group .btn').on('click', function(e) {
+    
+ 	$('.collapse-group .btn').on('click', function(e) {
 	    e.preventDefault();
 	    var $this = $(this);
 	    var $collapse = $this.closest('.collapse-group').find('.collapse');
 	    $collapse.collapse('toggle');
 	});
+
 </script>
 @stop
 
@@ -195,18 +193,7 @@ a:hover {text-decoration: none}
 	.accordion-group{
 		border: none;
 	}
-	.page-header{
-		min-width: 100%;
-		min-height:120px;
-		padding-top: 20px;
-		/*margin-top: 60px;*/
-		/*margin-right: 0px;*/
-		/*margin-left: 0px;*/
-		margin-bottom: 20px;
 
-		background-color: rgba(3,71,105,1);
-		border-bottom: 0;
-	}
 	.page-header h1{
 		/*line-height: 1.2em;*/
 		margin-top: 90px;
@@ -237,11 +224,7 @@ a:hover {text-decoration: none}
 		/*background-color: white;*/
 	}
 
-		.affix{
-		/*position: fixed;*/
-		/*width: 40%;*/
-		right:20px;
-	}
+
 
 	.accordion{
 		padding-left: 15%;
@@ -293,6 +276,7 @@ a:hover {text-decoration: none}
 
 
 <div class="page-header">
+	<!-- <h1>BAM</h1> -->
 	<div class="corner">
 		<img src="{{asset('assets/advantage/corner.png')}}" alt="le corner">
 	</div>

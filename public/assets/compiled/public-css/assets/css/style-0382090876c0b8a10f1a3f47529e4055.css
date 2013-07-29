@@ -4,6 +4,103 @@ body {
     height: 100%;
     /* The html and body elements cannot have any padding or margin. */
 }
+/*http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site*/
+
+
+
+    .contentwrap{
+        padding-top: 0px;
+    }
+
+/*    @media screen and (max-width: 979px) {
+        .contentwrap { padding-top: 0px; }
+    }*/
+
+  .page-header{
+
+    background-color: rgba(52, 152, 219,1);
+    min-width: 100%;
+    min-height:120px;
+
+    /*padding-top: 20px;*/
+
+    /*margin-top: 60px;*/
+    /*margin-right: 0px;*/
+    /*margin-left: 0px;*/
+    margin-bottom: 20px;
+    margin-left:-80px;
+
+    border-bottom: 0;
+
+    /*poition: static;*/
+    /*width:100%;*/
+    /*margin-right:-20px;*/
+  }
+
+.page-header a{
+  color:white;
+}
+
+
+  #sidebar-wrapper{
+    height: auto;
+    left: auto;
+    right: 100px;
+    width: 300px;
+  }
+/*http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site*/
+
+    .admin-top{
+        /*<!-- check out http://flatuicolors.com/ -->*/
+        background-color: rgba(230, 126, 34,.5);
+        
+    }
+
+    @media screen and (max-width: 979px) {
+        .admin-top{
+        /*margin-top: 40px;*/
+        }
+
+        .page-header{
+          margin-top: 0px;
+          margin-right: -20px;
+          margin-left: -20px;
+        }
+        /*.contentwrap { margin-top: 20px; }*/
+        
+    }
+
+    .affix{
+      position: fixed;
+      top:0px;
+      /*width: 40%;*/
+      right:20px;
+    }
+
+    @media screen and (min-width: 980px) {
+        .admin-top{
+        margin-top: 40px;
+        }
+        .contentwrap { margin-top: 40px; }
+        /*.pageheader{padding-top: 0px;}*/
+        .affix{
+          margin-top:40px;
+        }
+        .page-header{
+          /*margin-top: 80px;*/
+        }
+    }
+
+    @media screen and (max-width: 979px) {
+        /*.contentwrap { padding-top: 20px; }*/
+    }
+
+    @media screen and (max-width: 767px) {
+        /*.contentwrap { padding-top: 0px; }*/
+      }
+
+
+
 
 div.sand{
   background-color: white;
@@ -31,17 +128,10 @@ footer {
 /*next 2 properties correct overlapping div probelem*/
 .contentwrap{
   /*background-color: red;*/
-padding-top: 60px;
+
   }
 
 
-@media screen and (max-width: 767px) {
-    /*.contentwrap { padding-top: 0px; }*/
-  }
-
-@media screen and (max-width: 979px) {
-    .contentwrap { padding-top: 0px; }
-}
 
 #wrap > .container {
     padding-top: 60px;

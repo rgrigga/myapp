@@ -117,7 +117,8 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 		
 		@section('nav')
 		@include('site.partials.nav-top-min')
-		<h1>NAV</h1>
+		@include('site.partials.nav-top-min')
+		<!-- <h1>NAV</h1> -->
 		@show
 
 		

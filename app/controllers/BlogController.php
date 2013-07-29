@@ -1,5 +1,7 @@
 <?php
 
+// http://flatuicolors.com/
+
 //http://www.coderanch.com/t/443740/patterns/UML-multiple-inheritance-domain-model
 
 // http://www.vogella.com/articles/Git/article.html
@@ -59,7 +61,7 @@ class BlogController extends BaseController {
         $this->user = $user;
         $this->company = $company;
 
-        $this->todo = array('','bar','');
+        $this->todo = array('hello','bar','make list');
 
     }
 
@@ -83,6 +85,52 @@ class BlogController extends BaseController {
 
 // process a many to many relationship amongst tags
 
+	private function stdpages($tag){
+			$path='../app/views/company/';
+
+		    $mypages = array();
+		    foreach (glob($path."*.blade.php") as $filename) {
+		        $filename=str_replace($path, "", $filename);
+		        $filename=str_replace(".blade.php", "", $filename);
+		        array_push($mypages,$filename);
+		        // echo "$filename" . "<br>";
+		    }
+// die(var_dump($path,$mypages));
+		    $msg="";
+		    if(empty($mypages)){
+		    	$msg.="Could not find any pages in $path.<br>";
+				Session::flash('error', $msg);
+				return false;
+		    }
+		    if(in_array($tag, $mypages)){
+		    	return true;
+		    }
+		    else return false;
+	}
+
+	public function getPage($tag="")
+	{
+			$path='../app/views/pages/';
+
+		    $mypages = array();
+		    foreach (glob($path."*.blade.php") as $filename) {
+		        $filename=str_replace($path, "", $filename);
+		        $filename=str_replace(".blade.php", "", $filename);
+		        array_push($mypages,$filename);
+		        // echo "$filename" . "<br>";
+		    }
+// die(var_dump($path,$mypages));
+		    if(empty($mypages)){
+		    	$msg="Could not find any pages in $path.<br>";
+				Session::flash('error', $msg);
+				return false;
+		    }
+		    if(in_array($tag, $mypages)){
+		    	return true;
+		    }
+		    else return false;
+	}
+
 	/**
 	 * Returns all the blog posts.
 	 *
@@ -91,31 +139,73 @@ class BlogController extends BaseController {
 	public function getIndex($tag="")
 	{
 
-	// singleton versus dependency injection.
-    	// $company=App::make('company');
+// else{
+// 	die('fail');
+// }
+/**
+ *	Here's the general idea.
+ *	Check the input to see if it's a company.  If it is, return the company homepage.
+ * 	next, check to see if it's a standard company view.  If it is, return that view.
+ *	Next, check to see if a page exists in the company directory.  If it is, retun that.
+ *	Next, check to see if there is a post by this name.  If there is, return that.
+ *  Check tags- see if there is are posts with this tag...
+ *  Finally, return a 404
+ *
+*/
+		
+
+		$env=App::environment();
+		$msg="";
+	// singleton versus dependency injection?
+    // $company=App::make('company');
 		if($tag){
-		$company = $this->company->where('brand','like',$tag)->first();
+			$company = $this->company->where('brand','like',$tag)->first();
+
+			if(empty($company)){
+				die("company not found - (BlogController getIndex)");
+				$company = $this->company->where('brand','like','gristech')->first();
+			}
+		$posttitle='%'.$tag.'%';
+		$posts = $this->post->where('title', 'LIKE', "$posttitle")->paginate(5);					
+
+		// return self::getByTag($tag);
+
+		// die('blogcontroller index');
+			// die(var_dump($company));
 		}
 
-		//die('blogcontroller index');
+		else{
+			die('there is no tag!');
+		}
+
 
 		if(!is_null($company)){
-			// $posts=$company->posts('public');
+			// $posts=$this->posts->where('tags' company->);
 			// return Redirect::action('CompanyController@getIndex',$tag);
 			return View::make('site.'.strtolower($company->brand).'.home')
 			->with(compact('company','posts'));
 		}
-		// die(var_dump($company));
-
-		$env=App::environment();
-
-
-		$company = $this->company->where('brand','like',$env)->first();
 		
-		if(empty($company)){
-			die("company not found");
-			$company = $this->company->where('brand','like','gristech')->first();
-		}
+		$company = $this->company->where('brand','like',$env)->first();
+
+
+
+	if($myview=$this->getView($tag)){
+		return $myview;
+	}
+// die("bam");
+	if($myview=$this->getPage($tag)){
+		return $myview;
+	}
+
+	if($myview=$this->getTag($tag)){
+		return $myview;
+	}
+
+	if($myview=$this->getHome($tag)){
+		return View::make($brand.'.home');
+	}
+		//otherwise, the company exists.
 		View::share('company',$company);
 		//there must be a better way to check if company exists?
 
@@ -134,48 +224,69 @@ class BlogController extends BaseController {
 
 		if(in_array($brand, $names)){
 			//We know that the company exists.
+
 			if($tag==strtolower($brand)){
-				// die('true');
+
 				//the request is "$company/$tag"
+
+				// look for a public page within this company's posts
+
 				// die(var_dump($company, $brand, $names, $tag));
 
 // DRY
 // private function fetchtags($brand=""){
-
+// ???
 // }
 
 
 				// http://stackoverflow.com/questions/4361553/php-public-private-protected
 				// $posts = $this->post->where('meta_keywords', 'LIKE', '%'.$brand.'%')->paginate(5);
 				
-				$posts=$company->posts('public');
+				// $posts=$company->posts('public');
 				// return $this->show();
 				//check for post title
 				//check for 
-				die(var_dump($posts));
+				// die(var_dump($posts));
 
 				return View::make('site.'.$brand.'.home')
 					->with(compact('company'))
 					->with(compact('posts'));
 			}
-			// else{
 
 			//Here, the company exists, but the request is something different.
 
-			$env=App::environment();
+// 1. check standard views
 
-		    if($env=="local"){
-		    	$path='/home/ryan/MyApp6/app/views/site/pages/';
-		    }
-		    else{
-		    	$path='/home/gristech/myapp/app/views/site/pages/';
-		    }
+			if($this->stdpages($tag)){
+				// return View::make('site.'.$brand.'.home'.'#'.$tag)
+				// 	->nest('about','company.about')
+				// 	->with(compact('company'))
+				// 	->with(compact('posts'));
+				die('bam');
+
+			}
+
+			// if($this->company->has($tag)){
+			// 	return View::make('site.'.$brand.'.home')
+			// 		->with(compact('company'))
+			// 		->with(compact('posts'));
+			// }
+// 2. check company pages
+
+
+			$path='../app/views/site/pages/';
+		    // if($env=="local"){
+		    // 	$path='../app/views/site/pages/';
+		    // }
+		    // else{
+		    // 	$path='../app/views/site/'.$brand.'/';
+		    // }
 
 		    // if(1){
 		    	
 		    // }
 // die(var_dump(file_exists($path.$tag)));
-// die(var_dump($env.$path.$tag));
+// die(var_dump($path));
 
 		    $mypages = array();
 		    foreach (glob($path."*.blade.php") as $filename) {
@@ -184,7 +295,12 @@ class BlogController extends BaseController {
 		        array_push($mypages,$filename);
 		        // echo "$filename" . "<br>";
 		    }
-// die(var_dump($mypages));
+// die(var_dump($path,$mypages));
+		    if(empty($mypages)){
+
+		    	$msg="Could not find any pages in $path.<br>";
+				Session::flash('message', $msg);
+		    }
 
 		    // if services.blade.php exists, it will be returned.  Otherwise, 
 		    // we'll send the user to the search page.
@@ -192,7 +308,7 @@ class BlogController extends BaseController {
 	        	// die("BAM");
 
 // die(var_dump($company));
-	            return View::make('site/pages/'.$tag)
+	            return View::make('company.'.$tag)
 	            // ->nest('nav','site.partials.nav-top-min',compact('company'))
 	            ->with(compact('company'))
 				->with(compact('tags'))
@@ -254,8 +370,9 @@ class BlogController extends BaseController {
 		//
 		// http://stackoverflow.com/questions/13386774/using-eloquent-orm-in-laravel-to-perform-search-of-database-using-like
 			if($tag){
-				$tag='%'.$tag.'%';
-				$posts = $this->post->where('meta_keywords', 'LIKE', "$tag")->paginate(5);					
+
+				$strtag='%'.$tag.'%';
+				$posts = $this->post->where('meta_keywords', 'LIKE', "$strtag")->paginate(5);					
 				$tags=array();
 
 				foreach ($posts as $post) {
@@ -273,7 +390,7 @@ class BlogController extends BaseController {
 
 				if(count($posts)==0){
 
-					Session::flash('message', 'Sorry, I couldn\'t find anything matching <strong>'.$tag.'</strong>');
+					Session::flash('message', 'Sorry, I couldn\'t find anything with tag matching <strong>'.$tag.'</strong>');
 					return View::make('site/blog/tags')
 						// ->nest('index','site.blog.index')
 						->nest('carousel','site.partials.carousel')
@@ -336,6 +453,13 @@ class BlogController extends BaseController {
 		return $alltags;
 	}
 
+	// private function getByTag($tag){
+	// 	$title= '%'.$tag.'%';
+	// 	$posts = $this->post->where('title', 'LIKE', "$title")->first();
+	// 	if(!empty($posts)){
+	// 		return getView($tag);
+	// 	}
+	// }
 
 
 	public function getTags($tag="",$brand="")
@@ -422,7 +546,10 @@ class BlogController extends BaseController {
 			// a page or a blog post didn't exist.
 			// So, this means that it is time for
 			// 404 error page.
-			return App::abort(404);
+			
+
+
+			return $post;
 			// }
 		}
 

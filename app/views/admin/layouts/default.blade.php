@@ -23,7 +23,7 @@ If you like this, you really should check out the source code on
 <!-- 
 If you have no idea what git is, please type in myapp.gristech.com/git or search this site for git. 
 
-If you know what git is, but are just learning, I have documented everything about how to connect and so on, just contact me and I'll help you.
+If you know what git is, but are just learning, I have documented everything you need to know to get started: How to connect, set up your machine, and so on.  Just contact me and I'll help you.
 
 PROGRAMMERS: Demonstrate your abilities: this is a community demo site.
 
@@ -96,9 +96,11 @@ For now, you may clone this public repository and develop it as much as you like
 		</style>
 		@show
 
-<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
+<!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="{{asset('assets/js/redactor/redactor.css')}}" />
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -279,12 +281,11 @@ For now, you may clone this public repository and develop it as much as you like
 
 					<!-- Javascripts
 					================================================== -->
-	        {{ Basset::show('admin-js.js') }}
+{{ Basset::show('admin-js.js') }}
 	    
 <!-- redactor -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" ></script>
-		<link rel="stylesheet" href="{{asset('assets/js/redactor/redactor.css')}}" />
-		<script src="{{asset('assets/js/redactor/redactor.js')}}"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" ></script>
+<script src="{{asset('assets/js/redactor/redactor.js')}}"></script>
 
 		<script type="text/javascript">
 		$(function() {

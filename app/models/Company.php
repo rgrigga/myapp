@@ -18,7 +18,7 @@ class Company extends Eloquent{
 	        return new CompanyPresenter($this);
 	    }
 
-    	public function menus()
+    public function menus()
 	{
 		// var_dump($this->meta_keywords);
 		$menus=array();
@@ -39,5 +39,16 @@ class Company extends Eloquent{
 		// 	}
 
 		// }
+	}
+
+	public function posts($tags="")
+	{
+		//tags could be an array or a single.  It is a has many 
+		//relationship
+		// $posts=
+		// return $posts;
+		die("COMPANY MODEL -> POSTS()");
+
+
 	}
 }

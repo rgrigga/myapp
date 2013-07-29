@@ -588,8 +588,6 @@ a{
 <!-- http://www.storyboardthat.com/userboards/rgrissinger/mower -->
 <div class="row-fluid">
 	<div class='page-header'>
-
-
     <!-- <img src="{{asset('assets/ico/buckeye/favicon.png')}}" alt=""> -->
     <div class="row-fluid">
       <div class="span6">
@@ -607,7 +605,7 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
         </p>
       </div>
       <div class="text-center">
-        <a href="#schedule" role="button" class="btn btn-large" data-toggle="modal">
+        <a href="#schedule" role="button" class="btn btn-large btn-warning" data-toggle="modal">
           <strong>10% Off</strong><br/>Schedule Online Now
         </a>
       </div>
@@ -622,34 +620,136 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
 <!-- Button to trigger modal -->
 <!--   <a href="#MyModal" role="button" class="btn" data-toggle="modal">MyModal</a> -->
 
-  <div id="schedule" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header text-center">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-      <h3 id="myModalLabel">Schedule Online</h3>
-    </div>
-    <div class="modal-body">
-      <p>Sorry, the magical online schedulng tool is down at the moment.  Please Contact Us by phone or email.  Thank you!</p>
-      <h2 class="text-center" href="tel:7405076198">740-507-6198</h2>
-      <h4 class="text-center">russ@buckeyemower.com</h4>
-      <div class="coupon">
-        <h4>10% Off</h4>
-        <p>Get 10% off for mentioning this coupon. How? <strong>Just Ask!</strong></p>
+ <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css" />
+
+
+ <script>
+$(function() {
+$( "#datepicker" ).datepicker({
+altField: "#alternate",
+altFormat: "DD, d MM, yy"
+});
+});
+</script>
+
+
+<a data-toggle="MyModal" class="btn" href="#loginModal">Log in</a>
+<div class="modal hide fade" id="schedule">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">✕</button>
+    <h3>Schedule Service</h3>
+  </div>
+
+  <div class="modal-body" style="text-align:center;">
+
+    <div class="row-fluid">
+      <div class="span10 offset1">
+        <div id="modalTab">
+          <div class="tab-content">
+
+            <div class="tab-pane fade" id="three">
+              <form method="post" action='' name="login_form">
+                <p><input type="text" class="span12" name="eid" id="email" placeholder="Name"></p>
+                <p><input type="password" class="span12" name="passwd" placeholder="Secret"></p>
+                <p>
+                  <button type="submit" class="btn btn-primary">Sign in</button>
+                </p>
+              </form>
+            </div>
+
+            <div class="tab-pane fade" id="two">
+              <form method="post" action='' name="forgot_password">
+                <p>a brief explanation of your problem will help.</p>
+                <input type="text-area wysiwyg5" class="span12" name="eid" id="email" placeholder="How can we help you?">
+<p>Date: <input type="text" id="datepicker" />&nbsp;<input type="text" id="alternate" size="30" /></p>
+
+                <p><button type="submit" class="btn btn-primary">Submit</button><a href="#three">Next</a>
+                </p>
+              </form>
+            </div>
+
+            <div class="tab-pane active" id="one">
+              <style>
+              .iwrap{
+                /*max-width: 300px;*/
+                text-align: center;
+                margin-right: auto;
+                margin-left: auto;
+              }
+
+/*              @media (max-width: 760px) { 
+                .page-header{
+                  margin-left: -100px;
+                  padding-left: 100px;
+
+                }*/
+
+              @media (min-width: 760px) { 
+                .page-header{
+                  
+                  margin-top: 0px;
+                  padding-top: 80px;
+                  padding-bottom: 80px;
+                }
+                .modal{
+                  width:90%;
+                  /*height: 80%;*/
+                  margin-left: -45%;
+                }
+              }
+              </style>
+              <div class="row-fluid">
+                <div class="iwrap span8">
+                  <iframe src="https://www.google.com/calendar/embed?title=Buckeye%20Appointment%20Schedule&amp;showPrint=0&amp;showTabs=0&amp;mode=WEEK&amp;height=400&amp;wkst=1&amp;bgcolor=%23ffff00&amp;src=kr3c44msss9qmsuu96hmaddv5c%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=America%2FNew_York" style=" border-width:0 " width="360" height="400" frameborder="0" scrolling="no"></iframe>
+                </div>
+                <div class="span4">
+                  <!-- <h6>How can we help you?</h6> -->
+                  <h6>Instructions:</h6> 
+                  <p>You have 3 steps left.  This will take you about 5 minutes.</p>
+                  <p>If you'd rather, you can also call me at:</p>
+                  <h2 class="text-center" href="tel:7405076198">740-507-6198</h2>
+                  <h4 class="text-center">russ@buckeyemower.com</h4>
+                  <div class="coupon">
+                    <h4>10% Off</h4>
+                    <p>Get 10% off for mentioning this coupon. How? <strong>Just Ask!</strong></p>
+                  </div>
+                  <h2 class="text-center">
+                    @include('site.partials.contact-buckeye')
+                  </h2>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
       </div>
-      <h2 class="text-center">
-      @include('site.partials.contact-buckeye')
-      </h2>
-    </div>
-    
-    <div class="modal-footer">
-      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-      <!-- <button class="btn btn-primary">Save changes</button> -->
-
-<!--       BUT WAIT, THERE"S MORE: -->
-@yield('signup')
-
-
     </div>
   </div>
+  <div class="modal-footer text-center">
+    <!-- <div class="row-fluid text-center"> -->
+      <ul class="nav nav-pills">
+        <li class="active">
+          <a href="#one" data-toggle="tab" >1</a>
+        </li>
+        <li>
+          <a href="#two" data-toggle="tab">2</a>
+        </li>
+        <li>
+          <a href="#three" data-toggle="tab">3</a>
+        </li>
+      </ul>
+    <!-- </div> -->
+  </div>
+</div>
+
+
+
+
 
 <!-- ***********************************************8 -->
 
@@ -890,8 +990,9 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
 
       <hr class="featurette-divider">
 
-<div class="span8 offset4">
+<div class="span8 offset4" name="posts" id="posts" name="posts">
   <h1>Some More Ideas...</h1>
+  
   <div class="text-center">
     {{ $posts->links() }}
   </div>
@@ -960,6 +1061,13 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
     text-align: center;
     margin-right: -60px;
     margin-left: -60px;
+  }
+  .page-header{
+    margin-left: -60px;
+    padding-left: 60px;
+    margin-right: -60px;
+    padding-right: 60px;
+    background-color: rgba(46, 204, 113,1.0);
   }
 </style>
 <div class="myfooter">

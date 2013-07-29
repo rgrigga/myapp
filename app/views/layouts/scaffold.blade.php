@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <!-- This is layouts.scaffold -->
+<!-- check out http://flatuicolors.com/ -->
     <head>
     <title>
         @section('title')
@@ -112,114 +113,86 @@
             @yield('nav')
             <!-- if (Auth::) -->
             @section('admin-top')
+            @if(Auth::user('admin'))
 
+                <div class="navbar navbar-inverse navbar-fixed-top admin-top">
+                    <!-- <h1>Admin-top</h1><h1>Admin-top</h1><h1>Admin-top</h1> -->
+                    @include('admin.nav')
+                </div>
+            @else
 
-                @if(Auth::user('admin'))
-                    <style>
-
-                    /*http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site*/
-
-                        .admin-top{
-                            background-color: red;
-                            padding-top: 40px;
-                        }
-
-                        @media screen and (max-width: 979px) {
-                            /*.contentwrap { padding-top: 80px; }*/
-                        }
-
-                    </style>
-                    <div class="navbar navbar-inverse admin-top">
-                        <!-- <h1>Admin-top</h1><h1>Admin-top</h1><h1>Admin-top</h1> -->
-                        @include('admin.nav')
-                    </div>
-                @else
-                    <style>
-
-                    /*http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site*/
-
-                        .contentwrap{
-                            padding-top: 0px;
-                        }
-
-                        @media screen and (max-width: 979px) {
-                            .contentwrap { padding-top: 0px; }
-                        }
-
-                    </style>
-                @endif
+            @endif
             @show
 
 
             
             <!-- @ yield('content') -->
-
-
-
-
             <div class="contentwrap">
-<?php
-    $env=App::environment();
-    // echo("<h1>ERROR"."</h1>");
-    // Session::flash('mymessage','Welcome to the <strong>'.$env.'</strong> environment.');
-    
-    // if($env!=="buckeye"){
+            <?php
+                $env=App::environment();
+                // echo("<h1>ERROR"."</h1>");
+                // Session::flash('mymessage','Welcome to the <strong>'.$env.'</strong> environment.');
+                
+                // if($env!=="buckeye"){
 
-    // }
-    if(Auth::user('admin')){
-        $path='/home/ryan/MyApp6/app/views/site/pages/';
-        Session::flash('mymessage','Welcome to the <strong>'.$env.'</strong> environment.');
-    }
-    else
+                // }
+                if(Auth::user('admin')){
+                    $path='/home/ryan/MyApp6/app/views/site/pages/';
+                    Session::flash('mymessage','Welcome to the <strong>'.$env.'</strong> environment.');
+                }
+                else
 
-    if($env=="local"){
-        $path='/home/ryan/MyApp6/app/views/site/pages/';
-    }
-    else{
-        $path='/home/gristech/myapp/app/views/site/pages/';
-    }
-
-
-    $mypages = array();
-    foreach (glob($path."*.blade.php") as $filename) {
-        $filename=str_replace($path, "", $filename);
-        $filename=str_replace(".blade.php", "", $filename);
-        array_push($mypages,$filename);
-        // echo "$filename" . "<br>";
-    }
-?>
+                if($env=="local"){
+                    $path='/home/ryan/MyApp6/app/views/site/pages/';
+                }
+                else{
+                    $path='/home/gristech/myapp/app/views/site/pages/';
+                }
 
 
+                $mypages = array();
+                foreach (glob($path."*.blade.php") as $filename) {
+                    $filename=str_replace($path, "", $filename);
+                    $filename=str_replace(".blade.php", "", $filename);
+                    array_push($mypages,$filename);
+                    // echo "$filename" . "<br>";
+                }
+            ?>
 
-    @if (Session::has('message'))
 
-        <div class="flash alert">
-          <button type="button" class="close" data-dismiss="alert"> &times;</button>
-          <p>{{ Session::get('message') }}</p>
-        </div>
 
-    @endif
+            @if (Session::has('message'))
+                
+                <div class="flash alert">
+                  <button type="button" class="close" data-dismiss="alert"> &times;</button>
+                  <p>{{ Session::get('message') }}</p>
+                </div>
 
-    @if (Session::has('mymessage'))
+            @endif
 
-        <div class="flash alert alert-info">
-          <button type="button" class="close" data-dismiss="alert"><span class="label label-info">Info</span> &times;</button>
-          <p>{{ Session::get('mymessage') }}</p>
-        </div>
+            @if (Session::has('mymessage'))
 
-    @endif
+                <div class="flash alert alert-info">
+                  <button type="button" class="close" data-dismiss="alert"><span class="label label-info">Info</span> &times;</button>
+                  <p>{{ Session::get('mymessage') }}</p>
+                  <!-- {{var_dump($_SESSION);}} -->
+                </div>
+
+            @endif
                 {{--var_dump($_SESSION);--}}
                     <!-- Content -->
-                    @yield('main')
-                        <!-- ./ content -->
+            @yield('main')
+                    
             </div>
+            <!-- ./ contentwrap -->
             <!-- @ yield('main') -->
             
             @section('admin-bottom')
                 @if(Auth::user('admin'))
-                <!-- <div class="bam"> -->
-                    <h1>Admin-bottom</h1>
-                <!-- </div> -->
+                <div class="admin-bottom">
+                    <h6>Admin-bottom</h6>
+                    <p>Override this on the home page</p>
+                </div>
                 @endif
             @show
             
@@ -245,9 +218,9 @@
                 }
                 else
                 {
-                    alert('jQuery is loaded');
+                    // alert('jQuery is loaded');
                     $(document).ready(function(){
-                        
+
                         // $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
                         // $('.thumbnail').equalHeights();
                     });
