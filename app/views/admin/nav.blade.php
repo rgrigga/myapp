@@ -1,5 +1,4 @@
 <?php //die('views.admin.nav'); ?>
-
 				<div class="navbar-inner admin-nav">
 					<!-- <div class="container"> -->
 						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -132,8 +131,6 @@ https://www.google.com/analytics/web/?hl=en&pli=1#home/ -->
 						<!-- ./ nav-collapse -->
 					<!-- </div> -->
 					<!-- ./ container-fluid -->
-			
-
 				</div>
 			<!-- ./ navbar-inner -->
 

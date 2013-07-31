@@ -82,7 +82,6 @@ function myviews(array $array){
 	</div>
 	<a href="http://www.make-rss-feeds.com/making-an-rss-feed.htm">RSS Feeds</a>
 			{{myviews($array)}}
-					<!-- {{myviews($array)}} -->
 </div>
 		<ul class="thumbnails">
 			@foreach ($posts as $post)
@@ -91,7 +90,7 @@ function myviews(array $array){
 					<h4>{{{ $post->title }}}</h4>
 					{{--URL::to($post->slug)--}}
 					<a href="{{{URL::to($post->slug)}}}" class="btn">View Post</a>
-					<img class="thumby" src="{{asset('assets/'.$post->image)}}" alt="{{$post->image}}">
+<img class="thumby" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}">
 
 					<!-- <p class="muted credit">{{--URL::to('assets/'.$post->image)--}}</p> -->
 					

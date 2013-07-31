@@ -96,9 +96,10 @@ For now, you may clone this public repository and develop it as much as you like
 		</style>
 		@show
 
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
-<!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
+<!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css"> -->
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="{{asset('assets/js/redactor/redactor.css')}}" />
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -199,19 +200,17 @@ For now, you may clone this public repository and develop it as much as you like
 				}
 
 				@media screen and (max-width: 979px) {
-				    .contentwrap { padding-top: 0px; }
+				    .contentwrap { padding-top: 40px; }
 					.span50{
 						width: 50%;
 					}
 				}
 
 			</style>
+
 			<div class="logo">
-				<img src="{{asset('assets/gristech/gristech.png')}}" alt="Company Logo">
-			</div>
-				<div class="logo">
-				<h1>Gristech</h1>
-				<img src="{{asset('assets/gristech/gristech.png')}}" alt="Company Logo">
+				<h1>{{$company->brand}}</h1>
+				<img src="{{asset('assets/'.$company->brand.'/'.$company->image)}}" alt="Company Logo">
 			</div>
 			@show
 
@@ -234,45 +233,25 @@ For now, you may clone this public repository and develop it as much as you like
 			
 			</style>
 			<div class="contentwrap">
-<?php
-    $env=App::environment();
 
-    Session::flash('mymessage','Welcome to the <strong>'.$env.'</strong> environment.');
-    if($env!=="buckeye"){
-        $path='/home/ryan/MyApp6/app/views/site/pages/';
-    }
-    else
-    if($env=="local"){
-        $path='/home/ryan/MyApp6/app/views/site/pages/';
-    }
-    else{
-        $path='/home/gristech/myapp/app/views/site/pages/';
-    }
-    $mypages = array();
-    foreach (glob($path."*.blade.php") as $filename) {
-        $filename=str_replace($path, "", $filename);
-        $filename=str_replace(".blade.php", "", $filename);
-        array_push($mypages,$filename);
-        // echo "$filename" . "<br>";
-    }
-?>
-    @if (Session::has('message'))
 
-	    <div class="flash alert">
-	      <button type="button" class="close" data-dismiss="alert">&times;</button>
-	      <p>{{ Session::get('message') }}</p>
-	    </div>
+			    @if(Session::has('message'))
 
-    @endif
+				    <div class="flash alert">
+				      <button type="button" class="close" data-dismiss="alert">&times;</button>
+				      <p>{{ Session::get('message') }}</p>
+				    </div>
 
-    @if (Session::has('mymessage'))
+			    @endif
 
-	    <div class="flash alert alert-info">
-	      <button type="button" class="close" data-dismiss="alert">&times;</button>
-	      <p>{{ Session::get('mymessage') }}</p>
-	    </div>
+			    @if(Session::has('mymessage'))
 
-    @endif
+				    <div class="flash alert alert-info">
+				      <button type="button" class="close" data-dismiss="alert">&times;</button>
+				      <p>{{ Session::get('mymessage') }}</p>
+				    </div>
+
+			    @endif
 					<!-- Content -->
 					@yield('main')
 						<!-- ./ content -->
@@ -324,8 +303,6 @@ For now, you may clone this public repository and develop it as much as you like
         </script>
 
 
-	
-</div>
 	<script>
 		
 		// these are (ruh-roh) globals. You could wrap in an

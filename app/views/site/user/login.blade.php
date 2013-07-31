@@ -13,14 +13,20 @@
 
 {{-- Content --}}
 @section('main')
-<h1>Hello World</h1>
+<!-- <h1>Hello World</h1> -->
 <h1>
     {{{$company->brand}}}
 </h1>
 
 <style>
     .page-header{
-        padding-top:+60px;
+        padding-top:+40px;
+        color:white;
+    }
+
+    .thumbnail img{
+/*        max-width: 200px;
+        max-height: 200px;*/
     }
     .navbar a{
 
@@ -34,16 +40,44 @@
         /*font-size: 1.2em;*/
     }
 
+    @media screen and (max-width: 779px) {
+        .page-header{
+            padding: 10px;
+        }
+    }
+    .featurette{
+
+    }
+
 </style>
 
 <div class="page-header">
+    <div class="featurette">
+        <h3>Public</h3>
+        <p>These posts have tag "public" and are visible to anyone.  They can be weaved into other parts of the site, marketing materials, etc.</p>
+        <p>Posts that do NOT have a 'public' tag are considered 'private' or 'draft'.</p>
+        <p>You can also manage other group permissions and roles (manager, salesperson, customer, partner)</p>
+    </div>
 
 	<ul class="thumbnails">
-        <li class="thumbnail">The WWW is fixed. 
-            <a href="http:www.buckeyemower.com" class="btn">Try it!</a>
+        
+        @foreach($posts as $post)
+        <li class="span3">
+            <div class="thumbnail">
+                <!-- <img src="holder.js/200x200"> -->
+                        <img class="thumby" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}">
+                <div class="caption">
+                    <h3>{{$post->title}}</h3>
+                    <p>{{$post->meta_description}}</p>
+                    <p align="center"><a href="{{{URL::to('/blog/'.$post->slug)}}}" class="btn btn-primary btn-block">Open Full View</a></p>
+                </div>
+                <!-- <img src="{{$post->image}}" alt=""> -->            
+            </div>
         </li>
+        @endforeach
     </ul>
 </div>
+
 
 
 
@@ -87,7 +121,7 @@
         <a class="btn btn-large btn-primary" href="{{{ URL::to('user/create') }}}">Sign Up</a>
         <p>No spam, etc.</p>
 <!-- // Popup form here?-->
-<img src="{{asset('assets/gristech/next.png')}}" alt="next">
+<!-- <img src="{{asset('assets/gristech/next.png')}}" alt="next">
 <h1>You said flyer?</h1>
-<img src="{{asset('assets/gristech/flyer.png')}}" alt="next">
+<img src="{{asset('assets/gristech/flyer.png')}}" alt="next"> -->
 @stop

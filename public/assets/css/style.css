@@ -65,7 +65,7 @@ body {
 
     @media screen and (max-width: 979px) {
         .admin-top{
-        /*margin-top: 40px;*/
+        margin-top: 40px;
         }
 
         .page-header{
@@ -78,10 +78,10 @@ body {
     }
 
     .affix{
-      position: fixed;
+      /*position: fixed;*/
       top:0px;
       /*width: 40%;*/
-      right:20px;
+      /*right:20px;*/
     }
 
     @media screen and (min-width: 980px) {
@@ -99,7 +99,7 @@ body {
     }
 
     @media screen and (max-width: 979px) {
-        /*.contentwrap { padding-top: 20px; }*/
+        .contentwrap { padding-top: 20px; }
     }
 
     @media screen and (max-width: 767px) {
@@ -223,6 +223,8 @@ ul.tag li{
 .foxtrot{
 
 }
+
+
 
 /*from the bootstrap docs:*/
     /* Large desktop */
@@ -364,19 +366,8 @@ background-color: red;
     color:orange;
   }
 
-
 .HL {background: #ffff00;
 color: #000000;}
-
-
-
-
-
-
-
-
-
-
 
 
 /* Jumbotrons

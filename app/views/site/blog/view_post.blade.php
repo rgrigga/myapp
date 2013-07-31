@@ -92,7 +92,8 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
 	<div class="span5 text-center">
 		<a href="{{{ $post->url() }}}" class="thumbnail">
 			<!-- http://placehold.it/260x180 -->
-			<img src="{{asset('assets/img/'.$post->image)}}" alt="{{$post->image}}">
+
+			<img class="" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}">
 		</a>
 	</div>
 	<div class="span5">

@@ -376,7 +376,7 @@ p.photocredit {
 </style>
 
 
-
+<a href="https://github.com/lokesh/lightbox2#license">Lightbox License</a>
 
 
 <div id="prettified">

@@ -62,9 +62,22 @@ Post Update ::
 //     });
   
 // })
-</script>
 
-<a href="{{{ URL::to('blog/'.$post->slug) }}}">{{{ URL::to('blog/'.$post->slug) }}}</a>
+
+
+</script>
+<script type="text/javascript">
+    $(function() {
+        $('#blog').redactor({
+            imageUpload: '/redactorUpload'
+        });
+     });
+</script>
+<div class="">
+	<a href="{{{ URL::to('blog/'.$post->slug) }}}">Fullscreen: {{{ URL::to('blog/'.$post->slug) }}}</a>
+</div>
+
+
 <form method="post" action="" autocomplete="off">
 	<!-- CSRF Token -->
 	<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
@@ -99,14 +112,15 @@ Post Update ::
 <!-- Stuck: -->
 
 	<div class="pull-right well stuck">
-		<img class="thumby" src="{{asset('assets/'.$post->image)}}" alt="{{$post->image}}">
+		<h6><i class="icon-arrow-down"></i> pull-right well stuck</h6>
+		<img class="thumby" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}">
 		<h3 class="text-right">
 			<a href="#tweet"><i class="icon-twitter"></i></a>
 			<a href="#fb"><i class="icon-facebook"></i></a>
 		</h3>
 
 
-		<h6><i class="icon-arrow-down"></i> pull-right well stuck</h6>
+		
 		<h5>{{$post->title}}</h5>
 		
 		<p>{{$post->content}}</p>
@@ -126,22 +140,22 @@ Post Update ::
 				Tags/Keywords
 			  	<i class="icon-angle-down"></i>
 			</a>
-
+		</label>
 			<ul class='tag'>
 				<li><i class="icon-tag"></i> tags:</li>
 				@foreach($post->tags() as $tag)
 					<li>{{ $tag }}</li>
 				@endforeach
 			</ul>
-
-		</label>
+			
+		
 
 		<div class="collapse" id="MyTags">
 			<div class="controls">
 				<input type="text" name="meta-keywords" id="meta-keywords" value="{{{ Input::old('meta-keywords', $post->meta_keywords) }}}" />
 			</div>
 			<p>Enter keywords and/or key phrases as a list separated by commas.  For example: "seo, php, security".  These also help your content appear correctly.  Your posts already automagically contain an internal tag that links your post to your site.  </p>
-			<p>Once thought to be important to SEO, google stopped using keywords in 2009.  More info soon...</p>
+			<p>Once thought to be important to SEO, google stopped using keywords in 2009.  <a href="/blog/security">More info</a></p>
 			<p>The keywords tag is tied to tags on this site.  So, this is a comma-separated list of tags.  It works the same way in wordpress.</p>
 		</div>
 	</div>
@@ -155,14 +169,17 @@ Post Update ::
 <!-- Form Group -->
 
 	<div class="control-group {{{ $errors->has('title') ? 'error' : '' }}}">
-		<h1>
-			<a href="#" data-toggle="collapse" data-target="#MyTitle">
-			  <i class="icon-pencil"></i>
+		{{ $errors->first('title', '<span class="help-inline">:message</span>') }}
+		<label class="control-label" for="title">
+		<a href="#" data-toggle="collapse" data-target="#MyTitle">
+			  <i class="icon-pencil"></i> Title <i class="icon-angle-down"></i>
 			</a>
+			</label>
+		<h1>
 			{{{$post->title}}}
 		</h1>
 
-		{{ $errors->first('title', '<span class="help-inline">:message</span>') }}
+
 
 		<div style="list-style: none;" class="collapse" id="MyTitle">
 			<input type="text" name="title" id="title" value="{{{ Input::old('title', $post->title) }}}" />
@@ -170,10 +187,14 @@ Post Update ::
 	</div>
 
 	<div class="control-group {{{ $errors->has('meta-title') ? 'error' : '' }}}">
+		<label for="meta_title"><a href="#" data-toggle="collapse" data-target="#Meta-title">
+			<i class="icon-pencil"></i>
+			 meta-title
+			<i class="icon-angle-down"></i>
+			</a>
+
+			</label>
 		<h2>
-			<a href="#" data-toggle="collapse" data-target="#Meta-title">
-			  <i class="icon-pencil"></i>
-			 </a>
 			{{{$post->meta_title}}}
 		</h2>
 
@@ -181,7 +202,7 @@ Post Update ::
 		 
 		<div class="collapse" id="Meta-title">
 			<input type="text" name="meta-title" id="meta-title" value="{{{ Input::old('meta-title', $post->meta_title) }}}" />
-			<p>Meta Title is the text that appears at the top of the browser window when the user looks at your page. It also helps search engines understand what your page is about.  Therefore, it should be simple, descriptive, and use a keyword or two. <a href="https://www.google.com/search?client=ubuntu&channel=fs&q=seo+meta-titles&ie=utf-8&oe=utf-8">google</a>-</p>
+			<p>Meta Title is the text that appears at the top of the browser window when the user looks at your page. It also helps search engines understand what your page is about.  Therefore, it should be simple, descriptive, and use a keyword or two. <a href="https://www.google.com/search?q=seo+meta-titles&ie=utf-8&oe=utf-8">google it!</a></p>
 		</div>
 	</div>
 
@@ -190,22 +211,27 @@ Post Update ::
 	<!-- *************************************************** -->
 
 	<div class="control-group {{{ $errors->has('image') ? 'error' : '' }}}">
-
-		<h3>
+		<label for="image">
 			<a href="#" data-toggle="collapse" data-target="#MyImage">
 			  <i class="icon-pencil"></i>
+			  Main Image
+			  <i class="icon-angle-down"></i>
 			</a>
+		</label>
+		<h3>
 			{{{$post->image}}}
+			 <img class="thumby" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}">
 		</h3>
 		<label 
-			class="muted control-label" for="image">{{asset('/assets/img/'.$post->image)}}
+			class="muted control-label" for="image">url: {{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}
+
 		</label>
 
 		{{ $errors->first('image', '<span class="help-inline">:message</span>') }}
 
 		<div style="list-style: none;" class="collapse" id="MyImage">
-			<img class="thumby" src="{{asset('assets/'.$post->image)}}" alt="{{$post->image}}">
-			<img src="{{asset('/assets/'.$post->image)}}" alt="{{$post->image}}">
+
+		<img class="" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}">
 			<input type="text" name="image" id="image" value="{{{ Input::old('image', $post->image) }}}" />
 		</div>
 			
@@ -247,17 +273,17 @@ Post Update ::
 
 		<div class="collapse in" id="MyDescription">
 			<div class="controls">
-				<textarea class="full-width span12 redactor" name="meta-description" id="meta-description">{{{ Input::old('meta-description', $post->meta_description) }}}</textarea>
+				<textarea class="span12 redactor" name="meta-description" id="meta-description">{{{ Input::old('meta-description', $post->meta_description) }}}</textarea>
 			</div>
 			<p><i class="icon-facebook"></i> Meta Description is a 158 character summary of your post.  The Meta-Description may be displayed as the text for a google result, for example...</p>
 			<p>It is also used on facebook</p>
-			<a href="https://github.com/cheeaun/mooeditable/wiki/Alternative-Javascript-WYSIWYG-editors">Alternatives to Redactor</a>
+			There are many free <a href="https://github.com/cheeaun/mooeditable/wiki/Alternative-Javascript-WYSIWYG-editors">Alternatives to Redactor</a>
 		</div>
 	</div>			
 	<!-- ./ meta description -->
 
 
-
+<!-- http://imsky.github.io/holder/ -->
 
 	<!-- *************************************************** -->
 
@@ -275,7 +301,7 @@ Post Update ::
 		<div class="collapse in" id="MyContent">
 			<div class="controls">
 
-				<textarea class="redactor" name="content" style="height: 360px;">
+				<textarea class="redactor" name="content" id="blog" style="height: 360px;">
 
 				{{{ Input::old('content', $post->content) }}}
 				</textarea>
@@ -390,7 +416,7 @@ Post Update ::
 	</div>
 	<div class="span4 pull-right">
 		<h1>Learn More</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, doloribus rem quos facere aspernatur autem dolorum omnis dolor itaque a!</p>
+		<p>This page is used for building content which will be used in many other places.  Print, social, email, flyers, web... it's very flexible!</p>
 	</div>
 </div>
 

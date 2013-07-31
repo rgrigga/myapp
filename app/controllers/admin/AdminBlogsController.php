@@ -99,8 +99,12 @@ class AdminBlogsController extends AdminController {
 	 */
 	public function getCreate()
 	{
+        // die('bam');
+        $env=App::environment();
+        $company = $this->company->where('brand','like',$env)->first();
         // Show the page
-        return View::make('admin/blogs/create');
+        return View::make('admin/blogs/create')
+        ->with(compact('company'));
 	}
 
 	/**
@@ -187,8 +191,11 @@ class AdminBlogsController extends AdminController {
      */
 	public function getEdit($post)
 	{
+        $env=App::environment();
+        $company = $this->company->where('brand','like',$env)->first();
         // Show the page
-        return View::make('admin/blogs/edit', compact('post'));
+        // die('bam');
+        return View::make('admin/blogs/edit', compact('post','company'));
 	}
 
     /**
@@ -246,8 +253,10 @@ class AdminBlogsController extends AdminController {
      */
     public function getDelete($post)
     {
+        $env=App::environment();
+        $company = $this->company->where('brand','like',$env)->first();
         // Show the page
-        return View::make('admin/blogs/delete', compact('post'));
+        return View::make('admin/blogs/delete', compact('post','company'));
     }
 
     /**

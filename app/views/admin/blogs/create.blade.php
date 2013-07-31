@@ -8,14 +8,22 @@ Create a New Blog Post ::
 
 {{-- Content --}}
 @section('main')
-<div class="page-header">
+<style>
+	.page-header{
+		color: white;
+		/*text-align: center;*/
+	}
+</style>
+<div class="page-header" name='ph'>
 	<h3>
 		Create Something <em>Awesome</em>
-
+<!-- http://en.wikipedia.org/wiki/LESS_(stylesheet_language) -->
 		<div class="pull-right">
 			<a href="{{{ URL::to('admin/blogs') }}}" class="btn btn-small btn-inverse"><i class="icon-circle-arrow-left icon-white"></i> Back</a>
 		</div>
 	</h3>
+<script type="text/javascript" src="{{asset('assets/js/jscolor/jscolor.js')}}"></script>
+
 
 	<p>Howdy. This is the create page... Required fields are:</p>
 	 
@@ -26,6 +34,12 @@ Create a New Blog Post ::
 	 </ul>
 
 	 <p>Please create those, then click "publish", then we'll add some better details through the "Edit" page.</p>
+	 <p>
+	 	<h3>COMING SOON</h3>
+	 	<p>This doesn't work yet, but it will soon!</p>
+	 	Change background: <input class="color"
+	onchange="document.getElementsByTagName('DIV')[0].style.backgroundColor = '#'+this.color">
+	 </p>
 
 </div>
 
@@ -79,7 +93,9 @@ Create a New Blog Post ::
 
 
 				<div class="controls">
-					<textarea class="full-width span10 wysihtml5" name="content" value="content" rows="20">{{{ Input::old('content') }}} </textarea>
+
+
+					<textarea class="redactor" name="content" value="content" rows="20">{{{ Input::old('content') }}} </textarea>
 					{{{ $errors->first('content', '<span class="help-inline">:message</span>') }}}
 				</div>
 			</div>

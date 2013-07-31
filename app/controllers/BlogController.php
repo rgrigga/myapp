@@ -7,13 +7,20 @@
 // http://www.vogella.com/articles/Git/article.html
 // http://www.vogella.com/articles/Git/article.html#gitpushbranch
 
-
 //  In general using the stash command should be the exception in using Git. Typically you would create new branches for new features and switch between branches. You can also commit frequently in your local Git repository and use interactive rebase to combine these commits later before pushing them to another Git repository.
 // Tip
 
 // You can avoid using the git stash command. In this case you commit the changes you want to put aside and use the git commit --amend command to change the commit later. If you use the approach of creating a commit, you typically put a marker in the commit message to mark it as a draft, e.g. "[DRAFT] implement feature x".
 
 // http://gitref.org/branching/
+
+
+
+// class PostBuilder extends BaseController{
+
+// 	function 
+
+// }
 
 
 class BlogController extends BaseController {
@@ -61,7 +68,7 @@ class BlogController extends BaseController {
         $this->user = $user;
         $this->company = $company;
 
-        $this->todo = array('hello','bar','make list');
+        // $this->todo = array('hello','bar','make list');
 
     }
 
@@ -74,9 +81,6 @@ class BlogController extends BaseController {
 	{
 		return self::getIndex('$tag');
 	}
-    
-
-
 
  //    public function buckeyeIndex($tag=""){
  //    	// $company=  Company::where('brand',"LIKE",'buckeye')->first();
@@ -152,42 +156,114 @@ class BlogController extends BaseController {
  *  Finally, return a 404
  *
 */
-		
-
 		$env=App::environment();
 		$msg="";
+
 	// singleton versus dependency injection?
     // $company=App::make('company');
 		if($tag){
 			$company = $this->company->where('brand','like',$tag)->first();
 
 			if(empty($company)){
-				die("company not found - (BlogController getIndex)");
+				// die("company not found - (BlogController getIndex)");
 				$company = $this->company->where('brand','like','gristech')->first();
 			}
-		$posttitle='%'.$tag.'%';
-		$posts = $this->post->where('title', 'LIKE', "$posttitle")->paginate(5);					
+
+			$posttitle='%'.$tag.'%';
+			$posts = $this->post
+			->where('title', 'LIKE', "$posttitle")
+			->orWhere('meta_keywords','LIKE', "$posttitle")
+	        ->where('meta_keywords', 'LIKE', '%'.$company->brand.'%')
+	        ->where('meta_keywords','LIKE','%public%')
+	        // ->where('content','LIKE','%'.$tag.'%')
+
+			->paginate(5);					
+			// die(count($posts));
+			if(count($posts)===1){
+				// die("found1");
+				$post=$posts;
+				return $this->getView($tag)
+				// return View::make('site.blog.view_post')
+				// ->with(compact('company'))
+				// ->with(compact('post'))
+				;
+			}
+			if (count($posts)===0) {
+				Session::flash('message', 'Sorry, I couldn\'t find anything with tag matching <strong>'.$tag.'</strong>');
+				return View::make('site/blog/tags')
+					// ->nest('index','site.blog.index')
+					->nest('carousel','site.partials.carousel')
+					->with(compact('company'))
+					->with(compact('tags'))
+					->with(compact('alltags'))
+					->with(compact('posts'));
+				// die('posts not found');
+				// no post with this title
+				// continue
+			}
+
+			$tags=array();		
+			foreach ($this->post->get() as $post) {
+				foreach ($post->tags() as $mytag) {
+					if(!in_array($mytag, $tags)){
+						array_push($tags, trim($mytag));
+					}
+				}
+			}
+
+			$str="";
+			$str.="I found ".count($posts)." posts.";
+			return View::make('site/blog/tags')
+				->with(compact('company','tags','alltags','posts'))
+				// ->with(compact('tags'))
+				// ->with(compact('alltags'))
+				// ->with(compact('posts'))
+				->with('message',$str);
+			//else there are many, so must be tag
+
+
 
 		// return self::getByTag($tag);
 
 		// die('blogcontroller index');
 			// die(var_dump($company));
+
 		}
 
 		else{
-			die('there is no tag!');
+
+			$company = $this->company->where('brand','like',$env)->first();
+			View::share('company',$company);
+
+			// die(var_dump($company));
+			// die('there is no tag!');
+			if(!is_null($company)){
+				
+				$posts=$this->post
+		        ->where('meta_keywords', 'LIKE', '%'.$company->brand.'%')
+		        ->where('meta_keywords','LIKE','%public%')
+		        // ->where('content','LIKE','%'.$tag.'%')
+		        ->paginate(5);
+
+				// $posts=$this->post
+				// ->where('meta_keywords', 'LIKE', $company->brand)
+				// ->paginate(10);
+
+				View::share('posts',$posts);
+				// return Redirect::action('CompanyController@getIndex',$tag);
+				return View::make('site.'.strtolower($company->brand).'.home')
+				->nest('about','company.about')
+				->nest('contact','site.partials.social')
+				->with(compact('company'))
+				->with(compact('posts'))
+				;
+			}
 		}
 
 
-		if(!is_null($company)){
-			// $posts=$this->posts->where('tags' company->);
-			// return Redirect::action('CompanyController@getIndex',$tag);
-			return View::make('site.'.strtolower($company->brand).'.home')
-			->with(compact('company','posts'));
-		}
+
 		
-		$company = $this->company->where('brand','like',$env)->first();
-
+// die("BAM!");
 
 
 	if($myview=$this->getView($tag)){
@@ -262,7 +338,7 @@ class BlogController extends BaseController {
 				// 	->nest('about','company.about')
 				// 	->with(compact('company'))
 				// 	->with(compact('posts'));
-				die('bam');
+				die('blog index 316');
 
 			}
 
@@ -349,14 +425,7 @@ class BlogController extends BaseController {
 		// die(var_dump($company));
 
 		//prepare the alltags collection
-			$alltags=array();		
-			foreach ($this->post->get() as $post) {
-				foreach ($post->tags() as $mytag) {
-					if(!in_array($mytag, $alltags)){
-						array_push($alltags, trim($mytag));
-					}
-				}
-			}
+
 		//alltags now contains the list of tags within this set of posts.
 			
 		//let's check to see if a page exists for this tag:
@@ -390,27 +459,13 @@ class BlogController extends BaseController {
 
 				if(count($posts)==0){
 
-					Session::flash('message', 'Sorry, I couldn\'t find anything with tag matching <strong>'.$tag.'</strong>');
-					return View::make('site/blog/tags')
-						// ->nest('index','site.blog.index')
-						->nest('carousel','site.partials.carousel')
-						->with(compact('company'))
-						->with(compact('tags'))
-						->with(compact('alltags'))
-						->with(compact('posts'));
+
 
 
 						// ->with('message','I couldn\'t find anything');
 				}
 				//else
-				$str="";
-				$str.="I found ".count($posts)." posts.";
-				return View::make('site/blog/tags')
-					->with(compact('company','tags','alltags','posts'))
-					// ->with(compact('tags'))
-					// ->with(compact('alltags'))
-					// ->with(compact('posts'))
-					->with('message',$str);
+
 			}
 
 		// $posts = $this->post->where('tag','seo');
@@ -424,7 +479,7 @@ class BlogController extends BaseController {
 				// $data = array(compact('posts'),compact('tags'),compact('alltags'),$company);
 				
 
-				// die("BAM");
+				
 
 				return View::make('site/blog/index')
 					->with(compact('company'))
@@ -528,6 +583,11 @@ class BlogController extends BaseController {
 	 */
 	public function getView($slug)
 	{
+
+		// die(var_dump($slug));
+		$env=App::environment();
+		$company = $this->company->where('brand','like',$env)->first();
+		View::share('company',$company);
 		// Get this blog post data
 		$post = $this->post->where('slug', '=', $slug)->first();
 
@@ -567,7 +627,7 @@ class BlogController extends BaseController {
         }
 
 		// Show the page
-		return View::make('site/blog/view_post', compact('post', 'comments', 'canComment'));
+		return View::make('site/blog/view_post', compact('company','post', 'comments', 'canComment'));
 	}
 
 	/**

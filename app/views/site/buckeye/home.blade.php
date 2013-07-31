@@ -1,6 +1,6 @@
 @extends('layouts.scaffold')
 <!-- @ extends('site.layouts.buckeye') -->
-<!-- http://www.stepforth.com/resources/server-header-checker-tool -->
+
 @section('title')
 Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
 @stop

@@ -8,6 +8,13 @@ class UserController extends BaseController {
      */
     protected $user;
 
+    /**
+     * Post Model
+     * @var Post
+     */
+
+    protected $post;
+
         /**
      * Company Model
      * @var Company
@@ -19,11 +26,16 @@ class UserController extends BaseController {
      * @param User $user
      * @param Company $company
      */
-    public function __construct(User $user, Company $company)
+    public function __construct(User $user, Company $company, Post $post)
     {
         parent::__construct();
         $this->user = $user;
-        $this->company = $company;
+
+        $brand=App::environment();
+        $this->company = $company->where('brand','LIKE',$brand)->first();
+
+        // $company=$this->company
+        $this->post = $post;
 
     }
 
@@ -92,11 +104,14 @@ class UserController extends BaseController {
 
         if ( $this->user->id )
         {
+            $posts=$this->post->where('meta_keywords', 'LIKE', $company->brand)->paginate(5);
+            View::share('posts',$posts);
             // Redirect with success message, You may replace "Lang::get(..." for your custom message.
             return Redirect::to('user/login')
-                -with('user',$this->user)
+                ->with('user',$this->user)
+                ->with(compact($posts))
                 // ->with( 'notice', Lang::get('user/user.user_account_created') );
-                ->with( 'notice', 'Please check your email, confirm, & we\'ll see you soon.' );
+                ->with( 'info', 'Please check your email, confirm, & we\'ll see you soon.' );
             // 
         }
         else
@@ -197,7 +212,11 @@ class UserController extends BaseController {
         }
         // $company = $this->company->findOrFail(3);
 
-        
+        $posts=$this->post
+        ->where('meta_keywords', 'LIKE', '%'.$company->brand.'%')
+        ->where('meta_keywords','LIKE','%public%')
+        ->paginate(5);
+        View::share('posts',$posts);
 
         return View::make('site/user/login')
             // put this somewhere?
@@ -206,6 +225,9 @@ class UserController extends BaseController {
             ->with(compact('company'));
             // ->nest('nav','site.partials.nav-default');
     }
+// $roles = DB::table('roles')->lists('title');
+
+
 
     // public function buckeye(){
         
@@ -286,7 +308,16 @@ class UserController extends BaseController {
      */
     public function getForgot()
     {
-        return View::make('site/user/forgot');
+        $brand=App::environment();
+        $company = $this->company->where('brand', 'LIKE', $brand)->first();
+
+        if(!$company){
+            $company = $this->company->where('brand', 'LIKE', 'gristech')->first();
+            // die(var_dump("Problem in user.getLogin.", $company));
+            // $company = $this->company->findOrFail(3);
+        }
+        return View::make('site/user/forgot')
+        ->with(compact('company'));
     }
 
     /**
@@ -395,15 +426,33 @@ class UserController extends BaseController {
             return App::abort(404);
         }
 
-        return View::make('site/user/profile', compact('user'));
+
+        return View::make('site/user/profile', compact('user','company'));
     }
 
     public function getSettings()
     {
+
+        $brand=App::environment();
+        $company = $this->company->where('brand', 'LIKE', $brand)->first();
+
+        if(!$company){
+            $company = $this->company->where('brand', 'LIKE', 'gristech')->first();
+            // die(var_dump("Problem in user.getLogin.", $company));
+            // $company = $this->company->findOrFail(3);
+        }
+        // $company = $this->company->findOrFail(3);
+
+        $posts=$this->post
+        ->where('meta_keywords', 'LIKE', '%'.$company->brand.'%')
+        ->where('meta_keywords','LIKE','%public%')
+        ->paginate(5);
+        View::share('posts',$posts);
+
         list($user,$redirect) = User::checkAuthAndRedirect('user/settings');
         if($redirect){return $redirect;}
 
-        return View::make('site/user/profile', compact('user'));
+        return View::make('site/user/profile', compact('user','company'));
     }
 
     /**
