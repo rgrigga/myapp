@@ -141,7 +141,7 @@ class CompanyController extends UserController {
 				// die();
 				//this works, but it confused me.
 				->nest('about','company.about')
-
+				->nest('contact','site.partials.contact')
 				->with(compact('company'))
 				->with(compact('tags'))
 				->with(compact('alltags'))

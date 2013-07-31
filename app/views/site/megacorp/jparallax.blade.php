@@ -124,6 +124,10 @@ $list=array(
 				</li>
 				<li>
 					<a href="#code">Pretty Code</a>
+					<pre class="prettyprint"><code></code></pre>
+				</li>
+				<li>
+					<a href="http://tech.xtremelabs.com/html5-facebook-style-sliding-menu-using-twitter-bootstrap-collapse/">Side-Slide Menu</a>
 				</li>
 			</ul>
 
@@ -132,7 +136,15 @@ $list=array(
 			@endforeach
 
 		        <div id="baz">
-					{{img('myapp','png');}}
+					{{img('myapp')}}
+					<blockquote>
+					  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+					 
+					</blockquote>
+					<blockquote>
+						<p>the purpose of OOP is to act as a "herding mechanism" that keeps mediocre programmers in mediocre organizations from "doing too much damage". This is at the expense of slowing down productive programmers who know how to use more powerful and more compact techniques.</p>
+						<small>Paul Graham<cite title="Source Title">Source Title</cite></small>
+					</blockquote>
 					this moves.
 		        </div>
 		        <div id="baz2">

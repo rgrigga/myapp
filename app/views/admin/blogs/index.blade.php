@@ -11,21 +11,31 @@ Website Management ::
 
 <style>
 	img.thumby{
-		/*height: 64px;*/
+		max-height: 64px;
 	}
+
 
 	.thumbnail{
 		/*background-color: red;*/
 		/*min-height: 20%;*/
-}
+	}
+
+http://mashable.com/2013/01/15/color-scheme-tools/
 
 .page-header{
 	padding-left: 20px;
 	padding-right:20px;
 }
+
+    @media screen and (max-width: 780px) {
+    	img.thumby{
+			max-height: 300px;
+    	}
+    }
     @media screen and (min-width: 979px) {
+
     	.page-header {
-	background-color: red;
+	background-color: rgba(60,160,208,.3);
 	margin-left: -80px;
 	margin-right: -80px;
 	padding-left: 80px;
@@ -80,6 +90,9 @@ function myviews(array $array){
 			<li><a href="tools">Tools Page</a></li>
 		</ul>
 	</div>
+	<div>Menus: {{{ $company->menus }}}</div>
+
+	<div>{{ link_to_route('companies.edit', 'Edit Company', array($company->id), array('class' => 'btn btn-info')) }}</div>
 	<a href="http://www.make-rss-feeds.com/making-an-rss-feed.htm">RSS Feeds</a>
 			{{myviews($array)}}
 </div>
@@ -89,13 +102,16 @@ function myviews(array $array){
 				<div class="thumbnail span2">
 					<h4>{{{ $post->title }}}</h4>
 					{{--URL::to($post->slug)--}}
-					<a href="{{{URL::to($post->slug)}}}" class="btn">View Post</a>
+					
 <img class="thumby" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}">
 
 					<!-- <p class="muted credit">{{--URL::to('assets/'.$post->image)--}}</p> -->
-					
+				
+				<div class="text-center">
+					<a href="{{{URL::to('blog/'.$post->slug)}}}" class="btn btn-info btn-mini">View</a>	
 					<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini"><i class="icon-edit"></i> {{{ Lang::get('button.edit') }}}</a>
-				<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger"><i class="icon-trash"></i> {{{ Lang::get('button.delete') }}}</a>
+					<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger"><i class="icon-trash"></i> {{{ Lang::get('button.delete') }}}</a>
+				</div>
 				</div>
 			</li>
 			@endforeach

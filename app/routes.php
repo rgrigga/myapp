@@ -486,24 +486,20 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
 
     Route::group(array('before' => 'buckeye'), function(){
 
-        Route::get('admin',function(){
-            // die(var_dump($company));
-            // die("BAM");
-            // $company=  Company::where('brand',"LIKE",'buckeye')->first();
-            return Redirect::to('user/login')
+        // Route::get('admin',function(){
+        //     // die(var_dump($company));
+        //     // die("BAM");
+        //     // $company=  Company::where('brand',"LIKE",'buckeye')->first();
+        //     return Redirect::to('user/login')
 
-                // ->withInput(Input::except('password'))
-                ->with( 'info', 'Please login.  Thank You.' );
-        });
+        //         // ->withInput(Input::except('password'))
+        //         ->with( 'info', 'Please login.  Thank You.' );
+        // });
 
         Route::get('protected',function(){
             return "To see this, you must be a memeber of the buckeye group.";
             // die(var_dump($company));
         });
-
-        
-
-
 
     });
 
@@ -520,10 +516,11 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
 
     # User RESTful Routes (Login, Logout, Register, etc)
 
-    Route::controller('user', 'UserController');
+    Route::controller('user', 'UserController');    
+    // Route::controller('comment', 'AdminCommentsController');
 
-    Route::get('blog/{postSlug}', 'BlogController@getView');
-    Route::get('blog', 'BlogController@buckeyeIndex');
+    // Route::get('blog/{postSlug}', 'BlogController@getView');
+    // Route::get('blog', 'BlogController@buckeyeIndex');
 
 
     // Here are several Routing techniques:
@@ -680,7 +677,43 @@ Route::controller('user', 'UserController');
 // STATIC PAGES: ///////////////////////////////////////////////////
 # Technical/Development Static Page
 
+Route::get('pages/{page}',function($page){
+        $env=App::environment();
+            $path='../app/views/site/'.$env.'/';
+            // die($path);
+            // $path='../app/views/site/pages/';
 
+            $mypages = array();
+            foreach (glob($path."*.blade.php") as $filename) {
+                $filename=str_replace($path, "", $filename);
+                $filename=str_replace(".blade.php", "", $filename);
+                array_push($mypages,$filename);
+                // echo "$filename" . "<br>";
+                // die();
+            }
+
+            if(empty($mypages)){
+                $msg="Could not find any pages in $path";
+                Session::flash('message', $msg);
+                App::abort('404',$msg);
+            }
+
+            // if services.blade.php exists, it will be returned.  Otherwise, 
+            // we'll send the user to the search page.
+            if(in_array($page, $mypages)){
+                // die("BAM");
+
+
+                return View::make('site.'.$env.'.'.$page)
+                // ->nest('nav','site.partials.nav-top-min',compact('company'))
+                ->with(compact('company'))
+                ->with(compact('tags'))
+                ->with(compact('alltags'))
+                ->with(compact('posts'));
+                 // $view;
+            }
+            return("No page by the name $page!".var_dump($mypages));
+});
 
 Route::get('tags', 'BlogController@getIndex');
 Route::post('tags', 'BlogController@getIndex');
@@ -689,7 +722,6 @@ Route::get('tags/{tag}', 'BlogController@getIndex');
 
 # Posts - Second to last set, match slug
 
-Route::post('blog/{postSlug}', 'BlogController@postView');
 Route::post('blog/{postSlug}', 'BlogController@postView');
 Route::get('blog/{postSlug}', 'BlogController@getView');
 Route::get('blog', 'BlogController@getIndex');
@@ -726,7 +758,9 @@ Route::get('/{tag}', 'BlogController@getIndex');
 //         return Company::where('brand','like',$company)->first();
 //     });
 
-Route::get('/','CompanyController@getIndex');
+// die(var_dump($company));
+
+Route::get('/','BlogController@getIndex');
 
 /**
 GET vs POST Basics

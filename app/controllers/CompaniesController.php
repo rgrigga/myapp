@@ -35,7 +35,9 @@ class CompaniesController extends BaseController {
         // return Redirect::route('companies.index');
         $companies = $this->company->all();
 
-        return View::make('companies.index', compact('companies'));
+        return View::make('companies.index', compact('companies'))
+        // ->nest('about','company/about')
+        ;
     }
 
     /**
@@ -84,8 +86,10 @@ class CompaniesController extends BaseController {
     public function show($id)
     {
         $company = $this->company->findOrFail($id);
-
-        return View::make('companies.show', compact('company'));
+        View::share('company',$company);
+        return View::make('companies.show', compact('company'))
+            ->nest('about','company/about')
+        ;
     }
 
     /**

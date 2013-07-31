@@ -298,6 +298,8 @@ a:hover{
 			<img src="{{asset('assets/advantage/corner.png')}}" alt="le corner">
 		</div>
 
+
+
 		<div class="row-fluid">
 			<div class="span4 pull-right" id="side-wrapper">
 				<!-- <div class="sidebar well"> -->
@@ -360,7 +362,7 @@ a:hover{
 
 
 						</div>
-						<a class="btn" href="#">~Toggle~<i class="icon-hand-up"></i></a><h2>About Us</h2>
+						<a class="btn" href="#">~Toggle~<i class="icon-hand-up"></i></a><h3>How can we help you?</h3>
 						{{$contact}}
 					</div>
 
@@ -475,7 +477,11 @@ a:hover{
 		</div>
 	</div> -->
 
-
+		<div class="row-fluid">
+			<div class="span12">
+				<div id="search_engine-US-monthly-201307-201307-bar" width="600" height="400" style="width:600px; height: 400px;"></div><!-- You may change the values of width and height above to resize the chart --><p>Source: <a href="http://gs.statcounter.com/#search_engine-US-monthly-201307-201307-bar">StatCounter Global Stats - Search Engine Market Share</a></p><script type="text/javascript" src="http://www.statcounter.com/js/FusionCharts.js"></script><script type="text/javascript" src="http://gs.statcounter.com/chart.php?search_engine-US-monthly-201307-201307-bar"></script>
+			</div>
+		</div>
 
 	<div class="tabbable"> <!-- Only required for left/right tabs -->
 		<a href="#about" data-toggle="tab"> about</a>

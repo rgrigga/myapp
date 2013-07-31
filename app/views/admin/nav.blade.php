@@ -24,7 +24,7 @@
 								<!-- <i class="icon-bullhorn icon-white"></i> -->
 								 Comments</a></li>
 
-								<li{{ (Request::is('admin/companies*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/companies') }}}">
+								<li{{ (Request::is('companies*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/companies') }}}">
 
 								<!-- <i class="icon-bullhorn icon-white"></i> -->
 								 Companies</a></li>

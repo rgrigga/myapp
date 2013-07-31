@@ -72,7 +72,7 @@
 	<h2>Blog Index</h2>
 	<div class="span4">
 		<!-- <div class="pull-right"> -->
-		<img src="{{asset($company->image)}}" alt="MyImage">
+	<img src="{{asset($company->image)}}" alt="MyImage">
 	<!-- </div> -->
 	<div>ID: {{{ $company->id }}}</div>
 	<div>Name: {{{ $company->name }}}</div>

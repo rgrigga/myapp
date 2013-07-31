@@ -138,16 +138,20 @@
                 // }
                 if(Auth::user('admin')){
                     $path='/home/ryan/MyApp6/app/views/site/pages/';
-                    Session::flash('mymessage','Welcome to the <strong>'.$env.'</strong> environment.');
+                    // Session::flash('mymessage','Welcome to the <strong>'.$env.'</strong> environment.');
                 }
                 else
 
-                if($env=="local"){
-                    $path='/home/ryan/MyApp6/app/views/site/pages/';
-                }
-                else{
-                    $path='/home/gristech/myapp/app/views/site/pages/';
-                }
+                // this is a global setting.
+                // i would also like ability for a setting for the asset directory.
+
+                $path='../app/views/site/pages/';
+                // if($env=="local"){
+                //     $path='/home/ryan/MyApp6/app/views/site/pages/';
+                // }
+                // else{
+                //     $path='/home/gristech/myapp/app/views/site/pages/';
+                // }
 
 
                 $mypages = array();

@@ -526,6 +526,61 @@ a{
     border-style:dashed;
   }
 
+  .myfooter{
+    padding-top: 30px;
+    background-color: rgba(189,219,123,.7);
+    margin-left: 10px;
+    text-align: center;
+    margin-right: -60px;
+    margin-left: -60px;
+  }
+  .page-header{
+    margin-left: -60px;
+    padding-left: 60px;
+    margin-right: -60px;
+    padding-right: 60px;
+    background-color: rgba(46, 204, 113,1.0);
+  }
+
+
+
+              .iwrap{
+                /*max-width: 300px;*/
+                text-align: center;
+                margin-right: auto;
+                margin-left: auto;
+              }
+
+/*              @media (max-width: 760px) { 
+                .page-header{
+                  margin-left: -100px;
+                  padding-left: 100px;
+
+                }*/
+
+
+
+              @media (min-width: 760px) { 
+                .page-header{
+                  
+                  margin-top: 0px;
+                  padding-top: 80px;
+                  padding-bottom: 80px;
+                }
+                .modal{
+                  width:90%;
+                  /*height: 80%;*/
+                  margin-left: -45%;
+                }
+              }
+    @media (min-width: 980px) { 
+    .page-header{
+      /*background-color: red;*/
+      padding-top: 120px;
+      padding-bottom:120px; 
+    }
+  }
+
     </style>
 @stop
 
@@ -636,7 +691,7 @@ altFormat: "DD, d MM, yy"
 </script>
 
 
-<a data-toggle="MyModal" class="btn" href="#loginModal">Log in</a>
+<!-- <a data-toggle="MyModal" class="btn" href="#schedule">Schedule</a> -->
 <div class="modal hide fade" id="schedule">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">✕</button>
@@ -672,35 +727,7 @@ altFormat: "DD, d MM, yy"
             </div>
 
             <div class="tab-pane active" id="one">
-              <style>
-              .iwrap{
-                /*max-width: 300px;*/
-                text-align: center;
-                margin-right: auto;
-                margin-left: auto;
-              }
 
-/*              @media (max-width: 760px) { 
-                .page-header{
-                  margin-left: -100px;
-                  padding-left: 100px;
-
-                }*/
-
-              @media (min-width: 760px) { 
-                .page-header{
-                  
-                  margin-top: 0px;
-                  padding-top: 80px;
-                  padding-bottom: 80px;
-                }
-                .modal{
-                  width:90%;
-                  /*height: 80%;*/
-                  margin-left: -45%;
-                }
-              }
-              </style>
               <div class="row-fluid">
                 <div class="iwrap span8">
                   <iframe src="https://www.google.com/calendar/embed?title=Buckeye%20Appointment%20Schedule&amp;showPrint=0&amp;showTabs=0&amp;mode=WEEK&amp;height=400&amp;wkst=1&amp;bgcolor=%23ffff00&amp;src=kr3c44msss9qmsuu96hmaddv5c%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=America%2FNew_York" style=" border-width:0 " width="360" height="400" frameborder="0" scrolling="no"></iframe>
@@ -990,26 +1017,27 @@ altFormat: "DD, d MM, yy"
 
       <hr class="featurette-divider">
 
-<div class="span8 offset4" name="posts" id="posts" name="posts">
-  <h1>Some More Ideas...</h1>
+<!-- <div class="span8 offset4" name="posts" id="posts" name="posts"> -->
+  <!-- <h1>Some More Ideas...</h1> -->
   
   <div class="text-center">
     {{ $posts->links() }}
   </div>
 
   @foreach ($posts as $post)
-    <div class="row">
-      <div class="span3">
+    <div class="row-fluid">
+      <div class="span3 ">
         <p></p>
         <p>
       <!-- Edit/Delete Buttons -->
         <div class="metabuttons pull-left">
           @if (Auth::check())
-                    @if (Auth::user()->hasRole('admin'))
+          <!-- //if logged in -->
+            @if (Auth::user()->hasRole('admin'))
               <p>
                 <a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
                 <a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
-              | </p>
+              |</p>
             @endif
           @endif
         </div>
@@ -1023,16 +1051,22 @@ altFormat: "DD, d MM, yy"
     </div>
     
 
-    <div class="well">
-      {{$post->title}}
-      {{$post->img}}
+    <div class="featurette">
+
+      <style>
+/*      img.home{
+        width:320px; 
+      }*/
+      </style>
+      <img class="home featurette-image img-circle pull-left" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}">
 
       <h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
       <p>
-      {{ String::tidy(Str::limit($post->meta_description, 158)) }}
+      {{ String::tidy(Str::limit($post->meta_description, 300)) }}
       </p>
       <p>
-        <a class="btn btn-info" href="{{{ $post->url() }}}">more</a>
+        <a class="btn btn-info btn-large" href="{{{ $post->url() }}}">read more</a>
+        <a href="#schedule" role="button" class="btn btn-large btn-warning" data-toggle="modal"><i class='icon-calendar'></i> Schedule Now</a>
       </p>
     </div>
 
@@ -1047,35 +1081,20 @@ altFormat: "DD, d MM, yy"
 
   @endforeach
   {{ $posts->links() }}
-</div>
+<!-- </div> -->
 
       <!-- /END THE FEATURETTES -->
 @stop
 
 @section('footer')
-<style>
-  .myfooter{
-    padding-top: 30px;
-    background-color: rgba(189,219,123,.7);
-    margin-left: 10px;
-    text-align: center;
-    margin-right: -60px;
-    margin-left: -60px;
-  }
-  .page-header{
-    margin-left: -60px;
-    padding-left: 60px;
-    margin-right: -60px;
-    padding-right: 60px;
-    background-color: rgba(46, 204, 113,1.0);
-  }
-</style>
+
 <div class="myfooter">
   <img class="center" src="{{asset('assets/buckeye/grass2.png')}}" alt="">
   <h3 class="center" id="myfooter">Let's get your gr<em>ass</em> in gear!</h3>
   <a class="btn btn-large" href="tel:7405076198"><h2>740-507-6198</h2></a>
   <p class="muted credit">&copy; 2013, Buckeye Mower & Gristech, All Rights Reserved</p>
   <p><a href="#credits">credits</a></p>
+  {{$about}}
 </div>
 
 <!-- <div class="span12"> -->

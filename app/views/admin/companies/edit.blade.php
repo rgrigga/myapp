@@ -81,6 +81,7 @@
         @endif
     </div>
     <div class="span7">
+        <h1>PREVIEW:</h1>
         {{--View::make('company.about')--}}
         {{$about}}
     </div>

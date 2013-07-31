@@ -81,6 +81,9 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
 </style>
 @stop
 
+@section('nav')
+@include('site.partials.nav-top-inverse')
+@stop
 
 {{-- Content --}}
 @section('main')
@@ -98,46 +101,38 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
 	</div>
 	<div class="span5">
 <!-- //copy and edit buttons -->
-				@if (Auth::check())
-	                @if (Auth::user()->hasRole('admin'))
 
-					<p>
-						<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
-						<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
-					</p>
-					@endif
-				@endif
 		<h2>{{ $post->title }}</h2>
+		<p>
+			<!-- String Tidy here? -->
+			{{$post->meta_description}}
+		</p>
+		
 
+		@if (Auth::check())
 		<h5>Tags:</h5>
-
 		<ul class='tag'>
 			@foreach($post->tags() as $tag)
 				<li><a href='/tags/{{ $tag }}'>{{$tag}}</a></li>
 			    
 			@endforeach
 		</ul>
+			<!-- // <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js&skin=sunburst"></script> -->
+	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<pre class="prettyprint">
+Developer: uncomment vardump in blog.view_post to view Post $post
+<?php //var_dump($post); ?>
+</pre>
+		@endif
+		<!-- intentionally not written as elseif so we can move these -->
+		@if ( ! Auth::check())
+		<a class="btn btn-warning" href="{{{ URL::to('user/login') }}}">Login for more options</a>
+		@endif
 
-		<p>
-			{{{$post->meta_description}}}
-		</p>
 	</div>
 	
 </div>
-<div class="row">
 
-
-
-	<!-- // <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js&skin=sunburst"></script> -->
-	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-
-
-<pre class="prettyprint">
-Uncomment to view Post $post
-<?php //var_dump($post); ?>
-</pre>
-	{{$post->content}}
-</div>
 
 					
 </div>
@@ -145,12 +140,22 @@ Uncomment to view Post $post
 <!-- //copy and edit buttons -->
 				@if (Auth::check())
 	                @if (Auth::user()->hasRole('admin'))
+
 					<p>
 						<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
 						<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
 					</p>
 					@endif
 				@endif
+
+<!-- 				@if (Auth::check())
+	                @if (Auth::user()->hasRole('admin'))
+					<p>
+						<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
+						<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
+					</p>
+					@endif
+				@endif -->
 <!-- 				<div class="pull-left">
 					<img src="http://gristech.com/img/{{ $post->image }}" class="thumbnail" style="padding:10px;">
 				</div> -->

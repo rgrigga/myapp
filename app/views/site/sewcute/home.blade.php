@@ -1,9 +1,10 @@
 @extends('layouts.scaffold')
 
 @section('admin-top')
+@if(Auth::user('admin'))
 @parent
 Welcome Administrator!
-
+@endif
 @stop
 
 @section('title')

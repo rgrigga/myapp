@@ -169,16 +169,21 @@ class BlogController extends BaseController {
 				$company = $this->company->where('brand','like','gristech')->first();
 			}
 
+
+/////////////// TAGS AND POSTS
+
 			$posttitle='%'.$tag.'%';
 			$posts = $this->post
+			->where('meta_keywords', 'LIKE', '%'.$company->brand.'%')
+	        ->where('meta_keywords','LIKE','%public%')
 			->where('title', 'LIKE', "$posttitle")
 			->orWhere('meta_keywords','LIKE', "$posttitle")
-	        ->where('meta_keywords', 'LIKE', '%'.$company->brand.'%')
-	        ->where('meta_keywords','LIKE','%public%')
+	        
 	        // ->where('content','LIKE','%'.$tag.'%')
 
 			->paginate(5);					
 			// die(count($posts));
+
 			if(count($posts)===1){
 				// die("found1");
 				$post=$posts;
@@ -188,8 +193,19 @@ class BlogController extends BaseController {
 				// ->with(compact('post'))
 				;
 			}
+
 			if (count($posts)===0) {
-				Session::flash('message', 'Sorry, I couldn\'t find anything with tag matching <strong>'.$tag.'</strong>');
+
+			$tags=array();		
+			foreach ($posts as $post) {
+				foreach ($post->tags() as $mytag) {
+					if(!in_array($mytag, $tags)){
+						array_push($tags, trim($mytag));
+					}
+				}
+			}
+
+			Session::flash('message', 'Sorry, I couldn\'t find anything with tag matching <strong>'.$tag.'</strong>');
 				return View::make('site/blog/tags')
 					// ->nest('index','site.blog.index')
 					->nest('carousel','site.partials.carousel')
@@ -203,7 +219,7 @@ class BlogController extends BaseController {
 			}
 
 			$tags=array();		
-			foreach ($this->post->get() as $post) {
+			foreach ($posts as $post) {
 				foreach ($post->tags() as $mytag) {
 					if(!in_array($mytag, $tags)){
 						array_push($tags, trim($mytag));
@@ -253,7 +269,7 @@ class BlogController extends BaseController {
 				// return Redirect::action('CompanyController@getIndex',$tag);
 				return View::make('site.'.strtolower($company->brand).'.home')
 				->nest('about','company.about')
-				->nest('contact','site.partials.social')
+				->nest('contact','site.partials.contact')
 				->with(compact('company'))
 				->with(compact('posts'))
 				;

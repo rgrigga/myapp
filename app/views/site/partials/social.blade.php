@@ -1,6 +1,4 @@
-
-
-<!-- @section('contact') -->
+<!-- @ section('contact') -->
 <div class="iconbar pull-right" style="padding-top:5px">
 <!-- 	<div class="iconbutton">
 		

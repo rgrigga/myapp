@@ -48,7 +48,9 @@ class Company extends Eloquent{
 		// $posts=
 		// return $posts;
 		die("COMPANY MODEL -> POSTS()");
+	}
 
-
+	public function directory(){
+		return "assets/".strtolower($this->brand);
 	}
 }

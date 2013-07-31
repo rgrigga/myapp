@@ -13,10 +13,11 @@ class AdminCommentsController extends AdminController
      * Inject the models.
      * @param Comment $comment
      */
-    public function __construct(Comment $comment)
+    public function __construct(Comment $comment, Company $company)
     {
         parent::__construct();
         $this->comment = $comment;
+        $this->company=$company;
     }
 
     /**
@@ -26,6 +27,10 @@ class AdminCommentsController extends AdminController
      */
     public function getIndex()
     {
+
+        $env=App::environment();
+        $company = $this->company->where('brand','like',$env)->first();
+        View::share('company',$company);
         // Grab all the comment posts
         $comments = $this->comment->orderBy('created_at', 'DESC')->paginate(10);
 

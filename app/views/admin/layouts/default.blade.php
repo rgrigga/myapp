@@ -94,6 +94,24 @@ For now, you may clone this public repository and develop it as much as you like
 			word-wrap:break-word;
 		}
 		</style>
+		<style>
+
+			/*http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site*/
+
+				.contentwrap{
+					padding-top: 0px;
+					}
+
+				@media screen and (max-width: 979px) {
+				    .contentwrap { padding-top: 20px; }
+					.span50{
+						width: 50%;
+					}
+				}
+
+
+			
+			</style>
 		@show
 
 <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css"> -->
@@ -200,7 +218,7 @@ For now, you may clone this public repository and develop it as much as you like
 				}
 
 				@media screen and (max-width: 979px) {
-				    .contentwrap { padding-top: 40px; }
+				    .contentwrap { padding-top: 0px; }
 					.span50{
 						width: 50%;
 					}
@@ -210,28 +228,11 @@ For now, you may clone this public repository and develop it as much as you like
 
 			<div class="logo">
 				<h1>{{$company->brand}}</h1>
-				<img src="{{asset('assets/'.$company->brand.'/'.$company->image)}}" alt="Company Logo">
+				<img src="{{asset('assets/'.strtolower($company->brand).'/'.$company->image)}}" alt="Company Logo">
 			</div>
 			@show
 
-			<style>
 
-			/*http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site*/
-
-				.contentwrap{
-					padding-top: 0px;
-					}
-
-				@media screen and (max-width: 979px) {
-				    .contentwrap { padding-top: 0px; }
-					.span50{
-						width: 50%;
-					}
-				}
-
-
-			
-			</style>
 			<div class="contentwrap">
 
 

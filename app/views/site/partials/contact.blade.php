@@ -1,5 +1,5 @@
 <!-- @ section('contact') -->
-<div class="iconbar">
+<div class="iconbar" id="contact">
 <!-- 	<div class="iconbutton">
 		
 	</div> -->

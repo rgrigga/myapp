@@ -43,6 +43,13 @@ Post Update ::
 		z-index: 5;
 		margin-top: 10%;
 	}
+
+	@media screen and (max-width: 979px) {
+	    .contentwrap { padding-top: 20px; }
+		.span50{
+			width: 50%;
+		}
+	}
 </style>
 <script>
 // 	$('[data-toggle=collapse]').click(function(){
@@ -112,19 +119,23 @@ Post Update ::
 <!-- Stuck: -->
 
 	<div class="pull-right well stuck">
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ URL::to('blog/'.$post->slug) }}" data-text="{{{$post->title}}} : {{{strip_tags($post->meta_description)}}}" data-via="ryangrissinger">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 		<h6><i class="icon-arrow-down"></i> pull-right well stuck</h6>
 		<img class="thumby" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}">
 		<h3 class="text-right">
 			<a href="#tweet"><i class="icon-twitter"></i></a>
 			<a href="#fb"><i class="icon-facebook"></i></a>
+
 		</h3>
 
 
 		
-		<h5>{{$post->title}}</h5>
-		
-		<p>{{$post->content}}</p>
+		<p>{{$post->title}} : {{$post->meta_description}} {{URL::to('blog/'.$post->slug)}} @{{{$company->twitter}}}</p>
+
 	</div>
+
+
 
 
 <!-- ************************************************************ -->
@@ -237,20 +248,7 @@ Post Update ::
 			
 	</div>
 
-//link to these:
-<i class="icon-facebook">icon-facebook</i>
-<i class="icon-thumbs-up">.icon-thumbs-up</i>
-<i class="icon-twitter">icon-twitter</i>
-<i class="icon-skype">icon-skype</i>
-<i class="icon-share">icon-share</i>
-<i class="icon-linkedin">icon-linkedin</i>
-<i class="icon-question-sign">icon-question-sign</i>
-<i class="icon-link">icon-link</i>
-<i class="icon-info-sign">icon-info-sign</i>
-<i class="icon-globe">icon-globe</i>
-<i class="icon-google-plus">icon-google-plus</i>
-<i class="icon-gears">icon-gears</i>
-<i class="icon-ok-circle">icon-ok-circle</i>
+
 
 <!-- ********************************************************* -->
 
@@ -273,7 +271,7 @@ Post Update ::
 
 		<div class="collapse in" id="MyDescription">
 			<div class="controls">
-				<textarea class="span12 redactor" name="meta-description" id="meta-description">{{{ Input::old('meta-description', $post->meta_description) }}}</textarea>
+				<textarea class="redactor" name="meta-description" id="meta-description">{{{ Input::old('meta-description', $post->meta_description) }}}</textarea>
 			</div>
 			<p><i class="icon-facebook"></i> Meta Description is a 158 character summary of your post.  The Meta-Description may be displayed as the text for a google result, for example...</p>
 			<p>It is also used on facebook</p>
@@ -298,10 +296,17 @@ Post Update ::
 		</a>
 		</label>
 
+		<style>
+			#MyContent{
+				/*max-height:400px;*/
+				/*overflow: scroll; */
+			}
+		</style>
+
 		<div class="collapse in" id="MyContent">
 			<div class="controls">
 
-				<textarea class="redactor" name="content" id="blog" style="height: 360px;">
+				<textarea class="redactor" name="content" id="redactor_content">
 
 				{{{ Input::old('content', $post->content) }}}
 				</textarea>
@@ -310,8 +315,27 @@ Post Update ::
 			<a href="http://imperavi.com/redactor/docs/">Redactor Docs</a>
 		</div>
 	</div>
-
-<!-- ************************************************************** -->		
+<script type="text/javascript">
+$(function()
+{
+    $('#redactor_content').redactor({
+        air: true
+    });
+});
+</script>
+<!-- ************************************************************** -->		<i class="icon-facebook">icon-facebook</i>
+<i class="icon-thumbs-up">.icon-thumbs-up</i>
+<i class="icon-twitter">icon-twitter</i>
+<i class="icon-skype">icon-skype</i>
+<i class="icon-share">icon-share</i>
+<i class="icon-linkedin">icon-linkedin</i>
+<i class="icon-question-sign">icon-question-sign</i>
+<i class="icon-link">icon-link</i>
+<i class="icon-info-sign">icon-info-sign</i>
+<i class="icon-globe">icon-globe</i>
+<i class="icon-google-plus">icon-google-plus</i>
+<i class="icon-gears">icon-gears</i>
+<i class="icon-ok-circle">icon-ok-circle</i>
 
 
 

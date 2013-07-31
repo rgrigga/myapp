@@ -132,7 +132,7 @@ $list=array(
 			@endforeach
 
 		        <div id="baz">
-					{{img('myapp','png');}}
+					{{img('myapp')}}
 					this moves.
 		        </div>
 		        <div id="baz2">
