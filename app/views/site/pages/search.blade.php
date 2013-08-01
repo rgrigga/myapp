@@ -21,7 +21,15 @@
 
 <h1>Search</h1>
 <p>This is a collection of search engine tools.</p>
+
+        <div class="row-fluid">
+            <div class="span4">
+                <div id="search_engine-US-monthly-201307-201307-bar" width="600" height="400" style="width:600px; height: 400px;"></div><!-- You may change the values of width and height above to resize the chart --><p>Source: <a href="http://gs.statcounter.com/#search_engine-US-monthly-201307-201307-bar">StatCounter Global Stats - Search Engine Market Share</a></p><script type="text/javascript" src="http://www.statcounter.com/js/FusionCharts.js"></script><script type="text/javascript" src="http://gs.statcounter.com/chart.php?search_engine-US-monthly-201307-201307-bar"></script>
+            </div>
+        </div>
+
 <h2>Google Custom Search</h2>
+
 
 <!-- // <script> -->
 <!-- //This is the google search tool -->

@@ -27,12 +27,14 @@ class AdminUsersController extends AdminController {
      * @param Role $role
      * @param Permission $permission
      */
-    public function __construct(User $user, Role $role, Permission $permission)
+    public function __construct(User $user, Role $role, Permission $permission, Company $company)
     {
         parent::__construct();
         $this->user = $user;
         $this->role = $role;
         $this->permission = $permission;
+        $this->company=$company;
+        View::share('company',$this->company);
     }
 
     /**
@@ -44,9 +46,9 @@ class AdminUsersController extends AdminController {
     {
         // Grab all the users
         $users = $this->user->paginate(10);
-
+        $company=$this->company;
         // Show the page
-        return View::make('admin/users/index', compact('users'));
+        return View::make('admin/users/index', compact('users','company'));
     }
 
     /**

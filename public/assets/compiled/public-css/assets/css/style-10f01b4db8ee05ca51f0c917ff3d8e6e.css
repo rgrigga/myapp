@@ -63,9 +63,9 @@ body {
         
     }
 
-    @media screen and (max-width: 979px) {
+    @media screen and (max-width: 780px) {
         .admin-top{
-        margin-top: 40px;
+        /*margin-top: 40px;*/
         }
 
         .page-header{
@@ -82,6 +82,7 @@ body {
       top:0px;
       /*width: 40%;*/
       /*right:20px;*/
+      z-index: 10;
     }
 
     @media screen and (min-width: 980px) {
@@ -91,7 +92,7 @@ body {
         .contentwrap { margin-top: 40px; }
         /*.pageheader{padding-top: 0px;}*/
         .affix{
-          margin-top:40px;
+          margin-top:80px;
         }
         .page-header{
           /*margin-top: 80px;*/

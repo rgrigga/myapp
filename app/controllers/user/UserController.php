@@ -254,9 +254,9 @@ class UserController extends BaseController {
         if ( Confide::logAttempt( $input, true ) )
         {
 
-            if(Auth::user()->hasRole('admin')){
-                return Redirect::to('admin');    
-            }
+            // if(Auth::user()->hasRole('admin')){
+            //     return Redirect::to('admin');    
+            // }
 
             $r = Session::get('loginRedirect');
             if (!empty($r))

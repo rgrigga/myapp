@@ -10,10 +10,10 @@
 	<!-- </h3> -->
 	<img src="{{{asset('assets/'.strtolower($company->brand).'/'.$company->image)}}}" alt="logo">
 	@if(Auth::user('admin'))
-	<p>Description:</p>
-	<pre class='prettyprint'><code>
-	<?php
-	// var_dump($company);
+	<p>{{{$company->description}}}</p>
+
+	<pre class='prettyprint'><code><?php
+// var_dump($company);
 	?>
 	</code></pre>
 	@endif

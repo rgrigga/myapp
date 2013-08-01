@@ -5,8 +5,7 @@
     <head>
     <title>
         @section('title')
-        Gristech MyApp 
-        <!-- layouts.scaffold -->
+        {{$company->brand}}
         @show
     </title>
 <!-- META ************************************-->
@@ -153,6 +152,7 @@
                 //     $path='/home/gristech/myapp/app/views/site/pages/';
                 // }
 
+// ACCOUNTS: twitter, facebook, 
 
                 $mypages = array();
                 foreach (glob($path."*.blade.php") as $filename) {
@@ -202,7 +202,10 @@
             
             @yield('hotel')
         </div>
-        @yield('footer')
+        <footer>
+        @yield('footer')            
+        </footer>
+
         @javascripts('public-js')
 
 

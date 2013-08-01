@@ -7,7 +7,7 @@ Blog Comment Management ::
 @stop
 
 {{-- Content --}}
-@section('content')
+@section('main')
 <div class="page-header">
 	<h3>
 		Blog Comment Management
@@ -25,20 +25,33 @@ Blog Comment Management ::
 		</tr>
 	</thead>
 	<tbody>
+		<?php
+// var_dump($comments);
+// die(var_dump($comment->user()->first()->id));
+// die(var_dump($comment->post()->first()->id));
+?>
 		@foreach ($comments as $comment)
-		<tr>
-			<td><a href="{{{ URL::to('admin/comments/'. $comment->id .'/edit') }}}">{{{ Str::limit($comment->content, 40, '...') }}}</a></td>
-			<td><a href="{{{ URL::to('admin/blogs/'. $comment->post()->first()->id .'/edit') }}}">{{{ Str::limit($comment->post()->first()->title, 40, '...') }}}</a></td>
-			<td><a href="{{{ URL::to('admin/users/'. $comment->user()->first()->id .'/edit') }}}">{{{ $comment->user()->first()->username }}}</a></td>
-			<td>{{{ $comment->created_at() }}}</td>
-			<td>
-				<a href="{{{ URL::to('admin/comments/' . $comment->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
-				<a href="{{{ URL::to('admin/comments/' . $comment->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
-			</td>
-		</tr>
+<?php
+// var_dump($comment);
+?>
+
+{{{$comment->id}}}</br>
+{{$comment->content}}</br>
+{{{ Str::limit($comment->content, 40, '...') }}}</br>
+{{{ URL::to('admin/comments/'.$comment->id .'/edit') }}}</br>
+<a href="{{{ URL::to('admin/users/'. $comment->user()->first()->id .'/edit') }}}">{{{ $comment->user()->first()->username }}}</a></br>
+<?php
+$post=$comment->post()->first();
+var_dump($post);
+echo $comment->post()->first()->title;
+?>
+
+
+</br>
+<hr>
 		@endforeach
 	</tbody>
 </table>
 
-{{{ $comments->links() }}}
+{{ $comments->links() }}
 @stop

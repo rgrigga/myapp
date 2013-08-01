@@ -119,19 +119,28 @@ Post Update ::
 <!-- Stuck: -->
 
 	<div class="pull-right well stuck">
-<a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ URL::to('blog/'.$post->slug) }}" data-text="{{{$post->title}}} : {{{strip_tags($post->meta_description)}}}" data-via="ryangrissinger">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-		<h6><i class="icon-arrow-down"></i> pull-right well stuck</h6>
-		<img class="thumby" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}">
-		<h3 class="text-right">
-			<a href="#tweet"><i class="icon-twitter"></i></a>
-			<a href="#fb"><i class="icon-facebook"></i></a>
+				<h6>
+					<a data-toggle="collapse" data-target="#tweet">
+						<i class="icon-arrow-down"></i>Toggle
+					</a>
+				</h6>
 
-		</h3>
+		<div class="collapse in" id="tweet">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ URL::to('blog/'.$post->slug) }}" data-text="{{{$post->title}}} : {{{strip_tags($post->meta_description)}}}" data-via="{{{$company->twitter}}}">Tweet</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+			<img class="thumby" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}">
+			<h3 class="text-right">
+				<a href="#tweet"><i class="icon-twitter"></i></a>
+				<a href="#fb"><i class="icon-facebook"></i></a>
+
+			</h3>
 
 
-		
-		<p>{{$post->title}} : {{$post->meta_description}} {{URL::to('blog/'.$post->slug)}} @{{{$company->twitter}}}</p>
+			
+			<p>{{$post->title}} : {{Str::limit($post->meta_description,'75','...')}} 
+				<a href="{{URL::to('blog/'.$post->slug)}}">{{URL::to('blog/'.$post->slug)}}</a> via {{{$company->twitter}}}</p>
+		</div>
 
 	</div>
 

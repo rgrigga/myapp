@@ -6,15 +6,11 @@
 <div class="page-header">
 <ul class="tag">
 	<li><i class="icon-tag"></i></li>
-
-
 		@foreach ($tags as $mytag)
 			<li><a href='/tags/{{$mytag}}'>{{$mytag}}</a></li>
 		@endforeach
 	
 </ul>
-
-
 	<h1>Tags<small>Find what you came for:</small></h1>
 <p>Hello there!</p>
 </div>
@@ -39,7 +35,7 @@
 				<div class="span4">
 					<a href="{{{ $post->url() }}}" class="thumbnail">
 						<!-- http://placehold.it/260x180 -->
-						<img src="http://gristech.com/img/{{{$post->image}}} " alt="{{{$post->image}}}">
+						<img src="asset('assets/{{{strtolower($company->brand).'/'.$post->image}}} " alt="{{{$post->image}}}">
 					</a>
 			<!-- Tags -->
 					<p>

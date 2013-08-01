@@ -15,6 +15,8 @@ class AdminRolesController extends AdminController {
      */
     protected $role;
 
+    protected $company;
+
     /**
      * Permission Model
      * @var Permission
@@ -27,12 +29,14 @@ class AdminRolesController extends AdminController {
      * @param Role $role
      * @param Permission $permission
      */
-    public function __construct(User $user, Role $role, Permission $permission)
+    public function __construct(Company $company, User $user, Role $role, Permission $permission)
     {
         parent::__construct();
+        $this->company=$company;
         $this->user = $user;
         $this->role = $role;
         $this->permission = $permission;
+        View::share('company',$this->company);
     }
 
     /**

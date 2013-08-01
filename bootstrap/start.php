@@ -40,7 +40,6 @@ $env = $app->detectEnvironment(array(
 	// 'dev' => array('Grisbuntu'),
 	
 	'buckeye' => array('domain' => 'buckeyemower.com' ),
-
 	'gristech' => array('domain' => 'myapp.gristech.com'),
 
 

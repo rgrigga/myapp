@@ -2,6 +2,7 @@
 
 class AdminController extends BaseController {
 
+    // private $company;
     /**
      * Initializer.
      *
@@ -10,6 +11,7 @@ class AdminController extends BaseController {
     public function __construct()
     {
         parent::__construct();
+        // $this->company=$company;
         // Apply the admin auth filter
         $this->beforeFilter('admin-auth');
     }

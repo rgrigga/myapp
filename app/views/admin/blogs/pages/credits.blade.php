@@ -1,3 +1,6 @@
+
+<a href="https://twitter.com/tos">Terms of service</a> · <a href="https://twitter.com/privacy">Privacy Policy</a>
+
 <a href="http://thenounproject.com/noun/lawn-mower/#icon-No2960">The Noun Project</a>
 <a href="http://css-tricks.com/using-svg/">http://css-tricks.com/using-svg/</a>
 <a href="http://www.codeproject.com/Articles/28309/Design-pattern-FAQ-Part-1-Training">design patterns</a>

@@ -25,20 +25,9 @@ Route::model('user', 'User');
 Route::model('comment', 'Comment');
 Route::model('post', 'Post');
 Route::model('role', 'Role');
-// Route::model('company','Company',function (){
-//     // die ("COMPANY MODEL NOT FOUND");
-// });
-// Route::model('company','Company');
 Route::model('company','Company');
 
-// Route::model('company','Company',function(){
-//         $company= Company::where('brand',"LIKE",'gristech')->first();
-//         // $company=App::make('company');
-//         // die(var_dump($company);
-//         return $company;
-//     });
-    Route::resource('companies', 'CompaniesController');
-// Route::controller('companies', 'CompaniesController');
+Route::resource('companies', 'CompaniesController');
 Route::resource('tweets', 'TweetsController');
 // Route::model('company','Company',function(){
 //     // return Company::where('brand',"LIKE",'gristech')->first();
@@ -62,10 +51,6 @@ Route::resource('tweets', 'TweetsController');
 // });
 
 // $env=App::environment();
-
-
-    
-
 
 
     // Route::get('dev',function(){
@@ -96,7 +81,7 @@ Route::resource('tweets', 'TweetsController');
     //     // http://tools.seobook.com/general/keyword-density/
     // });
 
-// Redactor Blog Upload
+// Redactor Blog Upload (incomplete)
 Route::post('redactorUpload', function()
 {
     $file = Input::file('file');
@@ -107,6 +92,13 @@ Route::post('redactorUpload', function()
 });
 
 // Route::group(array(''),)
+// Route::get('/advantage',function(){
+
+
+    // die("BAM");
+    // return CompanyController@show();
+// });
+
 
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 {
@@ -190,7 +182,27 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 
 });
 
-    Route::get('sewcute', 'CompanyController@sewcute');
+Route::group(array('prefix' => 'buckeye', 'before' => 'auth'), function()
+{
+    Route::get('/','CompanyController@buckeye');
+});
+
+// Route::group(array('prefix' => 'advantage', 'before' => 'auth'), function()
+// {
+    
+    
+
+//     Session::flash('mypath', 'advantage');
+//     Route::get('/','CompanyController@advantage');
+// });
+
+Route::group(array('prefix' => 'megacorp', 'before' => 'auth'), function()
+{
+    Route::get('/','CompanyController@megacorp');
+});
+
+Route::get('advantage','CompanyController@advantage');
+Route::get('sewcute', 'CompanyController@sewcute');
 /**
 
     MYAPP.DEV
@@ -648,6 +660,8 @@ Route::get('admin','AdminBlogsController@getIndex');
 
 Route::get('company/{id}','CompanyController@show')
     ->where('id', '[0-9]+');
+
+Route::get('company/mylist','CompanyController@mylist');
 Route::get('company/{name}','CompanyController@getIndex')
     ->where('name', '[a-zA-Z_]+');
 

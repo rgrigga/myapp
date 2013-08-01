@@ -1088,13 +1088,19 @@ altFormat: "DD, d MM, yy"
 
 @section('footer')
 
+  
+
 <div class="myfooter">
+  <h2><a href="https://twitter.com/welcome/intro">Twitter Intro</a></h2>
   <img class="center" src="{{asset('assets/buckeye/grass2.png')}}" alt="">
   <h3 class="center" id="myfooter">Let's get your gr<em>ass</em> in gear!</h3>
   <a class="btn btn-large" href="tel:7405076198"><h2>740-507-6198</h2></a>
   <p class="muted credit">&copy; 2013, Buckeye Mower & Gristech, All Rights Reserved</p>
   <p><a href="#credits">credits</a></p>
   {{$about}}
+
+  
+
 </div>
 
 <!-- <div class="span12"> -->

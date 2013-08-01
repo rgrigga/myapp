@@ -65,10 +65,10 @@
         <li class="span3">
             <div class="thumbnail">
                 <!-- <img src="holder.js/200x200"> -->
-                        <img class="thumby" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}">
+                <img class="thumby" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}">
                 <div class="caption">
                     <h3>{{$post->title}}</h3>
-                    <p>{{$post->meta_description}}</p>
+                    <p>{{Str::limit($post->meta_description,200,'...')}}</p>
                     <p align="center"><a href="{{{URL::to('/blog/'.$post->slug)}}}" class="btn btn-primary btn-block">Open Full View</a></p>
                 </div>
                 <!-- <img src="{{$post->image}}" alt=""> -->            
@@ -83,6 +83,8 @@
 
 <form method="POST" action="{{ URL::to('user/login') }}" accept-charset="UTF-8">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <p>Request: </p>
+    {{Session::get('mypath')}}
     <fieldset>
         <label for="email">{{ Lang::get('confide::confide.username_e_mail') }}</label>
         <input tabindex="1" placeholder="{{ Lang::get('confide::confide.username_e_mail') }}" type="text" name="email" id="email" value="{{ Input::old('email') }}">

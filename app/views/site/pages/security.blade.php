@@ -209,6 +209,7 @@ font-family: 'Fauna One', serif;
 
 <img src="asset('assets/gristech/password.png')" alt="">
 
+<a href="http://www.instantssl.com/ssl-certificate-products/https.html">What is https?  How does SSL work?</a>
 
 </div>
 <!-- row -->

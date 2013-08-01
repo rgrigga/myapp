@@ -47,6 +47,7 @@ class CompanyController extends UserController {
         $this->post = $post;
         $this->company = $company;
 
+        View::share('company',$this->company);
 
         // App::abort(404,'company controller construct'.var_dump($this->company));
 
@@ -65,14 +66,24 @@ class CompanyController extends UserController {
 	 * @return View
 	 */
 
+	public function sewcute(){
+
+		return $this->getIndex('sewcute',5);
+	}
+
+	public function advantage(){
+
+		return $this->getIndex('advantage',5);
+	}
+
 	public function buckeye(){
 		// $company = $this->company->where('brand', 'LIKE', 'buckeye')->first();
 		return $this->getIndex('buckeye',5);
 	}
 
-	public function sewcute(){
+	public function megacorp(){
 
-		return $this->getIndex('sewcute',5);
+		return $this->getIndex('megacorp',5);
 	}
 
 	public function gristech(){
@@ -131,11 +142,14 @@ class CompanyController extends UserController {
 		// }
 		
 		else{
-			View::share('company', $company);
+			// View::share('company', $company);
 		
+			// die(var_dump($posts));
+
 			// $posts=$this->company->posts;
 			$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$brand.'%')->paginate($num);
 
+			// View::share('menus',$this->company->menus());
 			// $views=array('foo','bar');
 			return View::make('site/'.$brand.'/home')
 				// die();
@@ -152,15 +166,32 @@ class CompanyController extends UserController {
 
 	}
 
+public function mylist(){
+
+	foreach ($this->company->all() as $company) {
+		echo $company->name."<br>";
+		// die();
+	}
+}
+
     public function show($id)
     {
+    	$num=5;
         $company = $this->company->findOrFail($id);
 // die(var_dump($company));
         $name=strtolower($company->brand);
+		$posts = $this->post->where(
+				'meta_keywords',
+		 		'LIKE',
+		 		'%'.$name.'%'
+		 	)->paginate($num);
+
         // die($name);
 
         return View::make('site.'.$name.'.home')
         	// ->with(compact('company'));
+				->nest('about','company.about')
+				->nest('contact','site.partials.contact')
         	->with(compact('company'))
 			->with(compact('tags'))
 			->with(compact('alltags'))

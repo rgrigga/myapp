@@ -2,14 +2,13 @@
 
 {{-- Web site Title --}}
 @section('title')
-{{ $post->title }} ::
 @parent
+ - {{ $post->title }}
 @stop
 
 {{-- Update the Meta Title --}}
 @section('meta_title')
-@parent
- :: {{ $post->title }} 
+{{$company->brand}} - {{ $post->meta_title }}
 @stop
 
 {{-- Update the Meta Description --}}
@@ -209,7 +208,7 @@ Click <a href="{{{ URL::to('user/login') }}}">here</a> to login into your accoun
 You don't have the correct permissions to add comments.
 @else
 <h4>Add a Comment</h4>
-<form method="post" action="{{{ URL::to($post->slug) }}}">
+<form method="post" action="{{{ URL::to('blog/'.$post->slug) }}}">
 	<input type="hidden" name="_token" value="{{{ Session::getToken() }}}" />
 
 	<textarea class="input-block-level" rows="4" name="comment" id="comment">{{{ Request::old('comment') }}}</textarea>
