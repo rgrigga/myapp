@@ -6,6 +6,8 @@ class AdminBlogsController extends AdminController {
     // method (interface) for admin and change the inheritance
     // to Blog?  Better yet, why not use polymorphism?
     
+    protected $company;
+
     /**
      * Post Model
      * @var Post
@@ -21,6 +23,7 @@ class AdminBlogsController extends AdminController {
         parent::__construct();
         $this->company=$company;
         $this->post = $post;
+        // die(var_dump($company));
     }
 
     /**
@@ -39,8 +42,14 @@ class AdminBlogsController extends AdminController {
                 // App::abort(404,'admin.blogs.controller');
             //     // return die('Sorry! Something is wrong with this account!');
             // });
+
+
+        // $c=App::make('company');
+        // die(var_dump($c));
+
         $env=App::environment();
         $company = $this->company->where('brand','like',$env)->first();
+        $brand=strtolower($company->brand);
 
         if(!$tag){
             $tag=$env;
@@ -70,9 +79,10 @@ class AdminBlogsController extends AdminController {
             // http://stackoverflow.com/questions/16695300/check-for-file-existence-if-laravels-blade-template
 
             if(count($posts)>0){
-
+            $brand=strtolower($company->brand);
             return View::make('admin/blogs/index', compact('posts','tags','company'))
                 ->with(compact('company'))
+                ->nest('piwik','site.'.$brand.'.piwik');
             // ->nest('dashboard','admin.dashboard')
             ;
 
@@ -89,7 +99,11 @@ class AdminBlogsController extends AdminController {
         $posts = $this->post->orderBy('created_at', 'DESC')->paginate($paginate);
 
         // Show the page
-        return View::make('admin/blogs/index', compact('posts','company'));
+        return View::make('admin/blogs/index', 
+            compact('posts','company'))
+        ->nest('piwik','site.'.$brand.'.piwik');
+
+        ;
     }
 
 	/**

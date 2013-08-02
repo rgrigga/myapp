@@ -32,18 +32,24 @@ $app = new Illuminate\Foundation\Application;
 $env = $app->detectEnvironment(array(
 
 //this is case-sensitive
-	'sewcute' => array('domain' => 'sewcute.dev' ),
-	'megacorp' => array('domain' => 'megacorp.dev' ),
-	'megacorp' => array('domain' => 'myapp.dev' ),
+	'advantage' => array('*/advantage/*'),
+	// 'sewcute' => array('*/sewcute','sewcute.dev'),
+	'megacorp' => array('domain' => 'megacorp.dev'),
+		'megacorp' => array('domain' => 'myapp.dev'),
+
+
+	// 'advantage' => array('prefix'=>'advantage'),
 	'local' => array('Grisbuntu'),
 	// 'megacorp' => 
 	// 'dev' => array('Grisbuntu'),
 	
-	'buckeye' => array('domain' => 'buckeyemower.com' ),
+	'buckeye' => array('domain' => 'buckeyemower.com'),
 	'gristech' => array('domain' => 'myapp.gristech.com'),
 
 
+
 ));
+
 
 /*
 |--------------------------------------------------------------------------

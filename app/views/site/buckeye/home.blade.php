@@ -2,7 +2,7 @@
 <!-- @ extends('site.layouts.buckeye') -->
 
 @section('title')
-Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
+{{$company->name}} - {{$company->slogan}}
 @stop
 
 @section('analytics')
@@ -19,11 +19,21 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
     /* Padding below the footer and lighter body text */
 
     body {
+
       padding-bottom: 40px;
       background-color: rgba(147,208,109,.3);
-      font-family: Lato;
+      font-family: 'Lato',Serif;
+      font-size: 16px;
       color:rgba(26,92,76,1);
     }
+
+  .page-header{
+    margin-left: -60px;
+    padding-left: 60px;
+    margin-right: -60px;
+    padding-right: 60px;
+    background-color: rgba(46, 204, 113,1.0);
+  }
 
   .hero-unit{
     color:rgba(34,120,100,.7);
@@ -174,6 +184,7 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
     }
     .marketing h2 {
       font-weight: normal;
+      padding-left: 5%
     }
     .marketing .span4 p {
       margin-left: 10px;
@@ -248,33 +259,37 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
     /* RESPONSIVE CSS
     -------------------------------------------------- */
 
-@media (min-width: 980px){
-  .page-header{
-    margin-top:60px;
-    /*background-color: red;*/
-  }
-}
+/*DESKTOP*/
+    @media (min-width: 980px){
+      .page-header{
+        margin-top:60px;
+        padding-top: 120px;
+        padding-bottom:120px;
+        /*background-color: red;*/
+      }
+    }
 
+/*LESS THAN DESKTOP*/
     @media (max-width: 979px) {
 
-.navbar .brand{
-  font-size: 18px;
-  padding-bottom: 0px;
-/*    padding: 5px 15px 5px; */
-}
-.navbar .iconbar{
-  font-size: 36px;
-  padding: 0px 15px 0px; 
-}
+      .navbar .brand{
+        font-size: 18px;
+        padding-bottom: 0px;
+      /*    padding: 5px 15px 5px; */
+      }
+      .navbar .iconbar{
+        font-size: 36px;
+        padding: 0px 15px 0px; 
+      }
 
-.navbar .container {
-  padding-left: 15px;
-  padding-right: 15px;
-}
+      .navbar .container {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
 
-.page-header{
-  margin-top: 60px;
-}
+      .page-header{
+        margin-top: 60px;
+      }
 /*      .container.navbar-wrapper {
         margin-bottom: 0;
         width: auto;
@@ -317,9 +332,27 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
       }
     }
 
+/*TABLET OR DESKTOP*/
+    @media (min-width: 768px) { 
+      .page-header{
+        
+        margin-top: 0px;
+        padding-top: 80px;
+        padding-bottom: 80px;
+      }
+      .modal{
+        width:90%;
+        /*height: 80%;*/
+        margin-left: -45%;
+      }
+    }
 
+/*LESS THAN TABLET*/
     @media (max-width: 767px) {
 
+  body{
+    font-size: 14px;
+  }
       /*.navbar-inner {
         margin: -20px;
       }
@@ -383,6 +416,8 @@ Buckeye Mower - Fast, Mobile Mower and Small Engine Repair
         line-height: 16px;
       }
     }
+
+
 
 
   /* Q & D */
@@ -534,51 +569,24 @@ a{
     margin-right: -60px;
     margin-left: -60px;
   }
-  .page-header{
-    margin-left: -60px;
-    padding-left: 60px;
-    margin-right: -60px;
-    padding-right: 60px;
-    background-color: rgba(46, 204, 113,1.0);
+
+
+
+
+  .iwrap{
+    /*max-width: 300px;*/
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
   }
 
-
-
-              .iwrap{
-                /*max-width: 300px;*/
-                text-align: center;
-                margin-right: auto;
-                margin-left: auto;
-              }
-
 /*              @media (max-width: 760px) { 
-                .page-header{
-                  margin-left: -100px;
-                  padding-left: 100px;
-
-                }*/
-
-
-
-              @media (min-width: 760px) { 
-                .page-header{
-                  
-                  margin-top: 0px;
-                  padding-top: 80px;
-                  padding-bottom: 80px;
-                }
-                .modal{
-                  width:90%;
-                  /*height: 80%;*/
-                  margin-left: -45%;
-                }
-              }
-    @media (min-width: 980px) { 
     .page-header{
-      /*background-color: red;*/
-      padding-top: 120px;
-      padding-bottom:120px; 
-    }
+      margin-left: -100px;
+      padding-left: 100px;
+
+    }*/
+
   }
 
     </style>
@@ -645,6 +653,7 @@ a{
 	<div class='page-header'>
     <!-- <img src="{{asset('assets/ico/buckeye/favicon.png')}}" alt=""> -->
     <div class="row-fluid">
+
       <div class="span6">
 
         <!-- http://stackoverflow.com/questions/7055393/css-center-image-using-text-align-center -->
@@ -680,16 +689,14 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css" />
 
-
- <script>
+<script>
 $(function() {
-$( "#datepicker" ).datepicker({
-altField: "#alternate",
-altFormat: "DD, d MM, yy"
-});
+  $( "#datepicker" ).datepicker({
+    altField: "#alternate",
+    altFormat: "DD, d MM, yy"
+  });
 });
 </script>
-
 
 <!-- <a data-toggle="MyModal" class="btn" href="#schedule">Schedule</a> -->
 <div class="modal hide fade" id="schedule">
@@ -706,20 +713,65 @@ altFormat: "DD, d MM, yy"
           <div class="tab-content">
 
             <div class="tab-pane fade" id="three">
-              <form method="post" action='' name="login_form">
+
+<style>
+  .radio, .checkbox{
+    margin-left: 10%;
+    padding-left: 20%;
+  }
+</style>
+  <form method="POST" action="{{ URL::to('user/login') }}" accept-charset="UTF-8">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <p>Request: </p>
+    {{Session::get('mypath')}}
+    <fieldset>
+        <label for="email">{{ Lang::get('confide::confide.username_e_mail') }}</label>
+        <input tabindex="1" placeholder="{{ Lang::get('confide::confide.username_e_mail') }}" type="text" name="email" id="email" value="{{ Input::old('email') }}">
+
+        <label for="password">
+            {{ Lang::get('confide::confide.password') }}
+            <small>
+                <a href="forgot">{{ Lang::get('confide::confide.login.forgot_password') }}</a>
+            </small>
+        </label>
+        <input tabindex="2" placeholder="{{ Lang::get('confide::confide.password') }}" type="password" name="password" id="password">
+
+        <label for="remember" class="checkbox">{{ Lang::get('confide::confide.login.remember') }}
+          <input type="hidden" name="remember" value="0">
+          <input tabindex="4" type="checkbox" name="remember" id="remember" value="1">
+        </label>
+
+        @if ( Session::get('error') )
+        <div class="alert alert-error">{{ Session::get('error') }}</div>
+        @endif
+
+        @if ( Session::get('notice') )
+        <div class="alert">{{ Session::get('notice') }}</div>
+        @endif
+
+        @if ( Session::get('info') )
+        <div class="alert">{{ Session::get('info') }}</div>
+        @endif
+
+        <button tabindex="3" type="submit" class="btn btn-large btn-warning">{{ Lang::get('confide::confide.login.submit') }}</button>
+    </fieldset>
+</form>
+
+
+<!--               <form method="post" action='' name="login_form">
                 <p><input type="text" class="span12" name="eid" id="email" placeholder="Name"></p>
                 <p><input type="password" class="span12" name="passwd" placeholder="Secret"></p>
                 <p>
                   <button type="submit" class="btn btn-primary">Sign in</button>
                 </p>
-              </form>
+              </form> -->
             </div>
 
             <div class="tab-pane fade" id="two">
               <form method="post" action='' name="forgot_password">
-                <p>a brief explanation of your problem will help.</p>
-                <input type="text-area wysiwyg5" class="span12" name="eid" id="email" placeholder="How can we help you?">
-<p>Date: <input type="text" id="datepicker" />&nbsp;<input type="text" id="alternate" size="30" /></p>
+                <p>A brief explanation of your problem will help:</p>
+                <input type="text-area redactor" class="span10" name="eid" id="email" placeholder="How can we help you?">
+                <p>When would you like to schedule? <input type="text" id="datepicker" />&nbsp;<input type="text" id="alternate" size="30" /></p>
 
                 <p><button type="submit" class="btn btn-primary">Submit</button><a href="#three">Next</a>
                 </p>
@@ -729,23 +781,24 @@ altFormat: "DD, d MM, yy"
             <div class="tab-pane active" id="one">
 
               <div class="row-fluid">
-                <div class="iwrap span8">
+<!--                 <div class="iwrap span8">
                   <iframe src="https://www.google.com/calendar/embed?title=Buckeye%20Appointment%20Schedule&amp;showPrint=0&amp;showTabs=0&amp;mode=WEEK&amp;height=400&amp;wkst=1&amp;bgcolor=%23ffff00&amp;src=kr3c44msss9qmsuu96hmaddv5c%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=America%2FNew_York" style=" border-width:0 " width="360" height="400" frameborder="0" scrolling="no"></iframe>
-                </div>
-                <div class="span4">
-                  <!-- <h6>How can we help you?</h6> -->
-                  <h6>Instructions:</h6> 
-                  <p>You have 3 steps left.  This will take you about 5 minutes.</p>
-                  <p>If you'd rather, you can also call me at:</p>
+                </div> -->
+                <div>
+                  <p>Please call me at:</p>
                   <h2 class="text-center" href="tel:7405076198">740-507-6198</h2>
+                  <!-- <h6>How can we help you?</h6> -->
+<!--                   <h6>Instructions:</h6> 
+                  <p>You have 3 steps left.  This will take you about 5 minutes.</p> -->
+                  
                   <h4 class="text-center">russ@buckeyemower.com</h4>
-                  <div class="coupon">
+                  <div class="coupon span4">
                     <h4>10% Off</h4>
                     <p>Get 10% off for mentioning this coupon. How? <strong>Just Ask!</strong></p>
                   </div>
-                  <h2 class="text-center">
-                    @include('site.partials.contact-buckeye')
-                  </h2>
+<!--                   <h2 class="text-center">
+                    @ include('site.partials.contact-buckeye')
+                  </h2> -->
                 </div>
               </div>
             </div>
@@ -761,13 +814,13 @@ altFormat: "DD, d MM, yy"
     <!-- <div class="row-fluid text-center"> -->
       <ul class="nav nav-pills">
         <li class="active">
-          <a href="#one" data-toggle="tab" >1</a>
+          <a href="#one" data-toggle="tab" >Instructions</a>
         </li>
         <li>
-          <a href="#two" data-toggle="tab">2</a>
+          <a href="#two" data-toggle="tab">Calendar</a>
         </li>
         <li>
-          <a href="#three" data-toggle="tab">3</a>
+          <a href="#three" data-toggle="tab">Log In</a>
         </li>
       </ul>
     <!-- </div> -->
@@ -778,32 +831,6 @@ altFormat: "DD, d MM, yy"
 
 
 
-<!-- ***********************************************8 -->
-
-<a href="#story" role="button" class="btn btn-large pull-right" data-toggle="modal">
-          <strong>:)</strong>
-        </a>
-
-<style>
-  #story{
-    /*width: 70%;*/
-    /*margin: auto;*/
-    /*height: 80%;*/
-  }
-</style>
-    <div id="story" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
-    <div class="modal-header text-center">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-      <h3 id="myModalLabel2">Buckeye Mower will save your weekend.</h3>
-    </div>
-    <div class="modal-body">
-      <img src="http://sbt.blob.core.windows.net/storyboards/rgrissinger/mower.png" alt="The Story of how Mobile Mower Repair saves a marriage" />
-    </div>
-    <div class="modal-footer">
-      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-      <!-- <button class="btn btn-primary">Save changes</button> -->
-    </div>
-  </div>
 
 
 
@@ -878,12 +905,12 @@ altFormat: "DD, d MM, yy"
         <style>
 
         </style>
-        <div class="price-star">
+<!--         <div class="price-star">
           <img src="{{asset('assets/buckeye/49.png')}}" alt="Starting at $49" class="pull-right price">
           <p>As Low As</p>
           <h6>$49</h6>
           <p></p>
-        </div>
+        </div> -->
         
         <img class ="featurette-image myimage img-circle pull-right" src="{{asset('assets/buckeye/push.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
         <!-- </div> -->
@@ -962,27 +989,47 @@ altFormat: "DD, d MM, yy"
 
       <div class="featurette">
 
+
         <img class="featurette-image pull-left mysvg myimage img-circle" src="{{asset('assets/buckeye/noun_project_13832.svg')}}" alt="serving central ohio">
         <!-- <i class="icon-cogs icon6"></i> -->
         <h2 class="featurette-heading">Factory Trained. <span class="muted">Any Brand.</span></h2>
         
-        <p class="lead">I am <strong>Factory Trained</strong>, and I regularly work on all major brands:
-<ul>
-  <li>
-    <a href="http://www.toro.com/en-us/homeowner/mowers/Pages/default.aspx">
-      <img src="{{asset('assets/buckeye/cubcadet.jpg')}}" alt="">
-    </a>
-  </li>
-
-  <li>
-    <a href="http://www.toro.com/en-us/homeowner/mowers/Pages/default.aspx">
-      <img src="{{asset('assets/buckeye/1968_logo.jpg')}}" alt="">
-    </a>
-  </li>
-</ul>
-         <p class="lead">Looking for a mower?  Here is the <a href="http://www.consumerreports.org/cro/lawn-mowers/buying-guide.htm">Lawn Mower Buying Guide</a> from consumer reports.</p>
+        <p class="lead">I am <strong>Factory Trained</strong>, and I regularly work on all major brands:</p>
+        <p class="lead">Looking for a mower?  Here is the <a href="http://www.consumerreports.org/cro/lawn-mowers/buying-guide.htm">Lawn Mower Buying Guide</a> from consumer reports.</p>
          <p>
          I have a passion for this equipment: and I will treat your equipment like it was my own.</p>
+          
+          <!-- <img class="featurette-image" src="{{asset('assets/buckeye/toro.jpg')}}" alt=""> -->
+          <style>
+          ul.thumbnails{
+            margin-left: 0;
+          }
+          .featurette > .thumbnails img{
+            max-width: 300px;
+            /*background-color: red;*/
+          }
+          </style>
+<!-- <div> -->
+  <ul class="thumbnails">
+    <li>
+      <a class="thumbnail" href="http://www.toro.com/en-us/homeowner/mowers/Pages/default.aspx">
+        <img src="{{asset('assets/buckeye/deere.png')}}" alt="">
+      </a>
+    </li>
+    <li>
+      <a  class="thumbnail" href="http://www.toro.com/en-us/homeowner/mowers/Pages/default.aspx">
+         <img class="featurette-image" src="{{asset('assets/buckeye/toro.jpg')}}" alt="">
+      </a>
+    </li>
+    <li>
+      <a class="thumbnail" href="http://www.toro.com/en-us/homeowner/mowers/Pages/default.aspx">
+        <img class="featurette-image" src="{{asset('assets/buckeye/cubcadet.jpg')}}" alt="">
+      </a>
+    </li>
+
+  </ul>
+<!-- </div> -->
+
       </div>
 
       <hr class="featurette-divider">
@@ -1027,25 +1074,36 @@ altFormat: "DD, d MM, yy"
   @foreach ($posts as $post)
     <div class="row-fluid">
       <div class="span3 ">
-        <p></p>
         <p>
-      <!-- Edit/Delete Buttons -->
-        <div class="metabuttons pull-left">
-          @if (Auth::check())
-          <!-- //if logged in -->
-            @if (Auth::user()->hasRole('admin'))
-              <p>
-                <a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
-                <a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
-              |</p>
-            @endif
-          @endif
-        </div>
+        <!-- Edit/Delete Buttons -->
+          <div class="metabuttons pull-left">
+            @if (Auth::check())
+            <!-- //if logged in -->
 
+            <!-- TAGS -->
+                <ul class='tag'>
+                  <li><i class="icon-tag"></i></li>
+                  @foreach($post->tags() as $tag)
+                      <li><a href="{{ $tag }}">{{ $tag }}</a></li>
+                  @endforeach
+                </ul>
+
+            <!-- COMMENTS -->
         <!-- Comments -->
           &nbsp;<i class="icon-user"></i> by <span class="muted">{{{ $post->author->username }}}</span>
           | <i class="icon-calendar"></i> <!--Sept 16th, 2012-->{{{ $post->date() }}}
           | <i class="icon-comment"></i> <a href="{{{ $post->url() }}}#comments">{{$post->comments()->count()}} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
+
+              @if (Auth::user()->hasRole('admin'))
+                <p>
+                  <a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
+                  <a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
+                |</p>
+              @endif
+            @endif
+          </div>
+
+
         </p>
       </div>
     </div>
@@ -1062,7 +1120,7 @@ altFormat: "DD, d MM, yy"
 
       <h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
       <p>
-      {{ String::tidy(Str::limit($post->meta_description, 300)) }}
+      {{ Str::limit($post->meta_description, 300) }}
       </p>
       <p>
         <a class="btn btn-info btn-large" href="{{{ $post->url() }}}">read more</a>
@@ -1070,14 +1128,7 @@ altFormat: "DD, d MM, yy"
       </p>
     </div>
 
-    <ul class='tag'>
-      <li><i class="icon-tag"></i></li>
-      @foreach($post->tags() as $tag)
-        
-          <li><a href="{{ $tag }}">{{ $tag }}</a></li>
-          
-      @endforeach
-    </ul>
+
 
   @endforeach
   {{ $posts->links() }}
@@ -1091,10 +1142,8 @@ altFormat: "DD, d MM, yy"
   
 
 <div class="myfooter">
-  <h2><a href="https://twitter.com/welcome/intro">Twitter Intro</a></h2>
-  <img class="center" src="{{asset('assets/buckeye/grass2.png')}}" alt="">
-  <h3 class="center" id="myfooter">Let's get your gr<em>ass</em> in gear!</h3>
-  <a class="btn btn-large" href="tel:7405076198"><h2>740-507-6198</h2></a>
+
+
   <p class="muted credit">&copy; 2013, Buckeye Mower & Gristech, All Rights Reserved</p>
   <p><a href="#credits">credits</a></p>
   {{$about}}
@@ -1113,7 +1162,21 @@ altFormat: "DD, d MM, yy"
 <!-- </div> -->
 
 
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
 
+  (function() {
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://l4.gristech.com/piwik/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "3"]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik Code -->
 @stop
 
 @section('hotel')

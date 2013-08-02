@@ -16,6 +16,7 @@
 |
 */
 
+// https://github.com/laravel/laravel/issues/2164 - laravel multisite discussion
 
 /** ------------------------------------------
  *  Route model binding
@@ -98,6 +99,17 @@ Route::post('redactorUpload', function()
     // die("BAM");
     // return CompanyController@show();
 // });
+// Route::group(array('domain' => '{account}.myapp.gristech.com'), function()
+// {
+
+//     Route::get('/', function($account, $id)
+//     {
+//         echo $account;
+//     });
+
+// });
+
+
 
 
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
@@ -172,7 +184,6 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     //     ->where('company', '[0-9]+');
     // Route::controller('companies', 'AdminCompaniesController');
 
-
     Route::controller('companies', 'AdminCompaniesController');
 
     # Admin Dashboard
@@ -182,27 +193,9 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 
 });
 
-Route::group(array('prefix' => 'buckeye', 'before' => 'auth'), function()
-{
-    Route::get('/','CompanyController@buckeye');
-});
+// Route::group(array('domain'=>))
 
-// Route::group(array('prefix' => 'advantage', 'before' => 'auth'), function()
-// {
-    
-    
 
-//     Session::flash('mypath', 'advantage');
-//     Route::get('/','CompanyController@advantage');
-// });
-
-Route::group(array('prefix' => 'megacorp', 'before' => 'auth'), function()
-{
-    Route::get('/','CompanyController@megacorp');
-});
-
-Route::get('advantage','CompanyController@advantage');
-Route::get('sewcute', 'CompanyController@sewcute');
 /**
 
     MYAPP.DEV
@@ -341,16 +334,7 @@ Route::group(array('domain' => 'myapp.dev'),function()
     });
 
 
-    // Route::get('login',function(Company $company){
-    //     // die("BAM");
-    //     return Redirect::to('user/login')
-    //         ->withInput(Input::except('password'))
 
-    //         ->with( 'success', $success )
-    //         ->with( 'error', $error )
-    //         ->with( 'warning', $warning )
-    //         ->with( 'info', $info );
-    // });
     
     Route::get('mytest/{brand?}',function($brand){
         //http://gristech.com/mytest/1
@@ -487,33 +471,18 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
         {
             // die("buckeye filter");
             $message="Sorry. You are not authorized to view that.  Would you like to log in?";
+            App::abort(404,"You aren't authorized.");
             return Redirect::to('user/login')
                 ->with('info',$message);
                 // ->with('howdy',$message);
+
         }
         // die("BAM");
         // Route::controller('admin', 'AdminDashboardController');
     });
 
 
-    Route::group(array('before' => 'buckeye'), function(){
 
-        // Route::get('admin',function(){
-        //     // die(var_dump($company));
-        //     // die("BAM");
-        //     // $company=  Company::where('brand',"LIKE",'buckeye')->first();
-        //     return Redirect::to('user/login')
-
-        //         // ->withInput(Input::except('password'))
-        //         ->with( 'info', 'Please login.  Thank You.' );
-        // });
-
-        Route::get('protected',function(){
-            return "To see this, you must be a memeber of the buckeye group.";
-            // die(var_dump($company));
-        });
-
-    });
 
         // Route::get('companies*',function(){
         //     return "This failed as expected!";
@@ -540,7 +509,35 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
     // 1. pass data as a parameter.
     Route::controller('admin','AdminBlogsController');
         // Route::get('/{tag}', 'BlogController@getIndex');
-    Route::get('/{tag}','BlogController@getIndex');
+    Route::get('login',function(){
+        return Redirect::to('user/login');
+    });
+    
+    Route::group(array('before' => 'buckeye'), function(){
+
+        // Route::get('admin',function(){
+        // //     // die(var_dump($company));
+        // //     // die("BAM");
+        // //     // $company=  Company::where('brand',"LIKE",'buckeye')->first();
+        // //     return Redirect::to('user/login')
+
+        // //         // ->withInput(Input::except('password'))
+        // //         ->with( 'info', 'Please login.  Thank You.' );
+        // });
+
+        Route::get('protected',function(){
+            return "To see this, you must be a memeber of the buckeye group.";
+            // die(var_dump($company));
+        });
+        
+        Route::get('tags', 'BlogController@getIndex');
+        Route::post('tags', 'BlogController@getIndex');
+        Route::get('tags/{tag}', 'BlogController@getIndex');
+        Route::get('/{tag}','CompanyController@buckeye');
+
+    });
+
+
 
     // View::make('buckeye');
     
@@ -691,6 +688,31 @@ Route::controller('user', 'UserController');
 // STATIC PAGES: ///////////////////////////////////////////////////
 # Technical/Development Static Page
 
+Route::get('pages',function(){
+    $env=App::environment();
+    $path='../app/views/site/'.$env.'/';
+    // die($path);
+    // $path='../app/views/site/pages/';
+
+    $mypages = array();
+    foreach (glob($path."*.blade.php") as $filename) {
+        $filename=str_replace($path, "", $filename);
+        $filename=str_replace(".blade.php", "", $filename);
+        array_push($mypages,$filename);
+        // echo "$filename" . "<br>";
+        // die();
+    }
+
+    if(empty($mypages)){
+        $msg="Could not find any pages in $path";
+        Session::flash('message', $msg);
+        App::abort('404',$msg);
+    }
+    else {
+       return $mypages;
+    }
+});
+
 Route::get('pages/{page}',function($page){
         $env=App::environment();
             $path='../app/views/site/'.$env.'/';
@@ -726,7 +748,7 @@ Route::get('pages/{page}',function($page){
                 ->with(compact('posts'));
                  // $view;
             }
-            return("No page by the name $page!".var_dump($mypages));
+            return("No page by the name $page!");
 });
 
 Route::get('tags', 'BlogController@getIndex');
@@ -741,7 +763,7 @@ Route::get('blog/{postSlug}', 'BlogController@getView');
 Route::get('blog', 'BlogController@getIndex');
 
 Route::get('show/{tag}','BlogController@show');
-Route::get('search/{tag}','BlogController@getIndex');
+Route::get('search/{tag}','BlogController@search');
 
 // Route::get('company/{company}',function(Company $company){
 //     // var_dump($company);
@@ -754,6 +776,53 @@ Route::get('mytest',function(){
 
 // $company=Company::where('brand','like','buckeye')->first();
 // die(var_dump($company));
+
+
+Route::group(array('prefix' => 'buckeye', 'before' => 'buckeye'), function()
+{
+    // App::make('company', function(){
+        return Company::where('brand','like','buckeye')->get();
+    // });
+    // Route::get('/','CompanyController@buckeye');
+});
+
+Route::group(array('prefix' => 'advantage'), function()
+{
+    // Config::set('company','advantage');
+    App::bind('company', function(){
+        return Company::where('brand','like','advantage')->get();
+    });
+    
+//     Session::flash('mypath', 'advantage');
+
+
+    Route::get('/','CompanyController@advantage');
+});
+// Config::set('company','gristech');
+// Route::get('/{company}',function(Company $company){
+//     // var_dump($company);
+// });
+
+Route::group(array('prefix' => 'megacorp', 'before' => 'auth'), function()
+{
+    App::bind('company', function(){
+        return Company::where('brand','like','megacorp')->get();
+    });
+    Route::get('/','CompanyController@megacorp');
+});
+
+Route::group(array('prefix' => 'sewcute'), function()
+{
+    // App::bind('company', function(){
+    //     return Company::where('brand','like','sewcute')->get();
+    // });
+    // Route::get('/','CompanyController@sewcute');
+});
+
+// Route::get('advantage','CompanyController@advantage');
+Route::get('sewcute', 'CompanyController@sewcute');
+
+
 
 Route::get('/{tag}', 'BlogController@getIndex');
 

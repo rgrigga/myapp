@@ -21,6 +21,7 @@
                 </li>
 
                 <li>
+                    10 digits, no dashes, eg 6145551212
                     {{ Form::label('phone', 'Phone:') }}
                     {{ Form::text('phone') }}
                 </li>
@@ -84,9 +85,14 @@
             </ul>
         @endif
     </div>
-    <div class="span7">
+    <div class="span7 text-center well">
         <h1>PREVIEW:</h1>
         {{--View::make('company.about')--}}
+
+        @if(Auth::user('admin'))
+        <!-- <pre><code>View::make('company/about');</code></pre> -->
+        @endif
+
         {{$about}}
     </div>
     <!-- span7 -->

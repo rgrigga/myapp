@@ -257,8 +257,11 @@ For now, you may clone this public repository and develop it as much as you like
 					@yield('main')
 						<!-- ./ content -->
 			</div>
-					<!-- ./ container -->
-
+			<footer>		<!-- ./ container -->
+			@section('footer')
+			Footer!
+			@show
+			</footer>
 					<!-- Javascripts
 					================================================== -->
 {{ Basset::show('admin-js.js') }}
@@ -371,6 +374,8 @@ For now, you may clone this public repository and develop it as much as you like
 		});
 		
 	</script>
+
+
 
 	</body>
 </html>

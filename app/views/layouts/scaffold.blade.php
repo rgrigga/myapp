@@ -1,5 +1,7 @@
 <!doctype html>
 <html lang="en">
+<!-- http://stackoverflow.com/questions/1461907/html-encoding-issues-character-showing-up-instead-of-nbsp -->
+
 <!-- This is layouts.scaffold -->
 <!-- check out http://flatuicolors.com/ -->
     <head>
@@ -11,6 +13,7 @@
 <!-- META ************************************-->
     @section('meta')
         <meta charset="utf-8">
+        <!-- <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> -->
         <meta name="author" content="Ryan Grissinger" />
         <!-- Mobile Specific Metas
         ================================================== -->
@@ -19,6 +22,7 @@
         <!-- if you forgot to stick this line in the page.  The full site appears on a mobile device... -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @show
+
 
 
 <!-- STYLES **********************************-->
@@ -137,7 +141,7 @@
                 // }
                 if(Auth::user('admin')){
                     $path='/home/ryan/MyApp6/app/views/site/pages/';
-                    // Session::flash('mymessage','Welcome to the <strong>'.$env.'</strong> environment.');
+                    Session::flash('message','Welcome to the <strong>'.$env.'</strong> environment.');
                 }
                 else
 

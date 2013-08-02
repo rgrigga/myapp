@@ -29,23 +29,23 @@ return array(
     'collections' => array(
 
         
-        'buckeye-css' => function($collection)
+        'buckeye' => function($collection)
         {
-            $collection->directory('assets/buckeye/css', function($collection)
-            {
-                $collection->add('bootstrap.min.css');
-                $collection->add('bootstrap-responsive.min.css');
-                $collection->add('buckeye.css');
-            })->apply('UriRewriteFilter')->setArguments(public_path());
-        },
 
-        'buckeye-js' => function($collection)
-        {
-            $collection->directory('assets/buckeye/js', function($collection)
-            {
-                $collection->add('jquery.v1.8.3.min.js');
-                $collection->add('bootstrap/bootstrap.min.js');
-            })->apply('UriRewriteFilter')->setArguments(public_path());
+                $collection->directory('assets/buckeye/css', function($collection)
+                {
+                    // $collection->add('less/master.less')->apply('Less');
+                    $collection->add('bootstrap.min.css');
+                    $collection->add('bootstrap-responsive.min.css');
+                    $collection->add('buckeye.css');
+                })->apply('UriRewriteFilter')->setArguments(public_path());
+
+                $collection->directory('assets/buckeye/js', function($collection)
+                {
+                    $collection->add('jquery.v1.8.3.min.js');
+                    $collection->add('bootstrap/bootstrap.min.js');
+                })->apply('UriRewriteFilter')->setArguments(public_path());
+
         },
 
 
@@ -54,6 +54,7 @@ return array(
         {
             $collection->directory('assets/css', function($collection)
             {
+                // $collection->add('less/master.less')->apply('Less');
                 $collection->add('bootstrap.min.css');
                 $collection->add('bootstrap-responsive.min.css');
                 // $collection->add('redactor/redactor.min.js');
@@ -77,11 +78,13 @@ return array(
         {
             $collection->directory('assets/css', function($collection)
             {
+                // $collection->add('less/master.less')->apply('Less');
                 $collection->add('bootstrap.min.css');
                 $collection->add('wysihtml5/prettify.css');
                 $collection->add('bootstrap-responsive.css');
                 $collection->add('wysihtml5/bootstrap-wysihtml5-0.0.2.css');
                 $collection->add('style.css');
+                $collection->add('redactor/redactor.css');
             })->apply('UriRewriteFilter')->setArguments(public_path());
         },
         'admin-js' => function($collection)
@@ -94,7 +97,7 @@ return array(
                 $collection->add('bootstrap/bootstrap.min.js');
                 $collection->add('wysihtml5/bootstrap-wysihtml5.js');
                 $collection->add('redactor/redactor.min.js');
-                $collection->add('redactor/redactor.css');
+
             })->apply('UriRewriteFilter')->setArguments(public_path());
         },
 

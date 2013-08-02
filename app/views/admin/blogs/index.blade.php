@@ -71,6 +71,43 @@ function myviews(array $array){
 <div>
 	 <span class="label label-info">Info</span> Need help?  Please ask!
 </div>
+
+<?php
+function getRealIpAddr()
+{
+  if (!empty($_SERVER['HTTP_CLIENT_IP']))
+  //check ip from share internet
+  {
+    $ip=$_SERVER['HTTP_CLIENT_IP'];
+  }
+  elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+  //to check ip is pass from proxy
+  {
+    $ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+  }
+  else
+  {
+    $ip=$_SERVER['REMOTE_ADDR'];
+  }
+  return $ip;
+}
+
+// echo getRealIpAddr();
+
+?>
+
+<h2>IP: {{getRealIpAddr()}}</h2>
+
+	<style>
+		.piwik iframe{
+			min-height: 70%;
+		}
+	</style>
+
+	<div class="piwik">
+	<h2>Piwik:</h2>
+		{{$piwik}}
+	</div>
 <div class="page-header">
 	
 	<h3>
@@ -96,7 +133,8 @@ function myviews(array $array){
 	<a href="http://www.make-rss-feeds.com/making-an-rss-feed.htm">RSS Feeds</a>
 			{{myviews($array)}}
 </div>
-		<ul class="thumbnails">
+<section>
+			<ul class="thumbnails">
 			@foreach ($posts as $post)
 			<li>
 				<div class="thumbnail span2">
@@ -116,6 +154,12 @@ function myviews(array $array){
 			</li>
 			@endforeach
 		</ul>
+</section>
+
+
+
+
+
 <table class="table table-bordered table-hover">
 	<thead>
 		<tr>
@@ -157,11 +201,13 @@ $c='<img src='.$url.'>';
 
     <blockquote class="pull-right">
     <p>The solution to this is so easy that its lack of popularity and diffusion makes us burn with nerd rage.</p>
-    <small>Someone famous <cite title="Source Title">http://ruby.bvision.com/blog/please-stop-embedding-bootstrap-classes-in-your-html</cite></small>
+    <small>Someone famous <cite title="Source Title"><a href="http://ruby.bvision.com/blog/please-stop-embedding-bootstrap-classes-in-your-html">http://ruby.bvision.com/blog/please-stop-embedding-bootstrap-classes-in-your-html</a></cite></small>
     </blockquote>
 
 
-<a href="http://www.templatemonster.com/infographics/bootstrap-interactive-infographics.php"><img src="http://t.tmimgcdn.com/themes/default/images/interactive-responsive-webdesign-infographic/interactive-responsive-webdesign.jpg" alt="Responsive Bootstrap Web Design" title="Interactive Responsive Webdesign Infographic" /></a><br />Via: <a href="http://www.templatemonster.com/">TemplateMonster.com</a>
+
+
+
 
 <div class="span3">
 	<address>
@@ -194,3 +240,6 @@ $c='<img src='.$url.'>';
 
 @stop
 
+@section('footer')
+
+@stop

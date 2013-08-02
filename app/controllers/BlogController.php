@@ -68,12 +68,13 @@ class BlogController extends BaseController {
         $this->user = $user;
         $this->company = $company;
 
+
         // $this->todo = array('hello','bar','make list');
+    // $c=App::make('company');
 
         // View::share('posts',$posts);
         // View::share('posts',$posts);
         View::share('company',$this->company);
-
     }
 
 	/**
@@ -115,7 +116,7 @@ class BlogController extends BaseController {
 				return false;
 		    }
 		    if(in_array($tag, $mypages)){
-		    	return true;
+		    	return View::make('company.'.$tag);
 		    }
 		    else return false;
 	}
@@ -143,6 +144,16 @@ class BlogController extends BaseController {
 		    else return false;
 	}
 
+	public function advantage($tag=""){
+		$this->company = $this->company->where('brand','like','advantage')->first();
+		return $this->getIndex($tag);
+	}
+
+	public function buckeye($tag=""){
+		$this->company = $this->company->where('brand','like','buckeye')->first();
+		return $this->getIndex($tag);
+	}
+
 	/**
 	 * Returns all the blog posts.
 	 *
@@ -164,6 +175,10 @@ class BlogController extends BaseController {
  *  Finally, return a 404
  *
 */
+	// echo ($this->stdpages($tag));
+	$mycompany=$this->company;
+	// var_dump($mycompany);
+	// echo ($this->stdpages($tag));
 		$env=App::environment();
 		$msg="";
 

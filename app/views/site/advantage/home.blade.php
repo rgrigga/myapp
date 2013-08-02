@@ -69,6 +69,12 @@ a:hover {
 	font-family: 'Archive';
 	src: url('/assets/font/Archive.otf') format("opentype");
 }
+@font-face {
+	font-family: 'Czaristite';
+	src: url('/assets/font/Czaristite.ttf') format("truetype");
+}
+
+
 
 .navbar .nav>li>a, .navbar .brand{
 	color: orange;
@@ -91,6 +97,7 @@ a:hover {
 	color: rgba(44, 62, 80,1.0);
 		margin-top: 0px;
 	/*background-color: black;*/
+	/*font-family: 'Czaristite',serif;*/
 }
 
 
@@ -395,7 +402,7 @@ foreach (glob($path."*.blade.php") as $filename) {
 
 
 		<div class="row-fluid">
-			<div class="span4 pull-right" id="side-wrapper">
+			<div class="span4 pull-right hidden-phone" id="side-wrapper">
 				<!-- <div class="aside well"> -->
 				<div id="aside" class="aside well" data-spy="affix" data-offset='1'>
 					<!-- //aside -->

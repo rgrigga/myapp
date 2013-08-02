@@ -18,6 +18,7 @@ what if we use this to plug in other applications?
 	*/
 
 	'app' => __DIR__.'/../app',
+	// 'assets'=> __DIR__.'/../public/'
 
 	/*
 	|--------------------------------------------------------------------------

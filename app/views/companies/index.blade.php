@@ -28,8 +28,10 @@
             @foreach ($companies as $company)
 
             
-            <div class="well span4" id="index">
-                <h2>{{{ $company->id }}}: {{{ $company->name }}}</h2>
+            <div class="well span2" id="index">
+                {{ link_to_route('companies.show', 'Show', array($company->id), array('class' => 'btn btn-info btn-mini')) }}
+                {{ link_to_route('companies.edit', 'Edit', array($company->id), array('class' => 'btn btn-info btn-mini')) }}
+                <h3>{{{ $company->id }}}: {{{ $company->name }}}</h3>
                 <img src="{{{asset('assets/'.strtolower($company->brand).'/'.$company->image)}}}" alt="LOGO">
                 
                 <p>{{{ $company->brand }}}</p>
@@ -38,10 +40,10 @@
 
                 <p>{{{ $company->phone }}}</p>
                 <p>{{{ $company->email }}}</p>
-                               {{ link_to_route('companies.show', 'Show', array($company->id), array('class' => 'btn btn-info')) }}
-                {{ link_to_route('companies.edit', 'Edit', array($company->id), array('class' => 'btn btn-info')) }}
+                
+
                 {{ Form::open(array('method' => 'DELETE', 'route' => array('companies.destroy', $company->id))) }}
-                {{ Form::submit('Delete', array('class'=> 'btn btn-danger')) }}
+                {{-- Form::submit('Delete', array('class'=> 'btn btn-danger')) --}}
                 {{ Form::close() }}
             </div>
 

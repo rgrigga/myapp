@@ -21,7 +21,6 @@
 @section('meta_keywords')
 @parent
 {{{ String::title($post->title) }}} ::
-
 @stop
 
 @section('styles')
@@ -104,6 +103,7 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
 		<h2>{{ $post->title }}</h2>
 		<p>
 			<!-- String Tidy here? -->
+			<!-- Str::limit() -->
 			{{$post->meta_description}}
 		</p>
 		

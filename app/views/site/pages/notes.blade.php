@@ -10,6 +10,8 @@
 
 
 <h1>site.pages.notes</h1>
+<a href="http://jsfiddle.net/Osis/Mns8q/">Side Slider Menu</a>
+<a href="http://www.html-5-tutorial.com/server.htm">HTML5 Tutorial</a>
 <style>
 
 
@@ -239,6 +241,25 @@ p.photocredit {
 	<a href="http://new.googlepartnerconnect.com/Home/guided-learning">Partner Connect</a>
 	<a href="https://www.google.com/a/cpanel/reseller.gristech.com/AdminHome?wmc=1&sig=ALjLGbNUUzvlV1qVJUEDk7iRLdU0iS2LJQ#Home:">Admin Console</a>
 </p>
+
+<pre class="prettyprint"><code>
+// File Sharing
+// :: Send or receive documents securely via any of the following methods:
+
+// WebDav
+// Dropbox
+// Google
+// Email
+
+// Example: 
+
+// You have a signed contract you want to share with a user.  Your company uses secure email, but the user does not.
+// However, the user uses facebook.  You send them a facebook link to the document.
+
+// In fact, you don't even have to specify that you want to send them a facebook link,
+// although you can if you want.  All you have to do is set up a document, 
+// and say "share document." 
+</code></pre>
 
 <h3>chmod</h3>
 <p>http://stackoverflow.com/questions/3740152/how-to-set-chmod-for-a-folder-and-all-of-its-subfolders-and-files-in-linux-ubunt</p>

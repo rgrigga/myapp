@@ -1,5 +1,7 @@
 <?php
-
+		App::bind('company',function($company){
+			return new Company;
+		});
 // http://laravel.com/docs/responses
 // https://github.com/symfony/HttpFoundation
 // class Buckeyeontroller ext
@@ -72,12 +74,12 @@ class CompanyController extends UserController {
 	}
 
 	public function advantage(){
-
+		$this->company = $this->company->where('brand','like','advantage')->first();
 		return $this->getIndex('advantage',5);
 	}
 
 	public function buckeye(){
-		// $company = $this->company->where('brand', 'LIKE', 'buckeye')->first();
+		$company = $this->company->where('brand', 'LIKE', 'buckeye')->first();
 		return $this->getIndex('buckeye',5);
 	}
 
@@ -93,13 +95,18 @@ class CompanyController extends UserController {
 
 	public function getIndex($brand="",$num='10')
 	{
+
+		    // $company=$this->company;
+    		// die(var_dump($company));
+    	// var_dump($this->company);
 		
-		if(empty($brand)){
-			$brand=App::environment();
-		}
+		// if(empty($brand)){
+		// 	$brand=App::environment();
+		// }
 		$brand=strtolower($brand);
 
 		$company = $this->company->where('brand','like',$brand)->first();
+        App::instance('Company',$company);
 
 		// die(var_dump($brand));
 		// die(var_dump(App::environment()));

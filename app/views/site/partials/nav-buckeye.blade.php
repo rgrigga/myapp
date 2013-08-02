@@ -7,17 +7,18 @@
 }
 
 </style>
+
 		<div class="navbar navbar-fixed-top">
 
 			<div class="navbar-inner">
 
 				<div class="container">
-<!-- 					<a class="btn btn-navbar pull-left" data-toggle="collapse" data-target=".nav-collapse">
-						<i class="icon-collapse icon-2x"></i>
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<!-- <i class="icon-collapse icon-2x"></i> -->
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
-					</a> -->
+					</a>
 
 			<a class="brand" href="#">{{{$company->brand}}}</a>
 			
@@ -33,7 +34,7 @@
 					</li>
 					<?php $menus=$company->menus(); ?>
 					@foreach ($menus as $menu)
-					<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to('#'.$menu) }}}">{{{ucfirst($menu)}}}</a></li>
+					<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to('#'.$menu) }}}" data-toggle="collapse" data-target=".nav-collapse">{{{ucfirst($menu)}}}</a></li>
 					@endforeach
 
 				</ul>

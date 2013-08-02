@@ -61,12 +61,10 @@ https://www.google.com/analytics/web/?hl=en&pli=1#home/ -->
 										 SEO <span class="caret"></span>
 									</a>
 									<ul class="dropdown-menu">
-										<li{{ (Request::is('admin/users*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/users') }}}">
+										<li><a href="https://www.google.com/webmasters/tools/dashboard?hl=en&siteUrl=http%3A%2F%2Fbuckeyemower.com%2F">
 
-										<i class="icon-user"></i> Users</a></li>
-										<li{{ (Request::is('admin/roles*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/roles') }}}">
-
-										<i class="icon-user"></i> Roles</a></li>
+										Webmaster Tools</a></li>
+										<li><a href="https://www.google.com/analytics/web/?hl=en&pli=1#report/visitors-overview/a42520107w72287810p74604812/">Analytics</a></li>
 									</ul>
 								</li>
 
