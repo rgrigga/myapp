@@ -20,7 +20,7 @@ Website Management ::
 		/*min-height: 20%;*/
 	}
 
-http://mashable.com/2013/01/15/color-scheme-tools/
+/*http://mashable.com/2013/01/15/color-scheme-tools/*/
 
 .page-header{
 	padding-left: 20px;
@@ -93,23 +93,28 @@ function getRealIpAddr()
 }
 
 // echo getRealIpAddr();
+// http://kb.siteground.com/ssl_error_message/
+// Site does not open after SSL installation
 
+// After an SSL installation on your web hosting account you may not be able to open your site.
+
+// This issue is caused by the SSL installation which requires a DNS change of your domain’s A record. Right after the SSL installation you might be still resolving your domain with the old DNS settings. Generally those changes should occur immediately but it is still possible to access your website using cached DNS information.
+
+// You should allow a few hours for the DNS change to propagate and take effect. After that you will be able to access your site without any problems.
+
+// It is also a good idea in such cases to clear up your browser’s cache  and your local DNS cache.
+
+// If you are having problems with your SSL certificate, ask your host for assistance. SiteGround offers the best SSL hosting and any SSL issues are resolved quickly and efficiently.
 ?>
 
 <h2>IP: {{getRealIpAddr()}}</h2>
+<p>
+	<a href="http://gristech.com/webmail">Webmail</a>
+</p>
 
-	<style>
-		.piwik iframe{
-			min-height: 70%;
-		}
-	</style>
-
-	<div class="piwik">
-	<h2>Piwik:</h2>
-		{{$piwik}}
-	</div>
 <div class="page-header">
 	
+
 	<h3>
 		Website Management :)
 		<div class="pull-right">
@@ -118,21 +123,44 @@ function getRealIpAddr()
 	</h3>
 
 	<div class="btn-group">
+		<a class="btn btn-primary" data-toggle="collapse" data-target="#piwik">Live Analytics</a>
 		<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">Tools <span class="caret"></span></a>
+
 		<ul class="dropdown-menu">
 			<li><a href="https://bootsnipp.com/resources">https://bootsnipp.com/resources</a></li>
-			<li><a href="#">Another action</a></li>
+			<li><a href="https://www.l4.gristech.com/piwik/index.php">Piwik Main Dashboard</a></li>
 			<li><a href="#">Something else here</a></li>
 			<li class="divider"></li>
 			<li><a href="tools">Tools Page</a></li>
 		</ul>
 	</div>
 	<div>Menus: {{{ $company->menus }}}</div>
+	<!-- PIWIK -->
+	<style>
+		.piwik iframe{
+			min-height: 420px;
+		}
+	</style>
+<!-- http://stackoverflow.com/questions/362730/are-iframes-considered-bad-practice -->
 
+
+<div class="row">
+
+	<div class="piwik collapse" id="piwik">
+		{{$piwik}}
+	</div>
+</div>
+<!-- PIWIK -->
+<!-- side slider? http://jsfiddle.net/Osis/Mns8q/ -->
 	<div>{{ link_to_route('companies.edit', 'Edit Company', array($company->id), array('class' => 'btn btn-info')) }}</div>
 	<a href="http://www.make-rss-feeds.com/making-an-rss-feed.htm">RSS Feeds</a>
 			{{myviews($array)}}
+
 </div>
+<!-- page-header -->
+
+
+
 <section>
 			<ul class="thumbnails">
 			@foreach ($posts as $post)
@@ -236,10 +264,30 @@ $c='<img src='.$url.'>';
 						<p>Read about <a href="{{{ URL::to('security') }}}">Security</a> </p>
 		      		</div>
 
+<script>
+	$(document).ready(function(){
+  
+        $(".collapse").collapse();
+});
+</script>
 
 
 @stop
 
 @section('footer')
+<!-- PAYPAL -->
+<div class="span2 well pull-right">
+<h6>Please, give Ryan some money:</h6>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="6WG8557WFT7XA">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+</div>
+<!-- PAYPAL -->
+
+
+
 
 @stop

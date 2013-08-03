@@ -55,3 +55,4 @@ echo $comment->post()->first()->title;
 
 {{ $comments->links() }}
 @stop
+

@@ -53,6 +53,41 @@ return array(
 			'prefix'   => '',
 		),
 
+		'buckeye' => array(
+			'driver'    => 'mysql',
+			'host'      => 'localhost',
+			'database'  => 'gristech_buckeye',
+			'username'  => 'gristech',
+			'password'  => 'JePenseDoncJe$uis',
+			// 'password'  => 'JLEgriss22',
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+		),
+
+		'local' => array(
+			'driver'    => 'mysql',
+			'host'      => 'localhost',
+			'database'  => 'gristech_myapp6',
+			'username'  => 'gristech',
+			// 'password'  => 'JePenseDoncJe$uis',
+			'password'  => 'JLEgriss22',
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+		),
+
+		'mysql2' => array(
+			'driver'    => 'mysql',
+			'host'      => 'localhost',
+			'database'  => 'gristech_myapp6',
+			'username'  => 'gristech',
+			// 'password'  => '',
+			'password'  => 'JLEgriss22',
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+		),
 		// 'buckeye' => array(
 		// 	'driver'    => 'mysql',
 		// 	'host'      => 'localhost',

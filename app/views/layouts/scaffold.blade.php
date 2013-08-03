@@ -67,6 +67,16 @@
                 z-index: 10;
             }
         </style>
+
+        @if(Entrust::hasRole('admin'))
+        <style>
+        @media (min-width: 980px){
+                .page-header{
+                    padding-top: 40px;
+            }
+        }
+        </style>
+        @endif
         <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Sections_and_Outlines_of_an_HTML5_document -->
 <!--[if lt IE 9]>
   <script>
@@ -116,14 +126,18 @@
             @yield('nav')
             <!-- if (Auth::) -->
             @section('admin-top')
-            @if(Auth::user('admin'))
+            <?php $env=App::environment(); ?>
+            <!-- @ if($user->ability(array('admin',$env),'*')) -->
+            <!-- // @ if(Auth::user('buckeye')) -->
+            @if(Entrust::hasRole('admin'))
+            <!-- @ if($user->hasRole('admin')) -->
 
                 <div class="navbar navbar-inverse navbar-fixed-top admin-top">
                     <!-- <h1>Admin-top</h1><h1>Admin-top</h1><h1>Admin-top</h1> -->
                     @include('admin.nav')
                 </div>
             @else
-
+<!--             <div class="navbar admin-top"><h1>yo</h1>You no admin!</div> -->
             @endif
             @show
 
@@ -217,6 +231,7 @@
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js&skin=sunburst"></script>
 -->
     @yield('myjs')
+
         <script language="javascript" type="text/javascript" src="{{asset('assets/js/jquery.equalheights.js')}}"></script>
         <!-- call with $('.thumbnail').equalHeights(); -->
         <script>
@@ -229,14 +244,27 @@
                 }
                 else
                 {
+                    // $('.page-header').css('margin-top',($("#navbar").height()));
                     // alert('jQuery is loaded');
                     $(document).ready(function(){
-
+                        // alert('jQuery loaded');
+                        $('#side-wrapper').height($("#sidebar").height());
+                        
+                        // $(".nav").height()+2));
+                        $('.collapse-group .btn').on('click', function(e) {
+                            e.preventDefault();
+                            var $this = $(this);
+                            var $collapse = $this.closest('.collapse-group').find('.collapse');
+                            $collapse.collapse('toggle');
+                        });
                         // $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
                         // $('.thumbnail').equalHeights();
                     });
                 }
             }
+
         </script>
     </body>
 </html>
+
+

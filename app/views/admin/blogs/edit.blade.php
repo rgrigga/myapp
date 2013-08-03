@@ -138,7 +138,7 @@ Post Update ::
 
 
 			
-			<p>{{$post->title}} : {{Str::limit($post->meta_description,'75','...')}} 
+			<p>{{$post->title}} : {{Str::limit($post->meta_description,'10','...')}} 
 				<a href="{{URL::to('blog/'.$post->slug)}}">{{URL::to('blog/'.$post->slug)}}</a> via {{{$company->twitter}}}</p>
 		</div>
 

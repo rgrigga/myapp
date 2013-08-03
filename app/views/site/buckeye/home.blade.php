@@ -1120,7 +1120,9 @@ $(function() {
 
       <h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
       <p>
+        <!-- <pre> -->
       {{ Str::limit($post->meta_description, 300) }}
+        <!-- </pre> -->
       </p>
       <p>
         <a class="btn btn-info btn-large" href="{{{ $post->url() }}}">read more</a>

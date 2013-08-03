@@ -92,6 +92,7 @@ Route::post('redactorUpload', function()
     return Response::json(array('filelink' => '/img/' . $fileName));
 });
 
+
 // Route::group(array(''),)
 // Route::get('/advantage',function(){
 
@@ -109,7 +110,17 @@ Route::post('redactorUpload', function()
 
 // });
 
+// Route::get('technical', function()
+// {
+//     // Return about us page
+//     return View::make('site/tools');
+// });
 
+// Route::get('tools', function()
+// {
+//     // Return about us page
+//     return View::make('site/tools');
+// });
 
 
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
@@ -193,7 +204,30 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 
 });
 
-// Route::group(array('domain'=>))
+// Route::filter('company',function($route,$request,$value){
+// Route::filter('company',function($route,$request){
+//     if($request){
+        
+//         // die(var_dump($value));
+        
+//         $company=Company::where('brand','like','gristech')->first();
+
+//         if($company){
+//             App::bind('company',$company);
+//             // return Redirect::to('company/'.$sub);
+//         }
+
+//         else return "Company $sub does not exist!";
+//     }
+// });
+
+// Route::group(array('domain'=>'{sub}.gristech.com'),function(){
+    
+//     Route::get('/',array('before'=>'company'),function ($sub){
+//         // $param='company';
+//         return Route::controller('/','CompanyController@getIndex',compact($company));
+//     });
+// });
 
 
 /**
@@ -529,9 +563,12 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
             return "To see this, you must be a memeber of the buckeye group.";
             // die(var_dump($company));
         });
-        
+
         Route::get('tags', 'BlogController@getIndex');
         Route::post('tags', 'BlogController@getIndex');
+
+
+
         Route::get('tags/{tag}', 'BlogController@getIndex');
         Route::get('/{tag}','CompanyController@buckeye');
 
@@ -763,6 +800,8 @@ Route::get('blog/{postSlug}', 'BlogController@getView');
 Route::get('blog', 'BlogController@getIndex');
 
 Route::get('show/{tag}','BlogController@show');
+
+Route::get('search', 'BlogController@search');
 Route::get('search/{tag}','BlogController@search');
 
 // Route::get('company/{company}',function(Company $company){
@@ -816,13 +855,15 @@ Route::group(array('prefix' => 'sewcute'), function()
     // App::bind('company', function(){
     //     return Company::where('brand','like','sewcute')->get();
     // });
-    // Route::get('/','CompanyController@sewcute');
+    Route::get('/','CompanyController@sewcute');
 });
 
 // Route::get('advantage','CompanyController@advantage');
 Route::get('sewcute', 'CompanyController@sewcute');
 
 
+// Route::get('search/{tag}','BlogController@getSearch');
+// Route::post('search/{tag}','BlogController@postSearch');
 
 Route::get('/{tag}', 'BlogController@getIndex');
 
@@ -875,17 +916,7 @@ http://www.sublimetext.com/forum/viewtopic.php?f=3&t=12382
 //     return View::make('site/features');
 // });
 
-// Route::get('technical', function()
-// {
-//     // Return about us page
-//     return View::make('site/tools');
-// });
 
-// Route::get('tools', function()
-// {
-//     // Return about us page
-//     return View::make('site/tools');
-// });
 
 // Route::get('responsive', function()
 // {

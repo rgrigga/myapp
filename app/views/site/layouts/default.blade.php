@@ -47,10 +47,20 @@ Layouts.Default
 			position: relative;
 			/*z-index: -3;*/
 		}
-		            .contentwrap{
-            .background-color: red;
-            .margin-top: 100px;
+
+        .container-fluid{
+        	/*margin-top: 60px;*/
         }
+        	
+		/*http://css-tricks.com/almanac/properties/z/z-index/*/
+		.contentwrap{
+			position: relative;
+
+			/*This was commented out for the *tags* page*/
+			/*padding-top: 60px;*/
+			/*z-index: -3;*/
+		}
+			
 	</style>
 @show
 
@@ -117,25 +127,19 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 		
 		@section('nav')
 		@include('site.partials.nav-top-min')
-		@include('site.partials.nav-top-min')
 		<!-- <h1>NAV</h1> -->
 		@show
 
 		
 		<!-- Container -->
 		<div class="container-fluid">
+
+
+
+			<div class="contentwrap">
 			<!-- Notifications -->
 			@include('notifications')
 			<!-- ./ notifications -->
-			<style>
-			/*http://css-tricks.com/almanac/properties/z/z-index/*/
-			.contentwrap{
-				position: relative;
-				/*z-index: -3;*/
-			}
-			</style>
-
-			<div class="contentwrap">
 				<!-- Content -->
 				@yield('content')
 				@yield('main')
@@ -152,6 +156,9 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 	<!-- ./wrap -->
 
 @section('footer')
+<!-- @section('footer') -->
+
+<!-- @stop -->
 <!-- <div id="footer"> -->
 <!-- 	<div class="container">
 		 <p class="muted credit">This site began as the Laravel 4 Starter Site on <a href="https://github.com/andrew13/Laravel-4-Bootstrap-Starter-Site">Github</a>.  Thank you Andrew!</p>

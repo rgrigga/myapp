@@ -20,6 +20,11 @@
 @section('content')
 
 <h1>Search</h1>
+{{$results}}
+
+
+
+
 <p>This is a collection of search engine tools.</p>
 
         <div class="row-fluid">
@@ -59,11 +64,14 @@
     </li>
 </ul>
 
+
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
 <script type="text/javascript" charset="utf-8">
     $(prettyPrint);
 </script>
 
-<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
 
 <pre class="prettyprint"><code>
 <!-- <script> -->

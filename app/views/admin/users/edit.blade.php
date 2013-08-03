@@ -8,7 +8,7 @@ User Update ::
 
 <!-- Dear friends,
 
-// If you know me, you may have wondered what I have been doing for the last few months.  It's true, I quit my job at Chase to do... something.  I have not been very vocal or outspoken about it, because what I have been working on is very hard to explain at first glance.
+// If you know me, you may have wondered what I have been doing for the last few months.  It's true, I quit my job at Chase to do... something.  I have not been very vocal or outspoken about it, because what I have been working on is very hard to explain at first glance.  I am shy about my abilities and the thing I have in mind here.
 
 // I have personal contacts in all of the following areas:
 // This is a list of not simply "people i know", or "3rd generation contacts on social media".  These are all people with whom I have extended professional relationship and have discussed this project with.
@@ -20,9 +20,10 @@ User Update ::
 // project managers
 // several financial advisors
 
+This website is "it".  If you are reading this, I'd really enjoy talking to you about it...
 
-
-This website is it.  If you are reading this, I  -->
+It is an entire small business IT infrastructure, connected by a web app.  Real Time Analytics.  User Management.  Accept Online Payments with 1 click.
+-->
 
 {{-- Content --}}
 @section('main')

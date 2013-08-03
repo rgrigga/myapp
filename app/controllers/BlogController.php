@@ -25,6 +25,8 @@
 
 class BlogController extends BaseController {
 
+	// protected $layout = 'site.layouts.default';
+
     /**
      * Tags Model
      * Tost Model
@@ -59,6 +61,7 @@ class BlogController extends BaseController {
     {
         parent::__construct();
 
+
         // $env=App::environment();
         // die(var_dump($company));
         // $company = App::make('company');
@@ -67,14 +70,23 @@ class BlogController extends BaseController {
         $this->post = $post;//These are basically empty objects.
         $this->user = $user;
         $this->company = $company;
-
+		
+		// if(empty($this->company)){
+			$env=App::environment();
+			// die("company not found - (BlogController getIndex)");
+			$company = $this->company->where('brand','like',$env)->first();
+			$this->company=$company;
+		// }
 
         // $this->todo = array('hello','bar','make list');
     // $c=App::make('company');
 
         // View::share('posts',$posts);
-        // View::share('posts',$posts);
+
         View::share('company',$this->company);
+        View::share('posts',$this->post);
+
+        // ->with(compact($posts));
     }
 
 	/**
@@ -98,33 +110,111 @@ class BlogController extends BaseController {
 		return View::make('site.'.strtolower($this->company->brand).'.home');
 	}
 
-	private function stdpages($tag){
-			$path='../app/views/company/';
-
-		    $mypages = array();
-		    foreach (glob($path."*.blade.php") as $filename) {
-		        $filename=str_replace($path, "", $filename);
-		        $filename=str_replace(".blade.php", "", $filename);
-		        array_push($mypages,$filename);
-		        // echo "$filename" . "<br>";
-		    }
-// die(var_dump($path,$mypages));
-		    $msg="";
-		    if(empty($mypages)){
-		    	$msg.="Could not find any pages in $path.<br>";
-				Session::flash('error', $msg);
-				return false;
-		    }
-		    if(in_array($tag, $mypages)){
-		    	return View::make('company.'.$tag);
-		    }
-		    else return false;
+	private function companyPages($tag,$path){
+		die('controller!');
 	}
 
-	public function getPage($tag="")
-	{
-			$path='../app/views/pages/';
+// Route::get('search/{tag}','BlogController@getSearch');
 
+	public function getSearch(){
+return App::abort('404','I found no $tag');
+	}
+
+	public function postSearch(){
+return App::abort('404','I found no $tag');
+	}
+
+	public function getRecent(){
+		$posts = $this->post
+			->where('meta_keywords', 'LIKE', '%'.$this->company->brand.'%')
+	        ->where('meta_keywords','LIKE','%public%')
+	        // ->where('content','LIKE','%'.$tag.'%')
+			// ->get()
+			->paginate(5);
+
+		// die(var_dump(count($posts)));
+		View::share('posts',$posts);
+	}
+
+	public function search($tag=""){
+
+		// $this->init();
+		// var_dump($this->company);
+		// if(!$tag){
+		$view="";
+		// }
+		$view.=$this->getPage($tag);
+		$view.=$this->stdpages($tag);
+
+		if(!$view){
+			$view="Nuthin.";
+			$posts=$this->getRecent();
+			Session::flash('warning','Sorry, Charlie!  Google '.$tag.'!');
+			// Session::flash('info','ERROR');
+			// Session::flash('error','ERROR');
+			// Session::flash('success','ERROR');
+			// die(var_dump($view));
+		    return View::make('site.pages.search')
+		    	// ->with('message',"admin message")
+				->with('results',$view)
+				->with(compact($posts));
+				;
+
+
+			// return App::abort('404','Shall I search for $tag ?');
+		}
+		else{
+// die(var_dump($view));
+
+			Session::flash('success','I found a page for'.$tag.'!');
+		    // return View::make('site.pages.search')
+		    return $view;
+			// ->with('results',$view)
+			;
+		}
+
+	}
+
+	private function companyages($tag){
+					$path='../app/views/company/';
+			return $this->getPage($tag,$path);
+	}
+
+	private function stdpages($tag){
+			$path='../app/views/company/';
+			return $this->getPage($tag,$path);
+
+// 		    $mypages = array();
+// 		    foreach (glob($path."*.blade.php") as $filename) {
+// 		        $filename=str_replace($path, "", $filename);
+// 		        $filename=str_replace(".blade.php", "", $filename);
+// 		        array_push($mypages,$filename);
+// 		        // echo "$filename" . "<br>";
+// 		    }
+// // die(var_dump($path,$mypages));
+// 		    $msg="";
+// 		    if(empty($mypages)){
+// 		    	$msg.="Could not find any pages in $path.<br>";
+// 				Session::flash('error', $msg);
+// 				return false;
+// 		    }
+// 		    if(in_array($tag, $mypages)){
+// 		    	return View::make('company.'.$tag);
+// 		    }
+// 		    else return false;
+	}
+
+	public function getPage($tag="",$path="")
+	{
+		// die(var_dump($this->company));
+			
+			$brand=strtolower($this->company->brand);
+
+			if(!$path){
+				// $path='../app/views/site/'.$brand.'/pages/';
+				$path='../app/views/site/pages/';
+			}
+		    
 		    $mypages = array();
 		    foreach (glob($path."*.blade.php") as $filename) {
 		        $filename=str_replace($path, "", $filename);
@@ -139,7 +229,14 @@ class BlogController extends BaseController {
 				return false;
 		    }
 		    if(in_array($tag, $mypages)){
-		    	return true;
+		    	$company=$this->company;
+		    	return Redirect::to($tag);
+		    	// die('found!');
+		    	// return $this->show($tag,$path);
+		    	// return View::make('site/'.$brand.'/pages/'.$tag)
+		    	// ->with(compact($company));
+		    	// ->with('company',$this->company)
+		    	;
 		    }
 		    else return false;
 	}
@@ -175,10 +272,10 @@ class BlogController extends BaseController {
  *  Finally, return a 404
  *
 */
-	// echo ($this->stdpages($tag));
-	$mycompany=$this->company;
-	// var_dump($mycompany);
-	// echo ($this->stdpages($tag));
+		// echo ($this->stdpages($tag));
+		$mycompany=$this->company;
+		// var_dump($mycompany);
+		// echo ($this->stdpages($tag));
 		$env=App::environment();
 		$msg="";
 
@@ -186,60 +283,116 @@ class BlogController extends BaseController {
     // $company=App::make('company');
 		if($tag){
 			$company = $this->company->where('brand','like',$tag)->first();
-
 			if(empty($company)){
 				// die("company not found - (BlogController getIndex)");
 				$company = $this->company->where('brand','like','gristech')->first();
 			}
+			// $company=$this->company;
 
+// This little block handles the pages.  
+// Change the default director in the getPage method. otherwise,
+// this sends back the page if it exists in the specified directory.
+
+				$mypage=$this->getPage($tag);
+				if($mypage){
+					return View::make('site.pages.'.$tag)
+				    	->with(compact('company'))
+					// return $mypage
+					;
+				}
 
 /////////////// TAGS AND POSTS
 
 			$posttitle='%'.$tag.'%';
 			$posts = $this->post
-			->where('meta_keywords', 'LIKE', '%'.$company->brand.'%')
-	        ->where('meta_keywords','LIKE','%public%')
-			->where('title', 'LIKE', "$posttitle")
-			->orWhere('meta_keywords','LIKE', "$posttitle")
-	        
-	        // ->where('content','LIKE','%'.$tag.'%')
+				->where('meta_keywords', 'LIKE', '%'.$company->brand.'%')
+		        ->where('meta_keywords','LIKE','%public%')
+				->where('title', 'LIKE', "$posttitle")
+				->orWhere('meta_keywords','LIKE', "$posttitle")
+		        
+		        // ->where('content','LIKE','%'.$tag.'%')
+				->paginate(5);
 
-			->paginate(5);					
-			// die(count($posts));
-
-			if(count($posts)===1){
-				// die("found1");
-				$post=$posts;
-				return $this->getView($tag)
-				// return View::make('site.blog.view_post')
-				// ->with(compact('company'))
-				// ->with(compact('post'))
-				;
-			}
+			// $pages = 					
+			// die(var_dump(count($posts)));
 
 			if (count($posts)===0) {
 
-			$tags=array();		
-			foreach ($posts as $post) {
-				foreach ($post->tags() as $mytag) {
-					if(!in_array($mytag, $tags)){
-						array_push($tags, trim($mytag));
+				$posts = $this->post
+					->where('meta_keywords', 'LIKE', '%'.$company->brand.'%')
+			        ->where('meta_keywords','LIKE','%public%')
+			        // ->where('content','LIKE','%'.$tag.'%')
+					// ->get()
+					->paginate(5);
+
+				// die(var_dump(count($posts)));
+				View::share('posts',$posts);
+
+
+
+
+				$tags=array();		
+				foreach ($posts as $post) {
+					foreach ($post->tags() as $mytag) {
+						if(!in_array($mytag, $tags)){
+							array_push($tags, trim($mytag));
+						}
 					}
 				}
+
+
+				// return $this->getPage();
+
+				// Session::flash('message', 'Sorry, I couldn\'t find anything with tag matching <strong>'.$tag.'</strong>');
+					
+
+				//SEARCH
+
+				// View::share('posts',$posts);
+				return View::make('site/blog/tags')
+						// ->nest('index','site.blog.index')
+						->nest('search','site.partials.search')
+						->nest('carousel','site.partials.carousel')
+						->with(compact('company'))
+						->with(compact('tags'))
+						->with(compact('alltags'))
+						// ->with(compact('posts'))
+
+						;
+					// die('posts not found');
+					// no post with this title
+					// continue
+			}
+						
+			if(count($posts)===1){
+				// die("found1");
+				$post=$this->post->first();
+				// Get this post comments
+		$comments = $post->comments()->orderBy('created_at', 'ASC')->get();
+
+        // Get current user and check permission
+        $user = $this->user->currentUser();
+        $canComment = false;
+        if(!empty($user)) {
+            $canComment = $user->can('post_comment');
+        }
+				
+		return View::make('site/blog/view_post', 
+			compact('company','post', 'comments', 'canComment'));
+
+				return $this->getView($tag);
+				// return $this->getView($tag);
+				// return View::make('site.blog.view_post')
+				// ->with(compact('company'))
+				// ->with('post',$this->post->first())
+				// ;
 			}
 
-			Session::flash('message', 'Sorry, I couldn\'t find anything with tag matching <strong>'.$tag.'</strong>');
-				return View::make('site/blog/tags')
-					// ->nest('index','site.blog.index')
-					->nest('carousel','site.partials.carousel')
-					->with(compact('company'))
-					->with(compact('tags'))
-					->with(compact('alltags'))
-					->with(compact('posts'));
-				// die('posts not found');
-				// no post with this title
-				// continue
-			}
+				$this->post = $posts;
+				// die(var_dump($this->post));
+			// View::share('search','site.partials.search');
+        // View::share('carousel','site.partials.carousel');
+			//otherwise, count of posts is greater than 1
 
 			$tags=array();		
 			foreach ($posts as $post) {
@@ -252,8 +405,18 @@ class BlogController extends BaseController {
 
 			$str="";
 			$str.="I found ".count($posts)." posts.";
+
+
+			// $c=View::make('site.partials.carousel')->with(compact('posts'));
+
+			View::share('posts',$posts);
+			// echo $c;
+			// die();
 			return View::make('site/blog/tags')
+				->nest('search','site.partials.search')
+				->nest('carousel','site.partials.carousel')
 				->with(compact('company','tags','alltags','posts'))
+
 				// ->with(compact('tags'))
 				// ->with(compact('alltags'))
 				// ->with(compact('posts'))
@@ -759,7 +922,7 @@ class BlogController extends BaseController {
 	        $image->save();
 
 	        // resizing an uploaded file
-	        Image::make($image->getRealPath())->resize(300, 200)->save($path.'thumb-'.$fileName);
+	        // Image::make($image->getRealPath())->resize(300, 200)->save($path.'thumb-'.$fileName);
 	        Image::make($image->getRealPath())->resize(300, 200)->save($path.'thumb-'.$fileName);
 
 	        // Return Image path as JSON

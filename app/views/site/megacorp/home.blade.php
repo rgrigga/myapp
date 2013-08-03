@@ -70,6 +70,14 @@ html,body {
 .navbar .brand, .navbar .nav >li >a {
 	text-shadow:none;
 }
+.navbar .brand, .navbar .nav>li>a{
+	color: rgba(236, 240, 241,1.0);
+}
+.navbar .nav>li>a:hover,
+.navbar .nav>li>a:active{
+	background-color: orange;
+	color:rgba(44, 62, 80,1.0);
+}
 .well{
 	background-color: rgba(121,186,242,1);
 	/*border-bottom-radius: 30px;*/

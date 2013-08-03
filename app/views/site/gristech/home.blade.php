@@ -24,6 +24,7 @@
 <link href='http://fonts.googleapis.com/css?family=Monsieur+La+Doulaise' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Mr+De+Haviland' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+
 <style>
 
 /* STRUCTURAL */
@@ -50,6 +51,11 @@ html,body {
 	src: url('/assets/font/Archive.otf') format("opentype");
 }
 
+
+
+.page-header{
+		margin-top: 0px;
+}
 
 .page-header h1, .sidebar h3{
 	/*font-family: 'Mr De Haviland', cursive;*/
@@ -167,6 +173,9 @@ a:hover{
 	.accordion{
 		margin-top:80px;
 	}
+		.affix{
+      top:40px;
+    }	
 }
 
 @media (max-width: 979px) {
@@ -174,6 +183,8 @@ a:hover{
 		font-size: 72px;
 		padding-bottom: 15px;
 	}
+	
+
 
 }
 
@@ -206,10 +217,21 @@ a:hover{
 	}	
 	
 
-
-
+/*    .affix{
+      top:40px;
+    }	
+*/
 
 </style>
+
+@if(Auth::check())
+<style>
+    .affix{
+      top:80px;
+    }	
+</style>
+@endif
+
 @stop
 
 
@@ -237,39 +259,7 @@ a:hover{
 		@include('site.partials.nav-top-min')
 		@stop
 
-		@section('myjs')
-		<script type="text/javascript">
 
-
-
-	// $('#accordian').margin-top($("#name").height());
-	window.onload = function()
-	{
-    	// alert('bam!');
-    	if(!window.jQuery)
-    	{
-    		alert('jQuery not loaded');
-    	}
-    	else
-    	{
-
-    		$('#side-wrapper').height($("#sidebar").height());
-            // $(document).ready(function(){
-            //     $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
-            // });
-}
-}
-
-
-$('.collapse-group .btn').on('click', function(e) {
-	e.preventDefault();
-	var $this = $(this);
-	var $collapse = $this.closest('.collapse-group').find('.collapse');
-	$collapse.collapse('toggle');
-});
-
-</script>
-@stop
 
 @section('main')
 <?php
@@ -483,11 +473,7 @@ foreach (glob($path."*.blade.php") as $filename) {
 		</div>
 	</div> -->
 
-		<div class="row-fluid">
-			<div class="span12">
-				<div id="search_engine-US-monthly-201307-201307-bar" width="600" height="400" style="width:600px; height: 400px;"></div><!-- You may change the values of width and height above to resize the chart --><p>Source: <a href="http://gs.statcounter.com/#search_engine-US-monthly-201307-201307-bar">StatCounter Global Stats - Search Engine Market Share</a></p><script type="text/javascript" src="http://www.statcounter.com/js/FusionCharts.js"></script><script type="text/javascript" src="http://gs.statcounter.com/chart.php?search_engine-US-monthly-201307-201307-bar"></script>
-			</div>
-		</div>
+
 
 	<div class="tabbable"> <!-- Only required for left/right tabs -->
 		<a href="#about" data-toggle="tab"> about</a>
@@ -673,3 +659,18 @@ foreach (glob($path."*.blade.php") as $filename) {
 	<!-- ./below -->
 
 	@stop
+@section('myjs')
+    <script type="text/javascript">
+
+                // $('.page-header').css('background-color','red');
+                $('#side-wrapper').height($("#sidebar").height());
+                $('.collapse-group .btn').on('click', function(e) {
+                        e.preventDefault();
+                        var $this = $(this);
+                        var $collapse = $this.closest('.collapse-group').find('.collapse');
+                        $collapse.collapse('toggle');
+                    });
+                    // $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
+                    // $('.thumbnail').equalHeights();
+    </script>
+@stop

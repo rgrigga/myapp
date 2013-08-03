@@ -195,6 +195,8 @@ For now, you may clone this public repository and develop it as much as you like
 			<!-- Notifications -->
 			@include('notifications')
 			<!-- ./ notifications -->
+
+			
 			@section('logo')
 			<style>
 			.admin-nav{

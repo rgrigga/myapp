@@ -95,7 +95,7 @@ a:hover {
 	background-color: rgba(255,190,115,.1);
 	/*background-color: rgba(121,186,242,.1);*/
 	color: rgba(44, 62, 80,1.0);
-		margin-top: 0px;
+	margin-top: 0px;
 	/*background-color: black;*/
 	/*font-family: 'Czaristite',serif;*/
 }
@@ -230,11 +230,12 @@ h2{
 	.accordion{
 		margin-top:80px;
 	}
-	.page-header{
-		
-		padding-top: 40px;
-		/*padding-top: 40px;*/
-	}
+	
+	.affix{
+      top:40px;
+    }	
+
+/*	.page-header{padding-top: 40px;}*/
 }
 
 @media (max-width: 979px) {
@@ -247,12 +248,18 @@ h2{
 }
 
 @media (max-width: 768px){
+	.corner img{
+		max-width: 100px;
+	}
 	.page-header{
 		padding-left: 10px;
 		padding-right: 10px;
 	}
 	.page-header h1{
-		padding-top: 120px;
+		/*padding-top: 120px;*/
+		margin-top: 50px;
+		text-align: right;
+		font-size: 48px;
 
 	}
 	.contentwrap{
@@ -302,6 +309,19 @@ h2{
 	
 
 	</style>
+
+
+@if(Auth::check())
+<style>
+@media (min-width: 980px){
+    .affix{
+      top:80px;
+    }	
+}
+</style>
+@endif
+
+
 @stop
 
 
@@ -412,7 +432,8 @@ foreach (glob($path."*.blade.php") as $filename) {
 							<div class="tab-content"> 
 								<div class="tab-pane active" id="about">
 									<h2>About Us</h2>
-									<img class="img-circle pull-left" src="http://placehold.it/64x64/BF6230/123456">
+									<img src="holder.js/300x200/social">
+									
 
 									<h3>We treat your home as our own</h3>
 
@@ -422,7 +443,8 @@ foreach (glob($path."*.blade.php") as $filename) {
 									
 									
 									<img class="img-circle" width='320px' src="{{asset('assets/advantage/interior.jpg')}}">
-									<p>Howdy, I'm interior.</p>QUick and correct.  We take the time to set up and paint tight trim lines and clean up after our work.
+									<!-- <p>Howdy, I'm interior.</p> -->
+									<p>Quick and correct.  We take the time to set up and paint tight trim lines and clean up after our work.</p>
 									<h2>Interior</h2>
 								</div>
 								<div class="tab-pane text-center" id="exterior">
@@ -438,6 +460,9 @@ foreach (glob($path."*.blade.php") as $filename) {
 
 								<div class="tab-pane" id="decks">
 									<h2>Decks</h2>
+									<img src="holder.js/300x200/industrial">
+
+									<img class="img-circle pull-left" src="http://placehold.it/64x64/BF6230/123456">
 									<p>Howdy, I'm decks.</p>
 								</div>
 								<div class="tab-pane" id="repairs">
@@ -446,7 +471,7 @@ foreach (glob($path."*.blade.php") as $filename) {
 								</div>
 								<div class="tab-pane" id="replacement">
 									<h2>Full Roof</h2>
-
+<img class="img-circle" src="http://placehold.it/200x200/BF6230/123456">
 									<p>Howdy, I'm replacement.</p>
 								</div>
 								<div class="tab-pane" id="power">

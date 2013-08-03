@@ -20,7 +20,7 @@
 
 	                		<ul class="nav">
 						    @foreach($company->menus() as $item)
-						        <li><a href="#{{{$item}}}{{--URL::to($item)--}}">{{{$item}}}</a></li> 
+						        <li><a href="{{{$item}}}{{--URL::to($item)--}}">{{{$item}}}</a></li> 
 						    @endforeach
 	    					</ul>
 
