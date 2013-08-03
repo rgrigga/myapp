@@ -4,11 +4,27 @@
 {{{ "Git" }}} ::
 @parent
 @stop
-
+<!-- http://stackoverflow.com/questions/3549765/styling-html5-elements -->
 {{-- Content --}}
 @section('content')
 
-<h3>Git</h3>
+<header>
+    <h3>Git, Github, Bitcucket</h3>
+
+<p>from <a href="http://gitref.org/remotes/">http://gitref.org/remotes/</a>:</p>
+
+<blockquote>Unlike centralized version control systems that have a client that is very different from a server, <strong>Git repositories are all basically equal and you simply synchronize between them</strong>. This makes it easy to have more than one remote repository - you can have <strong>some that you have read-only access to and others that you can write to as well</strong>.</blockquote>
+
+<p>Using git and github provides so many benefits...</p>
+<ul>
+    <li>Files are backed up on the cloud</li>
+    <li>You are protecting yourself from accidental deletion or changes</li>
+    <li>Granular merging down to an individual line</li>
+    <li>The ability to share and collaborate</li>
+</ul>
+
+<p>If you've never used git or github, don't be timid.  You'd have to try hard to break something.  There are many tutorials out there: so many that I found it a long road to weed through redundant information on each one.  As I was learning, I collected links on this page.  Hopefully it helps someone else...</p>
+</header>
 
 Fork my example: <a href="https://github.com/rgrigga/Spoon-Knife">rgrigga/Spoon-Knife</a>
 
@@ -41,8 +57,5 @@ Fork my example: <a href="https://github.com/rgrigga/Spoon-Knife">rgrigga/Spoon-
 </ul>
 
 <h4>More Reading</h4>
-
-
-
 
 @stop
