@@ -1,3 +1,5 @@
+
+<!-- <h1>BAM BAM</h1> -->
 @if (count($errors->all()) > 0)
 <div class="alert alert-error alert-block">
 	<button type="button" class="close" data-dismiss="alert">&times;</button>

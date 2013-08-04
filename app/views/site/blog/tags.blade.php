@@ -10,16 +10,18 @@
         </div>
 
     @endif
-<div class="hero-unit">
+<!-- <div class="hero-unit"> -->
+<div>
 <ul class="tag">
 	<li><i class="icon-tag"></i></li>
 
 		@foreach ($tags as $mytag)
-			<li><a href='/tags/{{$mytag}}'>{{$mytag}}</a></li>
+			<li><a href='/tags/{{$mytag}}' class="badge badge-warning">{{$mytag}}</a></li>
 		@endforeach	
 </ul>
 	<h1>Tags<small>Find what you came for:</small></h1>
-{{$search}}
+
+Voila! {{$count}} posts about {{$tag}}.
 </div>
 
 {{$carousel}}

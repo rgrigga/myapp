@@ -1,14 +1,3 @@
-
-        <script>
-
-  // var childNodes = document.getElementsByTagName('carousel-inner')[0].childNodes;
-  // for (var i = 0; i < childNodes.length; i++) {
-  //     if (childNodes[i].nodeType !== 3) { // nodeType 3 is a text node
-  //       childNodes[i].className = "active";  // <a>
-  //       break;
-  //     }        
-  // }
-        </script>
 <style>
   .item img{
     width: 100%;
@@ -18,10 +7,14 @@
     color: white;
   }
 </style>
+
+
     <!-- Carousel
     ================================================== -->
     <div id="myCarousel" class="carousel slide">
       <div class="carousel-inner">
+
+
 
 @foreach($posts as $post)
         <div class="item">

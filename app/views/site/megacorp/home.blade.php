@@ -302,6 +302,8 @@ a:hover{
 
 	<div class="page-header">
 		<!-- <h1>BAM</h1> -->
+		
+
 		<div class="corner">
 			<img src="{{asset('assets/advantage/corner.png')}}" alt="le corner">
 		</div>
@@ -309,6 +311,7 @@ a:hover{
 
 
 		<div class="row-fluid">
+
 			<div class="span4 pull-right" id="side-wrapper">
 				<!-- <div class="sidebar well"> -->
 				<div id="sidebar" class="sidebar well" data-spy="affix" data-offset='1'>
@@ -380,6 +383,9 @@ a:hover{
 				<a href="#about" data-toggle="tab">
 					<h1>{{$company->brand}}</h1>
 				</a>
+
+	<h4>Search:</h4>
+	{{$searchbar}}
 				{{--$about--}}
 				<div class="accordion" id="accordion">
 					<div class="accordion-group">

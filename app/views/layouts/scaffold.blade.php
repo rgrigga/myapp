@@ -145,6 +145,9 @@
             
             <!-- @ yield('content') -->
             <div class="contentwrap">
+
+            @include('notifications')
+            
             <?php
                 $env=App::environment();
                 // echo("<h1>ERROR"."</h1>");
@@ -232,6 +235,17 @@
 -->
     @yield('myjs')
 
+    <script>
+        function imgError(image){
+            image.onerror = "";
+            //could not get this to work with holder.js
+            image.src = "http://placehold.it/300x300";
+            return true;
+        }
+    </script>
+
+<!-- <img src="image.png" onerror="imgError(this);"/> -->
+
         <script language="javascript" type="text/javascript" src="{{asset('assets/js/jquery.equalheights.js')}}"></script>
         <!-- call with $('.thumbnail').equalHeights(); -->
         <script>
@@ -248,6 +262,7 @@
                     // alert('jQuery is loaded');
                     $(document).ready(function(){
                         // alert('jQuery loaded');
+
                         $('#side-wrapper').height($("#sidebar").height());
                         
                         // $(".nav").height()+2));
@@ -259,6 +274,9 @@
                         });
                         // $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
                         // $('.thumbnail').equalHeights();
+
+
+
                     });
                 }
             }

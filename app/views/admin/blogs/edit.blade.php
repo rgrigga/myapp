@@ -89,7 +89,7 @@ Post Update ::
 	<!-- CSRF Token -->
 	<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 	
-
+{{Input::file('photo','myphoto')}}
 
 @include('admin/navbar-post-edit')
 

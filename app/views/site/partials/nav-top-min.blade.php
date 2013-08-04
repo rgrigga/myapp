@@ -16,6 +16,7 @@
 						<span class="icon-bar"></span>
 					</a>
 					<a class="brand" style="margin-left:30px;" href="#">{{{$company->brand}}}</a>
+					@include('site.partials.search')
 					<div class="nav-collapse collapse">
 
 	                		<ul class="nav">

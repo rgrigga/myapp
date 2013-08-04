@@ -1,6 +1,7 @@
 <?php
 // die("ROUTES");
 
+// I am a veritable nobody on the internet, but i am a legend in my own mind
 
 // http://www.slideshare.net/go_oh/singletons-in-php-why-they-are-bad-and-how-you-can-eliminate-them-from-your-applications
 
@@ -30,6 +31,14 @@ Route::model('company','Company');
 
 Route::resource('companies', 'CompaniesController');
 Route::resource('tweets', 'TweetsController');
+
+// View::composer('*.home',function($view){
+View::composer('*.megacorp.*',function($view){
+    $view->nest('searchbar','site.partials.search');
+    $view->nest('social','site.partials.social');
+});
+
+
 // Route::model('company','Company',function(){
 //     // return Company::where('brand',"LIKE",'gristech')->first();
 // });
@@ -330,10 +339,12 @@ Route::group(array('domain' => 'myapp.dev'),function()
         return Response::make($content)->withCookie($cookie);
 
     });
-// http://imperavi.com/redactor/docs/license-about/
-  // http://css-tricks.com/examples/EqualHeightsInRows/
-    // $data=array(compact('company'));
-// ->with('warning',$message);
+
+    // http://imperavi.com/redactor/docs/license-about/
+      // http://css-tricks.com/examples/EqualHeightsInRows/
+        // $data=array(compact('company'));
+    // ->with('warning',$message);
+
     View::composer('home', function($view)
         {
             $view->with('company', $company);
@@ -441,6 +452,13 @@ Route::group(array('domain' => 'myapp.dev'),function()
         return View::make('site.pages.bootstrap');
     });
 
+
+    Route::post('search', 'BlogController@postSearch');
+    Route::get('search', 'BlogController@search');
+    // Route::get('/search', 'BlogController@search');
+    Route::get('search/{tag}','BlogController@search');
+    // Route::post('search/{tag}','BlogController@postSearch');
+
     //each domain has its own method available in CompanyController.
     Route::get('/{tag}','BlogController@getIndex');
     Route::get('/', 'BlogController@getIndex');
@@ -451,6 +469,8 @@ Route::group(array('domain' => 'myapp.dev'),function()
         // die(var_dump($company));
         
     // });
+    // die(var_dump($tag));
+
 
 });
 
@@ -501,11 +521,12 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
 
     Route::filter('buckeye', function()
     {
-        if (! Entrust::can('buckeye') ) // Checks the current user
+        if (! Entrust::hasRole('admin') ) // Checks the current user
         {
             // die("buckeye filter");
             $message="Sorry. You are not authorized to view that.  Would you like to log in?";
-            App::abort(404,"You aren't authorized.");
+            // Session::flash('info','login?');
+            // App::abort(404,"You aren't authorized.");
             return Redirect::to('user/login')
                 ->with('info',$message);
                 // ->with('howdy',$message);
@@ -567,7 +588,10 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
         Route::get('tags', 'BlogController@getIndex');
         Route::post('tags', 'BlogController@getIndex');
 
-
+    Route::post('search', 'BlogController@postSearch');
+    Route::get('search', 'BlogController@search');
+    // Route::get('/search', 'BlogController@search');
+    Route::get('search/{tag}','BlogController@search');
 
         Route::get('tags/{tag}', 'BlogController@getIndex');
         Route::get('/{tag}','CompanyController@buckeye');
@@ -788,6 +812,11 @@ Route::get('pages/{page}',function($page){
             return("No page by the name $page!");
 });
 
+Route::post('search', 'BlogController@postSearch');
+Route::get('search', 'BlogController@search');
+// Route::get('/search', 'BlogController@search');
+Route::get('search/{tag}','BlogController@search');
+
 Route::get('tags', 'BlogController@getIndex');
 Route::post('tags', 'BlogController@getIndex');
 Route::get('tags/{tag}', 'BlogController@getIndex');
@@ -801,8 +830,8 @@ Route::get('blog', 'BlogController@getIndex');
 
 Route::get('show/{tag}','BlogController@show');
 
-Route::get('search', 'BlogController@search');
-Route::get('search/{tag}','BlogController@search');
+//regex routes on this would be nice.  also need postview and getview.
+
 
 // Route::get('company/{company}',function(Company $company){
 //     // var_dump($company);

@@ -22,6 +22,11 @@
 
 // }
 
+class SearchComposer{
+    public function compose($view){
+        $view->with('searchbar','this data passes through');
+    }
+}
 
 class BlogController extends BaseController {
 
@@ -61,22 +66,20 @@ class BlogController extends BaseController {
     {
         parent::__construct();
 
-
         // $env=App::environment();
         // die(var_dump($company));
         // $company = App::make('company');
     	// die(var_dump($company));
 
-        $this->post = $post;//These are basically empty objects.
+        $this->post = $post;//Think of these as basically empty objects.
         $this->user = $user;
         $this->company = $company;
 		
-		// if(empty($this->company)){
-			$env=App::environment();
-			// die("company not found - (BlogController getIndex)");
-			$company = $this->company->where('brand','like',$env)->first();
-			$this->company=$company;
-		// }
+		$env=App::environment();
+		//recycling this variable
+		$company = $this->company->where('brand','like',$env)->first();
+		$this->company=$company;
+
 
         // $this->todo = array('hello','bar','make list');
     // $c=App::make('company');
@@ -85,6 +88,15 @@ class BlogController extends BaseController {
 
         View::share('company',$this->company);
         View::share('posts',$this->post);
+        View::share('heading','Posts');
+        View::share('alltags',$this->getAllTags());
+// $heading="Posts";
+		// ->with(compact('heading'))
+		
+		// View::composer('*','SearchComposer');
+		// View::composer('index',function($view){
+		// 	$view->with('postcount',count($posts)
+		// });
 
         // ->with(compact($posts));
     }
@@ -110,79 +122,164 @@ class BlogController extends BaseController {
 		return View::make('site.'.strtolower($this->company->brand).'.home');
 	}
 
-	private function companyPages($tag,$path){
-		die('controller!');
-	}
-
 // Route::get('search/{tag}','BlogController@getSearch');
 
 	public function getSearch(){
-return App::abort('404','I found no $tag');
+
+		$tag=Input::get('tag');
+		// die(var_dump($tag));
+// return App::abort('404','Controller: I found no $tag');
 	}
 
 	public function postSearch(){
-return App::abort('404','I found no $tag');
+		$tag=Input::get('tag');
+		// die(var_dump($tag));
+		return $this->search($tag);
 	}
 
 	public function getRecent(){
 		$posts = $this->post
 			->where('meta_keywords', 'LIKE', '%'.$this->company->brand.'%')
 	        ->where('meta_keywords','LIKE','%public%')
+	        ->orderBy('created_at', 'DESC')
 	        // ->where('content','LIKE','%'.$tag.'%')
 			// ->get()
 			->paginate(5);
 
+	// $posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
+
+
 		// die(var_dump(count($posts)));
-		View::share('posts',$posts);
+		return $posts;
+		// View::share('posts',$posts);
 	}
 
 	public function search($tag=""){
 
+		// $this->post=$posts;
+
+		$view="";
 		// $this->init();
 		// var_dump($this->company);
 		// if(!$tag){
-		$view="";
+		// 	return View::make()
 		// }
-		$view.=$this->getPage($tag);
-		$view.=$this->stdpages($tag);
+// die(var_dump($tag));
+		// BuilderClass
+		View::share('tag',$tag);
+		if($tag){
+			
 
-		if(!$view){
-			$view="Nuthin.";
-			$posts=$this->getRecent();
-			Session::flash('warning','Sorry, Charlie!  Google '.$tag.'!');
-			// Session::flash('info','ERROR');
-			// Session::flash('error','ERROR');
-			// Session::flash('success','ERROR');
-			// die(var_dump($view));
-		    return View::make('site.pages.search')
-		    	// ->with('message',"admin message")
-				->with('results',$view)
-				->with(compact($posts));
+			$view.=$this->getPage($tag);
+			$view.=$this->companyPages($tag);
+			$view.=$this->stdpages($tag);
+
+			$posts=$this->searchcontent($tag);
+			// die(var_dump(count($posts)));
+			if($posts){
+				
+				$count=$this->wordcount($posts,$tag);
+				View::share('count',$count);
+				// View::share('postlist','site.partials.postlist');
+				$view.=
+					View::make('site.partials.postlist')
+					->with('posts',$posts)
+					->with(compact('count'))
+					;
+					// die(var_dump($view));
+			}
+			// $view.=$this->searchcontent($tag);
+
+			if(!$view){
+				$view="I searched for '$tag' but found Nuthin.";
+				$posts=$this->getRecent();
+				View::share('posts',$posts);
+				Session::flash('warning','Sorry, Charlie!  Google '.$tag.'!');
+				// Session::flash('info','ERROR');
+				// Session::flash('error','ERROR');
+				// Session::flash('success','ERROR');
+				// die(var_dump($view));
+				// return App::abort('404','Shall I search for $tag ?');
+			}
+			else{
+	// die(var_dump($view));
+
+				Session::flash('success','I found a page for '.$tag.'!');
+			    // return View::make('site.pages.search')
+			    // return $view;
+			    $posts=$this->getRecent();
+			    // return View::make('')
+				View::share('posts',$posts);
+				// ->nest('results',$view)
 				;
-
-
-			// return App::abort('404','Shall I search for $tag ?');
+			}
 		}
-		else{
-// die(var_dump($view));
+		// die("no tag");
+		else{ //there is no tag
+			$count=0;
+			View::share('count',$count);
+	
+			$posts=$this->getRecent();
+			View::share('posts',$posts);
+			$view.=
+					View::make('site.partials.postlist')
+					->with('posts',$posts)
+					;
 
-			Session::flash('success','I found a page for'.$tag.'!');
-		    // return View::make('site.pages.search')
-		    return $view;
-			// ->with('results',$view)
+			// $view.='site.partials.postlist';
+							
+		}
+// die(var_dump(count($posts)));
+
+
+		// View::share('results','site.partials.postlist');
+		return View::make('site.pages.search')
+	    	// ->with('message',"admin message")
+			// ->nest('searchbar','site.partials.search')
+			->with('results',$view)
+			
+			// ->with('heading','Posts')
 			;
-		}
 
 	}
 
-	private function companyages($tag){
-					$path='../app/views/company/';
+
+	private function wordcount($posts,$tag){
+		
+		$mycount=0;
+
+		// if(is_array($posts)){
+			foreach ($posts as $post) {
+				$mycount+=substr_count(strtolower($post->content), strtolower($tag));
+				echo $mycount;
+			}
+		// }
+		// else $mycount+=substr_count(strtolower($posts->content), strtolower($tag));
+		return $mycount;
+	}
+
+	private function searchcontent($tag){
+		// tag is a word or phrase
+		// die(var_dump($tag));
+		$posts=$this->post->where('content', 'like', '%'.$tag.'%')->get();
+		// die(var_dump(count($posts)));
+		// View::share('posts',$posts);
+
+		// endforeach;
+		// echo $mycount;
+
+		return $posts;
+	}
+
+	private function companyPages($tag){
+			$path='../app/views/company/';
 			return $this->getPage($tag,$path);
 	}
 
 	private function stdpages($tag){
-			$path='../app/views/company/';
-			return $this->getPage($tag,$path);
+			// $path='../app/views/pages/';
+			return $this->getPage($tag);
+			//from default path, specified in the method
 
 // 		    $mypages = array();
 // 		    foreach (glob($path."*.blade.php") as $filename) {
@@ -211,9 +308,11 @@ return App::abort('404','I found no $tag');
 			$brand=strtolower($this->company->brand);
 
 			if(!$path){
-				// $path='../app/views/site/'.$brand.'/pages/';
-				$path='../app/views/site/pages/';
+				$minipath='site/pages/';
+				$path='../app/views/'.$minipath."/";
 			}
+
+			$minipath=str_replace('../app/views/', "", $path);
 		    
 		    $mypages = array();
 		    foreach (glob($path."*.blade.php") as $filename) {
@@ -222,15 +321,17 @@ return App::abort('404','I found no $tag');
 		        array_push($mypages,$filename);
 		        // echo "$filename" . "<br>";
 		    }
-// die(var_dump($path,$mypages));
+
 		    if(empty($mypages)){
 		    	$msg="Could not find any pages in $path.<br>";
+		    	// die(var_dump($msg,$path,$mypages));
 				Session::flash('error', $msg);
 				return false;
 		    }
 		    if(in_array($tag, $mypages)){
 		    	$company=$this->company;
-		    	return Redirect::to($tag);
+		    	return View::make($minipath.$tag);
+		    	// return Redirect::to($tag);
 		    	// die('found!');
 		    	// return $this->show($tag,$path);
 		    	// return View::make('site/'.$brand.'/pages/'.$tag)
@@ -282,6 +383,7 @@ return App::abort('404','I found no $tag');
 	// singleton versus dependency injection?
     // $company=App::make('company');
 		if($tag){
+			View::share('tag',strtoupper($tag));
 			$company = $this->company->where('brand','like',$tag)->first();
 			if(empty($company)){
 				// die("company not found - (BlogController getIndex)");
@@ -315,8 +417,10 @@ return App::abort('404','I found no $tag');
 
 			// $pages = 					
 			// die(var_dump(count($posts)));
+			$count=count($posts);
+			View::share('count',$count);
 
-			if (count($posts)===0) {
+			if ($count===0) {
 
 				$posts = $this->post
 					->where('meta_keywords', 'LIKE', '%'.$company->brand.'%')
@@ -328,9 +432,6 @@ return App::abort('404','I found no $tag');
 				// die(var_dump(count($posts)));
 				View::share('posts',$posts);
 
-
-
-
 				$tags=array();		
 				foreach ($posts as $post) {
 					foreach ($post->tags() as $mytag) {
@@ -339,6 +440,7 @@ return App::abort('404','I found no $tag');
 						}
 					}
 				}
+				$tags=array_unique($tags);
 
 
 				// return $this->getPage();
@@ -348,7 +450,8 @@ return App::abort('404','I found no $tag');
 
 				//SEARCH
 
-				// View::share('posts',$posts);
+				// $count=count($posts);
+				// View::share('count',$count);
 				return View::make('site/blog/tags')
 						// ->nest('index','site.blog.index')
 						->nest('search','site.partials.search')
@@ -364,21 +467,21 @@ return App::abort('404','I found no $tag');
 					// continue
 			}
 						
-			if(count($posts)===1){
+			if($count===1){
 				// die("found1");
 				$post=$this->post->first();
 				// Get this post comments
-		$comments = $post->comments()->orderBy('created_at', 'ASC')->get();
+				$comments = $post->comments()->orderBy('created_at', 'ASC')->get();
 
-        // Get current user and check permission
-        $user = $this->user->currentUser();
-        $canComment = false;
-        if(!empty($user)) {
-            $canComment = $user->can('post_comment');
-        }
+		        // Get current user and check permission
+		        $user = $this->user->currentUser();
+		        $canComment = false;
+		        if(!empty($user)) {
+		            $canComment = $user->can('post_comment');
+		        }
 				
-		return View::make('site/blog/view_post', 
-			compact('company','post', 'comments', 'canComment'));
+				return View::make('site/blog/view_post', 
+				compact('company','post', 'comments', 'canComment'));
 
 				return $this->getView($tag);
 				// return $this->getView($tag);
@@ -388,7 +491,8 @@ return App::abort('404','I found no $tag');
 				// ;
 			}
 
-				$this->post = $posts;
+			//else count > 1
+			$this->post = $posts;
 				// die(var_dump($this->post));
 			// View::share('search','site.partials.search');
         // View::share('carousel','site.partials.carousel');
@@ -402,9 +506,9 @@ return App::abort('404','I found no $tag');
 					}
 				}
 			}
-
+			$tags=array_unique($tags);
 			$str="";
-			$str.="I found ".count($posts)." posts.";
+			$str.="I found ".$count." posts.";
 
 
 			// $c=View::make('site.partials.carousel')->with(compact('posts'));
@@ -707,7 +811,7 @@ return App::abort('404','I found no $tag');
 			}
 
 		}
-		return $alltags;
+		return array_filter($alltags);
 	}
 
 	// private function getByTag($tag){
@@ -723,7 +827,7 @@ return App::abort('404','I found no $tag');
 	{
 		// return Redirect::to("tags", "all");
 		// 
-    	$company = App::make('company');
+    	// $company = App::make('company');
     // die(var_dump($company));
 		// die(var_dump($tag,$brand));
 		$alltags=$this->getAllTags();		
@@ -740,7 +844,7 @@ return App::abort('404','I found no $tag');
 		// }
 		//$alltags now contains all the tags
 
-		$posts = $this->post->where('tag','like');
+		// $posts = $this->post->where('tag','like');
 
 		$posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
 
@@ -908,7 +1012,7 @@ return App::abort('404','I found no $tag');
 	public function postImage($blogId) 
 	{
 
-	    $path = base_path().'/public/uploads/img/posts/' . (int)$blogId;
+	    $path = base_path().'/public/assets/img/posts/' . (int)$blogId;
 
 	    $image = Input::file('photo');
 

@@ -32,7 +32,7 @@ $app = new Illuminate\Foundation\Application;
 $env = $app->detectEnvironment(array(
 
 //this is case-sensitive
-	'advantage' => array('*/advantage/*'),
+	'advantage' => array('domain'=>'advantage.gristech.com'),
 	// 'sewcute' => array('*/sewcute','sewcute.dev'),
 	'megacorp' => array('domain' => 'megacorp.dev'),
 		'megacorp' => array('domain' => 'myapp.dev'),

@@ -19,8 +19,25 @@
 {{-- Content --}}
 @section('content')
 
+
+<style>
+    .contentwrap{
+        padding-top: 60px;
+    }
+</style>
+
 <h1>Search</h1>
-{{$results}}
+<h2>Pages, Posts, Tags</h2>
+I found {{$count}} ocurrances of the word "{{$tag}}".
+<div class="well">
+    {{$results}}
+</div>
+
+<h6>Search for content word frequency:</h6>
+
+
+
+
 
 
 

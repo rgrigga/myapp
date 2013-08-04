@@ -55,7 +55,7 @@ Layouts.Default
 		/*http://css-tricks.com/almanac/properties/z/z-index/*/
 		.contentwrap{
 			position: relative;
-
+			padding-top: 60px;
 			/*This was commented out for the *tags* page*/
 			/*padding-top: 60px;*/
 			/*z-index: -3;*/
@@ -188,10 +188,48 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 	</div>
 </a>
 @show
+
 		<!-- Javascripts
 		================================================== -->
         @javascripts('public-js')
         <!-- holder.js -->
 		<script src="{{asset('assets/js/holder.js')}}"></script>
+
+		        <script>
+            window.onload = function()
+            {
+                // alert('bam!');
+                if(!window.jQuery)
+                {
+                    alert('jQuery not loaded');
+                }
+                else
+                {
+                    // $('.page-header').css('margin-top',($("#navbar").height()));
+                    // alert('jQuery is loaded');
+                    $(document).ready(function(){
+                        // alert('jQuery loaded');
+						$('.carousel-inner > .item:first').addClass('active');
+						// $('.hero-unit').css('background-color','red');
+
+                        $('#side-wrapper').height($("#sidebar").height());
+                        
+                        // $(".nav").height()+2));
+                        $('.collapse-group .btn').on('click', function(e) {
+                            e.preventDefault();
+                            var $this = $(this);
+                            var $collapse = $this.closest('.collapse-group').find('.collapse');
+                            $collapse.collapse('toggle');
+                        });
+                        // $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
+                        // $('.thumbnail').equalHeights();
+
+
+
+                    });
+                }
+            }
+
+        </script>
 </body>
 </html>
