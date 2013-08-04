@@ -19,6 +19,9 @@
 					<div class="nav-collapse collapse">
 
 	                		<ul class="nav">
+	                			<li>
+	                				<a href="/">home</a>
+	                			</li>
 						    @foreach($company->menus() as $item)
 						        <li><a href="{{{$item}}}{{--URL::to($item)--}}">{{{$item}}}</a></li> 
 						    @endforeach

@@ -376,8 +376,7 @@ p.photocredit {
 
 
 
-<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-<img src="holder.js/300x300" alt="HOLDER" class="img-circle">
+
 
 
     <style>
@@ -415,22 +414,53 @@ p.photocredit {
     z-index: 3;
     }
     </style>
+<!-- <img src="{{asset('assets/img/6125_1280x1024-wallpaper-cb1306851700.jpg')}}" alt=""> -->
 
-
-<ul class="nav">
-	<li>
+<ul class="nav navbar">
+	<li class="btn">
 		<a href="https://github.com/cheeaun/mooeditable/wiki/Alternative-Javascript-WYSIWYG-editors#lightweight-versions">https://github.com/cheeaun/mooeditable/wiki/Alternative-Javascript-WYSIWYG-editors#lightweight-versions</a>
 	</li>
-	<li>
+	<li class="btn">
 		<a href="http://stackoverflow.com/questions/92720/jquery-javascript-to-replace-broken-images">http://stackoverflow.com/questions/92720/jquery-javascript-to-replace-broken-images</a>
 	</li>
 </ul>
 
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<img src="holder.js/300x300" alt="HOLDER" class="img-circle">
 
-<article>
-	<a href="http://developer.ebay.com/common/api/">Ebay API</a>
-</article>
+<div class="row-fluid">
+	<div class="thumbnail delta span4">
+		<article>
+			<h4><span>JQuery</span></h4>
+				<a href="http://developer.ebay.com/common/api/"><img src="{{asset('assets/img/large_jquery_logo.png')}}" alt="jquery"></a>
+				<p>The Javascript Framework</p>
 
+		</article>
+	</div>
+
+	<div class="thumbnail delta span4">
+		<article>
+			<h4><span>EBay</span></h4>
+			<a href="http://developer.ebay.com/common/api/">
+				<img src="{{asset('assets/img/ebay.jpg')}}" alt="Ebay">
+			</a>
+			<p></p>
+		</article>
+	</div>
+	<div class="thumbnail delta span4">
+		<article>
+			<h1><span>OAuth</span></h1>
+			<a href="http://www.socialphy.com/posts/computers-technology/12978/OAuth.html"><img src="{{asset('assets/img/oauth.png')}}" alt=""></a>
+			<p>OAuth allows one to acecss multiple applications.</p>
+			<blockquote>Logging into another site with your Google, Twitter, or Facebook account isn't just convenient; it's more secure than creating a new account, or entering your Google, Twitter, or Facebook password into a third-party site. That's where OAuth comes in. Here's how it works, and how it keeps your passwords safe on third-party sites.
+			</blockquote>
+		</article>
+	</div>
+
+http://piwik.org/docs/analytics-api/
+
+</div>
+<!-- row -->
 
 <hr>
     <form id="custom-search-form" class="form-search form-horizontal pull-right">
@@ -441,21 +471,14 @@ p.photocredit {
     </form>
 <hr>
 
-<div class="kilo delta">
-<h1>h1</h1>
-<h2>h2</h2>
-<h3>h3</h3>	
-<h4>h4</h4>
-<h5>h5</h5>
-<h6>h6</h6>
-<p>p</p>
-
-
-
-
-
-
-
+<div class="kilo delta span4">
+	<h1>h1</h1>
+	<h2>h2</h2>
+	<h3>h3</h3>	
+	<h4>h4</h4>
+	<h5>h5</h5>
+	<h6>h6</h6>
+	<p>p</p>
 </div>
 
 
@@ -514,7 +537,7 @@ $code='foo';
 <div class="span4">
 	<a href="http://www.cssdrive.com/imagepalette/index.php">Convert Image to Color Pallete</a>
 
-<img src="http://gristech.com/img/" alt="">
+<img src="http://gristech.com/img/myapp.png" alt="">
 </div>
 
 <div class="row-fluid">
@@ -770,7 +793,7 @@ $code='foo';
 							I also think it is less likely 
 							to be as extensible.  I'm not saying <a href="">javascript is dead</a>,
 							 I am just saying 
-							that the web app solution is more flexible.  PHP is server-side technology.
+							that I am fully committed to the web app solution as more flexible.  PHP is server-side technology.
 							  The world runs on servers.  I have dealt with and been the victim of weak client-side 
 							  crap, it's rediculous.  Not to mention that we have Client
 							It's not scripting: it's object oriented resource management.
