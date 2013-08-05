@@ -352,6 +352,35 @@ class BlogController extends BaseController {
 		return $this->getIndex($tag);
 	}
 
+
+
+	private function post_public($tag=""){
+		$posts=$this->post
+			->where('meta_keywords', 'LIKE', '%'.$this->company->brand.'%')
+			->where('meta_keywords','LIKE','%public%')
+	        ->where('content','LIKE','%'.$tag.'%')
+	        ->paginate(5);
+	        View::share('posts',$posts);
+	        return $posts;
+	}
+	private function post_company($tag){
+		$posts=$this->post
+			->where('meta_keywords', 'LIKE', '%'.$this->company->brand.'%')
+			// ->where('meta_keywords','LIKE','%public%')
+	        // ->where('content','LIKE','%'.$tag.'%')
+	        ->paginate(5);
+	        View::share('posts',$posts);
+	}
+	private function post_admin($tag){
+		$posts=$this->post
+			->get()
+			// ->where('meta_keywords', 'LIKE', '%'.$this->company->brand.'%')
+			// ->where('meta_keywords','LIKE','%public%')
+	        // ->where('content','LIKE','%'.$tag.'%')
+	        ->paginate(5);
+	        View::share('posts',$posts);
+	}
+
 	/**
 	 * Returns all the blog posts.
 	 *
@@ -359,7 +388,13 @@ class BlogController extends BaseController {
 	 */
 	public function getIndex($tag="")
 	{
+		
+		// if auth admin, show all
+		// die(var_dump(Auth::user('fail')));
 
+		// if auth company, show company
+		
+		// else auth guest, show public
 // else{
 // 	die('fail');
 // }
@@ -536,34 +571,50 @@ class BlogController extends BaseController {
 
 		}
 
-		else{
+
+
+		else{ //there is no tag
+			//this is a request for the home page
+
+
 
 			$company = $this->company->where('brand','like',$env)->first();
 			View::share('company',$company);
 
-			// die(var_dump($company));
+
+
+// return $collection;
+// die(var_dump($company));
+// die(var_dump($company));			
 			// die('there is no tag!');
 			if(!is_null($company)){
 				
-				$posts=$this->post
-		        ->where('meta_keywords', 'LIKE', '%'.$company->brand.'%')
-		        ->where('meta_keywords','LIKE','%public%')
-		        // ->where('content','LIKE','%'.$tag.'%')
-		        ->paginate(5);
+				$posts=$this->post_public();
+// die(var_dump($posts));
+
+				$collection=array();
+				foreach ($company->menus() as $tag){
+					if(!$post=$this->post_public($tag)){
+						array_push($collection, $post);
+					}
+				};
+
+				
 
 				// $posts=$this->post
 				// ->where('meta_keywords', 'LIKE', $company->brand)
 				// ->paginate(10);
 
-				View::share('posts',$posts);
+				// View::share('posts',$posts);
 				// return Redirect::action('CompanyController@getIndex',$tag);
 				return View::make('site.'.strtolower($company->brand).'.home')
 				->nest('about','company.about')
 				->nest('contact','site.partials.contact')
-				->with(compact('company'))
-				->with(compact('posts'))
+				->with(compact('collection'))
+				// ->with(compact('posts'))
 				;
 			}
+			else die ('Company index!');
 		}
 
 

@@ -15,6 +15,7 @@ class CompaniesController extends BaseController {
     {
         $this->company = $company;
 
+
     }
 
     /**
@@ -26,7 +27,6 @@ class CompaniesController extends BaseController {
     {
 
         $companies = $this->company->all();
-
 
         return View::make('companies.index', compact('companies'));
     }
@@ -101,7 +101,7 @@ class CompaniesController extends BaseController {
     public function edit($id)
     {
         $company = $this->company->find($id);
-
+View::share('company',$company);
         //?? isnull vs empty vs !== etc
         if (is_null($company))
         {
@@ -109,8 +109,9 @@ class CompaniesController extends BaseController {
         }
         //else
         return View::make('companies.edit')
-            ->nest('about','company.about', compact('company'))
-            ->with(compact('company'));
+            ->nest('about','company.about')
+            // ->with(compact('company'))
+            ;
     }
 
     /**

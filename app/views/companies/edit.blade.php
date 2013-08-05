@@ -87,13 +87,20 @@
     </div>
     <div class="span7 text-center well">
         <h1>PREVIEW:</h1>
+
         {{--View::make('company.about')--}}
 
         @if(Auth::user('admin'))
         <!-- <pre><code>View::make('company/about');</code></pre> -->
+
         @endif
 
         {{$about}}
+
+<pre class="prettyprint">
+View::make('company.about');
+\{\{ $about \}\}
+</pre>
     </div>
     <!-- span7 -->
 </div>

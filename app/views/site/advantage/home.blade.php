@@ -231,9 +231,9 @@ h2{
 		margin-top:80px;
 	}
 	
-	.affix{
+/*	.affix{
       top:40px;
-    }	
+    }	*/
 
 /*	.page-header{padding-top: 40px;}*/
 }
@@ -246,8 +246,8 @@ h2{
 
 
 }
-
-@media (max-width: 768px){
+/*@media (max-width: 767px)*/
+@media (max-width: 767px){
 	.corner img{
 		max-width: 100px;
 	}
@@ -265,26 +265,18 @@ h2{
 	.contentwrap{
 		/*padding-top: 80px;*/
 	}
-	.affix{
-		position: fixed;
-		/*top:100px;*/
-		/*margin-top:-120px;*/
-	}
+
 	.accordion{
 		padding-left: 0;
 	}
 
-
+	#side-wrapper{
+		width: 120px;
+	}
 
 }
 
-	.affix{
-	/*position: fixed;*/
-	/*width: 60%;*/
-/*		z-index:2;
-		right:20px;
-		left:20px;*/
-	}
+
 	.corner{
 		/*position: fixed;*/
 		position: absolute;
@@ -314,9 +306,9 @@ h2{
 @if(Auth::check())
 <style>
 @media (min-width: 980px){
-    .affix{
+/*    .affix{
       top:80px;
-    }	
+    }	*/
 }
 </style>
 @endif
@@ -326,8 +318,9 @@ h2{
 
 
 
-@section('favicons')
-		<!-- Favicons
+		@section('favicons')
+		@parent
+				<!-- Favicons
 		================================================== -->
 
 		<!-- It would be great generate these on the fly.  For now, they are located in X asset file -->
@@ -342,11 +335,11 @@ h2{
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
 		<!-- <link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}"> -->
-		<link rel="shortcut icon" href="{{{ asset('assets/ico/'.$company->name.'/'.strtolower($company->brand).'.png') }}}">
+
 		<link rel="shortcut icon" href="{{{ asset(
-			'assets/ico/'.
-			$company->name.
-			'/'.
+			'assets/'.
+			strtolower($company->brand).
+			'/ico/'.
 			'favicon'.
 			'.png'
 			) }}}">
@@ -364,7 +357,7 @@ h2{
 
 
 
-	// $('#accordian').margin-top($("#name").height());
+	// $('#accordion').margin-top($("#name").height());
 	window.onload = function()
 	{
     	// alert('bam!');
@@ -419,27 +412,51 @@ foreach (glob($path."*.blade.php") as $filename) {
 			<img src="{{asset('assets/advantage/corner.png')}}" alt="le corner">
 		</div>
 
-
-
 		<div class="row-fluid">
-			<div class="span4 pull-right hidden-phone" id="side-wrapper">
+			<div class="span4 pull-right" id="side-wrapper">
+
 				<!-- <div class="aside well"> -->
 				<div id="aside" class="aside well" data-spy="affix" data-offset='1'>
 					<!-- //aside -->
 					<!-- <img class="img-circle" src="{{asset($company->image)}}" alt="MyImage"> -->
+<style>
+	.aside > .collapse-group{
+		text-align: center;
+	}
+</style>
+
+
+<!-- "painting,roofing,power washing,gutter cleaning,concrete cleaning and sealing" -->
+
+<!-- Gutter Replacement, Repair, and More. -->
+
 					<div class="collapse-group">
+						<a class="btn btn-info" href="#">~Toggle~<i class="icon-hand-up"></i></a>
+						<div class="tab-content">
+							<div class="tab-pane" id="gutters">
+							always visible	
+							{{$company->img()}}
+							
+							<img src="holder.js/64x64/social">
+					
+								<div class="collapse in">
+									collapsable
+
+								</div>
+							</div>
+						</div>
 						<div class="collapse in">
 							<div class="tab-content"> 
 								<div class="tab-pane active" id="about">
+									{{$about}}
 									<h2>About Us</h2>
-									<img src="holder.js/300x200/social">
+<!-- 									<img src="holder.js/300x200/social">
 									
-
 									<h3>We treat your home as our own</h3>
 
-									<p>Advantage Services is a family owned business with a standard of excellence in all aspects of Residential and Commercial Painting, Roofing, Deck and Fence Staining, and Power Washing. Formerly known as Advantage Painting, Advantage Services has been known throughout Columbus and it's surrounding areas as the first name in professionalism and quality, since 1990.</p>				
+									<p>Advantage Services is a family owned business with a standard of excellence in all aspects of Residential and Commercial Painting, Roofing, Deck and Fence Staining, and Power Washing. Formerly known as Advantage Painting, Advantage Services has been known throughout Columbus and it's surrounding areas as the first name in professionalism and quality, since 1990.</p>	 -->			
 								</div>
-								<div class="tab-pane" id="interior">
+								<div class="tab-pane text-align: center;" id="interior">
 									
 									
 									<img class="img-circle" width='320px' src="{{asset('assets/advantage/interior.jpg')}}">
@@ -478,7 +495,7 @@ foreach (glob($path."*.blade.php") as $filename) {
 									<h2>Power</h2>
 									<p>Howdy, I'm power.</p>
 								</div>
-								<div class="tab-pane" id="gutter">
+								<div class="tab-pane" id="gutters">
 									<h2>Gutter</h2>
 									<p>Howdy, I'm gutter.</p>
 								</div>
@@ -486,13 +503,51 @@ foreach (glob($path."*.blade.php") as $filename) {
 									<h2>Concrete</h2>
 									<p>Howdy, I'm concrete.</p>
 								</div>
+
+
+								<?php
+
+$collection=explode(',', 'painting,roofing,power washing,gutter cleaning,concrete');
+//get posts where title like these
+//get posts where tag like these
+
+?>
+
+collection of collection of posts
+
+foreach $category, get list of public posts, tag, or content with title like or tag like this tag.  list them below.
+h3.post->title
+p.desc.
+img.
+
+
+
+View::make('company.aside',$posts);
+<!-- <ul> -->
+@foreach($collection as $item)
+<?php $it=str_replace(" ", "", $item); ?>
+<!-- <li>{{--$item--}}</li> -->
+<div class="tab-pane" id="{{$it}}">
+	<h2>{{$item}}</h2>
+	<p>Howdy, I'm {{$item}}->description</p>
+</div>
+
+@endforeach
+<!-- </ul> -->
+								<div class="tab-pane" id="concrete">
+									<h2>Concrete</h2>
+									<p>Howdy, I'm concrete.</p>
+								</div>
+														<h3>How can we help you?</h3>
+						<h4>{{$company->phone}}</h4>
 							</div>	
 
 
-
+						
 						</div>
-						<a class="btn btn-info" href="#">~Toggle~<i class="icon-hand-up"></i></a><h3>How can we help you?</h3>
-						<h4>{{$company->phone}}</h4>
+
+
+
 						{{$contact}}
 					</div>
 
@@ -528,7 +583,7 @@ foreach (glob($path."*.blade.php") as $filename) {
 									<h3>Decks And Fences</h3>
 								</a>
 
-								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon 
 							</div>
 						</div>
 					</div>
@@ -545,9 +600,6 @@ foreach (glob($path."*.blade.php") as $filename) {
 									<h3>Repairs</h3>
 								</a>
 
-
-
-
 								<a href="#replacement" data-toggle="tab">
 									<h3>Replacement</h3>
 								</a>
@@ -562,7 +614,7 @@ foreach (glob($path."*.blade.php") as $filename) {
 							</a>
 						</div>
 						<div id="collapseThree" class="accordion-body collapse">
-
+<!-- <div class="tab-pane active" id="power"> -->
 							<div class="accordion-inner">
 								<a href="#power" data-toggle="tab">
 									<h3>Power</h3>
@@ -571,6 +623,21 @@ foreach (glob($path."*.blade.php") as $filename) {
 							</div>
 						</div>
 					</div>
+<!-- 					<div class="accordion-inner">
+					
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+								<h2>Roofing</h2>
+							</a>
+						</div>
+						<div id="collapseTwo" class="accordion-body collapse">
+							<div class="accordion-inner">
+
+								<a href="#repairs" data-toggle="tab">
+									<h3>Repairs</h3>
+								</a>
+								<a href="#power" data-toggle="tab"> -->
 					<div class="accordion-group">
 						<div class="accordion-heading">
 							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
@@ -579,24 +646,93 @@ foreach (glob($path."*.blade.php") as $filename) {
 						</div>
 						<div id="collapseFour" class="accordion-body collapse">
 							<div class="accordion-inner">
+								<a href="#gutters" data-toggle="tab">
+									<h3>Gutter Guards, Painting & More</h3>
+								</a>
+								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla 
+							</div>
+						</div>
+					</div>
+
+
+
+
+				<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+								<h2>Painting</h2>
+							</a>
+						</div>
+						<div id="collapseOne" class="accordion-body collapse">
+							<!-- //add in to open on load -->
+							<div class="accordion-inner">
+								<a href="#exterior" data-toggle="tab">
+									<h3 >Exterior</h3>
+								</a>
+
+								<a href="#interior" data-toggle="tab">
+									<h3>Interior</h3>
+								</a>
+
+								<a href="#decks" data-toggle="tab">
+									<h3>Decks And Fences</h3>
+								</a>
+
 								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
 							</div>
 						</div>
 					</div>
+
+
+<!-- 					$col=array($a,$b,$c);
+					
+					$this->post->where('tag')...
+					and company
+					and public
+
+					controller should ask, who is the requestor?  If it's for a public page, then return only public posts. -->
+
+										
+
+
+
+
+
+
+
+					@foreach($collection as $col)
+						{{View::make('lima.menu',$col->posts);}}
+						//h2
+						@foreach($tag as $post)
+						{{View::make('lima.submenu');}}
+						//h3
+						@endforeach
+					<!-- @ endforeach -->
+					<?php $it=str_replace(" ", "", $item); ?>
+					
 					<div class="accordion-group">
 						<div class="accordion-heading">
-							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
-								<h2>Concrete Cleaning & Sealing</h2>
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#{{$it}}1">
+								<h2>{{$item}}</h2>
 							</a>
 						</div>
-						<div id="collapseFive" class="accordion-body collapse">
+						<div id="{{$main}}1" class="accordion-body collapse">
+
 							<div class="accordion-inner">
-								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								<a href="#{{$sub}}" data-toggle="tab">
+									<h3>{{$item}}</h3>
+								</a>
+								
+								
+								<div data-target="#{{{$it}}}"></div>
+								Anim pariatur cliche reprehenderit, 
 							</div>
 						</div>
 						<!-- ./collapse -->
 					</div>
 					<!-- ./ accordian-group -->
+
+					@endforeach
 				</div>
 				<!-- ./ accordian -->
 
@@ -615,6 +751,7 @@ foreach (glob($path."*.blade.php") as $filename) {
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, impedit, recusandae eius modi cumque obcaecati iusto corporis harum omnis ea expedita possimus sequi aliquam enim consequuntur soluta veniam a nihil.</p>
 		</div>
 	</div> -->
+
 
 
 
@@ -645,6 +782,70 @@ foreach (glob($path."*.blade.php") as $filename) {
 	<div class="note">
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, ratione magni illo nam iusto accusantium distinctio optio consectetur aliquid eveniet.</p>
 	</div>
+
+
+		<h1>Posts:</h1>
+
+		<div class="text-center">
+			{{ $posts->links() }}
+		</div>
+
+		@foreach ($posts as $post)
+		<div class="row-fluid">
+
+<!-- span3 -->
+			<div class="span3">
+				<!-- Edit/Delete Buttons -->
+				<div class="metabuttons pull-left">
+					@if (Auth::check())
+					@if (Auth::user()->hasRole('admin'))
+					<p>
+						<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
+						<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
+						| </p>
+						@endif
+						@endif
+				</div>
+
+				<div class="comments">
+				<!-- Comments -->
+				<i class="icon-user"></i> by <span class="muted">{{{ $post->author->username }}}</span> | <i class="icon-calendar"></i> <!--Sept 16th, 2012-->{{{ $post->date() }}} | <i class="icon-comment"></i> <a href="{{{ $post->url() }}}#comments">{{$post->comments()->count()}} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
+				</div>
+
+			
+			</div>
+		</div>
+		<!-- ./ row -->
+
+  <hr>
+
+<!-- simple-well -->
+			<div class="well">
+				{{$post->title}}
+				{{$post->img}}
+
+				<h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
+				<p>
+					{{ String::tidy(Str::limit($post->meta_description, 158)) }}
+				</p>
+				<p>
+					<a class="btn btn-info" href="{{{ $post->url() }}}">more</a>
+				</p>
+			</div>
+
+<!-- tags -->
+			<ul class='tag'>
+				<li><i class="icon-tag"></i></li>
+				@foreach($post->tags() as $tag)
+
+				<li><a href="{{ $tag }}">{{ $tag }}</a></li>
+
+				@endforeach
+			</ul>
+
+			@endforeach
+			{{ $posts->links() }}
+<!-- END POSTS -->
 
 
 	<style>
@@ -695,6 +896,10 @@ foreach (glob($path."*.blade.php") as $filename) {
 		</div>
 	</div>
 
+
+{{View::make('site.posts.featurettes')->with('posts',$posts);}}
+		
+
 	<div class="row-fluid">
 		<div class="span4">
 			<!-- <div class="pull-right"> -->
@@ -713,132 +918,11 @@ foreach (glob($path."*.blade.php") as $filename) {
 	</div>
 
 	<div class="row-fluid" id="posts">
-		<h1>Posts:</h1>
-		<?
-// var_dump($posts);
-		?>
-		<div class="text-center">
-			{{ $posts->links() }}
-		</div>
 
-		@foreach ($posts as $post)
-		<div class="row-fluid">
-			<div class="span3">
-				<p></p>
-				<p>
-					<!-- Edit/Delete Buttons -->
-					<div class="metabuttons pull-left">
-						@if (Auth::check())
-						@if (Auth::user()->hasRole('admin'))
-						<p>
-							<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
-							<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
-							| </p>
-							@endif
-							@endif
-						</div>
-
-						<!-- Comments -->
-						&nbsp;<i class="icon-user"></i> by <span class="muted">{{{ $post->author->username }}}</span>
-						| <i class="icon-calendar"></i> <!--Sept 16th, 2012-->{{{ $post->date() }}}
-						| <i class="icon-comment"></i> <a href="{{{ $post->url() }}}#comments">{{$post->comments()->count()}} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
-					</p>
-				</div>
-			</div>
-			
-  <div class="text-center">
-    {{ $posts->links() }}
-  </div>
-
-  @foreach ($posts as $post)
-    <div class="row-fluid">
-      <div class="span3 ">
-        <p></p>
-        <p>
-      <!-- Edit/Delete Buttons -->
-        <div class="metabuttons pull-left">
-          @if (Auth::check())
-          <!-- //if logged in -->
-            @if (Auth::user()->hasRole('admin'))
-              <p>
-                <a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
-                <a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
-              |</p>
-            @endif
-          @endif
-        </div>
-
-        <!-- Comments -->
-          &nbsp;<i class="icon-user"></i> by <span class="muted">{{{ $post->author->username }}}</span>
-          | <i class="icon-calendar"></i> <!--Sept 16th, 2012-->{{{ $post->date() }}}
-          | <i class="icon-comment"></i> <a href="{{{ $post->url() }}}#comments">{{$post->comments()->count()}} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
-        </p>
-      </div>
-    </div>
-    
-
-    <div class="featurette">
-
-      <style>
-/*      img.home{
-        width:320px; 
-      }*/
-      </style>
-      <img class="home featurette-image img-circle pull-left" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}">
-
-      <h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
-      <p>
-      {{ String::tidy(Str::limit($post->meta_description, 300)) }}
-      </p>
-      <p>
-        <a class="btn btn-info btn-large" href="{{{ $post->url() }}}">read more</a>
-        <a href="#schedule" role="button" class="btn btn-large btn-warning" data-toggle="modal"><i class='icon-calendar'></i> Schedule Now</a>
-      </p>
-    </div>
-
-    <ul class='tag'>
-      <li><i class="icon-tag"></i></li>
-      @foreach($post->tags() as $tag)
-        
-          <li><a href="{{ $tag }}">{{ $tag }}</a></li>
-          
-      @endforeach
-    </ul>
-
-  @endforeach
-  {{ $posts->links() }}
-
-
-  <hr>
-
-			<div class="well">
-				{{$post->title}}
-				{{$post->img}}
-
-				<h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
-				<p>
-					{{ String::tidy(Str::limit($post->meta_description, 158)) }}
-				</p>
-				<p>
-					<a class="btn btn-info" href="{{{ $post->url() }}}">more</a>
-				</p>
-			</div>
-
-			<ul class='tag'>
-				<li><i class="icon-tag"></i></li>
-				@foreach($post->tags() as $tag)
-
-				<li><a href="{{ $tag }}">{{ $tag }}</a></li>
-
-				@endforeach
-			</ul>
-
-			@endforeach
-			{{ $posts->links() }}
-		</div>
-		<!-- ./ row -->
 	</div>
-	<!-- ./below -->
+	<!-- ./ row -->
+</div>
+<!-- ./below -->
 	<!-- ************************************************ -->
 
 

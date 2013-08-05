@@ -5,6 +5,8 @@
 
 <p>{{ link_to_route('companies.index', 'Return to all companies') }}</p>
 
+<pre class="prettyprint">{{var_dump($company)}}</pre>
+
     <div class="row-fluid">
         <div class="span4">
             <!-- <div class="pull-right"> -->

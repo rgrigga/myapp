@@ -16,9 +16,10 @@
 @include('site.partials.nav-top')
 @stop
 
+
+
 {{-- Content --}}
 @section('content')
-
 
 <style>
     .contentwrap{
@@ -33,11 +34,18 @@ I found {{$count}} ocurrances of the word "{{$tag}}".
     {{$results}}
 </div>
 
+
+
 <h6>Search for content word frequency:</h6>
 
+<a href="http://stackoverflow.com/questions/2984786/php-sort-and-count-instances-of-words-in-a-given-string">Per Stack Overflow</a>
 
-
-
+<pre class="prettyprint">
+$str = 'happy beautiful happy lines pear gin happy lines rock happy lines pear ';
+$words = array_count_values(str_word_count($str, 1));
+arsort($words);
+print_r($words);
+</pre>
 
 
 
@@ -84,9 +92,6 @@ I found {{$count}} ocurrances of the word "{{$tag}}".
 
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 
-<script type="text/javascript" charset="utf-8">
-    $(prettyPrint);
-</script>
 
 
 

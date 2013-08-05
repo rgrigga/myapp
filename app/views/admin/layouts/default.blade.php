@@ -74,9 +74,9 @@ For now, you may clone this public repository and develop it as much as you like
 
 
 
-		.page-header{
+/*		.page-header{
 			margin-top: 60px;
-		}
+		}*/
 /*		body {
 			padding: 60px 0;
 		}*/
@@ -162,17 +162,24 @@ For now, you may clone this public repository and develop it as much as you like
 
 <!-- redactor -->
 		<link rel="stylesheet" href="{{asset('assets/js/redactor/redactor.css')}}" />
-		<script src="{{asset('assets/js/redactor/redactor.js')}}"></script>
 
-		<script type="text/javascript">
-		$(function() {
-			$('#redactor_content').redactor();
-		});
+		<script>
+		//this must be loaded before it is called in the body.
+		    
+			// $('img').error(function(){
+			//     $(this).attr('src', 'http://placehold.it/300x300');
+			// });
+
+		    function imgError(image,w,h){
+		    	w=w||300;
+		    	h=h||300;
+		        image.onerror = "";
+		        //could not get this to work with holder.js
+		        image.src = "http://placehold.it/"+w+"x"+h;
+		        return true;
+		        // onerror="imgError(this,800,600);"
+		    }
 		</script>
-
-<!-- holder.js -->
-<script src="{{asset('assets/js/holder.js')}}"></script>
-
 
 	</head>
 
@@ -185,7 +192,7 @@ For now, you may clone this public repository and develop it as much as you like
 			<!-- admin.nav is a navbar-inner.  wrap it in a navbar -->
 			<!-- so should other navbars maybe -->
 			@section('nav')
-			<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar navbar-inverse navbar-fixed-top admin-top">
 			@include('admin.nav')
 			</div>
 			@show
@@ -236,8 +243,7 @@ For now, you may clone this public repository and develop it as much as you like
 
 
 			<div class="contentwrap">
-
-
+				@include('notifications')
 			    @if(Session::has('message'))
 
 				    <div class="flash alert">
@@ -262,14 +268,67 @@ For now, you may clone this public repository and develop it as much as you like
 			<footer>		<!-- ./ container -->
 			@section('footer')
 			Footer!
+foobar
+algorithm to count words
+
+<pre class="prettyprint">
+
+Use a combination of str_word_count() and array_count_values():
+
+$str = 'happy beautiful happy lines pear gin happy lines rock happy lines pear ';
+$words = array_count_values(str_word_count($str, 1));
+print_r($words);
+gives
+
+Array
+(
+    [happy] => 4
+    [beautiful] => 1
+    [lines] => 3
+    [pear] => 2
+    [gin] => 1
+    [rock] => 1
+)
+The 1 in str_word_count() makes the function return an array of all the found words.
+
+To sort the entries, use arsort() (it preserves keys):
+
+arsort($words);
+print_r($words);
+
+Array
+(
+    [happy] => 4
+    [lines] => 3
+    [pear] => 2
+    [rock] => 1
+    [gin] => 1
+    [beautiful] => 1
+)
+
+<!-- http://stackoverflow.com/questions/2984786/php-sort-and-count-instances-of-words-in-a-given-string -->
+
+<!-- every x hours, i cache my results, publish them to CDN, and the apps communicate with the CDN. This can be done with static data, or updated upon update of the table, and/or upon request. -->
+</pre>
+
+<a href="http://blog.marketo.com/blog/2013/06/7-tips-for-effective-marketing-with-twitter-lead-generation-cards.html">Twitter Lead Generation</a>
+
 			@show
 			</footer>
 					<!-- Javascripts
 					================================================== -->
 {{ Basset::show('admin-js.js') }}
-	    
+
+		<script type="text/javascript">
+		$(function() {
+			$('#redactor_content').redactor();
+		});
+		</script>
+
+<!-- holder.js -->
+<script src="{{asset('assets/js/holder.js')}}"></script>
 <!-- redactor -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" ></script>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" ></script> -->
 <script src="{{asset('assets/js/redactor/redactor.js')}}"></script>
 
 		<script type="text/javascript">
@@ -280,35 +339,21 @@ For now, you may clone this public repository and develop it as much as you like
 <!-- ./redactor -->
 
 			 <script type="text/javascript" charset="utf-8">
-			    $(prettyPrint);
-
+			 //this failed for some reason...
+			    // $(prettyPrint);
 			</script>
 
-			 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js&skin=sunburst"></script>
+<!-- NO SKIN -->
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sunburst"></script>
+
+<!-- SKIN -->
+<!-- This takes waaaaayy longer to load WITH A SKIN *and* over the network... localize the css for speed, I think??? -->
+<!-- <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&skin=sunburst"></script> -->
 
 		<script language="javascript" type="text/javascript" src="{{asset('assets/js/jquery.equalheights.js')}}"></script>
-        <script>
-            window.onload = function()
-            {
-                // alert('bam!');
-                if(!window.jQuery)
-                {
-                    alert('jQuery not loaded');
-                }
-                else
-                {
-                    // alert('jQuery is loaded');
-                    $(document).ready(function(){
-                        // $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
-                       // $('.thumbnail').equalHeights();
-                       columnConform();
-
-                    });
-                }
-            }
-        </script>
 
 
+<!-- <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&skin=sunburst"></script> -->
 	<script>
 		
 		// these are (ruh-roh) globals. You could wrap in an
@@ -363,21 +408,53 @@ For now, you may clone this public repository and develop it as much as you like
 		
 		}
 		
-		
-		$(window).resize(function() {
-			columnConform();
-		});
-		
 		// Dom Ready
-		// You might also want to wait until window.onload if images are the things that
-		// are unequalizing the blocks
-		$(function() {
-			// columnConform();
-		});
+		// You might also want to wait until window.onload if images are the things that are unequalizing the blocks
+		// $(function() {
+		// 	// columnConform();
+		// });
 		
 	</script>
 
+    <script>
+        window.onload = function()
+            {
+                // alert('bam!');
+                if(!window.jQuery)
+                {
+                    alert('jQuery not loaded');
+                }
+                else
+                {
+                     // alert('jQuery is loaded');
 
+                }
+            }
+
+
+	    $(document).ready(function(){
+
+	        $('.admin-top').css({'margin-top':($('.user-top').height()+0)+'px'});
+	        $('.contentwrap') .css({'padding-top': (
+	            $('.user-top').height()
+	             + $('.admin-top').height()
+	             + 0 )+'px'
+	        	});
+			$('.redactor').redactor();
+			columnConform();
+		});
+	    
+	    $(window).resize(function(){
+	        $('.admin-top').css({'margin-top':($('.user-top').height()+0)+'px'});
+	        $('.contentwrap') .css({'padding-top': (
+	            $('.user-top').height()
+	             + $('.admin-top').height()
+	             + 0 )+'px'
+	        });
+	        columnConform();
+	    });
+			
+        </script>
 
 	</body>
 </html>

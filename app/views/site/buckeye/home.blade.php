@@ -18,21 +18,33 @@
     -------------------------------------------------- */
     /* Padding below the footer and lighter body text */
 
+html { 
+  background: url(/assets/buckeye/golf.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
     body {
-
+      
       padding-bottom: 40px;
-      background-color: rgba(147,208,109,.3);
+      background-color: transparent;
+      /*background-color: rgba(147,208,109,.3);*/
       font-family: 'Lato',Serif;
       font-size: 16px;
       color:rgba(26,92,76,1);
     }
 
   .page-header{
-    margin-left: -60px;
-    padding-left: 60px;
-    margin-right: -60px;
-    padding-right: 60px;
-    background-color: rgba(46, 204, 113,1.0);
+    margin-left: -100px;
+    padding-left: 100px;
+    margin-right: -100px;
+    padding-right: 100px;
+    width: 100%;
+    background-color: transparent;
+    /*background-color: rgba(46, 204, 113,.3);*/
+    /*color:rgba(84,170,150,1);*/
+    color: yellow;
   }
 
   .hero-unit{
@@ -655,10 +667,9 @@ a{
     <div class="row-fluid">
 
       <div class="span6">
-
         <!-- http://stackoverflow.com/questions/7055393/css-center-image-using-text-align-center -->
         <img class ="center" src="{{asset('assets/buckeye/buckeye_logo.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
-        <h2>740-507-6198</h2>
+        
       </div>
       <div class="span6">
         <!-- <h1>Buckeye Mower</h1> -->
@@ -669,8 +680,12 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
         </p>
       </div>
       <div class="text-center">
+        <a class="btn btn-large btn-warning" href="tel:7405076198">
+          {{{preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "$1-$2-$3", $company->phone)}}}
+        </a>
         <a href="#schedule" role="button" class="btn btn-large btn-warning" data-toggle="modal">
-          <strong>10% Off</strong><br/>Schedule Online Now
+          <!-- <strong>10% Off</strong> -->
+          Schedule Online Now
         </a>
       </div>
     </div>
@@ -684,10 +699,10 @@ At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</st
 <!-- Button to trigger modal -->
 <!--   <a href="#MyModal" role="button" class="btn" data-toggle="modal">MyModal</a> -->
 
- <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<!--  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css" />
+<link rel="stylesheet" href="/resources/demos/style.css" /> -->
 
 <script>
 $(function() {
@@ -1067,76 +1082,9 @@ $(function() {
 <!-- <div class="span8 offset4" name="posts" id="posts" name="posts"> -->
   <!-- <h1>Some More Ideas...</h1> -->
   
-  <div class="text-center">
-    {{ $posts->links() }}
-  </div>
-
-  @foreach ($posts as $post)
-    <div class="row-fluid">
-      <div class="span3 ">
-        <p>
-        <!-- Edit/Delete Buttons -->
-          <div class="metabuttons pull-left">
-            @if (Auth::check())
-            <!-- //if logged in -->
-
-            <!-- TAGS -->
-                <ul class='tag'>
-                  <li><i class="icon-tag"></i></li>
-                  @foreach($post->tags() as $tag)
-                      <li><a href="{{ $tag }}">{{ $tag }}</a></li>
-                  @endforeach
-                </ul>
-
-            <!-- COMMENTS -->
-        <!-- Comments -->
-          &nbsp;<i class="icon-user"></i> by <span class="muted">{{{ $post->author->username }}}</span>
-          | <i class="icon-calendar"></i> <!--Sept 16th, 2012-->{{{ $post->date() }}}
-          | <i class="icon-comment"></i> <a href="{{{ $post->url() }}}#comments">{{$post->comments()->count()}} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
-
-              @if (Auth::user()->hasRole('admin'))
-                <p>
-                  <a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
-                  <a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
-                |</p>
-              @endif
-            @endif
-          </div>
+{{View::make('site.posts.featurettes')->with('posts',$posts);}}
 
 
-        </p>
-      </div>
-    </div>
-    
-
-    <div class="featurette">
-
-      <style>
-/*      img.home{
-        width:320px; 
-      }*/
-      </style>
-      <img class="home featurette-image img-circle pull-left" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}">
-
-      <h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
-      <p>
-        <!-- <pre> -->
-      {{ Str::limit($post->meta_description, 300) }}
-        <!-- </pre> -->
-      </p>
-      <p>
-        <a class="btn btn-info btn-large" href="{{{ $post->url() }}}">read more</a>
-        <a href="#schedule" role="button" class="btn btn-large btn-warning" data-toggle="modal"><i class='icon-calendar'></i> Schedule Now</a>
-      </p>
-    </div>
-
-
-
-  @endforeach
-  {{ $posts->links() }}
-<!-- </div> -->
-
-      <!-- /END THE FEATURETTES -->
 @stop
 
 @section('footer')
@@ -1147,13 +1095,27 @@ $(function() {
 
 
   <p class="muted credit">&copy; 2013, Buckeye Mower & Gristech, All Rights Reserved</p>
-  <p><a href="#credits">credits</a></p>
+  <p><a href="#credits" data-toggle="modal">credits</a></p>
   {{$about}}
 
-  
+  <!--   <a href="#MyModal" role="button" class="btn" data-toggle="modal">MyModal</a> -->
 
 </div>
+<div id="credits" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Credits</h3>
+  </div>
+  <div class="modal-body">
+    <p>Many resources were used to build this site.  For a full list, please view the source code or visit <a href="myapp.gristech.com/tools">MyApp</a></p>
+    <p>Background image coutesy of <a href="http://www.flickr.com/photos/golf_pictures/2748145592/sizes/l/in/photolist-5bQXWy-5bQY7C-5bQYq1-5bQYAG-5bQYV1-5bR11y-5bR1fW-5bR2VY-5bR34h-5bR3f1-5bR3nf-5o81XV-5obWJd-73jPbn-79G2tj-eQF4N4-7ZeNiG-9abdSU-dpHhdV-estJBq-cDcJkJ-9Fq1PR/">Dan Perry via Flickr</a></p>
 
+  </div>
+  <div class="modal-footer">
+    <a href="#" data-dismiss="modal" class="btn">Close</a>
+    <!-- <a href="#" class="btn btn-primary">Save changes</a> -->
+  </div>
+</div>
 <!-- <div class="span12"> -->
 <!--   <p class="muted credit">
     <a href="http://thenounproject.com/noun/race-car/#icon-No3019" target="_blank">Race Car</a> designed by <a href="http://thenounproject.com/ianfrid" target="_blank">Ian Friday</a> from The Noun Project

@@ -103,7 +103,7 @@ echo getRealIpAddr();
     </tbody>
 </table>
 
-<div id="usertodo" class="todo">
+<div id="todo" class="todo">
     <h2>To do:</h2>
     <ul class="thumbnails">
         <li class="thumbnail">Photo</li>
@@ -112,6 +112,7 @@ echo getRealIpAddr();
         <li>Sync with Twitter</li>
         <li>sync with LinkedIn</li>
     </ul>
+
 </div>
 
 

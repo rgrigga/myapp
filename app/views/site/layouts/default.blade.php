@@ -92,9 +92,8 @@ Layouts.Default
 
 </script>
 <meta name="google-site-verification" content="U8zCfNgj-23MojmUwyxkij6AqrU30NWhgJgTtiBl3WI" />
-
 @show
-
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&skin=sunburst"></script>
 @section('favicons')
 		<!-- Favicons
 		================================================== -->
@@ -194,7 +193,8 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
         @javascripts('public-js')
         <!-- holder.js -->
 		<script src="{{asset('assets/js/holder.js')}}"></script>
-
+		
+		<!-- https://github.com/mindmup/bootstrap-wysiwyg/ -->
 		        <script>
             window.onload = function()
             {
@@ -223,7 +223,6 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
                         });
                         // $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
                         // $('.thumbnail').equalHeights();
-
 
 
                     });

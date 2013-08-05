@@ -864,7 +864,7 @@ Route::group(array('prefix' => 'advantage'), function()
 //     Session::flash('mypath', 'advantage');
 
 
-    Route::get('/','CompanyController@advantage');
+    // Route::get('/','CompanyController@advantage');
 });
 // Config::set('company','gristech');
 // Route::get('/{company}',function(Company $company){
@@ -881,10 +881,10 @@ Route::group(array('prefix' => 'megacorp', 'before' => 'auth'), function()
 
 Route::group(array('prefix' => 'sewcute'), function()
 {
-    // App::bind('company', function(){
-    //     return Company::where('brand','like','sewcute')->get();
-    // });
-    Route::get('/','CompanyController@sewcute');
+    App::bind('company', function(){
+        return Company::where('brand','like','sewcute')->get();
+    });
+    // Route::get('/','CompanyController@sewcute');
 });
 
 // Route::get('advantage','CompanyController@advantage');
@@ -907,7 +907,7 @@ Route::get('/{tag}', 'BlogController@getIndex');
 
 //     App::bind('company', function($app)
 //     {
-//         die(var_dump($company));
+        
 //         return Company::where('brand','like',$company)->first();
 //     });
 

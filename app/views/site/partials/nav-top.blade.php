@@ -15,7 +15,7 @@
 
 		</style>
 
-		<div class="navbar navbar-fixed-top">
+		<div class="navbar navbar-fixed-top user-top">
 
 			<div class="navbar-inner">
 

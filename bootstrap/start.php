@@ -33,9 +33,10 @@ $env = $app->detectEnvironment(array(
 
 //this is case-sensitive
 	'advantage' => array('domain'=>'advantage.gristech.com'),
-	// 'sewcute' => array('*/sewcute','sewcute.dev'),
+	'sewcute' => array('domain'=>'sewcute.gristech.com'),
+	'sewcute' => array('domain'=>'sewcute.dev'),
 	'megacorp' => array('domain' => 'megacorp.dev'),
-		'megacorp' => array('domain' => 'myapp.dev'),
+	'megacorp' => array('domain' => 'myapp.dev'),
 
 
 	// 'advantage' => array('prefix'=>'advantage'),

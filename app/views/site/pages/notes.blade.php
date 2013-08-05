@@ -1,6 +1,6 @@
 @extends('site.layouts.default')
 @section('content')
-
+<a href="https://support.google.com/webmasters/answer/75712?hl=en">Multiple Sitemaps</a>
 
 <div id="prettified">
 	

@@ -1,5 +1,5 @@
 <?php //die('views.admin.nav'); ?>
-				<div class="navbar-inner admin-nav">
+				<div class="navbar-inner">
 					<!-- <div class="container"> -->
 						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 							<span class="icon-bar"></span>
@@ -112,6 +112,9 @@ https://www.google.com/analytics/web/?hl=en&pli=1#home/ -->
 
 							<ul class="nav pull-right">
 								<li><a href="{{{ URL::to('/') }}}">View Homepage</a></li>
+								<li>
+							    	@include('site.partials.search')
+							    </li>
 								<li class="divider-vertical"></li>
 								<li>
 									<div class="btn-group">

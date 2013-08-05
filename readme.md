@@ -1,9 +1,14 @@
-Hello world!
+
+
+#to do list:
+
+* 
 
 [How to use Markdown Syntax](http://daringfireball.net/projects/markdown/syntax#html)
 http://daringfireball.net/projects/markdown/syntax#html
 
 [markdown on github](http://stackoverflow.com/questions/10240125/working-with-readme-md-on-github-com)
+
 
 
 #Laravel 4 Bootstrap Starter Site 

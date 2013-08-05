@@ -33,9 +33,9 @@ Post Update ::
 		text-decoration: none;
 	}
 
-	.navbar-fixed-top{
+/*	.navbar-fixed-top{
 		position: fixed;
-	}
+	}*/
 
 
 	.alert-block{
@@ -44,12 +44,12 @@ Post Update ::
 		margin-top: 10%;
 	}
 
-	@media screen and (max-width: 979px) {
+/*	@media screen and (max-width: 979px) {
 	    .contentwrap { padding-top: 20px; }
 		.span50{
 			width: 50%;
 		}
-	}
+	}*/
 </style>
 <script>
 // 	$('[data-toggle=collapse]').click(function(){
@@ -71,11 +71,11 @@ Post Update ::
 // })
 
 
-
+// https://www.paypal.com/webapps/mpp/paypal-payments-standard
 </script>
 <script type="text/javascript">
     $(function() {
-        $('#blog').redactor({
+        $('#content').redactor({
             imageUpload: '/redactorUpload'
         });
      });
@@ -88,11 +88,9 @@ Post Update ::
 <form method="post" action="" autocomplete="off">
 	<!-- CSRF Token -->
 	<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-	
-{{Input::file('photo','myphoto')}}
 
 @include('admin/navbar-post-edit')
-
+{{Input::file('photo','myphoto')}}
 
 <!-- ************************************************* -->
 
@@ -129,7 +127,7 @@ Post Update ::
 			<a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ URL::to('blog/'.$post->slug) }}" data-text="{{{$post->title}}} : {{{strip_tags($post->meta_description)}}}" data-via="{{{$company->twitter}}}">Tweet</a>
 			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
-			<img class="thumby" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}">
+			<img class="thumby" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}" onerror="imgError(this);">
 			<h3 class="text-right">
 				<a href="#tweet"><i class="icon-twitter"></i></a>
 				<a href="#fb"><i class="icon-facebook"></i></a>
@@ -240,7 +238,7 @@ Post Update ::
 		</label>
 		<h3>
 			{{{$post->image}}}
-			 <img class="thumby" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}">
+			 <img class="thumby" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}" onerror="imgError(this);">
 		</h3>
 		<label 
 			class="muted control-label" for="image">url: {{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}
@@ -251,7 +249,7 @@ Post Update ::
 
 		<div style="list-style: none;" class="collapse" id="MyImage">
 
-		<img class="" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}">
+		<img class="" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}" onerror="imgError(this,800,600);">
 			<input type="text" name="image" id="image" value="{{{ Input::old('image', $post->image) }}}" />
 		</div>
 			
@@ -284,7 +282,7 @@ Post Update ::
 			</div>
 			<p><i class="icon-facebook"></i> Meta Description is a 158 character summary of your post.  The Meta-Description may be displayed as the text for a google result, for example...</p>
 			<p>It is also used on facebook</p>
-			There are many free <a href="https://github.com/cheeaun/mooeditable/wiki/Alternative-Javascript-WYSIWYG-editors">Alternatives to Redactor</a>
+			There are many free <a href="https://github.com/cheeaun/mooeditable/wiki/Alternative-Javascript-WYSIWYG-editors">Alternatives to Redactor</a> <a href="https://github.com/mindmup/bootstrap-wysiwyg/">This is the one!</a>
 		</div>
 	</div>			
 	<!-- ./ meta description -->

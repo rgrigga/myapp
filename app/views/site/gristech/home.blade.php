@@ -247,12 +247,12 @@ a:hover{
 
 		<!-- http://demosthenes.info/blog/467/Creating-MultiResolution-Favicons-For-Web-Pages-With-GIMP -->
 
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}}">
-		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}}">
-		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
-		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/ico/'.strtolower($company->brand).'/apple-touch-icon-144-precomposed.png') }}}">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/'.strtolower($company->brand).'/apple-touch-icon-114-precomposed.png') }}}">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/'.strtolower($company->brand).'/apple-touch-icon-72-precomposed.png') }}}">
+		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/'.strtolower($company->brand).'/apple-touch-icon-57-precomposed.png') }}}">
 		<!-- <link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}"> -->
-		<link rel="shortcut icon" href="{{{ asset('assets/ico/'.$company->name.'/favicon.png') }}}">
+		<link rel="shortcut icon" href="{{{ asset('assets/'.strtolower($company->brand).'/ico/favicon.png') }}}">
 		@stop
 
 		@section('nav')
@@ -306,11 +306,24 @@ foreach (glob($path."*.blade.php") as $filename) {
 						<div class="collapse in">
 							<div class="tab-content"> 
 								<div class="tab-pane active" id="about">
-									<h2>About Us</h2>
+									<h2>What is it?</h2>
 									<img class="img-circle pull-left" src="http://placehold.it/64x64/BF6230/123456">
 
-									<h3>We treat your home as our own</h3>
+									<h3>It's a Web App</h3>
+Every client will help build and test the site.  As the site gets better for one client, it gets better for all. 
 
+It is a tool to BUILD a website,
+It is a tool to MANAGE MANY websites
+It is a tool to TEACH business owners how to run their own website.
+It is a tool to help developers, designers, and business owners, (customers, for that matter) LEARN about building a site, marketing, and more.
+The CUSTOMER is in control of the site.  BUT - I have the ability to help with ANY part of the maintenance.
+
+If a site would like to be split off, sold, etc... NO PROBLEM.  It can simply be forked from github, or even copied to a thumb drive!  It can also be quickly and easily <em>migrated</em> to another system.  The ORM is database-independent and super flexible & powerful.
+
+
+
+<a href="#cool" class="btn btn-large btn-success">Cool</a>
+<a href="#dumb" class="btn btn-large btn-danger">Dumb</a>
 									<p>Advantage Services is a family owned business with a standard of excellence in all aspects of Residential and Commercial Painting, Roofing, Deck and Fence Staining, and Power Washing. Formerly known as Advantage Painting, Advantage Services has been known throughout Columbus and it's surrounding areas as the first name in professionalism and quality, since 1990.</p>				
 								</div>
 								<div class="tab-pane" id="interior">

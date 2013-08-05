@@ -18,6 +18,14 @@ class Company extends Eloquent{
 	        return new CompanyPresenter($this);
 	    }
 
+
+	public function img()
+	
+	{
+		$asset=asset('assets/'.strtolower($this->brand).'/'.$this->image);
+		return "<img src='".$asset."'>";
+	}
+
     public function menus()
 	{
 		// var_dump($this->meta_keywords);

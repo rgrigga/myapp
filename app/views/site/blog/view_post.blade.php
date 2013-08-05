@@ -94,15 +94,20 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
 		<a href="{{{ $post->url() }}}" class="thumbnail">
 			<!-- http://placehold.it/260x180 -->
 
-			<img class="" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}" onerror="imgError(this);">
+<!-- without error -->
+			<img class="img-circle" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}" >
+
+<!-- with error -->
+			<img class="img-circle" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}" onerror="imgError(this);">
 		</a>
 	</div>
 	<div class="span5">
 <!-- //copy and edit buttons -->
 <!-- holder.js -->
 <!-- <script src="{{asset('assets/js/holder.js')}}"></script> -->
-<img src="holder.js/300x300" alt="">
-
+<!-- <img src="holder.js/300x300" alt=""> -->
+<img src="holder.js/300x200/social">
+	<img class="" src="{{asset('assets/'.strtolower($company->brand).'/'.$company->logo)}}" alt="{{$post->image}}" onerror="imgError(this);">
 		<h2>{{ $post->title }}</h2>
 		<p>
 			<!-- String Tidy here? -->

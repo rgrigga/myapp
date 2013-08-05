@@ -47,27 +47,7 @@ Website Management ::
 
 </style>
 
-<?php
 
-$array=array(
-	'tweet',
-	'fb',
-	'linked-in',
-	'page',
-	);
-
-function myviews(array $array){
-	$str='<ul class="dropdown-menu">';
-	foreach ($array as $item) {
-		$str.='<li>'.$item.'</li>';
-	}
-	$str.='</ul>';
-	return $str;
-}
-
-
-
-?>
 <div>
 	 <span class="label label-info">Info</span> Need help?  Please ask!
 </div>
@@ -108,8 +88,13 @@ function getRealIpAddr()
 ?>
 
 <h2>IP: {{getRealIpAddr()}}</h2>
+
+
+
+
 <p>
 	<a href="http://gristech.com/webmail">Webmail</a>
+
 </p>
 
 <div class="page-header">
@@ -142,7 +127,7 @@ function getRealIpAddr()
 		}
 	</style>
 <!-- http://stackoverflow.com/questions/362730/are-iframes-considered-bad-practice -->
-
+<!-- http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site/18053041#18053041 -->
 
 <div class="row">
 
@@ -154,7 +139,28 @@ function getRealIpAddr()
 <!-- side slider? http://jsfiddle.net/Osis/Mns8q/ -->
 	<div>{{ link_to_route('companies.edit', 'Edit Company', array($company->id), array('class' => 'btn btn-info')) }}</div>
 	<a href="http://www.make-rss-feeds.com/making-an-rss-feed.htm">RSS Feeds</a>
-			{{myviews($array)}}
+
+<!-- BROKEN -->
+<?php
+
+$array=array(
+	'tweet',
+	'fb',
+	'linked-in',
+	'page',
+	);
+
+function myviews(array $array){
+	$str='<ul class="dropdown-menu">';
+	foreach ($array as $item) {
+		$str.='<li>'.$item.'</li>';
+	}
+	$str.='</ul>';
+	return $str;
+}
+?>	
+	{{myviews($array)}}
+<!-- ./ BROKEN -->
 
 </div>
 <!-- page-header -->
@@ -162,14 +168,15 @@ function getRealIpAddr()
 
 
 <section>
-			<ul class="thumbnails">
+		<ul class="thumbnails">
 			@foreach ($posts as $post)
 			<li>
-				<div class="thumbnail span2">
+				<div class="thumbnail span3">
 					<h4>{{{ $post->title }}}</h4>
 					{{--URL::to($post->slug)--}}
-					
-<img class="thumby" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}">
+
+
+<img class="thumby" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}" onerror="imgError(this,200,200);">
 
 					<!-- <p class="muted credit">{{--URL::to('assets/'.$post->image)--}}</p> -->
 				
@@ -177,7 +184,15 @@ function getRealIpAddr()
 					<a href="{{{URL::to('blog/'.$post->slug)}}}" class="btn btn-info btn-mini">View</a>	
 					<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini"><i class="icon-edit"></i> {{{ Lang::get('button.edit') }}}</a>
 					<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger"><i class="icon-trash"></i> {{{ Lang::get('button.delete') }}}</a>
+
 				</div>
+									<!-- <ul class='nav'> -->
+					@foreach($post->tags() as $mytag)
+					<!-- <li> -->
+						<span class="badge">{{$mytag}}</span>
+					<!-- </li> -->
+					@endforeach						
+					<!-- </ul> -->
 				</div>
 			</li>
 			@endforeach
@@ -237,17 +252,18 @@ $c='<img src='.$url.'>';
 
 
 
+
 <div class="span3">
 	<address>
-    <strong>Twitter, Inc.</strong><br>
+    <strong>Gristech, Inc.</strong><br>
     795 Folsom Ave, Suite 600<br>
     San Francisco, CA 94107<br>
-    <abbr title="Phone">P:</abbr> (123) 456-7890
+    <abbr title="Phone">P:</abbr> (614) 203-9405
     </address>
      
     <address>
-    <strong>Full Name</strong><br>
-    <a href="mailto:#">first.last@example.com</a>
+    <strong>Ryan Grissinger</strong><br>
+    <a href="mailto:#">ryan.grissinger@gmail.com</a>
     </address>
 </div>
 
@@ -275,6 +291,7 @@ $c='<img src='.$url.'>';
 @stop
 
 @section('footer')
+
 <!-- PAYPAL -->
 <div class="span2 well pull-right">
 <h6>Please, give Ryan some money:</h6>
@@ -288,6 +305,27 @@ $c='<img src='.$url.'>';
 <!-- PAYPAL -->
 
 
+
+<div class="span2 well">
+	<h5>These favicons are fetched at will.</h5>
+<ul class='nav'>
+	<li>
+		<a href="http://facebook.com"><img src="http://s2.googleusercontent.com/s2/favicons?domain_url=http%3A//facebook.com" width="32" height="32" alt="Favicon" /></a>
+	</li>
+	<li>
+		<a href="http://twitter.com"><img src="http://s2.googleusercontent.com/s2/favicons?domain_url=http%3A//twitter.com" width="32" height="32" alt="Favicon" /></a>
+	</li>
+	<li>
+		<a href="http://buckeyemower.com"><img src="http://s2.googleusercontent.com/s2/favicons?domain_url=http%3A//buckeyemower.com" width="32" height="32" alt="Favicon" /></a>
+	</li>
+	<li>
+		<a href="http://advantage.gristech.com"><img src="http://s2.googleusercontent.com/s2/favicons?domain_url=http%3A//advantage.gristech.com" width="32" height="32" alt="Favicon" /></a>
+	</li>
+	<li>
+		<a href="http://myapp.gristech.com"><img src="http://s2.googleusercontent.com/s2/favicons?domain_url=http%3A//myapp.gristech.com" width="32" height="32" alt="Favicon" /></a>
+	</li>
+</ul>
+</div>
 
 
 @stop

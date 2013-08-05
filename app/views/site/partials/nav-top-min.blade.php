@@ -6,7 +6,7 @@
 			/*padding-top: 60px;*/
 		}
 		</style>
-		<div class="navbar navbar-fixed-top nav-top-min">
+		<div class="navbar navbar-fixed-top nav-top-min user-top">
 			<div class="navbar-inner">
 				<div class="container-fluid">
 					<a class="btn btn-navbar pull-left" data-toggle="collapse" data-target=".nav-collapse">
@@ -16,16 +16,19 @@
 						<span class="icon-bar"></span>
 					</a>
 					<a class="brand" style="margin-left:30px;" href="#">{{{$company->brand}}}</a>
-					@include('site.partials.search')
+
 					<div class="nav-collapse collapse">
 
 	                		<ul class="nav">
 	                			<li>
 	                				<a href="/">home</a>
 	                			</li>
-						    @foreach($company->menus() as $item)
-						        <li><a href="{{{$item}}}{{--URL::to($item)--}}">{{{$item}}}</a></li> 
-						    @endforeach
+
+							    @foreach($company->menus() as $item)
+							        <li><a class="{{ (Request::is($item) ? 'active' : '') }}"
+							        	href="{{{$item}}}{{--URL::to('#'.$item)--}}">{{{$item}}}</a></li> 
+							    @endforeach
+
 	    					</ul>
 
 							<!-- admin/user nav -->
@@ -33,10 +36,10 @@
 
 		                        @if (Auth::check())
 		                        	<!-- User Roles go here -->
-		                            
+    
 
 		                            @if (Auth::user()->hasRole('admin'))
-		                             <li{{ (Request::is('admin/blogs/create*') ? ' class="active"' : '') }}>
+		                             <li class="{{ (Request::is('admin/blogs/create*') ? 'active' : '') }}">
 		                                <a href="{{{ URL::to('admin/blogs/create') }}}"><i class="icon-bullhorn icon-white"></i> New</a>
 		                            </li>
 

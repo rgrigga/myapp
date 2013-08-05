@@ -115,23 +115,8 @@ a:hover {text-decoration: none}
 
 
 @section('favicons')
-		<!-- Favicons
-		================================================== -->
-
-		<!-- It would be great generate these on the fly.  For now, they are located in X asset file -->
-
-		<!-- http://theksmith.com/technology/howto-website-icons-browsersdevices-favicon-apple-touch-icon-etc/ -->
-		<!-- (this step is required for Android support, android ignores the non-pre-composed version): -->
-
-		<!-- http://demosthenes.info/blog/467/Creating-MultiResolution-Favicons-For-Web-Pages-With-GIMP -->
-
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}}">
-		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}}">
-		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
-		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
-		<!-- <link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}"> -->
-		<link rel="shortcut icon" href="{{{ asset('assets/ico/'.$company->name.'/favicon.png') }}}">
-		@stop
+@parent
+@stop
 
 
 		<!-- <h2>YO</h2> -->
@@ -386,6 +371,8 @@ a:hover{
 
 	<h4>Search:</h4>
 	{{$searchbar}}
+<!-- https://developers.facebook.com/docs/reference/api/ -->
+	<!-- graph theory: -->
 				{{--$about--}}
 				<div class="accordion" id="accordion">
 					<div class="accordion-group">
@@ -491,11 +478,15 @@ a:hover{
 		</div>
 	</div> -->
 
-		<div class="row-fluid">
+<!-- 		<div class="row-fluid">
 			<div class="span12">
-				<div id="search_engine-US-monthly-201307-201307-bar" width="600" height="400" style="width:600px; height: 400px;"></div><!-- You may change the values of width and height above to resize the chart --><p>Source: <a href="http://gs.statcounter.com/#search_engine-US-monthly-201307-201307-bar">StatCounter Global Stats - Search Engine Market Share</a></p><script type="text/javascript" src="http://www.statcounter.com/js/FusionCharts.js"></script><script type="text/javascript" src="http://gs.statcounter.com/chart.php?search_engine-US-monthly-201307-201307-bar"></script>
+				<div id="search_engine-US-monthly-201307-201307-bar" width="600" height="400" style="width:600px; height: 400px;"></div>-->
+
+				<!-- You may change the values of width and height above to resize the chart -->
+				
+				<!--<p>Source: <a href="http://gs.statcounter.com/#search_engine-US-monthly-201307-201307-bar">StatCounter Global Stats - Search Engine Market Share</a></p><script type="text/javascript" src="http://www.statcounter.com/js/FusionCharts.js"></script><script type="text/javascript" src="http://gs.statcounter.com/chart.php?search_engine-US-monthly-201307-201307-bar"></script>
 			</div>
-		</div>
+		</div> -->
 
 	<div class="tabbable"> <!-- Only required for left/right tabs -->
 		<a href="#about" data-toggle="tab"> about</a>

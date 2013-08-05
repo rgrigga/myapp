@@ -10,7 +10,7 @@
 			margin-left: 30px;
 		}*/
 		</style>
-		<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar navbar-inverse navbar-fixed-top user-top">
 
 			<div class="navbar-inner">
 

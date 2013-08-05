@@ -1,5 +1,4 @@
 <div id="prettified">
-	
 <h3>Prettified Code Snippets</h3>
 <h5>Javascript:</h5>
 <pre class="prettyprint">
