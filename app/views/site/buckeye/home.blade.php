@@ -698,6 +698,7 @@ a{
             Schedule Online Now
           </a>
         </div>
+
         <p>At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</strong> with the highest level of customer satisfaction.  With a variety of offerings to choose from, we’re sure you’ll be happy working with us. Look around our website and if you have any comments or questions, please feel free to contact us. We hope to see you again soon.
         </p>
         <p class="lead">
@@ -825,7 +826,8 @@ $(function() {
                   <h4 class="text-center">russ@buckeyemower.com</h4>
                   <div class="coupon span4">
                     <h4>10% Off</h4>
-                    <p>Get 10% off for mentioning this coupon. How? <strong>Just Ask!</strong></p>
+                    <p>Congratulations, you found it!</p>
+                    <p>Get 10% off for mentioning this coupon.<strong>Just Ask!</strong></p>
                   </div>
 <!--                   <h2 class="text-center">
                     @ include('site.partials.contact-buckeye')

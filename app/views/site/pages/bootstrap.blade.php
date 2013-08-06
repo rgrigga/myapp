@@ -19,6 +19,8 @@
   <body>
     <div class="container">
 
+      <h1>Bootstrap 3 Demo</h1>
+
       <h2>Bootstrap grids</h2>
       <p class="lead">Basic grid layouts to get you familiar with building within the Bootstrap grid system.</p>
 

@@ -44,6 +44,10 @@ Post Update ::
 		margin-top: 10%;
 	}
 
+	.user-top{
+	position: fixed;
+	top:0;
+	}
 /*	@media screen and (max-width: 979px) {
 	    .contentwrap { padding-top: 20px; }
 		.span50{
@@ -68,18 +72,15 @@ Post Update ::
 //       }
 //     });
   
-// })
+// })language="javascript" type="text/javascript" 
+
+</script>
 
 
-// https://www.paypal.com/webapps/mpp/paypal-payments-standard
-</script>
-<script type="text/javascript">
-    $(function() {
-        $('#content').redactor({
-            imageUpload: '/redactorUpload'
-        });
-     });
-</script>
+
+<!--  -->
+
+
 <div class="">
 	<a href="{{{ URL::to('blog/'.$post->slug) }}}">Fullscreen: {{{ URL::to('blog/'.$post->slug) }}}</a>
 </div>
@@ -90,9 +91,12 @@ Post Update ::
 	<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 
 @include('admin/navbar-post-edit')
+
 {{Input::file('photo','myphoto')}}
 
 <!-- ************************************************* -->
+
+
 
 	<style>
 
@@ -111,6 +115,7 @@ Post Update ::
 			float:left;
 			height: 50px;
 		}
+/**/
 	</style>
 
 <!-- *************************************************************** -->
@@ -166,6 +171,7 @@ Post Update ::
 				@endforeach
 			</ul>
 			
+
 		
 
 		<div class="collapse" id="MyTags">
@@ -262,9 +268,6 @@ Post Update ::
 					<!-- Meta Description -->
 
 
-
-
-
 	<div class="control-group {{{ $errors->has('meta-description') ? 'error' : '' }}}">
 		{{ $errors->first('meta-description', '<span class="help-inline">:message</span>') }}
 		<label class="control-label" for="meta-description">
@@ -278,51 +281,42 @@ Post Update ::
 
 		<div class="collapse in" id="MyDescription">
 			<div class="controls">
-				<textarea class="redactor" name="meta-description" id="meta-description">{{{ Input::old('meta-description', $post->meta_description) }}}</textarea>
+				<textarea class="wysihtml5 span12 full-width" name="meta-description" id="meta-description" rows='10'>{{{ Input::old('meta-description', $post->meta_description) }}}</textarea>
 			</div>
 			<p><i class="icon-facebook"></i> Meta Description is a 158 character summary of your post.  The Meta-Description may be displayed as the text for a google result, for example...</p>
 			<p>It is also used on facebook</p>
-			There are many free <a href="https://github.com/cheeaun/mooeditable/wiki/Alternative-Javascript-WYSIWYG-editors">Alternatives to Redactor</a> <a href="https://github.com/mindmup/bootstrap-wysiwyg/">This is the one!</a>
+			There are many free <a href="https://github.com/cheeaun/mooeditable/wiki/Alternative-Javascript-WYSIWYG-editors">Alternatives to Redactor</a>-<a href="https://github.com/mindmup/bootstrap-wysiwyg/">This one</a> is buggy
 		</div>
 	</div>			
 	<!-- ./ meta description -->
 
+<!-- http://sebastiano.me/redactor-js-oem-for-laravel/ -->
+<!-- https://twitter.com/laravelphp/statuses/294492336203902976 -->
 
 <!-- http://imsky.github.io/holder/ -->
-
+<!-- http://stackoverflow.com/questions/4622403/any-wysiwyg-rich-text-editor-that-doesnt-use-html-contenteditable-or-designmod -->
+<!-- http://customer.io/blog/Email-wysiwyg-editor-inspired-by-jekyll.html -->
 	<!-- *************************************************** -->
 
 	<div class="control-group {{{ $errors->has('content') ? 'error' : '' }}}">
 		
 		{{ $errors->first('content', '<span class="help-inline">:message</span>') }}
 		<label class="control-label" for="content">
-		<a href="#" data-toggle="collapse" data-target="#MyContent">
-			<i class="icon-pencil"></i>
-			Content
-		  	<i class="icon-angle-down"></i>
-		</a>
+			<a href="#" data-toggle="collapse" data-target="#MyContent">
+				<i class="icon-pencil"></i>
+				Content
+			  	<i class="icon-angle-down"></i>
+			</a>
 		</label>
-
-		<style>
-			#MyContent{
-				/*max-height:400px;*/
-				/*overflow: scroll; */
-			}
-		</style>
 
 		<div class="collapse in" id="MyContent">
 			<div class="controls">
-
-				<textarea class="editor" name="content" id="content">
-				{{{ Input::old('content', $post->content) }}}
-				</textarea>
-
+				<textarea class="full-width span12 wysihtml5" name="content" value="content" rows="10">{{{ Input::old('content', isset($post) ? $post->content : null) }}}</textarea>
+				{{{ $errors->first('content', '<span class="help-inline">:message</span>') }}}
 			</div>
-			<a href="http://imperavi.com/redactor/docs/">Redactor Docs</a>
-			
 		</div>
 	</div>
-
+			<a href="http://imperavi.com/redactor/docs/">Redactor Docs</a>
 <!-- ************************************************************** -->		<i class="icon-facebook">icon-facebook</i>
 <i class="icon-thumbs-up">.icon-thumbs-up</i>
 <i class="icon-twitter">icon-twitter</i>
@@ -441,9 +435,31 @@ Post Update ::
 	<div class="span4 pull-right">
 		<h1>Learn More</h1>
 		<p>This page is used for building content which will be used in many other places.  Print, social, email, flyers, web... it's very flexible!</p>
+
 	</div>
+
 </div>
 
+
+
+
+
+<!-- <div id="fb-root"></div> -->
+<script>
+// google analytics
+</script>
+<script>
+// (function(d, s, id) {
+//   var js, fjs = d.getElementsByTagName(s)[0];
+//   if (d.getElementById(id)) return;
+//   js = d.createElement(s); js.id = id;
+//   js.src = "http://connect.facebook.net/en_GB/all.js#xfbml=1";
+//   fjs.parentNode.insertBefore(js, fjs);
+//   }(document, 'script', 'facebook-jssdk'));
+ </script>
+
+<!-- TWITTER: -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 @stop
 @section('dev')
@@ -451,25 +467,13 @@ Post Update ::
 
 @yield('companies.index')
 
-
-
-
-
 <!-- @ stop -->
-
 
 <h3></h3>
 <!-- <form method="post" action="" autocomplete="off"> -->
 	<!-- CSRF Token -->
 	<!-- <input type="hidden" name="_token" value="{{{ csrf_token() }}}" /> -->
 	<!-- ./ csrf token -->
-
-
-
-
-
-
-
 
 	 	<div class="accordion-group">
 <!-- 	 		<em>accordian group</em> -->
@@ -482,10 +486,6 @@ Post Update ::
 	 		<!-- add class 'in' to the next div to expand on pageload -->
 	 		<div id="collapseOne" class="accordion-body collapse">
 	 			
-
-
-
-
 	 			<div class="accordion-inner">
 
 					<!-- Meta Title -->
@@ -494,11 +494,7 @@ Post Update ::
 	 			</div>
 	 		</div>
 	 	</div>
-
-
-
-					
-					<!-- ./ meta title -->
+<!-- ./ meta title -->
 
 
 
@@ -512,6 +508,19 @@ Post Update ::
 					</div> -->
 					<!-- ./ meta image -->
 
-
+<script>
+	     window.onload = function()
+            {
+                if(!window.jQuery)
+                {
+                    alert('jQuery not loaded');
+                }
+                else
+                {
+                    // alert('jQuery is loaded');
+                    // $('#editor').wysiwyg();
+                }
+            }
+</script>
 
 @stop

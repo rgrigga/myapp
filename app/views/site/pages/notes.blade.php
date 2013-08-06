@@ -1180,7 +1180,7 @@ Send these, the homeless, tempest-tost to me,
 I lift my lamp beside the golden door!"</span></p>
 
 </div>
-<!-- <div class="jumbotron masthead">
+<div class="jumbotron masthead">
   <div class="container-fluid">
     <h1>Jumbotron Masthead</h1>
     <p>Not very responsive.</p>
@@ -1191,6 +1191,7 @@ I lift my lamp beside the golden door!"</span></p>
       <li>
         <a href="http://github.com/twitter/bootstrap" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'GitHub project']);">GitHub project</a>
       </li>
+      <a href="https://help.github.com/articles/fork-a-repo">How to sork a repo</a>
       <li>
         <a href="./getting-started.html#examples" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'Examples']);">Examples</a>
       </li>
@@ -1202,7 +1203,7 @@ I lift my lamp beside the golden door!"</span></p>
       </li>
     </ul>
   </div>
-</div> -->
+</div>
 
 
 <!-- 	<div class="jumbotron masthead">
@@ -1224,5 +1225,8 @@ I lift my lamp beside the golden door!"</span></p>
 	</p>
 	<p>landscape photo &copy; <a href="http://www.flickr.com/photos/65978013@N03/6472678173/">flickr</a></p>
 </div>
-		
+	
+<!-- Neat radio redording, the announcer is cool to listen to at the beginning and the end.  Not to mention it's an awesome show! -->
+<!-- http://archive.org/details/gd76-06-12.fm.wren.5556.sbeok.shnf -->
+
 @stop

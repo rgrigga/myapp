@@ -352,38 +352,9 @@ h2{
 		@include('site.partials.nav-top-min')
 		@stop
 
-		@section('myjs')
-		<script type="text/javascript">
 
+@section('myjs')
 
-
-	// $('#accordion').margin-top($("#name").height());
-	window.onload = function()
-	{
-    	// alert('bam!');
-    	if(!window.jQuery)
-    	{
-    		alert('jQuery not loaded');
-    	}
-    	else
-    	{
-
-    		$('#side-wrapper').height($("#aside").height());
-            // $(document).ready(function(){
-            //     $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
-            // });
-}
-}
-
-
-$('.collapse-group .btn').on('click', function(e) {
-	e.preventDefault();
-	var $this = $(this);
-	var $collapse = $this.closest('.collapse-group').find('.collapse');
-	$collapse.collapse('toggle');
-});
-
-</script>
 @stop
 
 @section('main')
@@ -409,14 +380,17 @@ foreach (glob($path."*.blade.php") as $filename) {
 	<div class="page-header">
 		<!-- <h1>BAM</h1> -->
 		<div class="corner">
-			<img src="{{asset('assets/advantage/corner.png')}}" alt="le corner">
+			<img src="{{asset('assets/'.strtolower($company->brand).'/corner.png')}}" alt="7 days per week">
 		</div>
 
 		<div class="row-fluid">
-			<div class="span4 pull-right" id="side-wrapper">
+			<div class="span4 pull-right" id="side-wrapper2">
 
-				<!-- <div class="aside well"> -->
-				<div id="aside" class="aside well" data-spy="affix" data-offset='1'>
+				<div class="aside well">
+
+				<!-- <div id="aside" class="aside well" data-spy="affix" data-offset='1'> -->
+
+
 					<!-- //aside -->
 					<!-- <img class="img-circle" src="{{asset($company->image)}}" alt="MyImage"> -->
 <style>
@@ -431,36 +405,36 @@ foreach (glob($path."*.blade.php") as $filename) {
 <!-- Gutter Replacement, Repair, and More. -->
 
 					<div class="collapse-group">
-						<a class="btn btn-info" href="#">~Toggle~<i class="icon-hand-up"></i></a>
+						
 						<div class="tab-content">
 							<div class="tab-pane" id="gutters">
 							always visible	
-							{{$company->img()}}
+							
 							
 							<img src="holder.js/64x64/social">
 					
 								<div class="collapse in">
 									collapsable
-
 								</div>
 							</div>
 						</div>
+
+
 						<div class="collapse in">
+							<a class="btn btn-info" href="#">~ Toggle Me ~ <i class="icon-hand-up"></i></a>
 							<div class="tab-content"> 
 								<div class="tab-pane active" id="about">
 									{{$about}}
+									<pre class="prettyprint">sign in to edit this</pre> edit about page
 									<h2>About Us</h2>
-<!-- 									<img src="holder.js/300x200/social">
-									
-									<h3>We treat your home as our own</h3>
-
-									<p>Advantage Services is a family owned business with a standard of excellence in all aspects of Residential and Commercial Painting, Roofing, Deck and Fence Staining, and Power Washing. Formerly known as Advantage Painting, Advantage Services has been known throughout Columbus and it's surrounding areas as the first name in professionalism and quality, since 1990.</p>	 -->			
+									<img src="holder.js/64x64/social">
+			
 								</div>
 								<div class="tab-pane text-align: center;" id="interior">
 									
 									
 									<img class="img-circle" width='320px' src="{{asset('assets/advantage/interior.jpg')}}">
-									<!-- <p>Howdy, I'm interior.</p> -->
+									<!-- <p>Howdy, I'm interior.</p>
 									<p>Quick and correct.  We take the time to set up and paint tight trim lines and clean up after our work.</p>
 									<h2>Interior</h2>
 								</div>
@@ -513,16 +487,20 @@ $collection=explode(',', 'painting,roofing,power washing,gutter cleaning,concret
 
 ?>
 
-collection of collection of posts
+<!-- collection of collection of posts
 
 foreach $category, get list of public posts, tag, or content with title like or tag like this tag.  list them below.
 h3.post->title
 p.desc.
 img.
 
+@foreach($posts as $post)
+	<h2>{{$post->title}}</h2>
+	<p>{{$post->description}}</p>
+	{{$post->image}}
+@endforeach
 
-
-View::make('company.aside',$posts);
+View::make('company.aside',$posts); -->
 <!-- <ul> -->
 @foreach($collection as $item)
 <?php $it=str_replace(" ", "", $item); ?>
@@ -541,15 +519,18 @@ View::make('company.aside',$posts);
 														<h3>How can we help you?</h3>
 						<h4>{{$company->phone}}</h4>
 							</div>	
+							<!-- tabcontent -->
 
 
 						
 						</div>
+						<!-- collapse -->
 
 
 
-						{{$contact}}
+						{{$contact}}<a class="btn btn-info" href="#">~ Toggle Me ~ <i class="icon-hand-up"></i></a>
 					</div>
+					<!-- collapse-group -->
 
 				</div>
 			</div>
@@ -696,15 +677,25 @@ View::make('company.aside',$posts);
 
 
 
-					
+
 				</div>
 				<!-- ./ accordian -->
 
 			</div>
 			<div class="span3 pull-right">
+				<style>
+				  .coupon {
+				    text-align: center;
+				    border-style:dashed;
+				    /*position: absolute;*/
+				    top:60px;
+				    right:100px;
+				  }
+				</style>
 				<div class="coupon">
+					<!-- Surprise! -->
 					<h2>Coupon!</h2>
-					<p>10% your first order!</p>
+					<p>Just tell me you found it, and I will give you  10% your first order!</p>
 				</div>
 			</div>
 		</div>
@@ -748,6 +739,7 @@ View::make('company.aside',$posts);
 	</div>
 
 
+{{View::make('site.posts.featurettes')->with('posts',$posts);}}
 		<h1>Posts:</h1>
 
 		<div class="text-center">
@@ -844,6 +836,9 @@ View::make('company.aside',$posts);
 				@foreach($company->menus() as $menu)
 				<li><a href="#{{$menu}}" data-toggle="tab"><i class="icon-rocket icon-4x"></i> {{{$menu}}}</a></li>
 				@endforeach
+
+
+				{{asset('assets/'.strtolower($company->brand).'/corner.png')}}
 				<li class="active"><a href="#tab1" data-toggle="tab">Section 2</a></li>
 			</ul>
 
@@ -861,7 +856,14 @@ View::make('company.aside',$posts);
 	</div>
 
 
-{{View::make('site.posts.featurettes')->with('posts',$posts);}}
+				@foreach($company->menus() as $menu)
+				<li><a href="#{{$menu}}" data-toggle="tab"><i class="icon-rocket icon-4x"></i> {{{$menu}}}</a></li>
+				@endforeach
+
+
+				{{asset('assets/'.strtolower($company->brand).'/corner.png')}}
+
+
 		
 
 	<div class="row-fluid">
@@ -891,7 +893,35 @@ View::make('company.aside',$posts);
 
 
 
+<script type="text/javascript">
+	// $('#accordion').margin-top($("#name").height());
+	window.onload = function()
+	{
+    	// alert('bam!');
+    	if(!window.jQuery)
+    	{
+    		alert('jQuery not loaded');
+    	}
+    	else
+    	{
 
+    		$('#side-wrapper').height($("#aside").height());
+            // $(document).ready(function(){
+            //     $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
+            // });
+		}
+	}
+
+
+$('.collapse-group .btn').on('click', function(e) {
+	e.preventDefault();
+	var $this = $(this);
+	var $collapse = $this.closest('.collapse-group').find('.collapse');
+	$collapse.collapse('toggle');
+	$this.css('background-color','red');
+});
+
+</script>
 	
 
 	<!-- </div> -->

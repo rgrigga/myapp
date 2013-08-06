@@ -127,16 +127,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.349375"
+     inkscape:zoom="0.63446243"
      inkscape:cx="329.1575"
-     inkscape:cy="100.98182"
-     inkscape:current-layer="g6649"
+     inkscape:cy="323.09349"
+     inkscape:current-layer="g4423"
      inkscape:document-units="px"
      showgrid="false"
      inkscape:window-width="1085"
      inkscape:window-height="683"
-     inkscape:window-x="94"
-     inkscape:window-y="124"
+     inkscape:window-x="143"
+     inkscape:window-y="239"
      inkscape:window-maximized="0" />
   <metadata
      id="metadata4669">
@@ -146,7 +146,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -401,6 +401,67 @@
            y="380.06769"
            x="390.92667"
            sodipodi:role="line">hangouts</tspan></text>
+      <rect
+         style="opacity:0.76131688;color:#000000;fill:#3ca0d0;fill-opacity:0.72602737;fill-rule:nonzero;stroke:#034769;stroke-width:16.67900276;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.66666667;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         id="rect9626"
+         width="104.44572"
+         height="112.13922"
+         x="159.99136"
+         y="-107.39509" />
+      <path
+         sodipodi:type="star"
+         style="fill:#034769;fill-opacity:0.89803922;fill-rule:nonzero;stroke:#ff8900;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         id="path10182"
+         sodipodi:sides="5"
+         sodipodi:cx="14.821677"
+         sodipodi:cy="50.856876"
+         sodipodi:r1="26.75528"
+         sodipodi:r2="42.468697"
+         sodipodi:arg1="1.060308"
+         sodipodi:arg2="1.6886265"
+         inkscape:flatsided="false"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="M 27.894397,74.201019 9.8291547,93.031097 -3.3402288,70.503508 -26.831165,59.141256 -9.4757179,39.65502 -5.9286723,13.802684 17.966967,24.287117 l 25.683131,-4.615371 -2.58713,25.965972 12.326003,22.99988 z"
+         transform="matrix(0.86464075,0,0,0.89186868,91.428834,-83.575236)" />
+      <g
+         id="g10207"
+         transform="matrix(1,0,0,0.9776822,0,-1.7806091)"
+         inkscape:export-filename="/home/ryan/MyApp6/public/assets/megacorp/favicon.png"
+         inkscape:export-xdpi="22.040001"
+         inkscape:export-ydpi="22.040001">
+        <path
+           inkscape:transform-center-y="-1.935825"
+           inkscape:transform-center-x="4.7952298"
+           transform="matrix(0.57773741,-0.46731008,0.45304353,0.59593063,381.49165,-175.27198)"
+           d="M 91.894399,82.723487 48.081972,107.82329 25.698622,153.08381 -11.711493,119.17198 -61.673639,111.87042 -40.981936,65.811953 -49.47689,16.038822 0.72140119,21.484952 45.433377,-1.9749727 55.765924,47.449387 z"
+           inkscape:randomized="0"
+           inkscape:rounded="0"
+           inkscape:flatsided="false"
+           sodipodi:arg2="0.75491066"
+           sodipodi:arg1="0.12659213"
+           sodipodi:r2="51.771389"
+           sodipodi:r1="82.176811"
+           sodipodi:cy="72.348312"
+           sodipodi:cx="10.375174"
+           sodipodi:sides="5"
+           id="path10184"
+           style="fill:#ff5900;fill-opacity:0.89803922;fill-rule:nonzero;stroke:#ff8900;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           sodipodi:type="star" />
+        <text
+           transform="scale(1.1150877,0.89679045)"
+           sodipodi:linespacing="125%"
+           id="text9628"
+           y="-119.64593"
+           x="346.60904"
+           style="font-size:115.39592743px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#034769;fill-opacity:1;stroke:#ff8900;stroke-width:1.28328204;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Czaristite;-inkscape-font-specification:Czaristite Medium"
+           xml:space="preserve"><tspan
+             style="stroke-width:1.28328204"
+             y="-119.64593"
+             x="346.60904"
+             id="tspan9630"
+             sodipodi:role="line">G</tspan></text>
+      </g>
     </g>
     <g
        id="g4517-6"
@@ -417,7 +478,10 @@
          sodipodi:cx="375.94952"
          id="path2985-8-6"
          style="opacity:0.76131688;fill:#63add0;stroke:#a63a00;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-         sodipodi:type="arc" />
+         sodipodi:type="arc"
+         inkscape:export-filename="/home/ryan/MyApp6/public/assets/gristech/security.png"
+         inkscape:export-xdpi="72"
+         inkscape:export-ydpi="72" />
       <text
          transform="scale(0.89295936,1.1198718)"
          sodipodi:linespacing="125%"
@@ -425,7 +489,10 @@
          y="575.86072"
          x="-855.27649"
          style="font-size:33.24894333px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Czaristite;-inkscape-font-specification:Czaristite Medium"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         inkscape:export-filename="/home/ryan/MyApp6/public/assets/gristech/security.png"
+         inkscape:export-xdpi="72"
+         inkscape:export-ydpi="72"><tspan
            style="font-weight:bold;-inkscape-font-specification:Czaristite Bold"
            y="575.86072"
            x="-855.27649"
@@ -438,7 +505,10 @@
          y="670.12372"
          id="text4407"
          sodipodi:linespacing="104%"
-         transform="scale(1.0160779,0.9841765)"><tspan
+         transform="scale(1.0160779,0.9841765)"
+         inkscape:export-filename="/home/ryan/MyApp6/public/assets/gristech/security.png"
+         inkscape:export-xdpi="72"
+         inkscape:export-ydpi="72"><tspan
            sodipodi:role="line"
            id="tspan4409"
            x="-735.25616"
@@ -477,7 +547,10 @@
            sodipodi:sides="16"
            id="path4417"
            style="fill:#ff5900;fill-opacity:1;fill-rule:nonzero;stroke:#034769;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.66666667;stroke-dasharray:none;stroke-dashoffset:0"
-           sodipodi:type="star" />
+           sodipodi:type="star"
+           inkscape:export-filename="/home/ryan/MyApp6/public/assets/gristech/security.png"
+           inkscape:export-xdpi="72"
+           inkscape:export-ydpi="72" />
         <text
            transform="scale(0.6339356,1.5774473)"
            sodipodi:linespacing="125%"
@@ -485,7 +558,10 @@
            y="392.94846"
            x="-2671.676"
            style="font-size:37.55747223px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Czaristite;-inkscape-font-specification:Czaristite Medium"
-           xml:space="preserve"><tspan
+           xml:space="preserve"
+           inkscape:export-filename="/home/ryan/MyApp6/public/assets/gristech/security.png"
+           inkscape:export-xdpi="72"
+           inkscape:export-ydpi="72"><tspan
              y="392.94846"
              x="-2671.676"
              id="tspan4421"

@@ -5,29 +5,46 @@ If you like this, you really should check out the source code on
 ------------------------------------------------------------------------
 -------GITHUB--github.com/rgrigga/myapp---------------------------------
 ------------------------------------------------------------------------
-----------ryan.grissinger@gmail.com-------------------------------------
-----------@ryangrissinger-----------------------------------------------
+-------ryan.grissinger@gmail.com-------------------------------------
+---------- @ryangrissinger--------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------
-----------thanks, I hope you enjoy.-------------------------------------
+-------Thanks, I hope you enjoy.-------------------------------------
 ------------------------------------------------------------------------
 -->
 
+<!-- 
+If you have no idea what git is, it's like time travel for a computer program.  
 
-<!-- Just look at all these fabulous resources: -->
+1.21 giga-bytes! 
+
+Git is a version control system that allows you make changes to a program, but you can hit the rewind button.
+
+You can also move back and forth in time, but not just for the entire project: you can rewind or pause any module or piece of code, right down to an individual line.
+
+Then you can move back and forth.  You can also switch branches.  It's kind of like Back the Future: Marty and Doc started at the ORIGIN.  Then they went back to a 
+//hashmark (create new BRANCH and CHECKOUT that.)
+point in the past, and then began making changes which threatened to destroy the space-time continuuum.  
+
+
+They move forward in time, make changes, 
+
+Wait a minute... that's their story.
+
+If you know what git is, but are just learning, I have documented everything you need to know to get started: How to connect, set up your machine, and so on.  Just contact me and I'll help you.
+
+python gives me bad first impression-
+http://docs.python.org/2/howto/webservers.html
+it is not easy or simple to understand this page.
+
+PROGRAMMERS: Demonstrate your abilities: this is a community demo site.
+
+<!-   Just look at all these fabulous resources: -->
 <!-- http://www.opensourcecms.com/ -->
 <!-- Want more?  Check out /tools ('myapp/tools')-->
 
 <!-- Our Competition/Partners: -->
 <!-- http://myappinc.com/ -->
 
-<!-- 
-If you have no idea what git is, please type in myapp.gristech.com/git or search this site for git. 
-
-If you know what git is, but are just learning, I have documented everything you need to know to get started: How to connect, set up your machine, and so on.  Just contact me and I'll help you.
-
-PROGRAMMERS: Demonstrate your abilities: this is a community demo site.
-
--->
 	<head>
 		<!-- Basic Page Needs
 		================================================== -->
@@ -116,8 +133,12 @@ For now, you may clone this public repository and develop it as much as you like
 
 <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css"> -->
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+
 <link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/wysihtml5/bootstrap-wysihtml5.css">
+
 <!-- <link rel="stylesheet" href="/assets/css/admin-style.css"> -->
 <!-- <link rel="stylesheet" href="{{asset('assets/js/redactor/redactor.css')}}" /> -->
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -181,6 +202,13 @@ For now, you may clone this public repository and develop it as much as you like
 		    }
 		</script>
 
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <!-- <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet"> -->
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> -->
+
+<!-- <script src="/assets/js/bootstrap-wysiwyg/external/jquery.hotkeys.js"></script> -->
+<!-- <script src="/assets/js/bootstrap-wysiwyg/bootstrap-wysiwyg.js"></script> -->
+<link href="/assets/js/bootstrap-wysiwyg/index.css" rel="stylesheet">
 	</head>
 
 	<body>
@@ -250,7 +278,6 @@ For now, you may clone this public repository and develop it as much as you like
 				      <button type="button" class="close" data-dismiss="alert">&times;</button>
 				      <p>{{ Session::get('message') }}</p>
 				    </div>
-
 			    @endif
 
 			    @if(Session::has('mymessage'))
@@ -308,7 +335,7 @@ Array
 
 <!-- http://stackoverflow.com/questions/2984786/php-sort-and-count-instances-of-words-in-a-given-string -->
 
-<!-- every x hours, i cache my results, publish them to CDN, and the apps communicate with the CDN. This can be done with static data, or updated upon update of the table, and/or upon request. -->
+<!-- every n time, i cache my results, publish them to CDN, and the apps communicate with the CDN. This can be done with static data, or updated upon update of the table, and/or upon request. -->
 </pre>
 
 <a href="http://blog.marketo.com/blog/2013/06/7-tips-for-effective-marketing-with-twitter-lead-generation-cards.html">Twitter Lead Generation</a>
@@ -318,7 +345,7 @@ Array
 					<!-- Javascripts
 					================================================== -->
 {{ Basset::show('admin-js.js') }}
-
+{{ Basset::show('public.js') }}
 <!-- ALL ABOUT REDACTOR -->
 <!-- to reimplement redactor, uncomment the lower script tag, the upper css, and the redactor funciton in the onload event. -->
 <!-- <script src="{{asset('assets/js/redactor/redactor.js')}}"></script> -->
@@ -340,10 +367,11 @@ Array
 
 <!-- NO SKIN -->
 <!-- This takes waaaaayy longer to load WITH A SKIN *and* over the network... localize the css for speed, I think??? -->
-<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?"></script>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 
-		<script language="javascript" type="text/javascript" src="{{asset('assets/js/jquery.equalheights.js')}}"></script>
+<script language="javascript" type="text/javascript" src="{{asset('assets/js/jquery.equalheights.js')}}"></script>
 
+<!-- $('#editor').wysiwyg(); -->
 	<script>
 		
 		// these are (ruh-roh) globals. You could wrap in an
@@ -423,6 +451,8 @@ Array
 
 
 	    $(document).ready(function(){
+			
+			// $('#editor').wysiwyg();
 
 	        $('.admin-top').css({'margin-top':($('.user-top').height()+0)+'px'});
 	        $('.contentwrap') .css({'padding-top': (
@@ -432,7 +462,11 @@ Array
 	        	});
 			// $('.redactor').redactor();
 			// $('.redactor').wysiwyg();
-			// $('.myinput').wysihtml5();
+			// $('#meta-description').wysihtml5();
+			// $('.editor').wysihtml5();
+			$('.wysihtml5').wysihtml5();
+			// $('#editor').wysiwyg();
+			
 			columnConform();
 		});
 	    
@@ -444,6 +478,7 @@ Array
 	             + 0 )+'px'
 	        });
 	        columnConform();
+
 	    });
 			
         </script>

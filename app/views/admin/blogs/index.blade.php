@@ -254,19 +254,7 @@ $c='<img src='.$url.'>';
 
 
 
-<div class="span3">
-	<address>
-    <strong>Gristech, Inc.</strong><br>
-    795 Folsom Ave, Suite 600<br>
-    San Francisco, CA 94107<br>
-    <abbr title="Phone">P:</abbr> (614) 203-9405
-    </address>
-     
-    <address>
-    <strong>Ryan Grissinger</strong><br>
-    <a href="mailto:#">ryan.grissinger@gmail.com</a>
-    </address>
-</div>
+
 
 		      		<div class="span3 thumbnail delta pull-right">
 		      			<a href="http://opensource.org/">

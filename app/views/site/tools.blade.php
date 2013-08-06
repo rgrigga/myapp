@@ -515,10 +515,11 @@ $code='foo';
 		</ol>
 		<p>Designers work on the front end with, well, the design of a site.  
 			Their tools include Javascript, CSS, HTML, and other content-related things.  
-			The primary concern for the designer is the View.</p>
-		<p>Developers work with the innards: the back-end code, so to speak.  The main 
-			concern is the <em>architechture</em> of the application.  Their tools include PHP, Frameworks, and Databases.
+			The primary concern for the designer is the View.  Layout/Design makes the presentation look pretty.  I have some knowledge of design, and I enjoy studying it and practicing it.</p>
+		<p>Developers work with the innards of the application: the back-end, behind-the-scenes, so to speak.  The main 
+			concern is the <em>architechture</em> of the application.  Developer tools include the wonderful Laravel Framework. PHP, Frameworks, and Databases.
 			Designers work in code: Controllers, Models, and an assembly of other tools.
+			Perhaps the most important resource of all is other deveopers.  Thank you!
 		</p>
 	</div>
 	<div class="span3 thumbnail">

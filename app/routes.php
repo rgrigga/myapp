@@ -102,6 +102,11 @@ Route::post('redactorUpload', function()
 });
 
 
+
+    Route::get('bootstrap-wysiwyg',function(){
+        return Redirect::to('/assets/js/bootstrap-wysiwyg/index.html');
+    });
+
 // Route::group(array(''),)
 // Route::get('/advantage',function(){
 
@@ -353,7 +358,7 @@ Route::group(array('domain' => 'myapp.dev'),function()
     Route::get('mytest',function(){
         // die("BAM");
         // $success="You did it!";
-       return View::make('site.gristech.test')
+       return View::make('site.gristech.mytest')
             ->with('success','You did it!');
             // ->withInput(Input::except('password'))
             
@@ -425,7 +430,7 @@ Route::group(array('domain' => 'myapp.dev'),function()
     // $company=App::make('company');
     // die(var_dump($company));
 
-    
+
 // *KEEP    
 // This is very interesting
     Route::get('/foo',function(){
