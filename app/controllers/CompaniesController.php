@@ -26,14 +26,15 @@ class CompaniesController extends BaseController {
     public function getIndex()
     {
 
-        $companies = $this->company->all();
+
+        $companies = $this->company->get();
 
         return View::make('companies.index', compact('companies'));
     }
 
     public function index(){
         // return Redirect::route('companies.index');
-        $companies = $this->company->all();
+        $companies = $this->company->get();
 
         return View::make('companies.index', compact('companies'))
         // ->nest('about','company/about')

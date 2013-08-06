@@ -109,11 +109,12 @@ function getRealIpAddr()
 
 	<div class="btn-group">
 		<a class="btn btn-primary" data-toggle="collapse" data-target="#piwik">Live Analytics</a>
+		<a class="btn btn-primary" href="https://www.l4.gristech.com/piwik/index.php">Piwik Dashboard</a>
 		<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">Tools <span class="caret"></span></a>
 
 		<ul class="dropdown-menu">
 			<li><a href="https://bootsnipp.com/resources">https://bootsnipp.com/resources</a></li>
-			<li><a href="https://www.l4.gristech.com/piwik/index.php">Piwik Main Dashboard</a></li>
+			<li>foo</li>
 			<li><a href="#">Something else here</a></li>
 			<li class="divider"></li>
 			<li><a href="tools">Tools Page</a></li>

@@ -890,144 +890,19 @@ a:hover {text-decoration: none}
 
 <div class="row-fluid">
 
-
-	<div class="span7 pull-right">
-		<h2>About The App:</h2>
-			<div class="accordion" id="accordion">
-			 	<div class="accordion-group">
-			 		<div class="accordion-heading">
-			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-			 				<h2>Web Design</h2>
-			 			</a>
-			 		</div>
-			 		<!-- Here's a little diddy used on this page: -->
-			 		<div id="collapseOne" class="accordion-body collapse">
-			 			<!-- //add in to open on load -->
-			 			Here's some examples used on this page:
-			 			<div class="accordion-inner">
-			 				<a href="css" data-toggle="tab">
-			 					<h3>CSS</h3>
-			 				</a>
-			 				<div id='css'>
-			 					This little diddy makes the 'note':
-			 					<pre class='prettyprint'><code 'lang=css'>
-
-	.note { 
-		overflow: hidden;
-		margin-top: 20px;
-	    position: relative; 
-	    max-width: 300px;
-	}
-
-	.note > .inner{ 
-		position: absolute; 
-		top: 10%;
-		left: 30px; 
-	}
-
-	.note > .inner span { 
-		color: black; 
-		font: bold 24px/45px Aescrawl, Helvetica, Sans-Serif; 
-		left:20%;
-		padding: 30px; 
-	}
-			 					</code></pre>
-			 				</div>
-			 				
-							
-			 				<a href="interior" data-toggle="tab">
-								<h3>HTML 5</h3>
-			 				</a>
-							<p>I beleive in standards, and try to code to them as such.</p>
-							<a href="decks" data-toggle="tab">
-								<h3>Responsive Design</h3>
-							</a>
-							<p><a class='btn btn-info' href="{{URL::to('responsive')}}"><i class="icon-code"> </i>Learn More</a></p>
-			 			</div>
-			 		</div>
-			 	</div>
-			 	<div class="accordion-group">
-			 		<div class="accordion-heading">
-			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-			 				<h2>Development</h2>
-			 			</a>
-			 		</div>
-			 		<div id="collapseTwo" class="accordion-body collapse">
-			 			<div class="accordion-inner">
-			 				
-			 				<a href="#repairs" data-toggle="tab">
-			 					<h3>PHP</h3>
-			 				</a>
-
-							<a href="#replacement" data-toggle="tab">
-			 					<h3>Laravel</h3>
-			 				</a>
-							
-			 				https://en.wikipedia.org/wiki/Virtual_private_server
-			 			</div>
-			 		</div>
-			 	</div>
-			 	<div class="accordion-group">
-			 		<div class="accordion-heading">
-			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-							<h2>Marketing</h2>
-			 			</a>
-			 		</div>
-			 		<div id="collapseThree" class="accordion-body collapse">
-
-			 			<div class="accordion-inner">
-			 				<a href="#power" data-toggle="tab">
-								<h3>SEO</h3>
-							</a>
-			 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-			 			</div>
-			 		</div>
-			 	</div>
-			 	<div class="accordion-group">
-			 		<div class="accordion-heading">
-			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
-			 				<h2>More</h2>
-			 			</a>
-			 		</div>
-			 		<div id="collapseFour" class="accordion-body collapse">
-			 			<div class="accordion-inner">
-			 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-			 			</div>
-			 		</div>
-			 	</div>
-			 	<div class="accordion-group">
-			 		<div class="accordion-heading">
-			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
-			 				<h2>Dirty Deeds</h2>
-			 			</a>
-			 		</div>
-			 		<div id="collapseFive" class="accordion-body collapse">
-			 			<div class="accordion-inner">
-			 				Done dirt cheap.
-			 			</div>
-			 		</div>
-			 		<!-- ./collapse -->
-			 	</div>
-			 	<!-- ./ accordian-group -->
-			</div>
-			<!-- ./ accordian -->
-
-
-	</div>
-	<!-- div -->
 	<div class="span4 pull-left">
-		<!-- <div class="pull-right"> -->
-		<!-- <img src="{{asset($company->image)}}" alt="MyImage"> -->
-	<!-- </div> -->
-	<div>ID: {{{ $company->id }}}</div>
-	<div>Name: {{{ $company->name }}}</div>
-	<div>Brand: {{{ $company->brand }}}</div>
-	<div>Phone: {{{ $company->phone }}}</div>
-	<div>Email: {{{ $company->email }}}</div>
-	<div>Description: {{{ $company->description }}}</div>
-	<div>Slogan: {{{ $company->slogan }}}</div>
-	<div>Image: {{{ $company->image }}}</div>
-	<div>Menus: {{{ $company->menus }}}</div>
+			<!-- <div class="pull-right"> -->
+			<!-- <img src="{{asset($company->image)}}" alt="MyImage"> -->
+		<!-- </div> -->
+		<div>ID: {{{ $company->id }}}</div>
+		<div>Name: {{{ $company->name }}}</div>
+		<div>Brand: {{{ $company->brand }}}</div>
+		<div>Phone: {{{ $company->phone }}}</div>
+		<div>Email: {{{ $company->email }}}</div>
+		<div>Description: {{{ $company->description }}}</div>
+		<div>Slogan: {{{ $company->slogan }}}</div>
+		<div>Image: {{{ $company->image }}}</div>
+		<div>Menus: {{{ $company->menus }}}</div>
 	</div>
 </div>
 

@@ -95,10 +95,10 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
 			<!-- http://placehold.it/260x180 -->
 
 <!-- without error -->
-			<img class="img-circle" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}" >
+			<img class="img-circle" src="{{{asset('assets/'.strtolower($company->brand).'/'.$company->image)}}}" alt="{{{$post->image}}}" >
 
 <!-- with error -->
-			<img class="img-circle" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}" onerror="imgError(this);">
+			<img class="img-circle" src="{{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}}" alt="{{{$post->image}}}" onerror="imgError(this);">
 		</a>
 	</div>
 	<div class="span5">
@@ -107,12 +107,12 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
 <!-- <script src="{{asset('assets/js/holder.js')}}"></script> -->
 <!-- <img src="holder.js/300x300" alt=""> -->
 <img src="holder.js/300x200/social">
-	<img class="" src="{{asset('assets/'.strtolower($company->brand).'/'.$company->logo)}}" alt="{{$post->image}}" onerror="imgError(this);">
-		<h2>{{ $post->title }}</h2>
+	<img class="" src="{{{asset('assets/'.strtolower($company->brand).'/'.$company->logo)}}}" alt="{{{$post->image}}}" onerror="imgError(this);">
+		<h2>{{{ $post->title }}}</h2>
 		<p>
 			<!-- String Tidy here? -->
 			<!-- Str::limit() -->
-			{{$post->meta_description}}
+			{{{$post->meta_description}}}
 		</p>
 		
 
@@ -120,16 +120,13 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
 		<h5>Tags:</h5>
 		<ul class='tag'>
 			@foreach($post->tags() as $tag)
-				<li><a href='/tags/{{ $tag }}'>{{$tag}}</a></li>
+				<li><a href='/tags/{{{ $tag }}}'>{{{$tag}}}</a></li>
 			    
 			@endforeach
 		</ul>
 			<!-- // <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js&skin=sunburst"></script> -->
 	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-<pre class="prettyprint">
-Developer: uncomment vardump in blog.view_post to view Post $post
-<?php //var_dump($post); ?>
-</pre>
+
 		@endif
 		<!-- intentionally not written as elseif so we can move these -->
 		@if ( ! Auth::check())
@@ -231,5 +228,10 @@ You don't have the correct permissions to add comments.
 @endif
 @stop
 
-
+@section('admin-bottom')
+<pre class="prettyprint">
+Developer: uncomment vardump in blog.view_post to view Post $post
+<?php //var_dump($post); ?>
+</pre>
+@stop
 

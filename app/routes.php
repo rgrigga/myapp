@@ -439,6 +439,12 @@ Route::group(array('domain' => 'myapp.dev'),function()
 // Can anyone help me learn more about any of these things?
 // Please let me know, I would enjoy discussing them.
 
+Route::get('company','CompaniesController@getIndex');
+Route::get('company/mylist','CompanyController@mylist');
+Route::get('company/{name}','CompanyController@getIndex')
+    ->where('name', '[a-zA-Z_]+');
+Route::get('company/{id}','CompanyController@show')
+    ->where('id', '[0-9]+');
 
 // idea: display "featured" set of posts?
 
@@ -716,12 +722,13 @@ Route::get('admin','AdminBlogsController@getIndex');
 // });
 // Route::get('advantage','CompanyController@getIndex',array('name'=>'advantage'));
 
-Route::get('company/{id}','CompanyController@show')
-    ->where('id', '[0-9]+');
 
+Route::get('company','CompaniesController@getIndex');
 Route::get('company/mylist','CompanyController@mylist');
 Route::get('company/{name}','CompanyController@getIndex')
     ->where('name', '[a-zA-Z_]+');
+Route::get('company/{id}','CompanyController@show')
+    ->where('id', '[0-9]+');
 
 //////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////

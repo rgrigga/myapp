@@ -313,23 +313,16 @@ Post Update ::
 		<div class="collapse in" id="MyContent">
 			<div class="controls">
 
-				<textarea class="redactor" name="content" id="redactor_content">
-
+				<textarea class="editor" name="content" id="content">
 				{{{ Input::old('content', $post->content) }}}
 				</textarea>
 
 			</div>
 			<a href="http://imperavi.com/redactor/docs/">Redactor Docs</a>
+			
 		</div>
 	</div>
-<script type="text/javascript">
-$(function()
-{
-    $('#redactor_content').redactor({
-        air: true
-    });
-});
-</script>
+
 <!-- ************************************************************** -->		<i class="icon-facebook">icon-facebook</i>
 <i class="icon-thumbs-up">.icon-thumbs-up</i>
 <i class="icon-twitter">icon-twitter</i>

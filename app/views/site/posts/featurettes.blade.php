@@ -1,10 +1,22 @@
   <!-- /////// -->
   <!-- //BEGIN POSTS -->
+@if(Auth::user('admin'))
+	<div class="alert alert-danger">
+		<h2>POSTCOUNT: <?php echo count($posts) ?></h2>
+		@foreach($posts as $post)
+		-{{{$post->title}}} 
+		@endforeach
+	</div>
+@endif
+
+
   <div class="text-center">
     {{ $posts->links() }}
   </div>
 
   @foreach ($posts as $post)
+
+
   @if (Auth::check())
     <div class="row-fluid">
       <div class="span3 ">
@@ -28,12 +40,14 @@
 <!-- Comments -->
 
 <!-- Edit/Delete Buttons -->
-              @if (Auth::user()->hasRole('admin'))
+              
                 <p>
                   <a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
+                 @if (Auth::user()->hasRole('admin'))
                   <a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
-                |</p>
-              @endif
+                 @endif
+                </p>
+              
 
           </div>
           <!-- ./meta buttons -->
@@ -43,7 +57,9 @@
     <!-- ./ row -->
     @endif
 
-      <hr class="featurette-divider">
+
+
+
     <div class="featurette">
       <style>
 /*      img.home{
@@ -59,37 +75,20 @@
         <!-- </pre> -->
       </p>
       <p>
+      	{{ Str::limit($post->content, 300) }}
+      </p>
+      <p class="text-center">
         <a class="btn btn-info btn-large" href="{{{ $post->url() }}}">read more</a>
         <a href="#schedule" role="button" class="btn btn-large btn-warning" data-toggle="modal"><i class='icon-calendar'></i> Schedule Now</a>
       </p>
     </div>
     <!-- ./ featurette -->
+          <hr class="featurette-divider">
   @endforeach
   {{ $posts->links() }}
 <!-- </div> -->
+      <!-- <hr class="featurette-divider"> -->
 
       <!-- /END THE FEATURETTES -->
 
-@foreach($posts as $post)
-<div class="well">
-	{{$post->title}}
-	{{$post->image}}
 
-	<h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
-	<p>
-		{{ String::tidy(Str::limit($post->meta_description, 158)) }}
-	</p>
-	<p>
-		<a class="btn btn-info" href="{{{ $post->url() }}}">more</a>
-	</p>
-</div>
-
-<ul class='tag'>
-	<li><i class="icon-tag"></i></li>
-	@foreach($post->tags() as $tag)
-
-	<li><a href="{{ $tag }}">{{ $tag }}</a></li>
-
-	@endforeach
-</ul>
-@endforeach

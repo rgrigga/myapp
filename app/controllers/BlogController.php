@@ -581,8 +581,6 @@ class BlogController extends BaseController {
 			$company = $this->company->where('brand','like',$env)->first();
 			View::share('company',$company);
 
-
-
 // return $collection;
 // die(var_dump($company));
 // die(var_dump($company));			
@@ -599,13 +597,11 @@ class BlogController extends BaseController {
 					}
 				};
 
-				
-
 				// $posts=$this->post
 				// ->where('meta_keywords', 'LIKE', $company->brand)
 				// ->paginate(10);
 
-				// View::share('posts',$posts);
+				View::share('posts',$posts);
 				// return Redirect::action('CompanyController@getIndex',$tag);
 				return View::make('site.'.strtolower($company->brand).'.home')
 				->nest('about','company.about')
@@ -614,11 +610,21 @@ class BlogController extends BaseController {
 				// ->with(compact('posts'))
 				;
 			}
-			else die ('Company index!');
+			else die ('Blog index Probelm ~617!');
 		}
 
+////////////////////////////////////////////////////
+		/**
+		junk
 
 
+
+
+
+
+
+
+		**/
 		
 // die("BAM!");
 
@@ -834,9 +840,6 @@ class BlogController extends BaseController {
 				$posts = $this->post->where('meta_keywords', 'LIKE', "$tag")->paginate(5);
 				// $posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
 				// $data = array(compact('posts'),compact('tags'),compact('alltags'),$company);
-				
-
-				
 
 				return View::make('site/blog/index')
 					->with(compact('company'))

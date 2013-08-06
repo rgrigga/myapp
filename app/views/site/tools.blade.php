@@ -28,17 +28,21 @@
 
 <div class="jumbotron masthead">
 
-
-	<h1>Tools<small> building blocks for this site</small></h1>
+	<h1>Do you know about this stuff?<small> If you do, I would really like to talk to you.</small></h1>
 	<!-- <h2>blah</h2> -->
 	<img src="http://gristech.com/img/mini-tools.jpg" alt="">
 	<!-- <p>If you're interested...</p> -->
-	<h5><em>Modular, Extensible, Testable, Expressive, Elegant, Simple</em>
+	<h5><em><a href="http://stackoverflow.com/questions/3088/best-ways-to-teach-a-beginner-to-program">Reading List</a></em>
 	</h5>
 
 </div>
 <!-- jumbotron -->
 
+<section>
+	<p class="lead">If you <strong>don't</strong></p> know anything about these things, but are willing to learn, I can and would enjoy helping you.</p>
+	<p>If you do know about these things, I have 1001 questions for you, and I would appreciate your input in any way you see fit.  Perhaps leave a comment anywhere on this site, or send me a message however is best for you: .</p>
+	<p>Either way, if you've made it to this page, I would enjoy hearing from you.  We all need human interaction: hopefully this place will become a good place to talk about code.</p>
+</section>
 
 <style>
 
@@ -528,6 +532,9 @@ $code='foo';
 
 	</div>
 	<div class="span2 oval-thought-border">Lorem ipsum dolor sit amet.</div>
+
+<a href="http://scottchacon.com/talks.html">Git Talks</a>
+	<p><a href="https://crackstation.net/hashing-security.htm">https://crackstation.net/hashing-security.htm</a></p>
 
 </div>
 <h3>Search Laravel Docs:</h3>

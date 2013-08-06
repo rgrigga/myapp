@@ -49,7 +49,7 @@ class CompanyController extends UserController {
         $this->post = $post;
         $this->company = $company;
 
-        View::share('company',$this->company);
+        // View::share('company',$this->company);
 
         // App::abort(404,'company controller construct'.var_dump($this->company));
 
@@ -104,9 +104,9 @@ class CompanyController extends UserController {
 		// 	$brand=App::environment();
 		// }
 		$brand=strtolower($brand);
-
+// die('CompanyController get index');
 		$company = $this->company->where('brand','like',$brand)->first();
-        App::instance('Company',$company);
+        App::instance('company',$company);
 
 		// die(var_dump($brand));
 		// die(var_dump(App::environment()));
@@ -125,7 +125,7 @@ class CompanyController extends UserController {
 		
 		if(is_null($brand)){
 			// return "controller has no brand!";
-			die('CompanyCntroller get index');
+			// die('CompanyController get index');
 
 			return App::error(function(RuntimeException $exception){
 			    Log::error($exception);
@@ -149,7 +149,7 @@ class CompanyController extends UserController {
 		// }
 		
 		else{
-			// View::share('company', $company);
+			View::share('company', $company);
 		
 			// die(var_dump($posts));
 
@@ -185,7 +185,11 @@ public function mylist(){
     {
     	$num=5;
         $company = $this->company->findOrFail($id);
+        View::share('company',$company);
 // die(var_dump($company));
+        if(!$company){
+        	return App::abort(404,"no company with that id: $id");
+        }
         $name=strtolower($company->brand);
 		$posts = $this->post->where(
 				'meta_keywords',

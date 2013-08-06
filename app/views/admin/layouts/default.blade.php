@@ -118,8 +118,8 @@ For now, you may clone this public repository and develop it as much as you like
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
-<link rel="stylesheet" href="/assets/css/style.css">
-<link rel="stylesheet" href="{{asset('assets/js/redactor/redactor.css')}}" />
+<!-- <link rel="stylesheet" href="/assets/css/admin-style.css"> -->
+<!-- <link rel="stylesheet" href="{{asset('assets/js/redactor/redactor.css')}}" /> -->
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -161,7 +161,7 @@ For now, you may clone this public repository and develop it as much as you like
 </script>
 
 <!-- redactor -->
-		<link rel="stylesheet" href="{{asset('assets/js/redactor/redactor.css')}}" />
+		<!-- <link rel="stylesheet" href="{{asset('assets/js/redactor/redactor.css')}}" /> -->
 
 		<script>
 		//this must be loaded before it is called in the body.
@@ -319,24 +319,16 @@ Array
 					================================================== -->
 {{ Basset::show('admin-js.js') }}
 
-		<script type="text/javascript">
-		$(function() {
-			$('#redactor_content').redactor();
-		});
-		</script>
+<!-- ALL ABOUT REDACTOR -->
+<!-- to reimplement redactor, uncomment the lower script tag, the upper css, and the redactor funciton in the onload event. -->
+<!-- <script src="{{asset('assets/js/redactor/redactor.js')}}"></script> -->
 
 <!-- holder.js -->
 <script src="{{asset('assets/js/holder.js')}}"></script>
 <!-- redactor -->
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" ></script> -->
-<script src="{{asset('assets/js/redactor/redactor.js')}}"></script>
 
-		<script type="text/javascript">
-		$(function() {
-			$('.redactor').redactor();
-		});
-		</script>
-<!-- ./redactor -->
+
 
 			 <script type="text/javascript" charset="utf-8">
 			 //this failed for some reason...
@@ -344,16 +336,14 @@ Array
 			</script>
 
 <!-- NO SKIN -->
-<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sunburst"></script>
+<!-- <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst"></script> -->
 
-<!-- SKIN -->
+<!-- NO SKIN -->
 <!-- This takes waaaaayy longer to load WITH A SKIN *and* over the network... localize the css for speed, I think??? -->
-<!-- <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&skin=sunburst"></script> -->
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?"></script>
 
 		<script language="javascript" type="text/javascript" src="{{asset('assets/js/jquery.equalheights.js')}}"></script>
 
-
-<!-- <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&skin=sunburst"></script> -->
 	<script>
 		
 		// these are (ruh-roh) globals. You could wrap in an
@@ -440,7 +430,9 @@ Array
 	             + $('.admin-top').height()
 	             + 0 )+'px'
 	        	});
-			$('.redactor').redactor();
+			// $('.redactor').redactor();
+			// $('.redactor').wysiwyg();
+			// $('.myinput').wysihtml5();
 			columnConform();
 		});
 	    
@@ -456,5 +448,24 @@ Array
 			
         </script>
 
+		<script type="text/javascript">
+		// $(function()
+		// {
+		//     $('#redactor_content').redactor({
+		//         air: true
+		//     });
+		// });
+		</script>
+        <!-- out of use -->
+		<script type="text/javascript">
+		// $(function() {
+		// 	$('#redactor_content').redactor();
+		// });
+		</script>
+		<script type="text/javascript">
+		// $(function() {
+		// 	$('.redactor').redactor();
+		// });
+		</script>
 	</body>
 </html>

@@ -18,15 +18,24 @@
     -------------------------------------------------- */
     /* Padding below the footer and lighter body text */
 
-html { 
-  background: url(/assets/buckeye/golf.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
+
+    @media (min-width: 980px){
+      html { 
+        background: url(/assets/buckeye/golf.jpg) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+    }
+    @media (max-width: 980px){
+      html{
+        background-color: rgba(39, 174, 96,1.0);
+      }
+    }
+
     body {
-      
+      /*max-width: 100%;*/
       padding-bottom: 40px;
       background-color: transparent;
       /*background-color: rgba(147,208,109,.3);*/
@@ -44,7 +53,7 @@ html {
     background-color: transparent;
     /*background-color: rgba(46, 204, 113,.3);*/
     /*color:rgba(84,170,150,1);*/
-    color: yellow;
+    color: rgba(241, 196, 15,1.0);
   }
 
   .hero-unit{
@@ -627,6 +636,8 @@ a{
 
 @stop
 
+
+
 @section('nav')
 <?php
 // die(var_dump($company));
@@ -634,6 +645,8 @@ a{
 @include('site.partials.nav-buckeye')
 <!-- @ include('site.partials.nav-top-min') -->
 @stop
+
+
 
 @section('main')
 
@@ -671,22 +684,25 @@ a{
         <img class ="center" src="{{asset('assets/buckeye/buckeye_logo.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
         
       </div>
-      <div class="span6">
+      <div class="span6 text-center">
         <!-- <h1>Buckeye Mower</h1> -->
-        <h2><strong>Mobile Mower Repair</strong></h2>
-        <p><em>We travel, so you don't have to...</em></p>
-        <p><strong>Fast.  Affordable.  Simple.</strong>
-At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</strong> with the highest level of customer satisfaction.  With a variety of offerings to choose from, we’re sure you’ll be happy working with us. Look around our website and if you have any comments or questions, please feel free to contact us. We hope to see you again soon.
+        <h1>Mobile Mower Repair</h1>
+        <p class="lead"><em>We travel, so you don't have to...</em></p>
+
+        <div class="text-center">
+          <a class="btn btn-large btn-warning" href="tel:7405076198">
+            {{{preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "$1-$2-$3", $company->phone)}}}
+          </a>
+          <a href="#schedule" role="button" class="btn btn-large btn-warning" data-toggle="modal">
+            <!-- <strong>10% Off</strong> -->
+            Schedule Online Now
+          </a>
+        </div>
+        <p>At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</strong> with the highest level of customer satisfaction.  With a variety of offerings to choose from, we’re sure you’ll be happy working with us. Look around our website and if you have any comments or questions, please feel free to contact us. We hope to see you again soon.
         </p>
-      </div>
-      <div class="text-center">
-        <a class="btn btn-large btn-warning" href="tel:7405076198">
-          {{{preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "$1-$2-$3", $company->phone)}}}
-        </a>
-        <a href="#schedule" role="button" class="btn btn-large btn-warning" data-toggle="modal">
-          <!-- <strong>10% Off</strong> -->
-          Schedule Online Now
-        </a>
+        <p class="lead">
+          Fast.  Affordable.  Simple.
+        </p>
       </div>
     </div>
   </div>
@@ -1088,15 +1104,19 @@ $(function() {
 @stop
 
 @section('footer')
-
+<style>
+  footer p.credit{
+    margin-top: 10px;
+  }
+</style>
   
 
 <div class="myfooter">
-
+  {{$about}}
 
   <p class="muted credit">&copy; 2013, Buckeye Mower & Gristech, All Rights Reserved</p>
-  <p><a href="#credits" data-toggle="modal">credits</a></p>
-  {{$about}}
+  <p class="muted credit"><a href="#credits" data-toggle="modal">more credits</a></p>
+
 
   <!--   <a href="#MyModal" role="button" class="btn" data-toggle="modal">MyModal</a> -->
 
@@ -1151,6 +1171,7 @@ $(function() {
   }
   .hotel a{
     color: rgba(229,83,60,.7);
+    text-decoration: none;
   }
 </style>
 <div class="hotel">

@@ -136,7 +136,7 @@
 
     </head>
     <body>
-        <div class="container">
+        <div class="container-fluid">
             <div class="navwrap" id="navwrap">
                 <!-- // @ yield('nav') -->
                 @section('nav')
@@ -305,13 +305,13 @@
              + 0 )+'px'
         });
 
-        $(window).resize(function(){
-            $('.admin-top').css({'margin-top':($('.user-top').height()+0)+'px'});
-            $('.contentwrap') .css({'padding-top': (
-                $('.user-top').height()
-                 + $('.admin-top').height()
-                 + 0 )+'px'
-            });
+    $(window).resize(function(){
+        $('.admin-top').css({'margin-top':($('.user-top').height()+0)+'px'});
+        $('.contentwrap') .css({'padding-top': (
+            $('.user-top').height()
+             + $('.admin-top').height()
+             + 0 )+'px'
+        });
     });
       // margin-top: 40px;
                 
