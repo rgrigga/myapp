@@ -1,4 +1,4 @@
-<heading>{{$heading}}</heading>
+<heading>{{(isset($heading)?$heading:"")}}</heading>
 
 <section>
 	<section>

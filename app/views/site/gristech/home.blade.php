@@ -320,39 +320,7 @@ If a site would like to be split off, sold, etc... NO PROBLEM.  It can simply be
 
 <a href="#cool" class="btn btn-large btn-success">Cool</a>
 <a href="#dumb" class="btn btn-large btn-danger">Dumb</a>
-									<p>Advantage Services is a family owned business with a standard of excellence in all aspects of Residential and Commercial Painting, Roofing, Deck and Fence Staining, and Power Washing. Formerly known as Advantage Painting, Advantage Services has been known throughout Columbus and it's surrounding areas as the first name in professionalism and quality, since 1990.</p>				
-								</div>
-								<div class="tab-pane" id="interior">
-									<h2>Interior</h2>
-									<p>Howdy, I'm interior.</p>
-								</div>
-								<div class="tab-pane" id="exterior">
-									<h2>Exterior</h2>
-									<!-- <div class="text-center span5"> -->
-									<img class="img-circle" src="http://placehold.it/300x300/867345/123456">
-									<!-- </div> -->
-									<!-- <div class="span5"> -->
-									<h3>Craftsmanship Matters</h3>
-									<!-- </div> -->
-									<p>Here is a beautiful home we painted recently.</p>
-								</div>
-
-								<div class="tab-pane" id="decks">
-									<h2>Decks</h2>
-									<p>Howdy, I'm decks.</p>
-								</div>
-								<div class="tab-pane" id="repairs">
-									<h2>Repairs</h2>
-									<p>Howdy, I'm repairs.</p>
-								</div>
-								<div class="tab-pane" id="replacement">
-									<h2>Full Roof</h2>
-
-									<p>Howdy, I'm replacement.</p>
-								</div>
-								<div class="tab-pane" id="power">
-									<h2>Power</h2>
-									<p>Howdy, I'm power.</p>
+			
 								</div>
 								<div class="tab-pane" id="gutter">
 									<h2>Gutter</h2>

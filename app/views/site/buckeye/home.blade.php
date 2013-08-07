@@ -18,9 +18,19 @@
     -------------------------------------------------- */
     /* Padding below the footer and lighter body text */
 
+    html{
+      /*background-color: rgba(44, 62, 80,1.0);*/
+      background-color: rgba(39, 174, 96,.1);
+    }
+
+    .page-header{
+      color: black;
+      background-color: rgba(241, 196, 15,1.0);
+    }
 
     @media (min-width: 980px){
-      html { 
+      .golf { 
+        min-height:400px;
         background: url(/assets/buckeye/golf.jpg) no-repeat center center fixed; 
         -webkit-background-size: cover;
         -moz-background-size: cover;
@@ -28,11 +38,19 @@
         background-size: cover;
       }
     }
-    @media (max-width: 980px){
+    @media (max-width: 979px){
       html{
-        background-color: rgba(39, 174, 96,1.0);
+        /*background-color: rgba(39, 174, 96,1.0);*/
+        background-color: rgba(44, 62, 80,1.0);
       }
+
     }
+
+  @media (min-width: 980px){
+      body{
+        color:rgba(26,92,76,1);
+      }
+  }
 
     body {
       /*max-width: 100%;*/
@@ -41,7 +59,7 @@
       /*background-color: rgba(147,208,109,.3);*/
       font-family: 'Lato',Serif;
       font-size: 16px;
-      color:rgba(26,92,76,1);
+
     }
 
   .page-header{
@@ -50,10 +68,10 @@
     margin-right: -100px;
     padding-right: 100px;
     width: 100%;
-    background-color: transparent;
+    /*background-color: transparent;*/
     /*background-color: rgba(46, 204, 113,.3);*/
     /*color:rgba(84,170,150,1);*/
-    color: rgba(241, 196, 15,1.0);
+    /*color: rgba(241, 196, 15,1.0);*/
   }
 
   .hero-unit{
@@ -117,8 +135,8 @@
     .navbar .nav > .active > a:hover, 
     .navbar .nav > .active > a:focus 
     {
-      color: rgba(34,120,100,1);
-      background-color: rgba(245,227,70,1);
+      /*color: rgba(34,120,100,1);*/
+      /*background-color: rgba(245,227,70,1);*/
     }
     
     /* Offset the responsive button for proper vertical alignment */
@@ -248,8 +266,10 @@
     .featurette {
       padding: 40px; /* Vertically center images part 1: add padding above and below text. */
       overflow: hidden; /* Vertically center images part 2: clear their floats. */
-      color: rgba(147,208,109,1);
-      background-color: rgba(34,120,100,1);
+      /*color: rgba(147,208,109,1);*/
+      background-color: rgba(189,195,199,.3);
+      /**/
+    
     }
     .featurette-image {
 
@@ -424,7 +444,7 @@
       }
 
 
-      .nav-tavs>li{
+      .nav-tabs>li{
         margin: 0;
       }
       .nav-tabs>li>a{
@@ -524,7 +544,7 @@
   }
 
 img.myimage{
-  background-color: rgba(189,219,123,.7);
+  background-color: rgba(236, 240, 241,1.0);
 }
 
 .nav-pills {
@@ -534,20 +554,21 @@ img.myimage{
 }
 
 .nav-tabs > li{
-  background-color: rgba(147,208,108,.3);
+  /*background-color: rgba(147,208,108,.3);*/
   margin-right:7px;
 }
 
 .nav-tabs>li>a{
-  border-color: rgba(189,219,123,.7);
+  /*border-color: rgba(189,219,123,.7);*/
 }
 
 .nav-tabs{
-  border-bottom-color: rgba(189,219,123,.7);
+  /*border-bottom-color: rgba(189,219,123,.7);*/
 }
 
 a{
-  color:rgba(229,83,60,1);
+  /*color:rgba(229,83,60,1);*/
+  color: rgba(39, 174, 96,1.0);
 }
 
 .navbar a{
@@ -556,12 +577,12 @@ a{
 
 .nav-tabs>li>a:hover, 
 .nav-tabs>a:focus{
-  background-color: rgba(245,227,70,.4)
+  /*background-color: rgba(245,227,70,.4);*/
 }
 
 .nav-tabs>.active>a, .nav-tabs>.active>a:hover, 
 .nav-tabs>.active>a:focus{
-  background-color: rgba(245,227,70,.9)
+  /*background-color: rgba(245,227,70,.9);*/
 }
 
 
@@ -584,7 +605,9 @@ a{
 
   .myfooter{
     padding-top: 30px;
-    background-color: rgba(189,219,123,.7);
+    color: rgba(44, 62, 80,1.0);
+    /*background-color: rgba(189,219,123,1);*/
+    background-color: rgba(241, 196, 15,1.0);
     margin-left: 10px;
     text-align: center;
     margin-right: -60px;
@@ -609,6 +632,12 @@ a{
     }*/
 
   }
+@media (max-width: 979px){
+  ul.brands{
+    margin-left: 0 !important;
+    background-color: red;
+  }
+}
 
     </style>
 @stop
@@ -656,6 +685,42 @@ a{
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
+
+<div class="row-fluid">
+  <div class='page-header'>
+    <!-- <img src="{{asset('assets/ico/buckeye/favicon.png')}}" alt=""> -->
+    <div class="row-fluid">
+
+      <div class="span6">
+        <!-- http://stackoverflow.com/questions/7055393/css-center-image-using-text-align-center -->
+        <img class ="center" src="{{asset('assets/buckeye/buckeye_logo.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
+        
+      </div>
+      <div class="span6 text-center">
+        <!-- <h1>Buckeye Mower</h1> -->
+        <h1>Mobile Mower Repair</h1>
+        <p class="lead"><em>We travel, so you don't have to...</em></p>
+
+        <div class="text-center">
+          <a class="btn btn-large btn-primary" href="tel:7405076198">
+            {{{preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "$1-$2-$3", $company->phone)}}}
+          </a>
+          <a href="#schedule" role="button" class="btn btn-large btn-primary" data-toggle="modal">
+            <!-- <strong>10% Off</strong> -->
+            Schedule Online Now
+          </a>
+        </div>
+
+        <p>At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</strong> with the highest level of customer satisfaction.  With a variety of offerings to choose from, we’re sure you’ll be happy working with us. Look around our website and if you have any comments or questions, please feel free to contact us. We hope to see you again soon.
+        </p>
+        <p class="lead">
+          Fast.  Affordable.  Simple.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container-fluid marketing">
 <!-- ************* INTRO OPTION 1 **************-->
 <!-- <img src="{{asset('assets/buckeye/grass.svg')}}" alt="grass.svg"> -->
@@ -674,40 +739,7 @@ a{
 
 <!-- Storyboard -->
 <!-- http://www.storyboardthat.com/userboards/rgrissinger/mower -->
-<div class="row-fluid">
-	<div class='page-header'>
-    <!-- <img src="{{asset('assets/ico/buckeye/favicon.png')}}" alt=""> -->
-    <div class="row-fluid">
 
-      <div class="span6">
-        <!-- http://stackoverflow.com/questions/7055393/css-center-image-using-text-align-center -->
-        <img class ="center" src="{{asset('assets/buckeye/buckeye_logo.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
-        
-      </div>
-      <div class="span6 text-center">
-        <!-- <h1>Buckeye Mower</h1> -->
-        <h1>Mobile Mower Repair</h1>
-        <p class="lead"><em>We travel, so you don't have to...</em></p>
-
-        <div class="text-center">
-          <a class="btn btn-large btn-warning" href="tel:7405076198">
-            {{{preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "$1-$2-$3", $company->phone)}}}
-          </a>
-          <a href="#schedule" role="button" class="btn btn-large btn-warning" data-toggle="modal">
-            <!-- <strong>10% Off</strong> -->
-            Schedule Online Now
-          </a>
-        </div>
-
-        <p>At Buckeye Mower, we are focused on providing <strong>Mobile Repair Services</strong> with the highest level of customer satisfaction.  With a variety of offerings to choose from, we’re sure you’ll be happy working with us. Look around our website and if you have any comments or questions, please feel free to contact us. We hope to see you again soon.
-        </p>
-        <p class="lead">
-          Fast.  Affordable.  Simple.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
 <!-- END INTRO -->
 
 
@@ -862,144 +894,143 @@ $(function() {
 
 
 
+  <div class="row-fluid">
+    <div class="tabbable"> <!-- Only required for left/right tabs -->
+      <ul class="nav nav-tabs">
+        <li class="active">
+          <a href="#ride" data-toggle="tab">
+            <h4>Riding</h4>
+          </a>
+        </li>
 
+        <li>
+          <a href="#walk" data-toggle="tab">
+            <h4>Walking</h2>
+          </a>
+        </li>
 
+        <li> 
+          <a href="#fleet" data-toggle="tab">
+            <h4>Commercial</h2>
+          </a>
+        </li>
 
+        <li>
+          <a href="#small" data-toggle="tab">
+            <h4>Small Engine</h2>
+          </a>
+        </li>
 
+        
 
-
-<div class="row-fluid">
-  <div class="tabbable"> <!-- Only required for left/right tabs -->
-    <ul class="nav nav-tabs">
-      <li class="active">
-        <a href="#ride" data-toggle="tab">
-          <h4>Riding</h4>
-        </a>
-      </li>
-
-      <li>
-        <a href="#walk" data-toggle="tab">
-          <h4>Walking</h2>
-        </a>
-      </li>
-
-      <li> 
-        <a href="#fleet" data-toggle="tab">
-          <h4>Commercial</h2>
-        </a>
-      </li>
-
-      <li>
-        <a href="#small" data-toggle="tab">
-          <h4>Small Engine</h2>
-        </a>
-      </li>
-
+      </ul>
       
+      <style>
+        .price{
+          position:absolute;
+          /*top:10%;*/
+          right:7%;
+          max-width: 30%;
+          z-index:2;
+        }
+      </style>
+      <div class="tab-content">
 
-    </ul>
-    
-    <style>
-      .price{
-        position:absolute;
-        /*top:10%;*/
-        right:7%;
-        max-width: 30%;
-        z-index:2;
-      }
-    </style>
-    <div class="tab-content">
+        <div class="tab-pane active featurette" id="ride">
+          <!-- <div class="pull-right"> -->
+          <img src="{{asset('assets/buckeye/89.png')}}" alt="Starting at $89" class="pull-right price">
+            <img class ="featurette-image myimage img-circle pull-right" src="{{asset('assets/buckeye/riding.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
+            <!-- <img class ="center" src="{{asset('assets/buckeye/push_button.png')}}" alt="Buckeye Mower, Mobile Engine Repair"> -->
+          <!-- </div> -->
+          <h2 class='featurette-heading' href="{{{URL::to('#about')}}}">Riding Lawn Mower Services</h2>
+          <p class='lead'>
+            <ul>
+              <li>Change Oil, Oil FIlter, Spark Plus(s), Air and Fuel Filter</li>
+              <li>Deck Ceaning</li>
+              <li>Deck Leveling</li>
+              <li>Blade Sharpening</li>
+              <li>PTO CLutch Adjustment</li>
+              <li>Test Battery and Charging System</li>
+              <li>Tire Pressure Adjustment</li>
+              <li>Grease Entire Machine</li>
+              <li>Inspect all hoses, belts, pulleys, etc.</li>
+            </ul>
+          </p>
+        </div>
 
-      <div class="tab-pane active featurette" id="ride">
-        <!-- <div class="pull-right"> -->
-        <img src="{{asset('assets/buckeye/89.png')}}" alt="Starting at $89" class="pull-right price">
-          <img class ="featurette-image myimage img-circle pull-right" src="{{asset('assets/buckeye/riding.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
-          <!-- <img class ="center" src="{{asset('assets/buckeye/push_button.png')}}" alt="Buckeye Mower, Mobile Engine Repair"> -->
-        <!-- </div> -->
-        <h2 class='featurette-heading' href="{{{URL::to('#about')}}}">Riding Lawn Mower Services</h2>
-        <p class='lead'>
-          <ul>
-            <li>Change Oil, Oil FIlter, Spark Plus(s), Air and Fuel Filter</li>
-            <li>Deck Ceaning</li>
-            <li>Deck Leveling</li>
-            <li>Blade Sharpening</li>
-            <li>PTO CLutch Adjustment</li>
-            <li>Test Battery and Charging System</li>
-            <li>Tire Pressure Adjustment</li>
-            <li>Grease Entire Machine</li>
-            <li>Inspect all hoses, belts, pulleys, etc.</li>
-          </ul>
-        </p>
+        <div class="tab-pane featurette" id="walk">
+          <!-- <div class="pull-right"> -->
+          
+          <style>
+
+          </style>
+  <!--         <div class="price-star">
+            <img src="{{asset('assets/buckeye/49.png')}}" alt="Starting at $49" class="pull-right price">
+            <p>As Low As</p>
+            <h6>$49</h6>
+            <p></p>
+          </div> -->
+          
+          <img class ="featurette-image myimage img-circle pull-right" src="{{asset('assets/buckeye/push.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
+          <!-- </div> -->
+          
+          <h2 class='featurette-heading'>Push Mower Services.</h2>
+            <p class='lead'>We'll get you back in business in no time!</p>
+            <ul>
+              <li>Change Oil, Air Filter, Spark Plug(s)</li>
+              <li>Deck Cleaning</li>
+              <li>Blade Sharpening</li>
+              <li>Inspection of entire machine
+                <ul>
+                  <li>Cables</li>
+                  <li>Belt</li>
+                  <li>Drive System, etc.</li>
+                </ul>
+              </li>
+            </ul>
+        </div>
+
+        <div class="tab-pane featurette" id="fleet">
+          <!-- <div class="pull-left"> -->
+
+            <img class ="myimage img-circle featurette-image pull-left" src="{{asset('assets/buckeye/commercial.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
+          <!-- </div> -->
+          <h2 class='featurette-heading'>No Engine too Big.</h2>
+          <p class='lead'>No account or machine is too big.  I have references available for whom I service fleets of dozens of commercial mowers.  I am also a certified deisel mechanic.  Please contact me by phone or email to discuss your fleet's maintenance needs.</p>
+        </div>
+
+        <div class="tab-pane featurette" id="small">
+          <!-- <div class="pull-right"> -->
+            <!-- <img class ="featurette-image myimage img-circle pull-right" src="{{asset('assets/buckeye/push.png')}}" alt="Buckeye Mower, Mobile Engine Repair"> -->
+            <img class="featurette-image img-circle pull-right myimage" src="{{asset('assets/buckeye/chainsaw.svg')}}" alt="serving central ohio">
+          <!-- </div> -->
+          
+          <h2 class='featurette-heading'>No Engine too Small.</h2>
+            <p class='lead'>Push Mower. Riding Mower.  Chainsaw.  Weedeater. Snowblower.  If it has a small engine, I can help you fix it.</p>
+            <p>Remember, I'll come to your house for you - no need for truck, trailer, or travel.</p>
+        </div>
       </div>
-
-      <div class="tab-pane featurette" id="walk">
-        <!-- <div class="pull-right"> -->
-        
-        <style>
-
-        </style>
-<!--         <div class="price-star">
-          <img src="{{asset('assets/buckeye/49.png')}}" alt="Starting at $49" class="pull-right price">
-          <p>As Low As</p>
-          <h6>$49</h6>
-          <p></p>
-        </div> -->
-        
-        <img class ="featurette-image myimage img-circle pull-right" src="{{asset('assets/buckeye/push.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
-        <!-- </div> -->
-        
-        <h2 class='featurette-heading'>Push Mower Services.</h2>
-          <p class='lead'>We'll get you back in business in no time!</p>
-          <ul>
-            <li>Change Oil, Air Filter, Spark Plug(s)</li>
-            <li>Deck Cleaning</li>
-            <li>Blade Sharpening</li>
-            <li>Inspection of entire machine
-              <ul>
-                <li>Cables</li>
-                <li>Belt</li>
-                <li>Drive System, etc.</li>
-              </ul>
-            </li>
-          </ul>
-      </div>
-
-      <div class="tab-pane featurette" id="fleet">
-        <!-- <div class="pull-left"> -->
-
-          <img class ="myimage img-circle featurette-image pull-left" src="{{asset('assets/buckeye/commercial.png')}}" alt="Buckeye Mower, Mobile Engine Repair">
-        <!-- </div> -->
-        <h2 class='featurette-heading'>No Engine too Big.</h2>
-        <p class='lead'>No account or machine is too big.  I have references available for whom I service fleets of dozens of commercial mowers.  I am also a certified deisel mechanic.  Please contact me by phone or email to discuss your fleet's maintenance needs.</p>
-      </div>
-
-      <div class="tab-pane featurette" id="small">
-        <!-- <div class="pull-right"> -->
-          <!-- <img class ="featurette-image myimage img-circle pull-right" src="{{asset('assets/buckeye/push.png')}}" alt="Buckeye Mower, Mobile Engine Repair"> -->
-          <img class="featurette-image img-circle pull-right myimage" src="{{asset('assets/buckeye/chainsaw.svg')}}" alt="serving central ohio">
-        <!-- </div> -->
-        
-        <h2 class='featurette-heading'>No Engine too Small.</h2>
-          <p class='lead'>Push Mower. Riding Mower.  Chainsaw.  Weedeater. Snowblower.  If it has a small engine, I can help you fix it.</p>
-          <p>Remember, I'll come to your house for you - no need for truck, trailer, or travel.</p>
-      </div>
+    <!-- //tab-content -->
     </div>
-  <!-- //tab-content -->
+    <!-- tabbable -->
   </div>
-  <!-- tabbable -->
+  <!-- //row -->
+
+
+<div class="golf">
 </div>
-<!-- //row -->
-
-
-
 
       <!-- START THE FEATURETTES -->
 
       <hr class="featurette-divider">
 
       <style>
-        .featurette-map{
-
+        .featurette .well{
+          background-color: rgba(189, 195, 199,.9);
+          /*background-color: transparent;*/
+        }
+        .featurette .well h2{
+          /*color: black;*/
         }
       </style>
 
@@ -1008,7 +1039,7 @@ $(function() {
         
 <!--         <img class="featurette-map pull-right" src="http://maps.googleapis.com/maps/api/staticmap?center=Westerville,Ohio&zoom=9&size=600x600&markers=color:blue%7Clabel:B%7C517+Westerville+OH|color:blue%7Clabel:B%7C517+Hilliard+OH&sensor=false" alt="Hilliard, OH"> -->
 
-        <img class="featurette-map pull-right" src="http://maps.googleapis.com/maps/api/staticmap?center=Westerville,Ohio&zoom=9&size=400x600&markers=Westerville+OH|Hilliard+OH|Columbus+OH|Gahanna+OH|Marengo+OH|Delaware+OH|Pickerington+OH|Grove+City+OH|Pataskala+OH|West+Jefferson+OH&sensor=false" alt="Central Ohio">
+        <img class="featurette-map pull-right img-circle" src="http://maps.googleapis.com/maps/api/staticmap?center=Westerville,Ohio&zoom=9&size=400x400&markers=Westerville+OH|Hilliard+OH|Columbus+OH|Gahanna+OH|Marengo+OH|Delaware+OH|Pickerington+OH|Grove+City+OH|Pataskala+OH|West+Jefferson+OH&sensor=false" alt="Central Ohio">
 
 <!--         <img class="featurette-image pull-right" src="{{asset('assets/buckeye/ohio.png')}}" alt="serving central ohio"> -->
         <h2 class="featurette-heading">I will come to you. <span class="muted">Wide Service Area.</span></h2>
@@ -1022,16 +1053,85 @@ $(function() {
 
       <div class="featurette">
 
-
-        <img class="featurette-image pull-left mysvg myimage img-circle" src="{{asset('assets/buckeye/noun_project_13832.svg')}}" alt="serving central ohio">
-        <!-- <i class="icon-cogs icon6"></i> -->
-        <h2 class="featurette-heading">Factory Trained. <span class="muted">Any Brand.</span></h2>
-        
-        <p class="lead">I am <strong>Factory Trained</strong>, and I regularly work on all major brands:</p>
-        <p class="lead">Looking for a mower?  Here is the <a href="http://www.consumerreports.org/cro/lawn-mowers/buying-guide.htm">Lawn Mower Buying Guide</a> from consumer reports.</p>
-         <p>
-         I have a passion for this equipment: and I will treat your equipment like it was my own.</p>
+      <div class="row">
+        <div class="span6">
+          <img class="featurette-image pull-left mysvg myimage img-circle" src="{{asset('assets/buckeye/noun_project_13832.svg')}}" alt="serving central ohio">
+          <!-- <i class="icon-cogs icon6"></i> -->
+          <h2 class="featurette-heading">Factory Trained. <span class="muted">Any Brand.</span></h2>
           
+          <style>
+.featurette-image{
+  max-width: 30%;
+
+}
+aside>ul>li{
+  text-align: center;
+}
+          </style>
+
+          <p class="lead">I am <strong>Factory Trained</strong>, and I regularly work on all major brands:</p>
+          <p class="lead">Looking for a mower?  Here is the <a href="http://www.consumerreports.org/cro/lawn-mowers/buying-guide.htm">Lawn Mower Buying Guide</a> from consumer reports.</p>
+           <p>
+           I have a passion for this equipment: and I will treat your equipment like it was my own.</p>
+        </div>
+        <!-- <div class="span4"> -->
+          <div class="span4 pull-right well text-center">
+            <aside>
+              <?php 
+              $mowerlist=array('deere','toro','cub cadet');
+              $brand = str_replace(' ', '', strtolower($company->brand));
+              $path="assets/".$brand."/";
+
+              ?>
+              <style>
+                #mowerlist>li>a>img{
+                  max-height: 64px;
+                  max-width: 100%;
+                }
+                #mowerlist{
+                  /*background-color: red;*/
+                  margin-left: 0px;
+                }
+              </style>
+          
+              <h2>Brands We Service</h2>
+          
+              <ul class="nav nav-stacked brands" id="mowerlist">
+                @foreach($mowerlist as $mower)
+
+                <li class="">
+                  <a href="#">
+                    <div class="">{{$mower}}</div>
+                    <?php 
+                    $mower = str_replace(' ', '', strtolower($mower)); 
+                    ?>
+                    <img class="" src="{{asset($path.$mower.'.png')}}" alt="$mower">
+                    
+                  </a>
+                      
+                      
+                    
+
+                </li>
+                @endforeach
+                <li>
+                  <a href="#">
+                    <div>any brand</div>
+                    <img class="" src="holder.js/200x64/industrial/text:Any Brand" alt="">
+                  </a>
+                </li>
+                <li>
+                  <a href="#"><div>every brand</div><img class="" src="holder.js/200x64/industrial/text:Any Brand" alt=""></a>
+                </li>
+              </ul>
+            </aside>
+          </div>
+        <!-- </div> -->
+      </div>
+
+
+
+  
           <!-- <img class="featurette-image" src="{{asset('assets/buckeye/toro.jpg')}}" alt=""> -->
           <style>
           ul.thumbnails{
@@ -1043,7 +1143,7 @@ $(function() {
           }
           </style>
 <!-- <div> -->
-  <ul class="thumbnails">
+<!--   <ul class="thumbnails">
     <li>
       <a class="thumbnail" href="http://www.toro.com/en-us/homeowner/mowers/Pages/default.aspx">
         <img src="{{asset('assets/buckeye/deere.png')}}" alt="">
@@ -1059,8 +1159,7 @@ $(function() {
         <img class="featurette-image" src="{{asset('assets/buckeye/cubcadet.jpg')}}" alt="">
       </a>
     </li>
-
-  </ul>
+  </ul> -->
 <!-- </div> -->
 
       </div>
@@ -1129,7 +1228,7 @@ $(function() {
     <h3>Credits</h3>
   </div>
   <div class="modal-body">
-    <p>Many resources were used to build this site.  For a full list, please view the source code or visit <a href="myapp.gristech.com/tools">MyApp</a></p>
+    <p>Many resources were used to build this site.  For a full list, please view the source code or check out <a href="http://myapp.gristech.com/tools">Gristech MyApp</a></p>
     <p>Background image coutesy of <a href="http://www.flickr.com/photos/golf_pictures/2748145592/sizes/l/in/photolist-5bQXWy-5bQY7C-5bQYq1-5bQYAG-5bQYV1-5bR11y-5bR1fW-5bR2VY-5bR34h-5bR3f1-5bR3nf-5o81XV-5obWJd-73jPbn-79G2tj-eQF4N4-7ZeNiG-9abdSU-dpHhdV-estJBq-cDcJkJ-9Fq1PR/">Dan Perry via Flickr</a></p>
 
   </div>
@@ -1171,7 +1270,7 @@ $(function() {
     background-color: transparent;
 
   }
-  .hotel a{
+  .hotel>a{
     color: rgba(229,83,60,.7);
     text-decoration: none;
   }

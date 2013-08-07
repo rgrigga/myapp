@@ -1,5 +1,7 @@
 @extends('layouts.scaffold')
 
+<!-- http://stackoverflow.com/questions/1884724/what-is-node-js -->
+
 {{-- Web site Title --}}
 @section('title')
 @parent
@@ -25,126 +27,232 @@
 
 @section('styles')
 <style>
-	/* Pretty printing styles. Used with prettify.js. */
-/* Vim sunburst theme by David Leibovic */
 
-pre .str, code .str { color: #65B042; } /* string  - green */
-pre .kwd, code .kwd { color: #E28964; } /* keyword - dark pink */
-pre .com, code .com { color: #AEAEAE; font-style: italic; } /* comment - gray */
-pre .typ, code .typ { color: #89bdff; } /* type - light blue */
-pre .lit, code .lit { color: #3387CC; } /* literal - blue */
-pre .pun, code .pun { color: #fff; } /* punctuation - white */
-pre .pln, code .pln { color: #fff; } /* plaintext - white */
-pre .tag, code .tag { color: #89bdff; } /* html/xml tag    - light blue */
-pre .atn, code .atn { color: #bdb76b; } /* html/xml attribute name  - khaki */
-pre .atv, code .atv { color: #65B042; } /* html/xml attribute value - green */
-pre .dec, code .dec { color: #3387CC; } /* decimal - blue */
 
-pre.prettyprint, code.prettyprint {
-        background-color: #000;
-        -moz-border-radius: 8px;
-        -webkit-border-radius: 8px;
-        -o-border-radius: 8px;
-        -ms-border-radius: 8px;
-        -khtml-border-radius: 8px;
-        border-radius: 8px;
+.hero-unit { 
+/*  background: url(
+{{--{asset('assets/'.strtolower($company->brand).'/grass2.png')}--}}
+) no-repeat left bottom fixed; 
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+*/
+}
+.page-header{
+	margin-left: 0;
+	margin-right: 0;
 }
 
-pre.prettyprint {
-        width: 95%;
-        margin: 1em auto;
-        padding: 1em;
-        white-space: pre-wrap;
+.page-header img{
+	max-width: 100%;
+	/*position: relative;*/
+	/*left:-120px;*/
+	/*bottom: -60px;*/
 }
 
-
-/* Specify class=linenums on a pre to get line numbering */
-ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE; } /* IE indents via margin-left */
-li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { list-style-type: none }
-/* Alternate shading for lines */
-li.L1,li.L3,li.L5,li.L7,li.L9 { }
-
-@media print {
-  pre .str, code .str { color: #060; }
-  pre .kwd, code .kwd { color: #006; font-weight: bold; }
-  pre .com, code .com { color: #600; font-style: italic; }
-  pre .typ, code .typ { color: #404; font-weight: bold; }
-  pre .lit, code .lit { color: #044; }
-  pre .pun, code .pun { color: #440; }
-  pre .pln, code .pln { color: #000; }
-  pre .tag, code .tag { color: #006; font-weight: bold; }
-  pre .atn, code .atn { color: #404; }
-  pre .atv, code .atv { color: #060; }
+.footer{
+	/*margin-left: 0;*/
+	/*margin-right: 0;*/
 }
+
+.footer img{
+	/*position: absolute;*/
+	position: relative;
+	/*width: 30%;*/
+	/*height: 30%;*/
+	right:-50%;
+	bottom: -50%;
+}
+
+.contentwrap{
+	margin-bottom: 200px;
+}
+.bg {
+	background-color: rgba(99,99,0,.3);
+	/*width: 150%;*/
+}
+
+.bg img{
+	margin:auto;
+	/*position: fixed;*/
+	/*bottom:-60px;*/
+	/*left: -10%;*/
+	/*width: 100%;*/
+	/*z-index: -1;*/
+}
+
+.page-header img{
+	/*padding: 40px;*/
+	/*max-width:70%;*/
+}
+
+.btn{
+background: rgba(39, 174, 96,1.0);
+padding: 16px 75px;
+border-radius: 8px;
+}
+
 </style>
 @stop
 
 @section('nav')
-@include('site.partials.nav-top-inverse')
+@include('site.partials.nav-top-min')
 @stop
 
 {{-- Content --}}
 @section('main')
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span8">	
+			<div class="row-fluid">
+				<div class="span4">
+					<img class="img-circle" src="{{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}}" alt="{{{$post->image}}}" onerror="imgError(this);">
 
-<div class="hero-unit">
+				</div>
+				<div class="span8">
+					<h2>{{{ $post->title }}}</h2>
+					<p>
+						{{$post->meta_description}}
+					</p>
+					<p>
+						{{$post->content}}
+					</p>
+					
+					@if (Auth::check())
+						<h5>Tags:</h5>
+						<ul class='tag'>
+							@foreach($post->tags() as $tag)
+								<li><a href='/tags/{{{ $tag }}}'>{{{$tag}}}</a></li>
+							    
+							@endforeach
+						</ul>
+							<!-- // <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js&skin=sunburst"></script> -->
+						<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 
-<div class="row">
+					@endif
+					<!-- intentionally not written as elseif so we can move the contents -->
+					@if ( ! Auth::check())
+					<a class="btn btn-warning" href="{{{ URL::to('user/login') }}}">Login for more options</a>
+					@endif
+				</div>
+			</div>
+		</div>
+		<div class="span4">
+			<aside>
+				<?php 
+				$mowerlist=array('deere','toro','cub cadet');
+				$brand = str_replace(' ', '', strtolower($company->brand));
+				$path="assets/".$brand."/";
 
-	<div class="span5 text-center">
-		<a href="{{{ $post->url() }}}" class="thumbnail">
-			<!-- http://placehold.it/260x180 -->
-
-<!-- without error -->
-			<img class="img-circle" src="{{{asset('assets/'.strtolower($company->brand).'/'.$company->image)}}}" alt="{{{$post->image}}}" >
-
-<!-- with error -->
-			<img class="img-circle" src="{{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}}" alt="{{{$post->image}}}" onerror="imgError(this);">
-		</a>
-	</div>
-	<div class="span5">
-<!-- //copy and edit buttons -->
-<!-- holder.js -->
-<!-- <script src="{{asset('assets/js/holder.js')}}"></script> -->
-<!-- <img src="holder.js/300x300" alt=""> -->
-<img src="holder.js/300x200/social">
-	<img class="" src="{{{asset('assets/'.strtolower($company->brand).'/'.$company->logo)}}}" alt="{{{$post->image}}}" onerror="imgError(this);">
-		<h2>{{{ $post->title }}}</h2>
-		<p>
-			<!-- String Tidy here? -->
-			<!-- Str::limit() -->
-			{{{$post->meta_description}}}
-		</p>
+				?>
+				<style>
+					#mowerlist li a img{
+						max-height: 64px;
+					}
+				</style>
 		
+				<h2>Brands We Service</h2>
+		
+				<ul class="nav nav-stacked" id="mowerlist">
+					@foreach($mowerlist as $mower)
+						<?php 
+						$mower = str_replace(' ', '', strtolower($mower)); ?>
+						<li>
+							<a href="#">
+								<img class="pull-right" src="{{asset($path.$mower.'.png')}}" alt="$mower">
+								<?php //echo $mower; ?>
+							</a>
+						</li>
+					@endforeach
+					<li>
+						<a href="#"><img class="pull-right" src="holder.js/200x64/industrial/text:Another Brand" alt=""></a>
+					</li>
+					<li>
+						<a href="#"><img class="pull-right" src="holder.js/200x64/industrial/text:Another Brand" alt=""></a>
+					</li>
+					<li>
+						<a href="#"><img class="pull-right" src="holder.js/200x64/industrial/text:Another Brand" alt=""></a>
+					</li>
+					<li>
+						<a href="#"><img class="pull-right" src="holder.js/200x64/industrial/text:Another Brand" alt=""></a>
+					</li>
+					<li>
+						<a href="#"><img class="pull-right" src="holder.js/200x64/industrial/text:Another Brand" alt="">
+						</a>
+					</li>
+				</ul>
+			</aside>
+		</div>
+	<div>
+		<!-- row -->
+</div>
+	<!-- page-header -->
 
-		@if (Auth::check())
-		<h5>Tags:</h5>
-		<ul class='tag'>
-			@foreach($post->tags() as $tag)
-				<li><a href='/tags/{{{ $tag }}}'>{{{$tag}}}</a></li>
-			    
-			@endforeach
-		</ul>
-			<!-- // <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js&skin=sunburst"></script> -->
-	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<div class="comments">
+<a id="comments"></a>
+<h4>
+	{{--{ $comments->count() }--}}
+</h4>
+@if ( ! Auth::check())
+<!-- You need to be logged in to add comments.<br /><br /> -->
+<a class="btn btn-inverse" href="{{{ URL::to('user/login') }}}">Say Something!</a>
+@elseif ( ! $canComment )
+You don't have the correct permissions to add comments.
+@else
 
-		@endif
-		<!-- intentionally not written as elseif so we can move these -->
-		@if ( ! Auth::check())
-		<a class="btn btn-warning" href="{{{ URL::to('user/login') }}}">Login for more options</a>
-		@endif
+<form method="post" action="{{{ URL::to('blog/'.$post->slug) }}}">
 
+	<input type="hidden" name="_token" value="{{{ Session::getToken() }}}" />
+
+	<textarea class="input-block-level" rows="4" name="comment" id="comment">{{{ Request::old('comment') }}}</textarea>
+
+	<div class="control-group">
+		<div class="controls">
+			<input type="submit" class="btn" id="submit" value="Speak Your Mind" />
+		</div>
 	</div>
-	
+</form>
+@endif
+@if ($comments->count())
+@foreach ($comments as $comment)
+	<blockquote>
+		{{{ $comment->content() }}}
+		<small>{{{ $comment->author->username }}} &bull;{{{ $comment->date() }}}</small>	
+	</blockquote>
+		<!-- <img class="thumbnail" src="http://placehold.it/60x60" alt=""> -->
+<hr />
+@endforeach
+@else
+<hr />
+@endif
+
+
 </div>
 
+
+<!-- <div class=""> -->
+<!-- <div class="hero-unit"> -->
+	<div class="row-fluid">
+		<div class="span8">
+			{{$carousel}}
+		</div>
+		<div class="span3">
+			<!-- <div class="nav"> -->
+				
+			<!-- </div> -->
+		</div>
+	</div>
+<!-- </div> -->
+
+<!-- </div> -->
 
 					
-</div>
 
 <!-- //copy and edit buttons -->
 				@if (Auth::check())
 	                @if (Auth::user()->hasRole('admin'))
-
+{{View::make('site.partials.postlist',compact($posts))}}
 					<p>
 						<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
 						<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
@@ -164,7 +272,9 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
 					<img src="http://gristech.com/img/{{ $post->image }}" class="thumbnail" style="padding:10px;">
 				</div> -->
 
-<p>{{ $post->content }}</p>
+<!-- <p> -->
+	{{-- $post->content --}}
+<!-- </p> -->
 
 <div>
 	<span class="badge badge-info">Posted {{{ $post->date() }}}</span>
@@ -173,65 +283,28 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
 
 <hr />
 
-<a id="comments"></a>
-<h4>{{{ $comments->count() }}} Comments</h4>
 
-@if ($comments->count())
-@foreach ($comments as $comment)
-<div class="row">
-	<div class="span1">
-		<img class="thumbnail" src="http://placehold.it/60x60" alt="">
-		 <!-- {{{$comment->author->avatar}}} -->
-	</div>
-	<div class="span11">
-		<div class="row">
-			<div class="span11">
-				<span class="muted">{{{ $comment->author->username }}}</span>
-				&bull;
-				{{{ $comment->date() }}}
-			</div>
-
-			<div class="span11">
-				<hr />
-			</div>
-
-			<div class="span11">
-				{{{ $comment->content() }}}
-			</div>
-		</div>
-	</div>
-</div>
-<hr />
-@endforeach
-@else
-<hr />
-@endif
-
-@if ( ! Auth::check())
-You need to be logged in to add comments.<br /><br />
-Click <a href="{{{ URL::to('user/login') }}}">here</a> to login into your account.
-@elseif ( ! $canComment )
-You don't have the correct permissions to add comments.
-@else
-<h4>Add a Comment</h4>
-<form method="post" action="{{{ URL::to('blog/'.$post->slug) }}}">
-	<input type="hidden" name="_token" value="{{{ Session::getToken() }}}" />
-
-	<textarea class="input-block-level" rows="4" name="comment" id="comment">{{{ Request::old('comment') }}}</textarea>
-
-	<div class="control-group">
-		<div class="controls">
-			<input type="submit" class="btn" id="submit" value="Submit" />
-		</div>
-	</div>
-</form>
-@endif
 @stop
 
 @section('admin-bottom')
-<pre class="prettyprint">
-Developer: uncomment vardump in blog.view_post to view Post $post
-<?php //var_dump($post); ?>
-</pre>
+<h1>Admin/Development</h1>
+
+
+<style>
+	.footer{
+		background-color: rgba(52, 73, 94,.9);
+	}
+</style>
+<div class="footer">
+	<p class="lead">{{$post->meta_description}}</p>
+	<!-- //this should produce a div with class 'about' -->
+	{{$about}}
+	<!-- onerror="imgError(this) -->
+
+	<pre class="prettyprint">
+	Developer: uncomment vardump in blog.view_post to view Post $post
+	<?php //var_dump($post); ?>
+	</pre>	
+</div>
 @stop
 

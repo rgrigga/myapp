@@ -266,6 +266,7 @@ For now, you may clone this public repository and develop it as much as you like
 			<div class="logo">
 				<h1>{{$company->brand}}</h1>
 				<img src="{{asset('assets/'.strtolower($company->brand).'/'.$company->image)}}" alt="Company Logo">
+				<h1>{{{(isset($post) ? $post->id : "")}}}</h1>
 			</div>
 			@show
 

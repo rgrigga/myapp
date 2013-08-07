@@ -311,7 +311,7 @@ Post Update ::
 
 		<div class="collapse in" id="MyContent">
 			<div class="controls">
-				<textarea class="full-width span12 wysihtml5" name="content" value="content" rows="10">{{{ Input::old('content', isset($post) ? $post->content : null) }}}</textarea>
+				<textarea class="full-width span12 wysihtml5" name="content" value="content" rows="30">{{{ Input::old('content', isset($post) ? $post->content : null) }}}</textarea>
 				{{{ $errors->first('content', '<span class="help-inline">:message</span>') }}}
 			</div>
 		</div>

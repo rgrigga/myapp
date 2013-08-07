@@ -11,7 +11,9 @@ Website Management ::
 
 <style>
 	img.thumby{
-		max-height: 64px;
+		max-height: 100px;
+		max-width: 100px;
+		padding: 5px;
 	}
 
 
@@ -173,11 +175,13 @@ function myviews(array $array){
 			@foreach ($posts as $post)
 			<li>
 				<div class="thumbnail span3">
-					<h4>{{{ $post->title }}}</h4>
-					{{--URL::to($post->slug)--}}
+					<img class="thumby pull-left" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}" onerror="imgError(this,200,200);">
+
+					<h4>{{{$post->id}}}:{{{ $post->title }}}</h4>
+					<p>{{{$post->meta_title}}}</p>
+					<p><a href="{{URL::to($post->slug)}}">{{{$post->slug}}}</a></p>
 
 
-<img class="thumby" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}" onerror="imgError(this,200,200);">
 
 					<!-- <p class="muted credit">{{--URL::to('assets/'.$post->image)--}}</p> -->
 				

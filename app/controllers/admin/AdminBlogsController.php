@@ -31,7 +31,7 @@ class AdminBlogsController extends AdminController {
      *
      * @return View
      */
-    public function getIndex($tag="",$paginate=10)
+    public function getIndex($tag="",$paginate=12)
     {
 // die("BAM");
         // Session::flash('message','AdminCompaniesController@getIndex'.var_dump($this->company,$tag));

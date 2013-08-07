@@ -35,7 +35,10 @@ Layouts.Default
 
 @section('styles')
     @stylesheets("public-css")
+
 	<link rel="stylesheet" href="/assets/css/style.css">
+
+	
 	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>

@@ -236,14 +236,15 @@
             <!-- ./ contentwrap -->
             <!-- @ yield('main') -->
             
-            @section('admin-bottom')
-                @if(Auth::user('admin'))
-                <div class="admin-bottom">
-                    <h6>Admin-bottom</h6>
-                    <p>Override this on the home page</p>
-                </div>
-                @endif
-            @show
+            
+            @if(Auth::user('admin'))
+                @section('admin-bottom')
+                    <div class="admin-bottom">
+                        <h6>Admin-bottom</h6>
+                        <p>Override this on the home page</p>
+                    </div>
+                @show
+            @endif
             
             @yield('hotel')
         </div>
@@ -304,6 +305,25 @@
              + $('.admin-top').height()
              + 0 )+'px'
         });
+        $('.india') .css({'top': (
+            20
+            -$('.user-top').height()
+            - $('.admin-top').height()
+            )+'px'
+        });
+
+        $('.carousel-inner > .item:first').addClass('active');
+        // $('.hero-unit').css('background-color','red');
+
+        $('#side-wrapper').height($("#sidebar").height());
+        
+        // $(".nav").height()+2));
+        $('.collapse-group .btn').on('click', function(e) {
+            e.preventDefault();
+            var $this = $(this);
+            var $collapse = $this.closest('.collapse-group').find('.collapse');
+            $collapse.collapse('toggle');
+        });
 
     $(window).resize(function(){
         $('.admin-top').css({'margin-top':($('.user-top').height()+0)+'px'});
@@ -311,6 +331,11 @@
             $('.user-top').height()
              + $('.admin-top').height()
              + 0 )+'px'
+        });
+        $('.india') .css({'top': (
+            -$('.user-top').height()
+             - $('.admin-top').height()
+             - 20 )+'px'
         });
     });
       // margin-top: 40px;

@@ -1,9 +1,12 @@
 <style>
-  .item img{
+  
+  /*THESE ARE GLOBAL SETTINGS*/
+
+  .carousel-inner .item img{
     width: 100%;
-    height:600px; 
+    height:500px; 
   }
-  .item h1{
+  .carousel-inner .item{
     color: white;
   }
 </style>
@@ -13,9 +16,9 @@
     ================================================== -->
     <div id="myCarousel" class="carousel slide">
       <div class="carousel-inner">
-
-
-
+<?php
+// die(var_dump($posts));
+?>
 @foreach($posts as $post)
         <div class="item">
 
@@ -27,7 +30,7 @@
               <h1>{{{$post->title}}}</h1>
               <p class="lead"></p>
               <p>
-                {{{$post->meta_description}}}
+                {{$post->meta_description}}
               </p>
               <a class="btn btn-large btn-primary" href="{{{$post->url()}}}">Learn more</a>
 
@@ -40,4 +43,5 @@
       </div>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+
     </div><!-- /.carousel -->

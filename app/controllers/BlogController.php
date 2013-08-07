@@ -164,17 +164,18 @@ class BlogController extends BaseController {
 		// if(!$tag){
 		// 	return View::make()
 		// }
-// die(var_dump($tag));
-		// BuilderClass
+		// die(var_dump($tag));
+
+		// BuilderClass?
 		View::share('tag',$tag);
 		if($tag){
 			
-
 			$view.=$this->getPage($tag);
 			$view.=$this->companyPages($tag);
 			$view.=$this->stdpages($tag);
 
 			$posts=$this->searchcontent($tag);
+
 			// die(var_dump(count($posts)));
 			if($posts){
 				
@@ -229,16 +230,14 @@ class BlogController extends BaseController {
 			// $view.='site.partials.postlist';
 							
 		}
-// die(var_dump(count($posts)));
 
-
+		// die(var_dump(count($posts)));
 		// View::share('results','site.partials.postlist');
 		return View::make('site.pages.search')
 	    	// ->with('message',"admin message")
 			// ->nest('searchbar','site.partials.search')
 			->with('results',$view)
-			
-			// ->with('heading','Posts')
+			// ->with('heading','Search')
 			;
 
 	}
@@ -251,7 +250,7 @@ class BlogController extends BaseController {
 		// if(is_array($posts)){
 			foreach ($posts as $post) {
 				$mycount+=substr_count(strtolower($post->content), strtolower($tag));
-				echo $mycount;
+				// echo $mycount;
 			}
 		// }
 		// else $mycount+=substr_count(strtolower($posts->content), strtolower($tag));
@@ -309,7 +308,7 @@ class BlogController extends BaseController {
 
 			if(!$path){
 				$minipath='site/pages/';
-				$path='../app/views/'.$minipath."/";
+				$path='../app/views/'.$minipath;
 			}
 
 			$minipath=str_replace('../app/views/', "", $path);
@@ -326,10 +325,14 @@ class BlogController extends BaseController {
 		    	$msg="Could not find any pages in $path.<br>";
 		    	// die(var_dump($msg,$path,$mypages));
 				Session::flash('error', $msg);
-				return false;
+				return $msg;
 		    }
+
 		    if(in_array($tag, $mypages)){
 		    	$company=$this->company;
+		    	View::share('company',$company);
+		    	View::share('pages',$mypages);
+
 		    	return View::make($minipath.$tag);
 		    	// return Redirect::to($tag);
 		    	// die('found!');
@@ -339,7 +342,7 @@ class BlogController extends BaseController {
 		    	// ->with('company',$this->company)
 		    	;
 		    }
-		    else return false;
+		    // else return View::make($minipath.$tag);
 	}
 
 	public function advantage($tag=""){
@@ -362,7 +365,9 @@ class BlogController extends BaseController {
 	        ->paginate(5);
 	        View::share('posts',$posts);
 	        return $posts;
+	        // return View::make('site.partials.carousel');
 	}
+
 	private function post_company($tag){
 		$posts=$this->post
 			->where('meta_keywords', 'LIKE', '%'.$this->company->brand.'%')
@@ -541,6 +546,7 @@ class BlogController extends BaseController {
 					}
 				}
 			}
+
 			$tags=array_unique($tags);
 			$str="";
 			$str.="I found ".$count." posts.";
@@ -575,8 +581,6 @@ class BlogController extends BaseController {
 
 		else{ //there is no tag
 			//this is a request for the home page
-
-
 
 			$company = $this->company->where('brand','like',$env)->first();
 			View::share('company',$company);
@@ -615,7 +619,7 @@ class BlogController extends BaseController {
 
 ////////////////////////////////////////////////////
 		/**
-		junk
+		junk from here down
 
 
 
@@ -944,11 +948,20 @@ class BlogController extends BaseController {
 	public function getView($slug)
 	{
 
+
 		// die(var_dump($slug));
 		$env=App::environment();
 		$company = $this->company->where('brand','like',$env)->first();
 		View::share('company',$company);
 		// Get this blog post data
+
+		$posts=$this->post_public();
+		// $posts=$this->post;
+		
+		View::share('posts',$posts);
+
+
+		// View::share('carousel',$carousel);
 		$post = $this->post->where('slug', '=', $slug)->first();
 
 		// Check if the blog post exists
@@ -956,26 +969,16 @@ class BlogController extends BaseController {
 		{
 
 			// $post = $this->post->where('tags', 'has', $slug);
-			
 			// if (is_null($post))
-
 			// {
-
-
 			// If we ended up in here, it means that
 			// a page or a blog post didn't exist.
 			// So, this means that it is time for
 			// 404 error page.
 			
-
-
 			return $post;
 			// }
 		}
-
-
-		
-
 		// Get this post comments
 		$comments = $post->comments()->orderBy('created_at', 'ASC')->get();
 
@@ -987,7 +990,12 @@ class BlogController extends BaseController {
         }
 // die(var_dump($canComment));
 		// Show the page
-		return View::make('site/blog/view_post', compact('company','post', 'comments', 'canComment'));
+
+		return View::make('site/blog/view_post')
+		->nest('carousel','site.partials.carousel')
+		->nest('about','company.about')
+		->with('posts',$posts)
+		->with(compact('company','post','comments', 'canComment'));
 	}
 
 	/**

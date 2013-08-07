@@ -338,6 +338,8 @@ Route::group(array('domain' => 'myapp.dev'),function()
     // });
 
 
+
+
     Route::get('cookietest',function(){
         $cookie = Cookie::make('name', 'value');
         $content="Hello.</br>";
@@ -433,6 +435,7 @@ Route::group(array('domain' => 'myapp.dev'),function()
 
 // *KEEP    
 // This is very interesting
+// Regarding User Authorization
     Route::get('/foo',function(){
         return $user = Sentry::getUser();
         View::share('user', $user);
@@ -440,16 +443,12 @@ Route::group(array('domain' => 'myapp.dev'),function()
         return View::make('site.user.index');
     });
 
-
-// Can anyone help me learn more about any of these things?
-// Please let me know, I would enjoy discussing them.
-
-Route::get('company','CompaniesController@getIndex');
-Route::get('company/mylist','CompanyController@mylist');
-Route::get('company/{name}','CompanyController@getIndex')
-    ->where('name', '[a-zA-Z_]+');
-Route::get('company/{id}','CompanyController@show')
-    ->where('id', '[0-9]+');
+    Route::get('company','CompaniesController@getIndex');
+    Route::get('company/mylist','CompanyController@mylist');
+    Route::get('company/{name}','CompanyController@getIndex')
+        ->where('name', '[a-zA-Z_]+');
+    Route::get('company/{id}','CompanyController@show')
+        ->where('id', '[0-9]+');
 
 // idea: display "featured" set of posts?
 
@@ -462,6 +461,7 @@ Route::get('company/{id}','CompanyController@show')
     Route::get('bootstrap',function(){
         return View::make('site.pages.bootstrap');
     });
+
 
 
     Route::post('search', 'BlogController@postSearch');
@@ -761,6 +761,7 @@ Route::controller('user', 'UserController');
 // STATIC PAGES: ///////////////////////////////////////////////////
 # Technical/Development Static Page
 
+
 Route::get('pages',function(){
     $env=App::environment();
     $path='../app/views/site/'.$env.'/';
@@ -786,6 +787,8 @@ Route::get('pages',function(){
     }
 });
 
+
+    Route::get('pages/{page}','BlogController@getPage');
 Route::get('pages/{page}',function($page){
         $env=App::environment();
             $path='../app/views/site/'.$env.'/';
@@ -821,7 +824,7 @@ Route::get('pages/{page}',function($page){
                 ->with(compact('posts'));
                  // $view;
             }
-            return("No page by the name $page!");
+            return("No page in $path by the name $page!");
 });
 
 Route::post('search', 'BlogController@postSearch');
