@@ -60,13 +60,24 @@
 		input:invalid, textarea:invalid { background-color: #f0dddd; }
 		table { border-collapse: collapse; border-spacing: 0; }
 		td { vertical-align: top; }
-
+html{
+	/*background-image: url(/);*/
+	  background: url(/assets/img/404/cop1.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 		body
 		{
 			font-family:'Droid Sans', sans-serif;
 			font-size:10pt;
 			color:#555;
 			line-height: 25px;
+
+			 
+		
+
 		}
 
 		.wrapper
@@ -94,16 +105,22 @@
 		{
 			color:#72ADD4;
 		}
+		.main{
+			/*text-align: center;*/
+			padding: 20px;
+			background-color: rgba(200,200,200,.8);
+		}
 	</style>
 </head>
 <body>
 	<div class="wrapper">
 		<div class="error-spacer">
-			<h1>BAM</h1>
+
 			@include('notifications')
 		</div>
 
 		<div role="main" class="main">
+			
 			<?php $messages = array('We need a map.', 'I think we\'re lost.', 'We took a wrong turn.'); 
 				
 				function random_pic($dir = 'assets/img/404')
@@ -114,7 +131,6 @@
 				}
 
 			?>
-
 			<h1><?php echo $messages[mt_rand(0, 2)]; ?></h1>
 
 			<h2>Server Error: 404 (Not Found)</h2>
@@ -123,18 +139,33 @@
 
 			<h3>What does this mean?</h3>
 
-			<p>
-				We couldn't find the page you requested on our servers. We're really sorry
-				about that. It's our fault, not yours. We'll work hard to get this page
-				back online as soon as possible.
-			</p>
+			<h3>
+				One of two things happened: either... you're not allowed, or the request doesn't exist. 
+			</h3>
+			<h3> 
 
+				Please hit your back button, search the site, or you can <a href="contact">Report an Error</a>.
+			</h3>
+			<p>
+				@if (!Auth::check())
+					<a class="btn btn-warning" href="{{{ URL::to('user/login') }}}">Login for more options</a>
+					@else
+					You might not have permissions...
+				@endif
+			</p>
 			<p>
 				Perhaps you would like to go to our <a href="{{{ URL::to('/') }}}">home page</a>?
 			</p>
+			<!-- <img src="/assets/img/404/cop1.jpg" alt="nom nom"> -->
+			<p>
+				<a href="http://americanprofile.com/articles/why-cops-love-doughnuts/">http://americanprofile.com/articles/why-cops-love-doughnuts/</a>
+			</p>
 
-			<img src="http://myapp.gristech.com/<?php echo random_pic();?>" alt="Error :(">
+			
+
+			<!-- <img src="http://myapp.gristech.com/{{--random_pic()--}}" alt="Error :("> -->
 		</div>
+		<a href="http://css-tricks.com/perfect-full-page-background-image/">CSS Tricks</a>
 	</div>
 </body>
 </html>

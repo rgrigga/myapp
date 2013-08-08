@@ -1,11 +1,10 @@
 <?php
 // die("ROUTES");
 
-// I am a veritable nobody on the internet, but i am a legend in my own mind
-
+// https://github.com/laravel/laravel/issues/2164 - laravel multisite discussion
 // http://www.slideshare.net/go_oh/singletons-in-php-why-they-are-bad-and-how-you-can-eliminate-them-from-your-applications
-
 //http://stackoverflow.com/questions/7770728/group-vs-role-any-real-difference
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -16,8 +15,6 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
-// https://github.com/laravel/laravel/issues/2164 - laravel multisite discussion
 
 /** ------------------------------------------
  *  Route model binding
@@ -32,6 +29,7 @@ Route::model('company','Company');
 Route::resource('companies', 'CompaniesController');
 Route::resource('tweets', 'TweetsController');
 
+// This is interesting, but needs further exploration
 // View::composer('*.home',function($view){
 View::composer('*.megacorp.*',function($view){
     $view->nest('searchbar','site.partials.search');
@@ -44,15 +42,9 @@ View::composer('*.megacorp.*',function($view){
 // });
 // View::share('company', $company);
 
-// now, calls to "user->username" should work.  effectively a singleton representing the session data or database info.
-
-// Route::group(array('prefix' => 'companies', 'before' => 'admin'), function()
-// {
-
-// Route::group(array('prefix' => 'companies', 'before' => 'admin-auth'),function(){
-//     // die("BAM");
-//     Route::resource('companies', 'AdminCompaniesController');
-// });
+// now, calls to "user->username" should work.  
+// effectively a singleton representing the session data or database info, but
+// is resolved through IOC
 
 // ???
 // App::bind('company', function($app)
@@ -62,14 +54,14 @@ View::composer('*.megacorp.*',function($view){
 
 // $env=App::environment();
 
-
+// TODO:
     // Route::get('dev',function(){
     //     return View::make('site.pages.dev');
     //     // make new site meow
 
     //     // http://laravel.com/api/class-Illuminate.Filesystem.Filesystem.html
     //     // http://stackoverflow.com/questions/3303691/php-check-file-exists-without-knowing-the-extension
-    //     // move to github: http://stackoverflow.com/questions/10240125/working-with-readme-md-on-github-com
+    //     // move to github : http://stackoverflow.com/questions/10240125/working-with-readme-md-on-github-com
 
     //     // 1. check route
     //     // 2. check sub route
@@ -81,7 +73,7 @@ View::composer('*.megacorp.*',function($view){
     //     // 8. check for google
     //     // 9. check facebook
     //     // 10. check twitter
-    //     // 11. check 
+    //     // 11. check...
 
     //     // compile tags from all of these sources, then search the other resources
     //     // for those tags.
@@ -91,18 +83,19 @@ View::composer('*.megacorp.*',function($view){
     //     // http://tools.seobook.com/general/keyword-density/
     // });
 
+
 // Redactor Blog Upload (incomplete)
-Route::post('redactorUpload', function()
-{
-    $file = Input::file('file');
-    $fileName = $file->getClientOriginalName();
+// Deimplementing redactor at this time, It's a great tool, but i don't to be dependent on it
+    Route::post('redactorUpload', function()
+    {
+        $file = Input::file('file');
+        $fileName = $file->getClientOriginalName();
 
-    $file->move(public_path().'/img', $fileName);
-    return Response::json(array('filelink' => '/img/' . $fileName));
-});
+        $file->move(public_path().'/img', $fileName);
+        return Response::json(array('filelink' => '/img/' . $fileName));
+    });
 
-
-
+//here is a demo for the current WYSIWYG editor:
     Route::get('bootstrap-wysiwyg',function(){
         return Redirect::to('/assets/js/bootstrap-wysiwyg/index.html');
     });
@@ -491,24 +484,23 @@ Route::group(array('domain' => 'myapp.dev'),function()
 
 */
 // ********************************************************************************
-// ********************************************************************************
-// *************************----------------***************************************
+// ****************************----------******************************************
+// *************************-----*******----***************************************
 // ************************-****************-**************************************
-// **********************--**BUCKEYE*********-*************************************
+// ***********************--**BUCKEYE********-*************************************
 // **********************-     ***************-************************************
-// *********************--     ******MOWER****-************************************
+// *********************-      ******MOWER****-************************************
 // *********************-      ***************-************************************
 // *********************-      **************-*************************************
-// **********************-----**************-**************************************
-// ************************--************ --***************************************
+// **********************-----*************---*************************************
+// ************************-----********-----**************************************
 // **************************--------------****************************************
 // ********************************************************************************
 
-
-
-    // die("BAM");
+// random notes:
 // http://www.jsticker.com/
-    // http://programmers.stackexchange.com/questions/160947/should-session-variables-be-avoided
+// http://programmers.stackexchange.com/questions/160947/should-session-variables-be-avoided
+
 Route::group(array('domain' => 'buckeyemower.com'),function()
 {
 
@@ -526,9 +518,6 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
     //     $company=  Company::where('brand',"LIKE",'buckeye')->first();
     //     return $company;
     // });
-
-
-
 
     Route::filter('buckeye', function()
     {
@@ -599,13 +588,15 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
         Route::get('tags', 'BlogController@getIndex');
         Route::post('tags', 'BlogController@getIndex');
 
-    Route::post('search', 'BlogController@postSearch');
-    Route::get('search', 'BlogController@search');
-    // Route::get('/search', 'BlogController@search');
-    Route::get('search/{tag}','BlogController@search');
+        Route::post('search', 'BlogController@postSearch');
+        Route::get('search', 'BlogController@search');
+        // Route::get('/search', 'BlogController@search');
+        Route::get('search/{tag}','BlogController@search');
 
         Route::get('tags/{tag}', 'BlogController@getIndex');
         Route::get('/{tag}','CompanyController@buckeye');
+
+        // Route::get('/','BlogController@getIndex',array('public',array(1,2,3)));
 
     });
 
@@ -727,6 +718,7 @@ Route::get('admin','AdminBlogsController@getIndex');
 // });
 // Route::get('advantage','CompanyController@getIndex',array('name'=>'advantage'));
 
+Route::get('contact','BlogController@getContact');
 
 Route::get('company','CompaniesController@getIndex');
 Route::get('company/mylist','CompanyController@mylist');

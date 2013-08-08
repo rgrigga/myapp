@@ -1,10 +1,4 @@
-<style>
-	header > a{
-		display: inline-block;
-		background-color: orange;
-		padding: 3px;
-	}
-</style>
+
 
 <section>
 	<article>

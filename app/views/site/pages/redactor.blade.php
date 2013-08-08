@@ -66,6 +66,10 @@ jQuery HotKeys https://github.com/jeresig/jquery.hotkeys
 Bootstrap http://twitter.github.com/bootstrap/
 </pre>
 
+I am moderately knowledgable about:
+composer
+git
+
 </p>
 		</div>
 	</body>

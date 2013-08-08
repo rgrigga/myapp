@@ -212,6 +212,25 @@ class AdminBlogsController extends AdminController {
         return View::make('admin/blogs/edit', compact('post','company'));
 	}
 
+    public function savePhoto($photo){
+        if($photo){
+        $destinationPath="/assets/img/";
+        $filename = $file->getClientOriginalName();
+        
+        // $file->move($path,$filename);
+        
+        $photo->move($destinationPath,$filename);
+        $path = $photo->getRealPath();
+        // http://laravel.com/docs/requests#files
+        var_dump($path);
+        die();
+
+        }
+        else
+            var_dump($photo);
+        die();
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -220,14 +239,18 @@ class AdminBlogsController extends AdminController {
      */
 	public function postEdit($post)
 	{
-
+// die(var_dump(Input::file('photo')));
         // Declare the rules for the form validation
         $rules = array(
             'title'   => 'required|min:3',
             'content' => 'required|min:3',
-            'image' => 'required|min:3'
+            // 'photo'=>''
+            // 'image' => 'required|min:3'
         );
-
+            // $files=Input::file('photo');
+            // var_dump($files);
+            // var_dump($storage_path());
+            // die();
         // Validate the inputs
         $validator = Validator::make(Input::all(), $rules);
 
@@ -242,6 +265,12 @@ class AdminBlogsController extends AdminController {
             $post->meta_title       = Input::get('meta-title');
             $post->meta_description = Input::get('meta-description');
             $post->meta_keywords    = Input::get('meta-keywords');
+
+            
+            // if(Input::hasFile('photo')){
+            //     $photo=Input::file('photo');
+            //     $this->savePhoto($photo);
+            // }
 
             // Was the blog post updated?
             if($post->save())

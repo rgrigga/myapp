@@ -1,5 +1,6 @@
 <?php
 
+
 // http://flatuicolors.com/
 
 //http://www.coderanch.com/t/443740/patterns/UML-multiple-inheritance-domain-model
@@ -101,6 +102,29 @@ class BlogController extends BaseController {
         // ->with(compact($posts));
     }
 
+
+    public function getContact(){
+    	$post=$this->post->where('meta_title',"like",'contact')->first();
+    	// Get this post comments
+    	// die(var_dump(count($post)));
+		$comments = $post->comments()->orderBy('created_at', 'ASC')->get();
+
+        // Get current user and check permission
+        $user = $this->user->currentUser();
+        $canComment = false;
+
+        if(!empty($user)) {
+        	//anonymous!
+            $canComment = $user->can('post_comment');
+        }
+
+    	View::share('post',$post);
+    	View::share('comments',$comments);
+    	return View::make('site.pages.contact')
+    	->with(compact('canComment','post'));
+    	;
+    }
+
 	/**
 	 * Returns all the blog posts.
 	 *
@@ -152,6 +176,34 @@ class BlogController extends BaseController {
 		// die(var_dump(count($posts)));
 		return $posts;
 		// View::share('posts',$posts);
+	}
+
+	private function myposts($mylist){
+
+		// $mylist2=array("1","2","3");
+
+		// foreach ($mylist as $value) {
+
+		$posts=$this->post
+			->where('meta_keywords', 'LIKE', '%'.$this->company->brand.'%')
+			->whereIn('id',$mylist)
+	        // ->where('content','LIKE','%'.$tag.'%')
+	        ->paginate(5);
+
+	        // array_push($newposts, $post);
+	    // }
+	    
+	    // die(var_dump(count($posts)));
+	    // $posts=;
+	    
+	    // View::share('posts',$newposts);
+	    return $posts;
+
+			// echo $value;
+			
+				// $this->post->where('id',"=",$value)->get());
+		
+		// return $newposts;
 	}
 
 	public function search($tag=""){
@@ -363,6 +415,7 @@ class BlogController extends BaseController {
 			->where('meta_keywords','LIKE','%public%')
 	        ->where('content','LIKE','%'.$tag.'%')
 	        ->paginate(5);
+
 	        View::share('posts',$posts);
 	        return $posts;
 	        // return View::make('site.partials.carousel');
@@ -391,6 +444,11 @@ class BlogController extends BaseController {
 	 *
 	 * @return View
 	 */
+
+
+	// this funciton is more than a little out of control.  
+	// Each function should only do 
+	// one thing, but this one does a lot.  I have tried to break it out.
 	public function getIndex($tag="")
 	{
 		
@@ -591,28 +649,44 @@ class BlogController extends BaseController {
 			// die('there is no tag!');
 			if(!is_null($company)){
 				
-				$posts=$this->post_public();
-// die(var_dump($posts));
+				//this allows one to query the posts in a particular order.
+				// $mylist=array(56,58,67,69);
+				
+				// die(var_dump($posts));
+				if($env=='buckeye'){
+					$posts=$this->myposts(array(56,58,67,69));
+				}
 
-				$collection=array();
-				foreach ($company->menus() as $tag){
-					if(!$post=$this->post_public($tag)){
-						array_push($collection, $post);
-					}
-				};
+				else{
+					$posts=$this->post_public();
+				
+				// $posts=$this->post_public();
+				// View::share('posts',$posts);
+				// die(var_dump($posts));
+
+				// $collection=array();
+				// foreach ($company->menus() as $tag){
+				// 	if(!$post=$this->post_public($tag)){
+				// 		array_push($collection, $post);
+				// 	}
+				// };
 
 				// $posts=$this->post
 				// ->where('meta_keywords', 'LIKE', $company->brand)
 				// ->paginate(10);
 
-				View::share('posts',$posts);
-				// return Redirect::action('CompanyController@getIndex',$tag);
-				return View::make('site.'.strtolower($company->brand).'.home')
-				->nest('about','company.about')
-				->nest('contact','site.partials.contact')
-				->with(compact('collection'))
-				// ->with(compact('posts'))
-				;
+				
+				}
+
+					View::share('posts',$posts);
+					// return Redirect::action('CompanyController@getIndex',$tag);
+					return View::make('site.'.strtolower($company->brand).'.home')
+					->nest('about','company.about')
+					->nest('contact','site.partials.contact')
+					->with(compact('collection'))
+					// ->with(compact('posts'))
+					;
+
 			}
 			else die ('Blog index Probelm ~617!');
 		}
@@ -980,7 +1054,7 @@ class BlogController extends BaseController {
 			// }
 		}
 		// Get this post comments
-		$comments = $post->comments()->orderBy('created_at', 'ASC')->get();
+		$comments = $post->comments()->orderBy('created_at', 'DESC')->paginate(10);
 
         // Get current user and check permission
         $user = $this->user->currentUser();
@@ -991,7 +1065,7 @@ class BlogController extends BaseController {
 // die(var_dump($canComment));
 		// Show the page
 
-		return View::make('site/blog/view_post')
+		return View::make('site/'.strtolower($company->brand).'/view_post')
 		->nest('carousel','site.partials.carousel')
 		->nest('about','company.about')
 		->with('posts',$posts)
@@ -1008,6 +1082,37 @@ class BlogController extends BaseController {
 	{
 
         $user = $this->user->currentUser();
+        // die(var_dump($user));
+        if(empty($user)) {
+        	//anonymous!
+		    $cred=array('username' => 'anonymous',
+		    	'password'=>'password',
+		    	'email'=>'anon@gristech.com'
+		    	);
+		    if ( Confide::logAttempt( $cred, true ) )
+		        {
+
+		            // if(Auth::user()->hasRole('admin')){
+		            //     return Redirect::to('admin');    
+		            // }
+
+		            $r = Session::get('loginRedirect');
+		            // die(var_dump($r));
+		            if (!empty($r))
+		            {
+		                Session::forget('loginRedirect');
+		                return Redirect::to($r);
+		            }
+		            return Redirect::to('/blog/contact');
+		        }
+		    else{
+		            die("You are a robot :(");
+		        }
+
+            // $user=$this->user->where('username','=','anonymous')->first();
+        	// die(var_dump($user));
+        }
+
         $canComment = $user->can('post_comment');
 		if ( ! $canComment)
 		{

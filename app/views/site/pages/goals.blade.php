@@ -16,7 +16,7 @@
 	</article>
 </section>
 
-<img src="{{asset('assets/img/craigslist_make_post.png')}}" alt="Craigslist">
+
 
 
 @stop

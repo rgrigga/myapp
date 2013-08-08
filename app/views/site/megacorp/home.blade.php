@@ -289,9 +289,8 @@ a:hover{
 		<!-- <h1>BAM</h1> -->
 		
 
-		<div class="corner">
-			<img src="{{asset('assets/advantage/corner.png')}}" alt="le corner">
-		</div>
+
+
 
 
 

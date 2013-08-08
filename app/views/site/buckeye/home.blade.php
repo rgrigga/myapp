@@ -1040,8 +1040,6 @@ $(function() {
 <!--         <img class="featurette-map pull-right" src="http://maps.googleapis.com/maps/api/staticmap?center=Westerville,Ohio&zoom=9&size=600x600&markers=color:blue%7Clabel:B%7C517+Westerville+OH|color:blue%7Clabel:B%7C517+Hilliard+OH&sensor=false" alt="Hilliard, OH"> -->
 
         <img class="featurette-map pull-right img-circle" src="http://maps.googleapis.com/maps/api/staticmap?center=Westerville,Ohio&zoom=9&size=400x400&markers=Westerville+OH|Hilliard+OH|Columbus+OH|Gahanna+OH|Marengo+OH|Delaware+OH|Pickerington+OH|Grove+City+OH|Pataskala+OH|West+Jefferson+OH&sensor=false" alt="Central Ohio">
-
-<!--         <img class="featurette-image pull-right" src="{{asset('assets/buckeye/ohio.png')}}" alt="serving central ohio"> -->
         <h2 class="featurette-heading">I will come to you. <span class="muted">Wide Service Area.</span></h2>
         <p class="lead">My general service area is the Greater Columbus Area, anywhere south of 36/37.  For Example, I've done service near Westerville, Lewis Center, Polaris, Easton, Delaware, Marysville, Hilliard, Dublin, Gahanna, Pickerington, Pataskala, New Albany and more.  If I can help you, I'll do my best!</p>
         <!-- http://openclipart.org/may-clipart-be-used-comparison -->
