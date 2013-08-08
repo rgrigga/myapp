@@ -55,13 +55,10 @@
 			{{{substr($post->meta_description, 0,148)}}}
 		</p>
 	</div>
-
 </div>
-
-
-					
+		<!-- http://chiragchamoli.com/posts/simple-file-upload-in-laravel/			 -->
+		<!-- https://github.com/JeffreyWay/Laravel-4-Generators#resources -->
 </div>
-
 <!-- //copy and edit buttons -->
 				@if (Auth::check())
                 @if (Auth::user()->hasRole('admin'))

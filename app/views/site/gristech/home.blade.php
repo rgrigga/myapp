@@ -17,12 +17,15 @@
 
 @section('styles')
 <!-- http://colorschemedesigner.com/#0k41Jw0w0w0w0 -->
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+<!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine"> -->
+
+
 <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Graduate' rel='stylesheet' type='text/css'>
+
+<!-- <link href='http://fonts.googleapis.com/css?family=Graduate' rel='stylesheet' type='text/css'> -->
 <link href='http://fonts.googleapis.com/css?family=Patrick+Hand' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Monsieur+La+Doulaise' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Mr+De+Haviland' rel='stylesheet' type='text/css'>
+<!-- <link href='http://fonts.googleapis.com/css?family=Monsieur+La+Doulaise' rel='stylesheet' type='text/css'> -->
+<!-- <link href='http://fonts.googleapis.com/css?family=Mr+De+Haviland' rel='stylesheet' type='text/css'> -->
 <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
 
 <style>
@@ -57,22 +60,26 @@ html,body {
 		margin-top: 0px;
 }
 
-.page-header h1, .sidebar h3{
+.page-header h1 {
+color: rgba(41, 128, 185,1.0);
+}
+
+.sidebar h3{
 	/*font-family: 'Mr De Haviland', cursive;*/
 	/*font-family: 'Monsieur La Doulaise', cursive;*/
 	font-family: 'Kaushan Script', cursive;
 	/*color:#ffbe73;*/
-	color: #ffe9b9;
-	text-shadow: 8px 8px 8px #A63A00;
+	color: rgba(41, 128, 185,1.0);
+	/*text-shadow: 8px 8px 8px #A63A00;*/
 }
 
 .sidebar h3{
-	text-shadow: 4px 4px 4px #A63A00;
+	/*text-shadow: 4px 4px 4px #A63A00;*/
 }
 
 .navbar-inner{
 	background-image: none;
-	background-color: rgba(3,71,105,1);
+	background-color: rgba(3,71,105,.9);
 }
 
 .navbar .brand, .navbar .nav >li >a {
@@ -450,6 +457,10 @@ If a site would like to be split off, sold, etc... NO PROBLEM.  It can simply be
 			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
 			 				<h2>Development</h2>
 			 			</a>
+			 			<p>I don't write code very fast, because I take my time to try to get things right the first time.  I write very little code in comparison to the research that I do when implementing a new feature or improving an existing one.</p>
+			 			<p>A good deal of my time goes into refactor and comment the code, and document issues.</p>
+			 			<p>This blog can be a good start towards a manual or developer resource.</p>
+			 			<p>On the other hand, I beleive the shortest path to getting the code to work helps the development process.  This is a delicate balance.</p>
 			 		</div>
 			 		<div id="collapseTwo" class="accordion-body collapse">
 			 			<div class="accordion-inner">
@@ -513,9 +524,7 @@ If a site would like to be split off, sold, etc... NO PROBLEM.  It can simply be
 	</div>
 	<!-- div span7 -->
 
-	<div class="note">
-		<p>This is div= "note"</p>
-	</div>
+
 
 
 	<style>
@@ -646,6 +655,12 @@ If a site would like to be split off, sold, etc... NO PROBLEM.  It can simply be
 			{{ $posts->links() }}
 		</div>
 		<!-- ./ row -->
+<div class="note">
+		<pre class="prettyprint"><code><p>
+This is pre class = "prettyprint":
+<!-- <pre class="prettyprint"></pre> --></p></code></pre>
+		
+</div>
 	</div>
 	<!-- ./below -->
 	<!-- ************************************************ -->

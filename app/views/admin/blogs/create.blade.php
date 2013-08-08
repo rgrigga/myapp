@@ -62,7 +62,7 @@ Create a New Blog Post ::
 		<div class="controls">
 			<a class="btn btn-link" href="{{{ URL::to('admin/blogs') }}}">Cancel</a>
 			<button type="reset" class="btn">Reset</button>
-			<button type="submit" class="btn btn-success">Publish</button>
+			<button type="submit" class="btn btn-success">Start</button>
 		</div>
 	</div>
 	<!-- ./ form actions -->
@@ -95,7 +95,7 @@ Create a New Blog Post ::
 				<div class="controls">
 
 
-					<textarea class="redactor" name="content" value="content" rows="20">{{{ Input::old('content') }}} </textarea>
+					<textarea class="redactor full-width span10 wysihtml5" name="content" value="content" rows="20">{{{ Input::old('content') }}} </textarea>
 					{{{ $errors->first('content', '<span class="help-inline">:message</span>') }}}
 				</div>
 			</div>
@@ -105,7 +105,7 @@ Create a New Blog Post ::
 			<div class="control-group {{{ $errors->has('image') ? 'error' : '' }}}">
 				<label class="control-label" for="image">image URL</label>
 				<div class="controls">
-					<textarea class="full-width span10 wysihtml5" name="image" value="image" rows="1">{{{ Input::old('image') }}}</textarea>
+					<textarea class="full-width span10 " name="image" value="image" rows="1">{{{ Input::old('image') }}}</textarea>
 					{{{ $errors->first('image', '<span class="help-inline">:message</span>') }}}
 				</div>
 			</div>
