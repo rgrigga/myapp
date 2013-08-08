@@ -1,10 +1,15 @@
 <?php
+		App::bind('company',function($company){
+			return new Company;
+		});
+// http://laravel.com/docs/responses
+// https://github.com/symfony/HttpFoundation
+// class Buckeyeontroller ext
+// They say there is no tighter coupling than inheritance
+class CompanyController extends UserController {
 
-
-class CompanyController extends BaseController {
-
-	protected $layout = 'site.layouts.company';
-
+	// protected $layout = 'site.layouts.company';
+	protected $layout = 'layouts.scaffold';
     /**
      * Tags Model
      * @var Post
@@ -34,15 +39,32 @@ class CompanyController extends BaseController {
      * @param Post $post
      * @param User $user
      * @param Tags $tags
-     * @param Tags $tags    
+     * @param Tags $company    
      */
-    public function __construct(Company $company)
+    public function __construct(Company $company, User $user, Post $post)
     {
-        parent::__construct();
 
-        // $this->post = $post;
-        // $this->user = $user;
+    	// parent::construct();
+// die(var_dump($company));
+        $this->post = $post;
+<<<<<<< HEAD
         $this->company = $company;
+
+        // View::share('company',$this->company);
+
+        // App::abort(404,'company controller construct'.var_dump($this->company));
+=======
+        $this->user = $user;
+        $this->company = $company;
+        
+>>>>>>> dev
+
+		// $env=;
+		// var_dump($env);
+        // var_dump($c);
+
+        // die();
+    // die("bam");
         // $this->tags = $post->tags();
     }
     
@@ -51,19 +73,175 @@ class CompanyController extends BaseController {
 	 *
 	 * @return View
 	 */
-	public function getIndex($id="")
-	{
-		// die(var_dump($id));
-		// $str='%'.$company.'%';
-		$company = $this->company->where('id', '=', "$id");
-		// $posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);
 
+	public function sewcute(){
+
+		return $this->getIndex('sewcute',5);
+	}
+
+	public function advantage(){
+		$this->company = $this->company->where('brand','like','advantage')->first();
+		return $this->getIndex('advantage',5);
+	}
+
+	public function buckeye(){
+		$company = $this->company->where('brand', 'LIKE', 'buckeye')->first();
+		return $this->getIndex('buckeye',5);
+	}
+
+	public function megacorp(){
+
+		return $this->getIndex('megacorp',5);
+	}
+
+	public function gristech(){
+
+		return $this->getIndex('gristech',5);
+	}
+
+	public function getIndex($brand="",$num='10')
+	{
+
+		    // $company=$this->company;
+    		// die(var_dump($company));
+    	// var_dump($this->company);
+		
+		// if(empty($brand)){
+		// 	$brand=App::environment();
+		// }
+		$brand=strtolower($brand);
+// die('CompanyController get index');
+		$company = $this->company->where('brand','like',$brand)->first();
+        App::instance('company',$company);
+
+		// die(var_dump($brand));
+		// die(var_dump(App::environment()));
+		// die(var_dump($company));
+		
+		// if(empty($company)){
+			// $company = $this->company->where('brand','like','gristech')->first();
+			// App::abort(404,'CompanyController@getIndex: no company');
+			// App::error(function(RuntimeException $exception){
+			//     Log::error($exception);
+			//     var_dump($company);
+			// });
+		// }
+		
+
+		
+		if(is_null($brand)){
+			// return "controller has no brand!";
+			// die('CompanyController get index');
+
+<<<<<<< HEAD
+			return App::error(function(RuntimeException $exception){
+			    Log::error($exception);
+			    var_dump($company);
+			    App::abort(404,'Company not present.');
+			    // return die('Sorry! Something is wrong with this account!');
+			});
+
+			// $brand=strtolower($brand);
+			// $company = $this->company->where('brand', 'LIKE', $brand)->first();
+			// $brand='buckeye';
+		}
+=======
+	public function getIndex($brand='',$num='10')
+	{
+
+// die("Brand: $brand");
+// $company=app::make('company');
 // die(var_dump($company));
 
-		// Show the page
-		return View::make('site/'.$company->brand().'/home', compact('$company'));
+		// $brand=strtolower($brand);
+
+		// if(!$brand){
+		// 	// $brand=strtolower($brand);
+			
+		// 	$brand='gristech';
+		// }
+
+		// $company=$this->company;
+		// $company = $this->company->where('brand', 'LIKE', $brand)->first();
+        
+		// $brand=$this->company->brand;
+		$company=App::make('company');
+		// die(var_dump($company));
+		$brand=strtolower($company->brand);
+
+		// die("Brand: $brand");
+>>>>>>> dev
+		// else{
+			
+		// }
+		// die('CompanyController@getIndex $company:' var_dump($company));
+		// $company = $this->company->where('brand', 'LIKE', $brand)->first();
+
+		// if(!$company){
+		// 	// die("FAIL");
+		// }
 		
+		else{
+			View::share('company', $company);
+		
+			// die(var_dump($posts));
+
+			// $posts=$this->company->posts;
+			$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$brand.'%')->paginate($num);
+
+			// View::share('menus',$this->company->menus());
+			// $views=array('foo','bar');
+			return View::make('site/'.$brand.'/home')
+				// die();
+				//this works, but it confused me.
+				->nest('about','company.about')
+				->nest('contact','site.partials.contact')
+				->with(compact('company'))
+				->with(compact('tags'))
+				->with(compact('alltags'))
+				->with(compact('posts'))
+				// ->with(compact('brand'))
+				;
+		}
+
 	}
+
+public function mylist(){
+
+	foreach ($this->company->all() as $company) {
+		echo $company->name."<br>";
+		// die();
+	}
+}
+
+    public function show($id)
+    {
+    	$num=5;
+        $company = $this->company->findOrFail($id);
+        View::share('company',$company);
+// die(var_dump($company));
+        if(!$company){
+        	return App::abort(404,"no company with that id: $id");
+        }
+        $name=strtolower($company->brand);
+		$posts = $this->post->where(
+				'meta_keywords',
+		 		'LIKE',
+		 		'%'.$name.'%'
+		 	)->paginate($num);
+
+        // die($name);
+
+        return View::make('site.'.$name.'.home')
+        	// ->with(compact('company'));
+				->nest('about','company.about')
+				->nest('contact','site.partials.contact')
+        	->with(compact('company'))
+			->with(compact('tags'))
+			->with(compact('alltags'))
+			->with(compact('posts'));
+
+    }
 
 	/**
 	 * View a blog post.
