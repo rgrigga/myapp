@@ -52,11 +52,13 @@ class UserController extends BaseController {
         // if($redirect){return $redirect;}
 
         // Show the page
+        // $company=$this->company->where('brand','LIKE',$company)->first();
+        //$company=App::make('company');
+        // die("BAM");
 
         $brand=App::environment();
         $company=$this->company->where('brand','LIKE',$brand)->first();
         // die("BAM");
-        // $company = App::make('company');
         return View::make('site/user/index')
             ->with('user',$this->user)
             ->with(compact('company'));
@@ -195,7 +197,6 @@ class UserController extends BaseController {
      */
     public function getLogin()
     {
-
         $user = Auth::user();
             if(!empty($user->id)){
             return Redirect::to('/');
@@ -207,8 +208,6 @@ class UserController extends BaseController {
 
         if(!$company){
             $company = $this->company->where('brand', 'LIKE', 'gristech')->first();
-            // die(var_dump("Problem in user.getLogin.", $company));
-            // $company = $this->company->findOrFail(3);
         }
         // $company = $this->company->findOrFail(3);
 
@@ -233,18 +232,15 @@ class UserController extends BaseController {
         
     // }
 
-
-
     /**
      * Attempt to do login
      *
      */
     public function postLogin()
     {
-
         $input = array(
             'email'    => Input::get( 'email' ), // May be the username too
-            'username' => Input::get( 'email' ), // May be the username too
+            'username' => Input::get( 'username' ), // May be the username too
             'password' => Input::get( 'password' ),
             'remember' => Input::get( 'remember' ),
         );

@@ -769,7 +769,6 @@ class BlogController extends BaseController {
 					->with(compact('company'))
 					->with(compact('posts'));
 			}
-
 			//Here, the company exists, but the request is something different.
 
 // 1. check standard views
@@ -866,10 +865,18 @@ class BlogController extends BaseController {
 		// die(var_dump($company));
 
 		//prepare the alltags collection
-
+		$alltags=array();		
+		foreach ($this->post->get() as $post) {
+			foreach ($post->tags() as $mytag) {
+				if(!in_array($mytag, $alltags)){
+					array_push($alltags, trim($mytag));
+				}
+			}
+		}
 		//alltags now contains the list of tags within this set of posts.
 			
 		//let's check to see if a page exists for this tag:
+		$env=App::environment();
 
         // else{
         // 	die($tag." Not Found in ".$path);
@@ -900,14 +907,22 @@ class BlogController extends BaseController {
 
 				if(count($posts)==0){
 
-
-
-
-						// ->with('message','I couldn\'t find anything');
-				}
-				//else
-
+				return View::make('site/blog/tags')
+					->with(compact('company'))
+					->with(compact('tags'))
+					->with(compact('alltags'))
+					->with(compact('posts'))
+					->with('message','I couldn\'t find anything');
 			}
+			//else
+			$str="I found ".count($posts)." posts.";
+			return View::make('site/blog/tags')
+				->with(compact('company','tags','alltags','posts'))
+				// ->with(compact('tags'))
+				// ->with(compact('alltags'))
+				// ->with(compact('posts'))
+				->with('info',$str);
+		}
 
 		// $posts = $this->post->where('tag','seo');
 		// Get all the blog posts
@@ -1022,7 +1037,7 @@ class BlogController extends BaseController {
 	public function getView($slug)
 	{
 
-
+//??This should be set in the constructor?
 		// die(var_dump($slug));
 		$env=App::environment();
 		$company = $this->company->where('brand','like',$env)->first();
@@ -1083,6 +1098,8 @@ class BlogController extends BaseController {
 
         $user = $this->user->currentUser();
         // die(var_dump($user));
+
+//Is this a security concern?  We're using confide.
         if(empty($user)) {
         	//anonymous!
 		    $cred=array('username' => 'anonymous',

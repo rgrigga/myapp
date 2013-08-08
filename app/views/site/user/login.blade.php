@@ -13,7 +13,6 @@
 
 {{-- Content --}}
 @section('main')
-<!-- <h1>Hello World</h1> -->
 <h1>
     {{{$company->brand}}}
 </h1>
@@ -79,12 +78,8 @@
 </div>
 
 
-
-
 <form method="POST" action="{{ URL::to('user/login') }}" accept-charset="UTF-8">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    <p>Request: </p>
-    {{Session::get('mypath')}}
     <fieldset>
         <label for="email">{{ Lang::get('confide::confide.username_e_mail') }}</label>
         <input tabindex="1" placeholder="{{ Lang::get('confide::confide.username_e_mail') }}" type="text" name="email" id="email" value="{{ Input::old('email') }}">
@@ -123,7 +118,5 @@
         <a class="btn btn-large btn-primary" href="{{{ URL::to('user/create') }}}">Sign Up</a>
         <p>No spam, etc.</p>
 <!-- // Popup form here?-->
-<!-- <img src="{{asset('assets/gristech/next.png')}}" alt="next">
-<h1>You said flyer?</h1>
-<img src="{{asset('assets/gristech/flyer.png')}}" alt="next"> -->
+
 @stop

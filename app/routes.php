@@ -1,10 +1,10 @@
 <?php
 // die("ROUTES");
+// $foo="bar"; //fails here: scope does not apply within routes.
 
 // https://github.com/laravel/laravel/issues/2164 - laravel multisite discussion
 // http://www.slideshare.net/go_oh/singletons-in-php-why-they-are-bad-and-how-you-can-eliminate-them-from-your-applications
 //http://stackoverflow.com/questions/7770728/group-vs-role-any-real-difference
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -16,6 +16,10 @@
 |
 */
 
+// Route::any('/',function(){
+//     die('bam');
+//     return View::make('site.pages.debug');
+// });
 /** ------------------------------------------
  *  Route model binding
  *  ------------------------------------------
@@ -54,6 +58,9 @@ View::composer('*.megacorp.*',function($view){
 
 // $env=App::environment();
 
+    // Route::get('foo', array('as' => 'bar/foo'),function(){
+    //     return Route::currentRouteName();
+    // });
 // TODO:
     // Route::get('dev',function(){
     //     return View::make('site.pages.dev');
@@ -252,9 +259,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     // provided it is implemented using the provided forms class
 
 //create all new resources via generate with a 
-
 // http://stackoverflow.com/questions/2453408/is-it-safe-to-display-user-input-as-input-values-without-sanitization
-
 //create new company:
     //domain
     //environment
@@ -279,7 +284,6 @@ function pre($text){
 
 Route::group(array('domain' => 'myapp.dev'),function()
 {
-
 // http://codehappy.daylerees.com/ioc-container
     // App::bind('company', function($app)
     // {
@@ -299,7 +303,15 @@ Route::group(array('domain' => 'myapp.dev'),function()
     // if not, send get request to server.
     // $value = App::make('company','gristech');
 
-    // Route::get('admin','AdminDashboardController@gristech');
+//////////////////////////////////////////////////////////////////////
+//////////////////////// ROUTE MODEL /////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+    // Route::model('company','Company',function(){
+    //     $company=  Company::where('brand',"LIKE",'gristech')->first();
+    //     $company=App::make('company');
+    //     // die(var_dump($company);
+    //     return $company;
+    // });
 
 
 
@@ -329,9 +341,6 @@ Route::group(array('domain' => 'myapp.dev'),function()
     //         return Redirect::to('register')->withErrors($validator);
     //     }
     // });
-
-
-
 
     Route::get('cookietest',function(){
         $cookie = Cookie::make('name', 'value');
@@ -389,13 +398,11 @@ Route::group(array('domain' => 'myapp.dev'),function()
         // $company=
         // $brand = strtolower($company->brand);
         // $company
-
         return View::make('site.'.$brand.'.home')
          ->with(compact('company'));
     });
 
     // $data=array('company'=>'buckeye');
-    
 
     Route::get('notifytest',function(){
         return "Success!";
@@ -419,12 +426,6 @@ Route::group(array('domain' => 'myapp.dev'),function()
         return View::make('site.gristech.home')
         ->with(compact('company'));
     });
-
-    // $company=Company::where('brand','like','gristech')->first();
-    // $brand="gristech";
-    // $company=App::make('company');
-    // die(var_dump($company));
-
 
 // *KEEP    
 // This is very interesting
@@ -467,17 +468,7 @@ Route::group(array('domain' => 'myapp.dev'),function()
     Route::get('/{tag}','BlogController@getIndex');
     Route::get('/', 'BlogController@getIndex');
 
-    // Route::get('/', function(){
-        // echo "HI THERE";
-        // $company=Company::where('brand','like','gristech')->first();
-        // die(var_dump($company));
-        
-    // });
-    // die(var_dump($tag));
-
-
 });
-
 /**
 
     BUCKEYE
@@ -504,60 +495,41 @@ Route::group(array('domain' => 'myapp.dev'),function()
 Route::group(array('domain' => 'buckeyemower.com'),function()
 {
 
-    // Session::put('company', 'gristech');
-    // var_dump($_SESSION);
-    // http://codehappy.daylerees.com/ioc-container
-    // App::bind('company', function($app)
-    // {
-    //     return Company::where('brand','like','buckeye')->first();
-    // });
-
-    // $company='buckeye';
-    
-    // Route::model('company','Company',function(){
-    //     $company=  Company::where('brand',"LIKE",'buckeye')->first();
-    //     return $company;
-    // });
-
     Route::filter('buckeye', function()
     {
         if (! Entrust::hasRole('admin') ) // Checks the current user
         {
             // die("buckeye filter");
             $message="Sorry. You are not authorized to view that.  Would you like to log in?";
-            // Session::flash('info','login?');
-            // App::abort(404,"You aren't authorized.");
             return Redirect::to('user/login')
-                ->with('info',$message);
+                ->with('error',$message);
                 // ->with('howdy',$message);
-
         }
         // die("BAM");
         // Route::controller('admin', 'AdminDashboardController');
     });
 
-
-
-
-        // Route::get('companies*',function(){
-        //     return "This failed as expected!";
-        //     die(var_dump($company));
-        // });
-
-    // Route::get('admin','AdminDashboardController@getIndex');
-    // Route::get('admin',array('before'=>'buckeye'));
-    
-    // $company='buckeye';
-    // Route::get('admin')
+    Route::group(array('before' => 'buckeye'), function(){
+        Route::get('login',function(){
+            return Redirect::to('user/login')
+                ->with( 'info', 'Please login.  Thank You.' );
+        });
+        Route::get('protected',function(){
+            return "To see this, you must be a memeber of the buckeye group.";
+            die(var_dump($company));
+        });
+        Route::get('fail',function(){
+            return "This failed as expected!";
+            die(var_dump($company));
+        });
+    });
 
     # User RESTful Routes (Login, Logout, Register, etc)
-
     Route::controller('user', 'UserController');    
     // Route::controller('comment', 'AdminCommentsController');
 
     // Route::get('blog/{postSlug}', 'BlogController@getView');
     // Route::get('blog', 'BlogController@buckeyeIndex');
-
 
     // Here are several Routing techniques:
     // 
@@ -569,16 +541,6 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
     });
     
     Route::group(array('before' => 'buckeye'), function(){
-
-        // Route::get('admin',function(){
-        // //     // die(var_dump($company));
-        // //     // die("BAM");
-        // //     // $company=  Company::where('brand',"LIKE",'buckeye')->first();
-        // //     return Redirect::to('user/login')
-
-        // //         // ->withInput(Input::except('password'))
-        // //         ->with( 'info', 'Please login.  Thank You.' );
-        // });
 
         Route::get('protected',function(){
             return "To see this, you must be a memeber of the buckeye group.";
@@ -605,14 +567,7 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
     // View::make('buckeye');
     
     // 2. use a custom method.
-    // $company=App::make('company');
-    // $env=App::environment();
-    // $c = Company::where('brand','like',$env)->first();
-
-
-
-
-    // Route::get('/', 'CompanyController@getIndex',compact($c));
+    Route::get('/', 'BlogController@getIndex');
 
     // Only users with roles that have the 'buckeye' permission will
     // be able to access any admin/post route.
@@ -650,49 +605,14 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
         // });
 
 });
-
-
 /**
 
     THE END OF BUCKEYE
 
 */
 
-// From here down, myapp.gristech.com routes:
+// From here down, myapp routes:
 
-// Route::group(array('domain' => '{sub}.myapp.dev'),function()
-// {
-
-//     Route::get('/', function(){
-//         $name='buckeye';
-
-//         return View::make('site/'.$name.'/index',array(
-// //return View::make('site/'.$name.'/home',array(
-//             'brand'=>'Buckeye Mower',
-//             'description'=>'Mobile Mower and Small Engine Repair',
-//             'menus'=>array('rates','map')
-//             ));
-//     });
-
-// });
-
-
-
-
-// Route::get('login',function(){
-//     // die("BAM");
-//     // $company=Company::where('brand','like','buckeye')->first();
-
-//         $env=App::environment();
-//         // $company= Company::where('brand',"LIKE",'gristech')->first();
-//         $company = Company::where('brand','like',$env)->first();
-
-//     return Redirect::to('user/login')
-//         ->with(compact('company'))
-//         ->with( 'info', "Welcome to the jungle." );
-//         // ->with( 'notice', Lang::get('user/user.user_account_created') );
-
-//     });
 
 /** ------------------------------------------
  *  Admin Routes
@@ -700,23 +620,14 @@ Route::group(array('domain' => 'buckeyemower.com'),function()
  */
         // die("ROUTES 626 ADMIN DASHBOARD GET INDEX");
 Route::get('admin','AdminBlogsController@getIndex');
-
+//http://stackoverflow.com/questions/7770728/group-vs-role-any-real-difference
     // Route::get('admin','AdminDashboardController@getIndex');
-// Route::resource('companies', 'CompaniesController');
+
 /** ------------------------------------------
  *  Frontend Routes
  *  ------------------------------------------
  */
-// Route::get('buckeye',function(){
-//     Redirect::to('http://buckeyemower.com');
-// });
-// Route::get('companies',function(){
-//     return Redirect::to('admin/companies')
-//     // return Redirect::to('user/login')
-//         // ->with( 'notice', Lang::get('user/user.user_account_created') );
-//         ->with('error', 'from routes.');
-// });
-// Route::get('advantage','CompanyController@getIndex',array('name'=>'advantage'));
+
 
 Route::get('contact','BlogController@getContact');
 
@@ -742,8 +653,6 @@ Route::post('user/{user}/edit', 'UserController@postEdit')
 //:: User Account Routes ::
 Route::post('user/login', 'UserController@postLogin');
 
-$env=App::environment();
-// $company=Company::where('brand','like',$env)->first();
 # User RESTful Routes (Login, Logout, Register, etc)
 Route::controller('user', 'UserController');
 
@@ -830,7 +739,6 @@ Route::get('tags/{tag}', 'BlogController@getIndex');
 // Route::post('tags/{tag}', 'BlogController@postIndex');
 
 # Posts - Second to last set, match slug
-
 Route::post('blog/{postSlug}', 'BlogController@postView');
 Route::get('blog/{postSlug}', 'BlogController@getView');
 Route::get('blog', 'BlogController@getIndex');
@@ -903,23 +811,6 @@ Route::get('sewcute', 'CompanyController@sewcute');
 
 Route::get('/{tag}', 'BlogController@getIndex');
 
-
-// $company=Company::where('brand','like','gristech')->first();
-// Route::get('/', 'CompanyController@getIndex');
-    // ->with($company)
-    // ->where(array('id','=',3));
-
-
-// $company='foo';
-
-//     App::bind('company', function($app)
-//     {
-        
-//         return Company::where('brand','like',$company)->first();
-//     });
-
-// die(var_dump($company));
-
 Route::get('/','BlogController@getIndex');
 
 /**
@@ -952,7 +843,17 @@ http://www.sublimetext.com/forum/viewtopic.php?f=3&t=12382
 //     return View::make('site/features');
 // });
 
+// Route::get('technical', function()
+// {
+//     // Return about us page
+//     return View::make('site/tools');
+// });
 
+// Route::get('tools', function()
+// {
+//     // Return about us page
+//     return View::make('site/tools');
+// });
 
 // Route::get('responsive', function()
 // {

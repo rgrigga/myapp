@@ -1,11 +1,10 @@
 <?php
-		App::bind('company',function($company){
-			return new Company;
-		});
+
 // http://laravel.com/docs/responses
 // https://github.com/symfony/HttpFoundation
 // class Buckeyeontroller ext
 // They say there is no tighter coupling than inheritance
+
 class CompanyController extends UserController {
 
 	// protected $layout = 'site.layouts.company';
@@ -39,14 +38,15 @@ class CompanyController extends UserController {
      * @param Post $post
      * @param User $user
      * @param Tags $tags
-     * @param Tags $tags    
+     * @param Tags $company    
      */
-    public function __construct(Company $company, Post $post)
+    public function __construct(Company $company, User $user, Post $post)
     {
 
-    	// parent::construct();
+    	// parent::construct();?
 // die(var_dump($company));
         $this->post = $post;
+        $this->user = $user;
         $this->company = $company;
 
         // View::share('company',$this->company);
@@ -93,74 +93,16 @@ class CompanyController extends UserController {
 		return $this->getIndex('gristech',5);
 	}
 
-	public function getIndex($brand="",$num='10')
+	public function getIndex($brand='',$num='10')
 	{
-
-		    // $company=$this->company;
-    		// die(var_dump($company));
-    	// var_dump($this->company);
-		
-		// if(empty($brand)){
-		// 	$brand=App::environment();
-		// }
-		$brand=strtolower($brand);
-// die('CompanyController get index');
-		$company = $this->company->where('brand','like',$brand)->first();
-        App::instance('company',$company);
-
-		// die(var_dump($brand));
-		// die(var_dump(App::environment()));
-		// die(var_dump($company));
-		
-		// if(empty($company)){
-			// $company = $this->company->where('brand','like','gristech')->first();
-			// App::abort(404,'CompanyController@getIndex: no company');
-			// App::error(function(RuntimeException $exception){
-			//     Log::error($exception);
-			//     var_dump($company);
-			// });
-		// }
-		
-
-		
-		if(is_null($brand)){
-			// return "controller has no brand!";
-			// die('CompanyController get index');
-
-			return App::error(function(RuntimeException $exception){
-			    Log::error($exception);
-			    var_dump($company);
-			    App::abort(404,'Company not present.');
-			    // return die('Sorry! Something is wrong with this account!');
-			});
-
-			// $brand=strtolower($brand);
-			// $company = $this->company->where('brand', 'LIKE', $brand)->first();
-			// $brand='buckeye';
-		}
-		// else{
-			
-		// }
-		// die('CompanyController@getIndex $company:' var_dump($company));
-		// $company = $this->company->where('brand', 'LIKE', $brand)->first();
-
-		// if(!$company){
-		// 	// die("FAIL");
-		// }
-		
-		else{
-			View::share('company', $company);
-		
-			// die(var_dump($posts));
-
-			// $posts=$this->company->posts;
-			$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$brand.'%')->paginate($num);
+		$company=App::make('company');
+		$brand=strtolower($company->brand);
+		$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$brand.'%')->paginate($num);
 
 			// View::share('menus',$this->company->menus());
 			// $views=array('foo','bar');
 			return View::make('site/'.$brand.'/home')
-				// die();
-				//this works, but it confused me.
+				->nest('posts','site.blog.miniindex')
 				->nest('about','company.about')
 				->nest('contact','site.partials.contact')
 				->with(compact('company'))
@@ -171,6 +113,15 @@ class CompanyController extends UserController {
 				;
 		}
 
+		return View::make('site/'.$brand.'/home')
+			->nest('posts','site.blog.miniindex')
+			->with(compact('company'))
+			->with(compact('tags'))
+			->with(compact('alltags'))
+			->with(compact('posts'))
+			// ->with(compact('brand'))
+			;
+		
 	}
 
 public function mylist(){

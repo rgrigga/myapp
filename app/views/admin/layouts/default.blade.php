@@ -66,7 +66,6 @@ PROGRAMMERS: Demonstrate your abilities: this is a community demo site.
 <!-- // My goal for this project is to build a flexible, maintainable web applicaiton infrastructure.  This codebase is the foundation for our organization to own a sustainable, profitable code base, which applies to multiple industries.
 
 If you contribute to this project, and it becomes profitable, I will share it with you.  If you fork it and make money, please share with me. (Don't be a D***)  If you are reading this, perhaps we can discuss a partnership.  Please get in touch.
-
 For now, you may clone this public repository and develop it as much as you like for now, but you must agree to share your contributions here at this site.  Others have done the same before you and I.  Let's help each other out.-->
 
 <!-- There is also a private repository with additional features available if you register.  If you're interested, please contact me. -->
@@ -88,15 +87,6 @@ For now, you may clone this public repository and develop it as much as you like
 			background-color: rgba(50,89,20,.05);
 		}
 
-
-
-
-/*		.page-header{
-			margin-top: 60px;
-		}*/
-/*		body {
-			padding: 60px 0;
-		}*/
 		
 		ul.tag li{
 		    display: inline-block;
@@ -106,36 +96,15 @@ For now, you may clone this public repository and develop it as much as you like
 		}
 
 
-
 		.thumbnail{
 			word-wrap:break-word;
 		}
 		</style>
-		<style>
-
-			/*http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site*/
-
-				.contentwrap{
-					padding-top: 0px;
-					}
-
-				@media screen and (max-width: 979px) {
-				    .contentwrap { padding-top: 20px; }
-					.span50{
-						width: 50%;
-					}
-				}
-
-
-			
-			</style>
 		@show
 
 <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css"> -->
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/wysihtml5/bootstrap-wysihtml5.css">
 
@@ -157,10 +126,6 @@ For now, you may clone this public repository and develop it as much as you like
 <!-- taggies used for marketing - to contain information about a product which can automatically display on any device.  like a link, but a fully functional application.  The entire thing can be embedded on a USB stick. -->
 
 <!-- Live updates to media: billboards, etc. -->
-
-<!-- As an early adoptor, you will receive discounted pricing on the service, and perhaps more later, including stock. -->
-
-
 
 <!-- redactor -->
 <!-- redactor is not free.  please buy a license or remove these in a produciton environment. -->
@@ -212,7 +177,6 @@ For now, you may clone this public repository and develop it as much as you like
 	</head>
 
 	<body>
-
 <div class="wrap">
 		<!-- Container -->
 		<div class="container">
@@ -302,7 +266,7 @@ algorithm to count words
 <pre class="prettyprint">
 
 Use a combination of str_word_count() and array_count_values():
-
+/*http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site*/
 $str = 'happy beautiful happy lines pear gin happy lines rock happy lines pear ';
 $words = array_count_values(str_word_count($str, 1));
 print_r($words);
