@@ -33,8 +33,10 @@
 /* STRUCTURAL */
 
 /*this has ramifications:*/
-.container{
+.container-fluid{
 	width: 100%;
+	padding-left: 0px;
+	padding-right: 0px;
 }
 .below{
 	padding-right: 20px;
@@ -44,8 +46,10 @@
 html,body {
 
 	/*background-color: rgba(235,196,162,.2);*/
-	color: white;
+	color: rgba(236, 240, 241,1.0);
+	background-color:rgba(44, 62, 80,1.0);
 	font-family: 'EB Garamond', serif;
+	font-size: 16px;
 
 }
 
@@ -54,16 +58,32 @@ html,body {
 	src: url('/assets/font/Archive.otf') format("opentype");
 }
 
+	.main{
+		color: rgba(236, 240, 241,1.0);
+		background-color:rgba(44, 62, 80,1.0);
+	}
 
+.navbar .brand{
+	color:white;
+}
 
 .page-header{
-		margin-top: 0px;
+	margin-top: 0px;
+	text-align: center;
+}
+
+.tabbable a {
+	color: rgba(44, 62, 80,1.0);
 }
 
 .page-header h1 {
+	padding-top: 60px;
 color: rgba(41, 128, 185,1.0);
 }
 
+.page-header h2{
+	text-align: center;
+}
 .sidebar h3{
 	/*font-family: 'Mr De Haviland', cursive;*/
 	/*font-family: 'Monsieur La Doulaise', cursive;*/
@@ -86,10 +106,10 @@ color: rgba(41, 128, 185,1.0);
 	text-shadow:none;
 }
 .well{
-	background-color: rgba(121,186,242,1);
+	background-color: rgba(44, 62, 80,1.0);
 	/*border-bottom-radius: 30px;*/
-	border-bottom-left-radius: 30px;
-	border-bottom-right-radius: 30px;
+	/*border-bottom-left-radius: 30px;*/
+	/*border-bottom-right-radius: 30px;*/
 	/*box-shadow: 2px 2px 1px #8285E6;*/
 	/*font-family: */
 }
@@ -97,11 +117,11 @@ color: rgba(41, 128, 185,1.0);
 	text-align: right;
 }
 p {
-	font-size: 24px;
+	font-size: 22px;
 }
 
 h1,h2{
-	color:rgba(18,124,166,1);
+	/*color:rgba(18,124,166,1);*/
 }
 
 h1 {
@@ -115,12 +135,17 @@ h2{
 /*A:link {text-decoration: none}*/
 /*A:visited {text-decoration: none}*/
 /*A:active {text-decoration: none}*/
-a:hover {text-decoration: none}
-
+a:hover {
+	text-decoration: none;
+	color:orange;
+}
 /* COLORS */
 
 .accordion{
 	z-index: 1;
+}
+.accordion-heading{
+	background-color: rgba(189, 195, 199,1.0);
 }
 .accordion-group{
 	border: none;
@@ -131,7 +156,7 @@ a:hover {text-decoration: none}
 }
 
 div {
-	background-color: rgba(41, 128, 185,.1)
+	/*background-color: rgba(41, 128, 185,.1)*/
 }
 .corner{
 	background-color: transparent;
@@ -139,7 +164,7 @@ div {
 
 .page-header h1{
 	/*line-height: 1.2em;*/
-	margin-top: 90px;
+	/*margin-top: 90px;*/
 	margin-bottom: 20px;
 	letter-spacing:-7px;
 	line-height: .5em;
@@ -154,9 +179,7 @@ div {
 .page-header h2:hover{
 	color: orange;
 }
-a:hover{
-	color:orange;
-}
+
 .iconbar{
 	font-size: 24px;
 }
@@ -167,42 +190,33 @@ a:hover{
 	/*background-color: white;*/
 }
 
-
-
-.accordion{
-	padding-left: 15%;
-}
 .page-header h1{
-	margin-left: 15%;
+	text-align: center;
+	/*margin-left: 15%;*/
 }
 
 @media (min-width: 980px){
 	.accordion{
-		margin-top:80px;
+		/*margin-top:80px;*/
 	}
-		.affix{
-      top:40px;
-    }	
+	
 }
 
 @media (max-width: 979px) {
 	.page-header h1{
-		font-size: 72px;
-		padding-bottom: 15px;
+		font-size: 110px;
+		/*padding-bottom: 15px;*/
 	}
 	
 
 
 }
 
-
-	.affix{
-	/*position: fixed;*/
-	/*width: 60%;*/
-	/*z-index:2;
-		right:20px;
-		left:20px;*/
+@media (min-width: 780px){
+	.accordion{
+		margin-right: 30px;
 	}
+}
 	.corner{
 		position: fixed;
 		left:-10px;
@@ -223,22 +237,21 @@ a:hover{
 		right:0;
 	}	
 	
-
-/*    .affix{
-      top:40px;
-    }	
-*/
-
-</style>
-
-@if(Auth::check())
-<style>
-    .affix{
-      top:80px;
-    }	
-</style>
-@endif
-
+	aside{
+		/*background-color: rgba(52, 73, 94,1.0);*/
+		text-align: center;
+	}
+	aside i{
+		font-size: 24px;
+	}
+	aside img{
+		max-width: 100px;
+	}
+	aside span{
+		font-size: 24px;
+		background-color: rgba(255,89,0,1);
+	}
+	</style>
 @stop
 
 
@@ -289,77 +302,59 @@ foreach (glob($path."*.blade.php") as $filename) {
 ?>
 
 
-<a href="https://github.com/rgrigga/MyApp6"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+<div class="page-header">
 
-	<div class="page-header">
-		<!-- <h1>BAM</h1> -->
-
-
-
-
-		<div class="row-fluid">
-			<div class="span4 pull-right" id="side-wrapper">
-				<!-- <div class="sidebar well"> -->
-				<div id="sidebar" class="sidebar well" data-spy="affix" data-offset='1'>
-					<!-- //sidebar -->
-					<!-- <img class="img-circle" src="{{asset($company->image)}}" alt="MyImage"> -->
-					<div class="collapse-group">
-						<div class="collapse in">
-							<div class="tab-content"> 
-								<div class="tab-pane active" id="about">
-									<h2>What is it?</h2>
-									<img class="img-circle pull-left" src="http://placehold.it/64x64/BF6230/123456">
-
-									<h3>It's a Web App</h3>
-Every client will help build and test the site.  As the site gets better for one client, it gets better for all. 
-
-It is a tool to BUILD a website,
-It is a tool to MANAGE MANY websites
-It is a tool to TEACH business owners how to run their own website.
-It is a tool to help developers, designers, and business owners, (customers, for that matter) LEARN about building a site, marketing, and more.
-The CUSTOMER is in control of the site.  BUT - I have the ability to help with ANY part of the maintenance.
-
-If a site would like to be split off, sold, etc... NO PROBLEM.  It can simply be forked from github, or even copied to a thumb drive!  It can also be quickly and easily <em>migrated</em> to another system.  The ORM is database-independent and super flexible & powerful.
-
-
-
-<a href="#cool" class="btn btn-large btn-success">Cool</a>
-<a href="#dumb" class="btn btn-large btn-danger">Dumb</a>
-			
-								</div>
-								<div class="tab-pane" id="gutter">
-									<h2>Gutter</h2>
-									<p>Howdy, I'm gutter.</p>
-								</div>
-								<div class="tab-pane" id="concrete">
-									<h2>Concrete</h2>
-									<p>Howdy, I'm concrete.</p>
-								</div>
-							</div>	
-						</div>
-						<a class="btn" href="#">~Toggle~<i class="icon-hand-up"></i></a><h3>How can we help you?</h3>
-						{{$contact}}
-					</div>
-				</div>
-			</div>
-
-
-			<div class="span7">
-				<a href="#about" data-toggle="tab">
-					<h1>{{$company->brand}}</h1>
+			<div class="pull-left">
+				<a href="https://github.com/rgrigga/MyApp6">
+				<img style="position: relative; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png" alt="Fork me on GitHub">
 				</a>
-				{{--$about--}}
-<h2><i class="icon-github"></i>
-	<i class="icon-linux"></i>
-	<i class="icon-html5"></i>
-	<i class="icon-windows"></i>
-	<i class="icon-apple"></i>
-	<i class="icon-android"></i>
-	<i class="icon-phone"></i>
-</h2>
-
 			</div>
+		<!-- <h1>BAM</h1> -->
+		<div class="row-fluid">
+
+			<div class="span6">
+				<!-- <a href="#about" data-toggle="tab"> -->
+				<img class="" src="{{asset('assets/'.strtolower($company->brand).'/cloud.svg')}}" alt="">
+					
+				<!-- </a> -->
+				{{--$about--}}
+			</div>
+			<h1>MyApp</h1>
+			<div class="span4 pull-right">
+				<aside>
+					<div class="row">
+						<!-- <div class="span4"> -->
+							<a href="about"><span>ABOUT</span></a>
+							<img class="" src="{{asset('assets/'.strtolower($company->brand).'/'.$company->image)}}" alt="G5">
+							<a href="tools"><span>TOOLS</span></a>
+					</div>
+					<div class="row">
+						<p>
+						<i class="icon-github"></i>
+						<i class="icon-linux"></i>
+						<i class="icon-html5"></i>
+						<i class="icon-windows"></i>
+						<i class="icon-apple"></i>
+						<i class="icon-android"></i>
+						<i class="icon-mobile-phone"></i>
+						<i class="icon-tablet"></i>
+						<i class="icon-desktop"></i>
+						<i class="icon-twitter"></i>
+						<i class="icon-facebook"></i>
+						<i class="icon-linkedin"></i>
+						</p>		
+					</div>
+					
+				</aside>
+			</div>
+
+
+			
+
+
+
 		</div>
+		<!-- row -->
 
 <!-- 	<div class="span4 pull-right">
 		<div class="well" data-spy="affix" data-offset-top="200">
@@ -369,13 +364,14 @@ If a site would like to be split off, sold, etc... NO PROBLEM.  It can simply be
 	</div> -->
 
 
-
+<p>Cloud Computing for the rest of us.</p>
 	<div class="tabbable"> <!-- Only required for left/right tabs -->
-		<a href="#about" data-toggle="tab"> about</a>
-		<a href="#contact" data-toggle="tab"> contact</a>
-		<a href="#payments" data-toggle="tab">payments</a>
+		<a href="#" data-toggle="tab"> Skills</a>
+		<a href="#" data-toggle="tab"> Experience</a>
+		<a href="#" data-toggle="tab"> Aspirations</a>
 	</div>
 	<!-- ./ tabbable -->
+
 </div>
 <!-- ./ page-header -->
 
@@ -392,10 +388,10 @@ If a site would like to be split off, sold, etc... NO PROBLEM.  It can simply be
 <!-- ************************************** -->
 <!-- BOTTOM -->
 
-<div class="below">
+<div class="main">
 
-	<div class="span7 pull-right">
-		<h2>About The App:</h2>
+	<div class="span7">
+		<h2>Let's get to work:</h2>
 			<div class="accordion" id="accordion">
 			 	<div class="accordion-group">
 			 		<div class="accordion-heading">
@@ -457,10 +453,6 @@ If a site would like to be split off, sold, etc... NO PROBLEM.  It can simply be
 			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
 			 				<h2>Development</h2>
 			 			</a>
-			 			<p>I don't write code very fast, because I take my time to try to get things right the first time.  I write very little code in comparison to the research that I do when implementing a new feature or improving an existing one.</p>
-			 			<p>A good deal of my time goes into refactor and comment the code, and document issues.</p>
-			 			<p>This blog can be a good start towards a manual or developer resource.</p>
-			 			<p>On the other hand, I beleive the shortest path to getting the code to work helps the development process.  This is a delicate balance.</p>
 			 		</div>
 			 		<div id="collapseTwo" class="accordion-body collapse">
 			 			<div class="accordion-inner">
@@ -472,9 +464,12 @@ If a site would like to be split off, sold, etc... NO PROBLEM.  It can simply be
 							<a href="#replacement" data-toggle="tab">
 			 					<h3>Laravel</h3>
 			 				</a>
-							
-			 				https://en.wikipedia.org/wiki/Virtual_private_server
-			 			</div>
+						<p>I don't write code very fast, because I take my time to try to get things right the first time.  I write very little code in comparison to the research that I do when implementing a new feature or improving an existing one.</p>
+			 			<p>A good deal of my time goes into refactor and comment the code, and document issues.</p>
+			 			<p>This blog can be a good start towards a manual or developer resource.</p>
+			 			<p>On the other hand, I beleive the shortest path to getting the code to work helps the development process.  This is a delicate balance.</p>
+						<!-- <a href="https://en.wikipedia.org/wiki/Virtual_private_server"></a>	 -->		 			
+						</div>
 			 		</div>
 			 	</div>
 			 	<div class="accordion-group">
@@ -493,6 +488,8 @@ If a site would like to be split off, sold, etc... NO PROBLEM.  It can simply be
 			 			</div>
 			 		</div>
 			 	</div>
+
+<!-- ////////////////////// -->
 			 	<div class="accordion-group">
 			 		<div class="accordion-heading">
 			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
@@ -505,6 +502,8 @@ If a site would like to be split off, sold, etc... NO PROBLEM.  It can simply be
 			 			</div>
 			 		</div>
 			 	</div>
+<!-- ///////////////////////////// -->
+
 			 	<div class="accordion-group">
 			 		<div class="accordion-heading">
 			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
@@ -527,32 +526,35 @@ If a site would like to be split off, sold, etc... NO PROBLEM.  It can simply be
 
 
 
-	<style>
-	.hero-unit{
-		color: rgba(236, 240, 241,1.0);
-		background-color:rgba(44, 62, 80,1.0);
-	}
 
-	</style>
 
 	<div class="row-fluid">
-		<div class="hero-unit">
-			<h1>{{$company->brand}}</h1>
+		<!-- <div class="hero-unit"> -->
+			<h1>I am currently looking for a job.</h1>
 			<?php 
-			$items = array('Painting','Roofing', 'Concrete', 'Blacktop');
+			$items = array(
+				'I am a super fast learner.',
+				'I write clean, well-commented code.', 
+				'I read docs for fun.', 
+				'I am an extreme workahaulic.');
 			?>
 
-			<ul>
-				@foreach($items as $item)
-				<li>{{$item}}</li> 
-				@endforeach
-			</ul>
-
-			<div class="h2">We treat Your Home as our own.</div>
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, pariatur, repudiandae, minima reprehenderit perferendis suscipit aperiam earum vitae animi a obcaecati ducimus corporis necessitatibus atque expedita harum quod ea dicta tenetur asperiores alias corrupti distinctio consequatur culpa possimus aspernatur modi fugiat consectetur facilis officia ad debitis sapiente nulla inventore error!
+				<ul>
+					@foreach($items as $item)
+					<li>{{$item}}</li> 
+					@endforeach
+				</ul>
 			</p>
-		</div>
+
+			<h3>I locked myself in my basement.</h3>
+			<p>
+				I have been writing this program for about 3 months straight.  My wife thinks I'm crazy, but I call it a revalation.  After a hair over 10 years in Mortgage Banking, I literally woke up one day and decided it was time for a career change.
+			</p>
+			<h3>A bit new, but not a total Noob.</h3>
+			<p>I began programming when I needed a better spreadsheet.  One thing led to another, and I built the JCC: an application to capture, calculate, and weave together Roof Data... then spit out forms, documents, proposals, and meld with the business' other software.  I have extensive knowledge and experience with PHP, as well as some Javascript and even a little Ruby.  I have discovered the MVC pattern, and I strive to keep code as modular and decoupled as possible.</p>
+			<p>I have been studying and building non-stop for the past ~3 months... I now have a "stable-enough-to-get-work-done" version of this program...</p>
+		<!-- </div> -->
 	</div>
 
 	<div class="row-fluid">
@@ -571,7 +573,7 @@ If a site would like to be split off, sold, etc... NO PROBLEM.  It can simply be
 				</div>
 				@endforeach
 				<div class="tab-pane active" id="tab1">
-					<p>Advantage Services is a family owned business with a standard of excellence in all aspects of Residential and Commercial Painting, Roofing, Deck and Fence Staining, and Power Washing. Formerly known as Advantage Painting, Advantage Services has been known throughout Columbus and it's surrounding areas as the first name in professionalism and quality, since 1990.</p>
+					
 				</div>
 			</div>
 		</div>
@@ -655,16 +657,17 @@ If a site would like to be split off, sold, etc... NO PROBLEM.  It can simply be
 			{{ $posts->links() }}
 		</div>
 		<!-- ./ row -->
-<div class="note">
-		<pre class="prettyprint"><code><p>
-This is pre class = "prettyprint":
-<!-- <pre class="prettyprint"></pre> --></p></code></pre>
-		
-</div>
-	</div>
-	<!-- ./below -->
-	<!-- ************************************************ -->
 
+	</div>
+	<!-- ./main -->
+	<!-- ************************************************ -->
+	<div class="footer">
+		<div class="note">
+				<pre class="prettyprint"><code><p>
+		This is pre class = "prettyprint":
+		<!-- <pre class="prettyprint"></pre> --></p></code></pre>		
+		</div>	
+	</div>
 
 
 <!-- Piwik -->

@@ -298,7 +298,11 @@
 // http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site
                 // alert('jQuery loaded');
     $(document).ready(function(){
-
+        
+// ?? http://stackoverflow.com/questions/92720/jquery-javascript-to-replace-broken-images
+// $("img").error(function () {
+//   $(this).unbind("error").attr("src", "broken.gif");
+// });
         $('.admin-top').css({'margin-top':($('.user-top').height()+0)+'px'});
         $('.contentwrap') .css({'padding-top': (
             $('.user-top').height()

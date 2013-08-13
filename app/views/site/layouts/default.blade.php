@@ -224,6 +224,8 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
                             var $collapse = $this.closest('.collapse-group').find('.collapse');
                             $collapse.collapse('toggle');
                         });
+
+                        $('.wysihtml5').wysihtml5();
                         // $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
                         // $('.thumbnail').equalHeights();
 
