@@ -79,9 +79,9 @@ class BlogController extends BaseController {
 		$company = $this->company->where('brand','like',$env)->first();
 		$this->company=$company;
 
-
+		// die(var_dump($company));
         // $this->todo = array('hello','bar','make list');
-    // $c=App::make('company');
+    	// $c=App::make('company');
 
         // View::share('posts',$posts);
 

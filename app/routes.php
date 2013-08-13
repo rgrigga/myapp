@@ -484,7 +484,7 @@ Route::group(array('domain' => 'buckeyemower.com'),function(){
     {
         if (! Entrust::can('buckeye') ) // Checks the current user
         {
-            // die("buckeye filter");
+            die("buckeye filter");
             $message="Sorry. You are not authorized to view that.  Would you like to log in?";
 
             return Redirect::to('user/login')
@@ -829,6 +829,7 @@ Route::get('search', 'BlogController@search');
 // Route::get('/search', 'BlogController@search');
 
 // ???
+
 Route::get('search/{tag}','BlogController@search');
 
 Route::get('tags', 'BlogController@getIndex');
