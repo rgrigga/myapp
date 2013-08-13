@@ -828,7 +828,7 @@ Route::post('search', 'BlogController@postSearch');
 Route::get('search', 'BlogController@search');
 // Route::get('/search', 'BlogController@search');
 
-???
+// ???
 Route::get('search/{tag}','BlogController@search');
 
 Route::get('tags', 'BlogController@getIndex');
