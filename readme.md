@@ -1,9 +1,13 @@
+## Troubleshooting:
+If we see this error, or something like it:
+    file_put_contents(/home/ryan/MyApp6/app/storage/meta/collections.json): failed to open stream: Permission denied
+
+one solution is:
+    sudo chmod -R 777 ~/MyApp6/app/storage
+
 #to do list:
  comment?
 * 
-
-
------
 
 
 [How to use Markdown Syntax](http://daringfireball.net/projects/markdown/syntax#html)

@@ -1,6 +1,5 @@
 <?php
 
-
 // http://flatuicolors.com/
 
 //http://www.coderanch.com/t/443740/patterns/UML-multiple-inheritance-domain-model
@@ -68,14 +67,13 @@ class BlogController extends BaseController {
         parent::__construct();
 
         // $env=App::environment();
-        // die(var_dump($company));
         // $company = App::make('company');
-    	// die(var_dump($company));
 
-        $this->post = $post;//Think of these as basically empty objects.
+        $this->post = $post;//These are basically empty objects.
         $this->user = $user;
         $this->company = $company;
 		
+//??? Is this a good idea?
 		$env=App::environment();
 		//recycling this variable
 		$company = $this->company->where('brand','like',$env)->first();
@@ -135,12 +133,27 @@ class BlogController extends BaseController {
 		return self::getIndex('$tag');
 	}
 
+//This works, but I want to ensure the user 
+//is in the correct environment not just for the index,
+//but also for everything else.  This method COULD
+//be installed if we want control of Index, but
+//I don't want to be dependant on writing a new method 
+//every time we add a new company/
+
  //    public function buckeyeIndex($tag=""){
  //    	// $company=  Company::where('brand',"LIKE",'buckeye')->first();
-	// 	return $this->getIndex($company,$tag);
-	// }
+ // 	return $this->getIndex($company,$tag);
+ // 	}
 
-// process a many to many relationship amongst tags
+	public function advantage($tag=""){
+		$this->company = $this->company->where('brand','like','advantage')->first();
+		return $this->getIndex($tag);
+	}
+
+	public function buckeye($tag=""){
+		$this->company = $this->company->where('brand','like','buckeye')->first();
+		return $this->getIndex($tag);
+	}
 
 	private function home(){
 		return View::make('site.'.strtolower($this->company->brand).'.home');
@@ -149,12 +162,12 @@ class BlogController extends BaseController {
 // Route::get('search/{tag}','BlogController@getSearch');
 
 	public function getSearch(){
-
 		$tag=Input::get('tag');
 		// die(var_dump($tag));
-// return App::abort('404','Controller: I found no $tag');
+		// return App::abort('404','Controller: I found no $tag');
 	}
 
+// Route::post('search/{tag}','BlogController@postSearch');
 	public function postSearch(){
 		$tag=Input::get('tag');
 		// die(var_dump($tag));
@@ -167,11 +180,10 @@ class BlogController extends BaseController {
 	        ->where('meta_keywords','LIKE','%public%')
 	        ->orderBy('created_at', 'DESC')
 	        // ->where('content','LIKE','%'.$tag.'%')
-			// ->get()
+			// ->get();
 			->paginate(5);
 
-	// $posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
-
+		// $posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
 
 		// die(var_dump(count($posts)));
 		return $posts;
@@ -208,13 +220,12 @@ class BlogController extends BaseController {
 
 	public function search($tag=""){
 
-		// $this->post=$posts;
-
 		$view="";
-		// $this->init();
+
+		// $this->init();??
 		// var_dump($this->company);
 		// if(!$tag){
-		// 	return View::make()
+		// 	return View::make('home');
 		// }
 		// die(var_dump($tag));
 
@@ -257,7 +268,7 @@ class BlogController extends BaseController {
 			else{
 	// die(var_dump($view));
 
-				Session::flash('success','I found a page for '.$tag.'!');
+				Session::flash('success','I found results for '.$tag.'!');
 			    // return View::make('site.pages.search')
 			    // return $view;
 			    $posts=$this->getRecent();
@@ -294,7 +305,6 @@ class BlogController extends BaseController {
 
 	}
 
-
 	private function wordcount($posts,$tag){
 		
 		$mycount=0;
@@ -311,7 +321,7 @@ class BlogController extends BaseController {
 
 	private function searchcontent($tag){
 		// tag is a word or phrase
-		// die(var_dump($tag));
+
 		$posts=$this->post->where('content', 'like', '%'.$tag.'%')->get();
 		// die(var_dump(count($posts)));
 		// View::share('posts',$posts);
@@ -397,15 +407,7 @@ class BlogController extends BaseController {
 		    // else return View::make($minipath.$tag);
 	}
 
-	public function advantage($tag=""){
-		$this->company = $this->company->where('brand','like','advantage')->first();
-		return $this->getIndex($tag);
-	}
 
-	public function buckeye($tag=""){
-		$this->company = $this->company->where('brand','like','buckeye')->first();
-		return $this->getIndex($tag);
-	}
 
 
 
@@ -445,33 +447,35 @@ class BlogController extends BaseController {
 	 * @return View
 	 */
 
-
 	// this funciton is more than a little out of control.  
 	// Each function should only do 
-	// one thing, but this one does a lot.  I have tried to break it out.
-	public function getIndex($tag="")
-	{
-		
-		// if auth admin, show all
-		// die(var_dump(Auth::user('fail')));
+	// one thing, but this one does a lot.  I have tried to break it out,
+	// but definitely needs more work
 
-		// if auth company, show company
-		
-		// else auth guest, show public
-// else{
-// 	die('fail');
-// }
 /**
  *	Here's the general idea.
  *	Check the input to see if it's a company.  If it is, return the company homepage.
  * 	next, check to see if it's a standard company view.  If it is, return that view.
- *	Next, check to see if a page exists in the company directory.  If it is, retun that.
+ *	Next, check to see if a page exists in the company directory.  If it is, return that.
  *	Next, check to see if there is a post by this name.  If there is, return that.
+ *  Search the site for tags & content...
  *  Check tags- see if there is are posts with this tag...
- *  Finally, return a 404
- *
+ *  Check content...
+ *  Finally, return a 404 (search page)
 */
-		// echo ($this->stdpages($tag));
+
+	public function getIndex($tag="")
+	{
+		//step 1: allow content based on auth type
+		// if auth admin, show all posts
+		// die(var_dump(Auth::user('fail')));
+
+		// if auth company, show company
+		// else auth guest, show public
+		// else{
+		// 	die('fail');
+		// }
+
 		$mycompany=$this->company;
 		// var_dump($mycompany);
 		// echo ($this->stdpages($tag));
@@ -490,7 +494,7 @@ class BlogController extends BaseController {
 			// $company=$this->company;
 
 // This little block handles the pages.  
-// Change the default director in the getPage method. otherwise,
+// Change the default directory in the getPage method. otherwise,
 // this sends back the page if it exists in the specified directory.
 
 				$mypage=$this->getPage($tag);
@@ -837,10 +841,6 @@ class BlogController extends BaseController {
 	        // }
 			// }
 			
-
-
-
-
 			// $brand = $company->brand;
 			// $posts=$this->posts->where('has',array('tag'=>'$brand'))->paginate(10);
 
@@ -886,8 +886,8 @@ class BlogController extends BaseController {
 		//check to see if the tag works
 		//
 		// http://stackoverflow.com/questions/13386774/using-eloquent-orm-in-laravel-to-perform-search-of-database-using-like
+			
 			if($tag){
-
 				$strtag='%'.$tag.'%';
 				$posts = $this->post->where('meta_keywords', 'LIKE', "$strtag")->paginate(5);					
 				$tags=array();
@@ -905,7 +905,7 @@ class BlogController extends BaseController {
 			// http://forums.laravel.io/viewtopic.php?id=839
 			// die(var_dump(count($posts)));
 
-				if(count($posts)==0){
+			if(count($posts)==0){
 
 				return View::make('site/blog/tags')
 					->with(compact('company'))
@@ -1048,9 +1048,8 @@ class BlogController extends BaseController {
 		// $posts=$this->post;
 		
 		View::share('posts',$posts);
-
-
 		// View::share('carousel',$carousel);
+		
 		$post = $this->post->where('slug', '=', $slug)->first();
 
 		// Check if the blog post exists
@@ -1099,6 +1098,7 @@ class BlogController extends BaseController {
         $user = $this->user->currentUser();
         // die(var_dump($user));
 
+//This block allows an anonymous user to comment.
 //Is this a security concern?  We're using confide.
         if(empty($user)) {
         	//anonymous!
@@ -1129,6 +1129,7 @@ class BlogController extends BaseController {
             // $user=$this->user->where('username','=','anonymous')->first();
         	// die(var_dump($user));
         }
+//End anonymous block
 
         $canComment = $user->can('post_comment');
 		if ( ! $canComment)
