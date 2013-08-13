@@ -11,7 +11,9 @@ http://daringfireball.net/projects/markdown/syntax#html
 
 [markdown on github](http://stackoverflow.com/questions/10240125/working-with-readme-md-on-github-com)
 
+## this project is based on :
 
+---
 
 #Laravel 4 Bootstrap Starter Site 
 `Version: 1.2.1 Stable` [![ProjectStatus](http://stillmaintained.com/andrew13/Laravel-4-Bootstrap-Starter-Site.png)](http://stillmaintained.com/andrew13/Laravel-4-Bootstrap-Starter-Site)
