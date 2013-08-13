@@ -51,15 +51,17 @@ class BlogController extends BaseController {
         parent::__construct();
 
         // $env=App::environment();
-        // die(var_dump($company));
         // $company = App::make('company');
-    	// die(var_dump($company));
+
+        // die(var_dump($company));
 
         $this->post = $post;//These are basically empty objects.
         $this->user = $user;
         $this->company = $company;
 
     }
+
+    // idea: process a many to many relationship amongst tags?
 
 	/**
 	 * Returns all the blog posts.
@@ -70,13 +72,6 @@ class BlogController extends BaseController {
 	{
 		return self::getIndex('$tag');
 	}
-    
- //    public function buckeyeIndex($tag=""){
- //    	// $company=  Company::where('brand',"LIKE",'buckeye')->first();
-	// 	return $this->getIndex($company,$tag);
-	// }
-
-// process a many to many relationship amongst tags
 
 	/**
 	 * Returns all the blog posts.

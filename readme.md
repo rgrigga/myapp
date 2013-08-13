@@ -1,3 +1,11 @@
+## Troubleshooting:
+If we see this error, or something like it:
+    file_put_contents(/home/ryan/MyApp6/app/storage/meta/collections.json): failed to open stream: Permission denied
+
+one solution is:
+    sudo chmod -R 777 ~/MyApp6/app/storage
+
+
 
 ## this project is based on :
 

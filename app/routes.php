@@ -1,7 +1,4 @@
 <?php
-// die("ROUTES");
-// $foo="bar"; //fails here: scope does not apply within routes.
-
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +11,12 @@
 |
 */
 
+// Use this funciton for debugging
 // Route::any('/',function(){
 //     die('bam');
 //     return View::make('site.pages.debug');
 // });
+
 /** ------------------------------------------
  *  Route model binding
  *  ------------------------------------------
@@ -28,30 +27,20 @@ Route::model('post', 'Post');
 Route::model('role', 'Role');
 Route::model('company','Company');
 
+// Calling Route::model here means "user->username" should
+// work.
+
 Route::resource('tweets', 'TweetsController');
-// Route::model('company','Company',function(){
-//     // return Company::where('brand',"LIKE",'gristech')->first();
-// });
-// View::share('company', $company);
 
-// now, calls to "user->username" should work.  effectively a singleton representing the session data or database info.
+// ??? Could not get this to work, nor do I want to?
+// Nervous about misuse of globals
 
-// Route::group(array('prefix' => 'companies', 'before' => 'admin'), function()
-// {
-
-// Route::group(array('prefix' => 'companies', 'before' => 'admin-auth'),function(){
-//     // die("BAM");
-//     Route::resource('companies', 'AdminCompaniesController');
-// });
-
-// ???
 // App::bind('company', function($app)
 // {
 //     return new Company;
 // });
 
 // $env=App::environment();
-
     
     // Route::get('foo', array('as' => 'bar/foo'),function(){
     //     return Route::currentRouteName();
@@ -59,12 +48,11 @@ Route::resource('tweets', 'TweetsController');
 
     // Route::get('bar/foo',function(){
     //     return Route::currentRouteName();
-
-
     // });
+
 ///////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
-////// Redactor Blog Upload
+////// Redactor Blog Upload (redactor currently de-implemented)
 ///////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
 
@@ -83,8 +71,6 @@ Route::resource('tweets', 'TweetsController');
 
 */
 
-
-// Route::group(array(''),)
 
 /**
     
@@ -266,16 +252,12 @@ Route::group(array('domain' => 'buckeyemower.com'),function(){
         return "buckeyemower mytest";
     });
     // die("routes/buckeye");
-//////////////////////////////////////////////////////////////////
-///////////////// IOC CONTAINER //////////////////////////////////
-//////////////////////////////////////////////////////////////////
-
-
 
 //////////////////////////////////////////////////////////////////
 ///////////////// IOC CONTAINER //////////////////////////////////
 //////////////////////////////////////////////////////////////////
-    // http://codehappy.daylerees.com/ioc-container
+    // http://codebright.daylerees.com/architecture (l4)
+    // http://codehappy.daylerees.com/ioc-container (l3)
     App::bind('company', function($app)
     {
         return Company::where('brand','like','buckeye')->first();
@@ -291,11 +273,6 @@ Route::group(array('domain' => 'buckeyemower.com'),function(){
     //     return $company;
     // });
 
-// if page exists, show that.
-// if posts with this tag exist, show them.
-// if 
-
-// die(var_dump($company));
 
     Route::filter('buckeye', function()
     {
@@ -346,50 +323,13 @@ Route::group(array('domain' => 'buckeyemower.com'),function(){
     Route::get('blog/{postSlug}', 'BlogController@getView');
     // Route::get('blog', 'BlogController@buckeyeIndex');
 
-    // Here are several Routing techniques:
-    // 
-    // 1. pass data as a parameter.
-    // die(var_dump($company));
-    
-    // Route::get('/{tag}','BlogController@getIndex');
-    
-    // 2. use a custom method.
+
     
 
     // Only users with roles that have the 'buckeye' permission will
     // be able to access any admin/post route.
     // Route::when('admin', 'buckeye'); 
 
-    //     Route::get('/foo', function(){
-    // $name='buckeye';
-    // $company = DB::table('companies')->where('brand', '=', $name)->first();
-
-    // // die("BAM");
-    // // var_dump($company);
-    // // foreach ($users as $user)
-    // // {
-    // //     var_dump($user->name);
-    // // }
-    //     // });
-    // //     {
-
-    // // die("BAM");
-    //         // $company=DB::table('companies')->where('name','gristech');
-            
-    //         // $post=new Post()
-    //         // $company='buckeye';
-    //         // $name='buckeye';
-    //         // die(var_dump($company));
-    //         return View::make('site/buckeye/home')
-
-    //         ->with(compact($company));
-            // ,array(
-            // return View::make('site/'.$name.'/home',array(
-                // 'brand'=>'Buckeye Mower',
-                // 'description'=>'Mobile Mower and Small Engine Repair',
-                // 'menus'=>array('rates','map')->with('company')
-                // ));
-        // });
 
     Route::get('/', 'CompanyController@getIndex');
 });
@@ -624,6 +564,17 @@ http://www.sublimetext.com/forum/viewtopic.php?f=3&t=12382
 */
 
 //////////////////////////////////////////////////////////////
+    // Here are several Routing techniques:
+    // 
+    // 1. pass data as a parameter.
+    // die(var_dump($company));
+    
+    // Route::get('/{tag}','BlogController@getIndex');
+    
+    // 2. use a custom method.
+
+
+
 // Route::get('features', function()
 // {
 //     // Return about us page
