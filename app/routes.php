@@ -4,7 +4,7 @@
 
 // https://github.com/laravel/laravel/issues/2164 - laravel multisite discussion
 // http://www.slideshare.net/go_oh/singletons-in-php-why-they-are-bad-and-how-you-can-eliminate-them-from-your-applications
-//http://stackoverflow.com/questions/7770728/group-vs-role-any-real-difference
+// http://stackoverflow.com/questions/7770728/group-vs-role-any-real-difference
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -39,12 +39,11 @@ Route::model('company','Company');
 Route::resource('tweets', 'TweetsController');
 
 // This is interesting, but needs further exploration
-// View::composer('*.home',function($view){
-View::composer('*.megacorp.*',function($view){
+View::composer('*.home',function($view){
+// View::composer('*.megacorp.*',function($view){
     $view->nest('searchbar','site.partials.search');
     $view->nest('social','site.partials.social');
 });
-
 
 // Route::model('company','Company',function(){
 //     // return Company::where('brand',"LIKE",'gristech')->first();
@@ -413,7 +412,6 @@ Route::group(array('domain' => 'myapp.dev'),function()
 
     Route::post('search', 'BlogController@postSearch');
     Route::get('search', 'BlogController@search');
-    // Route::get('/search', 'BlogController@search');
     Route::get('search/{tag}','BlogController@search');
     // Route::post('search/{tag}','BlogController@postSearch');
 
@@ -456,7 +454,8 @@ Route::group(array('domain' => 'buckeyemower.com'),function(){
     // die("routes/buckeye");
 
 // random notes:
-// http://www.jsticker.com/
+
+// Should session variables be avoided?:
 // http://programmers.stackexchange.com/questions/160947/should-session-variables-be-avoided
 
 //////////////////////////////////////////////////////////////////
@@ -623,91 +622,7 @@ Route::group(array('domain' => 'buckeyemower.com'),function(){
 
     // });
 
-/** ------------------------------------------
- *  Admin Routes
- *  ------------------------------------------
- */
-Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
-{
 
-//http://stackoverflow.com/questions/7770728/group-vs-role-any-real-difference
-    // Route::get('admin','AdminDashboardController@getIndex');
-
-
-    # Comment Management
-    Route::get('comments/{comment}/edit', 'AdminCommentsController@getEdit')
-        ->where('comment', '[0-9]+');
-    Route::post('comments/{comment}/edit', 'AdminCommentsController@postEdit')
-        ->where('comment', '[0-9]+');
-    Route::get('comments/{comment}/delete', 'AdminCommentsController@getDelete')
-        ->where('comment', '[0-9]+');
-    Route::post('comments/{comment}/delete', 'AdminCommentsController@postDelete')
-        ->where('comment', '[0-9]+');
-    Route::controller('comments', 'AdminCommentsController');
-
-    # Blog Management
-    Route::get('blogs/{post}/show', 'AdminBlogsController@getShow')
-        ->where('post', '[0-9]+');
-    Route::get('blogs/{post}/edit', 'AdminBlogsController@getEdit')
-        ->where('post', '[0-9]+');
-    Route::post('blogs/{post}/edit', 'AdminBlogsController@postEdit')
-        ->where('post', '[0-9]+');
-    Route::get('blogs/{post}/delete', 'AdminBlogsController@getDelete')
-        ->where('post', '[0-9]+');
-    Route::post('blogs/{post}/delete', 'AdminBlogsController@postDelete')
-        ->where('post', '[0-9]+');
-
-    Route::get('blogs/tag/{tag}', 'AdminBlogsController@getIndex');
-        // ->where('post', '[0-9]+');
-
-    Route::controller('blogs', 'AdminBlogsController');
-
-    # User Management
-    Route::get('users/{user}/show', 'AdminUsersController@getShow')
-        ->where('user', '[0-9]+');
-    Route::get('users/{user}/edit', 'AdminUsersController@getEdit')
-        ->where('user', '[0-9]+');
-    Route::post('users/{user}/edit', 'AdminUsersController@postEdit')
-        ->where('user', '[0-9]+');
-    Route::get('users/{user}/delete', 'AdminUsersController@getDelete')
-        ->where('user', '[0-9]+');
-    Route::post('users/{user}/delete', 'AdminUsersController@postDelete')
-        ->where('user', '[0-9]+');
-    Route::controller('users', 'AdminUsersController');
-
-    # User Role Management
-    Route::get('roles/{role}/show', 'AdminRolesController@getShow')
-        ->where('role', '[0-9]+');
-    Route::get('roles/{role}/edit', 'AdminRolesController@getEdit')
-        ->where('role', '[0-9]+');
-    Route::post('roles/{role}/edit', 'AdminRolesController@postEdit')
-        ->where('role', '[0-9]+');
-    Route::get('roles/{role}/delete', 'AdminRolesController@getDelete')
-        ->where('role', '[0-9]+');
-    Route::post('roles/{role}/delete', 'AdminRolesController@postDelete')
-        ->where('role', '[0-9]+');
-    Route::controller('roles', 'AdminRolesController');
-
-        # Company Management
-    Route::get('companies/{company}/show', 'AdminCompaniesController@getShow')
-        ->where('company', '[0-9]+');
-    Route::get('companies/{company}/edit', 'AdminCompaniesController@getEdit')
-        ->where('company', '[0-9]+');
-    Route::post('companies/{company}/edit', 'AdminCompaniesController@postEdit')
-        ->where('company', '[0-9]+');
-    Route::get('companies/{company}/delete', 'AdminCompaniesController@getDelete')
-        ->where('company', '[0-9]+');
-    Route::post('companies/{company}/delete', 'AdminCompaniesController@destroy')
-        ->where('company', '[0-9]+');
-
-
-
-    Route::controller('companies', 'CompaniesController');
-// die(var_dump($companies));
-    # Admin Dashboard
-    // Route::controller('/{page}', 'AdminDashboardController');
-    Route::get('/', 'AdminDashboardController');
-});
 
 // die(var_dump($user));
 /** ------------------------------------------
@@ -736,9 +651,11 @@ Route::get('company/{name}','CompanyController@getIndex')
 ///////// USER ///////////////////////////////////////////////
 //////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////
+
 // User reset routes
 Route::post('user/reset/{id}', 'UserController@getReset')
     ->where('id', '[0-9a-zA-Z_]+');
+
 //:: User Account Routes ::
 Route::post('user/{user}/edit', 'UserController@postEdit')
     ->where('user', '[0-9]+');
@@ -750,14 +667,13 @@ Route::post('user/login', 'UserController@postLogin');
 Route::controller('user', 'UserController');
 
 Route::resource('companies', 'CompaniesController');
-// die("bam");
-
 
 // STATIC PAGES: ///////////////////////////////////////////////////
 # Technical/Development Static Page
 
 // how about:
 // Route::get('pages','BlogController@getPages');
+// ??
 
 Route::get('pages',function(){
     $env=App::environment();
@@ -826,14 +742,11 @@ Route::get('pages/{page}',function($page){
 
 Route::post('search', 'BlogController@postSearch');
 Route::get('search', 'BlogController@search');
+Route::get('search/{tag}','BlogController@search');
 // Route::get('/search', 'BlogController@search');
 
-// ???
-
-Route::get('search/{tag}','BlogController@search');
-
-Route::get('tags', 'BlogController@getIndex');
 Route::post('tags', 'BlogController@getIndex');
+Route::get('tags', 'BlogController@getIndex');
 Route::get('tags/{tag}', 'BlogController@getIndex');
 // Route::post('tags/{tag}', 'BlogController@postIndex');
 
@@ -841,7 +754,6 @@ Route::get('tags/{tag}', 'BlogController@getIndex');
 Route::post('blog/{postSlug}', 'BlogController@postView');
 Route::get('blog/{postSlug}', 'BlogController@getView');
 Route::get('blog', 'BlogController@getIndex');
-
 
 // Route::get('company/{company}',function(Company $company){
 //     // var_dump($company);

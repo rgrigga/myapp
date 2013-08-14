@@ -88,6 +88,7 @@ class AdminBlogsController extends AdminController {
 
             }
 
+            die('admin blogs controller problem');
             return View::make('admin/blogs/index', compact('posts','tags','company'))
             ->with('error', 'There was a problem!');
         }

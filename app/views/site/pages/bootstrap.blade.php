@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,20 +12,24 @@
     <!-- <link href="../bootstrap/css/bootstrap.css" rel="stylesheet"> -->
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css"> -->
     <!-- Latest compiled and minified JavaScript -->
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+    <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>-->
 
     <!-- Custom styles for this template -->
-    <link href="grid.css" rel="stylesheet">
+    <!-- <link href="grid.css" rel="stylesheet"> -->
+    
+        @stylesheets("bs3-css")
+    <!-- @ stylesheets("myapp-css") -->
+
     <style>
     div{
-      background-color: rgba(50,50,50,.1);
+      background-color: rgba(50,100,100,.1);
       }
       </style>
   </head>
   <body>
-
+<h1>BAM</h1>
    <!-- JavaScript plugins (requires jQuery) -->
     <script src="http://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

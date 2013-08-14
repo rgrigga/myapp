@@ -1,4 +1,4 @@
-@extends('layouts.scaffold')
+@extends('site.layouts.bs3')
 
 @section('title')
 @parent
@@ -7,7 +7,7 @@
 
 @section('meta_description')
 @parent
-{{$company->description}}
+
 @stop
 
 @section('meta_keywords')
@@ -16,6 +16,7 @@
 @stop
 
 @section('styles')
+@parent
 <!-- http://colorschemedesigner.com/#0k41Jw0w0w0w0 -->
 <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine"> -->
 
@@ -33,14 +34,15 @@
 /* STRUCTURAL */
 
 /*this has ramifications:*/
-.container-fluid{
-	width: 100%;
+.container{
+/*	width: 100%;
 	padding-left: 0px;
-	padding-right: 0px;
+	padding-right: 0px;*/
 }
+
 .below{
-	padding-right: 20px;
-	padding-left:20px;
+/*	padding-right: 20px;
+	padding-left:20px;*/
 }
 
 html,body {
@@ -49,7 +51,7 @@ html,body {
 	color: rgba(236, 240, 241,1.0);
 	background-color:rgba(44, 62, 80,1.0);
 	font-family: 'EB Garamond', serif;
-	font-size: 16px;
+	/*font-size: 16px;*/
 
 }
 
@@ -58,10 +60,14 @@ html,body {
 	src: url('/assets/font/Archive.otf') format("opentype");
 }
 
-	.main{
-		color: rgba(236, 240, 241,1.0);
-		background-color:rgba(44, 62, 80,1.0);
-	}
+.main{
+	color: rgba(236, 240, 241,1.0);
+	background-color:rgba(44, 62, 80,1.0);
+}
+
+.navbar{
+	background-color: rgba(189, 195, 199,1.0);
+}
 
 .navbar .brand{
 	color:white;
@@ -77,7 +83,7 @@ html,body {
 }
 
 .page-header h1 {
-	padding-top: 60px;
+	/*padding-top: 60px;*/
 color: rgba(41, 128, 185,1.0);
 }
 
@@ -165,15 +171,16 @@ div {
 .page-header h1{
 	/*line-height: 1.2em;*/
 	/*margin-top: 90px;*/
-	margin-bottom: 20px;
+	/*margin-bottom: 20px;*/
 	letter-spacing:-7px;
-	line-height: .5em;
+	/*line-height: .5em;*/
 	font-size: 144px;
 
 }
+
 .page-header h2{
 	font-family: 'Archive', sans-serif;
-	font-size: 40;
+	/*font-size: 40;*/
 	margin: 0;
 }
 .page-header h2:hover{
@@ -197,7 +204,7 @@ div {
 
 @media (min-width: 980px){
 	.accordion{
-		/*margin-top:80px;*/
+		margin-top:80px;
 	}
 	
 }
@@ -208,15 +215,13 @@ div {
 		/*padding-bottom: 15px;*/
 	}
 	
-
-
 }
 
-@media (min-width: 780px){
+/*@media (min-width: 780px){
 	.accordion{
 		margin-right: 30px;
 	}
-}
+}*/
 	.corner{
 		position: fixed;
 		left:-10px;
@@ -276,7 +281,7 @@ div {
 		@stop
 
 		@section('nav')
-		@include('site.partials.nav-top-min')
+		@include('site.partials.nav-top-bs3')
 		@stop
 
 
@@ -304,24 +309,30 @@ foreach (glob($path."*.blade.php") as $filename) {
 
 <div class="page-header">
 
-			<div class="pull-left">
+			<div class="row">
 				<a href="https://github.com/rgrigga/MyApp6">
-				<img style="position: relative; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png" alt="Fork me on GitHub">
+				<img style="position: fixed;  left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png" alt="Fork me on GitHub">
 				</a>
+
 			</div>
 		<!-- <h1>BAM</h1> -->
-		<div class="row-fluid">
+		<div class="row">
 
-			<div class="span6">
+		<h4>Search:</h4>
+		{{$searchbar}}
+
+			<div class="col-lg-5">
 				<!-- <a href="#about" data-toggle="tab"> -->
-				<img class="" src="{{asset('assets/'.strtolower($company->brand).'/cloud.svg')}}" alt="">
+				<img class="img-responsive" src="{{asset('assets/'.strtolower($company->brand).'/cloud.svg')}}" alt="">
 					
 				<!-- </a> -->
 				{{--$about--}}
 			</div>
-			<h1>MyApp</h1>
-			<div class="span4 pull-right">
+			
+			<div class="col-lg-5 text-center">
+				<h1>MyApp</h1>
 				<aside>
+					
 					<div class="row">
 						<!-- <div class="span4"> -->
 							<a href="about"><span>ABOUT</span></a>
@@ -330,9 +341,9 @@ foreach (glob($path."*.blade.php") as $filename) {
 					</div>
 					<div class="row">
 						<p>
+						<i class="icon-html5"></i>
 						<i class="icon-github"></i>
 						<i class="icon-linux"></i>
-						<i class="icon-html5"></i>
 						<i class="icon-windows"></i>
 						<i class="icon-apple"></i>
 						<i class="icon-android"></i>
@@ -346,12 +357,8 @@ foreach (glob($path."*.blade.php") as $filename) {
 					</div>
 					
 				</aside>
-			</div>
 
-
-			
-
-
+			</div>	
 
 		</div>
 		<!-- row -->
@@ -363,14 +370,14 @@ foreach (glob($path."*.blade.php") as $filename) {
 		</div>
 	</div> -->
 
-
-<p>Cloud Computing for the rest of us.</p>
+	<p>Cloud Computing for the rest of us.</p>
 	<div class="tabbable"> <!-- Only required for left/right tabs -->
 		<a href="#" data-toggle="tab"> Skills</a>
 		<a href="#" data-toggle="tab"> Experience</a>
 		<a href="#" data-toggle="tab"> Aspirations</a>
 	</div>
 	<!-- ./ tabbable -->
+
 
 </div>
 <!-- ./ page-header -->
@@ -409,7 +416,7 @@ foreach (glob($path."*.blade.php") as $filename) {
 			 					<h3>CSS</h3>
 			 				</a>
 			 				<div id='css'>
-			 					This little diddy makes the 'note':
+<!-- 			 					This little diddy makes the 'note':
 			 					<pre class='prettyprint'><code 'lang=css'>
 
 	.note { 
@@ -431,17 +438,18 @@ foreach (glob($path."*.blade.php") as $filename) {
 		left:20%;
 		padding: 30px; 
 	}
-			 					</code></pre>
+			 					</code></pre> -->
 			 					<a href="http://stackoverflow.com/questions/514083/why-is-good-ui-design-so-hard-for-some-developers">Must Read for User, Designers, and Developers</a>
 			 					<a href="http://stackoverflow.com/questions/7973/user-interface-design">User Interface</a>
 			 				</div>
 			 				
 							
-			 				<a href="interior" data-toggle="tab">
+			 				<a href="/html5" data-toggle="tab">
 								<h3>HTML 5</h3>
 			 				</a>
 							<p>I beleive in standards, and try to code to them as such.</p>
-							<a href="decks" data-toggle="tab">
+
+							<a href="/responsive" data-toggle="tab">
 								<h3>Responsive Design</h3>
 							</a>
 							<p><a class='btn btn-info' href="{{URL::to('responsive')}}"><i class="icon-code"> </i>Learn More</a></p>
@@ -468,7 +476,7 @@ foreach (glob($path."*.blade.php") as $filename) {
 			 			<p>A good deal of my time goes into refactor and comment the code, and document issues.</p>
 			 			<p>This blog can be a good start towards a manual or developer resource.</p>
 			 			<p>On the other hand, I beleive the shortest path to getting the code to work helps the development process.  This is a delicate balance.</p>
-						<!-- <a href="https://en.wikipedia.org/wiki/Virtual_private_server"></a>	 -->		 			
+		 			
 						</div>
 			 		</div>
 			 	</div>
@@ -477,6 +485,7 @@ foreach (glob($path."*.blade.php") as $filename) {
 			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
 							<h2>Marketing</h2>
 			 			</a>
+
 			 		</div>
 			 		<div id="collapseThree" class="accordion-body collapse">
 
@@ -484,7 +493,10 @@ foreach (glob($path."*.blade.php") as $filename) {
 			 				<a href="#power" data-toggle="tab">
 								<h3>SEO</h3>
 							</a>
-			 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+			 			
+<!-- 			 			<p>Identify ways we can make marketing better.</p>
+			 			<p>Develop and design an automated solution</p>
+			 			<p>Let's talk about it!</p> -->
 			 			</div>
 			 		</div>
 			 	</div>
@@ -498,7 +510,9 @@ foreach (glob($path."*.blade.php") as $filename) {
 			 		</div>
 			 		<div id="collapseFour" class="accordion-body collapse">
 			 			<div class="accordion-inner">
-			 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+						<p>
+			 				I can provide dozens of references who will attest to my training skills, patience with clients, down-to-earth approach to working with people of all skill levels, and my ability to learn new things quickly.  Along with my problem-solving skills, this mix is the perfect storm of abilities to do THIS: 
+			 			</p>
 			 			</div>
 			 		</div>
 			 	</div>
@@ -523,41 +537,11 @@ foreach (glob($path."*.blade.php") as $filename) {
 	</div>
 	<!-- div span7 -->
 
+<!-- 	<div class="row">
 
+	</div> -->
 
-
-
-
-	<div class="row-fluid">
-		<!-- <div class="hero-unit"> -->
-			<h1>I am currently looking for a job.</h1>
-			<?php 
-			$items = array(
-				'I am a super fast learner.',
-				'I write clean, well-commented code.', 
-				'I read docs for fun.', 
-				'I am an extreme workahaulic.');
-			?>
-
-			<p>
-				<ul>
-					@foreach($items as $item)
-					<li>{{$item}}</li> 
-					@endforeach
-				</ul>
-			</p>
-
-			<h3>I locked myself in my basement.</h3>
-			<p>
-				I have been writing this program for about 3 months straight.  My wife thinks I'm crazy, but I call it a revalation.  After a hair over 10 years in Mortgage Banking, I literally woke up one day and decided it was time for a career change.
-			</p>
-			<h3>A bit new, but not a total Noob.</h3>
-			<p>I began programming when I needed a better spreadsheet.  One thing led to another, and I built the JCC: an application to capture, calculate, and weave together Roof Data... then spit out forms, documents, proposals, and meld with the business' other software.  I have extensive knowledge and experience with PHP, as well as some Javascript and even a little Ruby.  I have discovered the MVC pattern, and I strive to keep code as modular and decoupled as possible.</p>
-			<p>I have been studying and building non-stop for the past ~3 months... I now have a "stable-enough-to-get-work-done" version of this program...</p>
-		<!-- </div> -->
-	</div>
-
-	<div class="row-fluid">
+	<div class="row">
 		<div class="tabbable"> <!-- Only required for left/right tabs -->
 			<ul class="nav nav-pills">
 				@foreach($company->menus() as $menu)
@@ -579,7 +563,7 @@ foreach (glob($path."*.blade.php") as $filename) {
 		</div>
 	</div>
 
-	<div class="row-fluid">
+	<div class="row">
 		<div class="span4">
 			<!-- <div class="pull-right"> -->
 			<!-- <img src="{{asset($company->image)}}" alt="MyImage"> -->
@@ -596,7 +580,7 @@ foreach (glob($path."*.blade.php") as $filename) {
 		</div>
 	</div>
 
-	<div class="row-fluid" id="posts">
+	<div class="row" id="posts">
 		<h1>Posts:</h1>
 		<?
 // var_dump($posts);
@@ -605,8 +589,12 @@ foreach (glob($path."*.blade.php") as $filename) {
 			{{ $posts->links() }}
 		</div>
 
+
+{{View::make('site.posts.thumbnails')->with('posts',$posts);}}
+
+
 		@foreach ($posts as $post)
-		<div class="row-fluid">
+		<div class="row">
 			<div class="span3">
 				<p></p>
 				<p>
@@ -661,13 +649,7 @@ foreach (glob($path."*.blade.php") as $filename) {
 	</div>
 	<!-- ./main -->
 	<!-- ************************************************ -->
-	<div class="footer">
-		<div class="note">
-				<pre class="prettyprint"><code><p>
-		This is pre class = "prettyprint":
-		<!-- <pre class="prettyprint"></pre> --></p></code></pre>		
-		</div>	
-	</div>
+
 
 
 <!-- Piwik -->
@@ -707,4 +689,12 @@ foreach (glob($path."*.blade.php") as $filename) {
                     // $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
                     // $('.thumbnail').equalHeights();
     </script>
+@stop
+
+@section('admin-bottom')
+	<div class="footer">
+		<div class="note">
+<pre class="prettyprint"><code><p>This is pre class = "prettyprint":<!-- <pre class="prettyprint"></pre> --></p></code></pre>		
+		</div>	
+	</div>
 @stop

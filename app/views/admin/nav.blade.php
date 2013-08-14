@@ -119,7 +119,14 @@ https://www.google.com/analytics/web/?hl=en&pli=1#home/ -->
 								<li>
 									<div class="btn-group">
 										<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-											<i class="icon-user"></i> {{{ Auth::user()->username }}}	<span class="caret"></span>
+											<i class="icon-user"></i>
+											@if(Auth::user())
+											{{{ Auth::user()->username }}}
+											@else
+											Stranger
+											@endif
+
+											<span class="caret"></span>
 										</a>
 										<ul class="dropdown-menu">
 											<li><a href="{{{ URL::to('user/settings') }}}"><i class="icon-wrench"></i> Settings</a></li>

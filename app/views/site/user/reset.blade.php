@@ -7,7 +7,7 @@
 @stop
 
 {{-- Content --}}
-@section('content')
+@section('main')
 <div class="page-header">
 	<h1>Forgot Password</h1>
 </div>

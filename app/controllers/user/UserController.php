@@ -36,6 +36,7 @@ class UserController extends BaseController {
 
         // $company=$this->company
         $this->post = $post;
+        View::share('company',$this->company);
 
     }
 
@@ -224,9 +225,8 @@ class UserController extends BaseController {
             ->with(compact('company'));
             // ->nest('nav','site.partials.nav-default');
     }
+
 // $roles = DB::table('roles')->lists('title');
-
-
 
     // public function buckeye(){
         
@@ -252,9 +252,9 @@ class UserController extends BaseController {
         if ( Confide::logAttempt( $input, true ) )
         {
 
-            // if(Auth::user()->hasRole('admin')){
-            //     return Redirect::to('admin');    
-            // }
+            if(Auth::user()->hasRole('admin')){
+                return Redirect::to('admin');    
+            }
 
             $r = Session::get('loginRedirect');
             if (!empty($r))
@@ -452,6 +452,9 @@ class UserController extends BaseController {
 
         return View::make('site/user/profile', compact('user','company'));
     }
+
+
+    // Why is this function here?
 
     /**
      * Process a dumb redirect.

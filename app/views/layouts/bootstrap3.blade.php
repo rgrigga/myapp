@@ -34,7 +34,7 @@
         <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet"> -->
 
         <!-- Bootstrap -->
-        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+        <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
 
         <!-- Font-Awesome -->
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
@@ -45,7 +45,7 @@
         <!-- @stylesheets("public-css") -->
     
     <!-- EXTERNAL -->
-        <link rel="stylesheet" href="/assets/css/style.css">
+        <!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
         
     <!-- http://stackoverflow.com/questions/1443465/jquery-dynamic-div-height -->
 
@@ -92,7 +92,8 @@
      Unfortunately your browser has disabled scripting. Please enable it in order to display this page.
   </noscript>
 <![endif]-->
-
+@stylesheets('myapp.css');
+@stylesheets('bs3.css');
     <!-- PAGE-SPECIFIC -->
         @yield('styles')
 

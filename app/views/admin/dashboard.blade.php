@@ -10,8 +10,6 @@
 
 <div class="span12">views.admin.dashboard</div>
 
-
-
 <pre>
 	<code>
 interface: readme.md
@@ -33,12 +31,21 @@ email
 	- <a href="http://link.springer.com/chapter/10.1007/978-3-642-10665-1_49">http://link.springer.com/chapter/10.1007/978-3-642-10665-1_49</a>
 	- <a href="http://scholar.google.com/scholar?client=ubuntu&channel=fs&q=how+do+i+guarantee+the+security+of+a+document?&oe=utf-8&um=1&ie=UTF-8&lr=&q=related:xuXRvm2gGq9hVM:scholar.google.com/">Google how do i guarantee the security of a document?</a>
 	<a href="Search::all('secure cloud storage')">secure cloud storage</a>
+
 share link?
 share secure link?
 share really, really secure doc like a google doc?
 google doc...
 
-
+todo:
+<ul>
+    <li>
+        <a href="https://github.com/yhbyun/laravel-bookmark">Bookmarks</a>
+    </li>
+    <li>
+        <a href="http://www.siteground.com/tutorials/sitemap/">Sitemap</a>
+    </li>
+</ul>
 
 
 	</code>
@@ -85,15 +92,9 @@ google doc...
 	<li>Unit Testing</li>
 	<li>Linux: <a href="http://www.makeuseof.com/tag/6-different-ways-to-end-unresponsive-programs-in-linux/">http://www.makeuseof.com/tag/6-different-ways-to-end-unresponsive-programs-in-linux/</a> </li>
 	<li>git <a href="http://gitref.org/creating/#clone">http://gitref.org/creating/#clone</a> </li>
-
+	<li><a href="https://support.google.com/drive/?hl=en#topic=2799627">https://support.google.com/drive/?hl=en#topic=2799627</a></li>
+	<li><a href="http://laravel.io/">http://laravel.io/</a></li>
 </ul>
-
-<a href="https://support.google.com/drive/?hl=en#topic=2799627">https://support.google.com/drive/?hl=en#topic=2799627</a>
-
-
-
-
-http://laravel.io/
 
 
 

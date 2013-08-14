@@ -11,6 +11,18 @@
 <header>
     <h3>Git, Github, Bitcucket</h3>
 
+// http://www.vogella.com/articles/Git/article.html
+// http://www.vogella.com/articles/Git/article.html#gitpushbranch
+
+//  In general using the stash command should be the exception in using Git. Typically you would create new branches for new features and switch between branches. You can also commit frequently in your local Git repository and use interactive rebase to combine these commits later before pushing them to another Git repository.
+// Tip
+
+// You can avoid using the git stash command. In this case you commit the changes you want to put aside and use the git commit --amend command to change the commit later. If you use the approach of creating a commit, you typically put a marker in the commit message to mark it as a draft, e.g. "[DRAFT] implement feature x".
+
+// http://gitref.org/branching/
+
+
+
 <p>from <a href="http://gitref.org/remotes/">http://gitref.org/remotes/</a>:</p>
 
 <blockquote>Unlike centralized version control systems that have a client that is very different from a server, <strong>Git repositories are all basically equal and you simply synchronize between them</strong>. This makes it easy to have more than one remote repository - you can have <strong>some that you have read-only access to and others that you can write to as well</strong>.</blockquote>

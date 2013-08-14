@@ -64,11 +64,17 @@ Layouts.Default
 			/*z-index: -3;*/
 		}
 			
+		footer{
+			background-color: #e3e3e3;
+		}
+		footer img{
+			max-height: 64px;
+		}
 	</style>
 @show
 
 <!-- prettify -->
-<!-- NOTE: I had an experience with a lengthy pageload on this today.  It's a good lesson NOT to include prettify on the main layout page.  Load it in a child page where you need it. -->
+<!-- NOTE: I had an experience with a lengthy pageload on this today.  It's a good lesson NOT to include prettify on the main layout page.  Load it in a child page where you need it? -->
 <!-- <link href="prettify.css" type="text/css" rel="stylesheet" /> -->
 
 @section('myjs')
@@ -158,16 +164,20 @@ e.g. /company/assets/ico/apple-touch blah.  the path should simply be overridden
 	<!-- ./wrap -->
 
 @section('footer')
-<!-- @section('footer') -->
 
-<!-- @stop -->
-<!-- <div id="footer"> -->
-<!-- 	<div class="container">
-		 <p class="muted credit">This site began as the Laravel 4 Starter Site on <a href="https://github.com/andrew13/Laravel-4-Bootstrap-Starter-Site">Github</a>.  Thank you Andrew!</p>
-		<span><a href="http://en.wikipedia.org/wiki/Perpetual_beta">Always Beta</a></span>
-	</div> -->
+<footer>
+	<div class="container">
+		<a href="http://www.w3.org/html/logo/">
+<img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" width="165" height="64" alt="HTML5 Powered with CSS3 / Styling, and Semantics" title="HTML5 Powered with CSS3 / Styling, and Semantics">
+</a>
+<img src="{{asset('assets/img/php.png')}}" alt="PHP">
+<img src="{{asset('assets/img/laravel.png')}}" alt="Laravel">
+<img src="{{asset('assets/img/bootstrap-logo.png')}}" alt="Bootstrap">
+		 <!-- <p class="muted credit">This site began as the Laravel 4 Starter Site on <a href="https://github.com/andrew13/Laravel-4-Bootstrap-Starter-Site">Github</a>.  Thank you Andrew!</p> -->
+		<span><a href="http://en.wikipedia.org/wiki/Perpetual_beta">Beta</a></span>
+	</div>
 	<!-- container -->
-<!-- </div> -->
+</footer>
 <!-- ./footer -->
 @show
 

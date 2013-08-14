@@ -25,7 +25,6 @@ Then you can move back and forth.  You can also switch branches.  It's kind of l
 //hashmark (create new BRANCH and CHECKOUT that.)
 point in the past, and then began making changes which threatened to destroy the space-time continuuum.  
 
-
 They move forward in time, make changes, 
 
 Wait a minute... that's their story.
@@ -42,8 +41,6 @@ PROGRAMMERS: Demonstrate your abilities: this is a community demo site.
 <!-- http://www.opensourcecms.com/ -->
 <!-- Want more?  Check out /tools ('myapp/tools')-->
 
-<!-- Our Competition/Partners: -->
-<!-- http://myappinc.com/ -->
 
 	<head>
 		<!-- Basic Page Needs
@@ -68,16 +65,22 @@ PROGRAMMERS: Demonstrate your abilities: this is a community demo site.
 If you contribute to this project, and it becomes profitable, I will share it with you.  If you fork it and make money, please share with me. (Don't be a D***)  If you are reading this, perhaps we can discuss a partnership.  Please get in touch.
 For now, you may clone this public repository and develop it as much as you like for now, but you must agree to share your contributions here at this site.  Others have done the same before you and I.  Let's help each other out.-->
 
-<!-- There is also a private repository with additional features available if you register.  If you're interested, please contact me. -->
+<!-- If you're interested in working on this, please contact me. If you have nay feedback, positive or negative, I would greatly appreciate hearing your view.-->
 
 		<!-- CSS
 		================================================== -->
+		@section('styles')
+
+		<!-- // http://stackoverflow.com/questions/5506258/horizontal-scroll-overflowing-html-lis-without-knowing-width*/ -->
+		
+
+		<!-- http://jasonlewis.me/code/basset/4.0 -->
         {{-- Basset::show('admin-css.css') --}}
 
-<!-- // http://stackoverflow.com/questions/5506258/horizontal-scroll-overflowing-html-lis-without-knowing-width*/ -->
-		@section('styles')
 		<style>
-	/*<!-- colors:	 -->*/
+		/*<!-- colors:	 -->*/
+		
+
 		.wrap{
 			/*background-color: rgba(100,85,255,.1);*/
 			background-color: rgba(20,40,60,.1);

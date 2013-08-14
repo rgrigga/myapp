@@ -1,5 +1,8 @@
 <?php
 
+// There are at least 4 ways to call these in your views:
+// http://jasonlewis.me/code/basset/4.0/views
+
 return array(
 
     /*
@@ -28,27 +31,112 @@ return array(
 
     'collections' => array(
 
-        
-        'buckeye' => function($collection)
+        'bs3-css' => function($collection)
         {
 
-                $collection->directory('assets/buckeye/css', function($collection)
-                {
-                    // $collection->add('less/master.less')->apply('Less');
-                    $collection->add('bootstrap.min.css');
-                    $collection->add('bootstrap-responsive.min.css');
-                    $collection->add('buckeye.css');
-                })->apply('UriRewriteFilter')->setArguments(public_path());
-
-                $collection->directory('assets/buckeye/js', function($collection)
-                {
-                    $collection->add('jquery.v1.8.3.min.js');
-                    $collection->add('bootstrap/bootstrap.min.js');
-                })->apply('UriRewriteFilter')->setArguments(public_path());
+            $collection->directory('assets/bs3/css', function($collection)
+            {
+                // $collection->add('less/master.less')->apply('Less');
+                $collection->add('bootstrap.min.css');
+                $collection->add('mystyle.css');
+            
+            })->apply('UriRewriteFilter')->setArguments(public_path());
 
         },
 
+        'bs3-js' => function($collection){
 
+            // JS ////////////////////////
+            $collection->directory('assets/bs3/js', function($collection)
+            {
+                $collection->add('jquery.v1.8.3.min.js');
+                $collection->add('bootstrap.min.js');
+                $collection->add('myjs.js');
+            })->apply('UriRewriteFilter')->setArguments(public_path());
+
+        },
+
+        'myapp-css' => function($collection)
+        {
+
+            $collection->directory('assets/css', function($collection)
+            {
+                $collection->add('less/master.less')->apply('Less');
+                $collection->add('wysihtml5/wysihtml5-0.3.0.js');
+                $collection->add('wysihtml5/prettify.css');
+                $collection->add('wysihtml5/bootstrap-wysihtml5-0.0.2.css');
+
+                $collection->add('style.css');
+                // $collection->add('redactor/redactor.css');
+            })->apply('UriRewriteFilter')->setArguments(public_path());
+
+        },
+        
+        'myapp-js' => function($collection)
+        {
+            $collection->directory('assets/js', function($collection)
+            {
+                $collection->add('wysihtml5/wysihtml5-0.3.0.js');
+                $collection->add('jquery.v1.8.3.min.js');
+                $collection->add('prettify.js');
+                // $collection->add('bootstrap/bootstrap.min.js');
+                $collection->add('wysihtml5/bootstrap-wysihtml5.js');
+                // $collection->add('redactor/redactor.min.js');
+                $collection->add('site.js');
+            })->apply('UriRewriteFilter')->setArguments(public_path());
+        },
+
+        'buckeye' => function($collection)
+        {
+
+            $collection->directory('assets/buckeye/css', function($collection)
+            {
+                // $collection->add('less/master.less')->apply('Less');
+                $collection->add('bootstrap.min.css');
+                $collection->add('bootstrap-responsive.min.css');
+                $collection->add('buckeye.css');
+            })->apply('UriRewriteFilter')->setArguments(public_path());
+
+            $collection->directory('assets/buckeye/js', function($collection)
+            {
+                $collection->add('jquery.v1.8.3.min.js');
+                $collection->add('bootstrap/bootstrap.min.js');
+            })->apply('UriRewriteFilter')->setArguments(public_path());
+
+        },
+
+        'sewcute' => function($collection)
+        {
+
+            $collection->directory('assets/megacorp/css', function($collection)
+            {
+                // $collection->add('less/master.less')->apply('Less');
+                $collection->add('megacorp.css');
+            })->apply('UriRewriteFilter')->setArguments(public_path());
+
+        },
+
+        'megacorp' => function($collection)
+        {
+
+            $collection->directory('assets/megacorp/css', function($collection)
+            {
+                // $collection->add('less/master.less')->apply('Less');
+                $collection->add('megacorp.css');
+            })->apply('UriRewriteFilter')->setArguments(public_path());
+
+        },
+
+        'gristech' => function($collection)
+        {
+
+            $collection->directory('assets/gristech/css', function($collection)
+            {
+                // $collection->add('less/master.less')->apply('Less');
+                $collection->add('gristech.css');
+            })->apply('UriRewriteFilter')->setArguments(public_path());
+
+        },
 
         'public-css' => function($collection)
         {
@@ -59,6 +147,7 @@ return array(
                 $collection->add('bootstrap-responsive.min.css');
                 // $collection->add('redactor/redactor.min.js');
                 $collection->add('style.css');
+                $collection->add('redactor/redactor.css');
             })->apply('UriRewriteFilter')->setArguments(public_path());
         },
         'public-js' => function($collection)
@@ -68,7 +157,6 @@ return array(
                 $collection->add('jquery.v1.8.3.min.js');
                 $collection->add('bootstrap/bootstrap.min.js');
                 $collection->add('redactor/redactor.min.js');
-                $collection->add('redactor/redactor.css');
             })->apply('UriRewriteFilter')->setArguments(public_path());
         },
 
@@ -87,6 +175,7 @@ return array(
                 $collection->add('redactor/redactor.css');
             })->apply('UriRewriteFilter')->setArguments(public_path());
         },
+
         'admin-js' => function($collection)
         {
             $collection->directory('assets/js', function($collection)
@@ -315,3 +404,5 @@ return array(
     )
 
 );
+
+

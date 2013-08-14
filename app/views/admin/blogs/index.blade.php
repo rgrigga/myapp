@@ -51,7 +51,7 @@ Website Management ::
 
 
 <div>
-	 <span class="label label-info">Info</span> Need help?  Please ask!
+	 <span class="label label-info">Info</span> IP: {{getRealIpAddr()}}
 </div>
 
 <?php
@@ -89,19 +89,16 @@ function getRealIpAddr()
 // If you are having problems with your SSL certificate, ask your host for assistance. SiteGround offers the best SSL hosting and any SSL issues are resolved quickly and efficiently.
 ?>
 
-<h2>IP: {{getRealIpAddr()}}</h2>
+<h2></h2>
 
 
 
 
 <p>
 	<a href="http://gristech.com/webmail">Webmail</a>
-
 </p>
 
 <div class="page-header">
-	
-
 	<h3>
 		Website Management :)
 		<div class="pull-right">
@@ -179,7 +176,7 @@ function myviews(array $array){
 
 					<h4>{{{$post->id}}}:{{{ $post->title }}}</h4>
 					<p>{{{$post->meta_title}}}</p>
-					<p><a href="{{URL::to($post->slug)}}">{{{$post->slug}}}</a></p>
+					<p><a href="{{$post->url()}}">{{{$post->slug}}}</a></p>
 
 
 

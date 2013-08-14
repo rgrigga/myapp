@@ -1,3 +1,5 @@
+
+<h1>BAM BAM BAM</h1>
 <div class="about" id="about" name="about">
 	<h1>{{{$company->name}}}</h1>
 
@@ -12,7 +14,6 @@
 
 	@if(Auth::user('admin'))
 <!-- http://stackoverflow.com/questions/5872096/function-to-add-dashes-to-us-phone-number-in-php -->
-	<!-- <p></p> -->
 	<p>
 		<a href="/companies/{{{$company->id}}}/edit">edit</a>
 	</p>

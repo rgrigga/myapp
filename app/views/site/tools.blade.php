@@ -901,14 +901,14 @@ I lift my lamp beside the golden door!"</span></p>
 		By the way, this page is an example of a fluid grid system
 
 	</p>
-	<p>A windows developer once told me: "I would never use beta code in a produciton environment.
+	<blockquote>"I would never use beta code in a production environment.
 								They must not use Facebook or Google.  Both publish beta code.  The difference between beta and production is 
 								not that the .  Frankly I think it feels sort of arrogant to declare that the project is stable and complete.
 								  That may be fine for small projects, but the rule should not apply to large, complex projects.
 								  A major release is one thing.  
 
 								  Packagist and Composer take care of dependancies.  Git takes care of version control.
-								  Sublime SFTP automatically uploads over SFTP."</p>
+								  Sublime SFTP automatically uploads over SFTP."</blockquote>
 
 
 </div>

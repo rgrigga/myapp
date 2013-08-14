@@ -1,4 +1,4 @@
-@extends('layouts.scaffold')
+@extends('site.layouts.bs3')
 
 @section('admin-top')
 @if(Auth::user('admin'))
@@ -29,7 +29,7 @@ Welcome Administrator!
 @stop
 
 @section('styles')
-<!-- //Too many styles hurt page speed, you should only use what you need -->
+<!-- //Too many styles hurt page speed, one should only use what they need -->
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
 <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Graduate' rel='stylesheet' type='text/css'>
@@ -41,13 +41,10 @@ Welcome Administrator!
 
 <!-- credits -->
 
-
-
 <!-- <a href="http://packalyst.com/packages/package/thapp/jitimage">Image Magik</a> -->
 <style>
 
 /*images*/
-
 
 /*GIMP Palette
 Name: Color Palette by Color Scheme Designer #5n11Tw0w0w0w0Columns: 4
@@ -62,7 +59,6 @@ Name: Color Palette by Color Scheme Designer #5n11Tw0w0w0w0Columns: 4
 /*Am I good enough?
 Can my skills be applied in this business?
 Am I doing the right things with my time?*/
-
 
 	/*this has ramifications:*/
 	.container{
@@ -745,29 +741,23 @@ a:hover {text-decoration: none}
 	    <li><a href="#{{$menu}}" data-toggle="tab"><i class="icon-rocket icon-4x"></i> {{{$menu}}}</a></li>
 	    @endforeach
 
-
-
-
-
-
 	    <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
 	    <li class="active"><a href="#tab2" data-toggle="tab">Section 2</a></li>
 	    <li class="active"><a href="#tab3" data-toggle="tab">Section 3</a></li>
 	  </ul>
 	  
 	  <div class="tab-content">
-<style>
-.tab-pane{
-	overflow: none;
-}
-	.tab-pane img{
-		max-width: 70%;
-		/*overflow: none;*/
-	}
-</style>
-
+		<style>
+			.tab-pane{
+				overflow: none;
+			}
+			.tab-pane img{
+				max-width: 70%;
+				/*overflow: none;*/
+			}
+		</style>
 	    <div class="tab-pane active" id="tab1">
-	      <p>This is all about us.</p>
+	      <p>How can we help you?</p>
 	      <img src="{{{asset('assets/sewcute/path5495.png')}}}" alt="">
 	    </div>
 	    <div class="tab-pane" id="tab2">
@@ -956,16 +946,21 @@ a:hover {text-decoration: none}
 
 <script>
 
-    window.onload = function()
-    {
-    	// alert('bam!');
-        if(!window.jQuery)
-        {
-            alert('jQuery not loaded');
-        }
-        else
-        {
-        		alert('jQuery is loaded');
+    // window.onload = function()
+    // {
+    // 	// alert('bam!');
+    //     if(!window.jQuery)
+    //     {
+    //         alert('jQuery not loaded');
+    //     }
+    //     else
+    //     {
+    //     		// alert('jQuery is loaded');
+
+    //     }
+    // }
+
+    
             $(document).ready(function(){
                 // $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
 
@@ -997,8 +992,6 @@ a:hover {text-decoration: none}
 				});
 
             });
-        }
-    }
 
 
 </script>

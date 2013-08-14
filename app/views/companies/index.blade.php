@@ -2,6 +2,7 @@
 
 @section('nav')
 <!-- @ include('admin') -->
+@parent
 @stop
 @section('main')
 
@@ -55,15 +56,7 @@
     There are no companies
 @endif
 
-todo:
-<ul>
-    <li>
-        <a href="https://github.com/yhbyun/laravel-bookmark">Bookmarks</a>
-    </li>
-    <li>
-        <a href="http://www.siteground.com/tutorials/sitemap/">Sitemap</a>
-    </li>
-</ul>
+
             
 @stop
                 

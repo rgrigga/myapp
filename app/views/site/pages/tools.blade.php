@@ -946,16 +946,19 @@ I lift my lamp beside the golden door!"</span></p>
 		By the way, this page is an example of a fluid grid system
 
 	</p>
-	<p>A windows developer once told me: "I would never use beta code in a produciton environment.
-								They must not use Facebook or Google.  Both publish beta code.  The difference between beta and production is 
-								not that the .  Frankly I think it feels sort of arrogant to declare that the project is stable and complete.
-								  That may be fine for small projects, but the rule should not apply to large, complex projects.
-								  A major release is one thing.  
+	<blockquote>"I would never use beta code in a production environment."</blockquote>
+								Facebook and Google do.  Both publish always-beta code.  The difference between beta and production is just terminology.  I'd rather think about how to make it easier to maintain or change.
 
-								  Packagist and Composer take care of dependancies.  Git takes care of version control.
-								  Sublime SFTP automatically uploads over SFTP."</p>
+								This is where unit testing comes in.  I need to get phpunit up and running: I have recently had difficulty doing so.
 
+	Frankly I think it feels sort of arrogant to declare that the project is stable and complete.
 
+								  <blockquote>
+								  	That may be fine for small projects, but the rule should not apply to large, complex projects.
+								  </blockquote>
+								  Rolling out a major release is one thing, but what better testing is there than real-world use?
+
+								  Composer manages dependencies, take care of dependancies.  Git takes care of version control.  Sublime SFTP automatically uploads over SFTP."
 </div>
 
 

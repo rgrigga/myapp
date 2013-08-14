@@ -43,7 +43,6 @@ class AdminDashboardController extends AdminController {
         $env=App::environment();
         $company = $this->company->where('brand','LIKE',$env)->first();
 
-
         if(!$company){
             $company = $this->company->where('brand','LIKE','gristech')->first();
         }
