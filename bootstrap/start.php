@@ -90,4 +90,12 @@ require $framework.'/Illuminate/Foundation/start.php';
 |
 */
 
+// broken:
+// $env=App::environment();
+// $company = New Company;
+// $company = $company->where('brand','like',$env)->first();
+// dd($company);
+// // $brand=strtolower($company->brand);
+// View::share('company',$company);
+
 return $app;

@@ -3,7 +3,7 @@ use Robbo\Presenter\PresentableInterface;
 // https://github.com/robclancy/presenter#usage
 
 // class Company extends Eloquent implements PresentableInterface{
-class Company extends Eloquent{
+class Company extends Eloquent implements PresentableInterface{
     protected $guarded = array();
 
     public static $rules = array(
@@ -31,7 +31,7 @@ class Company extends Eloquent{
 		// var_dump($this->meta_keywords);
 		$menus=array();
 		$menus=explode(',', $this->menus);
-// var_dump($menus);
+		// var_dump($menus);
 		if(!$menus){
 		 array_push($menus, 'private');
 		}
@@ -59,6 +59,6 @@ class Company extends Eloquent{
 	}
 
 	public function directory(){
-		return "assets/".strtolower($this->brand);
+		return "assets/".strtolower($this->brand)."/";
 	}
 }

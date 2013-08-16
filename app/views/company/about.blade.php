@@ -1,5 +1,5 @@
 
-<h1>BAM BAM BAM</h1>
+<!-- <h1>BAM BAM BAM</h1> -->
 <div class="about" id="about" name="about">
 	<h1>{{{$company->name}}}</h1>
 

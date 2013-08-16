@@ -1,4 +1,10 @@
 <?php
+// http://net.tutsplus.com/tutorials/php/all-about-mocking-with-phpunit/
+// http://phpunit.de/manual/3.7/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.output
+
+// phpinfo();
+// die();
+
 // die("ROUTES");
 // $foo="bar"; //fails here: scope does not apply within routes.
 
@@ -22,6 +28,8 @@
 //     return View::make('site.pages.debug');
 // });
 
+
+
 /** ------------------------------------------
  *  Route model binding
  *  ------------------------------------------
@@ -34,6 +42,29 @@ Route::model('company','Company');
 
 // Calling Route::model here means "user->username" should
 // work.
+
+// App::singleton('company', function()
+// {
+//     $env=App::environment();
+//     $company = New Company;
+//     $company = $company->where('brand','like',$env)->first();
+//     // View::share('company',$company);
+//     return $company;
+// });
+
+
+// View::composer('*',function($view){
+//     $env=App::environment();
+//     $company = Company::where('brand','like',$env)->first();
+//     View::share('company',$company);
+// });
+    // $env=App::environment();
+    // $company = App::make('Company');
+    // $company = $company->where('brand','like',$env)->first();
+    // // $brand=strtolower($company->brand);
+    // App::instance('company',$company);
+    // die(var_dump($company));
+
 
 //Route::resource('companies', 'CompaniesController');
 Route::resource('tweets', 'TweetsController');
@@ -53,10 +84,15 @@ View::composer('*.home',function($view){
 // ??? Could not get this to work, nor do I want to?
 // Nervous about misuse of globals
 
-// App::bind('company', function($app)
-// {
-//     return new Company;
-// });
+ // App::singleton('company', function()
+ // {
+ //    $c= new Company;
+ //    $c=$c->where('brand',"LIKE",'gristech')->first();
+ //    return $c;
+ // });
+
+// $comp=App::make('company');
+// die(var_dump($comp));
 
 // $env=App::environment();
     
@@ -260,12 +296,12 @@ Route::group(array('domain' => 'myapp.devfoo'),function(){
 
 Route::group(array('domain' => 'myapp.dev'),function()
 {
-	 App::bind('company', function($app)
-		{
-		    return Company::where('brand','like','gristech')->first();
-		});
+	 // App::bind('company', function($app)
+		// {
+		    // return Company::where('brand','like','gristech')->first();
+		// });
 		
-		$company=App::make('company');
+		// $company=App::make('company');
 
     // App::singleton('mycompany', function($app)
     // {
@@ -391,12 +427,17 @@ Route::group(array('domain' => 'myapp.dev'),function()
         return View::make('site.user.index');
     });
 
+    
+    Route::get('companies','CompaniesController@getIndex');
+
     Route::get('company','CompaniesController@getIndex');
     Route::get('company/mylist','CompanyController@mylist');
     Route::get('company/{name}','CompanyController@getIndex')
         ->where('name', '[a-zA-Z_]+');
     Route::get('company/{id}','CompanyController@show')
         ->where('id', '[0-9]+');
+
+// Route::controller('companies','CompaniesController');
 
 // idea: display "featured" set of posts?
 
@@ -463,12 +504,12 @@ Route::group(array('domain' => 'buckeyemower.com'),function(){
 //////////////////////////////////////////////////////////////////
     // http://codebright.daylerees.com/architecture (l4)
     // http://codehappy.daylerees.com/ioc-container (l3)
-    App::bind('company', function($app)
-    {
-        return Company::where('brand','like','buckeye')->first();
-    });
+    // App::bind('company', function($app)
+    // {
+    //     return Company::where('brand','like','buckeye')->first();
+    // });
     
-    $company=App::make('company');
+    // $company=App::make('company');
 
 //////////////////////////////////////////////////////////////////////
 //////////////////////// ROUTE MODEL /////////////////////////////////

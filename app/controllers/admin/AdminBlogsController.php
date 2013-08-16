@@ -24,6 +24,12 @@ class AdminBlogsController extends AdminController {
         $this->company=$company;
         $this->post = $post;
         // die(var_dump($company));
+
+        $env=App::environment();
+        $company = $this->company->where('brand','like',$env)->first();
+        // $brand=strtolower($company->brand);
+
+        View::share('company',$company);
     }
 
     /**

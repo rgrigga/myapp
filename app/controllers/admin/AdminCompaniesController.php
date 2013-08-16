@@ -11,7 +11,12 @@ class AdminCompaniesController extends AdminController {
 
     public function __construct(Company $company)
     {
+        parent::__construct();
         $this->company = $company;
+
+        $this->company=App::make('company');
+        View::share('company',$this->company);
+
     }
 
     /**
@@ -22,7 +27,7 @@ class AdminCompaniesController extends AdminController {
 
     public function index()
     {
-        
+//                 die(var_dump($this->company));
 // App::error(function(RuntimeException $exception){
 //     Log::error($exception);
 //     Session::flash('message','AdminCompaniesController@getIndex');
@@ -38,7 +43,7 @@ class AdminCompaniesController extends AdminController {
 
     public function getIndex()
     {
-        
+//                 die(var_dump($this->company));
 // App::error(function(RuntimeException $exception){
 //     Log::error($exception);
 //     Session::flash('message','AdminCompaniesController@getIndex');
@@ -46,6 +51,10 @@ class AdminCompaniesController extends AdminController {
 //     App::abort(404,'Company not present.');
 //     // return die('Sorry! Something is wrong with this account!');
 // });
+
+
+        
+// die(var_dump($company));
 
         $companies = $this->company->all();
 

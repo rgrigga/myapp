@@ -19,6 +19,8 @@ class AdminCommentsController extends AdminController
         $this->comment = $comment;
         $this->company=$company;
         $this->post=$post;
+        $this->company=App::make('company');
+        View::share('company',$this->company);
     }
 
     /**

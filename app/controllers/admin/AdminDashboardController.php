@@ -24,6 +24,8 @@ class AdminDashboardController extends AdminController {
         parent::__construct();
         $this->post = $post;
         $this->company = $company;
+        $this->company=App::make('company');
+        View::share('company',$this->company);
     }
 
 	/**

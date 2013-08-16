@@ -22,9 +22,6 @@
   		/*border-color: #4C58AD;*/
 	/*}*/
 
-
-
-
 </style>
 
 <div class="jumbotron masthead">

@@ -2,7 +2,7 @@
 
 @section('nav')
 <!-- @ include('admin') -->
-@parent
+<!-- @ parent -->
 @stop
 @section('main')
 
@@ -19,31 +19,31 @@
 @if ($companies->count())
 <div class="row">
             <ul>
-            @foreach ($companies as $company)
+            @foreach ($companies as $mycompany)
                 <li>
-                    {{{ $company->name }}}
+                    {{{ $mycompany->name }}}
                 </li>
             @endforeach
             </ul>
 
-            @foreach ($companies as $company)
+            @foreach ($companies as $mycompany)
 
             
             <div class="well span2" id="index">
-                {{ link_to_route('companies.show', 'Show', array($company->id), array('class' => 'btn btn-info btn-mini')) }}
-                {{ link_to_route('companies.edit', 'Edit', array($company->id), array('class' => 'btn btn-info btn-mini')) }}
-                <h3>{{{ $company->id }}}: {{{ $company->name }}}</h3>
-                <img src="{{{asset('assets/'.strtolower($company->brand).'/'.$company->image)}}}" alt="LOGO">
+                {{ link_to_route('companies.show', 'Show', array($mycompany->id), array('class' => 'btn btn-info btn-mini')) }}
+                {{ link_to_route('companies.edit', 'Edit', array($mycompany->id), array('class' => 'btn btn-info btn-mini')) }}
+                <h3>{{{ $mycompany->id }}}: {{{ $mycompany->name }}}</h3>
+                <img src="{{{asset('assets/'.strtolower($mycompany->brand).'/'.$mycompany->image)}}}" alt="LOGO">
                 
-                <p>{{{ $company->brand }}}</p>
-                <p>"{{{ $company->slogan }}}"</p>
-                <p>{{{ $company->description }}}</p>
+                <p>{{{ $mycompany->brand }}}</p>
+                <p>"{{{ $mycompany->slogan }}}"</p>
+                <p>{{{ $mycompany->description }}}</p>
 
-                <p>{{{ $company->phone }}}</p>
-                <p>{{{ $company->email }}}</p>
+                <p>{{{ $mycompany->phone }}}</p>
+                <p>{{{ $mycompany->email }}}</p>
                 
 
-                {{ Form::open(array('method' => 'DELETE', 'route' => array('companies.destroy', $company->id))) }}
+                {{ Form::open(array('method' => 'DELETE', 'route' => array('companies.destroy', $mycompany->id))) }}
                 {{-- Form::submit('Delete', array('class'=> 'btn btn-danger')) --}}
                 {{ Form::close() }}
             </div>

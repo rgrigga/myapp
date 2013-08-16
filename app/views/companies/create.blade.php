@@ -1,7 +1,9 @@
 @extends('admin.layouts.default')
 
 @section('main')
-
+<?php
+// die(var_dump($company));
+?>
         @if ($errors->any())
             <div class="row alert-error">
             <ul>
@@ -67,7 +69,7 @@
 
     </div>
     <div class="span7">
-        {{View::make('site/gristech/about')}}
+        {{--View::make('site/gristech/about')--}}
     </div>
 </div>
 

@@ -2,6 +2,8 @@
 <html lang="en">
 <!-- http://stackoverflow.com/questions/1461907/html-encoding-issues-character-showing-up-instead-of-nbsp -->
 
+{{--App::abort('404',var_dump($company));--}}
+
 <!-- This is layouts.scaffold -->
 <!-- check out http://flatuicolors.com/ -->
     <head>

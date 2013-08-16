@@ -92,9 +92,14 @@ class BlogController extends BaseController {
 //??? Is this a bad idea?  I read that 
 //using the environment this way may not be safe
 
-		$env=App::environment();
-		$company = $this->company->where('brand','like',$env)->first();
-		$this->company=$company;
+		// $env=App::environment();
+		// $company = $this->company->where('brand','like',$env)->first();
+		
+		// $this->company=$company;
+
+//How about this... I defined an IOC singleton in routes...
+$this->company=App::make('company');
+// die(var_dump($company));
 
 		// die(var_dump($company));
         // $this->todo = array('hello','bar','make list');

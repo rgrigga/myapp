@@ -34,6 +34,7 @@ class AdminUsersController extends AdminController {
         $this->role = $role;
         $this->permission = $permission;
         $this->company=$company;
+        $this->company=App::make('company');
         View::share('company',$this->company);
     }
 

@@ -1,8 +1,8 @@
 <?php
-
+// die(var_dump('companies controller'));
 class CompaniesController extends BaseController {
 
-    // public $layout = 'admin.layouts.default';
+    public $layout = 'admin.layouts.default';
     // @extends('admin.layouts.default')
     /**
      * Company Repository
@@ -13,8 +13,14 @@ class CompaniesController extends BaseController {
 
     public function __construct(Company $company)
     {
+        parent::__construct();
         $this->company = $company;
 
+// $this->company=App::make('company');    
+// // die(var_dump($company));    
+View::share('company',$this->company);
+
+// http://misko.hevery.com/2008/08/17/singletons-are-pathological-liars/
 
     }
 
@@ -25,19 +31,25 @@ class CompaniesController extends BaseController {
      */
     public function getIndex()
     {
-
-
-        $companies = $this->company->get();
+// die(var_dump($this->company));
+        $companies = $this->company->all();
 
         return View::make('companies.index', compact('companies'));
     }
 
     public function index(){
+// $this->company=App::make('company');
+// die(var_dump($this->company));
         // return Redirect::route('companies.index');
-        $companies = $this->company->get();
+        // $c=new Company;
+        // die(var_dump($c));
 
+        $companies = $this->company->all();
+        
+        // View::share('company',$this->company);
         return View::make('companies.index', compact('companies'))
         // ->nest('about','company/about')
+        // return Redirect::to('admin/companies');
         ;
     }
 
@@ -48,6 +60,8 @@ class CompaniesController extends BaseController {
      */
     public function create()
     {
+        // $this->company=App::make('company');
+        
         return View::make('companies.create');
     }
 

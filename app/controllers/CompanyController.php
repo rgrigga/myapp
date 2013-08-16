@@ -43,12 +43,13 @@ class CompanyController extends UserController {
     public function __construct(Company $company, User $user, Post $post)
     {
 
-    	// parent::construct();?
+    	parent::construct();
 // die(var_dump($company));
         $this->post = $post;
         $this->user = $user;
         $this->company = $company;
-
+        $this->company=App::make('company');
+        View::share('company',$this->company);
         // View::share('company',$this->company);
 
         // App::abort(404,'company controller construct'.var_dump($this->company));
@@ -93,8 +94,7 @@ class CompanyController extends UserController {
 		return $this->getIndex('gristech',5);
 	}
 
-	public function getIndex($brand='',$num='10')
-	{
+	public function getIndex($brand='',$num='10'){
 		$company=App::make('company');
 		$brand=strtolower($company->brand);
 		$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$brand.'%')->paginate($num);
@@ -111,18 +111,19 @@ class CompanyController extends UserController {
 				->with(compact('posts'))
 				// ->with(compact('brand'))
 				;
-		}
+		// }
 
-		return View::make('site/'.$brand.'/home')
-			->nest('posts','site.blog.miniindex')
-			->with(compact('company'))
-			->with(compact('tags'))
-			->with(compact('alltags'))
-			->with(compact('posts'))
-			// ->with(compact('brand'))
-			;
+		// return View::make('site/'.$brand.'/home')
+		// 	->nest('posts','site.blog.miniindex')
+		// 	->with(compact('company'))
+		// 	->with(compact('tags'))
+		// 	->with(compact('alltags'))
+		// 	->with(compact('posts'))
+		// 	// ->with(compact('brand'))
+		// 	;
 		
 	}
+
 
 public function mylist(){
 

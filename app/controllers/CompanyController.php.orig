@@ -1,7 +1,7 @@
 <?php
-		App::bind('company',function($company){
-			return new Company;
-		});
+		// App::bind('company',function($company){
+		// 	return new Company;
+		// });
 // http://laravel.com/docs/responses
 // https://github.com/symfony/HttpFoundation
 // class Buckeyeontroller ext

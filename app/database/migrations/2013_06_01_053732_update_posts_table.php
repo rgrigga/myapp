@@ -14,7 +14,7 @@ class UpdatePostsTable extends Migration {
 	{
 		Schema::table('posts', function(Blueprint $table)
 		{
-			$table->text('image');
+			// $table->text('image');
 		});
 	}
 

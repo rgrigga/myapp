@@ -13,7 +13,7 @@ class AddEmailToCompaniesTable extends Migration {
     public function up()
     {
         Schema::table('companies', function(Blueprint $table) {
-            $table->string('email');
+            // $table->string('email');
         });
     }
 

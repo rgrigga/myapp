@@ -16,7 +16,7 @@
 		"zizaco/confide": "dev-master",
 		"zizaco/entrust": "dev-master",
 		"jasonlewis/basset": "dev-master",
-		"robclancy/presenter": "1.1.*",
+		"robclancy/presenter": "1.2.*",
 		"jasonlewis/enhanced-router": "1.0.*"
 	},
 	"require-dev": {
