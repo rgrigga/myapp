@@ -18,11 +18,10 @@
 					company management
 				</li>
 			</ul>
-			My original contributions include the tag management system, design, implementing redactor, etc.
+			My original contributions include the Company management, tag management system, overall design, implementing redactor, etc.
 
 			I am planning to provide this application an interface directly to the wordpress database, thereby giving us the ability to import wordpress blog posts, without having to hassle with or configure anything.  As long as we have permissions, and as long as the table names are correct, we should be able to pull anything we like from wordpress.  The next step is to also push to wordpress.
 			
-			thereby giving us the ability to use content from a wordpress site.    So far, I am the only person I know who recognizes the
 		</div>
 
 		<div>The site is built on php, javascript and... well, please visit "tools" or to learn more about that.</div>
@@ -39,12 +38,15 @@
 <h2>UI</h2>
 
 <h3>jQuery</h3>
-<p>I perceive a divide in php-land that scoffs at implementing javascript, or at least from depending on it.  jQuery is amazing.  I am curious about </p>
+<p>I perceive a divide in php-land that scoffs at implementing javascript, or at least from depending on it.  jQuery is amazing.  I am curious about other implementations of Javascript.  I am concerned about being dependent on them.  One good example is the wysiwyg editor.</p>
+
+<p>My initial thinking was to avoid deeply implementing Redactor, because I don't want there to be an inherent dependency on it.  That, and, it's not free.  Amazingly, I recently went through the process of changing laravel's WYSIWYG editor to redactor and back, and it all occurs within 3 lines of code.  In other words, you only have to change 3 lines of code to change the editor.  The experience taught me to think more about the importance of modular design.  The developer's choices about how to implement a feature determine modularity, not necessarily the feature or program iteself.</p>
 
 credits
 http://www.vectortemplates.com/vector-web-site-templates.php
 
 https://github.com/cheeaun/mooeditable/wiki/Alternative-Javascript-WYSIWYG-editors#lightweight-versions
+
 Alternative Javascript WYSIWYG editors
 Lightweight versions
 

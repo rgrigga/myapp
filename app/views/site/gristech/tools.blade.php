@@ -6,22 +6,22 @@
 
 <style>
 
-	/*.jumbotron{*/
-		/*font-family: font-awesome;*/
-	/*}*/
-	/*.golf {*/
-		/*color: white;*/
-		/*background-color: #4C58AD;*/
-		/*background-opacity:50%;*/
-		/*font-family: font-awesome;*/
-		/*margin:10px;*/
-		/*border-radius: 30px;*/
-	    /*background-color: #cccccc;*/
-	    /*box-shadow: 10px 10px 5px #666666;*/
-	    /*padding: 0px;*/
-	    /*border-width: 0px;*/
-  		/*border-color: #4C58AD;*/
-	/*}*/
+	.jumbotron{
+		font-family: font-awesome;
+	}
+	.golf {
+		color: white;
+		background-color: #4C58AD;
+		background-opacity:50%;
+		font-family: font-awesome;
+		margin:10px;
+		border-radius: 30px;
+	    background-color: #cccccc;
+	    box-shadow: 10px 10px 5px #666666;
+	    padding: 0px;
+	    border-width: 0px;
+  		border-color: #4C58AD;
+	}
 
 </style>
 

@@ -450,12 +450,15 @@ $this->company=App::make('company');
 		// 	die('fail');
 		// }
 
-		$mycompany=$this->company;
-		$env=App::environment();
-		$msg="";
+		// $mycompany=$this->company;
+		// $env=App::environment();
+	$msg="";
 
 	// singleton versus dependency injection?
-    // $company=App::make('company');
+
+// $env=App::environment();
+    $company=App::make('company');
+
 		if($tag){
 			
 			View::share('tag',strtoupper($tag));
@@ -472,7 +475,7 @@ $this->company=App::make('company');
 // this sends back the page if it exists in the specified directory.
 
 				$mypage=$this->getPage($tag);
-				//This would yied a page in views/site/pages
+				//This would yield a page in views/site/pages
 				if($mypage){
 					return View::make('site.pages.'.$tag)
 				    	->with(compact('company'))
@@ -570,12 +573,14 @@ $this->company=App::make('company');
 				// ;
 			}
 
-			//else count > 1
+			//else count of posts > 1
+
 			$this->post = $posts;
-				// die(var_dump($this->post));
-			// View::share('search','site.partials.search');
-        // View::share('carousel','site.partials.carousel');
-			//otherwise, count of posts is greater than 1
+			
+			// die(var_dump($this->post));
+			View::share('search','site.partials.search');
+        	View::share('carousel','site.partials.carousel');
+			
 
 			$tags=array();		
 			foreach ($posts as $post) {
@@ -597,15 +602,16 @@ $this->company=App::make('company');
 			// echo $c;
 			// die();
 			return View::make('site/blog/tags')
-				->nest('search','site.partials.search')
-				->nest('carousel','site.partials.carousel')
+				// ->nest('search','site.partials.search')
+				// ->nest('carousel','site.partials.carousel')
 				->with(compact('company','tags','alltags','posts'))
 
 				// ->with(compact('tags'))
 				// ->with(compact('alltags'))
 				// ->with(compact('posts'))
 				->with('message',$str);
-			//else there are many, so must be tag
+			
+		//else there are many, so must be tag
 
 
 
@@ -621,8 +627,8 @@ $this->company=App::make('company');
 		else{ //there is no tag
 			//this is a request for the home page
 
-			$company = $this->company->where('brand','like',$env)->first();
-			View::share('company',$company);
+			// $company = $this->company;
+			// View::share('company',$company);
 
 // return $collection;
 // die(var_dump($company));
@@ -632,10 +638,12 @@ $this->company=App::make('company');
 				
 				//this allows one to query the posts in a particular order.
 				// $mylist=array(56,58,67,69);
-				
+				$env=App::environment();
 				// die(var_dump($posts));
 				if($env=='buckeye'){
 					$posts=$this->myposts(array(56,58,67,69));
+					//get company list of posts
+					//company home page settings
 				}
 
 				else{
@@ -669,12 +677,14 @@ $this->company=App::make('company');
 					;
 
 			}
-			else die ('Blog index Probelm ~617!');
+			else die ('Blog index Probelm ~672!');
+			//throw graceful error
+			//there is no company
 		}
 
 ////////////////////////////////////////////////////
 		/**
-		junk from here down
+		old junk from here down
 		**/
 		
 // die("BAM!");

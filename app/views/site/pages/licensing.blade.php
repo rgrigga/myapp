@@ -12,5 +12,9 @@ Licensing
 
 <a href="http://bootsnipp.com/license">Bootsnip</a>
 
-<iframe frameborder="no" width="600px" height="200px" src="http://l4.gristech.com/piwik/index.php?module=CoreAdminHome&action=optOut&language=en"></iframe>
+<iframe frameborder="no" width="600px" height="200px" src="http://bootsnipp.com/license"></iframe>
+
+
+
+
 @stop

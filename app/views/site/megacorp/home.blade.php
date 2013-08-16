@@ -40,8 +40,9 @@
 
 html,body {
 
-	/*background-color: rgba(235,196,162,.2);*/
-	color: white;
+	background-color: rgba(235,196,162,.2);
+
+	/*color: black;*/
 	font-family: 'EB Garamond', serif;
 
 }
@@ -56,8 +57,8 @@ html,body {
 	/*font-family: 'Mr De Haviland', cursive;*/
 	/*font-family: 'Monsieur La Doulaise', cursive;*/
 	font-family: 'Kaushan Script', cursive;
-	/*color:#ffbe73;*/
-	color: #ffe9b9;
+	color:#ffbe73;
+	/*color: #ffe9b9;*/
 	text-shadow: 8px 8px 8px #A63A00;
 }
 
@@ -82,10 +83,10 @@ html,body {
 	color:rgba(44, 62, 80,1.0);
 }
 .well{
-	background-color: rgba(121,186,242,1);
+	background-color: rgba(121,186,242,.5);
 	/*border-bottom-radius: 30px;*/
 	border-bottom-left-radius: 30px;
-	border-bottom-right-radius: 30px;
+	/*border-bottom-right-radius: 30px;*/
 	/*box-shadow: 2px 2px 1px #8285E6;*/
 	/*font-family: */
 }
@@ -192,11 +193,11 @@ foreach (glob($path."*.blade.php") as $filename) {
 }
 
 .page-header{
-	background-color: rgba(236, 240, 241,1.0);
+	background-color: rgba(136, 140, 141,1.0);
 }
 
 div {
-	background-color: rgba(41, 128, 185,.1)
+	/*background-color: rgba(41, 128, 185,.1)*/
 }
 .corner{
 	background-color: transparent;
@@ -226,10 +227,10 @@ a:hover{
 	font-size: 24px;
 }
 .well img{
-	/*min-height: 100px;*/
-	/*min-width: 100px;*/
-	/*padding:15px;*/
-	/*background-color: white;*/
+	min-height: 100px;
+	min-width: 100px;
+	padding:15px;
+	background-color: white;
 }
 
 
@@ -285,17 +286,9 @@ a:hover{
 	
 
 	</style>
-
-
-
+	
 	<div class="page-header">
 		<!-- <h1>BAM</h1> -->
-		
-
-
-
-
-
 
 		<div class="row-fluid">
 
@@ -313,7 +306,7 @@ a:hover{
 
 									<h3>We treat your home as our own</h3>
 
-									<p>Advantage Services is a family owned business with a standard of excellence in all aspects of Residential and Commercial Painting, Roofing, Deck and Fence Staining, and Power Washing. Formerly known as Advantage Painting, Advantage Services has been known throughout Columbus and it's surrounding areas as the first name in professionalism and quality, since 1990.</p>				
+									<p>{{{$company->name}}} is a family owned business with a standard of excellence in all aspects of Residential and Commercial Painting, Roofing, Deck and Fence Staining, and Power Washing. Formerly known as Advantage Painting, {{{$company->name}}} has been known throughout Columbus and it's surrounding areas as the first name in professionalism and quality, since 1990.</p>				
 								</div>
 								<div class="tab-pane" id="interior">
 									<h2>Interior</h2>
@@ -368,14 +361,14 @@ a:hover{
 			</div>
 			<div class="span7">
 				<a href="#about" data-toggle="tab">
-					<h1>{{$company->brand}}</h1>
+					<!-- <h1>{{--$company->brand--}}</h1> -->
 				</a>
 
 	<h4>Search:</h4>
 	{{$searchbar}}
 <!-- https://developers.facebook.com/docs/reference/api/ -->
-	<!-- graph theory: -->
-				{{--$about--}}
+<!-- graph theory: -->
+				{{$about}}
 				<div class="accordion" id="accordion">
 					<div class="accordion-group">
 						<div class="accordion-heading">
@@ -473,22 +466,22 @@ a:hover{
 			</div>
 		</div>
 
-<!-- 	<div class="span4 pull-right">
+<!-- <div class="span4 pull-right">
 		<div class="well" data-spy="affix" data-offset-top="200">
 			<h2>Foobar</h2>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, impedit, recusandae eius modi cumque obcaecati iusto corporis harum omnis ea expedita possimus sequi aliquam enim consequuntur soluta veniam a nihil.</p>
 		</div>
 	</div> -->
 
-<!-- 		<div class="row-fluid">
+<!--  		<div class="row-fluid">
 			<div class="span12">
-				<div id="search_engine-US-monthly-201307-201307-bar" width="600" height="400" style="width:600px; height: 400px;"></div>-->
+				<div id="search_engine-US-monthly-201307-201307-bar" width="600" height="400" style="width:600px; height: 400px;"></div> -->
 
 				<!-- You may change the values of width and height above to resize the chart -->
 				
-				<!--<p>Source: <a href="http://gs.statcounter.com/#search_engine-US-monthly-201307-201307-bar">StatCounter Global Stats - Search Engine Market Share</a></p><script type="text/javascript" src="http://www.statcounter.com/js/FusionCharts.js"></script><script type="text/javascript" src="http://gs.statcounter.com/chart.php?search_engine-US-monthly-201307-201307-bar"></script>
+<!-- 				<p>Source: <a href="http://gs.statcounter.com/#search_engine-US-monthly-201307-201307-bar">StatCounter Global Stats - Search Engine Market Share</a></p><script type="text/javascript" src="http://www.statcounter.com/js/FusionCharts.js"></script><script type="text/javascript" src="http://gs.statcounter.com/chart.php?search_engine-US-monthly-201307-201307-bar"></script>
 			</div>
-		</div> -->
+		</div>  -->
 
 	<div class="tabbable"> <!-- Only required for left/right tabs -->
 		<a href="#about" data-toggle="tab"> about</a>
@@ -561,7 +554,7 @@ a:hover{
 				</div>
 				@endforeach
 				<div class="tab-pane active" id="tab1">
-					<p>Advantage Services is a family owned business with a standard of excellence in all aspects of Residential and Commercial Painting, Roofing, Deck and Fence Staining, and Power Washing. Formerly known as Advantage Painting, Advantage Services has been known throughout Columbus and it's surrounding areas as the first name in professionalism and quality, since 1990.</p>
+					<p>{{{ $company->brand }}} is a family owned business with a standard of excellence in all aspects of Residential and Commercial Painting, Roofing, Deck and Fence Staining, and Power Washing. Formerly known as Advantage Painting, Advantage Services has been known throughout Columbus and it's surrounding areas as the first name in professionalism and quality, since 1990.</p>
 				</div>
 			</div>
 		</div>

@@ -1,6 +1,80 @@
 <?php
+
+// To the mystery man who is anonymously helping with this:
+// In fact, to ALL THOSE who built this project and it's predecessors, 
+// THANK YOU.  I don't know who you are, or why you are 
+// helping me in this way...
+
+// I am sincerely grateful. THANK YOU.
+
+// PS: I have 3 guesses as to who you might be, but you could
+// be anyone for all I know.  One thing I am now concerned about is security.
+// I am humbled, and flattered, and grateful you are a 
+// friend, not a foe: that's for sure!  HOW ARE YOU DOING IT?
+
+// I will buy you a beer if you tell me!
+
+// Even more, I would enjoy a conversation about this app... 
+
+// At the moment, I am unsure of myself, and under a lot 
+// of pressure to get a job quickly and make some money
+// in some capacity.  I am 37 years old, I have 3 kids 
+// and a wife.
+
+// I live in a modest house in Westerville, OH (a suburb of Columbus, Ohio)
+// My wife and I drive modest cars.  I have no credit card debt,
+// but kids are expensive, and I have a couple expensive 
+// hobbies. (Golf, Fishing, Cedar Point, Snow-Skiing).
+
+// I have 10+ years of experience in sales, but balancing
+// sales time and development time in this business seems
+// like it will be a challenge.
+
+// I really need to know if someone thinks my code is OK.
+// Am I doing a good job?  Is this code crap, or is it good?
+// Can this tool I've been working on be turned into something
+// valuable and effective?  Are my skills good enough?  Can I
+// make money with it?  If I can't make money with this
+// immediately, what should I do with myself now?  I am willing
+// to take an entry level programming job anywhere if it's
+// the right use of my skills.
+
+// I don't know how to assess my own skills right now, relative to 
+// others in this marketplace.  Most PHP jobs I have looked
+// at call for more experience than I have.
+
+// At the least, I need a partner, a mentor, or another advisor
+// with experience to help me make good career choice.  
+// I think I have marketable skills, but I need to hear it from 
+// someone else.  A I just dreaming about this as a hobby, or
+// can I do this?
+
+// If I take a full or part-time job somewhere, 
+// I want to work for a small or medium-sized organization.
+
+
+
+// I have been locked in my basement for 3 months.  I need
+// some human interaction, and I would really love to speak with
+// someone about this project on a professional level.
+
+// If you read this, I am all ears!  Please get in touch with me.
+
+/////////////////////////////////////////////////////
+/////////////////////////////////////////////////////
+/////////////////////////////////////////////////////
+
+//REFACTOR EARLY, REFACTOR OFTEN
+
+// UNIT TESTING:
+// https://jtreminio.com/2013/03/unit-testing-tutorial-introduction-to-phpunit/
 // http://net.tutsplus.com/tutorials/php/all-about-mocking-with-phpunit/
 // http://phpunit.de/manual/3.7/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.output
+
+// APACHE & PHP
+// 
+// http://www.debian-administration.org/articles/412
+// https://help.ubuntu.com/community/ApacheMySQLPHP
 
 // phpinfo();
 // die();
@@ -9,8 +83,6 @@
 // $foo="bar"; //fails here: scope does not apply within routes.
 
 // https://github.com/laravel/laravel/issues/2164 - laravel multisite discussion
-// http://www.slideshare.net/go_oh/singletons-in-php-why-they-are-bad-and-how-you-can-eliminate-them-from-your-applications
-// http://stackoverflow.com/questions/7770728/group-vs-role-any-real-difference
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -28,8 +100,6 @@
 //     return View::make('site.pages.debug');
 // });
 
-
-
 /** ------------------------------------------
  *  Route model binding
  *  ------------------------------------------
@@ -41,29 +111,31 @@ Route::model('role', 'Role');
 Route::model('company','Company');
 
 // Calling Route::model here means "user->username" should
-// work.
+// work elsewhere.
 
-// App::singleton('company', function()
-// {
-//     $env=App::environment();
-//     $company = New Company;
-//     $company = $company->where('brand','like',$env)->first();
-//     // View::share('company',$company);
-//     return $company;
-// });
+// This function helps, for example, a given company's home page 
+// display only those posts belonging to that company.
 
+// Nervous about misuse of globals?
+// http://www.slideshare.net/go_oh/singletons-in-php-why-they-are-bad-and-how-you-can-eliminate-them-from-your-applications
+// http://stackoverflow.com/questions/7770728/group-vs-role-any-real-difference
+// http://www.nathandavison.com/posts/view/16/
 
+App::singleton('company', function()
+{
+    $env=App::environment();
+    $company = New Company;
+    $company = $company->where('brand','like',$env)->first();
+    // View::share('company',$company);
+    return $company;
+});
+
+// ??
 // View::composer('*',function($view){
 //     $env=App::environment();
 //     $company = Company::where('brand','like',$env)->first();
 //     View::share('company',$company);
 // });
-    // $env=App::environment();
-    // $company = App::make('Company');
-    // $company = $company->where('brand','like',$env)->first();
-    // // $brand=strtolower($company->brand);
-    // App::instance('company',$company);
-    // die(var_dump($company));
 
 
 //Route::resource('companies', 'CompaniesController');
@@ -74,22 +146,17 @@ View::composer('*.home',function($view){
 // View::composer('*.megacorp.*',function($view){
     $view->nest('searchbar','site.partials.search');
     $view->nest('social','site.partials.social');
+
+    // ?? Does nesting too many views here affect 
+    // performance?
 });
 
 // Route::model('company','Company',function(){
 //     // return Company::where('brand',"LIKE",'gristech')->first();
 // });
+
 // View::share('company', $company);
 
-// ??? Could not get this to work, nor do I want to?
-// Nervous about misuse of globals
-
- // App::singleton('company', function()
- // {
- //    $c= new Company;
- //    $c=$c->where('brand',"LIKE",'gristech')->first();
- //    return $c;
- // });
 
 // $comp=App::make('company');
 // die(var_dump($comp));
@@ -107,9 +174,11 @@ View::composer('*.home',function($view){
     // Route::get('bar/foo',function(){
     //     return Route::currentRouteName();
 
-    //     // compile tags from all of these sources, then search the other resources
-    //     // for those tags.
-    //     // log this path and every action.
+    //     // compile tags from all of these sources, 
+    //     // then search the other resources
+    //     // for those tags... external sources, too.
+    //     // Provide results in an iframe?
+    //     // log this path and every action?
     //     // search for keywords in content & analyze them
 
     //     // http://tools.seobook.com/general/keyword-density/
@@ -130,7 +199,8 @@ View::composer('*.home',function($view){
     // });
 
 // Redactor Blog Upload (incomplete)
-// Deimplementing redactor at this time, It's a great tool, but i don't to be dependent on it
+// Deimplementing redactor at this time, It's a great tool,
+// but i don't to be dependent on it
 ///////////////////////////////////////////////////////////////////////
 
 //here is a demo for the current WYSIWYG editor:
@@ -150,6 +220,7 @@ View::composer('*.home',function($view){
 ///////////////////////////////////////
 ///////ADMIN ROUTES
 ///////////////////////////////////////
+//these apply to ALL companies
 
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 {
@@ -209,20 +280,18 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
         ->where('role', '[0-9]+');
     Route::controller('roles', 'AdminRolesController');
 
-    //     # Company Management
-    // Route::get('companies/create','AdminCompaniesController@getCreate');
-    // Route::get('companies/{company}/show', 'AdminCompaniesController@show')
-    //     ->where('company', '[0-9]+');
-    // Route::get('companies/{company}/edit', 'AdminCompaniesController@edit')
-    //     ->where('company', '[0-9]+');
-    // Route::post('companies/{company}/edit', 'AdminCompaniesController@postEdit')
-    //     ->where('company', '[0-9]+');
-    // Route::get('companies/{company}/delete', 'AdminCompaniesController@getDelete')
-    //     ->where('company', '[0-9]+');
-    // Route::post('companies/{company}/delete', 'AdminCompaniesController@destroy')
-    //     ->where('company', '[0-9]+');
-    // Route::controller('companies', 'AdminCompaniesController');
-
+        # Company Management
+    Route::get('companies/create','AdminCompaniesController@getCreate');
+    Route::get('companies/{company}/show', 'AdminCompaniesController@show')
+        ->where('company', '[0-9]+');
+    Route::get('companies/{company}/edit', 'AdminCompaniesController@edit')
+        ->where('company', '[0-9]+');
+    Route::post('companies/{company}/edit', 'AdminCompaniesController@postEdit')
+        ->where('company', '[0-9]+');
+    Route::get('companies/{company}/delete', 'AdminCompaniesController@getDelete')
+        ->where('company', '[0-9]+');
+    Route::post('companies/{company}/delete', 'AdminCompaniesController@destroy')
+        ->where('company', '[0-9]+');
     Route::controller('companies', 'AdminCompaniesController');
 
     # Admin Dashboard
@@ -362,6 +431,7 @@ Route::group(array('domain' => 'myapp.dev'),function()
 
     // $data=array(compact('company'));
 	// ->with('warning',$message);
+
     // View::composer('home', function($view)
     //     {
     //         $view->with('company', $company);
@@ -399,10 +469,11 @@ Route::group(array('domain' => 'myapp.dev'),function()
         $company=  Company::where('brand','LIKE','gristech')->first();
         // return "Your company is ".$company->brand;
         // $company=
-        // $brand = strtolower($company->brand);
+        $brand = strtolower($company->brand);
         // $company
         return View::make('site.'.$brand.'.home')
          ->with(compact('company'));
+         //posts?
     });
 
 
@@ -462,11 +533,11 @@ Route::group(array('domain' => 'myapp.dev'),function()
 
 
 // Route::get('/', function(){
-        // echo "HI THERE";
-        // $company=Company::where('brand','like','gristech')->first();
-        // die(var_dump($company));
+//         echo "HI THERE";
+//         $company=Company::where('brand','like','gristech')->first();
+//         die(var_dump($company));
         
-    // });
+//     });
     // Route::get('/', 'CompanyController@gristech');
 
 });
@@ -588,6 +659,10 @@ Route::group(array('domain' => 'buckeyemower.com'),function(){
             // die(var_dump($company));
         });
 
+        // Routes referred to here will be executed when
+        // viewing this company's page.  Routes other than
+        // these will be executed by the code below
+
         Route::get('tags', 'BlogController@getIndex');
         Route::post('tags', 'BlogController@getIndex');
 
@@ -639,16 +714,12 @@ Route::group(array('domain' => 'buckeyemower.com'),function(){
 // });
 // Route::get('foo',array('as' => 'company/buckeye', 'uses' => 'CompanyController@getIndex'));
 // 
-
-
     // App::bind('company', function($app)
     // {
     //     return Company::where('brand','like','gristech')->first();
     // });
 
     // $company=App::make('company');
-
-
 
     // Route::get('login',function(){
     // // die("BAM");
@@ -670,16 +741,16 @@ Route::group(array('domain' => 'buckeyemower.com'),function(){
  *  Frontend Routes
  *  ------------------------------------------
  */
-// Route::get('buckeye',function(){
-//     Redirect::to('http://buckeyemower.com');
-// });
+Route::get('buckeye',function(){
+    return Redirect::to('http://buckeyemower.com');
+});
 
-// Route::get('companies',function(){
-//     return Redirect::to('admin/companies')
-//     // return Redirect::to('user/login')
-//         // ->with( 'notice', Lang::get('user/user.user_account_created') );
-//         ->with('notice', 'hello there.');
-// });
+Route::get('companies',function(){
+    return Redirect::to('admin/companies')
+    // return Redirect::to('user/login')
+        // ->with( 'notice', Lang::get('user/user.user_account_created') );
+        ->with('notice', 'hello there.');
+});
 // Route::get('advantage','CompanyController@getIndex',array('name'=>'advantage'));
 
 Route::get('company/{id}','CompanyController@show')
@@ -825,7 +896,6 @@ Rule #4: Use GET in AJAX environments.
 
 why shouldn’t we use POST for safe ones?
 
-
 Simply put, because GET requests are more useable:
 GET requests can be cached
 GET requests can remain in the browser history
@@ -833,7 +903,8 @@ GET requests can be bookmarked
 GET requests can be distributed & shared
 GET requests can be hacked 
 
-all unsafe actions should be made idempotent as nothing can stop users from ignoring warnings.
+all unsafe actions should be made idempotent 
+as nothing can stop users from ignoring warnings.
 
 also:
 http://www.sublimetext.com/forum/viewtopic.php?f=3&t=12382

@@ -36,7 +36,7 @@ return array(
 
             $collection->directory('assets/bs3/css', function($collection)
             {
-                // $collection->add('less/master.less')->apply('Less');
+                $collection->add('../less/master.less')->apply('Less');
                 $collection->add('bootstrap.min.css');
                 $collection->add('mystyle.css');
             
@@ -140,6 +140,7 @@ return array(
 
         'public-css' => function($collection)
         {
+            //bootstrap 2.3.2
             $collection->directory('assets/css', function($collection)
             {
                 // $collection->add('less/master.less')->apply('Less');

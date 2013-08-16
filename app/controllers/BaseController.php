@@ -14,7 +14,6 @@ class BaseController extends Controller {
     public function __construct()
     {
         $this->beforeFilter('csrf', array('on' => 'post'));
-        
     }
 
 	/**
@@ -32,4 +31,4 @@ class BaseController extends Controller {
 
 }
 
-// my first dot my last @ gmail dot com
+// first dot last @ gmail dot com

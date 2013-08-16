@@ -7,9 +7,9 @@
 
 <style>
 
-	/*.jumbotron{*/
-		/*font-family: font-awesome;*/
-	/*}*/
+	.jumbotron{
+		font-family: font-awesome;
+	}
 	/*.golf {*/
 		/*color: white;*/
 		/*background-color: #4C58AD;*/
@@ -26,7 +26,7 @@
 
 </style>
 
-<div class="jumbotron masthead">
+<div class="jumbotron">
 
 	<h1>Do you know about this stuff?<small> If you do, I would really like to talk to you.</small></h1>
 	<!-- <h2>blah</h2> -->
