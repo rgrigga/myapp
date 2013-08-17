@@ -1,5 +1,6 @@
 <?php
 
+// http://raffworks.com/laravel-4-assets-basset-less-part-1/
 // There are at least 4 ways to call these in your views:
 // http://jasonlewis.me/code/basset/4.0/views
 
@@ -65,8 +66,10 @@ return array(
                 $collection->add('wysihtml5/wysihtml5-0.3.0.js');
                 $collection->add('wysihtml5/prettify.css');
                 $collection->add('wysihtml5/bootstrap-wysihtml5-0.0.2.css');
+                $collection->add('less/style.css');
 
                 $collection->add('style.css');
+                // $collection->add('less/style.css');
                 // $collection->add('redactor/redactor.css');
             })->apply('UriRewriteFilter')->setArguments(public_path());
 
@@ -93,7 +96,7 @@ return array(
 
             $collection->directory('assets/buckeye/css', function($collection)
             {
-                $collection->add('less/master.less')->apply('Less');
+                // $collection->add('less/master.less')->apply('Less');
                 $collection->add('bootstrap.min.css');
                 $collection->add('bootstrap-responsive.min.css');
                 $collection->add('buckeye.css');
@@ -121,9 +124,9 @@ return array(
         'megacorp' => function($collection)
         {
 
-            $collection->directory('assets/megacorp/css', function($collection)
+            $collection->directory('assets/css', function($collection)
             {
-                // $collection->add('less/master.less')->apply('Less');
+                // $collection->add('less/megacorp.less')->apply('Less');
                 $collection->add('megacorp.css');
             })->apply('UriRewriteFilter')->setArguments(public_path());
 
@@ -337,6 +340,7 @@ return array(
             |
             */
 
+            // 'Less' => array('LessphpFilter', function($filter)
             'Less' => array('LessFilter', function($filter)
             {
                 $filter->whenAssetIs('*.less')->findMissingConstructorArgs();

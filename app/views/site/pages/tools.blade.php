@@ -457,6 +457,10 @@ p.photocredit {
 	<img src="holder.js/300x300" alt="HOLDER" class="img-circle">
 	<h2>kilo delta</h2>
 
+    <div class="shape" id="shape1">1</div>
+    <div class="shape" id="shape2">2</div>
+    <div class="shape" id="shape3">3</div>
+
 </div>
 
 
