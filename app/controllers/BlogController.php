@@ -35,7 +35,12 @@
 //     $view->with('count', User::count());
 // });
 
-
+// class AnalyticsComposer{
+// 	public function compose($view){
+// 		$company=App::make('company');
+// 		$view->nest('analytics','site.'.strtolower($company->brand).'.analytics');
+// 	}
+// }
 
 class SearchComposer{
     public function compose($view){
@@ -45,9 +50,10 @@ class SearchComposer{
     }
 }
 
+
 class BlogController extends BaseController {
 
-	// protected $layout = 'site.layouts.default';
+	protected $layout = 'site.layouts.default';
 
     /**
      * Tag Model
@@ -82,8 +88,11 @@ class BlogController extends BaseController {
     {
         parent::__construct();
 
-        // $env=App::environment();
-        // $company = App::make('company');
+		// $heading="Posts";
+		// ->with(compact('heading'))
+
+        $env=App::environment();
+        $company = App::make('company');
 
         $this->post = $post;//These are basically empty objects.
         $this->user = $user;
@@ -94,28 +103,41 @@ class BlogController extends BaseController {
 
 		// $env=App::environment();
 		// $company = $this->company->where('brand','like',$env)->first();
-		
 		// $this->company=$company;
 
-//How about this... I defined an IOC singleton in routes...
-$this->company=App::make('company');
-// die(var_dump($company));
+		// How about this... I defined an IOC singleton 
+		// in routes...
+		$this->company=App::make('company');
+		// die(var_dump($company));
 
 		// die(var_dump($company));
         // $this->todo = array('hello','bar','make list');
     	// $c=App::make('company');
+		
+		// This is used for passing data to all views.
+		// pass a string:
+		View::share('heading','Posts');
 
-        // View::share('posts',$posts);
-
+		// or objects 
         View::share('company',$this->company);
         View::share('posts',$this->post);
-        View::share('heading','Posts');
+
+        //or the results of a method, in this case, an array
         View::share('alltags',$this->getAllTags());
 		
-		// $heading="Posts";
-		// ->with(compact('heading'))
-		
+        //WRONG - this only passes the string
+       	// View::share('analytics','site.'.strtolower($company->brand).'.analytics');
+
+
+
+		// View::composer('*','AnalyticsComposer');
 		// View::composer('*','SearchComposer');
+
+		// This seems to create an infinite loop
+		// View::composer('*',function($view){
+		// 	$view->nest('analytics','site.'.strtolower($this->company->brand).'.analytics');
+		// });
+
 		View::composer('index',function($view){
 			$view->with('postcount',count($posts));
 		});
@@ -183,7 +205,6 @@ $this->company=App::make('company');
 	}
 
 // Route::get('search/{tag}','BlogController@getSearch');
-
 	public function getSearch(){
 		$tag=Input::get('tag');
 		// die(var_dump($tag));
@@ -379,7 +400,9 @@ $this->company=App::make('company');
 	    }
 
 	    if(in_array($tag, $mypages)){
-	    	return View::make($minipath.$tag);
+	    	return View::make($minipath.$tag)
+  			// ->nest('analytics','site.'.strtolower($this->company->brand).'.analytics')
+
 	    	;
 	    }
 	    // else return nothing;
@@ -456,8 +479,8 @@ $this->company=App::make('company');
 
 	// singleton versus dependency injection?
 
-// $env=App::environment();
-    $company=App::make('company');
+	// $env=App::environment();
+    // $company=App::make('company');
 
 		if($tag){
 			
@@ -470,18 +493,21 @@ $this->company=App::make('company');
 			}
 			// $company=$this->company;
 
-// This little block handles the pages.  
-// Change the default directory in the getPage method. otherwise,
-// this sends back the page if it exists in the specified directory.
+			// This little block handles the pages.  
+			// Change the default directory in the getPage method. otherwise,
+			// this sends back the page if it exists in the specified directory.
 
-				$mypage=$this->getPage($tag);
-				//This would yield a page in views/site/pages
-				if($mypage){
-					return View::make('site.pages.'.$tag)
-				    	->with(compact('company'))
-					// return $mypage
-					;
-				}
+			$mypage=$this->getPage($tag);
+
+			//This would yield a page in views/site/pages
+			if($mypage){
+				return View::make('site.pages.'.$tag)
+			    	->with(compact('company'))
+					->nest('analytics','site.'.strtolower($this->company->brand).'.analytics');
+
+				// return $mypage
+				;
+			}
 
 /////////////// TAGS AND POSTS
 
@@ -536,6 +562,8 @@ $this->company=App::make('company');
 						// ->nest('index','site.blog.index')
 						->nest('search','site.partials.search')
 						->nest('carousel','site.partials.carousel')
+						->nest('analytics','site.'.strtolower($this->company->brand).'.analytics')
+
 						->with(compact('company'))
 						->with(compact('tags'))
 						->with(compact('alltags'))
@@ -581,7 +609,6 @@ $this->company=App::make('company');
 			View::share('search','site.partials.search');
         	View::share('carousel','site.partials.carousel');
 			
-
 			$tags=array();		
 			foreach ($posts as $post) {
 				foreach ($post->tags() as $mytag) {
@@ -602,6 +629,8 @@ $this->company=App::make('company');
 			// echo $c;
 			// die();
 			return View::make('site/blog/tags')
+				->nest('analytics','site.'.strtolower($company->brand).'.analytics')
+
 				// ->nest('search','site.partials.search')
 				// ->nest('carousel','site.partials.carousel')
 				->with(compact('company','tags','alltags','posts'))
@@ -627,12 +656,12 @@ $this->company=App::make('company');
 		else{ //there is no tag
 			//this is a request for the home page
 
-			// $company = $this->company;
-			// View::share('company',$company);
+			$company = $this->company;
+			View::share('company',$company);
 
 // return $collection;
 // die(var_dump($company));
-// die(var_dump($company));			
+			
 			// die('there is no tag!');
 			if(!is_null($company)){
 				
@@ -667,14 +696,16 @@ $this->company=App::make('company');
 				
 				}
 
-					View::share('posts',$posts);
-					// return Redirect::action('CompanyController@getIndex',$tag);
-					return View::make('site.'.strtolower($company->brand).'.home')
-					->nest('about','company.about')
-					->nest('contact','site.partials.contact')
-					->with(compact('collection'))
-					// ->with(compact('posts'))
-					;
+				View::share('posts',$posts);
+				// return Redirect::action('CompanyController@getIndex',$tag);
+				return View::make('site.'.strtolower($company->brand).'.home')
+				->nest('about','company.about')
+				->nest('contact','site.partials.contact')
+				->nest('analytics','site.'.strtolower($company->brand).'.analytics')
+				->with(compact('collection'))
+				// ->with(compact('posts'))
+
+				;
 
 			}
 			else die ('Blog index Probelm ~672!');
@@ -999,6 +1030,8 @@ $this->company=App::make('company');
 		    $company = App::make('company');
     // die(var_dump($company));
 		return View::make('site/blog/tags')
+				->nest('analytics','site.'.strtolower($this->company->brand).'.analytics')
+
 				->with(compact('company'))
 				->with(compact('tags'))
 				->with(compact('alltags'))
@@ -1062,6 +1095,9 @@ $this->company=App::make('company');
 		// Show the page
 
 		return View::make('site/'.strtolower($company->brand).'/view_post')
+		
+		->nest('analytics','site.'.strtolower($this->company->brand).'.analytics')
+
 		->nest('carousel','site.partials.carousel')
 		->nest('about','company.about')
 		->with('posts',$public)

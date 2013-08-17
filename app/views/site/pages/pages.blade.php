@@ -1,6 +1,5 @@
 @extends('site.layouts.default')
 
-
 site/pages/pages
 aka /pages 
 aka pages 

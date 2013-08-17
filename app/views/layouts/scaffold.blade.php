@@ -99,8 +99,9 @@
         @yield('styles')
 
 <!-- ANALYTICS ************************************ -->
-        @yield('analytics')
-        
+        @section('analytics')
+        {{$analytics}}
+        @show
     <!-- 
         *Google
         *Bing

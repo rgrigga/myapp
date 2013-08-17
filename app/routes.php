@@ -1,5 +1,8 @@
 <?php
 
+// http://fabien.potencier.org/media/talk/2008/decouple-your-code-for-reusability-ipc-2008.pdf
+
+
 // To the mystery man who is anonymously helping with this:
 // In fact, to ALL THOSE who built this project and it's predecessors, 
 // THANK YOU.  I don't know who you are, or why you are 
@@ -104,19 +107,21 @@
  *  Route model binding
  *  ------------------------------------------
  */
+// Calling Route::model here means "user->username" should
+// work elsewhere.
+
 Route::model('user', 'User');
 Route::model('comment', 'Comment');
 Route::model('post', 'Post');
 Route::model('role', 'Role');
 Route::model('company','Company');
 
-// Calling Route::model here means "user->username" should
-// work elsewhere.
 
-// This function helps, for example, a given company's home page 
+// The next function helps, for example, a given company's home page 
 // display only those posts belonging to that company.
 
-// Nervous about misuse of globals?
+// Nervous about misuse of globals? Read about IOC and dep. inj.
+// bit.ly/16QfIPW 
 // http://www.slideshare.net/go_oh/singletons-in-php-why-they-are-bad-and-how-you-can-eliminate-them-from-your-applications
 // http://stackoverflow.com/questions/7770728/group-vs-role-any-real-difference
 // http://www.nathandavison.com/posts/view/16/

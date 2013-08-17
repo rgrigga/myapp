@@ -1,11 +1,16 @@
-@extends('site.layouts.default')
+@extends('site.layouts.bs3')
 
 @section('main')
+
+<!-- <a href="http://www.bootstrapcdn.com/">http://www.bootstrapcdn.com/</a> -->
 
 <!-- http://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ -->
 
 <style>
 
+	.jumbotron img{
+		max-width: 100%;
+	}
 	/*.jumbotron{*/
 		/*font-family: font-awesome;*/
 	/*}*/
@@ -23,17 +28,26 @@
   		/*border-color: #4C58AD;*/
 	/*}*/
 
+	.thumbnail img {
+		max-width: 100%;
+	}
+
 </style>
 
-<div class="jumbotron masthead">
+<div class="jumbotron">
 
 
 	<h1>Tools<small> building blocks for this site</small></h1>
-	<!-- <h2>blah</h2> -->
 	<img src="http://gristech.com/img/mini-tools.jpg" alt="">
-	<!-- <p>If you're interested...</p> -->
+	<p>If you're interested...</p>
 	<h5><em>Modular, Extensible, Testable, Expressive, Elegant, Simple</em>
 	</h5>
+
+	<!-- <!- our new, semanticized HTML --> -->
+<article>
+  <section class="main">secion.main</section>
+  <aside><a href="#" class="annoying">Click me!</a></aside>
+</article>
 
 </div>
 <!-- jumbotron -->
@@ -47,17 +61,18 @@
 .delta { 
 	margin-top: 20px;
    position: relative; 
-   /*width: 100%;  for IE 6 */
-   /*background-color: blue;*/
-       background-color: #cccccc;
-    box-shadow: 10px 10px 5px #666666;
+   width: 100%;  /*for IE 6 */
+
+   background-color: #34495e;
+   /*background-color: #cccccc;*/
+    /*box-shadow: 10px 10px 5px #666666;*/
 }
 
 .delta h1, h4{ 
    position: absolute; 
    top: 50px; 
    left: 0; 
-   /*width: 100%; */
+   width: 100%; 
 }
 
 
@@ -81,6 +96,7 @@
    background: rgba(0, 0, 0, 0.6);
    padding: 10px; 
 }
+
 .kilo p{ 
    position: absolute; 
    /*top: 50px; */
@@ -110,7 +126,7 @@ p.photocredit {
 	font-size: small;
 	color: #333333;
 	text-align: right;
-	/*max-width: 80%;*/
+	max-width: 80%;
 	word-wrap:break-word;
 }
 
@@ -377,8 +393,6 @@ p.photocredit {
 
 
 
-
-
     <style>
     #custom-search-form {
     margin:0;
@@ -418,43 +432,70 @@ p.photocredit {
 
 <ul class="nav navbar">
 	<li class="btn">
-		<a href="https://github.com/cheeaun/mooeditable/wiki/Alternative-Javascript-WYSIWYG-editors#lightweight-versions">https://github.com/cheeaun/mooeditable/wiki/Alternative-Javascript-WYSIWYG-editors#lightweight-versions</a>
+		<a href="https://github.com/cheeaun/mooeditable/wiki/Alternative-Javascript-WYSIWYG-editors#lightweight-versions">WYSIWYG</a>
 	</li>
 	<li class="btn">
-		<a href="http://stackoverflow.com/questions/92720/jquery-javascript-to-replace-broken-images">http://stackoverflow.com/questions/92720/jquery-javascript-to-replace-broken-images</a>
+		<a href="http://stackoverflow.com/questions/92720/jquery-javascript-to-replace-broken-images">replace-broken-images</a>
 	</li>
 </ul>
 
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-<img src="holder.js/300x300" alt="HOLDER" class="img-circle">
 
-<div class="row-fluid">
-	<div class="thumbnail delta span4">
-		<article>
-			<h4><span>JQuery</span></h4>
-				<a href="http://developer.ebay.com/common/api/"><img src="{{asset('assets/img/large_jquery_logo.png')}}" alt="jquery"></a>
-				<p>The Javascript Framework</p>
 
-		</article>
+<div class="kilo delta col-lg-6">
+	
+	<h1>h1</h1>
+	<h2>h2</h2>
+	<h3>h3</h3>	
+	<h4>h4</h4>
+	<h4><span>h4span</span></h4>
+	<h5>h5</h5>
+	<h6>h6</h6>
+	<p>p</p>
+	<p><span>pspan</span></p>
+	
+	<img src="holder.js/300x300" alt="HOLDER" class="img-circle">
+	<h2>kilo delta</h2>
+
+</div>
+
+
+<div class="row">
+	<div class="col-lg-4">
+		<div class="thumbnail">
+			<img src="{{asset('assets/img/large_jquery_logo.png')}}" alt="jquery">
+			<article>
+				<h1>JQuery</h1>
+					<a href="http://www.codecademy.com/tracks/jquery">Codacademy jquery tutorials</a>
+					<p>The Javascript Framework</p>
+
+			</article>
+		</div>
 	</div>
 
-	<div class="thumbnail delta span4">
-		<article>
-			<h4><span>EBay</span></h4>
-			<a href="http://developer.ebay.com/common/api/">
+	<div class="col-lg-4">
+		<div class="thumbnail">
+			<article>
 				<img src="{{asset('assets/img/ebay.jpg')}}" alt="Ebay">
-			</a>
-			<p></p>
-		</article>
+				<h4>EBay</h4>
+				<a href="http://developer.ebay.com/common/api/">
+					
+				</a>
+				<p></p>
+			</article>
+		</div>
 	</div>
-	<div class="thumbnail delta span4">
-		<article>
-			<h1><span>OAuth</span></h1>
-			<a href="http://www.socialphy.com/posts/computers-technology/12978/OAuth.html"><img src="{{asset('assets/img/oauth.png')}}" alt=""></a>
-			<p>OAuth allows one to acecss multiple applications.</p>
-			<blockquote>Logging into another site with your Google, Twitter, or Facebook account isn't just convenient; it's more secure than creating a new account, or entering your Google, Twitter, or Facebook password into a third-party site. That's where OAuth comes in. Here's how it works, and how it keeps your passwords safe on third-party sites.
-			</blockquote>
-		</article>
+	<div class="col-lg-4">
+		<div class="thumbnail">
+			<article>
+				<h1><span>OAuth</span></h1>
+				<img src="{{asset('assets/img/oauth.png')}}" onerror="imgError(this);" alt="OAuth">
+				<a href="http://www.socialphy.com/posts/computers-technology/12978/OAuth.html"></a>
+				<p>OAuth allows one to acecss multiple applications.</p>
+				<blockquote>Logging into another site with your Google, Twitter, or Facebook account isn't just convenient; it's more secure than creating a new account, or entering your Google, Twitter, or Facebook password into a third-party site. That's where OAuth comes in. Here's how it works, and how it keeps your passwords safe on third-party sites.
+				</blockquote>
+			</article>
+		</div>
 	</div>
 
 http://piwik.org/docs/analytics-api/
@@ -471,15 +512,7 @@ http://piwik.org/docs/analytics-api/
     </form>
 <hr>
 
-<div class="kilo delta span4">
-	<h1>h1</h1>
-	<h2>h2</h2>
-	<h3>h3</h3>	
-	<h4>h4</h4>
-	<h5>h5</h5>
-	<h6>h6</h6>
-	<p>p</p>
-</div>
+
 
 
 <pre>
@@ -496,26 +529,26 @@ Additionally the copyright status of the files was tracked in the CVS and the rd
 </pre>
 
 
-<div class="span4 thumbnail delta">
+<div class= thumbnail delta">
 	<h3>Mysql</h3>
-	<a href="http://www.thegeekstuff.com/2008/09/backup-and-restore-mysql-database-using-mysqldump/">Backup and Restore</a>
+	<a href="http://www.thegeekstuff.com/2008/09/backup-and-restore-mysql-database-using-mysqldump/"><h4><span>Backup and Restore</span></h4></a>
+	onerror="imgError(this);
 
 <pre class="prettyprint">
 	<code class="lang-php">
 
 	</code>
 </pre>
-<?
-$code='foo';
+<?php
+$code='<code>';
 ?>
 	<p>
 		{{{$code}}}
 		<code>
 		    gristech@serv01 [~/myapp]# mysqldump -u gristech --all > ~/sqldump/dump.sql 
 		</code>
-		{{{$code}}}
+		{{{"</code>"}}}
 
-		<a href="http://www.bootstrapcdn.com/">http://www.bootstrapcdn.com/</a>
 	</p>
 
 
@@ -534,7 +567,7 @@ $code='foo';
 
 {{e('foobar')}}
 
-<div class="span4">
+<div class="">
 	<a href="http://www.cssdrive.com/imagepalette/index.php">Convert Image to Color Pallete</a>
 
 <img src="http://gristech.com/img/myapp.png" alt="">
@@ -643,7 +676,7 @@ $code='foo';
 
 		      		</div>
 					
-					<div class="span4 thumbnail delta">
+					<div class= "thumbnail delta">
 		      			<a href="http://OAuth2.0">
 		      			<img src="http://gristech.com/img/logo/twitter-bootstrap.jpg" alt="laravel rocks">
 						<h5><span>OAuth</span></h5>
@@ -653,7 +686,7 @@ $code='foo';
 		      		</div>
 					
 
-		      		<div class="span4 thumbnail delta">
+		      		<div class= "thumbnail delta">
 		      			<a href="http://twitter.github.io/bootstrap/scaffolding.html#responsive">
 		      			<img src="http://gristech.com/img/logo/twitter-bootstrap.jpg" alt="laravel rocks">
 						<h5><span>Bootstrap</span></h5>
@@ -722,7 +755,7 @@ $code='foo';
 
 
 
-		      		<div class="span4 thumbnail delta">
+		      		<div class= "thumbnail delta">
 		      			<a href="http://www.sublimetext.com/">
 		      			<img src="http://www.gristech.com/img/screen/sublime.png" alt="Sublime Text">
 						<h4><span>Sublime Text</span></h4>
@@ -735,7 +768,7 @@ $code='foo';
 
 		      		</div>
 
-		      		<div class="span4 thumbnail delta">
+		      		<div class= "thumbnail delta">
 		      			<a href="https://www.facebook.com/">
 		      			<img src="http://www.gristech.com/img/screen/facebook.png" alt="facebook">
 						<h4><span>Facebook</span></h4>
@@ -747,7 +780,9 @@ $code='foo';
 
 		      		</div>
 
-		      		<div class="span4 thumbnail delta">
+
+
+		      		<div class= "thumbnail delta">
 		      			<a href="http://www.inkscape.com/">
 		      			<img src="http://www.gristech.com/img/screen/inkscape.png" alt="Inkscape">
 						<h4><span>Inkscape</span></h4>
@@ -760,7 +795,7 @@ $code='foo';
 						</ul>
 		      		</div>
 
-		      		<div class="span4 thumbnail delta">
+		      		<div class= "thumbnail delta">
 		      			<a href="http://fortawesome.github.io/Font-Awesome/">
 		      			<img src="http://www.gristech.com/img/screen/font-awesome.png" alt="Sublime Text">
 						<!-- <h4><span><i class="icon-font-awesome"></i>Font Awesome</span></h4> -->
@@ -778,32 +813,23 @@ $code='foo';
 		      		</div>
 					
 
-		      		<div class="span4 thumbnail delta">
+		      		<div class= "thumbnail delta">
 		      			<a href="http://javascript.com/">
-		      			<img src="http://www.gristech.com/img/screen/javascript.png" alt="Bootswatch">
-						<!-- <h4><span><i class="icon-arrow-right"></i>Javascript</span></h4> -->
+		    <img src="{{asset('assets/img/js.png')}}" alt="Javascript">
+						<h4><span><i class="icon-arrow-right"></i>Javascript</span></h4>
 						</a>
 						<h6>About Javascript:</h6>
 <!-- 						<ul>
-							<li><a href="http://opensource.org/licenses/mit-license.html"><i class="icon-beer"></i>Free: MIT License</a></li>
+							<li><a href="http://opensource.org/licenses/mit-license.html"><i class="icon-beer"></i> Free: MIT License</a></li>
 						</ul> -->
-						<p>I think it is best to have as little javascript as possible.  
-							I beleive in this 
-							because the long-term maintenance is likely to be considerably higher... 
-							I also think it is less likely 
-							to be as extensible.  I'm not saying <a href="">javascript is dead</a>,
-							 I am just saying 
-							that I am fully committed to the web app solution as more flexible.  PHP is server-side technology.
-							  The world runs on servers.  I have dealt with and been the victim of weak client-side 
-							  crap, it's rediculous.  Not to mention that we have Client
-							It's not scripting: it's object oriented resource management.
-							It's fully decoupled, modular system of many bits of heavily tested and 
-							code.</p>
+						<p>
+							It's not Java, and it's not scripting: it's object oriented resource management.
+							It's fully decoupled, modular system of many bits of heavily tested code.</p>
 
 							
 		      		</div>
 
-		      		<div class="span4 thumbnail delta">
+		      		<div class= "thumbnail delta">
 		      			<a href="http://bootswatch.com/">
 		      			<img src="http://www.gristech.com/img/screen/bootswatch.png" alt="Bootswatch">
 						<h4><span></i>Bootswatch</span></h4>
@@ -815,7 +841,7 @@ $code='foo';
 						<p>The best thing since sliced bread.</p>
 		      		</div>
 
-		      		<div class="span4 thumbnail delta">
+		      		<div class= "thumbnail delta">
 		      			<a href="http://google.com/docs">
 		      			<a href=""></a>
 
@@ -889,58 +915,7 @@ $code='foo';
 <p><span>A random nature image</span></p>
 
 </div>
-<p><span>Not like the brazen giant of Greek fame,
-With conquering limbs astride from land to land;
-Here at our sea-washed, sunset gates shall stand
-A mighty woman with a torch, whose flame
-Is the imprisoned lightning, and her name
-Mother of Exiles. From her beacon-hand
-Glows world-wide welcome; her mild eyes command
-The air-bridged harbor that twin cities frame.
-"Keep, ancient lands, your storied pomp!" cries she
-With silent lips. "Give me your tired, your poor,
-Your huddled masses yearning to breathe free,
-The wretched refuse of your teeming shore.
-Send these, the homeless, tempest-tost to me,
-I lift my lamp beside the golden door!"</span></p>
-<!-- <div class="jumbotron masthead">
-  <div class="container-fluid">
-    <h1>Jumbotron Masthead</h1>
-    <p>Not very responsive.</p>
-    <p>
-      <a href="assets/bootstrap.zip" class="btn btn-primary btn-large" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Download', 'Download 2.3.2']);">Download Bootstrap</a>
-    </p>
-    <ul class="masthead-links">
-      <li>
-        <a href="http://github.com/twitter/bootstrap" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'GitHub project']);">GitHub project</a>
-      </li>
-      <li>
-        <a href="./getting-started.html#examples" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'Examples']);">Examples</a>
-      </li>
-      <li>
-        <a href="./extend.html" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'Extend']);">Extend</a>
-      </li>
-      <li>
-        Version 2.3.2
-      </li>
-    </ul>
-  </div>
-</div> -->
 
-
-<!-- 	<div class="jumbotron masthead">
-
-		<a href="https://groups.google.com/forum/?fromgroups#!topic/twitter-bootstrap/hCUy_n1Mkks
-		"><em>Jumbotron Masthead</em></a>
-
-		<div class="span1">&copy; Ryan Grissinger 
-			<img src="http://lorempixel.com/400/200/nature.png" alt="thinker.png"></div>
-
-		<h1>Partners<small> This building blocks for this site include:</small></h1>
-		<img src="http://gristech.com/img/mini-tools.jpg" alt="">
-		 <h2>PS: Help Wanted!</h2>
-
-	</div> -->
 <div>
 	<p>
 		By the way, this page is an example of a fluid grid system

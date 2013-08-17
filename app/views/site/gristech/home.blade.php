@@ -410,7 +410,7 @@ foreach (glob($path."*.blade.php") as $filename) {
 			 		<!-- Here's a little diddy used on this page: -->
 			 		<div id="collapseOne" class="accordion-body collapse">
 			 			<!-- //add in to open on load -->
-			 			Here's some examples used on this page:
+			 			Here are some of the tools used on this page:
 			 			<div class="accordion-inner">
 			 				<a href="css" data-toggle="tab">
 			 					<h3>CSS</h3>
@@ -448,6 +448,7 @@ foreach (glob($path."*.blade.php") as $filename) {
 								<h3>HTML 5</h3>
 			 				</a>
 							<p>I beleive in standards, and try to code to them as such.</p>
+							<p><a href="http://stackoverflow.com/questions/4781077/html5-best-practices-section-header-aside-article-tags"></a></p>
 
 							<a href="/responsive" data-toggle="tab">
 								<h3>Responsive Design</h3>

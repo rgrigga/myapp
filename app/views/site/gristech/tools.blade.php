@@ -1,6 +1,8 @@
-@extends('site.layouts.default')
+@extends('site.layouts.bs3')
 
 @section('main')
+
+<h1>DEPRECIATED</h1>
 
 <!-- http://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ -->
 
