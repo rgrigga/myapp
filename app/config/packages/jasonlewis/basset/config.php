@@ -32,6 +32,16 @@ return array(
 
     'collections' => array(
 
+        'mytest-css' => function($collection)
+        {
+
+            $collection->directory('assets/bs3/css', function($collection)
+            {
+                $collection->add('lesstest.less')->apply('Less');            
+                // $collection->add('lesstest.css');
+            })->apply('UriRewriteFilter')->setArguments(public_path());
+        },
+
         'bs3-css' => function($collection)
         {
 
@@ -39,7 +49,7 @@ return array(
             {
                 $collection->add('bootstrap.min.css');
                 $collection->add('mystyle.css');
-                $collection->add('../less/master.less')->apply('Less');
+                // $collection->add('../less/master.less')->apply('Less');
             
             })->apply('UriRewriteFilter')->setArguments(public_path());
 
@@ -66,12 +76,12 @@ return array(
                 $collection->add('wysihtml5/wysihtml5-0.3.0.js');
                 $collection->add('wysihtml5/prettify.css');
                 $collection->add('wysihtml5/bootstrap-wysihtml5-0.0.2.css');
-                $collection->add('less/style.css');
+                // $collection->add('less/style.css');
 
                 $collection->add('style.css');
                 // $collection->add('less/style.css');
                 // $collection->add('redactor/redactor.css');
-                $collection->add('less/master.less')->apply('Less');
+                // $collection->add('less/master.less')->apply('Less');
             })->apply('UriRewriteFilter')->setArguments(public_path());
 
         },
@@ -173,7 +183,7 @@ return array(
         {
             $collection->directory('assets/css', function($collection)
             {
-                $collection->add('less/admin.less')->apply('Less');
+                // $collection->add('less/admin.less')->apply('Less');
                 // $collection->add('bootstrap.min.css');
                 // $collection->add('wysihtml5/prettify.css');
                 // $collection->add('bootstrap-responsive.css');
@@ -341,8 +351,8 @@ return array(
             |
             */
 
-            // 'Less' => array('LessphpFilter', function($filter)
-            'Less' => array('LessFilter', function($filter)
+            'Less' => array('LessphpFilter', function($filter)
+            // 'Less' => array('LessFilter', function($filter)
             {
                 $filter->whenAssetIs('*.less')->findMissingConstructorArgs();
             }),

@@ -332,6 +332,14 @@ Route::group(array('domain' => 'myapp.devfoo'),function(){
 
 Route::group(array('domain' => 'myapp.dev'),function()
 {
+
+    Route::get('lesstest',function(){
+        return View::make('site.gristech.lesstest');
+    });
+
+    Route::get('sasstest',function(){
+        return View::make('site.gristech.sasstest');
+    });
 	 // App::bind('company', function($app)
 		// {
 		    // return Company::where('brand','like','gristech')->first();
@@ -839,7 +847,11 @@ Route::get('blog', 'BlogController@getIndex');
 // });
 
 Route::get('mytest',function(){
-    return View::make('site.gristech.test');
+    return View::make('site.gristech.mytest');
+});
+
+Route::get('lesstest',function(){
+    return View::make('site.gristech.lesstest');
 });
 
 // $company=Company::where('brand','like','buckeye')->first();
