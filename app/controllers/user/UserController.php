@@ -1,5 +1,15 @@
 <?php
 
+// WRONG
+// class AnalyticsComposer{
+//     public function compose($view)
+//     {
+//         $view->with('analytics',View::make('site.'.strtolower($this->company->brand).'.analytics'));
+//    // ->nest('analytics','site.'.strtolower($this->company->brand).'.analytics');
+
+//     }
+// }
+
 class UserController extends BaseController {
 
     /**
@@ -62,7 +72,10 @@ class UserController extends BaseController {
         // die("BAM");
         return View::make('site/user/index')
             ->with('user',$this->user)
-            ->with(compact('company'));
+            ->with(compact('company'))
+            ->nest('analytics','site.'.strtolower($this->company->brand).'.analytics')
+            ;
+
     }
 
     /**
@@ -222,7 +235,9 @@ class UserController extends BaseController {
             // put this somewhere?
             // ->nest('login','site.user.login')
             ->with(compact('user'))
-            ->with(compact('company'));
+            ->with(compact('company'))
+            ->nest('analytics','site.'.strtolower($this->company->brand).'.analytics')
+            ;
             // ->nest('nav','site.partials.nav-default');
     }
 

@@ -1,8 +1,10 @@
 <?php
-$categories=array('cat1'=>array('sub1','sub2'),
+$categories=array(
+	'cat1'=>array('sub1','sub2'),
 	'cat2'=>array('sub1','sub2'),
 	'cat2'=>array('sub1','sub2'),
-	'cat3');
+	'cat3'
+	);
 ?>
 
 @foreach($categories as $k => $v)

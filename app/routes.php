@@ -1,14 +1,12 @@
 <?php
-
 // http://fabien.potencier.org/media/talk/2008/decouple-your-code-for-reusability-ipc-2008.pdf
-
 
 // To the mystery man who is anonymously helping with this:
 // In fact, to ALL THOSE who built this project and it's predecessors, 
 // THANK YOU.  I don't know who you are, or why you are 
 // helping me in this way...
 
-// I am sincerely grateful. THANK YOU.
+// Regardless, I am sincerely grateful. THANK YOU.
 
 // PS: I have 3 guesses as to who you might be, but you could
 // be anyone for all I know.  One thing I am now concerned about is security.
@@ -21,47 +19,10 @@
 
 // At the moment, I am unsure of myself, and under a lot 
 // of pressure to get a job quickly and make some money
-// in some capacity.  I am 37 years old, I have 3 kids 
-// and a wife.
-
-// I live in a modest house in Westerville, OH (a suburb of Columbus, Ohio)
-// My wife and I drive modest cars.  I have no credit card debt,
-// but kids are expensive, and I have a couple expensive 
-// hobbies. (Golf, Fishing, Cedar Point, Snow-Skiing).
-
-// I have 10+ years of experience in sales, but balancing
-// sales time and development time in this business seems
-// like it will be a challenge.
-
-// I really need to know if someone thinks my code is OK.
-// Am I doing a good job?  Is this code crap, or is it good?
-// Can this tool I've been working on be turned into something
-// valuable and effective?  Are my skills good enough?  Can I
-// make money with it?  If I can't make money with this
-// immediately, what should I do with myself now?  I am willing
-// to take an entry level programming job anywhere if it's
-// the right use of my skills.
-
-// I don't know how to assess my own skills right now, relative to 
-// others in this marketplace.  Most PHP jobs I have looked
-// at call for more experience than I have.
-
-// At the least, I need a partner, a mentor, or another advisor
-// with experience to help me make good career choice.  
-// I think I have marketable skills, but I need to hear it from 
-// someone else.  A I just dreaming about this as a hobby, or
-// can I do this?
-
-// If I take a full or part-time job somewhere, 
-// I want to work for a small or medium-sized organization.
-
-
-
-// I have been locked in my basement for 3 months.  I need
-// some human interaction, and I would really love to speak with
-// someone about this project on a professional level.
+// in some capacity...
 
 // If you read this, I am all ears!  Please get in touch with me.
+// ryan.grissinger@gmail.com
 
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
@@ -75,7 +36,6 @@
 // http://phpunit.de/manual/3.7/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.output
 
 // APACHE & PHP
-// 
 // http://www.debian-administration.org/articles/412
 // https://help.ubuntu.com/community/ApacheMySQLPHP
 
@@ -140,6 +100,8 @@ App::singleton('company', function()
 //     $env=App::environment();
 //     $company = Company::where('brand','like',$env)->first();
 //     View::share('company',$company);
+// analytics??
+// favicons??
 // });
 
 

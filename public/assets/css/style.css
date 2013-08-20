@@ -3,7 +3,8 @@ body {
     /*background-color: red;*/
     height: 100%;
     color:rgba(189, 195, 199,1.0);
-    /* The html and body elements cannot have any padding or margin. */
+    /* The html and body elements cannot have 
+    any padding or margin, else they break other features */
 }
 
 .nav a:hover{
@@ -66,6 +67,7 @@ body {
 /*http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site*/
 
   .admin-top{
+    margin-top: 100px;
       /*<!-- check out http://flatuicolors.com/ -->*/
       background-color: rgba(230, 126, 34,.5);
 
@@ -95,9 +97,9 @@ body {
   }
 
   @media screen and (min-width: 980px) {
-      .admin-top{
+/*      .admin-top{
       margin-top: 40px;
-      }
+      }*/
       /*.contentwrap { margin-top: 40px; }*/
       /*.pageheader{padding-top: 0px;}*/
 

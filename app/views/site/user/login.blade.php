@@ -1,4 +1,4 @@
-@extends('site.layouts.bs3')
+@extends('layouts.bootstrap3')
 
 {{-- Web site Title --}}
 @section('title')
@@ -63,20 +63,18 @@
                 <button tabindex="3" type="submit" class="btn btn-default">{{ Lang::get('confide::confide.login.submit') }}</button>
             </fieldset>
         </form>
-
-
-</div>
-<!-- pageheader -->
-</div>
-<!-- /.container -->
-
-    <div class="jumbotron">
-<p>Not A Member?  Security and Privacy are of the utmost importance.  More about that later...</p>
-
-        <a class="btn btn-large btn-primary" href="{{{ URL::to('user/create') }}}">Sign Up</a>
-        <p>No spam, etc.</p>
-<!-- // Popup form here?-->
     </div>
-    <!-- jumbotron -->
+    <!-- container -->
+</div>
+<!-- /.jumbotron -->
+
+<div class="jumbotron">
+    <p>Not A Member?  Security and Privacy are of the utmost importance.  More about that later...</p>
+
+    <a class="btn btn-large btn-primary" href="{{{ URL::to('user/create') }}}">Sign Up</a>
+    <p>No spam, etc.</p>
+<!-- // Popup form here?-->
+</div>
+<!-- jumbotron -->
 
 @stop

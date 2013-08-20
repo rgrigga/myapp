@@ -1,4 +1,4 @@
-@extends('site.layouts.bs3')
+@extends('layouts.bootstrap3')
 
 @section('title')
 @parent
@@ -49,7 +49,7 @@ html,body {
 
 	/*background-color: rgba(235,196,162,.2);*/
 	color: rgba(236, 240, 241,1.0);
-	background-color:rgba(44, 62, 80,1.0);
+	/*background-color:rgba(44, 62, 80,1.0);*/
 	font-family: 'EB Garamond', serif;
 	/*font-size: 16px;*/
 
@@ -62,15 +62,24 @@ html,body {
 
 .main{
 	color: rgba(236, 240, 241,1.0);
-	background-color:rgba(44, 62, 80,1.0);
+	/*background-color:rgba(44, 62, 80,1.0);*/
 }
 
 .navbar{
-	background-color: rgba(189, 195, 199,1.0);
+	/*background-color: rgba(189, 195, 199,1.0);*/
 }
 
 .navbar .brand{
-	color:white;
+	/*color:white;*/
+}
+
+.navbar-inner{
+	background-image: none;
+	background-color: rgba(3,71,105,.9);
+}
+
+.navbar .brand, .navbar .nav >li >a {
+	text-shadow:none;
 }
 
 .page-header{
@@ -103,14 +112,7 @@ color: rgba(41, 128, 185,1.0);
 	/*text-shadow: 4px 4px 4px #A63A00;*/
 }
 
-.navbar-inner{
-	background-image: none;
-	background-color: rgba(3,71,105,.9);
-}
 
-.navbar .brand, .navbar .nav >li >a {
-	text-shadow:none;
-}
 .well{
 	background-color: rgba(44, 62, 80,1.0);
 	/*border-bottom-radius: 30px;*/
@@ -280,11 +282,14 @@ div {
 		<link rel="shortcut icon" href="{{{ asset('assets/'.strtolower($company->brand).'/ico/favicon.png') }}}">
 		@stop
 
-		@section('nav')
-		@include('site.partials.nav-top-bs3')
-		@stop
 
 
+@section('nav')
+@parent
+<!-- @ include('site.partials.nav-top-bs3') -->
+
+
+@stop
 
 @section('main')
 <?php
@@ -306,15 +311,24 @@ foreach (glob($path."*.blade.php") as $filename) {
 }
 ?>
 
+<style>
+	#ribbon{
+		position: fixed;
+		left: 0;
+		border: 0;
+	}
+</style>
+
+<a href="https://github.com/rgrigga/MyApp6">
+	<img id="ribbon" src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png" alt="Fork me on GitHub">
+</a>
 
 <div class="page-header">
 
-			<div class="row">
-				<a href="https://github.com/rgrigga/MyApp6">
-				<img style="position: fixed;  left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png" alt="Fork me on GitHub">
-				</a>
+			<!-- <div class="row"> -->
 
-			</div>
+
+			<!-- </div> -->
 		<!-- <h1>BAM</h1> -->
 		<div class="row">
 

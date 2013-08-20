@@ -8,7 +8,7 @@
 		</style>
 		<div class="navbar navbar-fixed-top nav-top-min user-top">
 			<div class="navbar-inner">
-				<div class="container-fluid">
+				<!-- <div class="container-fluid"> -->
 					<a class="btn btn-navbar pull-left" data-toggle="collapse" data-target=".nav-collapse">
 						<!-- <i class="icon-collapse icon-2x"></i> -->
 						<span class="icon-bar"></span>
@@ -63,12 +63,14 @@
 		                    </ul>
 
 	    			</div>
-
-				</div>
-
-			</div>
 					<!-- ./ nav-collapse -->
+				<!-- </div> -->
+				<!-- ./container-fluid -->
+			</div>
+			<!-- navbar-inner -->
+					
 		</div>
+		<!-- navbar -->
 
 			<!-- </div> -->
 			<!-- //this is the only place to put india! -->

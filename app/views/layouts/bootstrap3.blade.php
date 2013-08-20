@@ -1,8 +1,11 @@
 <!doctype html>
 <html lang="en">
+
+<!-- http://css-tricks.com/semantic-class-names/ -->
+
 <!-- http://stackoverflow.com/questions/1461907/html-encoding-issues-character-showing-up-instead-of-nbsp -->
 
-<!-- This is layouts.scaffold -->
+<!-- This is layouts.bootstrap3 -->
 <!-- check out http://flatuicolors.com/ -->
     <head>
     <title>
@@ -23,7 +26,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @show
 
-
+@section('styles')
 
 <!-- STYLES **********************************-->
         
@@ -41,37 +44,39 @@
     
     <!-- COMPILED -->
     <!-- Configure list of files as a json array, -->
+    <!-- basset/config.php -->
     <!-- Compile them, and your webpage is faster. -->
-        <!-- @stylesheets("public-css") -->
+    @stylesheets('myapp-css')
+    @stylesheets("bs3-css")
     
     <!-- EXTERNAL -->
-        <!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
+    <!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
         
     <!-- http://stackoverflow.com/questions/1443465/jquery-dynamic-div-height -->
 
     <!-- GLOBAL INTERNAL -->
     <!-- Quick & Dirty.  Move to stylesheet for long-term. -->
-        <style>
-            table form { margin-bottom: 0; }
-            form ul { margin-left: 0; list-style: none; }
-            .error { color: red; font-style: italic; }
-            /*body { padding-top: 20px; }*/
+    <style>
+        table form { margin-bottom: 0; }
+        form ul { margin-left: 0; list-style: none; }
+        .error { color: red; font-style: italic; }
+        /*body { padding-top: 20px; }*/
 
-            /*https://developer.mozilla.org/en-US/docs/Web/HTML/Sections_and_Outlines_of_an_HTML5_document*/
-            section, article, aside, footer, header, nav, hgroup {
-              display:block;
-            }
-            .alert {
-                position: relative;
-                margin-right: auto;
-                /*width: 100%;*/
-                top: 80px;
-                z-index: 10;
-            }
-            .navwrap{
-                overflow: hidden;
-            }
-        </style>
+        /*https://developer.mozilla.org/en-US/docs/Web/HTML/Sections_and_Outlines_of_an_HTML5_document*/
+        section, article, aside, footer, header, nav, hgroup {
+          display:block;
+        }
+        .alert {
+            position: relative;
+            margin-right: auto;
+            /*width: 100%;*/
+            top: 80px;
+            z-index: 10;
+        }
+        .navwrap{
+            overflow: hidden;
+        }
+    </style>
 
 
         <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Sections_and_Outlines_of_an_HTML5_document -->
@@ -92,10 +97,10 @@
      Unfortunately your browser has disabled scripting. Please enable it in order to display this page.
   </noscript>
 <![endif]-->
-@stylesheets('myapp.css');
-@stylesheets('bs3.css');
-    <!-- PAGE-SPECIFIC -->
-        @yield('styles')
+
+@show
+
+
 
 <!-- ANALYTICS ************************************ -->
         @yield('analytics')
@@ -137,33 +142,41 @@
 
     </head>
     <body>
-        <div class="container-fluid">
-            <div class="navwrap" id="navwrap">
+        <div class="container">
+            <!-- <div class="navwrap" id="navwrap"> -->
                 <!-- // @ yield('nav') -->
                 @section('nav')
-                {{View::make('site.partials.nav-top-min');}}
+                {{--View::make('site.partials.nav-top-min')--}}
+                {{View::make('site.partials.nav-top-bs3')}}
                 @show
 
                 <!-- if (Auth::user('buckeye')) -->
                 @section('admin-top')
+                    <!-- <div class="admin-top"> -->
+                        <!-- @ if($user->ability(array('admin',$env),'*')) -->
+                        <!-- // @ if(Auth::user('buckeye')) -->
                     
-                    <!-- @ if($user->ability(array('admin',$env),'*')) -->
-                    <!-- // @ if(Auth::user('buckeye')) -->
-                    @if(Auth::user('admin'))
-                    <!-- @ if($user->hasRole('admin')) -->
-                        <?php $env=App::environment(); ?>
-                        <div class="navbar navbar-inverse navbar-fixed-top admin-top">
+                        @if(Auth::user('admin'))
+                        <!-- <div class="navbar navbar-fixed-top admin-nav-top" role="navigation"> -->
+                        <!-- @ if($user->hasRole('admin')) -->
+                            
                             <!-- <h1>Admin-top</h1><h1>Admin-top</h1><h1>Admin-top</h1> -->
-                            @include('admin.nav')
-                        </div>
-                    @else
-                    <!--<div class="navbar admin-top"><h1>yo</h1>You no admin!</div> -->
-                    @endif
+                             @include('admin.nav')
+                        <!-- </div> -->
+                        @else
+                        <!-- <div class="navbar-inner"> -->
+                            <!-- <h1>yo</h1> -->
+                            <!-- You no admin! -->
+                            <!-- <ul class="nav navbar-nav"> -->
+                                <!-- <li>foo</li> -->
+                                <!-- <li>bar</li> -->
+                            <!-- </ul> -->
+                        <!-- </div>  -->
+                        @endif
+                    </div>
                 @show                
-            </div>
-
-
-
+            <!-- </div> -->
+            <!-- ./ navwrap -->
             
             <!-- @ yield('content') -->
             <div class="contentwrap">
@@ -253,7 +266,9 @@
         @yield('footer')            
         </footer>
 
-        @javascripts('public-js')
+        @javascripts('myapp-js')
+        @javascripts('bs3-js')
+
 
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 <!-- <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sunburst"></script> -->

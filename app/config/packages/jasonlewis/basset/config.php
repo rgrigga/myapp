@@ -37,9 +37,9 @@ return array(
 
             $collection->directory('assets/bs3/css', function($collection)
             {
-                // $collection->add('../less/master.less')->apply('Less');
                 $collection->add('bootstrap.min.css');
                 $collection->add('mystyle.css');
+                $collection->add('../less/master.less')->apply('Less');
             
             })->apply('UriRewriteFilter')->setArguments(public_path());
 
@@ -62,7 +62,7 @@ return array(
 
             $collection->directory('assets/css', function($collection)
             {
-                $collection->add('less/master.less')->apply('Less');
+                
                 $collection->add('wysihtml5/wysihtml5-0.3.0.js');
                 $collection->add('wysihtml5/prettify.css');
                 $collection->add('wysihtml5/bootstrap-wysihtml5-0.0.2.css');
@@ -71,6 +71,7 @@ return array(
                 $collection->add('style.css');
                 // $collection->add('less/style.css');
                 // $collection->add('redactor/redactor.css');
+                $collection->add('less/master.less')->apply('Less');
             })->apply('UriRewriteFilter')->setArguments(public_path());
 
         },
@@ -172,13 +173,13 @@ return array(
         {
             $collection->directory('assets/css', function($collection)
             {
-                // $collection->add('less/master.less')->apply('Less');
-                $collection->add('bootstrap.min.css');
-                $collection->add('wysihtml5/prettify.css');
-                $collection->add('bootstrap-responsive.css');
-                $collection->add('wysihtml5/bootstrap-wysihtml5-0.0.2.css');
-                $collection->add('style.css');
-                $collection->add('redactor/redactor.css');
+                $collection->add('less/admin.less')->apply('Less');
+                // $collection->add('bootstrap.min.css');
+                // $collection->add('wysihtml5/prettify.css');
+                // $collection->add('bootstrap-responsive.css');
+                // $collection->add('wysihtml5/bootstrap-wysihtml5-0.0.2.css');
+                // $collection->add('style.css');
+                // $collection->add('redactor/redactor.css');
             })->apply('UriRewriteFilter')->setArguments(public_path());
         },
 

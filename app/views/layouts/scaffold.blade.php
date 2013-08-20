@@ -100,7 +100,7 @@
 
 <!-- ANALYTICS ************************************ -->
         @section('analytics')
-        {{$analytics}}
+        @include('site.'.strtolower($company->brand).'.analytics');
         @show
     <!-- 
         *Google
