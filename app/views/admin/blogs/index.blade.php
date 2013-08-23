@@ -229,9 +229,9 @@ $url=asset('assets/img/underconstruction.gif');
 $c='<img src='.$url.'>';
 ?>
 <img src="" alt="">
-			<td>{{{ $post->comments()->count() }}}{{$c}}</td>
+			<td>{{{ $post->comments()->count() }}}{{--$c--}}</td>
 			<td>{{{ $post->created_at() }}}</td>
-			<td>{{{ $post->views }}}{{$c}}</td>
+			<td>{{{ $post->views }}}</td>
 			<td>{{{ $post->author->username }}}</td>
 			<td>
 				<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini"> <i class="icon-pencil"></i> {{{ Lang::get('button.edit') }}}</a>

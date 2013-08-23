@@ -178,9 +178,10 @@ For now, you may clone this public repository and develop it as much as you like
 
 <!-- <script src="/assets/js/bootstrap-wysiwyg/external/jquery.hotkeys.js"></script> -->
 <!-- <script src="/assets/js/bootstrap-wysiwyg/bootstrap-wysiwyg.js"></script> -->
-<link href="/assets/js/bootstrap-wysiwyg/index.css" rel="stylesheet">
+<!-- <link href="/assets/js/bootstrap-wysiwyg/index.css" rel="stylesheet"> -->
 
-@stylesheets('bs3-css')
+<!-- @ stylesheets('bs3-css') -->
+<!-- @ stylesheets('public-css') -->
 @stylesheets('admin-css')
 	</head>
 
@@ -200,7 +201,7 @@ For now, you may clone this public repository and develop it as much as you like
 
 
 			<!-- Notifications -->
-			@include('notifications')
+			<!-- @ include('notifications') -->
 			<!-- ./ notifications -->
 
 			
@@ -245,22 +246,8 @@ For now, you may clone this public repository and develop it as much as you like
 
 			<div class="contentwrap">
 				@include('notifications')
-			    @if(Session::has('message'))
 
-				    <div class="flash alert">
-				      <button type="button" class="close" data-dismiss="alert">&times;</button>
-				      <p>{{ Session::get('message') }}</p>
-				    </div>
-			    @endif
 
-			    @if(Session::has('mymessage'))
-
-				    <div class="flash alert alert-info">
-				      <button type="button" class="close" data-dismiss="alert">&times;</button>
-				      <p>{{ Session::get('mymessage') }}</p>
-				    </div>
-
-			    @endif
 					<!-- Content -->
 					@yield('main')
 						<!-- ./ content -->
@@ -317,8 +304,10 @@ Array
 			</footer>
 					<!-- Javascripts
 					================================================== -->
-{{ Basset::show('admin-js.js') }}
-{{ Basset::show('public.js') }}
+<!-- // @ javascripts('bs3-js') -->
+@javascripts('admin-js')
+{{-- Basset::show('admin-js.js') --}}
+{{-- Basset::show('public.js') --}}
 <!-- ALL ABOUT REDACTOR -->
 <!-- to reimplement redactor, uncomment the lower script tag, the upper css, and the redactor funciton in the onload event. -->
 <!-- <script src="{{asset('assets/js/redactor/redactor.js')}}"></script> -->
@@ -431,7 +420,7 @@ Array
 	        $('.contentwrap') .css({'padding-top': (
 	            $('.user-top').height()
 	             + $('.admin-top').height()
-	             + 0 )+'px'
+	             + 80 )+'px'
 	        	});
 			// $('.redactor').redactor();
 			// $('.redactor').wysiwyg();
@@ -448,7 +437,7 @@ Array
 	        $('.contentwrap') .css({'padding-top': (
 	            $('.user-top').height()
 	             + $('.admin-top').height()
-	             + 0 )+'px'
+	             + 80 )+'px'
 	        });
 	        columnConform();
 

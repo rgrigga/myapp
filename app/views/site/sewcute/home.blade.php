@@ -42,7 +42,13 @@ Welcome Administrator!
 <!-- credits -->
 
 <!-- <a href="http://packalyst.com/packages/package/thapp/jitimage">Image Magik</a> -->
+
+<link rel="stylesheet/less" type="text/css" href="assets/css/less/master.less" />
+<script src="assets/js/less.js" type="text/javascript"></script>
+
 <style>
+
+
 
 /*images*/
 
@@ -271,6 +277,10 @@ a:hover {text-decoration: none}
 	    </div>
 	@endif
 <?php
+
+
+
+
 	$env=App::environment();
 	// echo "<div class='alert alert-info'>Welcome to the <strong>".$env."</strong> environment.</div>";
 
@@ -568,6 +578,7 @@ a:hover {text-decoration: none}
 }
 
 </style>
+
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?autoload=true&amp;skin=sunburst&amp;lang=css" defer="defer"></script>
 
 <div class="row-fluid mystory">
@@ -578,7 +589,9 @@ a:hover {text-decoration: none}
 
 <div class="page-header">
 
-
+			<div class="shape" id="shape1"></div>
+		    <div class="shape" id="shape2"></div>
+		    <div class="shape" id="shape3"></div>
 
 
 
@@ -893,6 +906,7 @@ a:hover {text-decoration: none}
 		<div>Slogan: {{{ $company->slogan }}}</div>
 		<div>Image: {{{ $company->image }}}</div>
 		<div>Menus: {{{ $company->menus }}}</div>
+		<div>{{ $company->img() }}</div>
 	</div>
 </div>
 

@@ -268,7 +268,7 @@ class BlogController extends BaseController {
 		View::share('tag',$tag);
 		if($tag){
 			
-			$view.=$this->getPage($tag);
+			// $view.=$this->getPage($tag);
 			$view.=$this->companyPages($tag);
 			$view.=$this->stdPages($tag);
 
@@ -284,7 +284,10 @@ class BlogController extends BaseController {
 				// View::share('postlist','site.partials.postlist');
 		
 				$view.=
-					View::make('site.partials.postlist')
+					View::make('site.posts.featurettes')
+					// View::make('site.posts.thumbnails')
+					// View::make('site.posts.carousel')
+					// View::make('site.posts.postlist')
 					->with('posts',$posts)
 					->with(compact('wordcount'))
 					->with(compact('postcount'))
@@ -320,7 +323,7 @@ class BlogController extends BaseController {
 			$posts=$this->getRecent();
 			View::share('posts',$posts);
 			$view.=
-				View::make('site.partials.postlist')
+				View::make('site.posts.postlist')
 				->with('posts',$posts)
 				;
 
@@ -373,6 +376,8 @@ class BlogController extends BaseController {
 		//from default path, specified in the getPage method
 		// $path='../app/views/site/pages/';
 		return $this->getPage($tag);
+
+		// uhh... this method feels unnecessary
 	}
 
 	public function getPage($tag="",$path="")
@@ -401,8 +406,8 @@ class BlogController extends BaseController {
 
 	    if(in_array($tag, $mypages)){
 	    	return View::make($minipath.$tag)
+	    	//this is now handled in the template:
   			// ->nest('analytics','site.'.strtolower($this->company->brand).'.analytics')
-
 	    	;
 	    }
 	    // else return nothing;
@@ -417,7 +422,7 @@ class BlogController extends BaseController {
 
 	        View::share('posts',$posts);
 	        return $posts;
-	        // return View::make('site.partials.carousel');
+	        // return View::make('site.posts.carousel');
 	}
 
 	private function post_company($tag){
@@ -483,6 +488,8 @@ class BlogController extends BaseController {
     // $company=App::make('company');
 
 		if($tag){
+
+
 			
 			View::share('tag',strtoupper($tag));
 
@@ -555,13 +562,15 @@ class BlogController extends BaseController {
 					
 
 				//SEARCH
-
+			if($tag=="blog"){
+				return View::make('site.blog.index');
+			}
 				// $count=count($posts);
 				// View::share('count',$count);
 				return View::make('site/blog/tags')
 						// ->nest('index','site.blog.index')
 						->nest('search','site.partials.search')
-						->nest('carousel','site.partials.carousel')
+						->nest('carousel','site.posts.carousel')
 						->nest('analytics','site.'.strtolower($this->company->brand).'.analytics')
 
 						->with(compact('company'))
@@ -607,7 +616,7 @@ class BlogController extends BaseController {
 			
 			// die(var_dump($this->post));
 			View::share('search','site.partials.search');
-        	View::share('carousel','site.partials.carousel');
+        	View::share('carousel','site.posts.carousel');
 			
 			$tags=array();		
 			foreach ($posts as $post) {
@@ -623,7 +632,7 @@ class BlogController extends BaseController {
 			$str.="I found ".$count." posts.";
 
 
-			// $c=View::make('site.partials.carousel')->with(compact('posts'));
+			// $c=View::make('site.posts.carousel')->with(compact('posts'));
 
 			View::share('posts',$posts);
 			// echo $c;
@@ -632,7 +641,7 @@ class BlogController extends BaseController {
 				->nest('analytics','site.'.strtolower($company->brand).'.analytics')
 
 				// ->nest('search','site.partials.search')
-				// ->nest('carousel','site.partials.carousel')
+				// ->nest('carousel','site.posts.carousel')
 				->with(compact('company','tags','alltags','posts'))
 
 				// ->with(compact('tags'))
@@ -669,8 +678,14 @@ class BlogController extends BaseController {
 				// $mylist=array(56,58,67,69);
 				$env=App::environment();
 				// die(var_dump($posts));
+
+				// http://louis-sawtell.com/content/mysql-query-order-results-array
+
+
+
 				if($env=='buckeye'){
-					$posts=$this->myposts(array(56,58,67,69));
+					$posts=$this->myposts(array(56,58,86,67));
+
 					//get company list of posts
 					//company home page settings
 				}
@@ -704,7 +719,6 @@ class BlogController extends BaseController {
 				->nest('analytics','site.'.strtolower($company->brand).'.analytics')
 				->with(compact('collection'))
 				// ->with(compact('posts'))
-
 				;
 
 			}
@@ -1098,7 +1112,7 @@ class BlogController extends BaseController {
 		
 		->nest('analytics','site.'.strtolower($this->company->brand).'.analytics')
 
-		->nest('carousel','site.partials.carousel')
+		->nest('carousel','site.posts.carousel')
 		->nest('about','company.about')
 		->with('posts',$public)
 		->with(compact('company','post','comments', 'canComment'));

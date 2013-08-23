@@ -37,7 +37,7 @@ return array(
 
             $collection->directory('assets/bs3/css', function($collection)
             {
-                $collection->add('lesstest.less')->apply('Less');            
+                // $collection->add('lesstest.less')->apply('Less');            
                 // $collection->add('lesstest.css');
             })->apply('UriRewriteFilter')->setArguments(public_path());
         },
@@ -48,7 +48,7 @@ return array(
             $collection->directory('assets/bs3/css', function($collection)
             {
                 $collection->add('bootstrap.min.css');
-                $collection->add('mystyle.css');
+                // $collection->add('mystyle.css');
                 // $collection->add('../less/master.less')->apply('Less');
             
             })->apply('UriRewriteFilter')->setArguments(public_path());
@@ -78,10 +78,10 @@ return array(
                 $collection->add('wysihtml5/bootstrap-wysihtml5-0.0.2.css');
                 // $collection->add('less/style.css');
 
-                $collection->add('style.css');
+                // $collection->add('style.css');
                 // $collection->add('less/style.css');
                 // $collection->add('redactor/redactor.css');
-                // $collection->add('less/master.less')->apply('Less');
+                $collection->add('less/master.less')->apply('Less');
             })->apply('UriRewriteFilter')->setArguments(public_path());
 
         },
@@ -107,7 +107,7 @@ return array(
 
             $collection->directory('assets/buckeye/css', function($collection)
             {
-                // $collection->add('less/master.less')->apply('Less');
+                $collection->add('less/master.less')->apply('Less');
                 $collection->add('bootstrap.min.css');
                 $collection->add('bootstrap-responsive.min.css');
                 $collection->add('buckeye.css');
@@ -145,11 +145,11 @@ return array(
 
         'gristech' => function($collection)
         {
-
+// $brand=App::make('company')->brand;
             $collection->directory('assets/gristech/css', function($collection)
             {
-                // $collection->add('less/master.less')->apply('Less');
-                $collection->add('gristech.css');
+                $collection->add('less/gristech.less')->apply('Less');
+                // $collection->add('gristech.css');
             })->apply('UriRewriteFilter')->setArguments(public_path());
 
         },
@@ -159,12 +159,11 @@ return array(
             //bootstrap 2.3.2
             $collection->directory('assets/css', function($collection)
             {
-                // $collection->add('less/master.less')->apply('Less');
+                $collection->add('less/master.less')->apply('Less');
                 $collection->add('bootstrap.min.css');
                 $collection->add('bootstrap-responsive.min.css');
-                // $collection->add('redactor/redactor.min.js');
                 $collection->add('style.css');
-                $collection->add('redactor/redactor.css');
+                // $collection->add('redactor/redactor.css');
             })->apply('UriRewriteFilter')->setArguments(public_path());
         },
         'public-js' => function($collection)
@@ -173,7 +172,7 @@ return array(
             {
                 $collection->add('jquery.v1.8.3.min.js');
                 $collection->add('bootstrap/bootstrap.min.js');
-                $collection->add('redactor/redactor.min.js');
+                // $collection->add('redactor/redactor.min.js');
             })->apply('UriRewriteFilter')->setArguments(public_path());
         },
 
@@ -184,12 +183,15 @@ return array(
             $collection->directory('assets/css', function($collection)
             {
                 // $collection->add('less/admin.less')->apply('Less');
+                
+                // this one contains icons
                 // $collection->add('bootstrap.min.css');
-                // $collection->add('wysihtml5/prettify.css');
-                // $collection->add('bootstrap-responsive.css');
-                // $collection->add('wysihtml5/bootstrap-wysihtml5-0.0.2.css');
+                $collection->add('wysihtml5/prettify.css');
+                $collection->add('bootstrap-responsive.css');
+                $collection->add('wysihtml5/bootstrap-wysihtml5-0.0.2.css');
                 // $collection->add('style.css');
                 // $collection->add('redactor/redactor.css');
+
             })->apply('UriRewriteFilter')->setArguments(public_path());
         },
 
@@ -197,12 +199,17 @@ return array(
         {
             $collection->directory('assets/js', function($collection)
             {
-                $collection->add('wysihtml5/wysihtml5-0.3.0.js');
                 $collection->add('jquery.v1.8.3.min.js');
                 $collection->add('prettify.js');
+
+                //they say this should not be used in production:
+                // $collection->add('assets/js/less.js');
+
                 $collection->add('bootstrap/bootstrap.min.js');
+                
+                $collection->add('wysihtml5/wysihtml5-0.3.0.js');
                 $collection->add('wysihtml5/bootstrap-wysihtml5.js');
-                $collection->add('redactor/redactor.min.js');
+                // $collection->add('redactor/redactor.min.js');
 
             })->apply('UriRewriteFilter')->setArguments(public_path());
         },
@@ -351,11 +358,11 @@ return array(
             |
             */
 
-            'Less' => array('LessphpFilter', function($filter)
             // 'Less' => array('LessFilter', function($filter)
-            {
-                $filter->whenAssetIs('*.less')->findMissingConstructorArgs();
-            }),
+    'Less' => array('LessphpFilter', function($filter)
+    {
+        $filter->whenAssetIs('/*.less')->findMissingConstructorArgs();
+    }),
 
             /*
             |--------------------------------------------------------------------------

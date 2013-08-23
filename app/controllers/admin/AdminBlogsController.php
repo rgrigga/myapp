@@ -63,7 +63,9 @@ class AdminBlogsController extends AdminController {
 
 
             $tag='%'.$tag.'%';
-            $posts = $this->post->where('meta_keywords', 'LIKE', "$tag")->paginate($paginate);      
+            $posts = $this->post->where('meta_keywords', 'LIKE', "$tag")
+            ->orderBy('id','DESC')
+            ->paginate($paginate);      
             
             $tags=array();
 

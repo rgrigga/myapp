@@ -640,6 +640,15 @@ a{
 }
 
     </style>
+<style>
+  .featurette-image{
+    max-width: 30%;
+
+  }
+  aside>ul>li{
+    text-align: center;
+  }
+</style>
 @stop
 
 @section('favicons')
@@ -1034,10 +1043,31 @@ $(function() {
         }
       </style>
 
-      <div class="featurette" id="map" name="map">
+<!-- MAP -->
+<div class="featurette" id="about" name="about">
+  <img class="pull-left featurette-image" src="{{asset('assets/buckeye/buckeye_logo.png')}}" alt="">
+  <h2 class="featurette-heading">About Our Company</h2>
+  <p>I offer <b>REASONABLE PRICING</b> for working class people just like you and I. I offer <b>EXCEPTIONAL QUALITY</b> and stand behind ANY job I do. And I should also mention I have a <b>100% CUSTOMER SATISFACTION</b> rating?</p>
+  <h3 class="featurette-heading"><span class="muted">This Company is awesome</span></h3>
+  <p>My part time Lawnmower Repair started out as a hobby on the weekend just like some people like to go golfing. After several years of helping neighbors and friends I realized there is a demand for lawnmower repairs, and I'm good at what I do, so why not build a small business?  The American Dream right?</p>
+<p>So my first thought was:</p>
+<h3>Go Mobile!</h3>
+<p>I've done some legwork earlier in life, such as a College Education in Diesel Technology with a double-major in Ag Technology. I have been to numerous factory and dealer training classes and have earned many plaques and certifications along the way.  My business plan states- We Travel, So You Don't Have To. Buckeye Mower is a mobile lawnmower repair company and there is no job too small or commercial account too big.</p>
 
-        
-<!--         <img class="featurette-map pull-right" src="http://maps.googleapis.com/maps/api/staticmap?center=Westerville,Ohio&zoom=9&size=600x600&markers=color:blue%7Clabel:B%7C517+Westerville+OH|color:blue%7Clabel:B%7C517+Hilliard+OH&sensor=false" alt="Hilliard, OH"> -->
+<p><b>Yearly maintenance programs for residential home owners...</b> I got em.</p>
+<p><b>The guy who broke a belt in the back of his property...</b> I got em.</p>
+<p><b>Large commercial mowing accounts...</b> I got em.</p>
+
+I offer REASONABLE PRICING for working class people just like you and I. I offer EXCEPTIONAL QUALITY and stand behind ANY job I do. And I should also mention I have a 100% CUSTOMER SATISFACTION rating with every customer I have acquired! Not bad eh? I offer a personal and professional experience you can't find at your local dealership. 
+
+I sincerely appreciate every customer and will treat you and your equipment with the up most respect. Have a question? Contact me. I will offer free advice with no strings attached. Ready to give my company a try? Contact me for a personalized program for your maintenance needs. 
+  <a class="btn btn-info btn-large" href="{{URL::to('blog/abaout-our-company')}}">Here's Why</a>
+</div>
+
+
+
+<hr class="featurette-divider">
+      <div class="featurette" id="map" name="map">
 
         <img class="featurette-map pull-right img-circle" src="http://maps.googleapis.com/maps/api/staticmap?center=Westerville,Ohio&zoom=9&size=400x400&markers=Westerville+OH|Hilliard+OH|Columbus+OH|Gahanna+OH|Marengo+OH|Delaware+OH|Pickerington+OH|Grove+City+OH|Pataskala+OH|West+Jefferson+OH&sensor=false" alt="Central Ohio">
         <h2 class="featurette-heading">I will come to you. <span class="muted">Wide Service Area.</span></h2>
@@ -1051,36 +1081,28 @@ $(function() {
 
       <div class="featurette">
 
-      <div class="row">
-        <div class="span6">
-          <img class="featurette-image pull-left mysvg myimage img-circle" src="{{asset('assets/buckeye/noun_project_13832.svg')}}" alt="serving central ohio">
-          <!-- <i class="icon-cogs icon6"></i> -->
-          <h2 class="featurette-heading">Factory Trained. <span class="muted">Any Brand.</span></h2>
-          
-          <style>
-.featurette-image{
-  max-width: 30%;
+        <div class="row">
+          <div class="span6">
+            <img class="featurette-image pull-left mysvg myimage img-circle" src="{{asset('assets/buckeye/noun_project_13832.svg')}}" alt="serving central ohio">
+            <!-- <i class="icon-cogs icon6"></i> -->
+            <h2 class="featurette-heading">Factory Trained. <span class="muted">Any Brand.</span></h2>
+            
 
-}
-aside>ul>li{
-  text-align: center;
-}
-          </style>
 
-          <p class="lead">I am <strong>Factory Trained</strong>, and I regularly work on all major brands:</p>
-          <p class="lead">Looking for a mower?  Here is the <a href="http://www.consumerreports.org/cro/lawn-mowers/buying-guide.htm">Lawn Mower Buying Guide</a> from consumer reports.</p>
-           <p>
-           I have a passion for this equipment: and I will treat your equipment like it was my own.</p>
-        </div>
-        <!-- <div class="span4"> -->
+            <p class="lead">I am <strong>Factory Trained</strong>, and I regularly work on all major brands:</p>
+            <p class="lead">Looking for a mower?  Here is the <a href="http://www.consumerreports.org/cro/lawn-mowers/buying-guide.htm">Lawn Mower Buying Guide</a> from consumer reports.</p>
+             <p>
+             I have a passion for this equipment: and I will treat your equipment like it was my own.</p>
+          </div>
+          <!-- <div class="span4"> -->
           <div class="span4 pull-right well text-center">
             <aside>
-              <?php 
-              $mowerlist=array('deere','toro','cub cadet');
-              $brand = str_replace(' ', '', strtolower($company->brand));
-              $path="assets/".$brand."/";
+            <?php 
+            $mowerlist=array('deere','toro','cub cadet');
+            $brand = str_replace(' ', '', strtolower($company->brand));
+            $path="assets/".$brand."/";
 
-              ?>
+            ?>
               <style>
                 #mowerlist>li>a>img{
                   max-height: 64px;
@@ -1091,9 +1113,9 @@ aside>ul>li{
                   margin-left: 0px;
                 }
               </style>
-          
+
               <h2>Brands We Service</h2>
-          
+
               <ul class="nav nav-stacked brands" id="mowerlist">
                 @foreach($mowerlist as $mower)
 
@@ -1106,10 +1128,6 @@ aside>ul>li{
                     <img class="" src="{{asset($path.$mower.'.png')}}" alt="$mower">
                     
                   </a>
-                      
-                      
-                    
-
                 </li>
                 @endforeach
                 <li>
@@ -1124,12 +1142,9 @@ aside>ul>li{
               </ul>
             </aside>
           </div>
-        <!-- </div> -->
-      </div>
+          <!-- </div> -->
+        </div>
 
-
-
-  
           <!-- <img class="featurette-image" src="{{asset('assets/buckeye/toro.jpg')}}" alt=""> -->
           <style>
           ul.thumbnails{
@@ -1140,25 +1155,6 @@ aside>ul>li{
             /*background-color: red;*/
           }
           </style>
-<!-- <div> -->
-<!--   <ul class="thumbnails">
-    <li>
-      <a class="thumbnail" href="http://www.toro.com/en-us/homeowner/mowers/Pages/default.aspx">
-        <img src="{{asset('assets/buckeye/deere.png')}}" alt="">
-      </a>
-    </li>
-    <li>
-      <a  class="thumbnail" href="http://www.toro.com/en-us/homeowner/mowers/Pages/default.aspx">
-         <img class="featurette-image" src="{{asset('assets/buckeye/toro.jpg')}}" alt="">
-      </a>
-    </li>
-    <li>
-      <a class="thumbnail" href="http://www.toro.com/en-us/homeowner/mowers/Pages/default.aspx">
-        <img class="featurette-image" src="{{asset('assets/buckeye/cubcadet.jpg')}}" alt="">
-      </a>
-    </li>
-  </ul> -->
-<!-- </div> -->
 
       </div>
 

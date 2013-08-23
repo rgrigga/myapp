@@ -301,12 +301,14 @@ a:hover{
 						<div class="collapse in">
 							<div class="tab-content"> 
 								<div class="tab-pane active" id="about">
-									<h2>About Us</h2>
+									<h2>About Us...</h2>
 									<img class="img-circle pull-left" src="http://placehold.it/64x64/BF6230/123456">
+									<img src="" alt="">
 
-									<h3>We treat your home as our own</h3>
+									<h3>{{{$company->slogan}}}</h3>
 
-									<p>{{{$company->name}}} is a family owned business with a standard of excellence in all aspects of Residential and Commercial Painting, Roofing, Deck and Fence Staining, and Power Washing. Formerly known as Advantage Painting, {{{$company->name}}} has been known throughout Columbus and it's surrounding areas as the first name in professionalism and quality, since 1990.</p>				
+									<p>{{{$company->name}}} 
+							is a family owned business with a standard of excellence in all aspects of Residential and Commercial Painting, Roofing, Deck and Fence Staining, and Power Washing. Formerly known as Advantage Painting, {{{$company->name}}} has been known throughout Columbus and it's surrounding areas as the first name in professionalism and quality, since 1990.</p>				
 								</div>
 								<div class="tab-pane" id="interior">
 									<h2>Interior</h2>
@@ -572,8 +574,11 @@ a:hover{
 			<div>Email: {{{ $company->email }}}</div>
 			<div>Description: {{{ $company->description }}}</div>
 			<div>Slogan: {{{ $company->slogan }}}</div>
-			<div>Image: {{{ $company->image }}}</div>
+			<div>Image name: {{{ $company->image }}}</div>
 			<div>Menus: {{{ $company->menus }}}</div>
+			<div>asset($company->image)</div>
+			<div>$company->image()</div>
+			<div>{{{$company->img()}}}</div>
 		</div>
 	</div>
 

@@ -2,7 +2,7 @@ html,
 body {
     /*background-color: red;*/
     height: 100%;
-    color:rgba(189, 195, 199,1.0);
+    /*color:rgba(189, 195, 199,1.0);*/
     /* The html and body elements cannot have 
     any padding or margin, else they break other features */
 }
@@ -12,11 +12,12 @@ body {
 }
 /*http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site*/
 .thumbnail{
-  background-color:rgba(189, 195, 199,.9);
+  /*background-color:rgba(189, 195, 199,.9);*/
 }
 .thumbnail .caption{
   color: white;
 }
+
   a:hover{
     text-decoration: none;
   }
@@ -34,8 +35,8 @@ body {
 
   .page-header{
 
-    background-color: rgba(39, 174, 96,1.0);
-    color:rgba(189, 195, 199,1.0);
+    background-color: rgba(39, 174, 96,.9);
+    /*color:rgba(189, 195, 199,1.0);*/
     min-width: 100%;
     min-height:120px;
 
@@ -67,9 +68,10 @@ body {
 /*http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site*/
 
   .admin-top{
-    margin-top: 100px;
+    /*margin-top: 100px;*/
       /*<!-- check out http://flatuicolors.com/ -->*/
-      background-color: rgba(230, 126, 34,.5);
+      /*background-color: rgba(230, 126, 34,.5);*/
+      background-color: black;
 
   }
 

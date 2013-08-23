@@ -24,7 +24,7 @@
 Voila! {{$count}} posts about {{$tag}}.
 </div>
 
-{{$carousel}}
+{{View::make('site.posts.carousel')}}
 
 <div class="span8">
 <!-- <h1>Posts:</h1> -->

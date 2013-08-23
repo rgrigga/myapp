@@ -1,4 +1,4 @@
-@extends('layouts.bootstrap3')
+@extends('site.layouts.bs3')
 
 @section('title')
 @parent
@@ -20,6 +20,7 @@
 <!-- http://colorschemedesigner.com/#0k41Jw0w0w0w0 -->
 <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine"> -->
 
+@stylesheets('gristech')
 
 <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
 
@@ -48,7 +49,7 @@
 html,body {
 
 	/*background-color: rgba(235,196,162,.2);*/
-	color: rgba(236, 240, 241,1.0);
+	/*color: rgba(236, 240, 241,1.0);*/
 	/*background-color:rgba(44, 62, 80,1.0);*/
 	font-family: 'EB Garamond', serif;
 	/*font-size: 16px;*/
@@ -61,8 +62,8 @@ html,body {
 }
 
 .main{
-	color: rgba(236, 240, 241,1.0);
-	/*background-color:rgba(44, 62, 80,1.0);*/
+
+	
 }
 
 .navbar{
@@ -83,6 +84,7 @@ html,body {
 }
 
 .page-header{
+
 	margin-top: 0px;
 	text-align: center;
 }
@@ -409,6 +411,22 @@ foreach (glob($path."*.blade.php") as $filename) {
 <!-- ************************************** -->
 <!-- BOTTOM -->
 
+
+
+
+
+
+<div class="sidebar">
+	
+	<ul>
+		<li>CSS</li>
+		<li>LESS</li>
+		<li>PHP</li>
+		<li>Bootstrap</li>
+	</ul>
+
+</div>
+
 <div class="main">
 
 	<div class="span7">
@@ -572,7 +590,7 @@ foreach (glob($path."*.blade.php") as $filename) {
 				</div>
 				@endforeach
 				<div class="tab-pane active" id="tab1">
-					
+					<h2>Welcome to Section 2</h2>
 				</div>
 			</div>
 		</div>
@@ -600,6 +618,10 @@ foreach (glob($path."*.blade.php") as $filename) {
 		<?
 // var_dump($posts);
 		?>
+
+
+{{View::make('site.posts.article')}}
+
 		<div class="text-center">
 			{{ $posts->links() }}
 		</div>
@@ -665,7 +687,10 @@ foreach (glob($path."*.blade.php") as $filename) {
 	<!-- ./main -->
 	<!-- ************************************************ -->
 
-
+  <button id='mybutton'>Toggle 'em</button>
+ <p id='myp' class="myp">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, aliquam.</p>
+<p>Hiya</p>
+<p>Such interesting text, eh?</p>
 
 <!-- Piwik -->
 <script type="text/javascript">
@@ -691,15 +716,27 @@ foreach (glob($path."*.blade.php") as $filename) {
 
 	@stop
 @section('myjs')
-    <script type="text/javascript">
 
+
+    <script type="text/javascript">
+$(document).ready(function(){
+	$("#mybutton").click(function () {
+		$("#myp").toggle("slow");
+	});
+});
+// 	$("#toggler").click(function(){
+// 	  $(this).toggleClass('active, inactive');
+// 	})
+
+// })
                 // $('.page-header').css('background-color','red');
                 $('#side-wrapper').height($("#sidebar").height());
-                $('.collapse-group .btn').on('click', function(e) {
+                $('.toggler .btn').on('click', function(e) {
                         e.preventDefault();
                         var $this = $(this);
                         var $collapse = $this.closest('.collapse-group').find('.collapse');
-                        $collapse.collapse('toggle');
+                        // $collapse.collapse('toggle');
+                        $collapse.toggle("slow");
                     });
                     // $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
                     // $('.thumbnail').equalHeights();

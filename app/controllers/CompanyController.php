@@ -70,6 +70,7 @@ class CompanyController extends UserController {
 	 */
 
 	public function sewcute(){
+		$this->company = $this->company->where('brand','like','sewcute')->first();
 
 		return $this->getIndex('sewcute',5);
 	}
@@ -95,6 +96,9 @@ class CompanyController extends UserController {
 	}
 
 	public function getIndex($brand='',$num='10'){
+
+		die(var_dump($brand));
+
 		$company=App::make('company');
 		$brand=strtolower($company->brand);
 		$posts = $this->post->where('meta_keywords', 'LIKE', '%'.$brand.'%')->paginate($num);
