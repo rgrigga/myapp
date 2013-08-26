@@ -128,7 +128,7 @@ class BlogController extends BaseController {
         //WRONG - this only passes the string
        	// View::share('analytics','site.'.strtolower($company->brand).'.analytics');
 
-
+        // View::share('publicPages',$this->post_public());
 
 		// View::composer('*','AnalyticsComposer');
 		// View::composer('*','SearchComposer');
@@ -234,20 +234,24 @@ class BlogController extends BaseController {
 		// View::share('posts',$posts);
 	}
 
+
 	private function myposts($mylist){
 
-		// $mylist2=array("1","2","3");
-
-		// foreach ($mylist as $value) {
 
 		$posts=$this->post
 			->where('meta_keywords', 'LIKE', '%'.$this->company->brand.'%')
 			->whereIn('id',$mylist)
 	        // ->where('content','LIKE','%'.$tag.'%')
-	        ->paginate(5);
+	        ->get();
 
+		$posts=$posts->toArray();
+		array_multisort($mylist,$posts,SORT_STRING);
+ // die(var_dump($posts));
 	    return $posts;
 
+
+
+	    $newarray=array();
 		// echo $value;		
 		// $this->post->where('id',"=",$value)->get());
 		// return $newposts;
@@ -383,9 +387,14 @@ class BlogController extends BaseController {
 	public function getPage($tag="",$path="")
 	{
 		$brand=strtolower($this->company->brand);
+		// $this->posts=$this->post_public();
 
 		if(!$path){
-			$minipath='site/pages/';
+			//global pages
+			// $minipath='site/pages/';
+			//company's pages
+			$minipath='site/'.$brand.'/';
+
 			$path='../app/views/'.$minipath;
 		}
 
@@ -405,12 +414,59 @@ class BlogController extends BaseController {
 	    }
 
 	    if(in_array($tag, $mypages)){
+
+$desired=array("69","63","70");
+				$posts = $this->post
+					->where('meta_keywords', 'LIKE', '%'.$brand.'%')
+			        // ->where('meta_keywords','LIKE','%public%')
+			        ->whereIn('id',$desired)
+			        // ->where('content','LIKE','%'.$tag.'%')
+					->get()
+					// ->paginate(5)
+					;
+
+
+
+// $sorted=sortArrayByArray($myarray,array_flip($desired));
+// die(print_r($sorted));
+	function sortArrayByArray($array,$orderArray) {
+	    $ordered = array();
+	    foreach($orderArray as $key) {
+	    	if(array_key_exists($key,$array)) {
+	    		$ordered[$key] = $array[$key];
+	    		unset($array[$key]);
+	    	}
+	    }
+	    return $ordered + $array;
+	}
+
+$posts=$posts->toArray();
+// $posts=sortArrayByArray($posts,$desired);
+// $posts=new PostPresenter($posts);
+
+$posts=$posts->toArray();
+array_multisort($desired,$posts,SORT_STRING);
+				// die(var_dump($posts));
+
+				View::share('count',count($posts));
+				
+	
+	// foreach ($posts as $post) {
+	// 	$post=new PostPresenter($post);
+	// }
+View::share(compact('posts'));
+	// View::share('posts',$posts);
+
 	    	return View::make($minipath.$tag)
+	    	// ->with(compact('posts'))
+	    	// ->nest('carousel','site.posts.carousel')
+
 	    	//this is now handled in the template:
   			// ->nest('analytics','site.'.strtolower($this->company->brand).'.analytics')
 	    	;
 	    }
-	    // else return nothing;
+	    return("No page in $path by the name $tag!");
+
 	}
 
 	private function post_public($tag=""){
@@ -489,8 +545,6 @@ class BlogController extends BaseController {
 
 		if($tag){
 
-
-			
 			View::share('tag',strtoupper($tag));
 
 			$company = $this->company->where('brand','like',$tag)->first();
@@ -508,6 +562,7 @@ class BlogController extends BaseController {
 
 			//This would yield a page in views/site/pages
 			if($mypage){
+				// die("bam");
 				return View::make('site.pages.'.$tag)
 			    	->with(compact('company'))
 					->nest('analytics','site.'.strtolower($this->company->brand).'.analytics');
@@ -684,7 +739,21 @@ class BlogController extends BaseController {
 
 
 				if($env=='buckeye'){
-					$posts=$this->myposts(array(56,58,86,67));
+					$posts=$this->myposts(array("56","58","86","67"));
+				// $posts=$posts->toArray();
+				// array_multisort($desired,$posts,SORT_STRING);
+
+// foreach ($posts as $post) {
+// 	$post=new PostPresenter($post);
+// 	echo $post->id;
+// }
+// die();
+					//get company list of posts
+					//company home page settings
+				}
+
+				if($env=='megacorp'){
+					$posts=$this->myposts(array(62,68,67,69));
 
 					//get company list of posts
 					//company home page settings
@@ -710,6 +779,8 @@ class BlogController extends BaseController {
 
 				
 				}
+// var_dump($posts);
+// die(count($posts));
 
 				View::share('posts',$posts);
 				// return Redirect::action('CompanyController@getIndex',$tag);

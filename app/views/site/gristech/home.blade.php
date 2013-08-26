@@ -1,7 +1,7 @@
-@extends('site.layouts.bs3')
+@extends('layouts.bootstrap3')
 
 @section('title')
-@parent
+
 {{{ $company->name }}} - {{{$company->slogan}}}
 @stop
 
@@ -16,15 +16,26 @@
 @stop
 
 @section('styles')
-@parent
+<!-- @ parent -->
 <!-- http://colorschemedesigner.com/#0k41Jw0w0w0w0 -->
 <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine"> -->
+    <!-- @ stylesheets("bs3-css") -->
+    <!-- assets/css/less/bootstrap.less -->
 
-@stylesheets('gristech')
+    <!-- @ stylesheets('myapp-css') -->
+    <!-- assets/css/less/master.less -->
+
+	<!-- @ stylesheets('gristech') -->
+	<!-- assets/css/less/gristech.less -->
+
+	<link rel="stylesheet/less" type="text/css" href="assets/css/less/master.less" />
+	<link rel="stylesheet/less" type="text/css" href="assets/css/less/gristech.less" />
+
+	<script src="assets/js/less.js" type="text/javascript"></script>
 
 <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
 
-<!-- <link href='http://fonts.googleapis.com/css?family=Graduate' rel='stylesheet' type='text/css'> -->
+<!-- <link href='http://fonts.googleapis.com/css?family=Graduate' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Patrick+Hand' rel='stylesheet' type='text/css'>
 <!-- <link href='http://fonts.googleapis.com/css?family=Monsieur+La+Doulaise' rel='stylesheet' type='text/css'> -->
 <!-- <link href='http://fonts.googleapis.com/css?family=Mr+De+Haviland' rel='stylesheet' type='text/css'> -->
@@ -327,17 +338,12 @@ foreach (glob($path."*.blade.php") as $filename) {
 
 <div class="page-header">
 
-			<!-- <div class="row"> -->
-
-
-			<!-- </div> -->
-		<!-- <h1>BAM</h1> -->
-		<div class="row">
+	<div class="row">
 
 		<h4>Search:</h4>
 		{{$searchbar}}
 
-			<div class="col-lg-5">
+			<div class="col-md-5">
 				<!-- <a href="#about" data-toggle="tab"> -->
 				<img class="img-responsive" src="{{asset('assets/'.strtolower($company->brand).'/cloud.svg')}}" alt="">
 					
@@ -345,7 +351,7 @@ foreach (glob($path."*.blade.php") as $filename) {
 				{{--$about--}}
 			</div>
 			
-			<div class="col-lg-5 text-center">
+			<div class="col-md-5 text-center">
 				<h1>MyApp</h1>
 				<aside>
 					
@@ -413,7 +419,10 @@ foreach (glob($path."*.blade.php") as $filename) {
 
 
 
-
+<div class="wrapper">
+  <div class="content-main">main...</div>
+  <div class="content-secondary">secondary...</div>
+</div>
 
 
 <div class="sidebar">

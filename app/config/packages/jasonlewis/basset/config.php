@@ -45,9 +45,13 @@ return array(
         'bs3-css' => function($collection)
         {
 
-            $collection->directory('assets/bs3/css', function($collection)
+            $collection->directory('assets/css/less', function($collection)
             {
-                $collection->add('bootstrap.min.css');
+                $collection->add('bootstrap.less')->apply('Less'); 
+
+            // $collection->directory('assets/bs3/css', function($collection)
+            // {
+            //     $collection->add('bootstrap.min.css');
                 // $collection->add('mystyle.css');
                 // $collection->add('../less/master.less')->apply('Less');
             
@@ -137,8 +141,8 @@ return array(
 
             $collection->directory('assets/css', function($collection)
             {
-                // $collection->add('less/megacorp.less')->apply('Less');
-                $collection->add('megacorp.css');
+                $collection->add('less/megacorp.less')->apply('Less');
+                // $collection->add('megacorp.css');
             })->apply('UriRewriteFilter')->setArguments(public_path());
 
         },
@@ -146,8 +150,10 @@ return array(
         'gristech' => function($collection)
         {
 // $brand=App::make('company')->brand;
-            $collection->directory('assets/gristech/css', function($collection)
+            $collection->directory('assets/css', function($collection)
             {
+                // $collection->add('bootstrap.less')->apply('Less'); 
+                $collection->add('less/bootstrap.less')->apply('Less');
                 $collection->add('less/gristech.less')->apply('Less');
                 // $collection->add('gristech.css');
             })->apply('UriRewriteFilter')->setArguments(public_path());

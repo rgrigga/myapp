@@ -1,4 +1,4 @@
-@extends('layouts.scaffold')
+@extends('layouts.demo')
 
 @section('title')
 @parent
@@ -16,17 +16,26 @@
 @stop
 
 @section('styles')
+@parent
 
-@stylesheets('megacorp');
+        @stylesheets('gristech')
+
+        <link rel="stylesheet/less" type="text/css" href="assets/css/less/demo.less" />
+        <script src="assets/js/less.js" type="text/javascript"></script>
+
+<!-- @ stylesheets('megacorp'); -->
 
 <!-- http://colorschemedesigner.com/#0k41Jw0w0w0w0 -->
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+<!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
 <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Graduate' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Patrick+Hand' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Monsieur+La+Doulaise' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Mr+De+Haviland' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+ -->
+
+
 <style>
 
 /*this has ramifications:*/
@@ -126,7 +135,7 @@ a:hover {text-decoration: none}
 		<!-- <h2>YO</h2> -->
 
 		@section('nav')
-		@include('site.partials.nav-top-min')
+		@include('site.partials.nav-top-bs3')
 		@stop
 
 		@section('myjs')
@@ -149,8 +158,8 @@ a:hover {text-decoration: none}
             // $(document).ready(function(){
             //     $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
             // });
-}
-}
+		}
+	}
 
 
 $('.collapse-group .btn').on('click', function(e) {
@@ -582,17 +591,22 @@ a:hover{
 		</div>
 	</div>
 
+
+{{--View::make('site.posts.article')--}}
+
 	<div class="row-fluid" id="posts">
 		<h1>Posts:</h1>
 		<?
 // var_dump($posts);
 		?>
 		<div class="text-center">
-			{{ $posts->links() }}
+			{{-- $posts->links() --}}
 		</div>
+		<h1>62,68,67,69</h1>
 
 		@foreach ($posts as $post)
 		<div class="row-fluid">
+			<p>{{{$post->id}}}</p>
 			<div class="span3">
 				<p></p>
 				<p>
@@ -640,7 +654,7 @@ a:hover{
 			</ul>
 
 			@endforeach
-			{{ $posts->links() }}
+			{{-- $posts->links() --}}
 		</div>
 		<!-- ./ row -->
 	</div>

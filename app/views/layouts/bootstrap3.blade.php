@@ -46,8 +46,8 @@
     <!-- Configure list of files as a json array, -->
     <!-- basset/config.php -->
     <!-- Compile them, and your webpage is faster. -->
-    @stylesheets('myapp-css')
-    @stylesheets("bs3-css")
+    <!-- @ stylesheets('myapp-css') -->
+    <!-- @ stylesheets("bs3-css") -->
     
     <!-- EXTERNAL -->
     <!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
@@ -57,25 +57,7 @@
     <!-- GLOBAL INTERNAL -->
     <!-- Quick & Dirty.  Move to stylesheet for long-term. -->
     <style>
-        table form { margin-bottom: 0; }
-        form ul { margin-left: 0; list-style: none; }
-        .error { color: red; font-style: italic; }
-        /*body { padding-top: 20px; }*/
 
-        /*https://developer.mozilla.org/en-US/docs/Web/HTML/Sections_and_Outlines_of_an_HTML5_document*/
-        section, article, aside, footer, header, nav, hgroup {
-          display:block;
-        }
-        .alert {
-            position: relative;
-            margin-right: auto;
-            /*width: 100%;*/
-            top: 80px;
-            z-index: 10;
-        }
-        .navwrap{
-            overflow: hidden;
-        }
     </style>
 
 

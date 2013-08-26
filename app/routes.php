@@ -308,6 +308,7 @@ Route::group(array('domain' => 'myapp.devfoo'),function(){
     {
 
         Route::group(array('prefix' => 'bar'),function(){
+            //does not work: 404;
             return "bar";
         });
         
@@ -762,70 +763,73 @@ Route::resource('companies', 'CompaniesController');
 // Route::get('pages','BlogController@getPages');
 // ??
 
-Route::get('pages',function(){
-    $env=App::environment();
-    $path='../app/views/site/'.$env.'/';
-    // die($path);
-    // $path='../app/views/site/pages/';
+// Route::get('pages',function(){
+//     $env=App::environment();
+//     $path='../app/views/site/'.$env.'/';
+//     // die($path);
+//     // $path='../app/views/site/pages/';
 
-    $mypages = array();
-    foreach (glob($path."*.blade.php") as $filename) {
-        $filename=str_replace($path, "", $filename);
-        $filename=str_replace(".blade.php", "", $filename);
-        array_push($mypages,$filename);
-        // echo "$filename" . "<br>";
-        // die();
-    }
+//     $mypages = array();
+//     foreach (glob($path."*.blade.php") as $filename) {
+//         $filename=str_replace($path, "", $filename);
+//         $filename=str_replace(".blade.php", "", $filename);
+//         array_push($mypages,$filename);
+//         // echo "$filename" . "<br>";
+//         // die();
+//     }
 
-    if(empty($mypages)){
-        $msg="Could not find any pages in $path";
-        Session::flash('message', $msg);
-        App::abort('404',$msg);
-    }
-    else {
-       return $mypages;
-    }
-});
+//     if(empty($mypages)){
+//         $msg="Could not find any pages in $path";
+//         Session::flash('message', $msg);
+//         App::abort('404',$msg);
+//     }
+//     else {
+//        return $mypages;
+//     }
+// });
 
-Route::get('pages/{page}','BlogController@getPage');
+Route::get('pages/{page}','BlogController@getPage')
+    ->where('id', '[0-9a-zA-Z_]+')
+    ;
 
-Route::get('pages/{page}',function($page){
-        $env=App::environment();
-            $path='../app/views/site/'.$env.'/';
-            // die($path);
-            // $path='../app/views/site/pages/';
+// Route::get('pages/{page}',function($page){
+//     // die("BAM");
+//         $env=App::environment();
+//             $path='../app/views/site/'.$env.'/';
+//             // die($path);
+//             // $path='../app/views/site/pages/';
 
-            $mypages = array();
-            foreach (glob($path."*.blade.php") as $filename) {
-                $filename=str_replace($path, "", $filename);
-                $filename=str_replace(".blade.php", "", $filename);
-                array_push($mypages,$filename);
-                // echo "$filename" . "<br>";
-                // die();
-            }
+//             $mypages = array();
+//             foreach (glob($path."*.blade.php") as $filename) {
+//                 $filename=str_replace($path, "", $filename);
+//                 $filename=str_replace(".blade.php", "", $filename);
+//                 array_push($mypages,$filename);
+//                 // echo "$filename" . "<br>";
+//                 // die();
+//             }
 
-            if(empty($mypages)){
-                $msg="Could not find any pages in $path";
-                Session::flash('message', $msg);
-                App::abort('404',$msg);
-            }
+//             if(empty($mypages)){
+//                 $msg="Could not find any pages in $path";
+//                 Session::flash('message', $msg);
+//                 App::abort('404',$msg);
+//             }
 
-            // if services.blade.php exists, it will be returned.  Otherwise, 
-            // we'll send the user to the search page.
-            if(in_array($page, $mypages)){
-                // die("BAM");
+//             // if services.blade.php exists, it will be returned.  Otherwise, 
+//             // we'll send the user to the search page.
+//             if(in_array($page, $mypages)){
+//                 // die("BAM");
 
 
-                return View::make('site.'.$env.'.'.$page)
-                // ->nest('nav','site.partials.nav-top-min',compact('company'))
-                ->with(compact('company'))
-                ->with(compact('tags'))
-                ->with(compact('alltags'))
-                ->with(compact('posts'));
-                 // $view;
-            }
-            return("No page in $path by the name $page!");
-});
+//                 return View::make('site.'.$env.'.'.$page)
+//                 // ->nest('nav','site.partials.nav-top-min',compact('company'))
+//                 ->with(compact('company',$this->company));
+//                 ->with(compact('tags'))
+//                 ->with(compact('alltags'))
+//                 ->with(compact('posts'));
+//                  // $view;
+//             }
+//             return("No page in $path by the name $page!");
+// });
 
 Route::post('search', 'BlogController@postSearch');
 Route::get('search', 'BlogController@search');

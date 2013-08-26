@@ -10,13 +10,13 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="90mm"
-   height="50mm"
+   width="990"
+   height="765"
    id="svg5958"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
    sodipodi:docname="buckeye_logo.svg"
-   inkscape:export-filename="/home/ryan/MyApp6/public/assets/buckeye/buckeye_logo.png"
+   inkscape:export-filename="/home/ryan/MyApp6/public/assets/buckeye/buckeye_logo_large.png"
    inkscape:export-xdpi="72"
    inkscape:export-ydpi="72">
   <defs
@@ -1149,17 +1149,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.99145737"
-     inkscape:cx="10.95364"
-     inkscape:cy="405.92399"
+     inkscape:zoom="0.66245342"
+     inkscape:cx="25.084694"
+     inkscape:cy="438.14936"
      inkscape:document-units="mm"
-     inkscape:current-layer="g6072"
+     inkscape:current-layer="g8040"
      showgrid="false"
      inkscape:window-width="1469"
      inkscape:window-height="816"
-     inkscape:window-x="201"
+     inkscape:window-x="229"
      inkscape:window-y="220"
-     inkscape:window-maximized="0" />
+     inkscape:window-maximized="0"
+     units="mm" />
   <metadata
      id="metadata5962">
     <rdf:RDF>
@@ -1176,16 +1177,17 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     style="display:inline">
+     style="display:inline"
+     transform="translate(0,587.83464)">
     <g
        id="g6072"
-       transform="matrix(1.1598082,0,0,2.0053463,-285.59353,-195.29153)"
+       transform="matrix(2.3833521,0,0,4.1208937,-287.04797,-48.269155)"
        inkscape:export-xdpi="72"
        inkscape:export-ydpi="72"
-       inkscape:export-filename="/home/ryan/MyApp6/public/assets/buckeye/buckeye_logo2.png">
+       inkscape:export-filename="/home/ryan/MyApp6/public/assets/buckeye/buckeye_logo_blank.png">
       <path
          transform="matrix(0.13726953,0.63621438,-2.245921,0.06519027,2998.218,-198.38953)"
-         d="m 250,1197.5 a 112.5,87.090279 0 1 1 -225,0 112.5,87.090279 0 1 1 225,0 z"
+         d="m 250,1197.5 c 0,48.0986 -50.36797,87.0903 -112.5,87.0903 -62.132034,0 -112.5,-38.9917 -112.5,-87.0903 0,-48.0986 50.367966,-87.0903 112.5,-87.0903 62.13203,0 112.5,38.9917 112.5,87.0903 z"
          sodipodi:ry="87.090279"
          sodipodi:rx="112.5"
          sodipodi:cy="1197.5"
@@ -1581,50 +1583,52 @@
   <g
      inkscape:groupmode="layer"
      id="layer19"
-     inkscape:label="Layer2">
+     inkscape:label="Layer2"
+     transform="translate(0,587.83464)">
     <g
        id="g8040"
-       transform="translate(-2.0172325,-13.112011)">
+       transform="translate(-2.6296745,-22.298641)">
       <rect
          inkscape:export-ydpi="72"
          inkscape:export-xdpi="72"
-         inkscape:export-filename="/home/ryan/MyApp6/public/assets/buckeye/buckeye_logo3.png"
-         style="fill:#dddb44;fill-opacity:1;stroke:#265e26;stroke-width:3.52632093;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new"
+         inkscape:export-filename="/home/ryan/MyApp6/public/assets/buckeye/buckeye_logo_blank.png"
+         style="fill:#dddb44;fill-opacity:1;stroke:#265e26;stroke-width:7.24642611;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;enable-background:new"
          id="rect3971"
-         width="419.94"
-         height="217.92996"
-         x="-113.14285"
-         y="-342.30643"
-         rx="197.30109"
-         ry="108.96498" />
+         width="862.95721"
+         height="447.83597"
+         x="64.555984"
+         y="-362.5752"
+         rx="405.44458"
+         ry="223.91798" />
       <text
          inkscape:export-ydpi="72"
          inkscape:export-xdpi="72"
-         inkscape:export-filename="/home/ryan/MyApp6/public/assets/buckeye/buckeye_logo3.png"
+         inkscape:export-filename="/home/ryan/MyApp6/public/assets/buckeye/buckeye_logo_words.png"
          xml:space="preserve"
-         style="font-size:97.91675568px;font-style:normal;font-weight:normal;line-height:87.00000048%;letter-spacing:0px;word-spacing:0px;fill:#006900;fill-opacity:1;stroke:#3e5f26;stroke-width:2.00829291;stroke-opacity:1;display:inline;enable-background:new;font-family:Sans"
-         x="245.63625"
-         y="-259.24707"
+         style="font-size:200.04722595px;font-style:normal;font-weight:normal;line-height:87.00000048%;letter-spacing:0px;word-spacing:0px;fill:#006900;fill-opacity:1;stroke:#3e5f26;stroke-width:4.10301018;stroke-opacity:1;display:inline;enable-background:new;font-family:Sans"
+         x="778.54083"
+         y="-161.03371"
          id="text3964"
          sodipodi:linespacing="87%"
          transform="scale(1.0638014,0.94002508)"><tspan
            sodipodi:role="line"
            id="tspan3966"
-           x="239.51645"
-           y="-259.24707"
-           style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:end;line-height:87.00000048%;letter-spacing:-6.11979723px;writing-mode:lr-tb;text-anchor:end;fill:#006900;fill-opacity:1;stroke:#3e5f26;stroke-width:2.44791889;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Norasi;-inkscape-font-specification:Norasi Bold Italic"
+           x="766.03784"
+           y="-161.03371"
+           style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:end;line-height:87.00000048%;letter-spacing:-12.50295162px;writing-mode:lr-tb;text-anchor:end;fill:#006900;fill-opacity:1;stroke:#3e5f26;stroke-width:5.00118065;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Norasi;-inkscape-font-specification:Norasi Bold Italic"
            rotate="0 0 0 0 0 0 0 0"
            dy="0">Buckeye</tspan><tspan
            sodipodi:role="line"
-           x="239.51645"
-           y="-174.05949"
+           x="766.0379"
+           y="13.007387"
            id="tspan3968"
-           style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:end;line-height:87.00000048%;letter-spacing:-6.11979723px;text-anchor:end;fill:#006900;fill-opacity:1;stroke:#3e5f26;stroke-width:2.44791889;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Norasi;-inkscape-font-specification:Norasi Bold Italic">Mower</tspan></text>
+           style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:end;line-height:87.00000048%;letter-spacing:-12.50295162px;text-anchor:end;fill:#006900;fill-opacity:1;stroke:#3e5f26;stroke-width:5.00118065;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Norasi;-inkscape-font-specification:Norasi Bold Italic">Mower</tspan></text>
     </g>
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer17"
      inkscape:label="text"
-     style="display:inline" />
+     style="display:inline"
+     transform="translate(0,587.83464)" />
 </svg>
