@@ -1,5 +1,14 @@
 <?php
-
+	function sortArrayByArray($array,$orderArray) {
+	    $ordered = array();
+	    foreach($orderArray as $key) {
+	    	if(array_key_exists($key,$array)) {
+	    		$ordered[$key] = $array[$key];
+	    		unset($array[$key]);
+	    	}
+	    }
+	    return $ordered + $array;
+	}
 // http://flatuicolors.com/
 
 //http://www.coderanch.com/t/443740/patterns/UML-multiple-inheritance-domain-model
@@ -98,8 +107,10 @@ class BlogController extends BaseController {
         $this->user = $user;
         $this->company = $company;
 		
-//??? Is this a bad idea?  I read that 
-//using the environment this way may not be safe
+//I am using the URL to determine the environment.
+        //Is that a bad idea?
+
+//??? I read that using the environment this way may not be safe
 
 		// $env=App::environment();
 		// $company = $this->company->where('brand','like',$env)->first();
@@ -128,6 +139,7 @@ class BlogController extends BaseController {
         //WRONG - this only passes the string
        	// View::share('analytics','site.'.strtolower($company->brand).'.analytics');
 
+        // This returns a collection of objects
         // View::share('publicPages',$this->post_public());
 
 		// View::composer('*','AnalyticsComposer');
@@ -139,10 +151,11 @@ class BlogController extends BaseController {
 		// });
 
 		View::composer('index',function($view){
-			$view->with('postcount',count($posts));
+			$view->with('postcount',count($posts))
+			// ->with(compact($posts))
+			;
 		});
 
-        // ->with(compact($posts));
     }
 
 
@@ -207,7 +220,7 @@ class BlogController extends BaseController {
 // Route::get('search/{tag}','BlogController@getSearch');
 	public function getSearch(){
 		$tag=Input::get('tag');
-		// die(var_dump($tag));
+		die(var_dump($tag));
 		// return App::abort('404','Controller: I found no $tag');
 	}
 
@@ -247,6 +260,7 @@ class BlogController extends BaseController {
 		$posts=$posts->toArray();
 		array_multisort($mylist,$posts,SORT_STRING);
  // die(var_dump($posts));
+		$posts=$newCollection = new \Illuminate\Database\Eloquent\Collection( $posts );
 	    return $posts;
 
 
@@ -286,13 +300,14 @@ class BlogController extends BaseController {
 
 				View::share('wordcount',$wordcount);
 				// View::share('postlist','site.partials.postlist');
-		
+				View::share('posts',$posts);
+
 				$view.=
 					View::make('site.posts.featurettes')
 					// View::make('site.posts.thumbnails')
 					// View::make('site.posts.carousel')
 					// View::make('site.posts.postlist')
-					->with('posts',$posts)
+					// ->with('posts',$posts)
 					->with(compact('wordcount'))
 					->with(compact('postcount'))
 					;
@@ -386,9 +401,9 @@ class BlogController extends BaseController {
 
 	public function getPage($tag="",$path="")
 	{
+		// die(var_dump("Hello"));
 		$brand=strtolower($this->company->brand);
-		// $this->posts=$this->post_public();
-
+		
 		if(!$path){
 			//global pages
 			// $minipath='site/pages/';
@@ -415,50 +430,30 @@ class BlogController extends BaseController {
 
 	    if(in_array($tag, $mypages)){
 
-$desired=array("69","63","70");
-				$posts = $this->post
-					->where('meta_keywords', 'LIKE', '%'.$brand.'%')
-			        // ->where('meta_keywords','LIKE','%public%')
-			        ->whereIn('id',$desired)
-			        // ->where('content','LIKE','%'.$tag.'%')
-					->get()
-					// ->paginate(5)
-					;
+			$desired=array("69","63","70");
+			$posts = $this->post
+				->where('meta_keywords', 'LIKE', '%'.$brand.'%')
+			       // ->where('meta_keywords','LIKE','%public%')
+			       ->whereIn('id',$desired)
+			       // ->where('content','LIKE','%'.$tag.'%')
+				->get()
+				// ->paginate(5)
+				;
 
+			$posts=$posts->toArray();
+			// $posts=sortArrayByArray($posts,$desired);
+			array_multisort($desired,$posts,SORT_STRING);
+			// 				// die(var_dump($posts));
 
+// $posts=$this->post_public();
 
-// $sorted=sortArrayByArray($myarray,array_flip($desired));
-// die(print_r($sorted));
-	function sortArrayByArray($array,$orderArray) {
-	    $ordered = array();
-	    foreach($orderArray as $key) {
-	    	if(array_key_exists($key,$array)) {
-	    		$ordered[$key] = $array[$key];
-	    		unset($array[$key]);
-	    	}
-	    }
-	    return $ordered + $array;
-	}
+			View::share('count',count($posts));		
+			// View::share(compact('posts'));
+			// View::share('posts',$posts);
 
-$posts=$posts->toArray();
-// $posts=sortArrayByArray($posts,$desired);
-// $posts=new PostPresenter($posts);
-
-$posts=$posts->toArray();
-array_multisort($desired,$posts,SORT_STRING);
-				// die(var_dump($posts));
-
-				View::share('count',count($posts));
-				
-	
-	// foreach ($posts as $post) {
-	// 	$post=new PostPresenter($post);
-	// }
-View::share(compact('posts'));
-	// View::share('posts',$posts);
-
+// die($minipath.$tag);
 	    	return View::make($minipath.$tag)
-	    	// ->with(compact('posts'))
+	    	->with(compact('posts'))
 	    	// ->nest('carousel','site.posts.carousel')
 
 	    	//this is now handled in the template:
@@ -524,6 +519,9 @@ View::share(compact('posts'));
 
 	public function getIndex($tag="")
 	{
+		// $msg=var_dump($tag);
+		// die($msg);
+
 		//step 1: allow content based on auth type
 		// if auth admin, show all posts
 		// die(var_dump(Auth::user('fail')));
@@ -536,21 +534,31 @@ View::share(compact('posts'));
 
 		// $mycompany=$this->company;
 		// $env=App::environment();
-	$msg="";
+		$msg="";
 
-	// singleton versus dependency injection?
+		// singleton versus dependency injection?
 
-	// $env=App::environment();
-    // $company=App::make('company');
+		// $env=App::environment();
+	    // $company=App::make('company');
+	    $company=$this->company;
+	    // die(print_r($company));
 
 		if($tag){
 
+			//any child view can call {{$tag}}
 			View::share('tag',strtoupper($tag));
 
-			$company = $this->company->where('brand','like',$tag)->first();
-			if(empty($company)){
+			$tagcompany = $this->company->where('brand','like',$tag)->first();
+			
+			if(empty($tagcompany)){
+
 				// die("company not found - (BlogController getIndex)");
-				$company = $this->company->where('brand','like','gristech')->first();
+				$msg="BlogController getIndex tag:$tag";
+				// App::abort('404',$msg);
+				// App::abort($msg);
+
+				//try uncommenting if you end up here is the default company:
+				// $company = $this->company->where('brand','like','gristech')->first();
 			}
 			// $company=$this->company;
 
@@ -561,7 +569,7 @@ View::share(compact('posts'));
 			$mypage=$this->getPage($tag);
 
 			//This would yield a page in views/site/pages
-			if($mypage){
+			if(!$mypage){
 				// die("bam");
 				return View::make('site.pages.'.$tag)
 			    	->with(compact('company'))
@@ -570,6 +578,8 @@ View::share(compact('posts'));
 				// return $mypage
 				;
 			}
+
+
 
 /////////////// TAGS AND POSTS
 
@@ -736,7 +746,8 @@ View::share(compact('posts'));
 
 				// http://louis-sawtell.com/content/mysql-query-order-results-array
 
-
+//Clearly, there is a relationship between the company and the posts.
+//the sooner we define this in our models, the better.
 
 				if($env=='buckeye'){
 					$posts=$this->myposts(array("56","58","86","67"));
@@ -753,8 +764,8 @@ View::share(compact('posts'));
 				}
 
 				if($env=='megacorp'){
-					$posts=$this->myposts(array(62,68,67,69));
-
+					$posts=$this->myposts(array("62","68","67","69"));
+// die(var_dump($posts));
 					//get company list of posts
 					//company home page settings
 				}
@@ -777,11 +788,10 @@ View::share(compact('posts'));
 				// ->where('meta_keywords', 'LIKE', $company->brand)
 				// ->paginate(10);
 
-				
 				}
 // var_dump($posts);
 // die(count($posts));
-
+// $posts = new \Illuminate\Database\Eloquent\Collection( $posts );
 				View::share('posts',$posts);
 				// return Redirect::action('CompanyController@getIndex',$tag);
 				return View::make('site.'.strtolower($company->brand).'.home')
@@ -793,7 +803,8 @@ View::share(compact('posts'));
 				;
 
 			}
-			else die ('Blog index Probelm ~672!');
+
+			else App::abort('404','Blog index Problem ~796!');
 			//throw graceful error
 			//there is no company
 		}
@@ -1022,10 +1033,13 @@ View::share(compact('posts'));
 		// $posts = $this->post->where('tag','seo');
 		// Get all the blog posts
 			else{
-				// $myphotos=self::listImages("screen/");
-				// $photos=Paginator::make($myphotos,count($myphotos),10);
-					// $myphotos->paginate(10);
-				$posts = $this->post->where('meta_keywords', 'LIKE', "$tag")->paginate(5);
+			
+			// $myphotos=self::listImages("screen/");
+			// $photos=Paginator::make($myphotos,count($myphotos),10);
+			// $myphotos->paginate(10);
+				$posts = $this->post
+				->where('meta_keywords', 'LIKE', "$tag")
+				->paginate(5);
 				// $posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
 				// $data = array(compact('posts'),compact('tags'),compact('alltags'),$company);
 
@@ -1069,7 +1083,10 @@ View::share(compact('posts'));
 
 
 	public function getTags($tag="",$brand="")
-	{
+	{	
+		View::share('tag',strtoupper($tag));
+		$msg=var_dump($tag);
+		// die($msg);
 		// return Redirect::to("tags", "all");
 		// 
     	// $company = App::make('company');
@@ -1091,7 +1108,11 @@ View::share(compact('posts'));
 
 		// $posts = $this->post->where('tag','like');
 
-		$posts = $this->post->orderBy('created_at', 'DESC')->paginate(5);
+		$posts = $this->post->orderBy('created_at', 'DESC')
+			->where('meta_keywords', 'LIKE', '%'.$brand.'%')
+			->where('meta_keywords','LIKE','%public%')
+			// ->where('content','LIKE','%'.$tag.'%')
+		->get();
 
 		$tags=array();
 		foreach ($posts as $post) {
@@ -1103,11 +1124,12 @@ View::share(compact('posts'));
 			}
 
 		}
-
+		
+		View::share('count',count($posts));
 		// $tags=array_unique($tags);
 		// die(var_dump($tags));
 		// return var_dump($tags);
-// View::make($view, $data);
+        // View::make($view, $data);
 
 		// return View::make('site/blog/tags', compact('posts'),compact('tags'));
 		// $company=Company::where('brand','like',$brand)->first();

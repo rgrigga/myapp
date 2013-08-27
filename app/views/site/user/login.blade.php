@@ -7,9 +7,29 @@
 @stop
 
 @section('nav')
-<!-- @ parent -->
-@include('site.partials.nav-top-bs3')
+@parent
+<!-- @ include('site.partials.nav-top-bs3') -->
 @stop
+
+@section('styles')
+@parent
+
+        <!-- @ stylesheets("myapp-css") -->
+        <!-- @ stylesheets('bs3-css') -->
+        <!-- @ stylesheets('gristech') -->
+
+
+        <link rel="stylesheet/less" type="text/css" href="/assets/css/less/demo.less" />
+        <!-- <link rel="stylesheet/less" type="text/css" href="/assets/css/less/tools.less" /> -->
+
+        <script src="/assets/js/less.js" type="text/javascript"></script>
+
+
+        <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"> -->
+
+@stop
+
+
 
 {{-- Content --}}
 @section('main')

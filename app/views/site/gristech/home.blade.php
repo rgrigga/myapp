@@ -299,9 +299,7 @@ div {
 
 @section('nav')
 @parent
-<!-- @ include('site.partials.nav-top-bs3') -->
-
-
+<!-- @ include('site.partials.nav-top') -->
 @stop
 
 @section('main')

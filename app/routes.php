@@ -498,9 +498,10 @@ Route::group(array('domain' => 'myapp.dev'),function()
         return View::make('site.pages.bootstrap');
     });
 
+    Route::get('search/{tag}','BlogController@getSearch');
     Route::post('search', 'BlogController@postSearch');
-    Route::get('search', 'BlogController@search');
-    Route::get('search/{tag}','BlogController@search');
+    Route::get('search', 'BlogController@getSearch');
+
     // Route::post('search/{tag}','BlogController@postSearch');
 
     //each domain has its own method available in CompanyController.
@@ -788,9 +789,7 @@ Route::resource('companies', 'CompaniesController');
 //     }
 // });
 
-Route::get('pages/{page}','BlogController@getPage')
-    ->where('id', '[0-9a-zA-Z_]+')
-    ;
+
 
 // Route::get('pages/{page}',function($page){
 //     // die("BAM");
@@ -831,6 +830,10 @@ Route::get('pages/{page}','BlogController@getPage')
 //             return("No page in $path by the name $page!");
 // });
 
+Route::get('pages/{page}','BlogController@getPage')
+    ->where('id', '[0-9a-zA-Z_]+')
+    ;
+
 Route::post('search', 'BlogController@postSearch');
 Route::get('search', 'BlogController@search');
 Route::get('search/{tag}','BlogController@search');
@@ -838,7 +841,7 @@ Route::get('search/{tag}','BlogController@search');
 
 Route::post('tags', 'BlogController@getIndex');
 Route::get('tags', 'BlogController@getIndex');
-Route::get('tags/{tag}', 'BlogController@getIndex');
+Route::get('tags/{tag}', 'BlogController@getTags');
 // Route::post('tags/{tag}', 'BlogController@postIndex');
 
 # Posts - Second to last set, match slug
@@ -858,6 +861,9 @@ Route::get('lesstest',function(){
     return View::make('site.gristech.lesstest');
 });
 
+// Route::get('tools',function(){
+//     return View::make('site.gristech.tools');
+// });
 // $company=Company::where('brand','like','buckeye')->first();
 // die(var_dump($company));
 

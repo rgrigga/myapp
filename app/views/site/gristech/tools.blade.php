@@ -1,6 +1,6 @@
 @extends('site.layouts.bs3')
 
-@section('main')
+@section('content')
 
 <h1>DEPRECIATED</h1>
 

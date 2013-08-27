@@ -1,11 +1,86 @@
 @extends('site.layouts.bs3')
 
-@section('main')
+@section('styles')
+@parent
+
+
+        <!-- @ stylesheets("myapp-css") -->
+
+		@stylesheets('gristech')
+
+		<!-- <link rel="stylesheet/less" type="text/css" href="/assets/css/less/demo.less" /> -->
+		<link rel="stylesheet/less" type="text/css" href="/assets/css/less/tools.less" />
+
+		<script src="/assets/js/less.js" type="text/javascript"></script>
+
+
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+
+		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+	    <!-- <link href="assets/dist/css/bootstrap.css" rel="stylesheet" media="screen"> -->
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	    <!--[if lt IE 9]>
+	      <script src="../../assets/js/html5shiv.js"></script>
+	      <script src="../../assets/js/respond.min.js"></script>
+	    <![endif]-->
+<style>
+	.container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+h4 {
+  margin-top: 25px;
+}
+.row {
+  margin-bottom: 20px;
+}
+.row .row {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+[class*="col-"] {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #eee;
+  border: 1px solid #ddd;
+  background-color: rgba(86,61,124,.15);
+  border: 1px solid rgba(86,61,124,.2);
+}
+
+hr {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+</style>
+@stop
+
+@section('secondary')
+
+<div class="sidebar affix">
+<?php 
+$mylist="php,js,css,less,sass,opensource,jquery,oauth,git,bootstrap";
+$array=explode(",", $mylist);
+?>
+
+	What are you looking for?
+	<ul class="nav navbar">
+		@foreach($array as $topic)
+		<li><a href="#{{$topic}}">{{$topic}}</a></li>
+		@endforeach
+	</ul>
+</div>
+@stop
+
+@section('content')
 
 <!-- <a href="http://www.bootstrapcdn.com/">http://www.bootstrapcdn.com/</a> -->
 
 <!-- http://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ -->
 
+<link rel="stylesheet" href="/assets/css/bubbles.css">
+<link rel="stylesheet" href="assets/css/triangles.css">
 <style>
 
 	.jumbotron img{
@@ -39,18 +114,21 @@
 
 	<h1>Tools<small> building blocks for this site</small></h1>
 	<img src="http://gristech.com/img/mini-tools.jpg" alt="">
-	<p>If you're interested...</p>
+	<!-- <p>If you're interested...</p> -->
 	<h5><em>Modular, Extensible, Testable, Expressive, Elegant, Simple</em>
 	</h5>
+	<p class="lead">These are the qualities that make good code great.</p>
 
-	<!-- <!- our new, semanticized HTML --> -->
-<article>
+<!-- our new, semanticized HTML -->
+<!-- <article>
   <section class="main">secion.main</section>
   <aside><a href="#" class="annoying">Click me!</a></aside>
 </article>
-
+ -->
 </div>
 <!-- jumbotron -->
+
+	<p>On this page, you will find a pleathora of tools to make life easy.  Each resource has links to tutorials, downloads, Q&A, and so on.  Have a nice day!</p>
 
 
 <style>
@@ -121,6 +199,27 @@
 	background-color: #666666;
 }
 
+.hotel{
+    /*background-color: red;*/
+    position: fixed; 
+    /*height:60px;*/
+    bottom:0px;
+    right: 0px;
+    z-index: 5;
+    /*color: white;*/
+    padding: 5px;
+    opacity: .5;
+    border-top-left-radius:60px; 
+    text-align: right;
+}
+
+.hotelb{
+    /*background-color: red;*/
+    height: 100px;
+    width: 100px;
+    border-top-left-radius:100px;
+}
+
 p.photocredit {
 	font-style: italic;
 	font-size: small;
@@ -130,266 +229,8 @@ p.photocredit {
 	word-wrap:break-word;
 }
 
-/*// http://nicolasgallagher.com/pure-css-speech-bubbles/*/
-/* Bubble with an isoceles triangle
------------------------------------------- */
-
-.triangle-isosceles {
-   position:relative;
-   padding:15px;
-   margin:1em 0 3em;
-   color:#000;
-   background:#f3961c;
-
-   /* css3 */
-   -moz-border-radius:10px;
-   -webkit-border-radius:10px;
-   border-radius:10px;
-   background:-moz-linear-gradient(top, #f9d835, #f3961c);
-   background:linear-gradient(top, #f9d835, #f3961c);
-}
-
-/* creates triangle */
-.triangle-isosceles:after {
-   content:"";
-   display:block; /* reduce the damage in FF3.0 */
-   position:absolute;
-   bottom:-15px;
-   left:50px;
-   width:0;
-   border-width:15px 15px 0;
-   border-style:solid;
-   border-color:#f3961c transparent;
-}
-
-
-
-/* END TRIANGLES */
-
-/* ============================================================================================================================
-== BUBBLE WITH AN OBTUSE TRIANGLE
-** ============================================================================================================================ */
-
-/* THE SPEECH BUBBLE
-------------------------------------------------------------------------------------------------------------------------------- */
-
-.triangle-obtuse {
-	position:relative;
-	padding:15px;
-	margin:1em 0 3em;
-	color:#fff;
-	background:#c81e2b;
-	/* css3 */
-	background:-webkit-gradient(linear, 0 0, 0 100%, from(#f04349), to(#c81e2b));
-	background:-moz-linear-gradient(#f04349, #c81e2b);
-	background:-o-linear-gradient(#f04349, #c81e2b);
-	background:linear-gradient(#f04349, #c81e2b);
-	-webkit-border-radius:10px;
-	-moz-border-radius:10px;
-	border-radius:10px;
-}
-
-/* Variant : for top positioned triangle
------------------------------------------- */
-
-.triangle-obtuse.top {
-	background:-webkit-gradient(linear, 0 0, 0 100%, from(#c81e2b), to(#f04349));
-	background:-moz-linear-gradient(#c81e2b, #f04349);
-	background:-o-linear-gradient(#c81e2b, #f04349);
-	background:linear-gradient(#c81e2b, #f04349);
-}
-
-/* Variant : for left positioned triangle
------------------------------------------- */
-
-.triangle-obtuse.left {
-	margin-left:50px;
-	background:#c81e2b;
-}
-
-/* Variant : for right positioned triangle
------------------------------------------- */
-
-.triangle-obtuse.right {
-	margin-right:50px;
-	background:#c81e2b;
-}
-
-/* THE TRIANGLE
-------------------------------------------------------------------------------------------------------------------------------- */
-
-/* creates the wider right-angled triangle */
-.triangle-obtuse:before {
-	content:"";
-	position:absolute;
-	bottom:-20px; /* value = - border-top-width - border-bottom-width */
-	left:60px; /* controls horizontal position */
-	border:0;
-	border-right-width:30px; /* vary this value to change the angle of the vertex */
-	border-bottom-width:20px; /* vary this value to change the height of the triangle. must be equal to the corresponding value in :after */
-	border-style:solid;
-	border-color:transparent #c81e2b;
-    /* reduce the damage in FF3.0 */
-    display:block; 
-    width:0;
-}
-
-/* creates the narrower right-angled triangle */
-.triangle-obtuse:after {
-	content:"";
-	position:absolute;
-	bottom:-20px; /* value = - border-top-width - border-bottom-width */
-	left:80px; /* value = (:before's left) + (:before's border-right/left-width)  - (:after's border-right/left-width) */
-	border:0;
-	border-right-width:10px; /* vary this value to change the angle of the vertex */
-	border-bottom-width:20px; /* vary this value to change the height of the triangle. must be equal to the corresponding value in :before */
-	border-style:solid;
-	border-color:transparent #fff;
-    /* reduce the damage in FF3.0 */
-    display:block; 
-    width:0;
-}
-
-/* Variant : top
------------------------------------------- */
-
-.triangle-obtuse.top:before {
-	top:-20px; /* value = - border-top-width - border-bottom-width */
-	bottom:auto;
-	left:auto;
-	right:60px; /* controls horizontal position */
-	border:0;
-	border-left-width:30px; /* vary this value to change the width of the triangle */
-	border-top-width:20px; /* vary this value to change the height of the triangle. must be equal to the corresponding value in :after */
-	border-color:transparent #c81e2b;
-}
-
-.triangle-obtuse.top:after {
-	top:-20px; /* value = - border-top-width - border-bottom-width */
-	bottom:auto;
-	left:auto;
-	right:80px; /* value = (:before's right) + (:before's border-right/left-width)  - (:after's border-right/left-width) */
-	border-width:0;
-	border-left-width:10px; /* vary this value to change the width of the triangle */
-	border-top-width:20px; /* vary this value to change the height of the triangle. must be equal to the corresponding value in :before */
-	border-color:transparent #fff;
-}
-
-/* Variant : left
------------------------------------------- */
-
-.triangle-obtuse.left:before {
-	top:15px; /* controls vertical position */
-	bottom:auto;
-	left:-50px; /* value = - border-left-width - border-right-width */
-	border:0;
-	border-bottom-width:30px; /* vary this value to change the height of the triangle */
-	border-left-width:50px; /* vary this value to change the width of the triangle. must be equal to the corresponding value in :after */
-	border-color:#c81e2b transparent;
-}
-
-.triangle-obtuse.left:after {
-	top:35px; /* value = (:before's top) + (:before's border-top/bottom-width)  - (:after's border-top/bottom-width) */
-	bottom:auto;
-	left:-50px; /* value = - border-left-width - border-right-width */
-	border:0;
-	border-bottom-width:10px; /* vary this value to change the height of the triangle */
-	border-left-width:50px; /* vary this value to change the width of the triangle. must be equal to the corresponding value in :before */
-	border-color:#fff transparent;
-}
-
-/* Variant : right
------------------------------------------- */
-
-.triangle-obtuse.right:before {
-	top:15px; /* controls vertical position */
-	bottom:auto;
-    left:auto;
-	right:-50px; /* value = - border-left-width - border-right-width */
-	border:0;
-	border-bottom-width:30px; /* vary this value to change the height of the triangle */
-	border-right-width:50px; /* vary this value to change the width of the triangle. must be equal to the corresponding value in :after */
-	border-color:#c81e2b transparent;
-}
-
-.triangle-obtuse.right:after {
-	top:35px; /* value = (:before's top) + (:before's border-top/bottom-width)  - (:after's border-top/bottom-width) */
-	bottom:auto;
-	right:-50px; /* value = - border-left-width - border-right-width */
-    left:auto;
-	border:0;
-	border-bottom-width:10px; /* vary this value to change the height of the triangle */
-	border-right-width:50px; /* vary this value to change the width of the triangle. must be equal to the corresponding value in :before */
-	border-color:#fff transparent;
-}
-
-
-/* ============================================================================================================================
-== OVER THOUGHT BUBBLE, EMPTY, WITH BORDER (more CSS3)
-** ============================================================================================================================ */
-
-.oval-thought-border {
-	position:relative; 
-	padding:70px 30px;
-	margin:1em auto 80px;
-	border:10px solid #c81e2b; 
-	text-align:center;
-	color:purple; 
-	background:green;
-	/* css3 */
-	/*
-	NOTES:
-	-webkit-border-radius:240px 140px; // produces oval in safari 4 and chrome 4
-	-webkit-border-radius:240px / 140px; // produces oval in chrome 4 (again!) but not supported in safari 4
-	Not correct application of the current spec, therefore, using longhand to avoid future problems with webkit corrects this
-	*/
-	-webkit-border-top-left-radius:240px 140px;
-	-webkit-border-top-right-radius:240px 140px;
-	-webkit-border-bottom-right-radius:240px 140px;
-	-webkit-border-bottom-left-radius:240px 140px;
-	-moz-border-radius:240px / 140px;
-	border-radius:240px / 140px;
-}
-
-/* creates the larger circle */
-.oval-thought-border:before {
-	content:""; 
-	position:absolute; 
-	z-index:10; 
-	bottom:-40px; 
-	right:100px; 
-	width:50px; 
-	height:50px;
-	border:10px solid #c81e2b;
-	background:blue;
-	/* css3 */
-	-webkit-border-radius:50px;
-	-moz-border-radius:50px;
-	border-radius:50px;
-    /* reduce the damage in FF3.0 */
-    display:block; 
-}
-
-/* creates the smaller circle */
-.oval-thought-border:after {
-	content:""; 
-	position:absolute; 
-	z-index:10; 
-	bottom:-60px; 
-	right:50px; 
-	width:25px; 
-	height:25px; 
-	border:10px solid #c81e2b;
-	background:orange;
-	/* css3 */
-	-webkit-border-radius:25px;
-	-moz-border-radius:25px;
-	border-radius:25px;
-    /* reduce the damage in FF3.0 */
-    display:block; 
-}
-</style>
-
+@import url(assets/css/triangle.css);
+@import url(assets/css/bubbles.css);
 
 
 
@@ -430,7 +271,12 @@ p.photocredit {
     </style>
 <!-- <img src="{{asset('assets/img/6125_1280x1024-wallpaper-cb1306851700.jpg')}}" alt=""> -->
 
+
+
 <ul class="nav navbar">
+	<li class="btn">
+		<a href="http://www.hitreach.co.uk/perfect-web-page/">The Anatomy of a Web Page</a>
+	</li>
 	<li class="btn">
 		<a href="https://github.com/cheeaun/mooeditable/wiki/Alternative-Javascript-WYSIWYG-editors#lightweight-versions">WYSIWYG</a>
 	</li>
@@ -466,7 +312,7 @@ p.photocredit {
 
 <div class="row">
 	<div class="col-lg-4">
-		<div class="thumbnail">
+		<div class="thumbnail" id="jquery">
 			<img src="{{asset('assets/img/large_jquery_logo.png')}}" alt="jquery">
 			<article>
 				<h1>JQuery</h1>
@@ -478,7 +324,7 @@ p.photocredit {
 	</div>
 
 	<div class="col-lg-4">
-		<div class="thumbnail">
+		<div class="thumbnail" id="ebay">
 			<article>
 				<img src="{{asset('assets/img/ebay.jpg')}}" alt="Ebay">
 				<h4>EBay</h4>
@@ -490,7 +336,7 @@ p.photocredit {
 		</div>
 	</div>
 	<div class="col-lg-4">
-		<div class="thumbnail">
+		<div class="thumbnail" id="oauth">
 			<article>
 				<h1><span>OAuth</span></h1>
 				<img src="{{asset('assets/img/oauth.png')}}" onerror="imgError(this);" alt="OAuth">
@@ -533,7 +379,7 @@ Additionally the copyright status of the files was tracked in the CVS and the rd
 </pre>
 
 
-<div class= thumbnail delta">
+<div class= "thumbnail delta">
 	<h3>Mysql</h3>
 	<a href="http://www.thegeekstuff.com/2008/09/backup-and-restore-mysql-database-using-mysqldump/"><h4><span>Backup and Restore</span></h4></a>
 	onerror="imgError(this);
@@ -608,17 +454,18 @@ $code='<code>';
 			Designers work in code: Controllers, Models, and an assembly of other tools.
 		</p>
 	</div>
-	<div class="span3 thumbnail">
-		<img src="http://gristech.com/img/thinker.png" alt="think about it">
-
-		
-	</div>
-	<div class="span3 triangle-obtuse">
+		<div class="span3 triangle-obtuse">
 		<p>Lorem ipsum <div class="HL">This is class=\"HL\"</div><a href="http://nicolasgallagher.com/pure-css-speech-bubbles/demo/">Speech Bubble</a></p>
 		
 
 	</div>
 	<div class="span2 oval-thought-border">This bubble is entirely CSS.</div>
+	<div class="span3 thumbnail">
+		<img src="http://gristech.com/img/thinker.png" alt="think about it">
+
+		
+	</div>
+
 
 </div>
 <h3>Search Laravel Docs:</h3>
@@ -772,9 +619,10 @@ $code='<code>';
 
 		      		</div>
 
-		      		<div class= "thumbnail delta">
+		      		<div class= "thumbnail delta" id="facebook">
 		      			<a href="https://www.facebook.com/">
-		      			<img src="http://www.gristech.com/img/screen/facebook.png" alt="facebook">
+		      			<img src="asset('assets/img/screen/facebook.png')" alt="facebook" onerror="imgError(this);">
+
 						<h4><span>Facebook</span></h4>
 						</a>
 						<h6>The Social Network</h6>
@@ -864,18 +712,7 @@ $code='<code>';
 				<!-- ./ span10 -->
 
 				<!-- sidebar -->
-	      		<div class="span2 pull-right text-center foxtrot">
-	      			<!-- <a href="http://http://www.siteground.com/"> -->
 
-					<h3>Siteground</h3>
-					</a>
-					<h6>Webhost</h6>
-					<p>The best thing since sliced bread.</p>
-	      			
-	      			<div class="text-center">
-	      			<a href="http://www.siteground.com" onClick="this.href='http://www.siteground.com/index.htm?afbannercode=090922b4e36a794ded5eb252b703ad39'" ><img  src="https://ua.siteground.com/img/banners/general/blue/120x600.gif" alt="Web Hosting" width="120" height="600" border="0"></a>
-	      			</div>
-	      		</div>
 	
 
 
@@ -940,7 +777,18 @@ $code='<code>';
 								  Composer manages dependencies, take care of dependancies.  Git takes care of version control.  Sublime SFTP automatically uploads over SFTP."
 </div>
 
+<div class="span2 pull-right text-center foxtrot">
+	<!-- <a href="http://http://www.siteground.com/"> -->
 
+<h3>Siteground</h3>
+</a>
+<h6>Webhost</h6>
+<p>My webhost has always been fantastic.  If I have a problem, They are instantly available via webchat, 24-7.  Great Service is always the key to good business!</p>
+	
+	<div class="text-center">
+	<a href="http://www.siteground.com" onClick="this.href='http://www.siteground.com/index.htm?afbannercode=090922b4e36a794ded5eb252b703ad39'" ><img  src="https://ua.siteground.com/img/banners/general/blue/120x600.gif" alt="Web Hosting" width="120" height="600" border="0"></a>
+	</div>
+</div>
 
 		
 @stop

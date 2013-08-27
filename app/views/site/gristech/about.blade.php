@@ -1,3 +1,8 @@
+@extends('layouts.bs3')
+
+@section('content')
+
+<h1>MAN</h1>
 <h1>{{{$company->name}}}</h1>
 <h2>{{{$company->slogan}}}</h2>
 <img src="{{asset('assets/gristech/myapp.cloud.svg')}}" alt="">
@@ -55,3 +60,5 @@ Lightweight versions
 
 
 <!-- http://www.vectortemplates.com/download.php?tkn=2102522996397109108 -->
+
+@stop
