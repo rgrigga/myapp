@@ -1,32 +1,13 @@
 @extends('site.layouts.bs3')
 
-{{-- Web site Title --}}
-@section('title')
-{{ $post->title }} ::
-@parent
-@stop
 
-{{-- Update the Meta Title --}}
-@section('meta_title')
-@parent
- :: {{ $post->title }} 
-@stop
-
-{{-- Update the Meta Description --}}
-@section('meta_description')
-@parent
-{{ String::title($post->description) }} ::
-@stop
-
-{{-- Update the Meta Keywords --}}
-@section('meta_keywords')
-@parent
-{{{ String::title($post->title) }}} ::
-
-@stop
 
 @section('styles')
 @parent
+        @stylesheets('myapp-css')
+
+        <link rel="stylesheet/less" type="text/css" href="/assets/css/less/tools.less" />
+        <script src="/assets/js/less.js" type="text/javascript"></script>
 <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/css/bootstrap.min.css"> -->
 
 <!-- <link rel="stylesheet" href="/assets/css/style.css">

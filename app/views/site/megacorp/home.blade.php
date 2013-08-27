@@ -1,4 +1,4 @@
-@extends('layouts.demo')
+@extends('site.layouts.bs3')
 
 @section('title')
 @parent
@@ -317,7 +317,7 @@ a:hover{
 									<h3>{{{$company->slogan}}}</h3>
 
 									<p>{{{$company->name}}} 
-							is a family owned business with a standard of excellence in all aspects of Residential and Commercial Painting, Roofing, Deck and Fence Staining, and Power Washing. Formerly known as Advantage Painting, {{{$company->name}}} has been known throughout Columbus and it's surrounding areas as the first name in professionalism and quality, since 1990.</p>				
+							</p>				
 								</div>
 								<div class="tab-pane" id="interior">
 									<h2>Interior</h2>
@@ -565,7 +565,8 @@ a:hover{
 				</div>
 				@endforeach
 				<div class="tab-pane active" id="tab1">
-					<p>{{{ $company->brand }}} is a family owned business with a standard of excellence in all aspects of Residential and Commercial Painting, Roofing, Deck and Fence Staining, and Power Washing. Formerly known as Advantage Painting, Advantage Services has been known throughout Columbus and it's surrounding areas as the first name in professionalism and quality, since 1990.</p>
+					<p>{{{ $company->brand }}} 
+					</p>
 				</div>
 			</div>
 		</div>
@@ -603,8 +604,15 @@ a:hover{
 			{{-- $posts->links() --}}
 		</div>
 		<h1>62,68,67,69</h1>
-
+<?php
+		
+		// print_r($posts);
+		// die();
+?>
 		@foreach ($posts as $post)
+<?php
+$post=new PostPresenter($post);
+?>
 		<div class="row-fluid">
 			<p>{{{$post->id}}}</p>
 			<div class="span3">

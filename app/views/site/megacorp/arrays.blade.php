@@ -56,6 +56,7 @@ $ex4=$sorted;
 // $ex5=$sortedposts;
 
 $desired=array("69","63","70");
+// die(var_dump($posts));
 // $posts=$posts->toArray();
 // $sorted=sortArrayByArray($myarray,array_flip($desired));
 // die(print_r($sorted));
@@ -63,8 +64,14 @@ $desired=array("69","63","70");
 // array_multisort($desired,$posts,SORT_STRING);
 ?>
 
+@foreach($posts as $post)
 
+{{{$post->id}}}
+{{{$post->title}}}
 
+<hr>
+@endforeach
+{{--View::make('site.posts.well',compact('posts'))--}}
 
 
 <?php

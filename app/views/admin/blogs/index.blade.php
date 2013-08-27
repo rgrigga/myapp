@@ -52,6 +52,9 @@ Website Management ::
 
 <div>
 	 <span class="label label-info">Info</span> IP: {{getRealIpAddr()}}
+
+<a href="http://domainsigma.com/whois/buckeyemower.com"><img src="http://domainsigma.com/widget/trust/buckeyemower.com.png" alt="Buckeyemower.com Trust"></a>
+	 
 </div>
 
 <?php

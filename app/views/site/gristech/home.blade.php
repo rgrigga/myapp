@@ -1,4 +1,4 @@
-@extends('layouts.bootstrap3')
+@extends('site.layouts.bs3')
 
 @section('title')
 
@@ -28,8 +28,10 @@
 	<!-- @ stylesheets('gristech') -->
 	<!-- assets/css/less/gristech.less -->
 
-	<link rel="stylesheet/less" type="text/css" href="assets/css/less/master.less" />
-	<link rel="stylesheet/less" type="text/css" href="assets/css/less/gristech.less" />
+	<link rel="stylesheet/less" type="text/css" href="/assets/css/less/master.less" />
+
+<!-- This display's the company's less page -->
+	<link rel="stylesheet/less" type="text/css" href="/assets/css/less/{{strtolower($company->brand)}}.less" />
 
 	<script src="assets/js/less.js" type="text/javascript"></script>
 
@@ -424,10 +426,19 @@ foreach (glob($path."*.blade.php") as $filename) {
 
 
 <div class="sidebar">
-	
+	<section>
+		<h2><a href="#CSS">CSS</a></h2>
+		<article>
+			<a href="lesstest">LessTest demo page</a>
+		</article>
+		<article>
+			<a href=""></a>
+		</article>
+	</section>
 	<ul>
 		<li>CSS</li>
 		<li>LESS</li>
+
 		<li>PHP</li>
 		<li>Bootstrap</li>
 	</ul>

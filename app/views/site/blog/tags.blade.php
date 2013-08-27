@@ -1,7 +1,13 @@
-@extends('site.layouts.default')
+@extends('site.layouts.bs3')
+
+@section('styles')
+@parent
+        <link rel="stylesheet/less" type="text/css" href="/assets/css/less/tools.less" />
+        <script src="/assets/js/less.js" type="text/javascript"></script>
+@stop
 
 {{-- Content --}}
-@section('main')
+@section('content')
     @if (Session::has('message'))
 
         <div class="flash alert">
@@ -24,7 +30,6 @@
 Voila! {{$count}} posts about {{$tag}}.
 </div>
 
-{{View::make('site.posts.carousel')}}
 
 <div class="span8">
 <!-- <h1>Posts:</h1> -->
@@ -34,4 +39,27 @@ Voila! {{$count}} posts about {{$tag}}.
 {{ $posts->links() }}
 <!-- https://github.com/andrew13/Laravel-4-Bootstrap-Starter-Site/issues/49 -->
 
+@stop
+
+@section('secondary')
+<?php
+$alltags=array_unique($alltags);
+?>
+
+Recent Posts:
+
+<ul>
+@foreach($alltags as $t)
+<li><a href='/tags/{{$t}}' class="badge">{{$t}}</a></li>
+
+
+@endforeach
+</ul>
+
+
+@stop
+
+@section('posts')
+<h2>Posts</h2>
+{{View::make('site.posts.well')}}
 @stop

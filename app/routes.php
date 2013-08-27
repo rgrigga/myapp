@@ -177,7 +177,7 @@ View::composer('*.home',function($view){
 
 /**
     
-    advantage
+    admin
 
 */
 
@@ -316,8 +316,6 @@ Route::group(array('domain' => 'myapp.devfoo'),function(){
             return "Foo!!";
         });
     });
-
-
 // die("MYAPP");
 
 });
@@ -498,6 +496,8 @@ Route::group(array('domain' => 'myapp.dev'),function()
         return View::make('site.pages.bootstrap');
     });
 
+
+
     Route::get('search/{tag}','BlogController@getSearch');
     Route::post('search', 'BlogController@postSearch');
     Route::get('search', 'BlogController@getSearch');
@@ -643,10 +643,11 @@ Route::group(array('domain' => 'buckeyemower.com'),function(){
         Route::get('tags', 'BlogController@getIndex');
         Route::post('tags', 'BlogController@getIndex');
 
+        Route::get('search/{tag}','BlogController@search');
         Route::post('search', 'BlogController@postSearch');
         Route::get('search', 'BlogController@search');
         // Route::get('/search', 'BlogController@search');
-        Route::get('search/{tag}','BlogController@search');
+
 
         Route::get('tags/{tag}', 'BlogController@getIndex');
         Route::get('/{tag}','CompanyController@buckeye');
@@ -834,14 +835,16 @@ Route::get('pages/{page}','BlogController@getPage')
     ->where('id', '[0-9a-zA-Z_]+')
     ;
 
+Route::get('search/{tag}','BlogController@search');
 Route::post('search', 'BlogController@postSearch');
 Route::get('search', 'BlogController@search');
-Route::get('search/{tag}','BlogController@search');
+
 // Route::get('/search', 'BlogController@search');
 
+Route::get('tags/{tag}', 'BlogController@getTags');
 Route::post('tags', 'BlogController@getIndex');
 Route::get('tags', 'BlogController@getIndex');
-Route::get('tags/{tag}', 'BlogController@getTags');
+
 // Route::post('tags/{tag}', 'BlogController@postIndex');
 
 # Posts - Second to last set, match slug

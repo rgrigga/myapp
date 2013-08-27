@@ -17,7 +17,8 @@ Create a New Blog Post ::
 <div class="page-header" name='ph'>
 	<h3>
 		Create Something <em>Awesome</em>
-<!-- http://en.wikipedia.org/wiki/LESS_(stylesheet_language) -->
+<a href="http://en.wikipedia.org/wiki/LESS_(stylesheet_language)
+">LESS (wikipedia)</a>
 		<div class="pull-right">
 			<a href="{{{ URL::to('admin/blogs') }}}" class="btn btn-small btn-inverse"><i class="icon-circle-arrow-left icon-white"></i> Back</a>
 		</div>
@@ -35,11 +36,11 @@ Create a New Blog Post ::
 
 	 <p>Please create those, then click "publish", then we'll add some better details through the "Edit" page.</p>
 	 <p>
-	 	<h3>COMING SOON</h3>
+<!-- 	 	<h3>COMING SOON</h3>
 	 	<p>This doesn't work yet, but it will soon!</p>
 	 	Change background: <input class="color"
 	onchange="document.getElementsByTagName('DIV')[0].style.backgroundColor = '#'+this.color">
-	 </p>
+	 </p> -->
 
 </div>
 

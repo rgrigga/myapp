@@ -18,6 +18,9 @@ class PostPresenter extends Presenter
 		return $this->tags();
 	}
 
-
+	// public function presentAuthor()
+	// {
+	// 	return $this->author();
+	// }
 
 }

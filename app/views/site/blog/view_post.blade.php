@@ -1,4 +1,4 @@
-@extends('layouts.bs3')
+@extends('site.layouts.bs3')
 
 <!-- http://stackoverflow.com/questions/1884724/what-is-node-js -->
 

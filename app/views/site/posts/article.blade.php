@@ -6,6 +6,6 @@
 	<section class="post-content">
 		{{{$post->content}}}
 	</section>
-	
+	<p>Author: {{{$post->author}}}</p>
 </article>
 @endforeach

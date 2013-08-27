@@ -22,10 +22,13 @@
 		<!-- //copy and edit buttons -->
 @if (Auth::check())
 @if (Auth::user()->hasRole('admin'))
-<div class="admin-buttons">
-	<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
-	<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
+<div class="admin">
+	<div class="admin-buttons">
+		<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
+		<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn annoying">{{{ Lang::get('button.delete') }}}</a>
+	</div>
 </div>
+
 @endif
 @endif
 </li>
