@@ -1,7 +1,12 @@
-<article>
-	<h1>{{{$post->title}}}</h1>
-	<section class="post-content">
-		{{{$post->content}}}
-	</section>
-	<p class="muted">{{{$post->id}}}</p>
-</article>
+<aside>
+	<article>
+		<section class="post-description">
+<!--  -->		</section>
+		<h1>{{{$post->title}}}</h1>
+		
+		<p class="muted">{{{$post->id}}} {{{$post->url()}}}</p>
+
+		<img class="shape img-rounded img-responsive" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}" onerror="imgError(this);">
+
+	</article>
+</aside>

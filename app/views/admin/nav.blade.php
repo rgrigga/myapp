@@ -1,11 +1,10 @@
 <?php //die('views.admin.nav'); ?>
-
-
 <nav class="navbar navbar-fixed-top navbar-inverse admin-top" role="navigation">
+<div class="container">
 	<div class="navbar-header">			
-		<!-- <div class="container-fluid"> -->
+	<!-- <div class="container-fluid"> -->
 
-		<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+		<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 			<!-- <span class="sr-only">Toggle navigation</span> -->
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
@@ -16,20 +15,18 @@
 		</a>
 	</div>
 
-
-
 	<!-- <div class="navbar-inner"> -->
-		<div class="collapse nav-collapse navbar-ex1-collapse">
+		<div class="collapse nav-collapse navbar-collapse">
 
 			<ul class="nav navbar-nav">
 				<li{{ (Request::is('admin') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin') }}}">
 
-				<!-- <i class="icon-home icon-white"></i> -->
+				<i class="icon-home icon-white"></i>
 				 Home</a></li>
 				
 				<li{{ (Request::is('admin/blogs*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/blogs') }}}">
 
-				<!-- <i class="icon-list-alt icon-white"></i> -->
+				<i class="icon-list-alt icon-white"></i>
 				 Blog</a></li>
 				
 				<li{{ (Request::is('admin/comments*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/comments') }}}">
@@ -115,12 +112,10 @@
 				</li>
 			</ul>
 
-
-
 			<ul class="nav navbar-nav navbar-right pull-right">
 				<li><a href="{{{ URL::to('/') }}}">View Homepage</a></li>
 				<li>
-			    	@include('site.partials.search')
+			    	@include('site.partials.searchbox')
 			    </li>
 				<li class="divider-vertical"></li>
 				<li>
@@ -147,6 +142,7 @@
 		<!-- ./ nav-collapse -->
 	<!-- </div> -->
 	<!-- ./ navbar-inner -->
+</div>
 </nav>
 <!-- ./ admin-top -->
 

@@ -113,8 +113,9 @@
 		<!-- <h1>NAV</h1> -->
 	@show
 
-		<div class="container">		
-			<div class="content-wrap">
+		<div class="container theme2">		
+			<!-- <div class="contentwrap theme1"> -->
+			<div class="contentwrap theme2">
 			<!-- Container -->
 
 				<!-- Notifications -->
@@ -125,15 +126,22 @@
 					@yield('page-header')
 				</div>
 
-				<div class="content-main">
-					@yield('content')
-					@yield('main')
+				<div class="wrapper">
+					<div class="content-main">
+						@yield('content')
+						@yield('main')
+					</div>
+					<div class="content-secondary">
+						@yield('secondary')
+					</div>
 				</div>
-				<div class="content-secondary">
-					@yield('secondary')
-				</div>
+
 				<div class="posts">
                     @yield('posts')
+                </div>
+
+                <div class="third">
+                	@yield('third');
                 </div>
 			</div>
 			<!-- ./contentwrap -->
@@ -199,8 +207,6 @@
                 image.src = "http://placehold.it/300x300";
                 return true;
             }
-
-
         </script>
 @show
 </body>

@@ -94,15 +94,15 @@ return array(
         {
             $collection->directory('assets/js', function($collection)
             {
-                $collection->add('wysihtml5/wysihtml5-0.3.0.js');
                 $collection->add('jquery.v1.8.3.min.js');
-                // $collection->add('prettify.js');
                 $collection->add('holder.js');
-                
-                // $collection->add('bootstrap/bootstrap.min.js');
-                $collection->add('wysihtml5/bootstrap-wysihtml5.js');
-                // $collection->add('redactor/redactor.min.js');
                 $collection->add('site.js');
+                // $collection->add('wysihtml5/wysihtml5-0.3.0.js');
+                // $collection->add('prettify.js');
+                // $collection->add('bootstrap/bootstrap.min.js');
+                // $collection->add('wysihtml5/bootstrap-wysihtml5.js');
+                // $collection->add('redactor/redactor.min.js');
+                
             })->apply('UriRewriteFilter')->setArguments(public_path());
         },
 
@@ -192,9 +192,9 @@ return array(
                 
                 // this one contains icons
                 // $collection->add('bootstrap.min.css');
-                $collection->add('wysihtml5/prettify.css');
-                $collection->add('bootstrap-responsive.css');
-                $collection->add('wysihtml5/bootstrap-wysihtml5-0.0.2.css');
+                // $collection->add('wysihtml5/prettify.css');
+                // $collection->add('bootstrap-responsive.css');
+                // $collection->add('wysihtml5/bootstrap-wysihtml5-0.0.2.css');
                 // $collection->add('style.css');
                 // $collection->add('redactor/redactor.css');
 
@@ -211,10 +211,10 @@ return array(
                 //they say this should not be used in production:
                 // $collection->add('assets/js/less.js');
 
-                $collection->add('bootstrap/bootstrap.min.js');
+                // $collection->add('bootstrap/bootstrap.min.js');
                 
-                $collection->add('wysihtml5/wysihtml5-0.3.0.js');
-                $collection->add('wysihtml5/bootstrap-wysihtml5.js');
+                // $collection->add('wysihtml5/wysihtml5-0.3.0.js');
+                // $collection->add('wysihtml5/bootstrap-wysihtml5.js');
                 // $collection->add('redactor/redactor.min.js');
 
             })->apply('UriRewriteFilter')->setArguments(public_path());

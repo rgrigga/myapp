@@ -586,6 +586,8 @@ Route::group(array('domain' => 'buckeyemower.com'),function(){
 
     # User RESTful Routes (Login, Logout, Register, etc)
     Route::controller('user', 'UserController');
+
+
     Route::get('blog/{postSlug}', 'BlogController@getView');
     // Route::get('blog', 'BlogController@buckeyeIndex');
 
@@ -687,7 +689,15 @@ Route::group(array('domain' => 'buckeyemower.com'),function(){
 
     // });
 
-
+Route::get('contact',function(){
+    return Redirect::to('blog/contact');
+});
+    Route::get('blog/contact',function(){
+        // die('boom');
+    });
+    Route::get('blog/contact/{foo}','BlogController@getContact')
+    ->where('name', '[a-zA-Z_]+');
+    Route::get('blog/contact','BlogController@getContact');
 
 // die(var_dump($user));
 /** ------------------------------------------

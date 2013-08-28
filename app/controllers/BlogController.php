@@ -161,6 +161,9 @@ class BlogController extends BaseController {
 
 
     public function getContact(){
+
+
+
     	$post=$this->post->where('meta_title',"like",'contact')->first();
     	// Get this post comments
     	// die(var_dump(count($post)));
@@ -525,7 +528,7 @@ $brand=strtolower($this->company->brand);
 	    	;
 	    }
 	    $msg="Could not find '$tag' in $path.<br>";
-		Session::flash('error', $msg);
+		// Session::flash('info', $msg);
 		return false;
 	    // return("No page in $path by the name $tag!");
 
@@ -644,7 +647,8 @@ $brand=strtolower($this->company->brand);
 			//This would yield a page in views/site/pages
 			if(!$mypage){
 				$msg="Looked for $tag but didn't find it.";
-				Session::flash('info',$msg);
+				// Session::flash('info',$msg);
+
 				// die($msg);
 				// return View::make('site.pages.'.$tag)
 			    	// ->with(compact('company'))

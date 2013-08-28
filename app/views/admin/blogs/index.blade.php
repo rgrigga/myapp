@@ -1,62 +1,5 @@
 @extends('admin.layouts.default')
 
-{{-- Web site Title --}}
-@section('title')
-Website Management ::
-@parent
-@stop
-
-{{-- Content --}}
-@section('main')
-
-<style>
-	img.thumby{
-		max-height: 100px;
-		max-width: 100px;
-		padding: 5px;
-	}
-
-
-	.thumbnail{
-		/*background-color: red;*/
-		/*min-height: 20%;*/
-	}
-
-/*http://mashable.com/2013/01/15/color-scheme-tools/*/
-
-.page-header{
-	padding-left: 20px;
-	padding-right:20px;
-}
-
-    @media screen and (max-width: 780px) {
-    	img.thumby{
-			max-height: 300px;
-    	}
-    }
-    @media screen and (min-width: 979px) {
-
-    	.page-header {
-	background-color: rgba(60,160,208,.3);
-	margin-left: -80px;
-	margin-right: -80px;
-	padding-left: 80px;
-	padding-right: 80px;
-}
-
-        /*.contentwrap { padding-top: 20px; }*/
-    }
-
-</style>
-
-
-<div>
-	 <span class="label label-info">Info</span> IP: {{getRealIpAddr()}}
-
-<a href="http://domainsigma.com/whois/buckeyemower.com"><img src="http://domainsigma.com/widget/trust/buckeyemower.com.png" alt="Buckeyemower.com Trust"></a>
-	 
-</div>
-
 <?php
 function getRealIpAddr()
 {
@@ -92,6 +35,50 @@ function getRealIpAddr()
 // If you are having problems with your SSL certificate, ask your host for assistance. SiteGround offers the best SSL hosting and any SSL issues are resolved quickly and efficiently.
 ?>
 
+@section('styles')
+	@parent
+
+	<link rel="stylesheet/less" type="text/css" href="/assets/css/less/master.less" />
+	<!-- This display's the company's less page -->
+	<script src="/assets/js/less.js" type="text/javascript"></script>
+@stop
+
+{{-- Web site Title --}}
+@section('title')
+Website Management :::
+@parent
+@stop
+
+@section('secondary')
+
+<div class="well">
+		 <p class="text-center"><span class="label label-info">{{getRealIpAddr()}}</span></p>
+	<a href="http://domainsigma.com/whois/buckeyemower.com"><img src="http://domainsigma.com/widget/trust/buckeyemower.com.png" alt="Buckeyemower.com Trust"></a>
+</div>
+
+<!-- PAYPAL -->
+<div class="span2 well pull-right">
+<h6>You can pay online:</h6>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="6WG8557WFT7XA">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+</div>
+<!-- PAYPAL -->
+
+
+@stop
+
+@section('page-header')
+<h1>Admin Home</h1>
+@stop
+{{-- Content --}}
+@section('main')
+
+
+
 <h2></h2>
 
 
@@ -103,9 +90,9 @@ function getRealIpAddr()
 
 <div class="page-header">
 	<h3>
-		Website Management :)
+		
 		<div class="pull-right">
-			<a href="{{{ URL::to('admin/blogs/create') }}}" class="btn btn-small btn-info"><i class="icon-plus-sign icon-white"></i>Create </a>
+			<a href="{{{ URL::to('admin/blogs/create') }}}" class="btn btn-small btn-info"><i class="icon-plus-sign icon-white"></i>New Post </a>
 		</div>
 	</h3>
 
@@ -171,6 +158,8 @@ function myviews(array $array){
 
 
 <section>
+	{{ $posts->links() }}
+
 		<ul class="thumbnails">
 			@foreach ($posts as $post)
 			<li>
@@ -260,46 +249,31 @@ $c='<img src='.$url.'>';
 
 
 
-		      		<div class="span3 thumbnail delta pull-right">
-		      			<a href="http://opensource.org/">
-		      			<img src="http://gristech.com/img/logo/osi_standard_logo.png" alt="open source">
-						<h4><span>Open Source</span></h4>
-						</a>
-						<p class="photocredit"><a href="http://opensource.org/">logo &copy; opensource.org</a></p>
-						<h6>Free (as in freedom)</h6>
-						<h6>Free (as in free beer)</h6>
-						<h6><a href="http://opensource.org/licenses/MIT">MIT License</a></h6>
-						<p>The best thing since sliced bread.</p>
-						<p>Read about <a href="{{{ URL::to('security') }}}">Security</a> </p>
-		      		</div>
 
-<script>
-	$(document).ready(function(){
-  
-        $(".collapse").collapse();
-});
-</script>
+
+
 
 
 @stop
 
 @section('footer')
 
-<!-- PAYPAL -->
-<div class="span2 well pull-right">
-<h6>Please, give Ryan some money:</h6>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="6WG8557WFT7XA">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-</div>
-<!-- PAYPAL -->
+<section class="well">
+<a href="http://opensource.org/">
+<img src="http://gristech.com/img/logo/osi_standard_logo.png" alt="open source">
+<h4><span>Open Source</span></h4>
+</a>
+<p class="photocredit"><a href="http://opensource.org/">logo &copy; opensource.org</a></p>
+<h6>Free (as in freedom)</h6>
+<h6>Free (as in free beer)</h6>
+<h6><a href="http://opensource.org/licenses/MIT">MIT License</a></h6>
+<p>The best thing since sliced bread.</p>
+<p>Read about <a href="{{{ URL::to('security') }}}">Security</a> </p>
+</section>
 
 
-
-<div class="span2 well">
+<!-- <section class="favicons">
+	<div class="well">
 	<h5>These favicons are fetched at will.</h5>
 <ul class='nav'>
 	<li>
@@ -319,6 +293,15 @@ $c='<img src='.$url.'>';
 	</li>
 </ul>
 </div>
+</section> -->
 
 
+		<script>
+            function imgError(image){
+                image.onerror = "";
+                //could not get this to work with holder.js
+                image.src = "http://placehold.it/300x300";
+                return true;
+            }
+        </script>
 @stop

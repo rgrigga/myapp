@@ -1,26 +1,25 @@
 @extends('layouts.bootstrap3')
+<!-- //this is a structural document.  other docs can be called -->
+<!-- //from here, but styles should be kept in a theme somewhere else. -->
+
 {{-- Web site Title --}}
 @section('title')
 
 @parent
 @stop
-<style>
-	.page-header{
-		margin-top: -50px;
-		padding-top: 100px;
-	}
-</style>
+
+
 {{-- Content --}}
 @section('main')
 <!-- <div class="page-header"> -->
 
 <div class="jumbotron">
 	<h1>Contact</h1>
-<h2>What would you like to say?</h2>
-
-<?php
-// var_dump($posts);
-?>
+	<h2>What would you like to say?</h2>
+	<p>This page also demonstrates comments.</p>
+	<?php
+	// var_dump($posts);
+	?>
 </div>
 
 <div class="text-center">
@@ -29,7 +28,7 @@
 		<h4>
 			{{--{ $comments->count() }--}}
 		</h4>
-
+<h3>{{{$post->title}}}</h3>
 		<form method="post" action="{{{ URL::to('blog/'.$post->slug) }}}">
 
 			<input type="hidden" name="_token" value="{{{ Session::getToken() }}}" />
@@ -46,7 +45,7 @@
 
 
 	@if ( ! Auth::check())
-		<!-- You need to be logged in to add comments.<br /><br /> -->
+		You normally need to be logged in to add comments.  On this page, you may sign in, or comment anonymously.<br /><br />
 		<a class="btn btn-inverse" href="{{{ URL::to('user/login') }}}">WHO ARE YOU?</a>
 		@elseif ( ! $canComment )
 		You don't have the correct permissions to add comments.
