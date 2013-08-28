@@ -13,13 +13,107 @@
 
 @stop
 @section('page-header')
-<h1>Ajax</h1>
-<p class="muted">views.site.pages.ajax</p>
+<h1>Ajax Navigation System</h1>
+<p class="muted">This page uses ajax for navigation.  It's pretty fast, simple, flexible, and could be very useful.</p>
+<!-- <p>It only takes a few lines of code to make it happen, and it's very flexible.</p> -->
+
+<h2>html</h2>
+My page has exactly 5 structural components:
+<ol>
+	<li>Nav (top)</li>
+	<li>page-header</li>
+	<li>content-main</li>
+	<li>content-secondary</li>
+	<li>footer</li>
+</ol>
+
+<pre class="prettyprint">
+{{{'<html>
+	<head></head>
+	<body>
+		<nav></nav>
+		<header></header>
+		<div class="page-header"></div>
+		<div class="content-main"></div>
+		<div class="content-secondary"></div>
+		<footer></footer>
+	</body>
+</html>'}}}
+</pre>
+
+<pre class="prettyprint">{{{'<button type="button" onclick="loadXMLDoc(\'example\')">Example</button>'}}}</pre>
+<a href="https://www.google.com/search?q=loadXMLDoc">Read about loadXMLDoc</a>
+<pre class="prettyprint">{{{'<div id="myDiv"><h2>AJAX change this text</h2></div>'}}}</pre>
+
+
+<h2>File System</h2>
+<p>My file system looks something like this:</p>
+<pre>
+app
+├── views
+│   │   ├── site
+│   │   │   ├── megacorp
+│   │   │   │   └── pages
+│   │   │   │       ├── about.blade.php
+│   │   │   │       ├── about.blade.php
+│   │   │   │       └── example.blade.php
+│   │   │   ├── gristech
+│   │   │   │   └── pages
+│   │   │   │       ├── about.blade.php
+│   │   │   │       └── example.blade.php
+│   │   │   ├── anothercompany
+│   │   │   │   └── pages
+│   │   │   │       ├── about.blade.php
+│   │   │   │       └── example.blade.php
+│   │   │   ├── pages
+│   │   │   │   └── ajax.blade.php
+</pre>
+
+<h2>Laravel</h2>
+<h3>Routes</h3>
+<pre class="prettyprint">Route::get('company/pages/{page}','BlogController@getCompanyPage')
+    ->where('name', '[a-zA-Z_]+');</pre>
+
+<h3>BlogController</h3>
+<pre class="prettyprint">Route::get('company/pages/{page}','BlogController@getCompanyPage')
+    ->where('name', '[a-zA-Z_]+');</pre>
+
+
+
+<h2>Javascript</h2>
+<p>I pasted this into my assets/js/site.js file.  It could also be included in an external file, or on an individual page, within a {{{'<style>'}}} tag.</p>
+<pre class="prettyprint">
+function loadXMLDoc(input)
+{
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+	  {// code for IE7+, Firefox, Chrome, Opera, Safari
+	  xmlhttp=new XMLHttpRequest();
+	  // alert(input);
+	  }
+	else
+	  {// code for IE6, IE5
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	    {
+
+	    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+	    }
+	  }
+	xmlhttp.open("GET",input,true);
+	xmlhttp.send();
+}
+</pre>
+
 @stop
 
 @section('secondary')
 
 <h2>{{strtolower($company->brand)}}/pages/</h2>
+
 @foreach($company->pages() as $item)
 <button type="button" onclick="loadXMLDoc('company/pages/{{$item}}')">{{$item}}</button>
 @endforeach
@@ -80,33 +174,6 @@
 		<a href="#" class="btn btn-large btn-success"><i class="icon-thumbs-up"></i> cool</a>
 		<a href="#" class="btn btn-large btn-danger"><i class="icon-thumbs-down"></i> dumb</a>
 	</div>
-
-	<script>
-
-					function loadXMLDoc(input)
-					{
-					var xmlhttp;
-					if (window.XMLHttpRequest)
-					  {// code for IE7+, Firefox, Chrome, Opera, Safari
-					  xmlhttp=new XMLHttpRequest();
-					  // alert(input);
-					  }
-					else
-					  {// code for IE6, IE5
-					  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-					  }
-					xmlhttp.onreadystatechange=function()
-					  {
-					  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-					    {
-
-					    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
-					    }
-					  }
-					xmlhttp.open("GET",input,true);
-					xmlhttp.send();
-					}
-	</script>	
 @stop
 
 @section('admin-bottom')

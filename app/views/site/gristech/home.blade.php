@@ -442,6 +442,24 @@ foreach (glob($path."*.blade.php") as $filename) {
 			 					<h3>CSS</h3>
 			 				</a>
 			 				<div id='css'>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sons-of-obsidian"></script>
+
+<pre class="prettyprint" lang="css">
+<code lang="css">
+#myDiv {
+    .make-row();
+    section{
+        .make-xs-column(6);
+        background-color: @river;
+    }
+    aside{
+        .make-xs-column(6);
+        background-color: @sunflower;
+    }
+}
+
+</code>
+</pre>
 <!-- 			 					This little diddy makes the 'note':
 			 					<pre class='prettyprint'><code 'lang=css'>
 
@@ -728,6 +746,7 @@ foreach (glob($path."*.blade.php") as $filename) {
 
 		<li>PHP</li>
 		<li>Bootstrap</li>
+		<li><a href="{{URL::to('ajax')}}">Ajax</a></li>
 	</ul>
 
 </div>

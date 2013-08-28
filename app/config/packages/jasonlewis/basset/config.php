@@ -96,7 +96,7 @@ return array(
             {
                 $collection->add('wysihtml5/wysihtml5-0.3.0.js');
                 $collection->add('jquery.v1.8.3.min.js');
-                $collection->add('prettify.js');
+                // $collection->add('prettify.js');
                 $collection->add('holder.js');
                 
                 // $collection->add('bootstrap/bootstrap.min.js');

@@ -1007,7 +1007,7 @@ $posts=$this->post_public()
 		    if(empty($mypages)){
 
 		    	$msg="Could not find any pages in $path.<br>";
-				Session::flash('message', $msg);
+				// Session::flash('message', $msg);
 		    }
 
 		    // if services.blade.php exists, it will be returned.  Otherwise, 
