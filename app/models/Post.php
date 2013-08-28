@@ -121,7 +121,7 @@ class Post extends Eloquent implements PresentableInterface {
 
 		$tags=explode(',', $this->meta_keywords);
 // var_dump($tags);
-
+		$tags=array_map('trim',$tags);
 
 		if(!$tags){
 

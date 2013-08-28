@@ -1,4 +1,4 @@
-@extends('layouts.demo')
+@extends('site.layouts.bs3')
 
 @section('title')
 @parent
@@ -7,7 +7,7 @@
 
 @section('meta_description')
 @parent
-{{$company->description}}
+
 @stop
 
 @section('meta_keywords')
@@ -18,12 +18,17 @@
 @section('styles')
 @parent
 
-        @stylesheets('gristech')
-
-        <link rel="stylesheet/less" type="text/css" href="assets/css/less/demo.less" />
-        <script src="assets/js/less.js" type="text/javascript"></script>
-
+        <!-- @ stylesheets('gristech') -->
 <!-- @ stylesheets('megacorp'); -->
+	<link rel="stylesheet/less" type="text/css" href="/assets/css/less/master.less" />
+
+<!-- This display's the company's less page -->
+	<link rel="stylesheet/less" type="text/css" href="/assets/css/less/{{strtolower($company->brand)}}.less" />
+
+        <!-- <link rel="stylesheet/less" type="text/css" href="/assets/css/less/demo.less" /> -->
+        <script src="/assets/js/less.js" type="text/javascript"></script>
+
+
 
 <!-- http://colorschemedesigner.com/#0k41Jw0w0w0w0 -->
 <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
@@ -49,7 +54,7 @@
 
 html,body {
 
-	background-color: rgba(235,196,162,.2);
+	/*background-color: rgba(235,196,162,.2);*/
 
 	/*color: black;*/
 	font-family: 'EB Garamond', serif;
@@ -158,39 +163,24 @@ a:hover {text-decoration: none}
             // $(document).ready(function(){
             //     $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
             // });
+
+			$('.collapse-group .btn').on('click', function(e) {
+				e.preventDefault();
+				var $this = $(this);
+				var $collapse = $this.closest('.collapse-group').find('.collapse');
+				$collapse.collapse('toggle');
+			});
 		}
 	}
 
 
-$('.collapse-group .btn').on('click', function(e) {
-	e.preventDefault();
-	var $this = $(this);
-	var $collapse = $this.closest('.collapse-group').find('.collapse');
-	$collapse.collapse('toggle');
-});
+
 
 </script>
 @stop
 
 @section('main')
-<?php
-$env=App::environment();
-	// echo "<div class='alert alert-info'>Welcome to the <strong>".$env."</strong> environment.</div>";
 
-if($env=="local"){
-	$path='/home/ryan/MyApp6/app/views/site/pages/';
-}
-else{
-	$path='/home/gristech/myapp/app/views/site/pages/';
-}
-$mypages = array();
-foreach (glob($path."*.blade.php") as $filename) {
-	$filename=str_replace($path, "", $filename);
-	$filename=str_replace(".blade.php", "", $filename);
-	array_push($mypages,$filename);
-        // echo "$filename" . "<br>";
-}
-?>
 
 <style>
 
@@ -317,7 +307,7 @@ a:hover{
 									<h3>{{{$company->slogan}}}</h3>
 
 									<p>{{{$company->name}}} 
-							is a family owned business with a standard of excellence in all aspects of Residential and Commercial Painting, Roofing, Deck and Fence Staining, and Power Washing. Formerly known as Advantage Painting, {{{$company->name}}} has been known throughout Columbus and it's surrounding areas as the first name in professionalism and quality, since 1990.</p>				
+							</p>				
 								</div>
 								<div class="tab-pane" id="interior">
 									<h2>Interior</h2>
@@ -376,7 +366,7 @@ a:hover{
 				</a>
 
 	<h4>Search:</h4>
-	{{$searchbar}}
+	{{$searchbox}}
 <!-- https://developers.facebook.com/docs/reference/api/ -->
 <!-- graph theory: -->
 				{{$about}}
@@ -565,7 +555,8 @@ a:hover{
 				</div>
 				@endforeach
 				<div class="tab-pane active" id="tab1">
-					<p>{{{ $company->brand }}} is a family owned business with a standard of excellence in all aspects of Residential and Commercial Painting, Roofing, Deck and Fence Staining, and Power Washing. Formerly known as Advantage Painting, Advantage Services has been known throughout Columbus and it's surrounding areas as the first name in professionalism and quality, since 1990.</p>
+					<p>{{{ $company->brand }}} 
+					</p>
 				</div>
 			</div>
 		</div>
@@ -603,8 +594,15 @@ a:hover{
 			{{-- $posts->links() --}}
 		</div>
 		<h1>62,68,67,69</h1>
-
+<?php
+		
+		// print_r($posts);
+		// die();
+?>
 		@foreach ($posts as $post)
+<?php
+$post=new PostPresenter($post);
+?>
 		<div class="row-fluid">
 			<p>{{{$post->id}}}</p>
 			<div class="span3">

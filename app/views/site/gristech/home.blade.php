@@ -1,4 +1,4 @@
-@extends('layouts.bootstrap3')
+@extends('site.layouts.bs3')
 
 @section('title')
 
@@ -16,7 +16,14 @@
 @stop
 
 @section('styles')
-<!-- @ parent -->
+@parent
+	<link rel="stylesheet/less" type="text/css" href="/assets/css/less/master.less" />
+
+	<!-- This display's the company's less page -->
+	<link rel="stylesheet/less" type="text/css" href="/assets/css/less/{{strtolower($company->brand)}}.less" />
+
+	<script src="/assets/js/less.js" type="text/javascript"></script>
+
 <!-- http://colorschemedesigner.com/#0k41Jw0w0w0w0 -->
 <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine"> -->
     <!-- @ stylesheets("bs3-css") -->
@@ -28,10 +35,7 @@
 	<!-- @ stylesheets('gristech') -->
 	<!-- assets/css/less/gristech.less -->
 
-	<link rel="stylesheet/less" type="text/css" href="assets/css/less/master.less" />
-	<link rel="stylesheet/less" type="text/css" href="assets/css/less/gristech.less" />
 
-	<script src="assets/js/less.js" type="text/javascript"></script>
 
 <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
 
@@ -44,18 +48,6 @@
 <style>
 
 /* STRUCTURAL */
-
-/*this has ramifications:*/
-.container{
-/*	width: 100%;
-	padding-left: 0px;
-	padding-right: 0px;*/
-}
-
-.below{
-/*	padding-right: 20px;
-	padding-left:20px;*/
-}
 
 html,body {
 
@@ -101,7 +93,7 @@ html,body {
 }
 
 .tabbable a {
-	color: rgba(44, 62, 80,1.0);
+	/*color: rgba(44, 62, 80,1.0);*/
 }
 
 .page-header h1 {
@@ -173,13 +165,14 @@ a:hover {
 }
 
 .page-header{
-	background-color: rgba(236, 240, 241,1.0);
+	/*background-color: rgba(236, 240, 241,1.0);*/
 }
 
 div {
 	/*background-color: rgba(41, 128, 185,.1)*/
 }
 .corner{
+	/*position: relative;*/
 	background-color: transparent;
 }
 
@@ -244,11 +237,15 @@ div {
 		/*margin-left: -10px;*/
 	}
 
+	.main h2{
+		text-align: left;
+	}
+
 	.sidebar h2, .sidebar h3{
 		text-align: right;
 	}
 
-	.sidebar h2{
+	.sidebar h2, .main h2{
 		text-shadow: 2px 2px 2px #A63A00;
 	}
 	
@@ -293,8 +290,22 @@ div {
 		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/'.strtolower($company->brand).'/apple-touch-icon-57-precomposed.png') }}}">
 		<!-- <link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}"> -->
 		<link rel="shortcut icon" href="{{{ asset('assets/'.strtolower($company->brand).'/ico/favicon.png') }}}">
-		@stop
+@stop
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
 
+  (function() {
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://l4.gristech.com/piwik/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "2"]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik Code -->
 
 
 @section('nav')
@@ -302,26 +313,7 @@ div {
 <!-- @ include('site.partials.nav-top') -->
 @stop
 
-@section('main')
-<?php
-$env=App::environment();
-	// echo "<div class='alert alert-info'>Welcome to the <strong>".$env."</strong> environment.</div>";
-
-if($env=="local"){
-	$path='/home/ryan/MyApp6/app/views/site/pages/';
-}
-else{
-	$path='/home/gristech/myapp/app/views/site/pages/';
-}
-$mypages = array();
-foreach (glob($path."*.blade.php") as $filename) {
-	$filename=str_replace($path, "", $filename);
-	$filename=str_replace(".blade.php", "", $filename);
-	array_push($mypages,$filename);
-        // echo "$filename" . "<br>";
-}
-?>
-
+@section('page-header')
 <style>
 	#ribbon{
 		position: fixed;
@@ -330,16 +322,14 @@ foreach (glob($path."*.blade.php") as $filename) {
 	}
 </style>
 
-<a href="https://github.com/rgrigga/MyApp6">
-	<img id="ribbon" src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png" alt="Fork me on GitHub">
-</a>
+	<a href="https://github.com/rgrigga/MyApp6">
+		<img id="ribbon" src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png" alt="Fork me on GitHub">
+	</a>
 
-<div class="page-header">
 
-	<div class="row">
-
-		<h4>Search:</h4>
-		{{$searchbar}}
+<div class="row">
+			<h4>Search:</h4>
+		{{$searchbox}}
 
 			<div class="col-md-5">
 				<!-- <a href="#about" data-toggle="tab"> -->
@@ -380,8 +370,7 @@ foreach (glob($path."*.blade.php") as $filename) {
 
 			</div>	
 
-		</div>
-		<!-- row -->
+
 
 <!-- 	<div class="span4 pull-right">
 		<div class="well" data-spy="affix" data-offset-top="200">
@@ -390,17 +379,44 @@ foreach (glob($path."*.blade.php") as $filename) {
 		</div>
 	</div> -->
 
+</div>
+<div class="row">
 	<p>Cloud Computing for the rest of us.</p>
 	<div class="tabbable"> <!-- Only required for left/right tabs -->
 		<a href="#" data-toggle="tab"> Skills</a>
 		<a href="#" data-toggle="tab"> Experience</a>
 		<a href="#" data-toggle="tab"> Aspirations</a>
 	</div>
+</div>
 	<!-- ./ tabbable -->
 
 
-</div>
-<!-- ./ page-header -->
+
+@stop
+
+@section('main')
+<?php
+$env=App::environment();
+	// echo "<div class='alert alert-info'>Welcome to the <strong>".$env."</strong> environment.</div>";
+
+if($env=="local"){
+	$path='/home/ryan/MyApp6/app/views/site/pages/';
+}
+else{
+	$path='/home/gristech/myapp/app/views/site/pages/';
+}
+$mypages = array();
+foreach (glob($path."*.blade.php") as $filename) {
+	$filename=str_replace($path, "", $filename);
+	$filename=str_replace(".blade.php", "", $filename);
+	array_push($mypages,$filename);
+        // echo "$filename" . "<br>";
+}
+?>
+
+
+
+
 
 <style>
 .note{
@@ -417,28 +433,63 @@ foreach (glob($path."*.blade.php") as $filename) {
 
 
 
-<div class="wrapper">
+<!-- <div class="wrapper">
   <div class="content-main">main...</div>
   <div class="content-secondary">secondary...</div>
 </div>
+ -->
 
 
-<div class="sidebar">
-	
-	<ul>
-		<li>CSS</li>
-		<li>LESS</li>
-		<li>PHP</li>
-		<li>Bootstrap</li>
-	</ul>
-
-</div>
 
 <div class="main">
 
-	<div class="span7">
-		<h2>Let's get to work:</h2>
+	<section>
+		<h2>Code Samples:</h2>
+		<!-- <h2>Let's get to work:</h2> -->
 			<div class="accordion" id="accordion">
+
+
+			 <div class="accordion-group">
+			 		<div class="accordion-heading">
+			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
+			 				<h2>Symantic HTML5</h2>
+			 			</a>
+			 		</div>
+			 		<div id="collapseFive" class="accordion-body collapse">
+			 			<div class="accordion-inner">
+<p>Look how simple this is:</p>
+<pre class="prettyprint">
+{{{'<!DOCTYPE html>
+<html>
+<head></head>
+	<body>
+	<div class="content-wrap theme1">
+		<div class="content-main">
+			MAIN
+		</div>
+		<div class="content-secondary">
+			SECONDARY
+		</div>
+	</div>	
+	</body>
+</html>'}}}
+</pre>
+<p>I've got all kinds of other code in there, but that's all there is to the <em>scaffolding</em> of my site.</p>
+<p>Posts, pages, and other blocks of content are just that: blocks.  By using sensible and consistent class names, we can make changes and move things around with ease.</p>
+<p>contrast that to something like this:</p>
+<pre class="prettyprint"><code>
+{{{'<div class="mypage4" class="red pull-right span7 admin large shaded">blah blah blah</div>'}}}
+</code></pre>
+<p>Keep reading to understand how, using LESS (or SASS) Mixins, development and maintenance is a breeze....</p>
+			 				<a href="https://www.google.com/search?q=css+semantics">Research CSS Symantics</a>
+			 			</div>
+			 		</div>
+			 		<!-- ./collapse -->
+			 </div>
+			 	<!-- ./ accordion-group -->
+
+
+
 			 	<div class="accordion-group">
 			 		<div class="accordion-heading">
 			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
@@ -449,12 +500,98 @@ foreach (glob($path."*.blade.php") as $filename) {
 			 		<!-- Here's a little diddy used on this page: -->
 			 		<div id="collapseOne" class="accordion-body collapse">
 			 			<!-- //add in to open on load -->
-			 			Here are some of the tools used on this page:
+			 			
 			 			<div class="accordion-inner">
 			 				<a href="css" data-toggle="tab">
-			 					<h3>CSS</h3>
+			 					<h3>LESS CSS</h3>
 			 				</a>
 			 				<div id='css'>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sons-of-obsidian"></script>
+
+<p>Here's an example of a "mixin" using LESS, Bootstrap, and HTML5:</p>
+<p class="muted">Also, check out the <a href="{{URL::to('ajax')}}">Ajax Demo</a> to feel the power!</p>
+
+<pre class="prettyprint" lang="less"><code lang="css">@river:#3498db;
+@sunflower:#f1c40f;
+#myDiv {
+    .make-row();
+    section{
+        .make-xs-column(6);
+        background-color: @river;
+    }
+    aside{
+        .make-xs-column(6);
+        background-color: @sunflower;
+    }
+}</code></pre>
+<p>Now that this is set up, changing ONE WORD at a time can change the entire design of the site...  It's extremely powerful, and I can never see going back to doing it any other way.</p>
+<p>Check this out: here's one theme:</p>
+
+<pre class="prettyprint">
+.darktheme{
+  body{
+    background-color: @concrete;
+    // color: @clouds;
+  }
+  .content-wrap {
+    .make-row();
+  }
+  .content-main {
+    background-color: @asphalt;
+    color: @clouds;
+    // .make-xs-column(6);
+    .make-md-column(7);
+  }
+
+  .content-secondary {
+    background-color: @sunflower;
+      
+    // .make-xs-column(6);
+
+    .make-md-column(5);
+    // .make-md-column-offset();
+    .border-radius;
+  }
+}
+</pre>
+<p>And here is another:</p>
+<pre class="prettyprint">
+.lighttheme{
+
+  body{
+    background-color: @silver;
+    color: @asphalt;
+  }
+  .content-wrap {
+    .make-row();
+  }
+  .content-main {
+    // background-color: @concrete;
+    background-color: @midnight;
+    .make-xs-column(7);
+    .make-md-column(8);
+    .border-radius;
+  }
+
+  .content-secondary {
+    background-color: @concrete;
+    color: @midnight;
+      .pull-right();
+    .make-xs-column(4);
+
+    .make-md-column(3);
+    .make-md-column-offset(1);
+    .border-radius;
+  }
+  .main > section{
+    color:@silver;
+  }
+}
+</pre>
+<p>This is awesome because it will work regardless of changes to the rest of our code, as long as we stick to a few best practices.  It's <em>less likely</em> that a change will break something.  As long as the HTML is structured in a logical way, we can make small changes to this code to make drastic changes to the look and layout of our site, like this:</p>
+<p>This is also easy to understand and to explain to someone else working on it.</p>
+
+
 <!-- 			 					This little diddy makes the 'note':
 			 					<pre class='prettyprint'><code 'lang=css'>
 
@@ -479,20 +616,19 @@ foreach (glob($path."*.blade.php") as $filename) {
 	}
 			 					</code></pre> -->
 			 					<a href="http://stackoverflow.com/questions/514083/why-is-good-ui-design-so-hard-for-some-developers">Must Read for User, Designers, and Developers</a>
-			 					<a href="http://stackoverflow.com/questions/7973/user-interface-design">User Interface</a>
+			 					<a href="http://stackoverflow.com/questions/7973/user-interface-design">User Interface Design</a>
 			 				</div>
 			 				
 							
-			 				<a href="/html5" data-toggle="tab">
-								<h3>HTML 5</h3>
-			 				</a>
-							<p>I beleive in standards, and try to code to them as such.</p>
-							<p><a href="http://stackoverflow.com/questions/4781077/html5-best-practices-section-header-aside-article-tags"></a></p>
+
+							<p><a href="http://stackoverflow.com/questions/4781077/html5-best-practices-section-header-aside-article-tags">HTML5 best practices</a></p>
 
 							<a href="/responsive" data-toggle="tab">
 								<h3>Responsive Design</h3>
 							</a>
+							<p>You may have noticed this page changes when resized.  Try it, it's awesome!</p>
 							<p><a class='btn btn-info' href="{{URL::to('responsive')}}"><i class="icon-code"> </i>Learn More</a></p>
+							<p>I also have experience with vector graphics, color theory, typography, and more... but I'm running out of room on this page!</p>
 			 			</div>
 			 		</div>
 			 	</div>
@@ -504,18 +640,48 @@ foreach (glob($path."*.blade.php") as $filename) {
 			 		</div>
 			 		<div id="collapseTwo" class="accordion-body collapse">
 			 			<div class="accordion-inner">
-			 				
+			 				<h3>Laravel</h3>
+			 				</a>
+<p>I've been cramming tutorials, books, and videos, and I've been experimenting and building with Laravel for the past 3 months straight.  It's SPECTACULAR!</p>
+
+<pre class="prettyprint">
+	//Domain Routing...
+	'buckeye' => array('domain' => 'buckeyemower.com'),
+	'gristech' => array('domain' => 'myapp.gristech.com'),
+</pre>
+
+How about this one:
+
+<pre class="prettyprint">
+private function post_public($tag=""){
+	$posts=$this->post
+		->where('meta_keywords', 'LIKE', '%'.$this->company->brand.'%')
+		->where('meta_keywords','LIKE','%public%')
+        ->where('content','LIKE','%'.$tag.'%')
+        ->paginate(5);
+        View::share('posts',$posts);
+        return $posts;
+        // return View::make('site.posts.carousel');
+}
+</pre>
+<p>There's alot going on here, but it's sooooo easy once you get the hang of it.  Generators, Asset Management, Mail, Caching, IOC, Symfony, Eloquent... the list of tools is just amazing.</p>
+<pre class="prettyprint">
+View::make('site.posts.thumbnails')->with('posts',$posts)
+View::make('site.posts.carousel')->with('posts',$posts)
+View::make('site.posts.list')->with('posts',$posts)
+</pre>
+<p>I've set up a bunch of templates like this, and Once again, by changing one word, we can alter the entire presentation of all these blocks of content.  Or, we can edit a single word, color... add or collapse a piece of content... anything you can dream!</p>
 			 				<a href="#repairs" data-toggle="tab">
 			 					<h3>PHP</h3>
 			 				</a>
-
-							<a href="#replacement" data-toggle="tab">
-			 					<h3>Laravel</h3>
-			 				</a>
+<p>I'm a huge PHP fan, and I've developed a few hundred objects that can be reused and extended.  I'm really excited to use this stuff, so please ask me about it!</p>
+<p>In my free time, I read php.net for fun.</p>	
+						<a href="#replacement" data-toggle="tab">
+			 					
 						<p>I don't write code very fast, because I take my time to try to get things right the first time.  I write very little code in comparison to the research that I do when implementing a new feature or improving an existing one.</p>
 			 			<p>A good deal of my time goes into refactor and comment the code, and document issues.</p>
 			 			<p>This blog can be a good start towards a manual or developer resource.</p>
-			 			<p>On the other hand, I beleive the shortest path to getting the code to work helps the development process.  This is a delicate balance.</p>
+			 			<p>On the other hand, I beleive the shortest path to getting the code to work helps the development process.  This is a delicate balance....</p>
 		 			
 						</div>
 			 		</div>
@@ -533,7 +699,9 @@ foreach (glob($path."*.blade.php") as $filename) {
 			 				<a href="#power" data-toggle="tab">
 								<h3>SEO</h3>
 							</a>
-			 			
+			 			<p>I have a good head start on marketing and analytics, although I have yet to use it all.</p>
+			 			<a href="#experience"><h3>Experience</h3></a>
+			 			<p>I have 15 years of sales, marketing, and management experience... more on that later.</p>
 <!-- 			 			<p>Identify ways we can make marketing better.</p>
 			 			<p>Develop and design an automated solution</p>
 			 			<p>Let's talk about it!</p> -->
@@ -550,37 +718,104 @@ foreach (glob($path."*.blade.php") as $filename) {
 			 		</div>
 			 		<div id="collapseFour" class="accordion-body collapse">
 			 			<div class="accordion-inner">
+		<p>This needs polishing, but It's all about building a flexible foundation.  It just keeps getting better and better!</p>
 						<p>
-			 				I can provide dozens of references who will attest to my training skills, patience with clients, down-to-earth approach to working with people of all skill levels, and my ability to learn new things quickly.  Along with my problem-solving skills, this mix is the perfect storm of abilities to do THIS: 
+			 				I can provide dozens of references who will attest to my training skills, patience with clients, down-to-earth approach to working with people of all skill levels, and my ability to learn new things quickly.  Along with my problem-solving skills, this mix is the perfect storm of abilities to do THIS! 
 			 			</p>
 			 			</div>
 			 		</div>
 			 	</div>
 <!-- ///////////////////////////// -->
 
-			 	<div class="accordion-group">
-			 		<div class="accordion-heading">
-			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
-			 				<h2>Dirty Deeds</h2>
-			 			</a>
-			 		</div>
-			 		<div id="collapseFive" class="accordion-body collapse">
-			 			<div class="accordion-inner">
-			 				Done dirt cheap.
-			 			</div>
-			 		</div>
-			 		<!-- ./collapse -->
-			 	</div>
-			 	<!-- ./ accordian-group -->
+
 			</div>
-			<!-- ./ accordian -->
-	</div>
-	<!-- div span7 -->
+			<!-- ./ accordion -->
+	</section>
+	<!-- main section -->
 
 <!-- 	<div class="row">
 
 	</div> -->
 
+
+
+	<div class="row">
+		<div class="span4">
+			<!-- <div class="pull-right"> -->
+			<!-- <img src="{{asset($company->image)}}" alt="MyImage"> -->
+			<!-- </div> -->
+			<div>ID: {{{ $company->id }}}</div>
+			<div>Name: {{{ $company->name }}}</div>
+			<div>Brand: {{{ $company->brand }}}</div>
+			<div>Phone: {{{ $company->phone }}}</div>
+			<div>Email: {{{ $company->email }}}</div>
+			<div>Description: {{{ $company->description }}}</div>
+			<div>Slogan: {{{ $company->slogan }}}</div>
+			<div>Image: {{{ $company->image }}}</div>
+			<div>Menus: {{{ $company->menus }}}</div>
+		</div>
+	</div>
+
+
+		<!-- ./ row -->
+
+	</div>
+	<!-- ./main -->
+	<!-- ************************************************ -->
+
+
+
+
+	
+
+	<!-- </div> -->
+
+	<!-- </div> -->
+	<!-- ./below -->
+
+	@stop
+
+@section('secondary')
+
+<div class="sidebar">
+	<section>
+		<h2><a href="#CSS">How-to's & Demos</a></h2>
+<p class="muted credit">These are few things I have created.  Please let me know if you like them.</p>
+		<!-- <article> -->
+			<!-- <a href="#">link</a> -->
+		<!-- </article> -->
+	</section>
+<!-- 	<div class="btn-group-vertical">
+		<button class="btn btn-info">test</button>
+		<button class="btn btn-info">test</button>
+		<button class="btn btn-info">test</button>
+
+	</div> -->
+	<ul class="nav">
+		<li><a class="btn btn-info" href="lesstest">Less demo page</a></li>
+		<li><a class="btn btn-info" href="{{URL::to('ajax')}}">Ajax</a></li>
+		<li><a class="btn btn-info" href="{{URL::to('arrays')}}">PHP arrays</a></li>
+
+
+
+<li>In the works...</li>
+		<li>Git and GitHub</li>
+		<li>Migrate Bootstrap 2.3.2 to 3.0</li>
+		<li>More PHP & Laravel</li>
+	</ul>
+</div>
+
+
+<div class="sunrise">
+	<h2><a href="#">HELP!</a></h2>
+	<p>I need a job.  If you like what you see here, please hire me, or let me know if you know anyone who could put me to good use.  Do I have what it takes?</p>
+	<h5>614-203-9405</h5>
+	<h5>ryan.grissinger@gmail.com</h5>
+	<p>Let's chat, I'll buy you a cup of coffee sometime!</p>
+</div>
+@stop
+
+@section('third')
 	<div class="row">
 		<div class="tabbable"> <!-- Only required for left/right tabs -->
 			<ul class="nav nav-pills">
@@ -602,126 +837,33 @@ foreach (glob($path."*.blade.php") as $filename) {
 			</div>
 		</div>
 	</div>
+@stop
 
-	<div class="row">
-		<div class="span4">
-			<!-- <div class="pull-right"> -->
-			<!-- <img src="{{asset($company->image)}}" alt="MyImage"> -->
-			<!-- </div> -->
-			<div>ID: {{{ $company->id }}}</div>
-			<div>Name: {{{ $company->name }}}</div>
-			<div>Brand: {{{ $company->brand }}}</div>
-			<div>Phone: {{{ $company->phone }}}</div>
-			<div>Email: {{{ $company->email }}}</div>
-			<div>Description: {{{ $company->description }}}</div>
-			<div>Slogan: {{{ $company->slogan }}}</div>
-			<div>Image: {{{ $company->image }}}</div>
-			<div>Menus: {{{ $company->menus }}}</div>
-		</div>
-	</div>
+@section('posts')
+{{--View::make('site.posts.article')--}}
+
 
 	<div class="row" id="posts">
-		<h1>Posts:</h1>
 		<?
 // var_dump($posts);
 		?>
-
-
-{{View::make('site.posts.article')}}
 
 		<div class="text-center">
 			{{ $posts->links() }}
 		</div>
 
 
-{{View::make('site.posts.thumbnails')->with('posts',$posts);}}
+{{--View::make('site.posts.thumbnails')->with('posts',$posts)--}}
+{{--View::make('site.posts.accordion')->with('posts',$posts)--}}
 
+{{--View::make('site.posts.default')->with('posts',$posts)--}}
+{{--View::make('site.posts.carousel')->with('posts',$posts)--}}
+{{View::make('site.posts.mini-carousel')->with('posts',$posts)}}
 
-		@foreach ($posts as $post)
-		<div class="row">
-			<div class="span3">
-				<p></p>
-				<p>
-					<!-- Edit/Delete Buttons -->
-					<div class="metabuttons pull-left">
-						@if (Auth::check())
-						@if (Auth::user()->hasRole('admin'))
-						<p>
-							<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
-							<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn btn-mini btn-danger">{{{ Lang::get('button.delete') }}}</a>
-							| </p>
-							@endif
-							@endif
-						</div>
-
-						<!-- Comments -->
-						&nbsp;<i class="icon-user"></i> by <span class="muted">{{{ $post->author->username }}}</span>
-						| <i class="icon-calendar"></i> <!--Sept 16th, 2012-->{{{ $post->date() }}}
-						| <i class="icon-comment"></i> <a href="{{{ $post->url() }}}#comments">{{$post->comments()->count()}} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
-					</p>
-				</div>
-			</div>
-			
-
-			<div class="well">
-				{{$post->title}}
-				{{$post->img}}
-
-				<h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
-				<p>
-					{{ String::tidy(Str::limit($post->meta_description, 158)) }}
-				</p>
-				<p>
-					<a class="btn btn-info" href="{{{ $post->url() }}}">more</a>
-				</p>
-			</div>
-
-			<ul class='tag'>
-				<li><i class="icon-tag"></i></li>
-				@foreach($post->tags() as $tag)
-
-				<li><a href="{{ $tag }}">{{ $tag }}</a></li>
-
-				@endforeach
-			</ul>
-
-			@endforeach
-			{{ $posts->links() }}
-		</div>
-		<!-- ./ row -->
-
+		{{ $posts->links() }}
 	</div>
-	<!-- ./main -->
-	<!-- ************************************************ -->
+@stop
 
-  <button id='mybutton'>Toggle 'em</button>
- <p id='myp' class="myp">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, aliquam.</p>
-<p>Hiya</p>
-<p>Such interesting text, eh?</p>
-
-<!-- Piwik -->
-<script type="text/javascript">
-  var _paq = _paq || [];
-  _paq.push(["trackPageView"]);
-  _paq.push(["enableLinkTracking"]);
-
-  (function() {
-    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://l4.gristech.com/piwik/";
-    _paq.push(["setTrackerUrl", u+"piwik.php"]);
-    _paq.push(["setSiteId", "2"]);
-    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
-    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<!-- End Piwik Code -->
-	
-
-	<!-- </div> -->
-
-	<!-- </div> -->
-	<!-- ./below -->
-
-	@stop
 @section('myjs')
 
 

@@ -4,6 +4,30 @@
 //     // $('.page-header').height($("#sidebar").height());
 // });
 
+    function loadXMLDoc(input)
+    {
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+      {// code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp=new XMLHttpRequest();
+      // alert(input);
+      }
+    else
+      {// code for IE6, IE5
+      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+      }
+    xmlhttp.onreadystatechange=function()
+      {
+      if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+
+        document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+        }
+      }
+    xmlhttp.open("GET",input,true);
+    xmlhttp.send();
+    }
+
 function imgError(image){
     image.onerror = "";
     //could not get this to work with holder.js
@@ -12,14 +36,15 @@ function imgError(image){
 }
 
 $(document).ready(function(){
+    // alert("bam");
     // $('.page-header').css('background-color','red');
 
-    // $('.admin-top').css({'margin-top':($('.user-top').height()+0)+'px'});
-    // $('.contentwrap') .css({'padding-top': (
-    //     $('.user-top').height()
-    //      + $('.admin-top').height()
-    //      + 0 )+'px'
-    // 	});
+        $('.admin-top').css({'margin-top':($('.user-top').height()+0)+'px'});
+        $('.contentwrap') .css({'padding-top': (
+            $('.user-top').height()
+             + $('.admin-top').height()
+             + 0 )+'px'
+            });
 
     // alert('jQuery loaded');
 	$('.carousel-inner > .item:first').addClass('active');
@@ -35,7 +60,7 @@ $(document).ready(function(){
         $collapse.collapse('toggle');
     });
 
-    $('.wysihtml5').wysihtml5();
+    // $('.wysihtml5').wysihtml5();
     // $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
     // $('.thumbnail').equalHeights();
 
@@ -43,12 +68,12 @@ $(document).ready(function(){
 });
 
 $(window).resize(function(){
-    // $('.admin-top').css({'margin-top':($('.user-top').height()+0)+'px'});
-    // $('.contentwrap') .css({'padding-top': (
-    //     $('.user-top').height()
-    //      + $('.admin-top').height()
-    //      + 0 )+'px'
-    // });
+        $('.admin-top').css({'margin-top':($('.user-top').height()+0)+'px'});
+        $('.contentwrap') .css({'padding-top': (
+            $('.user-top').height()
+             + $('.admin-top').height()
+             + 0 )+'px'
+        });
     columnConform();
 
 });

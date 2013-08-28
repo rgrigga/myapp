@@ -1,5 +1,35 @@
 @extends('site.layouts.bs3')
 
+{{-- Web site Title --}}
+@section('title')
+{{ $post->title }} ::
+@parent
+@stop
+
+{{-- Update the Meta Title --}}
+@section('meta_title')
+@parent
+ :: {{ $post->title }} 
+@stop
+
+{{-- Update the Meta Description --}}
+@section('meta_description')
+@parent
+<meta name="description" content="{{{$post->description}}}">
+@stop
+
+{{-- Update the Meta Keywords --}}
+@section('meta_keywords')
+@parent
+<meta name="keywords" content="{{{ $post->meta_keywords }}}" />
+@stop
+
+
+@section('styles')
+@parent
+        <link rel="stylesheet/less" type="text/css" href="/assets/css/less/tools.less" />
+        <script src="/assets/js/less.js" type="text/javascript"></script>
+@stop
 {{-- Content --}}
 @section('content')
 
@@ -106,6 +136,7 @@ You don't have the correct permissions to add comments.
 	</div>
 </form>
 @endif
+
 @stop
 
 

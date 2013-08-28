@@ -9,7 +9,7 @@
 <!-- <div class="container"> -->
 <style>
 	html, body{
-		background-color: rgba(52, 152, 219,1.0);
+		background-color: red;
 	}
 	.page-header{
 		width: 100% static;

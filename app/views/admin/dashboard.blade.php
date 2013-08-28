@@ -34,9 +34,7 @@ email
 
 share link?
 share secure link?
-share really, really secure doc like a google doc?
-google doc...
-
+share really, really secure doc
 todo:
 <ul>
     <li>
@@ -52,13 +50,7 @@ todo:
 </pre>
 
 
-<!-- @ include('../../README.md') -->
-
-<!-- http://thenounproject.com/noun/lawn-mower/#icon-No2960 -->
-
-<div class="note">
-	Note to self: Make some notes.
-</div>
+@include('../../README.md')
 
 <hr>
 <h2>to do:</h2>

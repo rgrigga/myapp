@@ -544,13 +544,13 @@ Array
                 else
                 {
                      // alert('jQuery is loaded');
-
                 }
             }
 
 
 	    $(document).ready(function(){
-			
+			// $('.wysihtml5').wysihtml5();
+
 			// $('#editor').wysiwyg();
 
 	        $('.admin-top').css({'margin-top':($('.user-top').height()+0)+'px'});
