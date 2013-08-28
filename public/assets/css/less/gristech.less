@@ -2,6 +2,7 @@
 // but it is necessary...
 // how frustrating!
 @import "/assets/less/bootstrap.less";
+
         table form { margin-bottom: 0; }
         form ul { margin-left: 0; list-style: none; }
         .error { color: red; font-style: italic; }
@@ -38,10 +39,18 @@
 @belize:#2980b9;
 @river:#3498db;
 
+@light:@silver;
+@dark:@midnight;
 
 body{
-	// background-color: @asbestos;
-	// color:@clouds;
+	background-color: @asbestos;
+	color:@clouds;
+}
+
+.page-header{
+    width: 100%;
+    background-color: @clouds;
+    color:@river;
 }
 
 .thumbnail{
@@ -55,20 +64,29 @@ body{
 .inactive i.icon-folder-open { display:none;}
 
 
-.wrapper {
+.content-wrap {
+    padding-top: 50px;
   .make-row();
 }
 .content-main {
-	background-color: @sunflower;
+	background-color: @light;
+    color: @dark;
 	.make-xs-column(6);
 	.make-md-column(8);
 }
 .content-secondary {
-	background-color: @carrot;
-  	
+	background-color: @dark;
+  	color: @light;
  	.make-xs-column(6);
 
  	.make-md-column(3);
  	.make-md-column-offset(1);
 }
 
+footer{
+    background-color: @asphalt;
+}
+footer img{
+    // max-width: 50px;
+    max-height: 50px;
+}

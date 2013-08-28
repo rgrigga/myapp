@@ -18,9 +18,9 @@
 
 			<!-- @ include('site.partials.search') -->
 			@foreach ($company->menus() as $menu)
-				<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{ URL::to($menu) }}}">{{{ucfirst($menu)}}}</a></li>
+				<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{URL::to($menu)}}}">{{{ucfirst($menu)}}}</a></li>
 			@endforeach
-				<li><div class="form-group">@include('site.partials.search')</div></li>
+				<li><div class="form-group">@include('site.partials.searchbox')</div></li>
 			</ul>
 
 

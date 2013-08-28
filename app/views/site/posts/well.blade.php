@@ -21,21 +21,21 @@
 <li>
 		<!-- //copy and edit buttons -->
 @if (Auth::check())
-@if (Auth::user()->hasRole('admin'))
-<div class="admin">
-	<div class="admin-buttons">
-		<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
-		<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn annoying">{{{ Lang::get('button.delete') }}}</a>
+	@if (Auth::user()->hasRole('admin'))
+	<div class="admin">
+		<div class="admin-buttons">
+			<a href="{{{ URL::to('admin/blogs/' . $post->id . '/edit' ) }}}" class="btn btn-mini">{{{ Lang::get('button.edit') }}}</a>
+			<a href="{{{ URL::to('admin/blogs/' . $post->id . '/delete' ) }}}" class="btn annoying">{{{ Lang::get('button.delete') }}}</a>
+		</div>
 	</div>
-</div>
 
-@endif
+	@endif
 @endif
 </li>
 	<li><i class="icon-tag"></i></li>
 	@foreach($post->tags() as $tag)
 
-	<li><a href="{{ $tag }}">{{ $tag }}</a></li>
+	<li><a href="tags/{{ $tag }}">{{ $tag }}</a></li>
 	@endforeach
 
 </ul>

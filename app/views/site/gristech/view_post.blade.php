@@ -22,8 +22,9 @@
 @section('meta_keywords')
 @parent
 <meta name="keywords" content="{{{ $post->meta_keywords }}}" />
-
 @stop
+
+
 @section('styles')
 @parent
         <link rel="stylesheet/less" type="text/css" href="/assets/css/less/tools.less" />

@@ -2,8 +2,12 @@
 
 @section('styles')
 @parent
+        <link rel="stylesheet/less" type="text/css" href="/assets/css/less/master.less" />
         <link rel="stylesheet/less" type="text/css" href="/assets/css/less/tools.less" />
+        
         <script src="/assets/js/less.js" type="text/javascript"></script>
+
+
 @stop
 
 {{-- Content --}}
@@ -25,11 +29,13 @@
 			<li><a href='/tags/{{$mytag}}' class="badge badge-warning">{{$mytag}}</a></li>
 		@endforeach	
 </ul>
-	<h1>Tags<small>Find what you came for:</small></h1>
+
+<h1>Tags<small>Find what you came for:</small></h1>
 
 Voila! {{$count}} posts about {{$tag}}.
 </div>
 
+{{View::make('site.posts.well')}}
 
 <div class="span8">
 <!-- <h1>Posts:</h1> -->
@@ -42,15 +48,14 @@ Voila! {{$count}} posts about {{$tag}}.
 @stop
 
 @section('secondary')
-<?php
-$alltags=array_unique($alltags);
-?>
+
 
 Recent Posts:
 
-<ul>
-@foreach($alltags as $t)
-<li><a href='/tags/{{$t}}' class="badge">{{$t}}</a></li>
+<ul class="nav">
+@foreach($alltags as $key => $value)
+
+<li><a href='/tags/{{$key}}'>{{$key}} <div class="badge">{{$value}}</div></a></li>
 
 
 @endforeach

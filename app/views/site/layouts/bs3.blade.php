@@ -37,21 +37,15 @@
 	================================================== -->
 
 	@section('styles')
+	<!-- STYLES -->
 	    @stylesheets("bs3-css")
 		<!-- @ stylesheets("myapp-css") -->
-
-
-	    
-<!-- <script src="assets/js/less.js" type="text/javascript"></script>
- -->
-		<!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 
 			<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 			<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 			<![endif]-->
-
 	@show
 
 	@section('myjs')
@@ -61,10 +55,10 @@
 	    -->
 
 	    <!-- Include all compiled plugins (below), or include individual files as needed -->
-	    <script src="/bs3/js/bootstrap.min.js"></script>
+	    <!-- < script src="/bs3/js/bootstrap.min.js"></script> -->
 
 	    <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-	    <script src="/bs3/js/respond.js"></script>
+	    <!-- < script src="/bs3/js/respond.js"></script> -->
 
 	<!-- I prefer to keep javascript to a minimum when possible. -->
 	<!-- <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&amp;skin=sunburst&amp;lang=css"></script> -->
@@ -120,13 +114,17 @@
 	@show
 
 		<div class="container">		
-		<div class="contentwrap">
+			<div class="content-wrap">
 			<!-- Container -->
 
 				<!-- Notifications -->
 				@include('notifications')
 				<!-- ./ notifications -->
 				
+				<div class="page-header">
+					@yield('page-header')
+				</div>
+
 				<div class="content-main">
 					@yield('content')
 					@yield('main')
@@ -137,10 +135,6 @@
 				<div class="posts">
                     @yield('posts')
                 </div>
-
-
-
-			
 			</div>
 			<!-- ./contentwrap -->
 

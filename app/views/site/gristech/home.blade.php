@@ -16,7 +16,7 @@
 @stop
 
 @section('styles')
-<!-- @ parent -->
+@parent
 <!-- http://colorschemedesigner.com/#0k41Jw0w0w0w0 -->
 <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine"> -->
     <!-- @ stylesheets("bs3-css") -->
@@ -46,18 +46,6 @@
 <style>
 
 /* STRUCTURAL */
-
-/*this has ramifications:*/
-.container{
-/*	width: 100%;
-	padding-left: 0px;
-	padding-right: 0px;*/
-}
-
-.below{
-/*	padding-right: 20px;
-	padding-left:20px;*/
-}
 
 html,body {
 
@@ -175,13 +163,14 @@ a:hover {
 }
 
 .page-header{
-	background-color: rgba(236, 240, 241,1.0);
+	/*background-color: rgba(236, 240, 241,1.0);*/
 }
 
 div {
 	/*background-color: rgba(41, 128, 185,.1)*/
 }
 .corner{
+	/*position: relative;*/
 	background-color: transparent;
 }
 
@@ -304,26 +293,7 @@ div {
 <!-- @ include('site.partials.nav-top') -->
 @stop
 
-@section('main')
-<?php
-$env=App::environment();
-	// echo "<div class='alert alert-info'>Welcome to the <strong>".$env."</strong> environment.</div>";
-
-if($env=="local"){
-	$path='/home/ryan/MyApp6/app/views/site/pages/';
-}
-else{
-	$path='/home/gristech/myapp/app/views/site/pages/';
-}
-$mypages = array();
-foreach (glob($path."*.blade.php") as $filename) {
-	$filename=str_replace($path, "", $filename);
-	$filename=str_replace(".blade.php", "", $filename);
-	array_push($mypages,$filename);
-        // echo "$filename" . "<br>";
-}
-?>
-
+@section('page-header')
 <style>
 	#ribbon{
 		position: fixed;
@@ -332,16 +302,14 @@ foreach (glob($path."*.blade.php") as $filename) {
 	}
 </style>
 
-<a href="https://github.com/rgrigga/MyApp6">
-	<img id="ribbon" src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png" alt="Fork me on GitHub">
-</a>
+	<a href="https://github.com/rgrigga/MyApp6">
+		<img id="ribbon" src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png" alt="Fork me on GitHub">
+	</a>
 
-<div class="page-header">
 
-	<div class="row">
-
-		<h4>Search:</h4>
-		{{$searchbar}}
+<div class="row">
+			<h4>Search:</h4>
+		{{$searchbox}}
 
 			<div class="col-md-5">
 				<!-- <a href="#about" data-toggle="tab"> -->
@@ -382,8 +350,7 @@ foreach (glob($path."*.blade.php") as $filename) {
 
 			</div>	
 
-		</div>
-		<!-- row -->
+
 
 <!-- 	<div class="span4 pull-right">
 		<div class="well" data-spy="affix" data-offset-top="200">
@@ -392,17 +359,44 @@ foreach (glob($path."*.blade.php") as $filename) {
 		</div>
 	</div> -->
 
+</div>
+<div class="row">
 	<p>Cloud Computing for the rest of us.</p>
 	<div class="tabbable"> <!-- Only required for left/right tabs -->
 		<a href="#" data-toggle="tab"> Skills</a>
 		<a href="#" data-toggle="tab"> Experience</a>
 		<a href="#" data-toggle="tab"> Aspirations</a>
 	</div>
+</div>
 	<!-- ./ tabbable -->
 
 
-</div>
-<!-- ./ page-header -->
+
+@stop
+
+@section('main')
+<?php
+$env=App::environment();
+	// echo "<div class='alert alert-info'>Welcome to the <strong>".$env."</strong> environment.</div>";
+
+if($env=="local"){
+	$path='/home/ryan/MyApp6/app/views/site/pages/';
+}
+else{
+	$path='/home/gristech/myapp/app/views/site/pages/';
+}
+$mypages = array();
+foreach (glob($path."*.blade.php") as $filename) {
+	$filename=str_replace($path, "", $filename);
+	$filename=str_replace(".blade.php", "", $filename);
+	array_push($mypages,$filename);
+        // echo "$filename" . "<br>";
+}
+?>
+
+
+
+
 
 <style>
 .note{
@@ -419,36 +413,18 @@ foreach (glob($path."*.blade.php") as $filename) {
 
 
 
-<div class="wrapper">
+<!-- <div class="wrapper">
   <div class="content-main">main...</div>
   <div class="content-secondary">secondary...</div>
 </div>
+ -->
 
 
-<div class="sidebar">
-	<section>
-		<h2><a href="#CSS">CSS</a></h2>
-		<article>
-			<a href="lesstest">LessTest demo page</a>
-		</article>
-		<article>
-			<a href=""></a>
-		</article>
-	</section>
-	<ul>
-		<li>CSS</li>
-		<li>LESS</li>
-
-		<li>PHP</li>
-		<li>Bootstrap</li>
-	</ul>
-
-</div>
 
 <div class="main">
 
 	<div class="span7">
-		<h2>Let's get to work:</h2>
+		<!-- <h2>Let's get to work:</h2> -->
 			<div class="accordion" id="accordion">
 			 	<div class="accordion-group">
 			 		<div class="accordion-heading">
@@ -733,6 +709,34 @@ foreach (glob($path."*.blade.php") as $filename) {
 	<!-- ./below -->
 
 	@stop
+
+@section('secondary')
+
+<div class="sidebar">
+	<section>
+		<h2><a href="#CSS">CSS</a></h2>
+		<article>
+			<a href="lesstest">LessTest demo page</a>
+		</article>
+		<article>
+			<a href=""></a>
+		</article>
+	</section>
+	<ul>
+		<li>CSS</li>
+		<li>LESS</li>
+
+		<li>PHP</li>
+		<li>Bootstrap</li>
+	</ul>
+
+</div>
+@stop
+
+@section('posts')
+Post section
+@stop
+
 @section('myjs')
 
 

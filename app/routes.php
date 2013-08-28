@@ -1,27 +1,8 @@
 <?php
 // http://fabien.potencier.org/media/talk/2008/decouple-your-code-for-reusability-ipc-2008.pdf
 
-// To the mystery man who is anonymously helping with this:
-// In fact, to ALL THOSE who built this project and it's predecessors, 
-// THANK YOU.  I don't know who you are, or why you are 
-// helping me in this way...
-
-// Regardless, I am sincerely grateful. THANK YOU.
-
-// PS: I have 3 guesses as to who you might be, but you could
-// be anyone for all I know.  One thing I am now concerned about is security.
-// I am humbled, and flattered, and grateful you are a 
-// friend, not a foe: that's for sure!  HOW ARE YOU DOING IT?
-
-// I will buy you a beer if you tell me!
-
-// Even more, I would enjoy a conversation about this app... 
-
-// At the moment, I am unsure of myself, and under a lot 
-// of pressure to get a job quickly and make some money
-// in some capacity...
-
-// If you read this, I am all ears!  Please get in touch with me.
+// If you read this, I am all ears!  
+// Please get in touch with me.
 // ryan.grissinger@gmail.com
 
 /////////////////////////////////////////////////////
@@ -111,7 +92,7 @@ Route::resource('tweets', 'TweetsController');
 // This is interesting, but needs further exploration
 View::composer('*.home',function($view){
 // View::composer('*.megacorp.*',function($view){
-    $view->nest('searchbar','site.partials.search');
+    $view->nest('searchbox','site.partials.searchbox');
     $view->nest('social','site.partials.social');
 
     // ?? Does nesting too many views here affect 
@@ -496,26 +477,20 @@ Route::group(array('domain' => 'myapp.dev'),function()
         return View::make('site.pages.bootstrap');
     });
 
-
-
     Route::get('search/{tag}','BlogController@getSearch');
     Route::post('search', 'BlogController@postSearch');
     Route::get('search', 'BlogController@getSearch');
-
-    // Route::post('search/{tag}','BlogController@postSearch');
 
     //each domain has its own method available in CompanyController.
     Route::get('/{tag}','BlogController@getIndex');
     Route::get('/', 'BlogController@getIndex');
 
-
 // Route::get('/', function(){
 //         echo "HI THERE";
 //         $company=Company::where('brand','like','gristech')->first();
 //         die(var_dump($company));
-        
 //     });
-    // Route::get('/', 'CompanyController@gristech');
+// Route::get('/', 'CompanyController@gristech');
 
 });
 /**
@@ -570,9 +545,9 @@ Route::group(array('domain' => 'buckeyemower.com'),function(){
 
     Route::filter('buckeye', function()
     {
-        if (! Entrust::can('buckeye') ) // Checks the current user
+        if (! Entrust::can(array('admin','buckeye')) ) // Checks the current user
         {
-            die("buckeye filter");
+            // die("buckeye filter");
             $message="Sorry. You are not authorized to view that.  Would you like to log in?";
 
             return Redirect::to('user/login')
@@ -649,7 +624,7 @@ Route::group(array('domain' => 'buckeyemower.com'),function(){
         // Route::get('/search', 'BlogController@search');
 
 
-        Route::get('tags/{tag}', 'BlogController@getIndex');
+        Route::get('tags/{tag}', 'BlogController@getTags');
         Route::get('/{tag}','CompanyController@buckeye');
 
         // Route::get('/','BlogController@getIndex',array('public',array(1,2,3)));
@@ -731,6 +706,16 @@ Route::get('companies',function(){
 });
 // Route::get('advantage','CompanyController@getIndex',array('name'=>'advantage'));
 
+
+
+// Route::get('company/pages/{page}',function($page){
+//     // die(var_dump($page));
+//     return View::make('site.gristech.pages.'.$page);
+// });
+
+Route::get('company/pages/{page}','BlogController@getCompanyPage')
+    ->where('name', '[a-zA-Z_]+');
+
 Route::get('company/{id}','CompanyController@show')
     ->where('id', '[0-9]+');
 Route::get('company/{name}','CompanyController@getIndex')
@@ -790,8 +775,6 @@ Route::resource('companies', 'CompaniesController');
 //     }
 // });
 
-
-
 // Route::get('pages/{page}',function($page){
 //     // die("BAM");
 //         $env=App::environment();
@@ -841,9 +824,10 @@ Route::get('search', 'BlogController@search');
 
 // Route::get('/search', 'BlogController@search');
 
+// Route::get('tags/{tag}', 'BlogController@getIndex');
 Route::get('tags/{tag}', 'BlogController@getTags');
-Route::post('tags', 'BlogController@getIndex');
-Route::get('tags', 'BlogController@getIndex');
+Route::get('tags', 'BlogController@getTags');
+Route::post('tags', 'BlogController@postTags');
 
 // Route::post('tags/{tag}', 'BlogController@postIndex');
 

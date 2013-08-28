@@ -5,36 +5,23 @@
  / {{{ "Search" }}}
 @stop
 
-@section('nav')
-@parent
-<!-- Hello nav! -->
-<!-- site.partials.nav-buckeye -->
-<!-- site.partials.nav-top -->
-<!-- site.partials.nav-top-inverse -->
-<!-- site.partials.nav-top-min -->
-<!-- site.partials.nav-company -->
-<!-- site.partials.nav-buckeye -->
-<!-- // @ include('site.partials.nav-top') -->
-@stop
-
 {{-- Content --}}
 @section('content')
 
-<style>
-    .contentwrap{
-        padding-top: 60px;
-    }
-</style>
-{{$searchbar}}
+{{$searchbox}}
 <p>You can use % as a wildcard.</p>
 <h1>{{{$heading}}}</h1>
+<a href='/tags/{{ $tag }}'>{{$tag}}</a>
 <!-- <p>This page should search for...</p>
 <h2>Pages, Posts, Tags</h2>
 <h3>Page Content Word Search:</h3>
 <h3>Post Content Word Search:</h3> -->
 
-I found {{$wordcount}} total ocurrances of the term "{{$tag}}".
+<p>Searched for: "{{$tag}}"</p>
 <ul>
+    <li>
+        Wordcount: {{$wordcount}}
+    </li>
     <li>
         Posts: {{$postcount}}
     </li>
@@ -44,6 +31,7 @@ I found {{$wordcount}} total ocurrances of the term "{{$tag}}".
 </ul>
 
 <div class="well">
+    <p class="muted">Results:</p>
     {{$results}}
 </div>
 

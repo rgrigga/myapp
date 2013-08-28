@@ -1,12 +1,10 @@
 @extends('site.layouts.bs3')
 
-
-
 @section('styles')
 @parent
-        @stylesheets('myapp-css')
-
-        <link rel="stylesheet/less" type="text/css" href="/assets/css/less/tools.less" />
+        <!-- @ stylesheets('myapp-css') -->
+<link rel="stylesheet/less" type="text/css" href="/assets/css/less/{{strtolower($company->brand)}}.less" />
+        <!-- <link rel="stylesheet/less" type="text/css" href="/assets/css/less/tools.less" /> -->
         <script src="/assets/js/less.js" type="text/javascript"></script>
 <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/css/bootstrap.min.css"> -->
 

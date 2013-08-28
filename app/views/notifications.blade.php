@@ -64,3 +64,17 @@
     @endif
 </div>
 @endif
+
+@if ($message = Session::get('message'))
+<div class="alert alert-info alert-block">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4>Info</h4>
+    @if(is_array($message))
+    @foreach ($message as $m)
+    {{ $m }}
+    @endforeach
+    @else
+    {{ $message }}
+    @endif
+</div>
+@endif
