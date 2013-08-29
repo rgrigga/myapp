@@ -1,3 +1,18 @@
+# About
+This is a spin-off of the Laravel 4 Bootstrap Starter Site.  I have built a "company" object that can be used like this:
+
+<pre class="prettyprint">
+    //Domain Routing...
+    'buckeye' => array('domain' => 'buckeyemower.com'),
+    'gristech' => array('domain' => 'myapp.gristech.com'),
+    'megacorp' => array('domain' => 'myapp.dev'),
+</pre>
+
+Each 'company' has its own environment.
+
+There's alot more... if you end up reading this page, please say hello: I'd enjoy discussing this with some other human beings.
+
+
 ## Troubleshooting:
 If we see this error, or something like it:
     file_put_contents(/home/ryan/MyApp6/app/storage/meta/collections.json): failed to open stream: Permission denied
@@ -15,7 +30,7 @@ http://daringfireball.net/projects/markdown/syntax#html
 
 [markdown on github](http://stackoverflow.com/questions/10240125/working-with-readme-md-on-github-com)
 
-## this project is based on :
+## Original Readme:
 
 ---
 
