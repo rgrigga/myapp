@@ -12,23 +12,24 @@ Each 'company' has its own environment.
 
 There's alot more... if you end up reading this page, please say hello: I'd enjoy discussing this with some other human beings.
 
+ryan.grissinger at gmail.com
 
 ## Troubleshooting:
 If we see this error, or something like it:
     file_put_contents(/home/ryan/MyApp6/app/storage/meta/collections.json): failed to open stream: Permission denied
 
 one solution is:
-    sudo chmod -R 777 ~/MyApp6/app/storage
+<pre>sudo chmod -R 777 ~/MyApp6/app/storage</pre>
 
-#to do list:
- comment?
-* 
+###to do list:
+here are a few other things I'd like to do:
+* oauth2
+* unit testing
 
 
 [How to use Markdown Syntax](http://daringfireball.net/projects/markdown/syntax#html)
-http://daringfireball.net/projects/markdown/syntax#html
 
-[markdown on github](http://stackoverflow.com/questions/10240125/working-with-readme-md-on-github-com)
+[about markdown on github](http://stackoverflow.com/questions/10240125/working-with-readme-md-on-github-com)
 
 ## Original Readme:
 
