@@ -141,7 +141,7 @@
                 </div>
 
                 <div class="third">
-                	@yield('third');
+                	@yield('third')
                 </div>
 			</div>
 			<!-- ./contentwrap -->

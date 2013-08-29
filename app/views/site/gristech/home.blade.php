@@ -452,7 +452,7 @@ foreach (glob($path."*.blade.php") as $filename) {
 			 <div class="accordion-group">
 			 		<div class="accordion-heading">
 			 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
-			 				<h2>Symantic HTML5</h2>
+			 				<h2>Semantic HTML5</h2>
 			 			</a>
 			 		</div>
 			 		<div id="collapseFive" class="accordion-body collapse">
@@ -737,24 +737,9 @@ View::make('site.posts.list')->with('posts',$posts)
 
 	</div> -->
 
+{{View::make('company.about',compact('company'))}}
+{{View::make('company.dump',compact('company'))}}
 
-
-	<div class="row">
-		<div class="span4">
-			<!-- <div class="pull-right"> -->
-			<!-- <img src="{{asset($company->image)}}" alt="MyImage"> -->
-			<!-- </div> -->
-			<div>ID: {{{ $company->id }}}</div>
-			<div>Name: {{{ $company->name }}}</div>
-			<div>Brand: {{{ $company->brand }}}</div>
-			<div>Phone: {{{ $company->phone }}}</div>
-			<div>Email: {{{ $company->email }}}</div>
-			<div>Description: {{{ $company->description }}}</div>
-			<div>Slogan: {{{ $company->slogan }}}</div>
-			<div>Image: {{{ $company->image }}}</div>
-			<div>Menus: {{{ $company->menus }}}</div>
-		</div>
-	</div>
 
 
 		<!-- ./ row -->
@@ -819,20 +804,22 @@ View::make('site.posts.list')->with('posts',$posts)
 	<div class="row">
 		<div class="tabbable"> <!-- Only required for left/right tabs -->
 			<ul class="nav nav-pills">
-				@foreach($company->menus() as $menu)
-				<li><a href="#{{$menu}}" data-toggle="tab"><i class="icon-rocket icon-4x"></i> {{{$menu}}}</a></li>
-				@endforeach
 				<li class="active"><a href="#tab1" data-toggle="tab">Section 2</a></li>
+				@foreach($company->menus() as $menu)
+				<li><a href="#my{{$menu}}" data-toggle="tab"><i class="icon-rocket icon-4x"></i> {{{$menu}}}</a></li>
+				@endforeach
+				
 			</ul>
 
 			<div class="tab-content">
 				@foreach($company->menus() as $menu)
-				<div class="tab-pane" id="{{{$menu}}}">
+				<div class="tab-pane" id="my{{{$menu}}}">
 					<p>Howdy, I'm {{{$menu}}}.</p>
 				</div>
 				@endforeach
 				<div class="tab-pane active" id="tab1">
 					<h2>Welcome to Section 2</h2>
+					<p>Clicking these buttons fills this area.</p>
 				</div>
 			</div>
 		</div>
@@ -854,11 +841,11 @@ View::make('site.posts.list')->with('posts',$posts)
 
 
 {{--View::make('site.posts.thumbnails')->with('posts',$posts)--}}
-{{--View::make('site.posts.accordion')->with('posts',$posts)--}}
+{{View::make('site.posts.accordion')->with('posts',$posts)}}
 
 {{--View::make('site.posts.default')->with('posts',$posts)--}}
 {{--View::make('site.posts.carousel')->with('posts',$posts)--}}
-{{View::make('site.posts.mini-carousel')->with('posts',$posts)}}
+{{--View::make('site.posts.mini-carousel')->with('posts',$posts)--}}
 
 		{{ $posts->links() }}
 	</div>
@@ -888,6 +875,7 @@ $(document).ready(function(){
                         $collapse.toggle("slow");
                     });
                     // $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
+
                     // $('.thumbnail').equalHeights();
     </script>
 @stop
