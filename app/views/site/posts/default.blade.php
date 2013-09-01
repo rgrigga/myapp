@@ -33,6 +33,9 @@
 					| <i class="icon-calendar"></i> <!--Sept 16th, 2012-->{{{ $post->date() }}}
 					| <i class="icon-comment"></i> <a href="{{{ $post->url() }}}#comments">{{$post->comments()->count()}} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
 				</div>
+
+
+				
 				<section class="tags">
 					<ul class='tag'>
 						<li><i class="icon-tag"></i></li>

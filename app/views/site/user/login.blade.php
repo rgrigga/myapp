@@ -93,6 +93,10 @@
 
     <a class="btn btn-large btn-primary" href="{{{ URL::to('user/create') }}}">Sign Up</a>
     <p>No spam, etc.</p>
+
+    
+    <a class="btn btn-large btn-primary" href="{{{ URL::to('contact') }}}">Remain Anonymous</a>
+
 <!-- // Popup form here?-->
 </div>
 <!-- jumbotron -->

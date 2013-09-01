@@ -2,8 +2,6 @@
 
 @section('styles')
 @parent
-
-
         <!-- @ stylesheets("myapp-css") -->
 
 		@stylesheets('gristech')
@@ -26,8 +24,8 @@
 	    <![endif]-->
 <style>
 	.container {
-  padding-left: 15px;
-  padding-right: 15px;
+  /*padding-left: 15px;*/
+  /*padding-right: 15px;*/
 }
 
 h4 {
@@ -54,81 +52,6 @@ hr {
   margin-bottom: 40px;
 }
 </style>
-@stop
-
-@section('secondary')
-
-<div class="sidebar affix">
-<?php 
-$mylist="php,js,css,less,sass,opensource,jquery,oauth,git,bootstrap";
-$array=explode(",", $mylist);
-?>
-
-	What are you looking for?
-	<ul class="nav navbar">
-		@foreach($array as $topic)
-		<li><a href="#{{$topic}}">{{$topic}}</a></li>
-		@endforeach
-	</ul>
-</div>
-@stop
-
-@section('content')
-
-<!-- <a href="http://www.bootstrapcdn.com/">http://www.bootstrapcdn.com/</a> -->
-
-<!-- http://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ -->
-
-<link rel="stylesheet" href="/assets/css/bubbles.css">
-<link rel="stylesheet" href="assets/css/triangles.css">
-<style>
-
-	.jumbotron img{
-		max-width: 100%;
-	}
-	/*.jumbotron{*/
-		/*font-family: font-awesome;*/
-	/*}*/
-	/*.golf {*/
-		/*color: white;*/
-		/*background-color: #4C58AD;*/
-		/*background-opacity:50%;*/
-		/*font-family: font-awesome;*/
-		/*margin:10px;*/
-		/*border-radius: 30px;*/
-	    /*background-color: #cccccc;*/
-	    /*box-shadow: 10px 10px 5px #666666;*/
-	    /*padding: 0px;*/
-	    /*border-width: 0px;*/
-  		/*border-color: #4C58AD;*/
-	/*}*/
-
-	.thumbnail img {
-		max-width: 100%;
-	}
-
-</style>
-
-<div class="jumbotron">
-
-
-	<h1>Tools<small> building blocks for this site</small></h1>
-	<img src="http://gristech.com/img/mini-tools.jpg" alt="">
-	<!-- <p>If you're interested...</p> -->
-	<h5><em>Modular, Extensible, Testable, Expressive, Elegant, Simple</em>
-	</h5>
-	<p class="lead">These are the qualities that make good code great.</p>
-
-<!-- our new, semanticized HTML -->
-<!-- <article>
-  <section class="main">secion.main</section>
-  <aside><a href="#" class="annoying">Click me!</a></aside>
-</article>
- -->
-</div>
-<!-- jumbotron -->
-
-	<p>On this page, you will find a pleathora of tools to make life easy.  Each resource has links to tutorials, downloads, Q&A, and so on.  Have a nice day!</p>
 
 
 <style>
@@ -269,21 +192,307 @@ p.photocredit {
     z-index: 3;
     }
     </style>
-<!-- <img src="{{asset('assets/img/6125_1280x1024-wallpaper-cb1306851700.jpg')}}" alt=""> -->
+
+<link rel="stylesheet" href="/assets/css/bubbles.css">
+<link rel="stylesheet" href="assets/css/triangles.css">
+<style>
+
+	.jumbotron img{
+		max-width: 100%;
+	}
+	/*.jumbotron{*/
+		/*font-family: font-awesome;*/
+	/*}*/
+	/*.golf {*/
+		/*color: white;*/
+		/*background-color: #4C58AD;*/
+		/*background-opacity:50%;*/
+		/*font-family: font-awesome;*/
+		/*margin:10px;*/
+		/*border-radius: 30px;*/
+	    /*background-color: #cccccc;*/
+	    /*box-shadow: 10px 10px 5px #666666;*/
+	    /*padding: 0px;*/
+	    /*border-width: 0px;*/
+  		/*border-color: #4C58AD;*/
+	/*}*/
+
+	.thumbnail img {
+		max-width: 100%;
+	}
+
+.contentwrap{
+	padding-top: 0px;
+}
+</style>
+
+@stop
+
+<?php 
+$mylist="php,js,css,less,opensource,jquery,OAuth,git,bootstrap";
+$array=explode(",", $mylist);
+?>
+
+@section('secondary')
+Affix <i class="icon-arrow-down"></i>
+<div class="sidebar affix">
+	<ul class="nav">
+		@foreach($array as $topic)
+		<li><a href="#{{$topic}}">{{$topic}}</a></li>
+		@endforeach
+	</ul>
+</div>
+@stop
+
+@section('page-header')
+<!-- <div class="jumbotron"> -->
+	<h1>Toolbox<small> building blocks</small></h1>
 
 
+<!-- our new, semanticized HTML -->
+<!-- <article>
+  <section class="main">secion.main</section>
+  <aside><a href="#" class="annoying">Click me!</a></aside>
+</article>
+ -->
+<!-- </div> -->
+<!-- jumbotron -->
 
-<ul class="nav navbar">
-	<li class="btn">
-		<a href="http://www.hitreach.co.uk/perfect-web-page/">The Anatomy of a Web Page</a>
-	</li>
-	<li class="btn">
-		<a href="https://github.com/cheeaun/mooeditable/wiki/Alternative-Javascript-WYSIWYG-editors#lightweight-versions">WYSIWYG</a>
-	</li>
-	<li class="btn">
-		<a href="http://stackoverflow.com/questions/92720/jquery-javascript-to-replace-broken-images">replace-broken-images</a>
-	</li>
-</ul>
+	<p>On this page, you will find a pleathora of tools to make life easy.  Each resource has links to tutorials, downloads, Q&A, and so on.  Have a nice day!</p>
+@stop
+
+@section('content')
+
+<!-- /////////////// JUMBOTRON //////////////// -->
+<div class="jumbotron">
+		<img src="http://gristech.com/img/mini-tools.jpg" alt="">
+	<!-- <p>If you're interested...</p> -->
+	<h5><em>Modular, Extensible, Expressive, Elegant, Simple</em>
+	</h5>
+	<!-- <p class="lead">These are the qualities that make good code great.</p> -->
+</div>
+
+
+<!-- NAVBAR -->
+<nav class="navbar">
+	<ul class="nav navbar-nav">
+		<li class="btn">
+			<a href="http://www.hitreach.co.uk/perfect-web-page/">The Anatomy of a Web Page</a>
+		</li>
+		<li class="btn">
+			<a href="https://github.com/cheeaun/mooeditable/wiki/Alternative-Javascript-WYSIWYG-editors#lightweight-versions">WYSIWYG</a>
+		</li>
+		<li class="btn">
+			<a href="http://stackoverflow.com/questions/92720/jquery-javascript-to-replace-broken-images">replace-broken-images</a>
+		</li>
+	</ul>
+</nav>
+
+
+<!--  -->
+
+<!-- http://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ -->
+
+<h2>HTML5, Laravel Code Generator <small>rgrigga</small></h2>
+<!-- <p class="muted credit">by rgrigga</p> -->
+<p>turn this:</p>
+<pre class="prettyprint"><code>$mylist="{{{$mylist}}}";</code></pre>
+<?php 
+$str="";
+$str2="";
+$str3="";
+?>
+
+@foreach($array as $topic)
+<?php
+
+$str.="\t".'<li><a href="#'.$topic.'">'.$topic.'</a></li>'.PHP_EOL;
+
+////////////STR2
+$em="<em>".$topic."</em>";
+$open='<section id="'.$topic.'">';
+$close='</section>';
+$str2.=$open.PHP_EOL."\t".$em.PHP_EOL.$close.PHP_EOL;
+// $str2.='<section id="'.$topic.'">section:'.$topic.'</section>
+// ';
+$ob='{'.'{';
+$cb="}"."}";
+$bracketed=$ob.$topic.$cb;
+$a='<a href="#'.$topic.'">'.'<i class="icon-link"></i> '.$topic.'</a>';
+$search='<a href="search/'.$topic.'">'.'<i class="icon-search"></i> this site: '.$topic.'</a>';
+$h1="<h1>".$a."</h1>";
+$p="<p>".$topic."</p>";
+$img="<img src='".$ob."asset('assets/img/".$topic.".png')".$cb."' onerror=\"imgError(this);\" alt=\"".$topic."\">";
+?>
+<a href=""></a>
+<!-- <h1>{{$topic}}</h1> -->
+<?php
+
+// $str3.=$bracketed;
+$str3.=$open.PHP_EOL;
+$str3.="\t".$h1.PHP_EOL;
+$str3.="\t".$search.PHP_EOL;
+$str3.="\t".$p.PHP_EOL;
+// $str3.="\t".$img.PHP_EOL;
+$str3.=$close.PHP_EOL;
+?>
+@endforeach
+
+<?php $str='<ul class="nav">'.PHP_EOL.$str.'</ul>'; ?>
+
+
+<p>into this:</p>
+<pre class="prettyprint"><code>{{{$str}}}</code></pre>
+
+
+<p>and/or this:</p>
+<pre class="prettyprint"><code>{{{$str2}}}</code></pre>
+<p>Workspace:</p>
+<pre class="prettyprint"><code>{{{$str3}}}</code></pre>
+
+{{--$str3--}}
+
+<section id="php">
+	<h1><a href="#php"><i class="icon-link"></i> php</a></h1>
+	<h2>Language</h2>
+	<a href="search/php"><i class="icon-search"></i> this site: php</a>
+	<div class="well">
+		<a href="http://www.comentum.com/php-vs-asp.net-comparison.html">
+			<img src="http://gristech.com/img/logo/php-med-trans.png" alt="laravel rocks">
+		</a>
+	</div>
+</section>
+<section id="js">
+	<h1><a href="#js"><i class="icon-link"></i> js</a></h1>
+	<a href="search/js"><i class="icon-search"></i> this site: js</a>
+	<p>js</p>
+</section>
+<section id="css">
+	<h1><a href="#css"><i class="icon-link"></i> css</a></h1>
+	<a href="search/css"><i class="icon-search"></i> this site: css</a>
+	<p>css</p>
+</section>
+<section id="less">
+	<h1><a href="#less"><i class="icon-link"></i> less</a></h1>
+	<a href="search/less"><i class="icon-search"></i> this site: less</a>
+	<p>less</p>
+</section>
+<section id="opensource">
+	<h1><a href="#opensource"><i class="icon-link"></i> opensource</a></h1>
+	<a href="search/opensource"><i class="icon-search"></i> this site: opensource</a>
+	<p>opensource</p>
+</section>
+<section id="jquery">
+	<h1><a href="#jquery"><i class="icon-link"></i> jquery</a></h1>
+	<a href="search/jquery"><i class="icon-search"></i> this site: jquery</a>
+	<p>jquery</p>
+</section>
+<section id="OAuth">
+	<h1><a href="#OAuth"><i class="icon-link"></i> OAuth</a></h1>
+	<a href="search/OAuth"><i class="icon-search"></i> this site: OAuth</a>
+	<article>
+		<h1><span>OAuth</span></h1>
+		<img src="{{asset('assets/img/oauth.png')}}" onerror="imgError(this);" alt="OAuth">
+		<a href="http://www.socialphy.com/posts/computers-technology/12978/OAuth.html"></a>
+		<p>OAuth allows one to acecss multiple applications.</p>
+		<blockquote>Logging into another site with your Google, Twitter, or Facebook account isn't just convenient; it's more secure than creating a new account, or entering your Google, Twitter, or Facebook password into a third-party site. That's where OAuth comes in. Here's how it works, and how it keeps your passwords safe on third-party sites.
+		</blockquote>
+	</article>
+</section>
+<section id="git">
+	<h1><a href="#git"><i class="icon-link"></i> git</a></h1>
+	<a href="search/git"><i class="icon-search"></i> this site: git</a>
+	<p>git</p>
+</section>
+<section id="bootstrap">
+	<h1><a href="#bootstrap"><i class="icon-link"></i> bootstrap</a></h1>
+	<a href="search/bootstrap"><i class="icon-search"></i> this site: bootstrap</a>
+	<p>search the bootstrap docs: POSSIBLY BROKEN</p>
+
+<script>
+  (function() {
+    var cx = '012277204628171564007:utf36j9aire';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</section>
+
+
+<section id="laravel">
+	<div class="kilo delta">
+		<!-- ////////////////////////////////////// -->
+		      			<a href="http://laravel.com">
+		      			<img src="http://gristech.com/img/laravel-l-slant.png" alt="laravel rocks">
+						<h4>
+							<span>Laravel</span>
+						</h4>
+						</a>
+						<h2>PHP Framework</h2>
+						<p>Laravel is an implementation of PHP.  
+							
+							  I think of a framework as doing for programming what an assembly
+							   line does for manufacturing.
+							     A framework has tons of functionality built into it.  It makes for
+							     more correct solutions to given probelm. Think: "standardization of parts."</p>
+						
+						<h5>A Few Features</h5>
+						<ul>
+							<li>Eloquent ORM</li>
+							<li>Artisan CLI</li>
+							<li>Polymorphic Relations</li>
+							<li>Eager Loading</li>
+							<li><a href="http://vschart.com/compare/laravel/vs/ruby-on-rails">Laravel vs. Rails</a></li>
+							<li><a href="http://laravel.com/docs/requests#old-input">Old Input</a>
+</li>
+						</ul>
+						<!-- <p>The best thing since sliced bread.</p> -->
+
+						<h5>Some Fancy links</h5>
+						<ul>
+							<li><a href="http://laravel.io/">Laravel IO</a></li>
+							<li><a href="http://reviewtechgame.blogspot.com/2013/04/laravel-4-elegant-php-framework-for-web.html">Recent Review of Laravel</a>
+						</li>
+						</ul>
+						
+						<h3>Search Laravel Docs:</h3>
+		<script>
+		  (function() {
+		    var cx = '012277204628171564007:sik_hha9myk';
+		    var gcse = document.createElement('script');
+		    gcse.type = 'text/javascript';
+		    gcse.async = true;
+		    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+		        '//www.google.com/cse/cse.js?cx=' + cx;
+		    var s = document.getElementsByTagName('script')[0];
+		    s.parentNode.insertBefore(gcse, s);
+		  })();
+		</script>
+		<gcse:search></gcse:search>
+
+<!-- ///////////////////////////////////////// -->
+	</div>
+</section>
+
+<section id="oauth">
+
+</section>
+<section id="git">
+	<em>git</em>
+</section>
+<section id="bootstrap">
+
+	<a href="http://www.bootstrapcdn.com/">http://www.bootstrapcdn.com/</a>
+</section>
+
+
 
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 
@@ -308,6 +517,7 @@ p.photocredit {
     <div class="shape" id="shape3">3</div>
 
 </div>
+
 
 
 <div class="row">
@@ -337,14 +547,7 @@ p.photocredit {
 	</div>
 	<div class="col-lg-4">
 		<div class="thumbnail" id="oauth">
-			<article>
-				<h1><span>OAuth</span></h1>
-				<img src="{{asset('assets/img/oauth.png')}}" onerror="imgError(this);" alt="OAuth">
-				<a href="http://www.socialphy.com/posts/computers-technology/12978/OAuth.html"></a>
-				<p>OAuth allows one to acecss multiple applications.</p>
-				<blockquote>Logging into another site with your Google, Twitter, or Facebook account isn't just convenient; it's more secure than creating a new account, or entering your Google, Twitter, or Facebook password into a third-party site. That's where OAuth comes in. Here's how it works, and how it keeps your passwords safe on third-party sites.
-				</blockquote>
-			</article>
+			
 		</div>
 	</div>
 
@@ -415,7 +618,10 @@ $code='<code>';
 	<p>It is also a good example of google prettify.</p>
 </div>
 
-{{e('foobar')}}
+<pre>
+	{{e('foobar')}}
+</pre>
+
 
 <div class="">
 	<a href="http://www.cssdrive.com/imagepalette/index.php">Convert Image to Color Pallete</a>
@@ -468,68 +674,16 @@ $code='<code>';
 
 
 </div>
-<h3>Search Laravel Docs:</h3>
-<script>
-  (function() {
-    var cx = '012277204628171564007:sik_hha9myk';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-        '//www.google.com/cse/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
-<gcse:search></gcse:search>
+
 
 <div class="row-fluid">
 
 	      		<!-- http://davidwalsh.name/css-circles -->
 
 				<div class="span10">
-
-		      		<div class="span3 thumbnail delta">
-		      			<a href="http://laravel.com">
-		      			<img src="http://gristech.com/img/laravel-l-slant.png" alt="laravel rocks">
-						<h4>
-							<span>Laravel</span>
-						</h4>
-						</a>
-						<h2>PHP Framework</h2>
-						<p>Laravel is an implementation of PHP.  
-							
-							  I think of a framework as doing for programming what an assembly
-							   line does for manufacturing.
-							     A framework has tons of functionality built into it.  It makes for
-							     more correct solutions to given probelm. Think: "standardization of parts."</p>
-						
-						<h5>A Few Features</h5>
-						<ul>
-							<li>Eloquent ORM</li>
-							<li>Artisan CLI</li>
-							<li>Polymorphic Relations</li>
-							<li>Eager Loading</li>
-							<li><a href="http://vschart.com/compare/laravel/vs/ruby-on-rails">Laravel vs. Rails</a></li>
-							<li><a href="http://laravel.com/docs/requests#old-input">Old Input</a>
-</li>
-						</ul>
-						<!-- <p>The best thing since sliced bread.</p> -->
-
-						<h5>Some Fancy links</h5>
-						<ul>
-							<li><a href="http://laravel.io/">Laravel IO</a></li>
-							<li><a href="http://reviewtechgame.blogspot.com/2013/04/laravel-4-elegant-php-framework-for-web.html">Recent Review of Laravel</a>
-						</li>
-						</ul>
-						
-						
-
-		      		</div>
-					
 					<div class= "thumbnail delta">
 		      			<a href="http://OAuth2.0">
-		      			<img src="http://gristech.com/img/logo/twitter-bootstrap.jpg" alt="laravel rocks">
+		      			<img src="http://gristech.com/img/logo/twitter-bootstrap.jpg" alt="">
 						<h5><span>OAuth</span></h5>
 						</a>
 						<h6>Security</h6>
@@ -546,15 +700,7 @@ $code='<code>';
 						<p>Allows rapid development</p>
 		      		</div>
 
-		      		<div class="span2 thumbnail delta">
-		      			<a href="http://www.comentum.com/php-vs-asp.net-comparison.html">
-			      			<img src="http://gristech.com/img/logo/php-med-trans.png" alt="laravel rocks">
-							<h5>PHP</h5>
-						</a>
-						<h6>Web Application Language</h6>
-						<p>Why PHP?</p>
-						<p>Why use .png or .svg vs. .jpg?</p>
-		      		</div>
+
 
 		      		<div class="span3 thumbnail delta">
 		      			<a href="http://www.shamusyoung.com/twentysidedtale/?p=18309">

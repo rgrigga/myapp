@@ -1,5 +1,5 @@
 @extends('admin/layouts/default')
-
+<!-- class="full-width" -->
 <!-- http://www.tinymce.com/ -->
 
 {{-- Web site Title --}}
@@ -25,7 +25,11 @@ Post Update ::
 {{View::make('site.post.article',compact('post'))}}
 	
 
-
+<nav class="navbar" id="navbar-info">
+	<ul class="nav navbar-nav">
+		<li data-target="#MyContent"><a href="#MyContent">MyContent</a></li>
+	</ul>
+</nav>
 
 
 	<section class="info">
@@ -109,9 +113,36 @@ Post Update ::
 	<a href="{{{ URL::to('blog/'.$post->slug) }}}">Fullscreen: {{{ URL::to('blog/'.$post->slug) }}}</a>
 </div>
 
-<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#Example">
-  <i class="icon-pencil"></i> Example
-</button>
+<!-- <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#demo">
+  <i class="icon-pencil"></i> Preview
+</button> -->
+
+<div id="demo" class="collapse">coming soon!</div>
+<!-- Button trigger modal -->
+  <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Preview</a>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">You must save your changes for them to appear here.</h4>
+          Formatting, "Undo" and true "Preview" functionality are on the roadmap.
+        </div>
+        <div class="modal-body">
+          {{View::make('site.post.well',compact('post'))}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+
+
 
 <form method="post" action="" autocomplete="off" accept-charset="UTF-8" >
 	<!-- CSRF Token -->
@@ -122,7 +153,7 @@ Post Update ::
 <!-- *************************************************************** -->
 
 		
-<div class="panel-group" id="accordion">
+<div class="panel-group" id="accordion" data-spy="scroll" data-target="#navbar-info">
   <div class="panel panel-default">
     <div class="panel-heading {{{ $errors->has('meta-keywords') ? 'error' : '' }}}">
       <h4 class="panel-title">
@@ -460,14 +491,7 @@ Post Update ::
 </h6>
 
 
-<style>
-.span50{
-	
-}
-</style>
-
-
-<div class="row-fluid">
+<div class="row">
 	<div class="span4">
 		<h1>Learn More</h1>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, doloribus rem quos facere aspernatur autem dolorum omnis dolor itaque a!</p>
@@ -489,6 +513,8 @@ Post Update ::
 	</div>
 
 </div>
+
+<!-- PROMOTE THIS? -->
 		<script>
             function imgError(image){
                 image.onerror = "";

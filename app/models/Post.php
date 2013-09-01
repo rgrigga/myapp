@@ -31,6 +31,15 @@ class Post extends Eloquent implements PresentableInterface {
 		return nl2br($this->image);
 	}
 
+	public function img()
+	
+	{
+		$company=App::make('company');
+		$asset=asset('assets/'.strtolower($company->brand).'/'.$this->image);
+		return "<img src='".$asset."'>";
+	}
+
+
 	/**
 	 * Returns a formatted post content entry,
 	 * this ensures that line breaks are returned.

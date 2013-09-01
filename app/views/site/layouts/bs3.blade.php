@@ -113,7 +113,7 @@
 		<!-- <h1>NAV</h1> -->
 	@show
 
-		<div class="container theme2">		
+		<div class="container">		
 			<!-- <div class="contentwrap theme1"> -->
 			<div class="contentwrap theme2">
 			<!-- Container -->

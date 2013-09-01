@@ -162,13 +162,17 @@ class BlogController extends BaseController {
 
     public function getContact(){
 
-
+    	//it turns out, this page is also a gateway for anonymous login.
 
     	$post=$this->post->where('meta_title',"like",'contact')->first();
     	// Get this post comments
     	// die(var_dump(count($post)));
-		$comments = $post->comments()->orderBy('created_at', 'ASC')->get();
-
+		$comments = $post->comments()->orderBy('updated_at', 'DESC')->get();
+// dd($comments);
+		// foreach ($comments as $comment) {
+		// 	echo $comment->id.PHP_EOL;
+		// }
+		// die();
         // Get current user and check permission
         $user = $this->user->currentUser();
         $canComment = false;
@@ -659,8 +663,8 @@ $brand=strtolower($this->company->brand);
 			}
 
 			else return $mypage;
-			var_dump($mypage);
-			die();
+			// var_dump($mypage);
+			// die();
 /////////////// TAGS AND POSTS
 
 			$posttitle='%'.$tag.'%';
@@ -733,7 +737,7 @@ $brand=strtolower($this->company->brand);
 				// die("found1");
 				$post=$this->post->first();
 				// Get this post comments
-				$comments = $post->comments()->orderBy('created_at', 'ASC')->get();
+				$comments = $post->comments()->orderBy('created_at', 'DESC')->get();
 
 		        // Get current user and check permission
 		        $user = $this->user->currentUser();
@@ -1057,18 +1061,11 @@ $posts=$this->post_public()
 		// die(var_dump($company));
 
 		//prepare the alltags collection
-		$alltags=array();		
-		foreach ($this->post->get() as $post) {
-			foreach ($post->tags() as $mytag) {
-				if(!in_array($mytag, $alltags)){
-					array_push($alltags, trim($mytag));
-				}
-			}
-		}
+
 		//alltags now contains the list of tags within this set of posts.
 			
 		//let's check to see if a page exists for this tag:
-		$env=App::environment();
+		// $env=App::environment();
 
         // else{
         // 	die($tag." Not Found in ".$path);
@@ -1199,11 +1196,19 @@ $msg.=" unique: ".count($unique);
 
 
 // foreach ($masterarray as $key => $value) {
-	
+	$alltags=array();		
+		foreach ($this->post->get() as $post) {
+			foreach ($post->tags() as $mytag) {
+				if(!in_array($mytag, $alltags)){
+					array_push($alltags, trim($mytag));
+				}
+			}
+		}
 // }
 arsort($tagarray);
 // var_dump($tagarray);
 View::share('alltags',$tagarray);
+// die(var_dump($tagarray));
 return $tagarray;
 
 	}
@@ -1334,7 +1339,7 @@ return $tagarray;
 			// }
 		}
 		// Get this post comments
-		$comments = $post->comments()->orderBy('created_at', 'DESC')->paginate(10);
+		$comments = $post->comments()->orderBy('updated_at', 'DESC')->paginate(10);
 
         // Get current user and check permission
         $user = $this->user->currentUser();

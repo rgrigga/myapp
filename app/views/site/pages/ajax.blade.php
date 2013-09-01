@@ -48,13 +48,14 @@ My page has exactly 5 structural components:
 
 <h2>File System</h2>
 <p>My file system looks something like this:</p>
-<pre>
+<pre class="prettyprint">
 app
 ├── views
 │   │   ├── site
+│   │   │   ├── pages
+│   │   │   │   └── ajax.blade.php
 │   │   │   ├── megacorp
 │   │   │   │   └── pages
-│   │   │   │       ├── about.blade.php
 │   │   │   │       ├── about.blade.php
 │   │   │   │       └── example.blade.php
 │   │   │   ├── gristech
@@ -65,8 +66,6 @@ app
 │   │   │   │   └── pages
 │   │   │   │       ├── about.blade.php
 │   │   │   │       └── example.blade.php
-│   │   │   ├── pages
-│   │   │   │   └── ajax.blade.php
 </pre>
 
 <h2>Laravel</h2>

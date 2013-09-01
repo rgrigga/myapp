@@ -116,41 +116,41 @@ Website Management :::
 			min-height: 420px;
 		}
 	</style>
-<!-- http://stackoverflow.com/questions/362730/are-iframes-considered-bad-practice -->
-<!-- http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site/18053041#18053041 -->
+	<!-- http://stackoverflow.com/questions/362730/are-iframes-considered-bad-practice -->
+	<!-- http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site/18053041#18053041 -->
 
-<div class="row">
+	<div class="row">
 
-	<div class="piwik collapse" id="piwik">
-		{{$piwik}}
+		<div class="piwik collapse" id="piwik">
+			{{$piwik}}
+		</div>
 	</div>
-</div>
-<!-- PIWIK -->
-<!-- side slider? http://jsfiddle.net/Osis/Mns8q/ -->
-	<div>{{ link_to_route('companies.edit', 'Edit Company', array($company->id), array('class' => 'btn btn-info')) }}</div>
-	<a href="http://www.make-rss-feeds.com/making-an-rss-feed.htm">RSS Feeds</a>
+	<!-- PIWIK -->
+	<!-- side slider? http://jsfiddle.net/Osis/Mns8q/ -->
+		<div>{{ link_to_route('companies.edit', 'Edit Company', array($company->id), array('class' => 'btn btn-info')) }}</div>
+		<a href="http://www.make-rss-feeds.com/making-an-rss-feed.htm">RSS Feeds</a>
 
-<!-- BROKEN -->
-<?php
+	<!-- BROKEN -->
+	<?php
 
-$array=array(
-	'tweet',
-	'fb',
-	'linked-in',
-	'page',
-	);
+	$array=array(
+		'tweet',
+		'fb',
+		'linked-in',
+		'page',
+		);
 
-function myviews(array $array){
-	$str='<ul class="dropdown-menu">';
-	foreach ($array as $item) {
-		$str.='<li>'.$item.'</li>';
+	function myviews(array $array){
+		$str='<ul class="dropdown-menu">';
+		foreach ($array as $item) {
+			$str.='<li>'.$item.'</li>';
+		}
+		$str.='</ul>';
+		return $str;
 	}
-	$str.='</ul>';
-	return $str;
-}
-?>	
-	{{myviews($array)}}
-<!-- ./ BROKEN -->
+	?>	
+		{{myviews($array)}}
+	<!-- ./ BROKEN -->
 
 </div>
 <!-- page-header -->

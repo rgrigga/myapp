@@ -1,4 +1,15 @@
 @extends('admin.layouts.default')
+<!-- Let's talk about user index. -->
+
+@section('styles')
+@parent
+  <link rel="stylesheet/less" type="text/css" href="/assets/css/less/master.less" />
+
+  <!-- This display's the company's less page -->
+  <link rel="stylesheet/less" type="text/css" href="/assets/css/less/{{strtolower($company->brand)}}.less" />
+
+  <script src="/assets/js/less.js" type="text/javascript"></script>
+@stop
 
 {{-- Web site Title --}}
 @section('title')
@@ -129,7 +140,15 @@ echo getRealIpAddr();
 {{var_dump($user)}}  
 </pre>
 @else
-You are not {{$env}}.
+
+<section>
+  <div class="alert alert-danger"><p>{{Auth::user()->username}}, You are not a member of the {{$env}} environment.  If you think this is incorrect, please 
+    <a class="btn btn-info" href="{{URL::to('contact')}}">report an error</a>
+    <a class="btn btn-info" href="{{URL::to('user/login')}}">Log In</a> or 
+    <a class="btn btn-info" href="{{URL::to('user/create')}}">Sign Up</a>
+  </p></div>
+</section>
+
 @endif
 
 @stop

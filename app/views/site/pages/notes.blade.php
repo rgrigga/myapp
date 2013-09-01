@@ -7,10 +7,17 @@
 If you contribute to this project, and it becomes profitable, I will share it with you.  If you fork it and make money, please share with me. (Don't be a D***)  If you are reading this, perhaps we can discuss a partnership.  Please get in touch.
 For now, you may clone this public repository and develop it as much as you like for now, but you must agree to share your contributions here at this site.  Others have done the same before you and I.  Let's help each other out.-->
 
-<!-- If you're interested in working on this, please contact me. If you have nay feedback, positive or negative, I would greatly appreciate hearing your view.-->
+<!-- If you're interested in working on this, please contact me. If you have any feedback, positive or negative, I would greatly appreciate hearing your view.-->
 
 <!-- ryan.grissinger@gmail.com -->
 
+
+
+<h1>Skills</h1>
+<a href="http://thenounproject.com/noun/coffee/#icon-No1210" target="_blank">Coffee</a> designed by <a href="http://thenounproject.com/bbyford" target="_blank">Ben Byford</a> from The Noun Project
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem?</p>
+<h1>Experience</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, ex.</p>
 
 out of place <a href="https://en.wikipedia.org/wiki/Virtual_private_server">virtual private server</a>	
 
