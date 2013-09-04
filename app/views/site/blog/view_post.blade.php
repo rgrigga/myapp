@@ -109,6 +109,11 @@ border-radius: 8px;
 
 {{-- Content --}}
 @section('main')
+
+<h1>DEFAULT/GLOBAL VIEW</h1>
+<h2>This should be overridden at the company level</h2>
+
+
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div class="span8">	

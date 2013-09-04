@@ -36,15 +36,15 @@ function imgError(image){
 }
 
 $(document).ready(function(){
-    // alert("bam");
-    // $('.page-header').css('background-color','red');
+  // alert("bam");
+  // $('.page-header').css('background-color','red');
 
-        $('.admin-top').css({'margin-top':($('.user-top').height()+0)+'px'});
-        $('.contentwrap') .css({'padding-top': (
-            $('.user-top').height()
-             + $('.admin-top').height()
-             + 0 )+'px'
-            });
+  $('.admin-top').css({'margin-top':($('.user-top').height()+0)+'px'});
+  $('.contentwrap') .css({'padding-top': (
+      $('.user-top').height()
+       + $('.admin-top').height()
+       + 0 )+'px'
+      });
 
     // alert('jQuery loaded');
 	$('.carousel-inner > .item:first').addClass('active');

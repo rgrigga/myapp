@@ -796,10 +796,19 @@ View::make('site.posts.list')->with('posts',$posts)
 
 <div class="sunrise">
 	<h2><a href="#">HELP!</a></h2>
-	<p>I need a job.  If you like what you see here, please hire me, or let me know if you know anyone who could put me to good use.  Do I have what it takes?</p>
+	<p>I need help with a few things...</p>
+	<ul>
+		<li>Test this site</li>
+		<li>Test my wordpress site</li>
+		<li>Give me some feedback</li>
+	</ul>
+	<p>How to help: it's easy; Just login, play around, make some comments.</p>
+	<p>Thank you!</p>
+	<p>PS: I'm also looking for a job.  If you like what you see here, please hire me, or let me know if you know anyone who could put me to good use.  Do I have what it takes?</p>
 	<h1>Contact Me</h1>
 	<h5>614-203-9405</h5>
 	<h5>ryan.grissinger@gmail.com</h5>
+	<h5>View my <a href="https://docs.google.com/document/d/1JK9YqubdSTVvjvHetuf-0dWrNbodv276Z51SUJkZpGw/edit?usp=sharing">Resume</a></h5>
 	<p>For something a little different, click this button and follow the instructions:</p>
 	<a class="btn btn-info" href="{{URL::to('contact')}}">Contact</a>
 	<p>Let's chat, I'll buy you a cup of coffee sometime!</p>

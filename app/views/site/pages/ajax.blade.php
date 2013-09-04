@@ -13,11 +13,24 @@
 
 @stop
 @section('page-header')
+
+
+
 <h1>Ajax Navigation System</h1>
 <p class="muted">This page uses ajax for navigation.  It's pretty fast, simple, flexible, and could be very useful.</p>
-<!-- <p>It only takes a few lines of code to make it happen, and it's very flexible.</p> -->
 
-<h2>html</h2>
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          <i class="icon-code"></i> HTML
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse">
+      <div class="panel-body">
+
 My page has exactly 5 structural components:
 <ol>
 	<li>Nav (top)</li>
@@ -44,9 +57,22 @@ My page has exactly 5 structural components:
 <pre class="prettyprint">{{{'<button type="button" onclick="loadXMLDoc(\'example\')">Example</button>'}}}</pre>
 <a href="https://www.google.com/search?q=loadXMLDoc">Read about loadXMLDoc</a>
 <pre class="prettyprint">{{{'<div id="myDiv"><h2>AJAX change this text</h2></div>'}}}</pre>
+      </div>
+    </div>
+  </div>
 
 
-<h2>File System</h2>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          <i class="icon-code"></i> File System
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
 <p>My file system looks something like this:</p>
 <pre class="prettyprint">
 app
@@ -67,8 +93,22 @@ app
 │   │   │   │       ├── about.blade.php
 │   │   │   │       └── example.blade.php
 </pre>
+      </div>
+    </div>
+  </div>
 
-<h2>Laravel</h2>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          <i class="icon-code"></i> Laravel
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+
 <h3>Routes</h3>
 <pre class="prettyprint">Route::get('company/pages/{page}','BlogController@getCompanyPage')
     ->where('name', '[a-zA-Z_]+');</pre>
@@ -76,10 +116,22 @@ app
 <h3>BlogController</h3>
 <pre class="prettyprint">Route::get('company/pages/{page}','BlogController@getCompanyPage')
     ->where('name', '[a-zA-Z_]+');</pre>
+      </div>
+    </div>
+  </div>
 
 
 
-<h2>Javascript</h2>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#jsCode">
+          <i class="icon-code"></i> Javascript
+        </a>
+      </h4>
+    </div>
+    <div id="jsCode" class="panel-collapse collapse">
+      <div class="panel-body">
 <p>I pasted this into my assets/js/site.js file.  It could also be included in an external file, or on an individual page, within a {{{'<style>'}}} tag.</p>
 <pre class="prettyprint">
 function loadXMLDoc(input)
@@ -106,6 +158,13 @@ function loadXMLDoc(input)
 	xmlhttp.send();
 }
 </pre>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- <p>It only takes a few lines of code to make it happen, and it's very flexible.</p> -->
 
 @stop
 
@@ -167,11 +226,18 @@ function loadXMLDoc(input)
 @section('main')
 	<!-- <h1>Main</h1> -->
 
-	<div id="myDiv"><h2>AJAX change this text</h2></div>
+	<div id="myDiv"><h2>AJAX will change this text</h2>
+
+<p>Click any button in the nav area.</p>
+<p>AJAX will fetch the designated page from the appropriate directory, and feed the content into this div.</p>
+	</div>
 
 	<div class="row text-center">
+
 		<a href="#" class="btn btn-large btn-success"><i class="icon-thumbs-up"></i> cool</a>
+
 		<a href="#" class="btn btn-large btn-danger"><i class="icon-thumbs-down"></i> dumb</a>
+
 	</div>
 @stop
 

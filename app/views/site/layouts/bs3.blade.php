@@ -118,14 +118,17 @@
 			<div class="contentwrap theme2">
 			<!-- Container -->
 
-				<!-- Notifications -->
-				@include('notifications')
-				<!-- ./ notifications -->
-				
 				<div class="page-header">
+					<!-- Notifications -->
+					@include('notifications')
+					<!-- ./ notifications -->
+					@if(Auth::user('admin'))
+						<div class="admin-panel">
+							@yield('admin-panel')
+						</div>
+					@endif
 					@yield('page-header')
 				</div>
-
 				<div class="wrapper">
 					<div class="content-main">
 						@yield('content')

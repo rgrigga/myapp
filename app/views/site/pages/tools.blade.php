@@ -1,4 +1,5 @@
 @extends('site.layouts.bs3')
+<!-- This is the production page -->
 
 @section('styles')
 @parent
@@ -11,11 +12,12 @@
 
 		<script src="/assets/js/less.js" type="text/javascript"></script>
 
-
+<!--
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-
+	-->
+<!--
 		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-
+-->
 	    <!-- <link href="assets/dist/css/bootstrap.css" rel="stylesheet" media="screen"> -->
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	    <!--[if lt IE 9]>
@@ -274,6 +276,7 @@ Affix <i class="icon-arrow-down"></i>
 
 
 <!-- NAVBAR -->
+<h5>Navbar:</h5>
 <nav class="navbar">
 	<ul class="nav navbar-nav">
 		<li class="btn">
@@ -288,67 +291,123 @@ Affix <i class="icon-arrow-down"></i>
 	</ul>
 </nav>
 
-
+<h1>HTML5, Laravel Code Generator <small>rgrigga</small></h1>
 <!--  -->
+
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          Example
+        </a>
+      </h2>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse">
+      <div class="panel-body">
+		<!-- START -->
+
+
+		<p>turn this:</p>
+		<pre class="prettyprint"><code>$mylist="{{{$mylist}}}";</code></pre>
+		<?php 
+		$str="";
+		$str2="";
+		$str3="";
+		?>
+
+		@foreach($array as $topic)
+		<?php
+
+		$str.="\t".'<li><a href="#'.$topic.'">'.$topic.'</a></li>'.PHP_EOL;
+
+		////////////STR2
+		$em="<em>".$topic."</em>";
+		$open='<section id="'.$topic.'">';
+		$close='</section>';
+		$str2.=$open.PHP_EOL."\t".$em.PHP_EOL.$close.PHP_EOL;
+		// $str2.='<section id="'.$topic.'">section:'.$topic.'</section>
+		// ';
+		$ob='{'.'{';
+		$cb="}"."}";
+		$bracketed=$ob.$topic.$cb;
+		$a='<a href="#'.$topic.'">'.'<i class="icon-link"></i> '.$topic.'</a>';
+		$search='<a href="search/'.$topic.'">'.'<i class="icon-search"></i> this site: '.$topic.'</a>';
+		$h1="<h1>".$a."</h1>";
+		$p="<p>".$topic."</p>";
+		$img="<img src='".$ob."asset('assets/img/".$topic.".png')".$cb."' onerror=\"imgError(this);\" alt=\"".$topic."\">";
+		?>
+		<a href=""></a>
+		<!-- <h1>{{$topic}}</h1> -->
+		<?php
+
+		// $str3.=$bracketed;
+		$str3.=$open.PHP_EOL;
+		$str3.="\t".$h1.PHP_EOL;
+		$str3.="\t".$search.PHP_EOL;
+		$str3.="\t".$p.PHP_EOL;
+		// $str3.="\t".$img.PHP_EOL;
+		$str3.=$close.PHP_EOL;
+		?>
+		@endforeach
+
+		<?php $str='<ul class="nav">'.PHP_EOL.$str.'</ul>'; ?>
+
+
+		<p>into this:</p>
+		<pre class="prettyprint"><code>{{{$str}}}</code></pre>
+
+
+		<p>and/or this:</p>
+		<pre class="prettyprint"><code>{{{$str2}}}</code></pre>
+
+
+		<!-- END INNER PANEL -->
+      </div>
+    </div>
+  </div>
+  <!-- END PANEL GROUP -->
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          Workspace
+        </a>
+      </h2>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+
+		<pre class="prettyprint"><code>{{{$str3}}}</code></pre>
+      </div>
+    </div>
+  </div>
+  <!-- END GROUP -->
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          How it works
+        </a>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p>Edit the array inside this page.  Change the array, customize the "template", and then, PHP will generate the desired output inside a "pre" tag.  There are a few gotcha's regarding escaping of quotes that have been worked out.</p>
+        <p>This is is a useful tool to help quickly generate repetitive, detailed code.</p>
+      </div>
+    </div>
+  </div>
+<!-- END GROUP -->
+</div>
+<!-- END PANELS -->
+
 
 <!-- http://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ -->
 
-<h2>HTML5, Laravel Code Generator <small>rgrigga</small></h2>
-<!-- <p class="muted credit">by rgrigga</p> -->
-<p>turn this:</p>
-<pre class="prettyprint"><code>$mylist="{{{$mylist}}}";</code></pre>
-<?php 
-$str="";
-$str2="";
-$str3="";
-?>
 
-@foreach($array as $topic)
-<?php
-
-$str.="\t".'<li><a href="#'.$topic.'">'.$topic.'</a></li>'.PHP_EOL;
-
-////////////STR2
-$em="<em>".$topic."</em>";
-$open='<section id="'.$topic.'">';
-$close='</section>';
-$str2.=$open.PHP_EOL."\t".$em.PHP_EOL.$close.PHP_EOL;
-// $str2.='<section id="'.$topic.'">section:'.$topic.'</section>
-// ';
-$ob='{'.'{';
-$cb="}"."}";
-$bracketed=$ob.$topic.$cb;
-$a='<a href="#'.$topic.'">'.'<i class="icon-link"></i> '.$topic.'</a>';
-$search='<a href="search/'.$topic.'">'.'<i class="icon-search"></i> this site: '.$topic.'</a>';
-$h1="<h1>".$a."</h1>";
-$p="<p>".$topic."</p>";
-$img="<img src='".$ob."asset('assets/img/".$topic.".png')".$cb."' onerror=\"imgError(this);\" alt=\"".$topic."\">";
-?>
-<a href=""></a>
-<!-- <h1>{{$topic}}</h1> -->
-<?php
-
-// $str3.=$bracketed;
-$str3.=$open.PHP_EOL;
-$str3.="\t".$h1.PHP_EOL;
-$str3.="\t".$search.PHP_EOL;
-$str3.="\t".$p.PHP_EOL;
-// $str3.="\t".$img.PHP_EOL;
-$str3.=$close.PHP_EOL;
-?>
-@endforeach
-
-<?php $str='<ul class="nav">'.PHP_EOL.$str.'</ul>'; ?>
-
-
-<p>into this:</p>
-<pre class="prettyprint"><code>{{{$str}}}</code></pre>
-
-
-<p>and/or this:</p>
-<pre class="prettyprint"><code>{{{$str2}}}</code></pre>
-<p>Workspace:</p>
-<pre class="prettyprint"><code>{{{$str3}}}</code></pre>
 
 {{--$str3--}}
 
@@ -360,6 +419,7 @@ $str3.=$close.PHP_EOL;
 		<a href="http://www.comentum.com/php-vs-asp.net-comparison.html">
 			<img src="http://gristech.com/img/logo/php-med-trans.png" alt="laravel rocks">
 		</a>
+		<a href="http://www.bin-co.com/php/articles/current_file_path.php">php print current path</a>
 	</div>
 </section>
 <section id="js">

@@ -436,7 +436,8 @@ class BlogController extends BaseController {
 	}
 
 	private function companyPages($tag){
-		$path='../app/views/'.strtolower($this->company->brand).'/';
+		$brand=strtolower($this->company->brand);
+		$path='../app/views/'.$brand.'/';
 		return $this->getPage($tag,$path);
 	}
 
@@ -452,11 +453,13 @@ class BlogController extends BaseController {
 	public function getCompanyPage($page){
 		$pages=$this->company->pages();
 
-$brand=strtolower($this->company->brand);
+		$brand=strtolower($this->company->brand);
+		// die('bamn');
 		if(in_array($page,$pages)){
 			return View::make('site.'.$brand.'.pages.'.$page);
 		}
 		else {
+			// die('pages');
 			$msg="No page by the name $page";
 			Session::flash('error',$msg);
 			return false;
@@ -494,6 +497,7 @@ $brand=strtolower($this->company->brand);
 	    }
 
 	    if(empty($mypages)){
+	    	// die('man');
 	    	$msg="$path is an empty directory.<br>";
 			Session::flash('error', $msg);
 			return false;
@@ -1224,6 +1228,8 @@ return $tagarray;
 
 	public function getTags($tag="",$brand="")
 	{	
+
+		// die("BAM");
 		$brand=strtolower($this->company->brand);
 		View::share('tag',strtoupper($tag));
 		// $msg=var_dump($tag);
@@ -1269,9 +1275,9 @@ return $tagarray;
 		//this eliminates duplicates and empty strings
 		$tags=array_filter(array_unique($tags));
 
-		function countTags($tags){
-			// DB::fetch 
-		}
+		// function countTags($tags){
+		// 	// DB::fetch 
+		// }
 
 // $mytags = DB::table('posts')->select('meta_keywords')->distinct()->get();
 
@@ -1284,7 +1290,7 @@ return $tagarray;
 		// die(var_dump($tags));
 		// return var_dump($tags);
         // View::make($view, $data);
-
+// die('BAM');
 		return View::make('site/blog/tags')
 				// ->nest('analytics','site.'.strtolower($this->company->brand).'.analytics')
 

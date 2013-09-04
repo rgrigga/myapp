@@ -1,5 +1,8 @@
 @extends('site.layouts.bs3')
 
+<!-- @ extends('layouts.bootstrap3') -->
+
+
 {{-- Web site Title --}}
 @section('title')
 {{ $post->title }} ::
@@ -27,14 +30,44 @@
 
 @section('styles')
 @parent
-        <link rel="stylesheet/less" type="text/css" href="/assets/css/less/tools.less" />
+
+	<link rel="stylesheet/less" type="text/css" href="/assets/css/less/master.less" />
+
+	<!-- This display's the company's less page -->
+	<link rel="stylesheet/less" type="text/css" href="/assets/css/less/{{strtolower($company->brand)}}.less" />
+        <!-- <link rel="stylesheet/less" type="text/css" href="/assets/css/less/tools.less" /> -->
         <script src="/assets/js/less.js" type="text/javascript"></script>
 @stop
+
+
+<?php
+
+// http://www.bin-co.com/php/articles/current_file_path.php
+// $pageName = basename($_SERVER['PHP_SELF']);
+// $pageName = $_SERVER['PHP_SELF'];
+// $pageName = __FILE__;
+$pageName="views/site/gristech/view_post";
+
+?>
+
+@section('page-header')
+<h1>{{ $post->title }}</h1>
+@stop
+
+@section('admin-panel')
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		Admin:
+	</div>
+	<div class="panel-body">
+		This is {{$pageName}}
+	</div>
+</div>
+@stop
+
 {{-- Content --}}
 @section('content')
-
 <!-- <div class="page-header"> -->
-
 <div class="container">
 		<div class="row">
 
@@ -43,7 +76,7 @@
 				<!-- http://placehold.it/260x180 -->
 				<img class="pull-left img-responsive" src="{{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}}" alt="{{{$post->image}}}" onerror="imgError(this);">
 			</a>
-			<h2>{{ $post->title }}</h2>
+			<h2></h2>
 
 			<h5>Tags:</h5>
 
@@ -139,15 +172,15 @@ You don't have the correct permissions to add comments.
 
 @stop
 
-
-
-
+@section('secondary')
+{{View::make('site.partials.postlist')}}
+@stop
 
 @section('footer')
 
-<div class="col-lg-6">
+<!-- <div class="col-lg-6"> -->
 	{{$carousel}}
-</div>
+<!-- </div> -->
 <style>
 /*	.carousel-inner .item img{
 		height: 300px;

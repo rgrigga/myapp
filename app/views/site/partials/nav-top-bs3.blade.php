@@ -8,7 +8,7 @@
           </button>
 
         
-          <a class="navbar-brand" href="/">{{{$company->brand}}}</a>
+          <a class="navbar-brand" href="/"> <i class="icon-home"></i> {{{$company->brand}}}</a>
 		</div>
         <div class="navbar-collapse collapse">
 

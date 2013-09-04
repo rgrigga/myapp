@@ -6,6 +6,14 @@
 @parent
 @stop
 
+@section('styles')
+	@parent
+
+	<link rel="stylesheet/less" type="text/css" href="/assets/css/less/master.less" />
+	<!-- This display's the company's less page -->
+	<script src="/assets/js/less.js" type="text/javascript"></script>
+@stop
+
 {{-- Content --}}
 @section('main')
 <div class="page-header">

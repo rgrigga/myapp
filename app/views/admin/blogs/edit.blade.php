@@ -13,7 +13,7 @@ Post Update ::
 	<link rel="stylesheet/less" type="text/css" href="/assets/css/less/master.less" />
 
 	<!-- This display's the company's less page -->
-	<!-- <link rel="stylesheet/less" type="text/css" href="/assets/css/less/{{strtolower($company->brand)}}.less" /> -->
+	<!-- <link rel="stylesheet/less" type="text/css" href="/assets/css/less/{{--strtolower($company->brand)--}}.less" /> -->
 	
 	<script src="/assets/js/less.js" type="text/javascript"></script>
 @stop
@@ -557,7 +557,7 @@ this button will tweet this page
 
 <!-- @ stop -->
 
-<h3></h3>
+<!-- <h3></h3> -->
 <!-- <form method="post" action="" autocomplete="off"> -->
 	<!-- CSRF Token -->
 	<!-- <input type="hidden" name="_token" value="{{{ csrf_token() }}}" /> -->
