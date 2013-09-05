@@ -782,7 +782,7 @@ View::make('site.posts.list')->with('posts',$posts)
 		<li><a class="btn btn-info" href="{{URL::to('arrays')}}">PHP arrays</a></li>
 		<li><a class="btn btn-info" href="{{URL::to('pages/parallax')}}">parallax</a></li>
 		<li><a class="btn btn-info" href="{{URL::to('pages/jparallax')}}">jparallax</a></li>
-		http://myapp.gristech.com/pages/jparallax
+		<!-- http://myapp.gristech.com/pages/jparallax -->
 
 
 
