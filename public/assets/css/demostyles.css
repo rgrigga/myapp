@@ -1,0 +1,10 @@
+body{
+	background-color: #ddd;
+}
+
+pre{
+	display: block;
+	background-color: black;
+	margin: 20px;
+	padding: 10px;
+}
