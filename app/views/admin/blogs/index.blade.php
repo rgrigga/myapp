@@ -52,19 +52,24 @@ Website Management :::
 @section('secondary')
 
 <div class="well">
-		 <p class="text-center"><span class="label label-info">{{getRealIpAddr()}}</span></p>
-	<a href="http://domainsigma.com/whois/buckeyemower.com"><img src="http://domainsigma.com/widget/trust/buckeyemower.com.png" alt="Buckeyemower.com Trust"></a>
+		 <p class="text-center">Your IP: <span class="label label-info">{{getRealIpAddr()}}</span></p>
+	<p class="text-center">
+		<a href="http://domainsigma.com/whois/buckeyemower.com"><img src="http://domainsigma.com/widget/trust/buckeyemower.com.png" alt="Buckeyemower.com Trust"></a>
+	</p>
+	
 </div>
 
 <!-- PAYPAL -->
-<div class="span2 well pull-right">
-<h6>You can pay online:</h6>
+<div class="span2 well text-center">
+<!-- <div class="text-center"> -->
+	<h6>You can pay online:</h6>
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="6WG8557WFT7XA">
 <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 </form>
+<!-- </div> -->
 </div>
 <!-- PAYPAL -->
 
@@ -72,14 +77,11 @@ Website Management :::
 @stop
 
 @section('page-header')
-<h1>Admin Home</h1>
+<h1>Admin Index</h1>
+<h2>{{{$company->name}}}</h2>
 @stop
 {{-- Content --}}
 @section('main')
-
-
-
-<h2></h2>
 
 
 

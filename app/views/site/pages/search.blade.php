@@ -11,7 +11,7 @@
 {{$searchbox}}
 <p>You can use % as a wildcard.</p>
 <h1>{{{$heading}}}</h1>
-<a href='/tags/{{ $tag }}'>{{$tag}}</a>
+Search Tags? <a href='/tags/{{ $tag }}'>{{$tag}}</a>
 <!-- <p>This page should search for...</p>
 <h2>Pages, Posts, Tags</h2>
 <h3>Page Content Word Search:</h3>

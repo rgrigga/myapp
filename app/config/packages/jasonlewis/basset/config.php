@@ -64,7 +64,7 @@ return array(
             // JS ////////////////////////
             $collection->directory('assets/bs3/js', function($collection)
             {
-                $collection->add('jquery.v1.8.3.min.js');
+                // $collection->add('jquery.v1.8.3.min.js');
                 $collection->add('bootstrap.min.js');
                 $collection->add('myjs.js');
             })->apply('UriRewriteFilter')->setArguments(public_path());
@@ -152,10 +152,11 @@ return array(
 // $brand=App::make('company')->brand;
             $collection->directory('assets/css', function($collection)
             {
+                // /assets/css/less/tools.less
                 // $collection->add('bootstrap.less')->apply('Less'); 
                 $collection->add('less/bootstrap.less')->apply('Less');
                 $collection->add('less/gristech.less')->apply('Less');
-                // $collection->add('gristech.css');
+                // $collection->add('less/tools.less')->apply('Less');;
             })->apply('UriRewriteFilter')->setArguments(public_path());
 
         },

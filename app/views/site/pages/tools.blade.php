@@ -10,7 +10,8 @@
 		<!-- <link rel="stylesheet/less" type="text/css" href="/assets/css/less/demo.less" /> -->
 		<link rel="stylesheet/less" type="text/css" href="/assets/css/less/tools.less" />
 
-		<script src="/assets/js/less.js" type="text/javascript"></script>
+<script src="/assets/js/less.js" type="text/javascript"></script>
+		
 
 <!--
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
@@ -30,169 +31,7 @@
   /*padding-right: 15px;*/
 }
 
-h4 {
-  margin-top: 25px;
-}
-.row {
-  margin-bottom: 20px;
-}
-.row .row {
-  margin-top: 10px;
-  margin-bottom: 0;
-}
-[class*="col-"] {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  background-color: #eee;
-  border: 1px solid #ddd;
-  background-color: rgba(86,61,124,.15);
-  border: 1px solid rgba(86,61,124,.2);
-}
 
-hr {
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-</style>
-
-
-<style>
-
-.delta img{
-	width: 100%;
-}
-.delta { 
-	margin-top: 20px;
-   position: relative; 
-   width: 100%;  /*for IE 6 */
-
-   background-color: #34495e;
-   /*background-color: #cccccc;*/
-    /*box-shadow: 10px 10px 5px #666666;*/
-}
-
-.delta h1, h4{ 
-   position: absolute; 
-   top: 50px; 
-   left: 0; 
-   width: 100%; 
-}
-
-
-.delta h4 span { 
-   color: white; 
-   font: bold 24px/45px Helvetica, Sans-Serif; 
-   letter-spacing: -1px;  
-   background: rgb(0, 0, 0); /* fallback color */
-   background: rgba(0, 0, 0, 0.6);
-   padding: 10px; 
-}
-
-.delta p { 
-
-}
-
-.delta h1 span {
-	color: white; 
-   letter-spacing: -1px;  
-   background: rgb(0, 0, 0); /* fallback color */
-   background: rgba(0, 0, 0, 0.6);
-   padding: 10px; 
-}
-
-.kilo p{ 
-   position: absolute; 
-   /*top: 50px; */
-   /*left: 0; */
-   /*width: 100%; */
-
-	top: 30%;
-	left: 10%;
-
-   color: white; 
-   font:  20px/32px Helvetica, Sans-Serif; 
-   /*letter-spacing: 1px;*/
-   background: rgb(0, 0, 0); 
-   background: rgba(0, 0, 0, 0.6);
-   opacity: 70%;
-   padding: 20px; 
-   /*float: right;*/
-   max-width: 80%;
-}
-
-.foxtrot{
-	background-color: #666666;
-}
-
-.hotel{
-    /*background-color: red;*/
-    position: fixed; 
-    /*height:60px;*/
-    bottom:0px;
-    right: 0px;
-    z-index: 5;
-    /*color: white;*/
-    padding: 5px;
-    opacity: .5;
-    border-top-left-radius:60px; 
-    text-align: right;
-}
-
-.hotelb{
-    /*background-color: red;*/
-    height: 100px;
-    width: 100px;
-    border-top-left-radius:100px;
-}
-
-p.photocredit {
-	font-style: italic;
-	font-size: small;
-	color: #333333;
-	text-align: right;
-	max-width: 80%;
-	word-wrap:break-word;
-}
-
-@import url(assets/css/triangle.css);
-@import url(assets/css/bubbles.css);
-
-
-
-    <style>
-    #custom-search-form {
-    margin:0;
-    margin-top: 5px;
-    padding: 0;
-    }
-    #custom-search-form .search-query {
-    padding-right: 3px;
-    padding-right: 4px \9;
-    padding-left: 3px;
-    padding-left: 4px \9;
-    /* IE7-8 doesn't have border-radius, so don't indent the padding */
-    margin-bottom: 0;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    }
-    #custom-search-form button {
-    border: 0;
-    background: none;
-    /** belows styles are working good */
-    padding: 2px 5px;
-    margin-top: 2px;
-    position: relative;
-    left: -28px;
-    /* IE7-8 doesn't have border-radius, so don't indent the padding */
-    margin-bottom: 0;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    }
-    .search-query:focus + button {
-    z-index: 3;
-    }
     </style>
 
 <link rel="stylesheet" href="/assets/css/bubbles.css">
@@ -266,8 +105,11 @@ Affix <i class="icon-arrow-down"></i>
 @section('content')
 
 <!-- /////////////// JUMBOTRON //////////////// -->
+
 <div class="jumbotron">
-		<img src="http://gristech.com/img/mini-tools.jpg" alt="">
+	<img src="" alt="">
+		<img src="{{asset('assets/img/mini-tools.jpg')}}" alt="">
+
 	<!-- <p>If you're interested...</p> -->
 	<h5><em>Modular, Extensible, Expressive, Elegant, Simple</em>
 	</h5>
@@ -416,16 +258,25 @@ Affix <i class="icon-arrow-down"></i>
 	<h2>Language</h2>
 	<a href="search/php"><i class="icon-search"></i> this site: php</a>
 	<div class="well">
-		<a href="http://www.comentum.com/php-vs-asp.net-comparison.html">
-			<img src="http://gristech.com/img/logo/php-med-trans.png" alt="laravel rocks">
-		</a>
+		<img src="{{asset('assets/img/logo/php-med-trans.png')}}" alt="php">
+		<a href="http://www.comentum.com/php-vs-asp.net-comparison.html">PHP vs. asp.net</a>
 		<a href="http://www.bin-co.com/php/articles/current_file_path.php">php print current path</a>
 	</div>
 </section>
 <section id="js">
-	<h1><a href="#js"><i class="icon-link"></i> js</a></h1>
+	<h1><a href="#js"><i class="icon-link"></i> javascript</a></h1>
 	<a href="search/js"><i class="icon-search"></i> this site: js</a>
 	<p>js</p>
+	<ul>
+		<li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/required-javascript-reading/">Required Reading</a></li>
+		<li>
+			<a href="http://myapp.gristech.com/pages/js">Playground</a>
+		</li>
+		<li>
+			<a href="http://jsbooks.revolunet.com/">JS Books</a>
+		</li>
+		<li><a href="https://github.com/learn-js/learnjs/blob/master/readme.md#learnjs">Learn.js</a></li>
+	</ul>
 </section>
 <section id="css">
 	<h1><a href="#css"><i class="icon-link"></i> css</a></h1>
@@ -490,13 +341,15 @@ Affix <i class="icon-arrow-down"></i>
 	<div class="kilo delta">
 		<!-- ////////////////////////////////////// -->
 		      			<a href="http://laravel.com">
-		      			<img src="http://gristech.com/img/laravel-l-slant.png" alt="laravel rocks">
+
+		      			<img src="{{asset('assets/img/laravel-l-slant.png')}}" alt="laravel rocks">
+		      			<!-- <img src="{{asset('assets/img/einstein.png')}}" alt="laravel rocks"> -->
 						<h4>
 							<span>Laravel</span>
 						</h4>
 						</a>
 						<h2>PHP Framework</h2>
-						<p>Laravel is an implementation of PHP.  
+						<p>Laravel is a framework for PHP.  
 							
 							  I think of a framework as doing for programming what an assembly
 							   line does for manufacturing.
@@ -685,8 +538,7 @@ $code='<code>';
 
 <div class="">
 	<a href="http://www.cssdrive.com/imagepalette/index.php">Convert Image to Color Pallete</a>
-
-<img src="http://gristech.com/img/myapp.png" alt="">
+<img src="{{asset('assets/img/myapp.png')}}" alt="">
 </div>
 
 <div class="row-fluid">
@@ -727,7 +579,7 @@ $code='<code>';
 	</div>
 	<div class="span2 oval-thought-border">This bubble is entirely CSS.</div>
 	<div class="span3 thumbnail">
-		<img src="http://gristech.com/img/thinker.png" alt="think about it">
+		<img src="{{asset('assets/img/thinker/thinker.png')}}" alt="think about it">
 
 		
 	</div>
@@ -743,7 +595,7 @@ $code='<code>';
 				<div class="span10">
 					<div class= "thumbnail delta">
 		      			<a href="http://OAuth2.0">
-		      			<img src="http://gristech.com/img/logo/twitter-bootstrap.jpg" alt="">
+		      			<img src="{{asset('assets/img/oauth.png')}}" alt="">
 						<h5><span>OAuth</span></h5>
 						</a>
 						<h6>Security</h6>
@@ -753,7 +605,7 @@ $code='<code>';
 
 		      		<div class= "thumbnail delta">
 		      			<a href="http://twitter.github.io/bootstrap/scaffolding.html#responsive">
-		      			<img src="http://gristech.com/img/logo/twitter-bootstrap.jpg" alt="laravel rocks">
+		      			<img src="{{asset('assets/img/logo/twitter-bootstrap.jpg')}}" alt="laravel rocks">
 						<h5><span>Bootstrap</span></h5>
 						</a>
 						<h6>Front-End Framework (Light, Responsive CSS & Javascript)</h6>
@@ -764,7 +616,7 @@ $code='<code>';
 
 		      		<div class="span3 thumbnail delta">
 		      			<a href="http://www.shamusyoung.com/twentysidedtale/?p=18309">
-		      			<img src="http://gristech.com/img/penguins.jpg" alt="linux">
+		      			<img src="{{asset('assets/img/penguins.jpg')}}" alt="linux">
 						<h4><span>Linux</span></h4>
 						</a>
 						<p class="photocredit"><a href="http://www.flickr.com/photos/linpadgham/2589167851/">photo &copy; flickr</a></p>
@@ -774,7 +626,7 @@ $code='<code>';
 
 		      		<div class="span3 thumbnail delta">
 		      			<a href="http://opensource.org/">
-		      			<img src="http://gristech.com/img/logo/osi_standard_logo.png" alt="open source">
+		      			<img src="{{asset('assets/img/logo/osi_standard_logo.png')}}" alt="open source">
 						<h4><span>Open Source</span></h4>
 						</a>
 						<p class="photocredit"><a href="http://opensource.org/">logo &copy; opensource.org</a></p>
@@ -814,7 +666,7 @@ $code='<code>';
 
 		      		<div class= "thumbnail delta">
 		      			<a href="http://www.sublimetext.com/">
-		      			<img src="http://www.gristech.com/img/screen/sublime.png" alt="Sublime Text">
+		      			<img src="{{asset('assets/img/screen/sublime.png')}}" alt="Sublime Text">
 						<h4><span>Sublime Text</span></h4>
 						</a>
 						<h6>Text Editor/IDE</h6>
@@ -826,8 +678,8 @@ $code='<code>';
 		      		</div>
 
 		      		<div class= "thumbnail delta" id="facebook">
-		      			<a href="https://www.facebook.com/">
-		      			<img src="asset('assets/img/screen/facebook.png')" alt="facebook" onerror="imgError(this);">
+		      			<a href="https://developers.facebook.com/docs/web/">
+		      			<img src="{{asset('assets/img/screen/facebook.png')}}" alt="facebook" onerror="imgError(this);">
 
 						<h4><span>Facebook</span></h4>
 						</a>
@@ -842,7 +694,7 @@ $code='<code>';
 
 		      		<div class= "thumbnail delta">
 		      			<a href="http://www.inkscape.com/">
-		      			<img src="http://www.gristech.com/img/screen/inkscape.png" alt="Inkscape">
+		      			<img src="{{asset('assets/img/screen/inkscape.png')}}" alt="Inkscape">
 						<h4><span>Inkscape</span></h4>
 						</a>
 						<h6>Vector Images</h6>
@@ -855,7 +707,7 @@ $code='<code>';
 
 		      		<div class= "thumbnail delta">
 		      			<a href="http://fortawesome.github.io/Font-Awesome/">
-		      			<img src="http://www.gristech.com/img/screen/font-awesome.png" alt="Sublime Text">
+		      			<img src="{{asset('assets/img/screen/font-awesome.png')}}" alt="Font-Awesome">
 						<!-- <h4><span><i class="icon-font-awesome"></i>Font Awesome</span></h4> -->
 						</a>
 						<h6>It's Awesome (seriously!)</h6>
@@ -889,7 +741,7 @@ $code='<code>';
 
 		      		<div class= "thumbnail delta">
 		      			<a href="http://bootswatch.com/">
-		      			<img src="http://www.gristech.com/img/screen/bootswatch.png" alt="Bootswatch">
+		      			<img src="{{asset('assets/img/screen/bootswatch.png')}}" alt="Bootswatch">
 						<h4><span></i>Bootswatch</span></h4>
 						</a>
 						<h6>It's Awesome</h6>
@@ -903,7 +755,7 @@ $code='<code>';
 		      			<a href="http://google.com/docs">
 		      			<a href=""></a>
 
-		      			<img src="http://gristech.com/img/screen/googledocs.png" alt="Google Docs">
+		      			<img src="{{asset('assets/img/screen/googledocs.png')}}" alt="Google Docs">
 						<h4><span><i class="icon-file"></i>Google-Docs</span></h4>
 						</a>
 						<h6>It's Awesome</h6>
@@ -951,7 +803,7 @@ $code='<code>';
 </div>
 
 <div class="kilo delta">
-<!-- 				<img src="http://gristech.com/img/mini-tools.jpg" alt=""> -->
+
 
 						<!-- Default -->  
 	<!-- <div class="delta"> -->

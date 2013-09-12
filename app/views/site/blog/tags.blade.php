@@ -22,6 +22,14 @@
     @endif
 <!-- <div class="hero-unit"> -->
 <div>
+
+<p>Would you like to search for {{$tag}}?</p>
+{{ Form::open(array('url' => 'search')) }}
+<!-- http://laravel.com/docs/html#form-model-binding -->
+<input name="tag" id="tag" type="text" class="search-query" placeholder="{{$tag}}" value="{{strtolower($tag)}}">
+<input type="submit" class="submit">
+{{Form::close()}}
+
 <ul class="tag">
 	<li><i class="icon-tag"></i></li>
 

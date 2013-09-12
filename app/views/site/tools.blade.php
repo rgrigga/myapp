@@ -4,6 +4,7 @@
 @section('content')
 
 <h1>DEPRECIATED</h1>
+try site/pages/tools
 <!-- http://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ -->
 
 <style>

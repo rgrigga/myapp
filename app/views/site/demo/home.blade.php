@@ -1,4 +1,6 @@
+<h1>site.demo.home</h1>
 <?php
+
 // <script src="holder.js"></script>
 // ##
 // ryan@Grisbuntu:~/$ ssh-add ~/.ssh/siteground_dsa

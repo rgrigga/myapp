@@ -9,7 +9,7 @@
 @section('content')
 
 <h1>Responsive Design?</h1>
-<abbr title="HyperText Markup Language" class="initialism">HTML</abbr>
+<abbr title="Looks great on any size device" class="initialism">Responsive</abbr>
 <p>What the heck is responsive design?</p>
 
 
@@ -20,7 +20,7 @@
 	<div class="row-fluid">
 		<div class="span6">
 			<h2>5 Screen Sizes</h2>
-			<img src="http://gristech.com/img/mobile/responsive3.jpg" alt="">
+			<img src="{{asset('assets/img/mobile/responsive3.jpg')}}" alt="">
 		</div>
 		<div class="span6">
 	<p>It basically boils down to 3 different main categories, but there are 5 sizes of screens.  
@@ -59,7 +59,7 @@
 <div class="row-fluid">
 	<div class="span6 offset2">
 		<p>
-			Let's take a closer look at how the <a href="http://twitter.github.io/bootstrap/scaffolding.html#responsive">bootstrap</a> system handles this...
+			Let's take a closer look at how the <a href="http://twitter.github.io/bootstrap/scaffolding.html#responsive">bootstrap</a> system (v.2.3.2) handles this...
 		</p>
 <table class="table table-bordered table-striped">
             <thead>
@@ -107,22 +107,23 @@
 </div>
 
 <div class="hero-unit">
-<img class="pull-right" src="http://gristech.com/img/mobile/responsive4.png" alt="">
+
+<img class="pull-right" src="{{asset('assets/img/mobile/responsive4.png')}}" alt="">
 <p></p>
 <p>
 
 	Woulnd't it be easier to design, maintain, edit, add-to, extend, and talk about one codebase rather than 3? (duh.)
 </p>
 <p>
-	The old way is insane: It's expensive for the client and boring for the developer.
+	The old way is insane: It's expensive for the client, and tedious for the developer.
 </p>
 
 
 </div>
 
-<p>This site is meant to be viewed on any device without changing the content.  In other words, all the content appears on the mobile site, too, and it should look pretty good.</p>
+<p>This site is meant to be viewed on any device <strong>without changing the content</strong>.  In other words, all the content appears on the mobile site, too, and it should look pretty good.</p>
 <p>It doesn't have to be complicated.</p>
 
-Here is a very old example of a website from 1994 that looks just fine on any screen size: <a href="http://www.pixelscapes.com/spatulacity/button.htm">The Button</a>.
+<!-- Here is a very old example of a website from 1994 that looks just fine on any screen size: <a href="http://www.pixelscapes.com/spatulacity/button.htm">The Button</a>. -->
 
 @stop

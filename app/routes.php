@@ -313,6 +313,10 @@ Route::group(array('domain' => 'myapp.devfoo'),function(){
 Route::group(array('domain' => 'myapp.dev'),function()
 {
 
+    // Route::get('js',function(){
+    //     return View::make('site.gristech.js');
+    // });
+
     Route::get('lesstest',function(){
         return View::make('site.gristech.lesstest');
     });

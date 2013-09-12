@@ -1,4 +1,4 @@
-@extends('layouts.scaffold')
+@extends('layouts.bs3')
 
 @section('nav')
 @include('site.partials.nav-top-min')
@@ -6,6 +6,11 @@
 
 @section('main')
 <h1>Edit Company</h1>
+
+{{--die(var_dump($company))--}}
+
+
+
 <div class="row">
     <div class="span4">
         {{ Form::model($company, array('method' => 'PATCH', 'route' => array('companies.update', $company->id))) }}
