@@ -14,5 +14,6 @@ return array(
 	*/
 
 	'contact_us' => 'Contact Us',
+	'demo' => 'The Demo Page',
 
 );

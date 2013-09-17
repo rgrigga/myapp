@@ -5,7 +5,7 @@
 
 <!-- http://stackoverflow.com/questions/1461907/html-encoding-issues-character-showing-up-instead-of-nbsp -->
 
-<!-- This is layouts.bootstrap3 -->
+<!-- This is layouts.demo -->
 <!-- check out http://flatuicolors.com/ -->
     <head>
     <title>
@@ -87,6 +87,7 @@
 
 <!-- holder.js -->
 <script src="{{asset('assets/js/holder.js')}}"></script>
+<script src="{{asset('assets/js/jquery.v1.8.3.min.js')}}"></script>
 <script src="{{asset('assets/js/site.js')}}"></script>
 
     </head>
@@ -137,7 +138,11 @@
                     <!-- Content -->
 
                 <div class="wrapper">
+                    <div class="page-header">
+                        @yield('page-header')
+                    </div>
                     <div class="content-main">
+                        @yield('main')
                         @yield('content')
                     </div>
                     <div class="content-secondary">

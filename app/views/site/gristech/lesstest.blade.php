@@ -15,24 +15,25 @@
 	<body>
 		<div class="container">
 			<h1>Welcome to the LESS test</h1>
+			<p>This page is my partial execution of: <a href="http://verekia.com/less-css/dont-read-less-css-tutorial-highly-addictive"><strong>Don't read this tutorial</strong></a></p>
 
 			<div class="shape" id="shape1"></div>
 		    <div class="shape" id="shape2"></div>
 		    <div class="shape" id="shape3"></div>
 		</div>
-		<p>This page is my partial execution of <a href="http://verekia.com/less-css/dont-read-less-css-tutorial-highly-addictive">Don't read this tutorial</a></p>
+		
 
 
-There are 3 main methods you can use to use LESS.
+There are 4 methods I have used to implement LESS:
 <ol>
-	<li>A simple line of javascript</li>
+	<li>A single line of javascript</li>
 	<li>Manually compile each change</li>
 	<li>Set up a server-side compiler</li>
-	<li>Jason Lewis' Basset</li>
+	<li>Jason Lewis' Basset (I have used with Laravel)</li>
 </ol>
-<p>This page uses the first option. View the source to see what's going on.</p>
+<p>This page uses the first option. View the source to see what's going on, or check out <a href="http://gristech.com/blog/less-hello-world-how-to-install-getting-started-tutorial/">Hello World in LESS</a></p>
 
-<p>If you'd prefer option number 2, here's how:</p>
+<p>If you'd prefer option number 2, (manually compiling LESS) here's how:</p>
 Assuming you have node.js installed, we can run this on the command line:
 <pre><code>
 lessc master.less > master.css
@@ -46,8 +47,6 @@ saturate() and desaturate(), to make a color more “colorful” or more “gray
 fadein() and fadeout(), to increase or reduce transparency,
 and spin(), which modifies the hue of the color.</b>
 </blockquote>
-
-
 
 	</body>
 </html>
