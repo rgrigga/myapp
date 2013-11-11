@@ -1,0 +1,62 @@
+  @primary:@asphalt;
+  @secondary:@sunflower;
+
+  // @dark:@asphalt;
+  @dark:@asphalt;
+  @light:@clouds;
+
+  body{
+    background-color: @dark;
+    color:@light;
+  }
+
+  p,h1,h2,h3,h4,h5,h5,li{
+    color:darken(@dark,10%);
+  }
+  
+  #page-header {
+    // padding: 15px;
+    // background-color: red;
+    // background-color: lighten(@dark, 50%);
+    p{
+      color:darken(@light,10%);
+
+    }
+    h1,h2,h3,h4,h5,h5,li{
+      color:darken(@light,50%);
+    }
+  }
+
+  #mydiv{
+    .shaded(@secondary);
+  }
+
+  #page-footer{
+    .shaded(@dark);
+  }
+
+#mega-wrap{
+  //this should be the same color as #content-secondary to mimic the appearance of 2 equal height columns.
+  background-color: spin(@dark,100);
+  .make-row();
+}
+
+#content-main {
+  background-color: darken(@light, 10%);
+  // background-color: @light;
+  p,h1,h2,h3,h4,h5,h5,li{
+    color:@dark;
+    }
+  // background-color: darken(@light, 10%);
+  .make-md-column(9);
+}
+
+#content-secondary {
+  // background-color: spin(@dark,100);
+  p,h1,h2,h3,h4,h5,h5,li{
+    color:@light;
+    }
+  padding-bottom: 15px;
+  
+  .make-md-column(3);
+}
