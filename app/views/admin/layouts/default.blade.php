@@ -164,6 +164,9 @@ $(window).resize(function(){
 });
 </script>
 <script>
+            $(document).ready(function(){
+            	$('div.pagination').find('ul').addClass('pagination');
+            });
 // 	$('[data-toggle=collapse]').click(function(){
 	
 //   	// toggle icon

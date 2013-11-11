@@ -23,14 +23,20 @@
         <!-- <link rel="stylesheet/less" type="text/css" href="/assets/css/less/tools.less" /> -->
 
         <script src="/assets/js/less.js" type="text/javascript"></script>
-
+<style>
+    .form-control{
+        width: 100%;
+    }
+</style>
 
         <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"> -->
 
 @stop
 
 
-
+@section('page-header')
+<h1>{{{ Lang::get('user/user.login') }}}</h1>
+@stop
 {{-- Content --}}
 @section('main')
 <h1>
@@ -39,7 +45,7 @@
 
 
 <div class="jumbotron">
-    <div class="container">
+    <!-- <div class="container"> -->
 
         <form method="POST" action="{{ URL::to('user/login') }}" accept-charset="UTF-8" role="form" class="form-horizontal">
 
@@ -83,7 +89,7 @@
                 <button tabindex="3" type="submit" class="btn btn-default">{{ Lang::get('confide::confide.login.submit') }}</button>
             </fieldset>
         </form>
-    </div>
+    <!-- </div> -->
     <!-- container -->
 </div>
 <!-- /.jumbotron -->

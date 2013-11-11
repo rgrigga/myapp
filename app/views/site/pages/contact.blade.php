@@ -1,4 +1,5 @@
 @extends('admin/layouts/default')
+<!-- SITE.PAGES.CONTACT -->
 <!-- class="full-width" -->
 <!-- http://www.tinymce.com/ -->
 <!-- http://stackoverflow.com/questions/11968072/twitter-bootstrap-button-click-to-toggle-expand-collapse-text-section-above-butt -->
@@ -76,7 +77,7 @@
 	Any serious/productive request, feedback, or critique, however formal or informal, is appreciated.</p> 
 </div>
 	<p>Or, If you want say something obnoxious, this is the place to do it: just say "hello world" or "I hate the Buckeyes."</p>
-	<p>(Don't badmouth the Buckeyes elsewhere.  If you say anything nice about Michigan, your comment is likely to be deleted.)</p>
+	<p>(PS: Don't badmouth the Buckeyes here, or elsewhere.  If you say anything nice about Michigan, your comment is likely to be deleted.)</p>
 	
 	<?php
 	// var_dump($posts);

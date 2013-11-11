@@ -4,7 +4,7 @@
 //     // $('.page-header').height($("#sidebar").height());
 // });
 
-    function loadXMLDoc(input)
+  function loadXMLDoc(input)
     {
     var xmlhttp;
     if (window.XMLHttpRequest)
@@ -28,6 +28,7 @@
     xmlhttp.send();
     }
 
+
 function imgError(image){
     image.onerror = "";
     //could not get this to work with holder.js
@@ -36,7 +37,7 @@ function imgError(image){
 }
 
 $(document).ready(function(){
-  // alert("bam");
+  console.log("HELLO from public/assets/js/site.js");
   // $('.page-header').css('background-color','red');
 
   $('.admin-top').css({'margin-top':($('.user-top').height()+0)+'px'});
@@ -74,7 +75,7 @@ $(window).resize(function(){
              + $('.admin-top').height()
              + 0 )+'px'
         });
-    columnConform();
+//    columnConform();
 
 });
 

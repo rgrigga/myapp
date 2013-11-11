@@ -141,6 +141,4 @@ class Post extends Eloquent implements PresentableInterface {
 	}
 // http://laravel.io/
 
-	
-
 }

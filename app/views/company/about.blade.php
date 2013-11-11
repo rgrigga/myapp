@@ -1,12 +1,11 @@
 
-<!-- <h1>BAM BAM BAM</h1> -->
 <div class="about" id="about" name="about">
 	<h1>{{{$company->name}}}</h1>
 
-<img src="{{{asset('assets/'.strtolower($company->brand).'/'.$company->image)}}}" alt="logo">
+<img class="logo img-responsive" src="{{{asset('assets/'.strtolower($company->brand).'/'.$company->image)}}}" alt="logo">
 	
 	<h2>{{{$company->slogan}}}</h2>
-	<p>{{{$company->description}}}</p>
+	<p>{{$company->description}}</p>
 	<!-- <h3>Company Asset Directory:  -->
 		{{--{$company->directory()}--}}
 	<!-- </h3> -->
@@ -15,7 +14,7 @@
 	@if(Auth::user('admin'))
 <!-- http://stackoverflow.com/questions/5872096/function-to-add-dashes-to-us-phone-number-in-php -->
 	<p>
-		<a href="/companies/{{{$company->id}}}/edit">edit</a>
+		<a class="btn btn-danger" href="/companies/{{{$company->id}}}/edit">edit</a>
 	</p>
 	@endif
 

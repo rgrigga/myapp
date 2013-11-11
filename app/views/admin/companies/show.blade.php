@@ -26,7 +26,7 @@
             <td>{{{ $company->brand }}}</td>
 					<td>{{{ $company->phone }}}</td>
                     <td>{{{ $company->email }}}</td>
-					<td>{{{ $company->description }}}</td>
+					<td>{{ $company->description }}</td>
 					<td>{{{ $company->slogan }}}</td>
 					<td>{{{ $company->image }}}</td>
 					<td>{{{ $company->menus }}}</td>

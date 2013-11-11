@@ -1,5 +1,15 @@
 @extends('admin.layouts.default')
 
+@section('styles')
+@parent
+    <link rel="stylesheet/less" type="text/css" href="/assets/css/less/master.less" />
+
+<!-- This display's the company's less page -->
+    <link rel="stylesheet/less" type="text/css" href="/assets/css/less/{{strtolower($company->brand)}}.less" />
+
+    <script src="/assets/js/less.js" type="text/javascript"></script>
+@stop
+
 @section('main')
 <?php
 // die(var_dump($company));
@@ -63,13 +73,44 @@
                 <li>
                     {{ Form::submit('Submit', array('class' => 'btn')) }}
                 </li>
+                <li>todo:
+                    <ul>
+                        <li>website</li>
+                        <li>address</li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </li>
             </ul>
         {{ Form::close() }}
 
 
     </div>
     <div class="span7">
-        {{--View::make('site/gristech/about')--}}
+        {{View::make('site/gristech/about');}}
+        <h2>Ideas:</h2>
+<pre>
+    Script here to create the neccesary folders.
+    Or, perhaps a CLI tool to generate a Company
+    
+    Needed:
+        (Where company name is "megacorp")
+        mkdir('views/site/megacorp');
+        file('analytics.php');
+        file('home.blade.php');
+        mkdir('views/site/pages/megacorp');
+        mkdir('views/site/partials/megacorp');
+
+        
+        FileError: 'http://myapp.dev/assets/css/less/osspeac.less' wasn't found (500)
+
+        file('public/assets/css/less/osspeac.less')
+        image(assets/$company/img/favicon.png)
+
+</pre>
+
+
+
     </div>
 </div>
 

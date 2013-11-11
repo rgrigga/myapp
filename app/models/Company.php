@@ -23,7 +23,7 @@ class Company extends Eloquent implements PresentableInterface{
 	
 	{
 		$asset=asset('assets/'.strtolower($this->brand).'/'.$this->image);
-		return "<img src='".$asset."'>";
+		return "<img class='img-responsive' src='".$asset."'>";
 	}
 
     public function menus()

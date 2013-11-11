@@ -21,7 +21,7 @@
 <pre><code>
 	for(x=1;x<=10;x++){
 		console.log(x);
-	}	
+	}
 
 </code></pre>
 
@@ -53,13 +53,18 @@ example:
 
 		<section class="input">
 			<form action="#">
-			<input type="text" class="text">		
+			<input type="text" class="text">
+			<input type="submit" class="submit" id="mysubmit">		
 			</form>
 
 		</section>
 		<div class="results" id="results">
 			
 		</div>
-
+<script>
+$('#mysubmit').click(function(){
+	console.log("hello world");
+});
+</script>
 	</body>
 </html>

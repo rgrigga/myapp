@@ -18,6 +18,7 @@ ClassLoader::addDirectories(array(
 	app_path().'/models',
 	app_path().'/presenters',
 	app_path().'/database/seeds',
+    app_path().'/legacy',
 
 ));
 
@@ -36,6 +37,7 @@ $logFile = 'log-'.php_sapi_name().'.txt';
 
 Log::useDailyFiles(storage_path().'/logs/'.$logFile);
 
+// if($debug)...
 /*
 |--------------------------------------------------------------------------
 | Application Error Handler
@@ -49,11 +51,21 @@ Log::useDailyFiles(storage_path().'/logs/'.$logFile);
 |
 */
 
+/**
+ * TODO: logging
+ * TODO: read about error handling
+ */
+
+
 App::error(function(Exception $exception, $code)
 {
     Log::error($exception);
+
+    // die(var_dump(Config::get('app')));
     
     if (Config::get('app.debug')) {
+
+        View::make('error/710');
     	return;
     }
 

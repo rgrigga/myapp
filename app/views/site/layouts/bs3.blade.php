@@ -38,8 +38,12 @@
 
 	@section('styles')
 	<!-- STYLES -->
-	    @stylesheets("bs3-css")
+
+	<!-- bs 2 & 3 diverged -->
+	    <!-- @ stylesheets("bs3-css") -->
 		<!-- @ stylesheets("myapp-css") -->
+	
+	<!-- FA 3 & 4 -->
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 
 			<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -48,7 +52,7 @@
 			<![endif]-->
 	@show
 
-	@section('myjs')
+	@section('js-top')
 
 	   	<!-- JavaScript plugins (requires jQuery) 
 	    <script src="http://code.jquery.com/jquery.js"></script>
@@ -60,7 +64,6 @@
 	    <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
 	    <!-- < script src="/bs3/js/respond.js"></script> -->
 
-	<!-- I prefer to keep javascript to a minimum when possible. -->
 	<!-- <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&amp;skin=sunburst&amp;lang=css"></script> -->
 
 	@show
@@ -69,7 +72,7 @@
 
 	@include('site.'.strtolower($company->brand).'.analytics')
 	<!-- // BlogController -->
-	{{--$analytics--}}
+	{{$company->analytics}}
 	<!-- //google, piwik -->
 
 	<script>
@@ -82,6 +85,7 @@
 	  ga('send', 'pageview');
 
 	</script>
+
 	<meta name="google-site-verification" content="U8zCfNgj-23MojmUwyxkij6AqrU30NWhgJgTtiBl3WI" />
 	
 	@show
@@ -110,7 +114,7 @@
 		
 	@section('nav')
 		@include('site.partials.nav-top-bs3')
-		<!-- <h1>NAV</h1> -->
+		<h1>NAV</h1>
 	@show
 
 		<div class="container">		
@@ -175,6 +179,8 @@
 
 @section('hotel')
 <!-- be sure to include the hotel CSS -->
+
+
 <a href="/responsive">
 	<div class="hotel hotelb">
 		<!-- <div style="color:black; padding-bottom:50px;">resize me</div> -->
@@ -194,14 +200,11 @@
 </a>
 @show
 
-@section('javascripts')
-		<!-- Javascripts
-		================================================== -->
+@section('js-bottom')
+<!-- Javascripts ============================= -->
         @javascripts('myapp-js')
         @javascripts('bs3-js')
         <!-- holder.js -->
-		
-
 		<!-- https://github.com/mindmup/bootstrap-wysiwyg/ -->
 		<script>
             function imgError(image){

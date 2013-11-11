@@ -1,12 +1,11 @@
 <!doctype html>
 <html lang="en">
 
+<!-- WELCOME TO VIEW/LAYOUTS/DEMO.BLADE.PHP -->
+
 <!-- http://css-tricks.com/semantic-class-names/ -->
 
 <!-- http://stackoverflow.com/questions/1461907/html-encoding-issues-character-showing-up-instead-of-nbsp -->
-
-<!-- This is layouts.demo -->
-<!-- check out http://flatuicolors.com/ -->
     <head>
     <title>
         @section('title')
@@ -30,30 +29,23 @@
 
 <!-- STYLES **********************************-->
 
-
-@stylesheets('bs3-css')
-<!-- @ stylesheets('gristech') -->
-
-    <!-- <link rel="stylesheet/less" type="text/css" href="assets/css/less/master.less" /> -->
-    <!-- <link rel="stylesheet/less" type="text/css" href="assets/css/less/gristech.less" /> -->
     <link rel="stylesheet/less" type="text/css" href="assets/css/less/demo.less" />
 
-        <script src="assets/js/less.js" type="text/javascript"></script>
-        
+    <script src="assets/js/less.js" type="text/javascript"></script>
 
-    <!-- CDN -->
-    <!-- Here, we have Bootstrap and Font-Awesome -->
+    <!-- Font-Awesome 3 -->
+    <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"> -->
+    <!-- Font-Awesome 4 -->
 
-        <!-- HAS ICONS.  WON'T WORK WITH FONT AWESOME -->
-        <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet"> -->
 
-        <!-- Bootstrap -->
-        <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
-
-        <!-- Font-Awesome -->
-        <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"> -->
     
     <!-- COMPILED -->
+    <!-- 
+    BASSET HAS BEEN DEPRECATED
+    The author says he is no longer maintaining the package.
+    Author suggests using grunt instead.
+     -->
+
     <!-- Configure list of files as a json array, -->
     <!-- basset/config.php -->
     <!-- Compile them, and your webpage is faster. -->
@@ -64,11 +56,12 @@
     <!-- http://stackoverflow.com/questions/1443465/jquery-dynamic-div-height -->
 
     <!-- GLOBAL INTERNAL -->
-    <!-- Quick & Dirty.  Move to stylesheet for long-term. -->
+    <!-- A Space for Quick & Dirty.  Move to less stylesheet for long-term. -->
     <style>
 /*body{
     background-color: red;
 }*/
+.panel{border:solid 1px blue;}
     </style>
 
 @show
@@ -76,42 +69,47 @@
 
 <!-- ANALYTICS ************************************ -->
 @yield('analytics')
+<!-- Company should have a views/site/$company/anaytics.php page -->
         
 <!-- FAVICONS -->
 @section('favicons')
 <link rel="shortcut icon" href="{{{ asset('assets/'.strtolower($company->brand).'/favicon.png') }}}">
 @show
 
-
 <!-- // JAVASCRIPT-TOP -->
 
 <!-- holder.js -->
 <script src="{{asset('assets/js/holder.js')}}"></script>
-<script src="{{asset('assets/js/jquery.v1.8.3.min.js')}}"></script>
+
+<script src="{{asset('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js');}}"></script>
 <script src="{{asset('assets/js/site.js')}}"></script>
 
     </head>
     <body>
         <div class="container">
             <!-- <div class="navwrap" id="navwrap"> -->
-                <!-- // @ yield('nav') -->
-                
-@include('site.partials.nav-top-bs3')
+                <!-- // @ yield('nav') -->    
+            @include('site.partials.nav-top-bs3')
 
             <!-- if (Auth::user('buckeye')) -->
             @section('admin-top')
-                <div class="admin-top">
-                    <!-- @ if($user->ability(array('admin',$env),'*')) -->
-                    <!-- // @ if(Auth::user('buckeye')) -->
+
                 
                     @if(Auth::user('admin'))
-                    admin
+                    <div class="admin-top">
+                    <!-- @ if($user->ability(array('admin',$env),'*')) -->
+                    <!-- // @ if(Auth::user('buckeye')) -->
+                    You are an admin
+                    </div>
+                    
                     @else
                     Please login to edit this page, etc.
-                </div> 
-            @endif
+                    @endif
+                 
+                
+            @show 
         </div>
-                @show                
+                           
 
             @include('notifications')
             
@@ -137,7 +135,7 @@
                 {{--var_dump($_SESSION);--}}
                     <!-- Content -->
 
-                <div class="wrapper">
+                <div class="content-wrapper">
                     <div class="page-header">
                         @yield('page-header')
                     </div>
@@ -150,11 +148,10 @@
                     </div>
                 </div>
 
-                    <div class="posts">
-                        @yield('posts')
-                    </div>
+                <div class="posts">
+                    @yield('posts')
+                </div>
 
-                    
             </div>
             <!-- ./ contentwrap -->
             <!-- @ yield('main') -->
