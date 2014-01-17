@@ -37,7 +37,6 @@
 @dark:#aaa;
 
 
-
 //////////////////////////////////
 // http://lesscss.org/#-mixins
 
@@ -64,6 +63,16 @@
   border:solid 2px @dark;
   .border-radius(@size);
 }
+
+.dot(@size:50px){
+  padding:0;
+  text-align: center;
+  width: @size;
+  height:@size;
+  line-height: @size;
+  border:solid 2px @dark;
+  .border-radius(@size);
+}
 ///////////////////////////////////
 
 .bam{
@@ -76,8 +85,15 @@ html, body {
      // background-color: @lightRed;
     height: 100%;
 
-    /* The html and body elements cannot have 
+    /* The html and body elements should not have 
     any padding or margin, else they break other features */
+}
+footer{
+  position: fixed;
+  bottom:0;
+  width: 100%;
+  margin:0 !important;
+  // border:solid red 2px;
 }
 
 .user-top{
@@ -85,8 +101,6 @@ html, body {
       display: inline-block;
     }
 }
-
-
 
 ul.tag{
   
@@ -100,9 +114,8 @@ nav{
 // didn't work...
   // background-color: red;
 }
-footer{
-  background-color: blue;
-}
+
+
 
 .thumbnails{
   list-style: none;

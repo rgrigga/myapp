@@ -1,5 +1,11 @@
 <?php
 
+Route::any('/',function(){
+trigger_error("BAM")
+    // die('bam');
+    return View::make('site.pages.debug');
+});
+
 /*
 |--------------------------------------------------------------------------
 | Register The Laravel Class Loader
@@ -65,7 +71,7 @@ App::error(function(Exception $exception, $code)
     
     if (Config::get('app.debug')) {
 
-        View::make('error/710');
+        View::make('error/404');
     	return;
     }
 

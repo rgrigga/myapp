@@ -26,7 +26,8 @@
     <!-- Font-Awesome 3 -->
     <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"> -->
     <!-- Font-Awesome 4 -->
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 
     <!-- GLOBAL INTERNAL -->
@@ -36,7 +37,7 @@
     background-color: red;
 }*/
 .panel{
-    border:solid 1px blue;
+    /*border:solid 1px blue;*/
 }
     </style>
 

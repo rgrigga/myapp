@@ -1,4 +1,5 @@
 @extends('layouts.bootstrap3')
+<!-- @ extends('layouts.scaffold') -->
 
 {{-- Web site Title --}}
 @section('title')
@@ -35,15 +36,21 @@
 
 
 @section('page-header')
-<h1>{{{ Lang::get('user/user.login') }}}</h1>
-@stop
-{{-- Content --}}
-@section('main')
 <h1>
     {{{$company->brand}}}
 </h1>
+<p>{{{ Lang::get('user/user.login') }}}</p>
+<p class="lead">This system provides:</p>
+<p>Authorization and Authentication via Confide</p>
+<p>Role and Group Management</p>
+
+@stop
 
 
+{{-- Content --}}
+@section('main')
+<section class="login" id="login">
+    
 <div class="jumbotron">
     <!-- <div class="container"> -->
 
@@ -106,5 +113,7 @@
 <!-- // Popup form here?-->
 </div>
 <!-- jumbotron -->
+
+</section>
 
 @stop

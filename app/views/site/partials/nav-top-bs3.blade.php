@@ -20,7 +20,7 @@
 			@foreach ($company->menus() as $menu)
 				<li {{ (Request::is('{{{$menu}}}') ? ' class="active"' : '') }}><a href="{{{URL::to($menu)}}}">{{{ucfirst($menu)}}}</a></li>
 			@endforeach
-				<li><div class="form-group">@include('site.partials.searchbox')</div></li>
+				<li>@include('site.partials.searchbox')</li>
 			</ul>
 
 

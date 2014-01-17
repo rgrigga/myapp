@@ -62,6 +62,7 @@
     @else
     {{ $message }}
     @endif
+    <span class="pull-right">psst: this is session::get('info')</span>
 </div>
 @endif
 
@@ -76,5 +77,27 @@
     @else
     {{ $message }}
     @endif
+    <span class="pull-right">psst: this is views/notifications @ session::get('message')</span>
 </div>
 @endif
+
+{{--
+@if (Session::has('message'))
+    
+    <div class="flash alert">
+      <button type="button" class="close" data-dismiss="alert"> &times;</button>
+      <p>{{ Session::get('message') }}</p>
+    </div>
+
+@endif
+
+@if (Session::has('mymessage'))
+
+    <div class="flash alert alert-info">
+      <button type="button" class="close" data-dismiss="alert"><span class="label label-info">Info</span> &times;</button>
+      <p>{{ Session::get('mymessage') }}</p>
+      <!-- {{var_dump($_SESSION);}} -->
+    </div>
+
+@endif
+--}}

@@ -13,9 +13,9 @@ class AddSocialToCompaniesTable extends Migration {
     public function up()
     {
         Schema::table('companies', function(Blueprint $table) {
-            $table->string('facebook');
-            $table->string('twitter');
-            $table->string('linkedin');
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('linkedin')->nullable();
         });
     }
 

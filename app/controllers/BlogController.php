@@ -110,6 +110,7 @@ class BlogController extends BaseController {
         $env=App::environment();
         
         $company = App::make('company');
+		
 		$this->company = $company;
         
         $this->post = $post;//These are basically empty objects.
@@ -632,24 +633,35 @@ class BlogController extends BaseController {
 	public function getIndex($tag="")
 	{
 
-		$msg= (Auth::user()) ? "Logged in" : "not logged in";
+//AUTHORIZATION:
+		$msg= (Auth::user()) ? "You are Logged in" : "You are not logged in";
+
+		if(!Auth::check()){
+			$msg.="<br>Auth check failed.";
+		}
 		
 		// TODO: Breadcrumbs
-
-		$company=$this->company;
-
+		$brand=$this->company->brand;
 		// $msg=var_dump($tag);
-		$msg.="Blog Index :)";
-		// Session::flash('message',$msg);
+		$msg.="<br>This is the $brand company.";
+
+		$env=App::environment();
+		$msg.="<br>This is the $env environment.";
 
 		$posts = $this->post
-			->where('meta_keywords', 'LIKE', '%'.$company->brand.'%')
+			->where('meta_keywords', 'LIKE', '%'.$this->company->brand.'%')
 	        ->where('meta_keywords','LIKE','%public%')
 	        // ->where('content','LIKE','%'.$tag.'%')
 			// ->get()
 			->paginate(5);
 
+		$postcount=count($posts);
+		// $msg.=print_r($posts);
+		$msg.="<br>$brand has $postcount posts.";
 
+
+		if($env=='local')
+			Session::flash('message',$msg);
 
 		//step 1: allow content based on auth type?
 		// if(Auth::admin()){
@@ -667,7 +679,7 @@ class BlogController extends BaseController {
 			return View::make('blog/index')
 			->nest('accordion','site.posts.accordion')
 			// ->nest('featurettes','site.posts.featurettes')
-			->with(compact('posts'));
+			->with(compact('posts'))
 			;
 		} 
 // TAGS:
@@ -715,7 +727,7 @@ class BlogController extends BaseController {
 
 			$posttitle='%'.$tag.'%';
 			$posts = $this->post
-				->where('meta_keywords', 'LIKE', '%'.$company->brand.'%')
+				->where('meta_keywords', 'LIKE', '%'.$this->company->brand.'%')
 		        ->where('meta_keywords','LIKE','%public%')
 				->where('title', 'LIKE', "$posttitle")
 				->orWhere('meta_keywords','LIKE', "$posttitle")
@@ -731,7 +743,7 @@ class BlogController extends BaseController {
 			if ($count===0) {
 
 				$posts = $this->post
-					->where('meta_keywords', 'LIKE', '%'.$company->brand.'%')
+					->where('meta_keywords', 'LIKE', '%'.$this->company->brand.'%')
 			        ->where('meta_keywords','LIKE','%public%')
 			        // ->where('content','LIKE','%'.$tag.'%')
 					// ->get()

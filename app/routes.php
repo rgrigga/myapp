@@ -4,10 +4,10 @@
 
 
 // Use this funciton for debugging
-// Route::any('/',function(){
-//     die('bam');
-//     return View::make('site.pages.debug');
-// });
+Route::any('/',function(){
+    die('bam');
+    return View::make('site.pages.debug');
+});
 
 // or Throw an error anywhere:
 // $msg="bam";
@@ -91,11 +91,25 @@ Route::model('company','Company');
 
 App::singleton('company', function()
 {
+    
     $env=App::environment();
-    $company = New Company;
-    $company = $company->where('brand','like',$env)->first();
-    // View::share('company',$company);
-    return $company;
+    // dd($env);
+    if($env=='local'){
+        $brand='gristech';
+    }
+
+    else(trigger_error("Company Problem"));
+
+    $company = Company::where('brand','like','%'.$brand.'%')->first();
+
+    if(!$company){
+        // dd("Bam");
+        trigger_error("No company for ".$brand);
+    }
+    // dd($brand);
+    View::share('company',$company);
+    // return $company;
+
 });
 
 // ??
@@ -339,9 +353,9 @@ Route::group(array('domain' => 'myapp.devfoo'),function(){
 ///////////////// IOC CONTAINER //////////////////////////////////
 //////////////////////////////////////////////////////////////////
     
-Route::any('mytest',function(){
-    return "myapp.dev mytest $foo";
-});
+    Route::any('mytest',function(){
+        return "myapp.dev mytest $foo";
+    });
 
     Route::any('osspeac',function(){
         $company=Company::where('brand','like','osspeac')->first();
@@ -752,7 +766,9 @@ Route::group(array('domain' => 'buckeyemower.com'),function(){
 
     // });
 
-Route::get('osspeac',array('as' => 'company/osspeac','uses'=>'CompanyController@getIndex'));
+// Route::get('osspeac',array('as' => 'company/osspeac','uses'=>'CompanyController@getIndex'));
+Route::get('sewcute',array('as' => 'company/sewcute','uses'=>'CompanyController@sewcute'));
+Route::get('buckeye',array('as' => 'company/buckeye','uses'=>'CompanyController@buckeye'));
 
 Route::get('contact',function(){
     return Redirect::to('blog/contact');

@@ -1,5 +1,13 @@
 <?php
 
+// try{
+// 	// trigger_error("ERROR");
+// 	// throw new Exception("Error Processing Request", 1);
+	
+// }
+// catch(\Exception $e){
+// 	print_r($e->getMessage());
+// }
 /*
 |--------------------------------------------------------------------------
 | Create The Application
@@ -12,6 +20,8 @@
 */
 
 $app = new Illuminate\Foundation\Application;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,20 +42,21 @@ $app = new Illuminate\Foundation\Application;
 $env = $app->detectEnvironment(array(
 
 //this is case-sensitive
-	'advantage' => array('domain'=>'advantage.gristech.com'),
+	// 'advantage' => array('domain'=>'advantage.gristech.com'),
 
-	'sewcute' => array('domain'=>'sewcute.gristech.com'),
-	'sewcute' => array('domain'=>'sewcute.dev'),
+	// 'sewcute' => array('domain'=>'sewcute.gristech.com'),
+	// 'sewcute' => array('domain'=>'sewcute.dev'),
 
-	'megacorp' => array('domain' => 'megacorp.dev'),
-	'megacorp' => array('domain' => 'myapp.dev'),
+	// 'megacorp' => array('domain' => 'megacorp.dev'),
 
 	// 'advantage' => array('prefix'=>'advantage'),
-	'local' => array('Grisbuntu'),
+	// 'local' => array('Grisbuntu'),
 	// 'megacorp' => 
-	// 'dev' => array('Grisbuntu'),
+	'dev' => array('Grisbuntu'),
 	
-	'buckeye' => array('domain' => 'buckeyemower.com'),
+	// 'buckeye' => array('domain' => 'buckeyemower.com'),
+
+	'gristech' => array('domain' => 'myapp.dev'),
 	'gristech' => array('domain' => 'myapp.gristech.com'),
 
 ));
@@ -62,8 +73,13 @@ $env = $app->detectEnvironment(array(
 |
 */
 
-$app->bindInstallPaths(require __DIR__.'/paths.php');
 
+try{
+$app->bindInstallPaths(require __DIR__.'/paths.php');
+}
+catch(\Exception $e){
+	print_r($e->getMessage());
+}
 /*
 |--------------------------------------------------------------------------
 | Load The Application
@@ -75,9 +91,15 @@ $app->bindInstallPaths(require __DIR__.'/paths.php');
 |
 */
 
-$framework = $app['path.base'].'/vendor/laravel/framework/src';
+$framework = $app['path.base'];
+// print_r($framework);
 
-require $framework.'/Illuminate/Foundation/start.php';
+try{
+	require $framework.'/Illuminate/Foundation/start.php';
+}
+catch(\Exception $e){
+	print_r($framework);
+}
 
 /*
 |--------------------------------------------------------------------------

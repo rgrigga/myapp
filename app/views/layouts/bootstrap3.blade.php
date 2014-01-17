@@ -140,7 +140,8 @@
                 <!-- // @ yield('nav') -->
                 @section('nav')
                 {{--View::make('site.partials.nav-top-min')--}}
-                {{View::make('site.partials.nav-top-bs3')}}
+                {{--View::make('site.partials.nav-top-bs3')--}}
+                {{View::make('site.partials.nav-top-minimal')}}
                 @show
 
                 <!-- if (Auth::user('buckeye')) -->
@@ -175,7 +176,7 @@
             <!-- @ yield('content') -->
             <div class="contentwrap">
 
-                @include('notifications')
+                
                 
                 <?php
                     $env=App::environment();
@@ -217,26 +218,9 @@
     //                 }
                 ?>
 
+                @include('notifications')
 
 
-                @if (Session::has('message'))
-                    
-                    <div class="flash alert">
-                      <button type="button" class="close" data-dismiss="alert"> &times;</button>
-                      <p>{{ Session::get('message') }}</p>
-                    </div>
-
-                @endif
-
-                @if (Session::has('mymessage'))
-
-                    <div class="flash alert alert-info">
-                      <button type="button" class="close" data-dismiss="alert"><span class="label label-info">Info</span> &times;</button>
-                      <p>{{ Session::get('mymessage') }}</p>
-                      <!-- {{var_dump($_SESSION);}} -->
-                    </div>
-
-                @endif
                     {{--var_dump($_SESSION);--}}
                         <!-- Content -->
                 <div class="page-header">
@@ -244,7 +228,6 @@
                 </div>
                 
                 
-
                 @yield('main')
                         
             </div>

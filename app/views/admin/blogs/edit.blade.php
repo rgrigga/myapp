@@ -19,6 +19,11 @@ Post Update ::
 @stop
 
 
+@section('page-header')
+You are editing post #{{$post->id}}.
+{{$post->title}}
+@stop
+
 @section('secondary')
 
 
@@ -27,7 +32,11 @@ Post Update ::
 
 <nav class="navbar" id="navbar-info">
 	<ul class="nav navbar-nav">
-		<li data-target="#MyContent"><a href="#MyContent">MyContent</a></li>
+		<li  data-target="#MyContent"><a class="btn btn-default" href="#MyContent">MyContent</a></li>
+		<li><a href="#tags">Tags</a></li>
+		<li><a href="#">Content</a></li>
+		<li><a href="#">Description</a></li>
+		<li><a href="#">Image</a></li>
 	</ul>
 </nav>
 
@@ -55,11 +64,11 @@ Post Update ::
 	<div class="pull-right well fixed-bottom-right">
 	<h6>
 		<a data-toggle="collapse" data-target="#tweet">
-			<i class="icon-arrow-down"></i>Tweet
+			<i class="icon-arrow-down"></i>Share
 		</a>
 	</h6>
 
-		<div class="collapse in" id="tweet">
+		<div class="collapse" id="tweet">
 			<a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ URL::to('blog/'.$post->slug) }}" data-text="{{{$post->title}}} : {{{strip_tags($post->
 			meta_description)}}}" data-via="{{{$company->twitter}}}">Tweet</a>
 			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -99,17 +108,10 @@ Post Update ::
 <!-- end secondary -->
 
 
-
-
-
-
-
-
-
 {{-- Content --}}
 @section('main')
 
-<div class="">
+<div class="fullscreen">
 	<a href="{{{ URL::to('blog/'.$post->slug) }}}">Fullscreen: {{{ URL::to('blog/'.$post->slug) }}}</a>
 </div>
 
@@ -161,8 +163,7 @@ Post Update ::
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
           
           <ul class='tag'>
-			<li><i class="icon-tags"></i>
-          </li>
+			<li><i class="icon-tags"></i> Tags:</li>
 			@foreach($post->tags() as $tag)
 				<li>{{ $tag }}</li>
 			@endforeach
@@ -184,7 +185,21 @@ Post Update ::
     </div>
   </div>
 
-
+<!-- EXAMPLE: -->
+<!--    <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          Collapsible Group Item #3
+        </a>
+      </h4>
+    </div>
+    <div id="description" class="panel-collapse collapse">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div> -->
 
   <div class="panel panel-default">
     <div class="panel-heading {{{ $errors->has('content') ? 'error' : '' }}}">
@@ -211,6 +226,7 @@ Post Update ::
     <div class="panel-heading {{{ $errors->has('meta-description') ? 'error' : '' }}}">
       <h4 class="panel-title">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#MetaDescription">
+        	<i class="icon-pencil"></i>
           Meta-Description <i class="icon-angle-down"></i>
         </a>
       </h4>
@@ -225,29 +241,11 @@ Post Update ::
     </div>
   </div>
 
-
-   <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-          Collapsible Group Item #3
-        </a>
-      </h4>
-    </div>
-    <div id="description" class="panel-collapse collapse">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-
-
-
-
    <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#MetaTitle">
+	       	<i class="icon-pencil"></i>
           Meta-title
         </a>
       </h4>
@@ -261,45 +259,21 @@ Post Update ::
 
 
 
-   <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-          Collapsible Group Item #3
-        </a>
-      </h4>
-    </div>
-    <div id="description" class="panel-collapse collapse">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!--  -->
 
 
   <div class="panel panel-default">
     <div class="panel-heading {{{ $errors->has('image') ? 'error' : '' }}}">
       <h4 class="panel-title">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#post-image">
+        	<i class="icon-pencil"></i>
           Image
         </a>
       </h4>
       {{ $errors->first('image', '<span class="help-inline">:message</span>') }}
     </div>
-    <div id="collapseThree" class="panel-collapse collapse">
+
+    <div id="post-img" class="panel-collapse collapse">
       <div class="panel-body">
       	<img class="" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}" onerror="imgError(this,800,600);">
 			{{Form::checkbox('name', 'value', true)}}
@@ -434,31 +408,6 @@ Post Update ::
 </style>
 <h6>
 <ul>
-	<li class="nav-header">
-	  <a href="#" data-toggle="collapse" data-target="#alpha">
-	    Alpha <i class="icon-angle-right"></i>
-	  </a>
-	  <ul style="list-style: none;" class="collapse" id="alpha">
-	    <li><a href="#">Information &amp; Stats</a></li>
-	    <li><a href="#">DJ Says</a></li>
-	    <li><a href="#">Request Line</a></li>
-	    <li><a href="#">Timetable</a></li>
-	    <li><a href="#">Banned Songs</a></li>
-	  </ul>
-	</li>
-
-	<li class="nav-header">
-	  <a href="#" data-toggle="collapse" data-target="#beta">
-	    beta <i class="icon-angle-right"></i>
-	  </a>
-	  <ul style="list-style: none;" class="collapse" id="beta">
-	    <li><a href="#">Information &amp; Stats</a></li>
-	    <li><a href="#">DJ Says</a></li>
-	    <li><a href="#">Request Line</a></li>
-	    <li><a href="#">Timetable</a></li>
-	    <li><a href="#">Banned Songs</a></li>
-	  </ul>
-	</li>
 
 	<li class="nav-header">
 	<a href="#" data-toggle="collapse" data-target="#headDJMenu">
@@ -491,30 +440,8 @@ Post Update ::
 </h6>
 
 
-<div class="row">
-	<div class="span4">
-		<h1>Learn More</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, doloribus rem quos facere aspernatur autem dolorum omnis dolor itaque a!</p>
-		<ul>
-			<li class="active"><a href="#"><i class="icon-home"></i>Home</a></li>
-			<li><a href="#"><i class="icon-envelope-alt"></i>Messages <span class="badge badge-info">4</span></a></li>
-			<li><a href="#"><i class="icon-cogs"></i>Settings</a></li>
-			<li><a href="#"><i class="icon-comment"></i>Shoutbox</a></li>
-			<li><a href="#"><i class="icon-user"></i>Staff List</a></li>
-			<li><a href="#"><i class="icon-flag"></i>My Infractions</a></li>
-			<li><a href="#"><i class="icon-exclamation-sign"></i>Rules &amp; Regulations</a></li>
-			<li><a href="#"><i class="icon-off"></i>Logout</a></li>
-		</ul>
-	</div>
-	<div class="span4 pull-right">
-		<h1>Learn More</h1>
-		<p>This page is used for building content which will be used in many other places.  Print, social, email, flyers, web... it's very flexible!</p>
 
-	</div>
 
-</div>
-
-<!-- PROMOTE THIS? -->
 		<script>
             function imgError(image){
                 image.onerror = "";

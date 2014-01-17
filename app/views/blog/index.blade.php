@@ -9,14 +9,18 @@
 #gravatar{
 	padding:10px;
 }
+.img-center{
+	margin-left: auto;
+	margin-right: auto;
+}
 </style>
-
-
 
 @section('page-header')
 
 
-<img class="img-responsive" src="{{asset('assets/'.strtolower($company->brand).'/cloud.svg')}}" alt="">
+<div class="center">
+	<img class="img-responsive img-center" src="{{asset('assets/'.strtolower($company->brand).'/cloud.svg')}}" alt="">
+</div>
 
 
 @stop

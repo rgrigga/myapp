@@ -3,4 +3,4 @@
 return array(
 	'debug' => true,
 	'company' => 'gristech',
-)
+);
