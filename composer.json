@@ -20,12 +20,9 @@
         },
         {
             "type": "vcs",
-            "url":  "git@bitbucket.org:rgrigga/blog"
-        },
-        {
-            "type": "vcs",
-            "url":  "git@github.com:rgrigga/Laravel-4-Bootstrap-Starter-Site"
+            "url":  "git@github.com:rgrigga/blog"
         }
+
     ],
 	"require": {
 		"laravel/framework": "4.1.*",
@@ -40,8 +37,6 @@
 	"require-dev": {
 		"andrew13/cabinet":"dev-master",
         "rgrigga/blog":"dev-master",
-		"rgrigga/cabinet":"dev-master",
-        "rgrigga/Laravel-4-Bootstrap-Starter-Site":"dev-master",
         "phpunit/phpunit": "3.7.*",
         "mockery/mockery": "dev-master@dev",
         "summerstreet/woodling": "0.1.*",

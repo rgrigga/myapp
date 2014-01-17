@@ -1,10 +1,6 @@
 <?php
 
-Route::any('/',function(){
-trigger_error("BAM")
-    // die('bam');
-    return View::make('site.pages.debug');
-});
+
 
 /*
 |--------------------------------------------------------------------------

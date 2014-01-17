@@ -56,8 +56,8 @@ $env = $app->detectEnvironment(array(
 	
 	// 'buckeye' => array('domain' => 'buckeyemower.com'),
 
-	'gristech' => array('domain' => 'myapp.dev'),
-	'gristech' => array('domain' => 'myapp.gristech.com'),
+	// 'gristech' => array('domain' => 'myapp.dev'),
+	// 'gristech' => array('domain' => 'myapp.gristech.com'),
 
 ));
 
@@ -94,12 +94,13 @@ catch(\Exception $e){
 $framework = $app['path.base'];
 // print_r($framework);
 
-try{
-	require $framework.'/Illuminate/Foundation/start.php';
-}
-catch(\Exception $e){
-	print_r($framework);
-}
+// try{
+	require $framework.'/vendor/laravel/framework/src/Illuminate/Foundation/start.php';
+// }
+// catch(\Exception $e){
+	// print_r($framework);
+	
+// }
 
 /*
 |--------------------------------------------------------------------------

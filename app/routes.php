@@ -1,12 +1,13 @@
 <?php
 
 
+// trigger_error("Boom");
 
 
 // Use this funciton for debugging
 Route::any('/',function(){
     die('bam');
-    return View::make('site.pages.debug');
+//     return View::make('site.pages.debug');
 });
 
 // or Throw an error anywhere:
