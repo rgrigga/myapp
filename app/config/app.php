@@ -40,8 +40,6 @@ return array(
         /* Additional Providers */
         'Zizaco\Confide\ConfideServiceProvider', // Confide Provider
         'Zizaco\Entrust\EntrustServiceProvider', // Entrust Provider for roles
-        'Basset\BassetServiceProvider', // Better Asset Management
-        'Greggilbert\Recaptcha\RecaptchaServiceProvider', // recaptcha
         'Robbo\Presenter\PresenterServiceProvider', // Presenter
    
         'Rgrigga\Blog\BlogServiceProvider',
@@ -128,10 +126,9 @@ return array(
         'Entrust'         => 'Zizaco\Entrust\EntrustFacade', // Entrust Alias
         'Presenter'       => 'Robbo\Presenter\Presenter', // Presenter
         'Presentable'     => 'Robbo\Presenter\PresentableInterface', // Presenter
-        'Basset'          => 'Basset\Facade', // Better Asset Management
-        'String'          => 'Andrew13\Helpers\String', // String
+        // 'Basset'          => 'Basset\Facade', // Better Asset Management
+        // 'String'          => 'Andrew13\Helpers\String', // String
         'Carbon'          => 'Carbon\Carbon', // Carbon
-        // 'Blog'            => 'Rgrigga\Blog', // Blog
         // 'Blog'            => 'Rgrigga\Blog', // Blog
         
 

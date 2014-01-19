@@ -51,7 +51,7 @@ $env = $app->detectEnvironment(array(
 	// 'advantage' => array('prefix'=>'advantage'),
 	// 'local' => array('Grisbuntu'),
 	// 'megacorp' => 
-	'dev' => array('Grisbuntu'),
+	'local' => array('Grisbuntu'),
 	
 	// 'buckeye' => array('domain' => 'buckeyemower.com'),
 

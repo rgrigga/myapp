@@ -5,10 +5,9 @@
 
 
 // Use this funciton for debugging
-Route::any('/',function(){
-    echo "Hello";
+// Route::any('/',function(){
 //     return View::make('site.pages.debug');
-});
+// });
 
 // or Throw an error anywhere:
 // $msg="bam";
@@ -103,13 +102,15 @@ App::singleton('company', function()
 
     $company = Company::where('brand','like','%'.$brand.'%')->first();
 
+    // dd($company);
+    
     if(!$company){
         // dd("Bam");
         trigger_error("No company for ".$brand);
     }
     // dd($brand);
     View::share('company',$company);
-    // return $company;
+    return $company;
 
 });
 
