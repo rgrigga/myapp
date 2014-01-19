@@ -1,5 +1,4 @@
 <?php
-
 // try{
 // 	// trigger_error("ERROR");
 // 	// throw new Exception("Error Processing Request", 1);

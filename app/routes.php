@@ -6,7 +6,7 @@
 
 // Use this funciton for debugging
 Route::any('/',function(){
-    die('bam');
+    echo "Hello";
 //     return View::make('site.pages.debug');
 });
 

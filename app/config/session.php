@@ -135,4 +135,5 @@ return array(
 
 	'payload' => 'laravel_payload',
 
+	'expire_on_close'=>'false',
 );
