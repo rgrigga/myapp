@@ -24,6 +24,7 @@
 		"zizaco/confide": "dev-master",
 		"zizaco/entrust": "dev-master",
 		"robclancy/presenter": "1.2.*",
+		"jasonlewis/basset": "dev-master",
 		"leafo/lessphp": "0.4.0"
 	},
 	"require-dev": {
@@ -45,7 +46,16 @@
 			"app/tests/library"
 		]
 	},
-
+	"scripts": {
+		"post-install-cmd": [
+			"php artisan asset:publish 'rgrigga/blog'"
+		],
+		"post-update-cmd": [
+			"php artisan asset:publish 'rgrigga/blog'",
+			"php artisan clear-compiled",
+			"php artisan optimize"
+		]
+	},
 
 	"config": {
 		"preferred-install": "dist"
