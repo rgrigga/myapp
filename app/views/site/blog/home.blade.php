@@ -1,5 +1,5 @@
 @extends('layouts.scaffold')
-
+<h1>BLOG HOME</h1>
 @section('title')
 {{{ $company->name }}} - {{{$company->slogan}}}
 @stop

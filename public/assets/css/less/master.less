@@ -1,25 +1,26 @@
+@import "/assets/bootstrap-3.0.1/less/bootstrap.less";
+// @ import "/assets/less/bs3/less/master.less";
+@import "/assets/css/less/colors.less";
+// @ import "{{asset('assets/css/styles.css')}}";
 
-@import "/assets/less/bootstrap.less";
-// @import "{{asset('assets/css/styles.css')}}";
+// // Oranges
+// @carrot:#e67e22;
+// @sunflower:#f1c40f;
 
-// Oranges
-@carrot:#e67e22;
-@sunflower:#f1c40f;
+// //Greys:
+// @clouds: rgba(236, 240, 241,1.0);
+// @silver:#bdc3c7;
+// @concrete:#95a5a6;
+// @asbestos:#7f8c8d;
 
-//Greys:
-@clouds: rgba(236, 240, 241,1.0);
-@silver:#bdc3c7;
-@concrete:#95a5a6;
-@asbestos:#7f8c8d;
+// // Blues;
+// @asphalt:#34495e;
+// @midnight:rgba(44, 62, 80,1.0);
+// @belize:#2980b9;
+// @river:#3498db;
 
-// Blues;
-@asphalt:#34495e;
-@midnight:rgba(44, 62, 80,1.0);
-@belize:#2980b9;
-@river:#3498db;
-
-// @lightBlue:#ddd;
-@carrot:#e67e22;
+// // @lightBlue:#ddd;
+// @carrot:#e67e22;
 
 @lightRed:   #fdd;
 @lightGreen: #dfd;
@@ -32,6 +33,8 @@
 @defaultShapesWidth:200px;
 @borderSize:@defaultShapesWidth * 0.1;
 
+@light:#eee;
+@dark:#aaa;
 
 
 //////////////////////////////////
@@ -49,14 +52,48 @@
  .border-radius;
 }
 
+.boom(@size:50px){
+  display: inline-block;
+  font-size: 2em;
+  text-align: center;
+  background-color: darken(@light,10%);
+  width: @size;
+  height:@size;
+  line-height: @size;
+  border:solid 2px @dark;
+  .border-radius(@size);
+}
+
+.dot(@size:50px){
+  padding:0;
+  text-align: center;
+  width: @size;
+  height:@size;
+  line-height: @size;
+  border:solid 2px @dark;
+  .border-radius(@size);
+}
 ///////////////////////////////////
+
+.bam{
+  .boom(1.5em);
+  float: left;
+  margin: 5px;
+}
 
 html, body {
      // background-color: @lightRed;
     height: 100%;
 
-    /* The html and body elements cannot have 
+    /* The html and body elements should not have 
     any padding or margin, else they break other features */
+}
+footer{
+  position: fixed;
+  bottom:0;
+  width: 100%;
+  margin:0 !important;
+  // border:solid red 2px;
 }
 
 .user-top{
@@ -64,8 +101,6 @@ html, body {
       display: inline-block;
     }
 }
-
-
 
 ul.tag{
   
@@ -79,9 +114,8 @@ nav{
 // didn't work...
   // background-color: red;
 }
-footer{
-  background-color: blue;
-}
+
+
 
 .thumbnails{
   list-style: none;
@@ -89,8 +123,7 @@ footer{
 
 
 
-
-.theme1{
+html.theme1{
   body{
     background-color: @concrete;
     // color: @clouds;
@@ -116,7 +149,7 @@ footer{
   }
 }
 
-.theme2{
+html.theme2{
 
   body{
     // background-color: @silver;
@@ -179,6 +212,13 @@ footer{
  ///////////////////////////////////////////////////
  // Definitions:;
  //
+ //
+ //
+
+// @borderSize:3px;
+// @borderColor:@asphalt;
+// @defaultThemeColor:@clouds;
+
 .shape{
   border:@borderSize solid @borderColor;
     display:inline-block;

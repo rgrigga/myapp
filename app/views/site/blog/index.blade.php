@@ -26,7 +26,7 @@
 	}
 	h1,h2{
 		/*color:rgba(18,124,166,1);*/
-		/*font-size: 32px;*/
+		font-size: 32px;
 		/*box-shadow: 5px 5px 3px #666666;*/
 	}
 

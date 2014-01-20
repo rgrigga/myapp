@@ -8,5 +8,12 @@
 
 		<img class="shape img-rounded img-responsive" src="{{asset('assets/'.strtolower($company->brand).'/'.$post->image)}}" alt="{{$post->image}}" onerror="imgError(this);">
 
+		<div>
+			{{$post->description}}
+		</div>
+		<div>
+			{{$post->content}}
+		</div>
+
 	</article>
 </aside>

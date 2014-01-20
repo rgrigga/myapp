@@ -8,12 +8,29 @@
 <!-- @ include('admin.nav') -->
 @stop
 @section('main')
-<h1>Help!</h1>
-<p>If you are reading this, I need your help to decide if:</p>
-<ol>
-	<li cladd="btn btn-large btn-success">Good Idea</li>
-	<li cladd="btn btn-large btn-error">Bad Idea</li>
-</ol>
+
+{{--View::make('site/gristech/md5')->with($tag);--}}
+
+
+
+<!-- <iframe src="" frameborder="0"></iframe> -->
+
+
+<?php
+$str=<<<'EOT'
+<?php
+function kindasafe(\$password,$n){
+  for($i=1;$i<$n;$i++){
+    $password = md5($password);
+    echo "<h2>$password</h2>";
+  }
+}
+kindasafe($q,10);
+?>
+EOT;
+?>
+<pre><code><?=e($str)?></code></pre>
+
 <p>The legacy code was written to php 5.2ish, and was object oriented whenever possible.  I did not use a framework.  I created my own framework.  What it lacks in tradition, I beleive it makes up for in foresight for reusability.</p>
 <p>You see, I did not know what MVC was.  I read about "n-tier architecture" and tried to implement that concept into my code.  </p>
 

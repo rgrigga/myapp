@@ -106,7 +106,6 @@ Website Management :::
 		<ul class="dropdown-menu">
 			<li><a href="https://bootsnipp.com/resources">https://bootsnipp.com/resources</a></li>
 			<li>foo</li>
-			<li><a href="#">Something else here</a></li>
 			<li class="divider"></li>
 			<li><a href="tools">Tools Page</a></li>
 		</ul>
@@ -122,7 +121,6 @@ Website Management :::
 	<!-- http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site/18053041#18053041 -->
 
 	<div class="row">
-
 		<div class="piwik collapse" id="piwik">
 			{{$piwik}}
 		</div>
@@ -161,6 +159,8 @@ Website Management :::
 
 <section>
 	{{ $posts->links() }}
+
+<input type="text" placeholder="filter">
 
 		<ul class="thumbnails">
 			@foreach ($posts as $post)
@@ -305,5 +305,7 @@ $c='<img src='.$url.'>';
                 image.src = "http://placehold.it/300x300";
                 return true;
             }
+
+
         </script>
 @stop

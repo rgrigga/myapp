@@ -37,7 +37,16 @@
         <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet"> -->
 
         <!-- Bootstrap -->
-        <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
+        <link rel="stylesheet/less" type="text/css" href="/assets/css/less/master.less" />
+
+        <!-- This display's the company's less page -->
+        <link rel="stylesheet/less" type="text/css" href="/assets/css/less/{{strtolower($company->brand)}}.less" />
+
+        <script src="/assets/js/less.js" type="text/javascript"></script>
+        <script>
+             less.env = "development";
+             less.watch();
+        </script>
 
         <!-- Font-Awesome -->
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
@@ -100,7 +109,28 @@
 @section('favicons')
 <link rel="shortcut icon" href="{{{ asset('assets/'.strtolower($company->brand).'/favicon.png') }}}">
 @show
+{{HTML::script('assets/js/jquery.v1.8.3.min.js')}}
+{{HTML::script('holder.js')}}
 
+{{HTML::script('assets/google-code-prettify/run_prettify.js')}}
+{{HTML::style('assets/css/prettify/tomorrow.css')}}
+
+<?php
+/**
+    $collection->directory('assets/css/prettify', function($collection)
+    {
+        $collection->add('tomorrow.css');
+
+        
+    })->apply('UriRewriteFilter')->setArguments(public_path());
+
+    $collection->directory('assets/google-code-prettify', function($collection)
+    {
+        $collection->add('run_prettify.js');
+
+    })->apply('UriRewriteFilter')->setArguments(public_path());
+*/
+?>
 <!-- holder.js -->
 <script src="{{asset('assets/js/holder.js')}}"></script>
 
@@ -129,7 +159,8 @@
                 <!-- // @ yield('nav') -->
                 @section('nav')
                 {{--View::make('site.partials.nav-top-min')--}}
-                {{View::make('site.partials.nav-top-bs3')}}
+                {{--View::make('site.partials.nav-top-bs3')--}}
+                {{View::make('site.partials.nav-top-minimal')}}
                 @show
 
                 <!-- if (Auth::user('buckeye')) -->
@@ -155,7 +186,8 @@
                             <!-- </ul> -->
                         <!-- </div>  -->
                         @endif
-                    </div>
+                    <!-- </div> -->
+                    <!-- /.admin-top -->
                 @show                
             <!-- </div> -->
             <!-- ./ navwrap -->
@@ -163,73 +195,63 @@
             <!-- @ yield('content') -->
             <div class="contentwrap">
 
-            @include('notifications')
-            
-            <?php
-                $env=App::environment();
-                // echo("<h1>ERROR"."</h1>");
-                // Session::flash('mymessage','Welcome to the <strong>'.$env.'</strong> environment.');
                 
-                // if($env!=="buckeye"){
-
-                // }
-                if(Auth::user('admin')){
-// 1                    $path='/home/ryan/MyApp6/app/views/site/pages/';
-                    // Session::flash('message','Welcome to the <strong>'.$env.'</strong> environment.');
-                }
-                else
-
-                // this is a global setting.
-                // i would also like ability for a setting for the asset directory.
-                //This should be handled in the controller.
-
-
-// 2                $path='../app/views/site/pages/';
-
-                // if($env=="local"){
-                //     $path='/home/ryan/MyApp6/app/views/site/pages/';
-                // }
-                // else{
-                //     $path='/home/gristech/myapp/app/views/site/pages/';
-                // }
-
-            // ACCOUNTS: twitter, facebook, 
-
-// 3                $mypages = array();
-//                 foreach (glob($path."*.blade.php") as $filename) {
-//                     $filename=str_replace($path, "", $filename);
-//                     $filename=str_replace(".blade.php", "", $filename);
-//                     array_push($mypages,$filename);
-//                     // echo "$filename" . "<br>";
-//                 }
-            ?>
-
-
-
-            @if (Session::has('message'))
                 
-                <div class="flash alert">
-                  <button type="button" class="close" data-dismiss="alert"> &times;</button>
-                  <p>{{ Session::get('message') }}</p>
-                </div>
-
-            @endif
-
-            @if (Session::has('mymessage'))
-
-                <div class="flash alert alert-info">
-                  <button type="button" class="close" data-dismiss="alert"><span class="label label-info">Info</span> &times;</button>
-                  <p>{{ Session::get('mymessage') }}</p>
-                  <!-- {{var_dump($_SESSION);}} -->
-                </div>
-
-            @endif
-                {{--var_dump($_SESSION);--}}
-                    <!-- Content -->
-            @yield('main')
+                <?php
+                    $env=App::environment();
+                    // echo("<h1>ERROR"."</h1>");
+                    // Session::flash('mymessage','Welcome to the <strong>'.$env.'</strong> environment.');
                     
+                    // if($env!=="buckeye"){
+
+                    // }
+                    if(Auth::user('admin')){
+    // 1 
+    // $path='/home/ryan/MyApp6/app/views/site/pages/';
+                        Session::flash('message','Welcome Administrator. You are in the <strong>'.$env.'</strong> environment.');
+                    }
+                    else
+
+                    // this is a global setting.
+                    // i would also like ability for a setting for the asset directory.
+                    //This should be handled in the controller.
+
+    // 2
+    // $path='../app/views/site/pages/';
+
+                    // if($env=="local"){
+                    //     $path='/home/ryan/MyApp6/app/views/site/pages/';
+                    // }
+                    // else{
+                    //     $path='/home/gristech/myapp/app/views/site/pages/';
+                    // }
+
+    // ACCOUNTS: twitter, facebook, etc
+
+    // 3             $mypages = array();
+    //                 foreach (glob($path."*.blade.php") as $filename) {
+    //                     $filename=str_replace($path, "", $filename);
+    //                     $filename=str_replace(".blade.php", "", $filename);
+    //                     array_push($mypages,$filename);
+    //                     // echo "$filename" . "<br>";
+    //                 }
+                ?>
+
+                @include('notifications')
+
+
+                    {{--var_dump($_SESSION);--}}
+                        <!-- Content -->
+                <div class="page-header">
+                    @yield('page-header')
+                </div>
+                
+                
+                @yield('main')
+                        
             </div>
             <!-- ./ contentwrap -->
+
             <!-- @ yield('main') -->
             
             
@@ -244,15 +266,18 @@
             
             @yield('hotel')
         </div>
+        <!-- /.container -->
+
         <footer>
         @yield('footer')            
         </footer>
 
-        @javascripts('myapp-js')
+        @javascripts('myapp-js-bottom')
         @javascripts('bs3-js')
 
 
-<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+<!-- <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script> -->
 <!-- <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sunburst"></script> -->
 <script type="text/javascript" charset="utf-8">
     // $(prettyPrint);
@@ -297,18 +322,18 @@
                 // alert('jQuery loaded');
     $(document).ready(function(){
 
-        $('.admin-top').css({'margin-top':($('.user-top').height()+0)+'px'});
-        $('.contentwrap') .css({'padding-top': (
-            $('.user-top').height()
-             + $('.admin-top').height()
-             + 0 )+'px'
-        });
-        $('.india') .css({'top': (
-            20
-            -$('.user-top').height()
-            - $('.admin-top').height()
-            )+'px'
-        });
+        // $('.admin-top').css({'margin-top':($('.user-top').height()+0)+'px'});
+        // $('.contentwrap') .css({'padding-top': (
+        //     $('.user-top').height()
+        //      + $('.admin-top').height()
+        //      + 0 )+'px'
+        // });
+        // $('.india') .css({'top': (
+        //     20
+        //     -$('.user-top').height()
+        //     - $('.admin-top').height()
+        //     )+'px'
+        // });
 
         $('.carousel-inner > .item:first').addClass('active');
         // $('.hero-unit').css('background-color','red');
@@ -323,19 +348,20 @@
             $collapse.collapse('toggle');
         });
 
-    $(window).resize(function(){
-        $('.admin-top').css({'margin-top':($('.user-top').height()+0)+'px'});
-        $('.contentwrap') .css({'padding-top': (
-            $('.user-top').height()
-             + $('.admin-top').height()
-             + 0 )+'px'
+        $(window).resize(function(){
+            // $('.admin-top').css({'margin-top':($('.user-top').height()+0)+'px'});
+
+            // $('.contentwrap') .css({'padding-top': (
+            //     $('.user-top').height()
+            //      + $('.admin-top').height()
+            //      + 0 )+'px'
+            // });
+            // $('.india') .css({'top': (
+            //     -$('.user-top').height()
+            //      - $('.admin-top').height()
+            //      - 20 )+'px'
+            // });
         });
-        $('.india') .css({'top': (
-            -$('.user-top').height()
-             - $('.admin-top').height()
-             - 20 )+'px'
-        });
-    });
       // margin-top: 40px;
                 
                 $('#side-wrapper').height($("#sidebar").height());

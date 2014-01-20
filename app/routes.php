@@ -1,16 +1,38 @@
 <?php
-// http://fabien.potencier.org/media/talk/2008/decouple-your-code-for-reusability-ipc-2008.pdf
 
-// If you read this, I am all ears!  
+
+// trigger_error("Boom");
+
+
+// Use this funciton for debugging
+// Route::any('/',function(){
+//     return View::make('site.pages.debug');
+// });
+
+// or Throw an error anywhere:
+// $msg="bam";
+// trigger_error($msg.__FILE__."~".__LINE__);
+// App::abort('710','wtf!');
+
+// http://fabien.potencier.org/media/talk/2008/decouple-your-code-for-reusability-ipc-2008.pdf
+//
+// If you read this, I am all ears, I am hungry,
+// and I have a deep desire to make the world a 
+// better place through high-quality technology.
+//   
 // Please get in touch with me.
 // ryan.grissinger@gmail.com
-
+// myapp.gristech.com
+// 
 /////////////////////////////////////////////////////
+// Coding Standards /////////////////////////////////
 /////////////////////////////////////////////////////
-/////////////////////////////////////////////////////
-
+//
 //REFACTOR EARLY, REFACTOR OFTEN
-
+//This project aims to be PSR-0 compliant.
+//
+// To Do:
+//
 // UNIT TESTING:
 // https://jtreminio.com/2013/03/unit-testing-tutorial-introduction-to-phpunit/
 // http://net.tutsplus.com/tutorials/php/all-about-mocking-with-phpunit/
@@ -19,14 +41,12 @@
 // APACHE & PHP
 // http://www.debian-administration.org/articles/412
 // https://help.ubuntu.com/community/ApacheMySQLPHP
-
-// phpinfo();
-// die();
-
-// die("ROUTES");
-// $foo="bar"; //fails here: scope does not apply within routes.
+//
+// trying to define $foo="bar" here fails. The global scope does not apply within routes. 
 
 // https://github.com/laravel/laravel/issues/2164 - laravel multisite discussion
+// "The primary issue isn't about rerouting the vendor folder but instead handling autoloading. Each time you run composer dump-autoload, a fresh vendor/composer/autoload_*.php is created specifically based on your project composer.json. Now if you have two or more project sharing the vendor folder, you'll end up overwriting each project autoload schema and it wouldn't work."
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -38,11 +58,7 @@
 |
 */
 
-// Use this funciton for debugging
-// Route::any('/',function(){
-//     die('bam');
-//     return View::make('site.pages.debug');
-// });
+
 
 /** ------------------------------------------
  *  Route model binding
@@ -57,11 +73,17 @@ Route::model('post', 'Post');
 Route::model('role', 'Role');
 Route::model('company','Company');
 
+// See Also :
 
-// The next function helps, for example, a given company's home page 
-// display only those posts belonging to that company.
 
-// Nervous about misuse of globals? Read about IOC and dep. inj.
+// The next function helps, for example, on Company's home page. 
+// You'll display only those posts belonging to that company.
+
+// Does your application use 
+//  * Globals Variables? Singletons?  Registriy Pattern? 
+// 
+// Read about the IOC container and Dependency Injeciton:  To Understand and get the most from Laravel, you should understand 
+// 
 // bit.ly/16QfIPW 
 // http://www.slideshare.net/go_oh/singletons-in-php-why-they-are-bad-and-how-you-can-eliminate-them-from-your-applications
 // http://stackoverflow.com/questions/7770728/group-vs-role-any-real-difference
@@ -69,12 +91,31 @@ Route::model('company','Company');
 
 App::singleton('company', function()
 {
+    
     $env=App::environment();
-    $company = New Company;
-    $company = $company->where('brand','like',$env)->first();
-    // View::share('company',$company);
+    // dd($env);
+    if($env=='local'){
+        $brand='gristech';
+    }
+
+    else(trigger_error("Company Problem"));
+
+    $company = Company::where('brand','like','%'.$brand.'%')->first();
+
+    // dd($company);
+
+    if(!$company){
+        // dd("Bam");
+        trigger_error("No company for ".$brand);
+    }
+    // dd($brand);
     return $company;
+
 });
+
+$company=App::make('company');
+View::share('company',$company);
+
 
 // ??
 // View::composer('*',function($view){
@@ -90,11 +131,10 @@ App::singleton('company', function()
 Route::resource('tweets', 'TweetsController');
 
 // This is interesting, but needs further exploration
-View::composer('*.home',function($view){
-// View::composer('*.megacorp.*',function($view){
+// View::composer('*.home',function($view){
+View::composer('*.megacorp.*',function($view){
     $view->nest('searchbox','site.partials.searchbox');
     $view->nest('social','site.partials.social');
-
     // ?? Does nesting too many views here affect 
     // performance?
 });
@@ -103,7 +143,7 @@ View::composer('*.home',function($view){
 //     // return Company::where('brand',"LIKE",'gristech')->first();
 // });
 
-// View::share('company', $company);
+// View::share('searchbox', 'site.partials.searchbox');
 
 
 // $comp=App::make('company');
@@ -146,15 +186,27 @@ View::composer('*.home',function($view){
     //     return Response::json(array('filelink' => '/img/' . $fileName));
     // });
 
-// Redactor Blog Upload (incomplete)
+////////////////////////////////////////////////////////////////
+// Redactor (incomplete)
 // Deimplementing redactor at this time, It's a great tool,
-// but i don't to be dependent on it
-///////////////////////////////////////////////////////////////////////
+// but i don't want to pay for it right now, or be dependent on it
+////////////////////////////////////////////////////////////////
 
 //here is a demo for the current WYSIWYG editor:
     Route::get('bootstrap-wysiwyg',function(){
         return Redirect::to('/assets/js/bootstrap-wysiwyg/index.html');
     });
+
+
+Route::get('demo/{tag}','BlogController@getDemo');
+
+Route::get('viviosoft','VivioController@getIndex');
+Route::get('viviosoft/demo','VivioController@getDemo');
+Route::get('viviosoft/demo/{tag}','VivioController@getDemo');
+Route::get('viviosoft/{tag}','VivioController@getPage');
+
+Route::controller('resume', 'ResumeController');
+
 
 /**
     
@@ -306,23 +358,36 @@ Route::group(array('domain' => 'myapp.devfoo'),function(){
 ///////////////// IOC CONTAINER //////////////////////////////////
 //////////////////////////////////////////////////////////////////
     
-    // Route::any('mytest',function(){
-    //     return "myapp.dev mytest $foo";
-    // });
+    Route::any('mytest',function(){
+        return "myapp.dev mytest $foo";
+    });
+
+    Route::any('osspeac',function(){
+        $company=Company::where('brand','like','osspeac')->first();
+        if(!$company){
+            return ("Company does not exist. Consider <a href=".URL::to("admin/companies").">admin/companies</a>");
+        }
+        return View::make('company.osspeac.home')
+        ->with(compact('company'));
+    });
 
 Route::group(array('domain' => 'myapp.dev'),function()
 {
 
-    // Route::get('js',function(){
-    //     return View::make('site.gristech.js');
-    // });
+    Route::get('js',function(){
+        return View::make('site.gristech.js');
+    });
 
-    Route::get('lesstest',function(){
-        return View::make('site.gristech.lesstest');
+    Route::get('less',function(){
+        return View::make('site.gristech.less');
     });
 
     Route::get('sasstest',function(){
         return View::make('site.gristech.sasstest');
+    });
+
+    Route::get('md5',function(){
+        return View::make('site.gristech.md5',compact('company'));
     });
 	 // App::bind('company', function($app)
 		// {
@@ -385,11 +450,9 @@ Route::group(array('domain' => 'myapp.dev'),function()
         $cookie = Cookie::make('name', 'value');
         $content="Hello.</br>";
         return Response::make($content)->withCookie($cookie);
-
     });
 
-    // $data=array(compact('company'));
-	// ->with('warning',$message);
+    
 
     // View::composer('home', function($view)
     //     {
@@ -397,12 +460,13 @@ Route::group(array('domain' => 'myapp.dev'),function()
     //     });
 
     Route::get('mytest',function(){
-        // die("BAM");
+        // $company="Megacorp";
+        // $data=array(compact('company'));
         // $success="You did it!";
        return View::make('site.gristech.mytest')
             ->with('success','You did it!');
             // ->withInput(Input::except('password'))
-            
+            // ->with($data);
             // ->with( 'success', $success )
             // ->with( 'error', $error )
             // ->with( 'warning', $warning )
@@ -433,6 +497,7 @@ Route::group(array('domain' => 'myapp.dev'),function()
         return View::make('site.'.$brand.'.home')
          ->with(compact('company'));
          //posts?
+         //need a controller...
     });
 
 
@@ -458,6 +523,7 @@ Route::group(array('domain' => 'myapp.dev'),function()
     });
 
     
+
     Route::get('companies','CompaniesController@getIndex');
 
     Route::get('company','CompaniesController@getIndex');
@@ -485,6 +551,8 @@ Route::group(array('domain' => 'myapp.dev'),function()
     Route::post('search', 'BlogController@postSearch');
     Route::get('search', 'BlogController@getSearch');
 
+    Route::get('docs','BlogController@getDocs');
+
     //each domain has its own method available in CompanyController.
     Route::get('/{tag}','BlogController@getIndex');
     Route::get('/', 'BlogController@getIndex');
@@ -497,6 +565,16 @@ Route::group(array('domain' => 'myapp.dev'),function()
 // Route::get('/', 'CompanyController@gristech');
 
 });
+
+// Route::group(array('domain' => 'buckeyemower.com'),function(){
+    // Route::any('bam',function(){
+        //return "buckeyemower bam";
+    // });
+// });
+    // 
+    //    
+
+
 /**
 
     BUCKEYE
@@ -693,12 +771,18 @@ Route::group(array('domain' => 'buckeyemower.com'),function(){
 
     // });
 
+// Route::get('osspeac',array('as' => 'company/osspeac','uses'=>'CompanyController@getIndex'));
+Route::get('sewcute',array('as' => 'company/sewcute','uses'=>'CompanyController@sewcute'));
+Route::get('buckeye',array('as' => 'company/buckeye','uses'=>'CompanyController@buckeye'));
+
 Route::get('contact',function(){
     return Redirect::to('blog/contact');
 });
-    Route::get('blog/contact',function(){
-        // die('boom');
-    });
+
+Route::get('blog/contact',function(){
+    // die('boom');
+});
+
     Route::get('blog/contact/{foo}','BlogController@getContact')
     ->where('name', '[a-zA-Z_]+');
     Route::get('blog/contact','BlogController@getContact');
@@ -720,8 +804,6 @@ Route::get('companies',function(){
 });
 // Route::get('advantage','CompanyController@getIndex',array('name'=>'advantage'));
 
-
-
 // Route::get('company/pages/{page}',function($page){
 //     // die(var_dump($page));
 //     return View::make('site.gristech.pages.'.$page);
@@ -734,6 +816,7 @@ Route::get('company/{id}','CompanyController@show')
     ->where('id', '[0-9]+');
 Route::get('company/{name}','CompanyController@getIndex')
     ->where('name', '[a-zA-Z_]+');
+
 
 //////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////
@@ -854,6 +937,8 @@ Route::get('blog', 'BlogController@getIndex');
 //     // var_dump($company);
 // });
 
+
+
 Route::get('mytest',function(){
     return View::make('site.gristech.mytest');
 });
@@ -872,6 +957,7 @@ Route::get('/{tag}', 'BlogController@getIndex');
 
 
 // $company=Company::where('brand','like','gristech')->first();
+// var_dump(App::make('company'));
 Route::get('/', 'BlogController@getIndex');
 
     // ->with($company)

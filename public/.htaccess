@@ -1,16 +1,37 @@
 <IfModule mod_rewrite.c>
-	Options -MultiViews
+
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
 	RewriteEngine On
+
+    # Redirect Trailing Slashes...
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+#OLD (LARAVEL 4.0):
+   RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+   RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+   RewriteCond %{REQUEST_FILENAME} !-d
+   RewriteRule ^(.+)/$ http://%{HTTP_HOST}/$1 [R=301,L]
+
+   RewriteCond %{REQUEST_FILENAME} !-f
+   RewriteRule ^ index.php [L]
+
+#NEW: 4.1:
+    # Handle Front Controller...
+#    RewriteCond %{REQUEST_FILENAME} !-d
+#    RewriteCond %{REQUEST_FILENAME} !-f
+#    RewriteRule ^ index.php [L]
+
+</IfModule>
+
 
 # http://stackoverflow.com/questions/234723/generic-htaccess-redirect-www-to-non-www redirect.  
 # Test this at http://www.stepforth.com/resources/server-header-checker-tool
 
-	RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-	RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 
-	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule ^(.+)/$ http://%{HTTP_HOST}/$1 [R=301,L]
 
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteRule ^ index.php [L]
-</IfModule>
+
+
+

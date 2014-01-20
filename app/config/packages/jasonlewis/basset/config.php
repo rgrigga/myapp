@@ -42,6 +42,23 @@ return array(
             })->apply('UriRewriteFilter')->setArguments(public_path());
         },
 
+        'bs.3.0.1-css' => function($collection)
+        {
+
+            $collection->directory('assets/bootstrap-3.0.1', function($collection)
+            {
+                //$collection->add('less/bootstrap.less')->apply('Less'); 
+
+            // $collection->directory('assets/bs3/css', function($collection)
+            // {
+            //     $collection->add('bootstrap.min.css');
+                // $collection->add('mystyle.css');
+                // $collection->add('../less/master.less')->apply('Less');
+            
+            })->apply('UriRewriteFilter')->setArguments(public_path());
+
+        },
+
         'bs3-css' => function($collection)
         {
 
@@ -55,6 +72,18 @@ return array(
                 // $collection->add('mystyle.css');
                 // $collection->add('../less/master.less')->apply('Less');
             
+            })->apply('UriRewriteFilter')->setArguments(public_path());
+
+        },
+
+        'bs.3.0.1-js' => function($collection){
+
+            // JS ////////////////////////
+            $collection->directory('assets/bootstrap-3.0.1/dist/js', function($collection)
+            {
+                // $collection->add('jquery.v1.8.3.min.js');
+                $collection->add('bootstrap.min.js');
+                $collection->add('myjs.js');
             })->apply('UriRewriteFilter')->setArguments(public_path());
 
         },
@@ -89,13 +118,45 @@ return array(
             })->apply('UriRewriteFilter')->setArguments(public_path());
 
         },
+
+        'prettify' => function($collection)
+        {
+            $collection->directory('assets/css/prettify', function($collection)
+            {
+                $collection->add('tomorrow.css');
+
+                
+            })->apply('UriRewriteFilter')->setArguments(public_path());
+
+            $collection->directory('assets/google-code-prettify', function($collection)
+            {
+                $collection->add('run_prettify.js');
+
+            })->apply('UriRewriteFilter')->setArguments(public_path());
+        },  
         
-        'myapp-js' => function($collection)
+        'myapp-js-top' => function($collection)
         {
             $collection->directory('assets/js', function($collection)
             {
                 $collection->add('jquery.v1.8.3.min.js');
                 $collection->add('holder.js');
+                // $collection->add('site.js');
+                // $collection->add('wysihtml5/wysihtml5-0.3.0.js');
+                // $collection->add('prettify.js');
+                // $collection->add('bootstrap/bootstrap.min.js');
+                // $collection->add('wysihtml5/bootstrap-wysihtml5.js');
+                // $collection->add('redactor/redactor.min.js');
+                
+            })->apply('UriRewriteFilter')->setArguments(public_path());
+        },  
+
+        'myapp-js-bottom' => function($collection)
+        {
+            $collection->directory('assets/js', function($collection)
+            {
+                // $collection->add('jquery.v1.8.3.min.js');
+                // $collection->add('holder.js');
                 $collection->add('site.js');
                 // $collection->add('wysihtml5/wysihtml5-0.3.0.js');
                 // $collection->add('prettify.js');

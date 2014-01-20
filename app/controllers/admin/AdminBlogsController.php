@@ -1,8 +1,9 @@
 <?php
 
 class AdminBlogsController extends AdminController {
-    // should also inherit from and extend blogs controller.
-    // admin is a much simpler class. Why not just create a 
+    // Could also inherit from and extend blogs controller.
+    
+    // Admin is a much simpler class. Why not just create a 
     // method (interface) for admin and change the inheritance
     // to Blog?  Better yet, why not use polymorphism?
     

@@ -1,17 +1,27 @@
-@extends('layouts.scaffold')
+@extends('layouts.bootstrap3')
 
+@section('page-header')
+{{$company->img()}}
+<h2>{{$company->name}}</h2>
+<h4>{{$company->slogan}}</h4>
+@stop
 @section('main')
 <h1>Show Company</h1>
 
 <p>{{ link_to_route('companies.index', 'Return to all companies') }}</p>
 
-<pre class="prettyprint">{{var_dump($company)}}</pre>
+<a href="#vardump" class="btn" data-toggle="collapse" data-target="#vardump">Vardump($company)</a>
+<div class="collapse" id="vardump">
+<pre class="prettyprint">{{var_dump($company)}}</pre>    
+</div>
 
-    <div class="row-fluid">
-        <div class="span4">
-            <!-- <div class="pull-right"> -->
-            <!-- <img src="{{asset($company->image)}}" alt="MyImage"> -->
-            <!-- </div> -->
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>Company Info</h4>
+        </div>
+        <div class="panel-body">
             <div>ID: {{{ $company->id }}}</div>
             <div>Name: {{{ $company->name }}}</div>
             <div>Brand: {{{ $company->brand }}}</div>
@@ -20,10 +30,11 @@
             <div>Description: {{{ $company->description }}}</div>
             <div>Slogan: {{{ $company->slogan }}}</div>
             <div>Image: {{{ $company->image }}}</div>
-            <div>Menus: {{{ $company->menus }}}</div>
+            <div>Menus: {{{ $company->menus }}}</div>            
         </div>
     </div>
-    <div class="row-fluid">
+
+    <div class="center-block">
         <div class="span4">
             {{$about}}
         </div>

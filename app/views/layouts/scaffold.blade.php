@@ -2,8 +2,6 @@
 <html lang="en">
 <!-- http://stackoverflow.com/questions/1461907/html-encoding-issues-character-showing-up-instead-of-nbsp -->
 
-{{--App::abort('404',var_dump($company));--}}
-
 <!-- This is layouts.scaffold -->
 <!-- check out http://flatuicolors.com/ -->
     <head>
@@ -21,11 +19,9 @@
         ================================================== -->
         <!-- More info on this: http://coding.smashingmagazine.com/2011/01/12/guidelines-for-responsive-web-design/ -->
 
-        <!-- if you forgot to stick this line in the page.  The full site appears on a mobile device... -->
+        <!-- if you don't include this next line, The full site appears bad on a mobile device... -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @show
-
-
 
 <!-- STYLES **********************************-->
         
@@ -44,7 +40,8 @@
     <!-- COMPILED -->
     <!-- Configure list of files as a json array, -->
     <!-- Compile them, and your webpage is faster. -->
-        <!-- @stylesheets("public-css") -->
+        <!-- @ stylesheets("public-css") -->
+        @stylesheets("bs3")
     
     <!-- EXTERNAL -->
         <link rel="stylesheet" href="/assets/css/style.css">
@@ -164,7 +161,25 @@
                 @show                
             </div>
 
+            @if (Session::has('admin'))
+                
+                <div class="flash alert">
+                  <button type="button" class="close" data-dismiss="alert"> &times;</button>
+                  <p>{{ Session::get('admin') }}</p>
+                  <!-- {{var_dump($_SESSION);}} -->
 
+                </div>
+
+            @endif
+
+            @if (Session::has('user'))
+
+                <div class="flash alert alert-info" id="">
+                  <button type="button" class="close" data-dismiss="alert"><span class="label label-info">Info</span> &times;</button>
+                  <p>{{ Session::get('user') }}</p>
+                </div>
+
+            @endif
 
             
             <!-- @ yield('content') -->
@@ -174,15 +189,14 @@
             
             <?php
                 $env=App::environment();
-                // echo("<h1>ERROR"."</h1>");
-                // Session::flash('mymessage','Welcome to the <strong>'.$env.'</strong> environment.');
+                // Session::flash('envirMsg','Welcome to the <strong>'.$env.'</strong> environment.');
                 
                 // if($env!=="buckeye"){
 
                 // }
                 if(Auth::user('admin')){
 // 1                    $path='/home/ryan/MyApp6/app/views/site/pages/';
-                    // Session::flash('message','Welcome to the <strong>'.$env.'</strong> environment.');
+                    Session::flash('adminMsg','You are an administrator.<strong> --'.$env.'</strong> environment.');
                 }
                 else
 
@@ -212,25 +226,6 @@
             ?>
 
 
-
-            @if (Session::has('message'))
-                
-                <div class="flash alert">
-                  <button type="button" class="close" data-dismiss="alert"> &times;</button>
-                  <p>{{ Session::get('message') }}</p>
-                </div>
-
-            @endif
-
-            @if (Session::has('mymessage'))
-
-                <div class="flash alert alert-info">
-                  <button type="button" class="close" data-dismiss="alert"><span class="label label-info">Info</span> &times;</button>
-                  <p>{{ Session::get('mymessage') }}</p>
-                  <!-- {{var_dump($_SESSION);}} -->
-                </div>
-
-            @endif
                 {{--var_dump($_SESSION);--}}
                     <!-- Content -->
             @yield('main')
@@ -244,7 +239,7 @@
                 @section('admin-bottom')
                     <div class="admin-bottom">
                         <h6>Admin-bottom</h6>
-                        <p>Override this on the home page</p>
+                        <p>Override this text on the home page</p>
                     </div>
                 @show
             @endif

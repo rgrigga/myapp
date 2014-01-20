@@ -132,7 +132,7 @@ app
     </div>
     <div id="jsCode" class="panel-collapse collapse">
       <div class="panel-body">
-<p>I pasted this into my assets/js/site.js file.  It could also be included in an external file, or on an individual page, within a {{{'<style>'}}} tag.</p>
+<p>I pasted this into my assets/js/site.js file.  It could also be included in an external file, or on an individual page, within a {{{'<script>'}}} tag.</p>
 <pre class="prettyprint">
 function loadXMLDoc(input)
 {

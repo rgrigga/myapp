@@ -1,4 +1,5 @@
 @extends('layouts.bootstrap3')
+<!-- @ extends('layouts.scaffold') -->
 
 {{-- Web site Title --}}
 @section('title')
@@ -23,23 +24,35 @@
         <!-- <link rel="stylesheet/less" type="text/css" href="/assets/css/less/tools.less" /> -->
 
         <script src="/assets/js/less.js" type="text/javascript"></script>
-
+<style>
+    .form-control{
+        width: 100%;
+    }
+</style>
 
         <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"> -->
 
 @stop
 
 
-
-{{-- Content --}}
-@section('main')
+@section('page-header')
 <h1>
     {{{$company->brand}}}
 </h1>
+<p>{{{ Lang::get('user/user.login') }}}</p>
+<p class="lead">This system provides:</p>
+<p>Authorization and Authentication via Confide</p>
+<p>Role and Group Management</p>
+
+@stop
 
 
+{{-- Content --}}
+@section('main')
+<section class="login" id="login">
+    
 <div class="jumbotron">
-    <div class="container">
+    <!-- <div class="container"> -->
 
         <form method="POST" action="{{ URL::to('user/login') }}" accept-charset="UTF-8" role="form" class="form-horizontal">
 
@@ -83,7 +96,7 @@
                 <button tabindex="3" type="submit" class="btn btn-default">{{ Lang::get('confide::confide.login.submit') }}</button>
             </fieldset>
         </form>
-    </div>
+    <!-- </div> -->
     <!-- container -->
 </div>
 <!-- /.jumbotron -->
@@ -100,5 +113,7 @@
 <!-- // Popup form here?-->
 </div>
 <!-- jumbotron -->
+
+</section>
 
 @stop

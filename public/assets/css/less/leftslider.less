@@ -1,0 +1,344 @@
+// no docs clearly explain to include this,
+// but it is necessary...
+// how frustrating!
+@import "/assets/bootstrap/less/bootstrap.less";
+
+// Oranges
+@carrot:#e67e22;
+@sunflower:#f1c40f;
+
+//Greys:
+@clouds: rgba(236, 240, 241,1.0);
+@silver:#bdc3c7;
+@concrete:#95a5a6;
+@asbestos:#7f8c8d;
+
+// Blues;
+@asphalt:#34495e;
+@midnight:rgba(44, 62, 80,1.0);
+@belize:#2980b9;
+@river:#3498db;
+
+@dark:black;
+@light:@clouds;
+
+@dkgrey:#48484a;
+@ltgrey:#818285;
+@white:#fff;
+
+body{
+	background-color: @light;
+}
+p,h1,h2,h3,h4,h5,h5,li{
+  color:@dark;
+}
+
+@dkgrey:#48484a;
+@ltgrey:#818285;
+@white:#fff;
+
+// #sidebar{
+//   // position:fixed;
+//   // top:70px;
+// }
+
+.sidebar-nav{
+  padding: 5px;
+  background-color: @ltgrey;
+  ul > li {
+    &.active{background-color: @dkgrey}
+    a{
+      color: @white;
+      &:hover{ background-color: @dkgrey }
+      &:focus{ background-color: @dkgrey }
+    }
+    // background-color: @ltgrey;
+    color: @white;
+  }
+}
+
+.sidebar-nav header{
+  padding: 5px;
+  background-color: @dkgrey;
+  ul > li {
+    &.active{background-color: @ltgrey}
+    a{
+      color: @white;
+      &:hover{ background-color: @ltgrey }
+      &:focus{ background-color: @ltgrey }
+    }
+    // background-color: @ltgrey;
+    color: @white;
+  }
+}
+
+.open > .dropdown-menu {
+background-color: @dkgrey;
+  li {
+    &.active{background-color: @dkgrey}
+    a{
+      color: @white;
+      &:hover, &:focus{ 
+        background-color: @ltgrey;
+        color: @white;
+       }
+
+    }
+  }
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus{
+  background-color: @dkgrey;
+  color: @white;
+}
+
+
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 768px) {
+  .row-offcanvas {
+    position: relative;
+    top:0;
+    /*left:0;*/
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    // position: fixed;
+    top:50px;
+    left: -75%; /* 9 columns */
+  }
+
+  .row-offcanvas-right.active {
+    right: 50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left.active {
+    left: 75%; /* 6 columns */
+    .sidebar-offcanvas{
+      position: fixed;
+      left:-1%;
+      top:50px;
+      -webkit-transition: all 0.25s ease-out;
+      -moz-transition: all 0.25s ease-out;
+      transition: all 0.25s ease-out;
+    }
+  }
+
+
+
+  .sidebar-offcanvas {
+    position: absolute;
+    // top: 70px;
+    /*left:0;*/
+    width: 75%; /* 9 columns */
+  }
+}
+
+
+/*
+ * More
+ */
+
+.navbar-inverse{
+  background-color: @dark;
+  color:@light;
+}
+
+.content-header {
+  // padding: 15px;
+  background-color: lighten(@dark, 10%);
+  p,h1,h2,h3,h4,h5,h5,li{
+    color:@clouds;
+  }
+}
+.content-main {
+  // background-color: @clouds;
+  background-color: darken(@light, 10%);
+  // .make-md-column(6);
+}
+.content-secondary {
+  background-color: spin(@dark,100);
+  p,h1,h2,h3,h4,h5,h5,li{
+    color:@light;
+    }
+  padding-bottom: 15px;
+  // .make-md-column(6);
+}
+
+.footer{
+  background-color: @dark;
+  p {
+    color:@light;
+  }
+  .make-row;
+}
+
+div.shaded{
+        background-color: fade(@belize, 25%);
+        // background-color: rgba(10,50,150,.2);
+        min-width: 20px;
+        min-height: 20px;
+        margin-top: 5px;
+        padding: 10px;
+        border: solid black 3px;
+      }
+
+.thumbnail{
+	// background-color: @carrot;
+}
+
+  a:hover{
+    text-decoration: none;
+  }
+  a:hover i{
+    color: orange;    
+  }
+
+.active i.icon-chevron-down{ display:inline-block; }
+.active i.icon-chevron-left { display:none;}
+
+.inactive i.icon-chevron-down{ display:inline-block; }
+.inactive i.icon-chevron-left { display:none;}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus{
+  background-color: @carrot;
+}
+
+.admin-top{
+	background-color: @sunflower;
+}
+.admin-bottom{
+	background-color: @sunflower;
+}
+
+
+.posts{
+	.make-row();
+}
+.posts article{
+	background-color: @dark;
+	color:@light;
+}
+
+/*from the bootstrap docs:*/
+    /* Large desktop */
+  @media (min-width: 1200px) { 
+
+      .hotel{
+              background-color: yellow;
+              color:purple;
+
+      }
+
+      .hero-unit h1{
+          margin-top: 1em;
+          
+      }
+
+  }
+
+/*REALLY important!*/
+
+  @media (min-width: 980px){
+      .hero-unit{
+          margin-top:60px;
+      }
+      /*.foobar{*/
+          /*margin-top: 40px;*/
+      /*}*/
+
+
+  }
+
+  /* Portrait tablet to landscape and desktop */
+  @media (min-width: 980px) and (max-width: 1199px) { 
+        .hotel{
+            background-color: blue;
+            color:orange;
+        }
+
+        /* body { 
+        background-color: red;
+                padding-top: 40px; }
+        you can't do this!
+                */
+    }
+
+  /* Portrait tablet to landscape and desktop */
+  @media (min-width: 768px) and (max-width: 979px) { 
+    .hotel{
+        background-color: red;
+        color:green;
+    }
+/*                body { 
+background-color: red;
+    padding-top: 40px; }*/
+  }
+
+  /* up to desktop */
+  @media (max-width: 979px) { 
+/* 
+      .hotel{
+          background-color: green;
+          color:red;
+
+      }*/
+
+/*      .jumbotron{
+        margin-top: -20px;
+        z-index: -3;
+      }*/
+
+   }
+
+    @media (min-width: 480px) and (max-width: 979px) { 
+      .hotel{
+          background-color: green;
+          color:red;
+      }
+
+    .hotelb{
+          /*background-color: red;*/
+          height: 80px;
+          width: 60px;
+          border-top-left-radius:60px;
+      }
+
+    }
+     
+    /* Landscape phones and down */
+    @media (max-width: 480px) { 
+              
+        .modal{
+          width: 90%;
+          margin-left: 0px;
+        }
+
+        .hotel{
+            background-color: orange;
+            color:blue;
+        }
+
+        .hotelb{
+            /*background-color: red;*/
+            height: 60px;
+            width: 40px;
+            border-top-left-radius:60px;
+        }
+    }
+
+footer img{
+	max-height: 60px;
+}

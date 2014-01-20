@@ -1,4 +1,5 @@
-@extends('site.layouts.bs3')
+<!-- // @ extends('site.layouts.bs3') -->
+@extends('layouts.scaffold')
 
 @section('title')
 
@@ -16,13 +17,18 @@
 @stop
 
 @section('styles')
-@parent
-	<link rel="stylesheet/less" type="text/css" href="/assets/css/less/master.less" />
+<!-- @ parent -->
+	<link rel="stylesheet/less" type="text/css" href="/assets/bs3/less/master.less" />
 
 	<!-- This display's the company's less page -->
 	<link rel="stylesheet/less" type="text/css" href="/assets/css/less/{{strtolower($company->brand)}}.less" />
 
 	<script src="/assets/js/less.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+	     less.env = "development";
+	     less.watch();
+	</script>
 
 <!-- http://colorschemedesigner.com/#0k41Jw0w0w0w0 -->
 <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine"> -->
@@ -34,8 +40,6 @@
 
 	<!-- @ stylesheets('gristech') -->
 	<!-- assets/css/less/gristech.less -->
-
-
 
 <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
 
@@ -291,6 +295,10 @@ div {
 		<!-- <link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}"> -->
 		<link rel="shortcut icon" href="{{{ asset('assets/'.strtolower($company->brand).'/ico/favicon.png') }}}">
 @stop
+
+
+<!-- There is also google analytics code on the parent page. -->
+<!-- TODO: Consolidate these -->
 <!-- Piwik -->
 <script type="text/javascript">
   var _paq = _paq || [];
@@ -397,8 +405,8 @@ div {
 @section('main')
 <?php
 $env=App::environment();
-	// echo "<div class='alert alert-info'>Welcome to the <strong>".$env."</strong> environment.</div>";
-
+	echo "<div class='alert alert-info'>Welcome to the <strong>".$env."</strong> environment.</div>";
+// App::abort('701');
 if($env=="local"){
 	$path='/home/ryan/MyApp6/app/views/site/pages/';
 }
@@ -474,9 +482,9 @@ foreach (glob($path."*.blade.php") as $filename) {
 	</body>
 </html>'}}}
 </pre>
-<p>I've got all kinds of other code in there, but that's all there is to the <em>scaffolding</em> of my site.</p>
-<p>Posts, pages, and other blocks of content are just that: blocks.  By using sensible and consistent class names, we can make changes and move things around with ease.</p>
-<p>contrast that to something like this:</p>
+<p>That's all there is to the basic <em>scaffolding</em> of this site.</p>
+<p>Posts, pages, and other blocks of content are just that: <em>blocks</em>.  By using sensible and consistent class names, we can make changes and move things around with ease.</p>
+<p>Contrast that idea to something like this:</p>
 <pre class="prettyprint"><code>
 {{{'<div class="mypage4" class="red pull-right span7 admin large shaded">blah blah blah</div>'}}}
 </code></pre>
@@ -623,7 +631,7 @@ foreach (glob($path."*.blade.php") as $filename) {
 
 							<p><a href="http://stackoverflow.com/questions/4781077/html5-best-practices-section-header-aside-article-tags">HTML5 best practices</a></p>
 
-							<a href="/responsive" data-toggle="tab">
+							<a href="{{URL::to('responsive')}}">
 								<h3>Responsive Design</h3>
 							</a>
 							<p>You may have noticed this page changes when resized.  Try it, it's awesome!</p>
@@ -763,9 +771,9 @@ View::make('site.posts.list')->with('posts',$posts)
 @section('secondary')
 
 <div class="sidebar">
-	<section>
-		<h2><a href="#CSS">How-to's & Demos</a></h2>
-<p class="muted credit">These are few things I have created.  Please let me know if you like them.</p>
+	<section id="demo">
+		<h2><a href="#demo">How-to's & Demos</a></h2>
+<p class="muted credit">These are few demos I have created.</p>
 		<!-- <article> -->
 			<!-- <a href="#">link</a> -->
 		<!-- </article> -->
@@ -781,7 +789,9 @@ View::make('site.posts.list')->with('posts',$posts)
 		<li><a class="btn btn-info" href="{{URL::to('ajax')}}">Ajax</a></li>
 		<li><a class="btn btn-info" href="{{URL::to('arrays')}}">PHP arrays</a></li>
 		<li><a class="btn btn-info" href="{{URL::to('pages/parallax')}}">parallax</a></li>
-		<li><a class="btn btn-info" href="{{URL::to('pages/jparallax')}}">jparallax</a></li>
+		<li><a href="{{URL::to('demo/alpha')}}" class="btn btn-warning">Bootstrap Walkthrough</a></li>
+		<li><a class="btn btn-info" href="{{URL::to('demo/foxtrot')}}">Navbar Overlap</a></li>
+		<!-- <li><a class="btn btn-info" href="{{URL::to('pages/jparallax')}}">jparallax</a></li> -->
 		<!-- http://myapp.gristech.com/pages/jparallax -->
 
 
@@ -870,28 +880,35 @@ View::make('site.posts.list')->with('posts',$posts)
 
 
     <script type="text/javascript">
-$(document).ready(function(){
-	$("#mybutton").click(function () {
-		$("#myp").toggle("slow");
-	});
-});
-// 	$("#toggler").click(function(){
-// 	  $(this).toggleClass('active, inactive');
-// 	})
+		$(document).ready(function(){
+			$("#mybutton").click(function () {
+				$("#myp").toggle("slow");
+			});
+		
+        // $('#side-wrapper').height($("#sidebar").height());
 
-// })
-                // $('.page-header').css('background-color','red');
-                $('#side-wrapper').height($("#sidebar").height());
-                $('.toggler .btn').on('click', function(e) {
-                        e.preventDefault();
-                        var $this = $(this);
-                        var $collapse = $this.closest('.collapse-group').find('.collapse');
-                        // $collapse.collapse('toggle');
-                        $collapse.toggle("slow");
-                    });
-                    // $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
+        	$('.toggler .btn').on('click', function(e) {
+                e.preventDefault();
+                var $this = $(this);
+                var $collapse = $this.closest('.collapse-group').find('.collapse');
+                // $collapse.collapse('toggle');
+                $collapse.toggle("slow");
+            });
 
-                    // $('.thumbnail').equalHeights();
+
+
+		});
+
+		// 	$("#toggler").click(function(){
+		// 	  $(this).toggleClass('active, inactive');
+		// 	})
+
+		// })
+        // $('.page-header').css('background-color','red');
+
+            // $('#about').tooltip({'placement':'top', 'trigger' : 'hover'});
+
+            // $('.thumbnail').equalHeights();
     </script>
 @stop
 

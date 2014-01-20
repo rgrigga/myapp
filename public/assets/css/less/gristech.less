@@ -1,7 +1,10 @@
-// no docs clearly explain to do this include anywhere, 
-// but it is necessary...
-// how frustrating!
-@import "/assets/less/bootstrap.less";
+@import "/assets/bootstrap-3.0.1/less/bootstrap.less";
+@import "/assets/css/less/colors.less";
+
+@light:@silver;
+@dark:@pomegranate;
+
+@import "/assets/css/less/company.less";
 
         table form { margin-bottom: 0; }
         form ul { margin-left: 0; list-style: none; }
@@ -12,39 +15,38 @@
         section, article, aside, footer, header, nav, hgroup {
           display:block;
         }
-        .alert {
-            position: relative;
-            margin-right: auto;
-            /*width: 100%;*/
-            top: 80px;
-            z-index: 10;
-        }
+        // .alert {
+        //     position: relative;
+        //     margin-right: auto;
+        //     /*width: 100%;*/
+        //     top: 80px;
+        //     z-index: 10;
+        // }
         .navwrap{
             overflow: hidden;
         }
 
-// Oranges
-@carrot:#e67e22;
-@sunflower:#f1c40f;
+// // Oranges
+// @carrot:#e67e22;
+// @sunflower:#f1c40f;
 
-//Greys:
-@clouds: rgba(236, 240, 241,1.0);
-@silver:#bdc3c7;
-@concrete:#95a5a6;
-@asbestos:#7f8c8d;
+// //Greys:
+// @clouds: rgba(236, 240, 241,1.0);
+// @silver:#bdc3c7;
+// @concrete:#95a5a6;
+// @asbestos:#7f8c8d;
 
-// Blues;
-@asphalt:#34495e;
-@midnight:rgba(44, 62, 80,1.0);
-@belize:#2980b9;
-@river:#3498db;
+// // Blues;
+// @asphalt:#34495e;
+// @midnight:rgba(44, 62, 80,1.0);
+// @belize:#2980b9;
+// @river:#3498db;
 
-@light:@silver;
-@dark:@midnight;
+
 
 body{
-	background-color: @asbestos;
-	color:@clouds;
+	// background-color: @light;
+	color:@dark;
 }
 
 .page-header{

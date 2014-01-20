@@ -17,7 +17,7 @@
 @show
 {{-- Content --}}
 @section('page-header')
-    <h1>BA BAM</h1>
+    <h1>site.pages.demo</h1>
 <p>What you have here is an all-purpose demo page which can be used to throw out some quick n dirty ideas.  Enjoy!</p>
 @stop
 
@@ -50,6 +50,10 @@ html,body{
     background: yellow;
   }
 </style>
+
+<div id="myDiv">
+  target
+</div>
 
 <div class="icomoon">
     foobar!!!
@@ -146,5 +150,59 @@ $("p").toggle("slow");
 
 @stop
 @section('secondary')
-BAM
+<?php
+  $mypages = array();
+  $path="../app/views/site/demo/";
+
+  // die($path);
+
+  foreach (glob($path."*.blade.php") as $filename) {
+    // die($filename);
+          $filename=str_replace($path, "", $filename);
+          $filename=str_replace(".blade.php", "", $filename);
+          array_push($mypages,$filename);
+      }
+
+?>
+<ul class="nav">
+  @foreach($mypages as $item)
+  <li>
+    <button type="button" onclick="loadXMLDoc('/demo/{{$item}}')">AJAX: {{$item}}</button>
+  </li>
+  <li>
+    <a href="{{URL::to('demo/'.$item)}}">{{$item}}</a>
+  </li>
+  @endforeach
+</ul>
+
+<ul class="nav">
+  <li>
+    <a href="{{URL::to('demo.$item')}}"></a>
+  </li>
+</ul>
+<script>
+function loadXMLDoc(input)
+{
+  var xmlhttp;
+  if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+    // alert(input);
+    }
+  else
+    {// code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+  xmlhttp.onreadystatechange=function()
+    {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+
+      document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+      }
+    }
+  xmlhttp.open("GET",input,true);
+  xmlhttp.send();
+}
+</script>
 @stop

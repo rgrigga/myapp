@@ -1,0 +1,109 @@
+/*from the bootstrap docs:*/
+    /* Large desktop */
+  @media (min-width: 1200px) { 
+
+      .hotel{
+              background-color: yellow;
+              color:purple;
+
+      }
+
+      .hero-unit h1{
+          margin-top: 1em;
+          
+      }
+
+  }
+
+/*REALLY important! for BS 2.32*/
+
+  @media (min-width: 980px){
+      .hero-unit{
+          margin-top:60px;
+      }
+      /*.foobar{*/
+          /*margin-top: 40px;*/
+      /*}*/
+
+
+  }
+
+  /* Portrait tablet to landscape and desktop */
+  @media (min-width: 980px) and (max-width: 1199px) { 
+        .hotel{
+            background-color: blue;
+            color:orange;
+        }
+
+        /* body { 
+        background-color: red;
+                padding-top: 40px; }
+        you can't do this!
+                */
+    }
+
+  /* Portrait tablet to landscape and desktop */
+  @media (min-width: 768px) and (max-width: 979px) { 
+    .hotel{
+        background-color: red;
+        color:green;
+    }
+/*                body { 
+background-color: red;
+    padding-top: 40px; }*/
+  }
+
+  /* up to desktop */
+  @media (max-width: 979px) { 
+/* 
+      .hotel{
+          background-color: green;
+          color:red;
+
+      }*/
+
+/*      .jumbotron{
+        margin-top: -20px;
+        z-index: -3;
+      }*/
+
+   }
+
+    @media (min-width: 480px) and (max-width: 979px) { 
+      .hotel{
+          background-color: green;
+          color:red;
+      }
+
+    .hotelb{
+          /*background-color: red;*/
+          height: 80px;
+          width: 60px;
+          border-top-left-radius:60px;
+      }
+
+    }
+     
+    /* Landscape phones and down */
+    @media (max-width: 480px) { 
+              
+        // This may be needed for BS 2.3.2,
+        // but not for BS 3.0
+        
+        // .modal{
+        //   width: 90%;
+        //   margin-left: 0px;
+        // }
+
+        .hotel{
+            background-color: orange;
+            color:blue;
+        }
+
+        .hotelb{
+            /*background-color: red;*/
+            height: 60px;
+            width: 40px;
+            border-top-left-radius:60px;
+        }
+    }

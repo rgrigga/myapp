@@ -1,0 +1,436 @@
+// no docs clearly explain to include this,
+// but it is necessary...
+// how frustrating!
+@import "/assets/bootstrap/less/bootstrap.less";
+
+// Oranges
+@carrot:#e67e22;
+@sunflower:#f1c40f;
+
+//Greys:
+@clouds: rgba(236, 240, 241,1.0);
+@silver:#bdc3c7;
+@concrete:#95a5a6;
+@asbestos:#7f8c8d;
+
+// Blues;
+@asphalt:#34495e;
+@midnight:rgba(44, 62, 80,1.0);
+@belize:#2980b9;
+@river:#3498db;
+
+
+
+@dkgrey:#48484a;
+@ltgrey:#818285;
+@white:#fff;
+
+@dark:#48484a;
+@light:@clouds;
+
+body{
+	background-color: @light;
+}
+
+p,h1,h2,h3,h4,h5,h5,li{
+  color:@dark;
+}
+
+@dkgrey:#48484a;
+@ltgrey:#818285;
+@white:#fff;
+@red:#dd2a4c;
+@blue:#0C12B0;
+// #sidebar{
+//   // position:fixed;
+//   // top:70px;
+// }
+
+.bam{
+  min-height: 20px;
+  width: 100%;
+  background-color: @sunflower;
+}
+
+// CSS3 Background Gradient:
+@top:#e11a22;
+@bottom:#841016;
+.gradient-bg {
+   /* fallback/image non-cover color */
+   background-color: @bottom; 
+
+   /* fallback image */
+   background-image: url(images/fallback-gradient.png); 
+
+   /* Safari 4+, Chrome 1-9 */
+   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(@top), to(@bottom));
+
+   /* Safari 5.1+, Mobile Safari, Chrome 10+ */
+   background-image: -webkit-linear-gradient(top, @top, @bottom); 
+
+   /* Firefox 3.6+ */
+   background-image: -moz-linear-gradient(top, @top, @bottom);
+ 
+   /* IE 10+ */
+   background-image: -ms-linear-gradient(top, @top, @bottom);
+
+   /* Opera 11.10+ */
+   background-image: -o-linear-gradient(top, @top, @bottom);
+}
+
+.moved{
+  // width: 60%;
+  padding:.5em;
+  font-size: +20px;
+  position: relative;
+  left:  1%;
+  top:+2em;
+  background-color: fade(@carrot,50%);
+  color:@blue;
+}
+
+.jumbotron{
+  .gradient-bg;
+  h1{
+    color: @white;
+    text-shadow: -3px 3px @ltgrey;
+  }
+  p{
+  color: @clouds;
+  }
+  // background-color: @red;
+  border: solid 5px @ltgrey;
+}
+
+
+
+.sidebar-nav{
+  padding: 5px;
+  background-color: @ltgrey;
+  ul > li {
+    &.active{background-color: @dkgrey}
+    a{
+      color: @white;
+      &:hover{ background-color: @dkgrey }
+      &:focus{ background-color: @dkgrey }
+    }
+    // background-color: @ltgrey;
+    color: @white;
+  }
+  header{
+    padding: 5px;
+    background-color: @dkgrey;
+    ul > li {
+      &.active{background-color: @ltgrey}
+      a{
+        color: @white;
+        &:hover{ background-color: @ltgrey }
+        &:focus{ background-color: @ltgrey }
+      }
+      // background-color: @ltgrey;
+      color: @white;
+    }
+  }
+}
+
+
+.open > .dropdown-menu {
+background-color: @dkgrey;
+  li {
+    &.active{background-color: @dkgrey}
+    a{
+      color: @white;
+      &:hover, &:focus{ 
+        background-color: @ltgrey;
+        color: @white;
+       }
+
+    }
+  }
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus{
+  background-color: @dkgrey;
+  color: @white;
+}
+
+.input-group .form-control{
+  color: @white;
+}
+.input-group .form-control, .input-group-btn > .btn{
+
+    background-color: @ltgrey;
+    border-color: transparent;
+
+}
+
+@placeholderText:@white;
+// Placeholder text
+// -------------------------
+.placeholder(@color: @placeholderText) {
+  &:-moz-placeholder {
+    color: @color;
+  }
+  &:-ms-input-placeholder {
+    color: @color;
+  }
+  &::-webkit-input-placeholder {
+    color: @color;
+  }
+}
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 768px) {
+  .row-offcanvas {
+    position: relative;
+    top:0;
+    /*left:0;*/
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    top:50px;
+    left: -75%; /* 9 columns */
+    // min-height: 100%;
+    // background-color: @dkgrey;
+  }
+
+  .row-offcanvas-right.active {
+    right: 50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left.active {
+    left: 75%; /* 6 columns */
+    .sidebar-offcanvas{
+      position: fixed;
+      left:-1%;
+      top:50px;
+      -webkit-transition: all 0.25s ease-out;
+      -moz-transition: all 0.25s ease-out;
+      transition: all 0.25s ease-out;
+    }
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    width: 75%; /* 9 columns */
+  }
+  // fascinating.  this next block is required
+  // to fix the interior of the sidebar
+  // on a mobile device. 
+  #sidebar{
+    position: fixed;
+    top:50px;
+  }
+}
+
+
+/*
+ * More
+ */
+
+.navbar-inverse{
+  background-color: @dark;
+  color:@light;
+}
+
+.content-header {
+  // padding: 15px;
+  background-color: lighten(@dark, 10%);
+  p,h1,h2,h3,h4,h5,h5,li{
+    color:@clouds;
+  }
+}
+.content-main {
+  // background-color: @clouds;
+  background-color: darken(@light, 10%);
+  // .make-md-column(6);
+}
+.content-secondary {
+  background-color: spin(@dark,100);
+  p,h1,h2,h3,h4,h5,h5,li{
+    color:@light;
+    }
+  padding-bottom: 15px;
+  // .make-md-column(6);
+}
+
+.footer{
+  background-color: @dark;
+  p {
+    color:@light;
+  }
+  .make-row;
+}
+
+div.shaded{
+        background-color: fade(@belize, 25%);
+        // background-color: rgba(10,50,150,.2);
+        min-width: 20px;
+        min-height: 20px;
+        margin-top: 5px;
+        padding: 10px;
+        border: solid black 3px;
+      }
+
+.thumbnail{
+	// background-color: @carrot;
+}
+
+  a:hover{
+    text-decoration: none;
+  }
+  a:hover i{
+    color: @ltgrey;    
+  }
+
+// .open > a i.icon-chevron-down{display: none;}
+
+
+// .active i.icon-chevron-down{ display:inline-block; }
+// .active i.icon-chevron-left { display:none;}
+
+// .inactive i.icon-chevron-down{ display:inline-block; }
+// .inactive i.icon-chevron-left { display:none;}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus{
+  background-color: @carrot;
+}
+
+.admin-top{
+	background-color: @sunflower;
+}
+.admin-bottom{
+	background-color: @sunflower;
+}
+
+
+.posts{
+	.make-row();
+}
+.posts article{
+	background-color: @dark;
+	color:@light;
+}
+
+/*from the bootstrap docs:*/
+    /* Large desktop */
+  @media (min-width: 1200px) { 
+
+      .hotel{
+              background-color: yellow;
+              color:purple;
+
+      }
+
+      .hero-unit h1{
+          margin-top: 1em;
+          
+      }
+
+  }
+
+/*REALLY important!*/
+
+  @media (min-width: 980px){
+      .hero-unit{
+          margin-top:60px;
+      }
+      /*.foobar{*/
+          /*margin-top: 40px;*/
+      /*}*/
+
+
+  }
+
+  /* Portrait tablet to landscape and desktop */
+  @media (min-width: 980px) and (max-width: 1199px) { 
+        .hotel{
+            background-color: blue;
+            color:orange;
+        }
+
+        /* body { 
+        background-color: red;
+                padding-top: 40px; }
+        you can't do this!
+                */
+    }
+
+  /* Portrait tablet to landscape and desktop */
+  @media (min-width: 768px) and (max-width: 979px) { 
+    .hotel{
+        background-color: red;
+        color:green;
+    }
+/*                body { 
+background-color: red;
+    padding-top: 40px; }*/
+  }
+
+  /* up to desktop */
+  @media (max-width: 979px) { 
+/* 
+      .hotel{
+          background-color: green;
+          color:red;
+
+      }*/
+
+/*      .jumbotron{
+        margin-top: -20px;
+        z-index: -3;
+      }*/
+
+   }
+
+    @media (min-width: 480px) and (max-width: 979px) { 
+      .hotel{
+          background-color: green;
+          color:red;
+      }
+
+    .hotelb{
+          /*background-color: red;*/
+          height: 80px;
+          width: 60px;
+          border-top-left-radius:60px;
+      }
+
+    }
+     
+    /* Landscape phones and down */
+    @media (max-width: 480px) { 
+              
+        .modal{
+          width: 90%;
+          margin-left: 0px;
+        }
+
+        .hotel{
+            background-color: orange;
+            color:blue;
+        }
+
+        .hotelb{
+            /*background-color: red;*/
+            height: 60px;
+            width: 40px;
+            border-top-left-radius:60px;
+        }
+    }
+
+footer img{
+	max-height: 60px;
+}

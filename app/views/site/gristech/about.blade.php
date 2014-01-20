@@ -1,14 +1,21 @@
-@extends('layouts.bs3')
+@extends('site.layouts.min')
 
 @section('content')
 
-<h1>MAN</h1>
-<h1>{{{$company->name}}}</h1>
-<h2>{{{$company->slogan}}}</h2>
 <img src="{{asset('assets/gristech/myapp.cloud.svg')}}" alt="">
-<p>Hello World.</p>
-<p>This is an Open-Source Web Application that can be custom-tailored to any business.  It's features include:
+
+<p>This is a Web Application that can be custom-tailored to any business.</p>
+
+<p>Start by enering basic meta-info about your Company.  For example, the name of the company, the contact info, a description.</p>
+<h3>Menus</h3>
+<p>Enter a comma-separated list of menu items.  Dummy Menus will appear on the home page until the pages have been built out.</p>
+
+<p>Available Features include:</p>
 <ul>
+	<li>User and Permission Management</li>
+	<li>Bootstrap 2.3.2 or 3.0.1</li>
+	<li>Private Repository in Bitbucket</li>
+
 	<li>
 		<h2>Back End</h2>
 		<div>I have configured and extended a good deal of the backend, including:
@@ -56,7 +63,7 @@ Alternative Javascript WYSIWYG editors
 Lightweight versions
 
 <a href="https://github.com/cheeaun/mooeditable/wiki/Alternative-Javascript-WYSIWYG-editors#lightweight-versions">https://github.com/cheeaun/mooeditable/wiki/Alternative-Javascript-WYSIWYG-editors#lightweight-versions</a>
-@include('sites.partials.carousel')
+<!-- @ include('sites.partials.carousel') -->
 
 
 <!-- http://www.vectortemplates.com/download.php?tkn=2102522996397109108 -->

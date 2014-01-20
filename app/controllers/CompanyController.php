@@ -5,6 +5,8 @@
 // class Buckeyeontroller ext
 // They say there is no tighter coupling than inheritance
 
+// Blog Controller?
+// We need interfaces!
 class CompanyController extends UserController {
 
 	// protected $layout = 'site.layouts.company';
@@ -98,6 +100,7 @@ class CompanyController extends UserController {
 	public function getIndex($brand='',$num='10'){
 
 		die(var_dump($brand));
+		return ("Hello from company getindex");
 
 		$company=App::make('company');
 		$brand=strtolower($company->brand);

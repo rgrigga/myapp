@@ -1,0 +1,41 @@
+  @primary:@dark;
+  @secondary:@light;
+
+  // body{
+    background-color: @primary;
+    color:@secondary;
+  // }  
+
+  p,h1,h2,h3,h4,h5,h5,li{
+    color:@secondary;
+  }
+
+  #mydiv{
+    .shaded(@secondary);
+  }
+
+#mega-wrap{
+  // height: 100%;
+  // .shaded();
+  background-color: spin(@dark,100);
+  .make-row();
+}
+
+#content-main {
+  // background-color: @clouds;
+  background-color: darken(@light, 10%);
+  .make-sm-column(8);
+  .make-sm-column-push(4);
+}
+
+#content-secondary {
+  // background-color: spin(@dark,100);
+  p,h1,h2,h3,h4,h5,h5,li{
+    color:@light;
+    }
+  padding-bottom: 15px;
+  
+  .make-sm-column(4);
+  .make-sm-column-pull(8);
+}
+

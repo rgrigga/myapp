@@ -10,11 +10,12 @@
 	    return $ordered + $array;
 	}
 // http://flatuicolors.com/
-
 //http://www.coderanch.com/t/443740/patterns/UML-multiple-inheritance-domain-model
 
 // http://www.vogella.com/articles/Git/article.html
 // http://www.vogella.com/articles/Git/article.html#gitpushbranch
+
+// http://php.net/manual/en/language.oop5.interfaces.php
 
 //  In general using the stash command should be 
 // the exception in using Git. Typically you would 
@@ -53,7 +54,9 @@
 
 class SearchComposer{
     public function compose($view){
-        $view->with('searchbar','this data passes through');
+        $view->with('searchbar','Search:');
+        // To use this:
+        // {{$searchbar}}
     	// $view->with('count', User::count());
 		// http://laravel.com/docs/responses#view-composers
     }
@@ -92,38 +95,33 @@ class BlogController extends BaseController {
      * Inject the models.
      * @param Post $post
      * @param User $user
+     * @param User $company
+     * @param Tag $tag
      */
+    
     public function __construct(Post $post, User $user, Company $company)
     {
         parent::__construct();
+        // die(var_dump("Blog Index"));
 
 		// $heading="Posts";
 		// ->with(compact('heading'))
 
         $env=App::environment();
+        
         $company = App::make('company');
-
+		
+		$this->company = $company;
+        
         $this->post = $post;//These are basically empty objects.
         $this->user = $user;
-        $this->company = $company;
 		
-//I am using the URL to determine the environment.
-        //Is that a bad idea?
 
-//??? I read that using the environment this way may not be safe
-
-		// $env=App::environment();
-		// $company = $this->company->where('brand','like',$env)->first();
-		// $this->company=$company;
-
-		// How about this... I defined an IOC singleton 
-		// in routes...
-		$this->company=App::make('company');
-		// die(var_dump($company));
-
-		// die(var_dump($company));
-        // $this->todo = array('hello','bar','make list');
-    	// $c=App::make('company');
+		View::composer('index',function($view){
+			$view->with('postcount',count($posts))
+			  ->with(compact($posts))
+			;
+		});        
 		
 		// This is used for passing data to all views.
 		// pass a string:
@@ -136,6 +134,25 @@ class BlogController extends BaseController {
         //or the results of a method, in this case, an array
         View::share('alltags',$this->getAllTags());
 		View::share('searchbox','site.partials.searchbox');
+//I am using the URL to determine the environment.
+        //Is that a bad idea?
+
+//??? I read that using the environment this way may not be safe
+
+		// $env=App::environment();
+		// $company = $this->company->where('brand','like',$env)->first();
+		// $this->company=$company;
+
+		// How about this... I defined an IOC singleton 
+		// in routes...
+		// $this->company=App::make('company');
+		// die(var_dump($company));
+
+		// die(var_dump($company));
+        // $this->todo = array('hello','bar','make list');
+    	// $c=App::make('company');
+		
+
 
         //WRONG - this only passes the string
        	// View::share('analytics','site.'.strtolower($company->brand).'.analytics');
@@ -151,11 +168,7 @@ class BlogController extends BaseController {
 		// 	$view->nest('analytics','site.'.strtolower($this->company->brand).'.analytics');
 		// });
 
-		View::composer('index',function($view){
-			$view->with('postcount',count($posts))
-			// ->with(compact($posts))
-			;
-		});
+
 
     }
 
@@ -197,6 +210,10 @@ class BlogController extends BaseController {
 	public function show($tag="")
 	{
 		return self::getIndex('$tag');
+	}
+
+	public function getDocs($tag=""){
+		return View::make('site/docs/less');
 	}
 
 //This works, but I want to ensure the user 
@@ -471,6 +488,18 @@ class BlogController extends BaseController {
 
 	}
 
+	public function getViviosoft($page="")
+	{
+		return View::make('site.viviosoft.'.$page);
+		// return "Howdy.".$page;
+	}
+
+	public function getDemo($page="")
+	{
+		return View::make('site.demo.'.$page);
+		// return "Howdy.".$page;
+	}
+
 	public function getPage($tag="",$path="")
 	{
 		// die(var_dump("Hello"));
@@ -597,83 +626,108 @@ class BlogController extends BaseController {
 */
 	private function index(){
 		return View::make('blog.index')
+		// ->with(...);
 		;
 	}
 
 	public function getIndex($tag="")
 	{
-		// $msg=var_dump($tag);
-		// die($msg);
 
-		//step 1: allow content based on auth type
-		// if auth admin, show all posts
-		// die(var_dump(Auth::user('fail')));
+//AUTHORIZATION:
+		$msg= (Auth::user()) ? "You are Logged in" : "You are not logged in";
+
+		if(!Auth::check()){
+			$msg.="<br>Auth check failed.";
+		}
+		
+		// TODO: Breadcrumbs
+		$brand=$this->company->brand;
+		// $msg=var_dump($tag);
+		$msg.="<br>This is the $brand company.";
+
+		$env=App::environment();
+		$msg.="<br>This is the $env environment.";
+
+		$posts = $this->post
+			->where('meta_keywords', 'LIKE', '%'.$this->company->brand.'%')
+	        ->where('meta_keywords','LIKE','%public%')
+	        // ->where('content','LIKE','%'.$tag.'%')
+			// ->get()
+			->paginate(5);
+
+		$postcount=count($posts);
+		// $msg.=print_r($posts);
+		$msg.="<br>$brand has $postcount posts.";
+
+
+		if($env=='local')
+			Session::flash('message',$msg);
+
+		//step 1: allow content based on auth type?
+		// if(Auth::admin()){
+		//    show all posts
+		// }
 
 		// if auth company, show company
 		// else auth guest, show public
 		// else{
 		// 	die('fail');
 		// }
-
-		// $mycompany=$this->company;
-		// $env=App::environment();
-		$msg="";
-
-		// singleton versus dependency injection?
-
-		// $env=App::environment();
-	    // $company=App::make('company');
-	    $company=$this->company;
-	    // die(print_r($company));
-
+		// View::share('accordion','site.posts.accordion');
+		if(!$tag){
+			View::share('posts',$posts);
+			return View::make('blog/index')
+			->nest('accordion','site.posts.accordion')
+			// ->nest('featurettes','site.posts.featurettes')
+			->with(compact('posts'))
+			;
+		} 
+// TAGS:
 		if($tag){
 
 			//any child view can call {{$tag}}
-			View::share('tag',strtoupper($tag));
+			View::share('tag',strtolower($tag));
 
 			$tagcompany = $this->company->where('brand','like',$tag)->first();
-			
-			if(empty($tagcompany)){
+			// die(var_dump($tagcompany));
+			if(!empty($tagcompany)){
 
 				// die("company not found - (BlogController getIndex)");
 				$msg="BlogController getIndex tag:$tag";
-				// App::abort('404',$msg);
-				// App::abort($msg);
+				App::abort('404',$msg);
+				App::abort($msg);
 
 				//try uncommenting if you end up here is the default company:
 				// $company = $this->company->where('brand','like','gristech')->first();
 			}
 			// $company=$this->company;
-
-			// This little block handles the pages.  
-			// Change the default directory in the getPage method. otherwise,
-			// this sends back the page if it exists in the specified directory.
-
-			// $mypage=$this->getPage($tag);
-			$mypage=$this->globalPages($tag);
+/**
+ * TODO: MOVE DEFAULT DIRECTORY SETTINGS TO CONFIG!
+ * They are currently in getpage, getcompanypages, 
+ * getglobalpages, etc.  default page is set in getPage method.
+ *
+ * Change the default directory in the getPage method. otherwise,
+ * this sends back the page if it exists in the specified directory.
+ */
 
 			//This would yield a page in views/site/pages
+			// $mypage=$this->getPage($tag);
+			$mypage=$this->globalPages($tag);
+			
 			if(!$mypage){
 				$msg="Looked for $tag but didn't find it.";
-				// Session::flash('info',$msg);
-
-				// die($msg);
-				// return View::make('site.pages.'.$tag)
-			    	// ->with(compact('company'))
-					// ->nest('analytics','site.'.strtolower($this->company->brand).'.analytics');
-
-				// return $mypage
-				// ;
 			}
 
 			else return $mypage;
+
+			
 			// var_dump($mypage);
 			// die();
 /////////////// TAGS AND POSTS
 
 			$posttitle='%'.$tag.'%';
 			$posts = $this->post
-				->where('meta_keywords', 'LIKE', '%'.$company->brand.'%')
+				->where('meta_keywords', 'LIKE', '%'.$this->company->brand.'%')
 		        ->where('meta_keywords','LIKE','%public%')
 				->where('title', 'LIKE', "$posttitle")
 				->orWhere('meta_keywords','LIKE', "$posttitle")
@@ -689,7 +743,7 @@ class BlogController extends BaseController {
 			if ($count===0) {
 
 				$posts = $this->post
-					->where('meta_keywords', 'LIKE', '%'.$company->brand.'%')
+					->where('meta_keywords', 'LIKE', '%'.$this->company->brand.'%')
 			        ->where('meta_keywords','LIKE','%public%')
 			        // ->where('content','LIKE','%'.$tag.'%')
 					// ->get()
@@ -715,9 +769,9 @@ class BlogController extends BaseController {
 					
 
 				//SEARCH
-			if($tag=="blog"){
-				return View::make('site.blog.index');
-			}
+				if($tag=="blog"){
+					return View::make('site.blog.index');
+				}
 				// $count=count($posts);
 				// View::share('count',$count);
 				return View::make('site/blog/tags')
@@ -736,6 +790,7 @@ class BlogController extends BaseController {
 					// no post with this title
 					// continue
 			}
+			//end if count===0
 						
 			if($count===1){
 				// die("found1");
@@ -762,14 +817,18 @@ class BlogController extends BaseController {
 				// ->with('post',$this->post->first())
 				// ;
 			}
+			//end if count === 1
 
 			//else count of posts > 1
-
 			$this->post = $posts;
 			
 			// die(var_dump($this->post));
         	View::share('carousel','site.posts.carousel');
-			
+			View::share('accordion','site.posts.accordion');
+			View::share('featurettes','site.posts.accordion');
+			View::share('thumbnails','site.posts.accordion');
+
+
 			$tags=array();		
 			foreach ($posts as $post) {
 				foreach ($post->tags() as $mytag) {
@@ -789,7 +848,7 @@ class BlogController extends BaseController {
 			View::share('posts',$posts);
 			// echo $c;
 			// die();
-			return View::make('site/blog/tags')
+			return View::make('blog/index')
 				->nest('analytics','site.'.strtolower($company->brand).'.analytics')
 
 				// ->nest('search','site.partials.search')
