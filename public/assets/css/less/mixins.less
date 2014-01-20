@@ -1,0 +1,37 @@
+//////////////////////////////////
+// http://lesscss.org/#-mixins
+
+.border-radius (@radius: 15px) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+
+.info{
+  padding: 15px;
+  background-color: @river;
+ .border-radius;
+}
+
+.boom(@size:50px){
+  display: inline-block;
+  font-size: 2em;
+  text-align: center;
+  background-color: darken(@light,10%);
+  width: @size;
+  height:@size;
+  line-height: @size;
+  border:solid 2px @dark;
+  .border-radius(@size);
+}
+
+.dot(@size:50px){
+  padding:0;
+  text-align: center;
+  width: @size;
+  height:@size;
+  line-height: @size;
+  border:solid 2px @dark;
+  .border-radius(@size);
+}
+///////////////////////////////////
