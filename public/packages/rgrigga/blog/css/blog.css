@@ -7,7 +7,6 @@
 		margin:0;
 		font-family:'Lato', sans-serif;
 		/*text-align:center;*/
-
 	}
 
 	h1{
@@ -133,10 +132,10 @@ code{
 	font-size: 6px;
 }
 section{
-	border: 2px solid red;
+	/*border: 2px solid red;*/
 }
 article{
-	border: 2px solid red;
+	/*border: 2px solid red;*/
 }
 .sidebar{
 	position: fixed;
