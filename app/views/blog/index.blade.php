@@ -30,7 +30,7 @@
 {{$accordion}}
 
 {{--View::make('site.gristech.partials.about')--}}
-{{--View::make('site.gristech.md5')--}}
+{{View::make('site.gristech.md5form')}}
 <script>
 	console.log('adding prettyprint');
 	$('pre').addClass('prettyprint');

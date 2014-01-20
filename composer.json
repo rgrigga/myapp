@@ -24,7 +24,6 @@
 		"zizaco/confide": "dev-master",
 		"zizaco/entrust": "dev-master",
 		"robclancy/presenter": "1.2.*",
-		"jasonlewis/basset": "dev-master",
 		"leafo/lessphp": "0.4.0"
 	},
 	"require-dev": {

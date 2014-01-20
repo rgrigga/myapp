@@ -103,16 +103,19 @@ App::singleton('company', function()
     $company = Company::where('brand','like','%'.$brand.'%')->first();
 
     // dd($company);
-    
+
     if(!$company){
         // dd("Bam");
         trigger_error("No company for ".$brand);
     }
     // dd($brand);
-    View::share('company',$company);
     return $company;
 
 });
+
+$company=App::make('company');
+View::share('company',$company);
+
 
 // ??
 // View::composer('*',function($view){
@@ -384,7 +387,7 @@ Route::group(array('domain' => 'myapp.dev'),function()
     });
 
     Route::get('md5',function(){
-        return View::make('site.gristech.md5');
+        return View::make('site.gristech.md5',compact('company'));
     });
 	 // App::bind('company', function($app)
 		// {

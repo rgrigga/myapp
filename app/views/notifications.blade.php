@@ -77,7 +77,8 @@
     @else
     {{ $message }}
     @endif
-    <span class="pull-right">psst: this is views/notifications @ session::get('message')</span>
+
+    <div class="pull-right badge">views/notifications @ session::get('message')</div>
 </div>
 @endif
 

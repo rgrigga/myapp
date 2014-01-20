@@ -109,9 +109,28 @@
 @section('favicons')
 <link rel="shortcut icon" href="{{{ asset('assets/'.strtolower($company->brand).'/favicon.png') }}}">
 @show
+{{HTML::script('assets/js/jquery.v1.8.3.min.js')}}
+{{HTML::script('holder.js')}}
 
-@javascripts('myapp-js-top')
-@javascripts('prettify')
+{{HTML::script('assets/google-code-prettify/run_prettify.js')}}
+{{HTML::style('assets/css/prettify/tomorrow.css')}}
+
+<?php
+/**
+    $collection->directory('assets/css/prettify', function($collection)
+    {
+        $collection->add('tomorrow.css');
+
+        
+    })->apply('UriRewriteFilter')->setArguments(public_path());
+
+    $collection->directory('assets/google-code-prettify', function($collection)
+    {
+        $collection->add('run_prettify.js');
+
+    })->apply('UriRewriteFilter')->setArguments(public_path());
+*/
+?>
 <!-- holder.js -->
 <script src="{{asset('assets/js/holder.js')}}"></script>
 
