@@ -2,7 +2,7 @@
 
 {{-- Web site Title --}}
 @section('title')
-Create a New Blog Post ::
+admin.layouts.default
 @parent
 @stop
 

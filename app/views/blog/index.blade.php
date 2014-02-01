@@ -1,4 +1,4 @@
-@extends('layouts.bootstrap3')
+@extends('layouts.master')
 <style>
 /*	.alert{
         position:relative;
@@ -15,13 +15,14 @@
 }
 </style>
 
+
 @section('page-header')
 
-
+<h1>Blog Index</h1>
 <div class="center">
-	<img class="img-responsive img-center" src="{{asset('assets/'.strtolower($company->brand).'/cloud.svg')}}" alt="">
+	{{$company->logo}}
+	<img class="img-responsive img-center" src="{{asset('packages/rgrigga/'.strtolower($company->brand).'/logo.png')}}" alt="{{$company->brand}}">
 </div>
-
 
 @stop
 
@@ -30,11 +31,19 @@
 {{$accordion}}
 
 {{--View::make('site.gristech.partials.about')--}}
-{{View::make('site.gristech.md5form')}}
-<script>
-	console.log('adding prettyprint');
-	$('pre').addClass('prettyprint');
-</script>
+{{--View::make('site.gristech.md5form')--}}
+<pre><code>
+	.page-header{
+		margin-bottom: 50px !important;
+	}
+	#gravatar{
+		padding:10px;
+	}
+	.img-center{
+		margin-left: auto;
+		margin-right: auto;
+	}
+</code></pre>
 
 @stop
 

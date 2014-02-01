@@ -42,7 +42,7 @@ class UserController extends BaseController {
         $this->user = $user;
 
         $brand=App::environment();
-        $this->company = $company->where('brand','LIKE',$brand)->first();
+        $this->company = Company::where('brand','LIKE','megacorp')->first();
 
         // $company=$this->company
         $this->post = $post;

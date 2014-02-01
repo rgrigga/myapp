@@ -31,7 +31,9 @@
 	"require-dev": {
         "rgrigga/blog":"dev-master",
         "rgrigga/video":"dev-master",
+        "rgrigga/sandbox":"dev-master",
 
+		"filp/whoops": "1.*",
         "phpunit/phpunit": "3.7.*",
         "mockery/mockery": "dev-master@dev",
         "summerstreet/woodling": "0.1.*",

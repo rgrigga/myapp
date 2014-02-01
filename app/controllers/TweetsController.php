@@ -30,7 +30,8 @@ class TweetsController extends BaseController {
      */
     public function index()
     {
-        $tweets = $this->tweet->all();
+        $tweets = $this->tweet;
+        
 
         return View::make('tweets.index', compact('tweets'));
     }

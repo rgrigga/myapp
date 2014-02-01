@@ -59,16 +59,17 @@
                     {{ Form::text('slogan') }}
                 </li>
 
-                <li>
-                    {{ Form::label('image', 'Image:') }}
-                    {{ Form::text('image') }}
-                    <p>We really need an upload module here.</p>
-                </li>
 
+                <li>
+                    {{Form::label('avatar','Logo:')}}
+                    {{Form::file('avatar')}}                    
+                </li>
                 <li>
                     {{ Form::label('menus', 'Menus:') }}
                     {{ Form::text('menus') }}
                 </li>
+
+
 
                 <li>
                     {{ Form::submit('Submit', array('class' => 'btn')) }}
@@ -77,8 +78,8 @@
                     <ul>
                         <li>website</li>
                         <li>address</li>
-                        <li></li>
-                        <li></li>
+                        <li>Gravatar::image('thomaswelton@me.com')</li>
+                        <li><a href="https://github.com/thomaswelton/laravel-gravatar">https://github.com/thomaswelton/laravel-gravatar</a></li>
                     </ul>
                 </li>
             </ul>

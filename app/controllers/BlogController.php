@@ -102,20 +102,10 @@ class BlogController extends BaseController {
     public function __construct(Post $post, User $user, Company $company)
     {
         parent::__construct();
-        // die(var_dump("Blog Index"));
 
-		// $heading="Posts";
-		// ->with(compact('heading'))
-
-        $env=App::environment();
-        
-        $company = App::make('company');
-		
-		$this->company = $company;
-        
+		$this->company = App::make('company');
         $this->post = $post;//These are basically empty objects.
-        $this->user = $user;
-		
+        $this->user = $user;		
 
 		View::composer('index',function($view){
 			$view->with('postcount',count($posts))
@@ -133,26 +123,11 @@ class BlogController extends BaseController {
 
         //or the results of a method, in this case, an array
         View::share('alltags',$this->getAllTags());
-		View::share('searchbox','site.partials.searchbox');
-//I am using the URL to determine the environment.
-        //Is that a bad idea?
-
-//??? I read that using the environment this way may not be safe
-
-		// $env=App::environment();
-		// $company = $this->company->where('brand','like',$env)->first();
-		// $this->company=$company;
-
-		// How about this... I defined an IOC singleton 
-		// in routes...
-		// $this->company=App::make('company');
-		// die(var_dump($company));
-
-		// die(var_dump($company));
-        // $this->todo = array('hello','bar','make list');
-    	// $c=App::make('company');
 		
+        //or an entire sub-view:
+		View::share('searchbox','site.partials.searchbox');
 
+        // $this->todo = array('hello','bar','make list');
 
         //WRONG - this only passes the string
        	// View::share('analytics','site.'.strtolower($company->brand).'.analytics');
@@ -167,8 +142,6 @@ class BlogController extends BaseController {
 		// View::composer('*',function($view){
 		// 	$view->nest('analytics','site.'.strtolower($this->company->brand).'.analytics');
 		// });
-
-
 
     }
 
@@ -238,7 +211,8 @@ class BlogController extends BaseController {
 		return $this->getIndex($tag);
 	}
 
-	private function home(){
+	public function home(){
+		// dd($this->company);
 		return View::make('site.'.strtolower($this->company->brand).'.home');
 	}
 
@@ -321,13 +295,6 @@ class BlogController extends BaseController {
 
 		$view="";
 		$pagecount=0;
-		// $this->init();??
-
-		// if(!$tag){
-			// return View::make('home');
-		// }
-		
-		// BuilderClass?
 
 		View::share('tag',$tag);
 		if($tag){
@@ -633,12 +600,13 @@ class BlogController extends BaseController {
 	public function getIndex($tag="")
 	{
 
+		Session::flash('error','BAM');
 //AUTHORIZATION:
 		$msg= (Auth::user()) ? "You are Logged in" : "You are not logged in";
 
-		if(!Auth::check()){
-			$msg.="<br>Auth check failed.";
-		}
+		// if(!Auth::check()){
+			// return Redirect::to('user/login');
+		// }
 		
 		// TODO: Breadcrumbs
 		$brand=$this->company->brand;
@@ -769,9 +737,7 @@ class BlogController extends BaseController {
 					
 
 				//SEARCH
-				if($tag=="blog"){
-					return View::make('site.blog.index');
-				}
+
 				// $count=count($posts);
 				// View::share('count',$count);
 				return View::make('site/blog/tags')

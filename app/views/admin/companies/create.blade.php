@@ -49,13 +49,18 @@
 
                 <li>
                     {{ Form::label('image', 'Image:') }}
-                    {{ Form::text('image') }}
+                    {{ Form::file('image') }}
                     <p>We really need an upload module here.</p>
                 </li>
 
                 <li>
                     {{ Form::label('menus', 'Menus:') }}
                     {{ Form::text('menus') }}
+                </li>
+
+                <li>
+                    {{Form::label('avatar','Avatar:')}}
+                    {{Form::file('avatar')}}
                 </li>
 
                 <li>

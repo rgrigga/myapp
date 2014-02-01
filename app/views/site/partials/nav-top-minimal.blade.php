@@ -82,23 +82,5 @@
 
 
 
-		<style>
 
-		.contentwrap{
-			/*margin-top: 60px;*/
-		}
-		.navbar-fixed-top{
-			/*position:fixed;*/
-			/*margin-bottom: 80px;*/
-		}
-		.body{
-			/*padding-top: 60px;*/
-		}
-		.iconbar{
-			float: right;
-			display: inline;
-			font-size: 32px;
-		}
-
-		</style>
 

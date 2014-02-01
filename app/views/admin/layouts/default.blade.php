@@ -7,6 +7,11 @@
 			<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 			<link rel="stylesheet" href="/assets/css/wysihtml5/bootstrap-wysihtml5.css">
 			<link href="/assets/js/bootstrap-wysiwyg/index.css" rel="stylesheet">
+
+	<link rel="stylesheet/less" href="{{asset('assets/css/less/demo.less')}}">
+    {{HTML::style('bower_components/font-awesome/css/font-awesome.min.css') }}
+    {{HTML::script('//code.jquery.com/jquery-1.10.2.min.js')}}
+    {{HTML::script('/bower_components/less/dist/less-1.6.1.min.js')}}
 		@show
 		<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 <script>
@@ -43,7 +48,8 @@
 @javascripts('admin-js')
 <!-- @ javascripts('myapp-js') -->
 @javascripts('bs3-js')
-
+    {{ HTML::script('assets/js/master.js') }}
+    {{HTML::script('/bower_components/bootstrap/dist/js/bootstrap.min.js')}}
 <!-- <script language="javascript" type="text/javascript" src="{{asset('assets/js/jquery.equalheights.js')}}"></script> -->
 
 	<script>

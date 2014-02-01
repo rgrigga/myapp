@@ -1,7 +1,7 @@
 
 <!-- <h1>BAM BAM</h1> -->
 @if (count($errors->all()) > 0)
-<div class="alert alert-error alert-block">
+<div class="alert alert-error alert-block alert-dissmissable">
 	<button type="button" class="close" data-dismiss="alert">&times;</button>
 	<h4>Error</h4>
 	Please check the form below for errors
@@ -10,7 +10,7 @@
 
 
 @if ($message = Session::get('success'))
-<div class="alert alert-success alert-block">
+<div class="alert alert-success alert-block alert-dissmissable">
 	<button type="button" class="close" data-dismiss="alert">&times;</button>
 	<h4>Success</h4>
     @if(is_array($message))
@@ -24,7 +24,7 @@
 @endif
 
 @if ($message = Session::get('error'))
-<div class="alert alert-error alert-block">
+<div class="alert alert-error alert-block alert-dissmissable">
 	<button type="button" class="close" data-dismiss="alert">&times;</button>
 	<h4>Error</h4>
     @if(is_array($message))
@@ -38,7 +38,7 @@
 @endif
 
 @if ($message = Session::get('warning'))
-<div class="alert alert-warning alert-block">
+<div class="alert alert-warning alert-block alert-dissmissable">
 	<button type="button" class="close" data-dismiss="alert">&times;</button>
 	<h4>Warning</h4>
     @if(is_array($message))
@@ -52,7 +52,7 @@
 @endif
 
 @if ($message = Session::get('info'))
-<div class="alert alert-info alert-block">
+<div class="alert alert-info alert-block alert-dissmissable">
 	<button type="button" class="close" data-dismiss="alert">&times;</button>
 	<h4>Info</h4>
     @if(is_array($message))
@@ -67,15 +67,15 @@
 @endif
 
 @if ($message = Session::get('message'))
-<div class="alert alert-info alert-block">
+<div class="alert alert-info alert-block alert-dissmissable">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <h4>Info</h4>
     @if(is_array($message))
-    @foreach ($message as $m)
-    {{ $m }}
-    @endforeach
+        @foreach ($message as $m)
+        {{ $m }}
+        @endforeach
     @else
-    {{ $message }}
+        {{ $message }}
     @endif
 
     <div class="pull-right badge">views/notifications @ session::get('message')</div>

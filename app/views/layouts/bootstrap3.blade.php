@@ -151,17 +151,36 @@
         // onerror="imgError(this,800,600);"
     }
 </script>
+        <style>
 
+        .contentwrap{
+            margin-top: 60px;
+        }
+        .navbar-fixed-top{
+            /*position:fixed;*/
+            /*margin-bottom: 80px;*/
+        }
+        .body{
+            /*padding-top: 60px;*/
+        }
+        .iconbar{
+            float: right;
+            display: inline;
+            font-size: 32px;
+        }
+
+        </style>
     </head>
     <body>
-        <div class="container">
+        @section('nav')
+        {{--View::make('site.partials.nav-top-min')--}}
+        {{--View::make('site.partials.nav-top-bs3')--}}
+        {{View::make('site.partials.nav-top-minimal')}}
+        @show
             <!-- <div class="navwrap" id="navwrap"> -->
                 <!-- // @ yield('nav') -->
-                @section('nav')
-                {{--View::make('site.partials.nav-top-min')--}}
-                {{--View::make('site.partials.nav-top-bs3')--}}
-                {{View::make('site.partials.nav-top-minimal')}}
-                @show
+            <div class="contentwrap">
+
 
                 <!-- if (Auth::user('buckeye')) -->
                 @section('admin-top')
@@ -193,7 +212,7 @@
             <!-- ./ navwrap -->
             
             <!-- @ yield('content') -->
-            <div class="contentwrap">
+        <div class="container">
 
                 
                 

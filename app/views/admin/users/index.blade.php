@@ -1,4 +1,5 @@
 @extends('admin.layouts.default')
+<!-- @ extends('admin::layouts.master') -->
 
 {{-- Web site Title --}}
 @section('title')

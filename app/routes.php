@@ -1,12 +1,13 @@
 <?php
 
-
 // trigger_error("Boom");
 
-
-// Use this funciton for debugging
+// Use this function for debugging
+// Route::any('/{mypath}',function($mypath){
+//     return View::make('site.pages.debug',compact($mypath));
+// });
 // Route::any('/',function(){
-//     return View::make('site.pages.debug');
+    // return View::make('site.pages.debug');
 // });
 
 // or Throw an error anywhere:
@@ -75,46 +76,20 @@ Route::model('company','Company');
 
 // See Also :
 
-
 // The next function helps, for example, on Company's home page. 
 // You'll display only those posts belonging to that company.
 
 // Does your application use 
 //  * Globals Variables? Singletons?  Registriy Pattern? 
 // 
-// Read about the IOC container and Dependency Injeciton:  To Understand and get the most from Laravel, you should understand 
+// Read about the IOC container and Dependency Injeciton:  To Understand and get the most from Laravel, you should understand:
 // 
 // bit.ly/16QfIPW 
 // http://www.slideshare.net/go_oh/singletons-in-php-why-they-are-bad-and-how-you-can-eliminate-them-from-your-applications
 // http://stackoverflow.com/questions/7770728/group-vs-role-any-real-difference
 // http://www.nathandavison.com/posts/view/16/
 
-App::singleton('company', function()
-{
-    
-    $env=App::environment();
-    // dd($env);
-    if($env=='local'){
-        $brand='gristech';
-    }
 
-    else(trigger_error("Company Problem"));
-
-    $company = Company::where('brand','like','%'.$brand.'%')->first();
-
-    // dd($company);
-
-    if(!$company){
-        // dd("Bam");
-        trigger_error("No company for ".$brand);
-    }
-    // dd($brand);
-    return $company;
-
-});
-
-$company=App::make('company');
-View::share('company',$company);
 
 
 // ??
@@ -208,98 +183,7 @@ Route::get('viviosoft/{tag}','VivioController@getPage');
 Route::controller('resume', 'ResumeController');
 
 
-/**
-    
-    admin
 
-*/
-
-// Route::group(array(''),)
-// Route::get('/advantage',function(){
-
-///////////////////////////////////////
-///////ADMIN ROUTES
-///////////////////////////////////////
-//these apply to ALL companies
-
-Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
-{
-
-    # Comment Management
-    Route::get('comments/{comment}/edit', 'AdminCommentsController@getEdit')
-        ->where('comment', '[0-9]+');
-    Route::post('comments/{comment}/edit', 'AdminCommentsController@postEdit')
-        ->where('comment', '[0-9]+');
-    Route::get('comments/{comment}/delete', 'AdminCommentsController@getDelete')
-        ->where('comment', '[0-9]+');
-    Route::post('comments/{comment}/delete', 'AdminCommentsController@postDelete')
-        ->where('comment', '[0-9]+');
-    Route::controller('comments', 'AdminCommentsController');
-
-    # Blog Management
-    Route::get('blogs/{post}/show', 'AdminBlogsController@getShow')
-        ->where('post', '[0-9]+');
-    Route::get('blogs/{post}/edit', 'AdminBlogsController@getEdit')
-        ->where('post', '[0-9]+');
-    Route::post('blogs/{post}/edit', 'AdminBlogsController@postEdit')
-        ->where('post', '[0-9]+');
-    Route::get('blogs/{post}/delete', 'AdminBlogsController@getDelete')
-        ->where('post', '[0-9]+');
-    Route::post('blogs/{post}/delete', 'AdminBlogsController@postDelete')
-        ->where('post', '[0-9]+');
-
-    Route::get('blogs/tag/{tag}', 'AdminBlogsController@getIndex');
-    // ???
-        // ->where('post', '[0-9]+');
-
-    Route::controller('blogs', 'AdminBlogsController');
-
-    # User Management
-    Route::get('users/{user}/show', 'AdminUsersController@getShow')
-        ->where('user', '[0-9]+');
-    Route::get('users/{user}/edit', 'AdminUsersController@getEdit')
-        ->where('user', '[0-9]+');
-    Route::post('users/{user}/edit', 'AdminUsersController@postEdit')
-        ->where('user', '[0-9]+');
-    Route::get('users/{user}/delete', 'AdminUsersController@getDelete')
-        ->where('user', '[0-9]+');
-    Route::post('users/{user}/delete', 'AdminUsersController@postDelete')
-        ->where('user', '[0-9]+');
-    Route::controller('users', 'AdminUsersController');
-
-    # User Role Management
-    Route::get('roles/{role}/show', 'AdminRolesController@getShow')
-        ->where('role', '[0-9]+');
-    Route::get('roles/{role}/edit', 'AdminRolesController@getEdit')
-        ->where('role', '[0-9]+');
-    Route::post('roles/{role}/edit', 'AdminRolesController@postEdit')
-        ->where('role', '[0-9]+');
-    Route::get('roles/{role}/delete', 'AdminRolesController@getDelete')
-        ->where('role', '[0-9]+');
-    Route::post('roles/{role}/delete', 'AdminRolesController@postDelete')
-        ->where('role', '[0-9]+');
-    Route::controller('roles', 'AdminRolesController');
-
-        # Company Management
-    Route::get('companies/create','AdminCompaniesController@getCreate');
-    Route::get('companies/{company}/show', 'AdminCompaniesController@show')
-        ->where('company', '[0-9]+');
-    Route::get('companies/{company}/edit', 'AdminCompaniesController@edit')
-        ->where('company', '[0-9]+');
-    Route::post('companies/{company}/edit', 'AdminCompaniesController@postEdit')
-        ->where('company', '[0-9]+');
-    Route::get('companies/{company}/delete', 'AdminCompaniesController@getDelete')
-        ->where('company', '[0-9]+');
-    Route::post('companies/{company}/delete', 'AdminCompaniesController@destroy')
-        ->where('company', '[0-9]+');
-    Route::controller('companies', 'AdminCompaniesController');
-
-    # Admin Dashboard
-    // Route::controller('{page?}', 'AdminDashboardController');
-
-    Route::controller('/', 'AdminBlogsController');
-
-});
 
 // Route::filter('company',function($route,$request,$value){
 // Route::filter('company',function($route,$request){
@@ -331,11 +215,11 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     MYAPP.DEV
 
 */
-Route::group(array('domain' => 'myapp.devfoo'),function(){
+Route::group(array('domain' => 'myapp.dev'),function(){
 
-    // Route::get('/', function(){
-    //    return "Howdy!";
-    // });
+    Route::get('/', function(){
+       return "Howdy!";
+    });
 
     Route::group(array('prefix' => 'foo'), function()
     {
@@ -357,22 +241,17 @@ Route::group(array('domain' => 'myapp.devfoo'),function(){
 //////////////////////////////////////////////////////////////////
 ///////////////// IOC CONTAINER //////////////////////////////////
 //////////////////////////////////////////////////////////////////
-    
-    Route::any('mytest',function(){
-        return "myapp.dev mytest $foo";
-    });
-
-    Route::any('osspeac',function(){
-        $company=Company::where('brand','like','osspeac')->first();
-        if(!$company){
-            return ("Company does not exist. Consider <a href=".URL::to("admin/companies").">admin/companies</a>");
-        }
-        return View::make('company.osspeac.home')
-        ->with(compact('company'));
-    });
+///
 
 Route::group(array('domain' => 'myapp.dev'),function()
 {
+
+    // if (Auth::guest()) {
+    //     if(!Request::path()=='/' && !Request::path()=='user/login'){
+    //         Session::put('loginRedirect', Request::url());
+    //         return Redirect::to('user/login');      
+    //     }
+    // }
 
     Route::get('js',function(){
         return View::make('site.gristech.js');
@@ -554,8 +433,8 @@ Route::group(array('domain' => 'myapp.dev'),function()
     Route::get('docs','BlogController@getDocs');
 
     //each domain has its own method available in CompanyController.
-    Route::get('/{tag}','BlogController@getIndex');
-    Route::get('/', 'BlogController@getIndex');
+    // Route::get('/{tag}','BlogController@getIndex');
+    // Route::get('/', 'BlogController@home');
 
 // Route::get('/', function(){
 //         echo "HI THERE";
@@ -939,8 +818,8 @@ Route::get('blog', 'BlogController@getIndex');
 
 
 
-Route::get('mytest',function(){
-    return View::make('site.gristech.mytest');
+Route::get('test',function(){
+    return View::make('admin::test');
 });
 
 Route::get('lesstest',function(){
@@ -956,9 +835,16 @@ Route::get('lesstest',function(){
 Route::get('/{tag}', 'BlogController@getIndex');
 
 
-// $company=Company::where('brand','like','gristech')->first();
-// var_dump(App::make('company'));
 Route::get('/', 'BlogController@getIndex');
+
+    Route::any('osspeac',function(){
+        $company=Company::where('brand','like','osspeac')->first();
+        if(!$company){
+            return ("Company does not exist. Consider <a href=".URL::to("admin/companies").">admin/companies</a>");
+        }
+        return View::make('company.osspeac.home')
+        ->with(compact('company'));
+    });
 
     // ->with($company)
     // ->where(array('id','=',3));

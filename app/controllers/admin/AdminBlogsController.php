@@ -26,8 +26,8 @@ class AdminBlogsController extends AdminController {
         $this->post = $post;
         // die(var_dump($company));
 
-        $this->company=App::make('company');
-        View::share('company',$this->company);
+        // $this->company=App::make('company');
+        // View::share('company',$this->company);
     }
 
     /**
@@ -51,14 +51,15 @@ class AdminBlogsController extends AdminController {
         // $c=App::make('company');
         // die(var_dump($c));
 
-        $env=App::environment();
-        $company = $this->company->where('brand','like',$env)->first();
-        $brand=strtolower($company->brand);
+        // $env=App::environment();
+        // $company = $this->company->where('brand','like',$env)->first();
+        // $company=App::make('Company');
+        $brand=Config::get('company.brand');
 
-        if(!$tag){
-            $tag=$env;
+        // if(!$tag){
+            // $tag=$env;
             // die(var_dump($tag));
-        }
+        // }
 
         if($tag){
 

@@ -1,4 +1,4 @@
-@extends('admin.layouts.default')
+@extends('admin::layouts.master')
 
 @section('styles')
 @parent
@@ -10,9 +10,7 @@
     <script src="/assets/js/less.js" type="text/javascript"></script>
 @stop
 
-@section('nav')
-@include('site.partials.nav-top-min')
-@stop
+
 
 @section('main')
 <h1>Edit Company</h1>

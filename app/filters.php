@@ -13,7 +13,31 @@
 
 App::before(function($request)
 {
-	//
+
+	App::singleton('company', function($app)
+	{
+		$brand=strtolower(Config::get('company.brand'));
+	    $company = Company::where('brand','like','%'.$brand.'%')->first();
+
+	    if(!$company){
+            return ("Company does not exist. Consider <a href=".URL::to("admin/companies").">admin/companies</a>");
+	        Session::flash("error","No company for ".$brand.".<br>".link_to_route('admin.companies'));
+	    	$brand="gristech";
+	    	$company = Company::where('brand','like','%'.$brand.'%')->first();
+	    }
+		View::share('company',$company);
+
+	    return $company;
+
+	});
+
+	$company=App::make('company');
+	View::share('company',$company);
+	if (Auth::guest()) {
+		Session::push('user.page',Request::path());
+		Session::push('alerts',['info'=>"message You are NOT logged in."]);
+    }
+	
 });
 
 

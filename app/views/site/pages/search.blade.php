@@ -1,4 +1,5 @@
-@extends('site.layouts.default')
+@extends('company::layouts.master')
+<!-- @ extends('site.layouts.default') -->
 {{-- Web site Title --}}
 @section('title')
 @parent

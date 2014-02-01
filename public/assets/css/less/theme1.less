@@ -1,3 +1,8 @@
+@import "/assets/less/bootstrap.less";
+@import "/assets/css/less/colors.less";
+@import "/assets/css/less/utilities.less";
+@import "/assets/css/less/responsive.less";
+
   @primary:@asphalt;
   @secondary:@sunflower;
 
@@ -14,6 +19,16 @@
     color:darken(@dark,10%);
   }
   
+.shaded(@mycolor:red){
+  text-align: center;
+  background-color:fade(@mycolor,50%);
+  color:darken(@mycolor,50%);
+  min-width: 20px;
+  min-height: 20px;
+  border:solid 1px @mycolor;
+  padding: 10px;
+}
+
   #page-header {
     // padding: 15px;
     // background-color: red;

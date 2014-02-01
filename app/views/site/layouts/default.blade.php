@@ -12,7 +12,7 @@
 <!-- Page Title -->
 <title>
 @section('title')
-Layouts.Default
+Site.Layouts.Default
 @show
 </title>
 
@@ -34,9 +34,10 @@ Layouts.Default
 ================================================== -->
 
 @section('styles')
-    @stylesheets("public-css")
+    {{--HTML::style("css/style.css")--}}
 
-	<!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
+	<link rel="stylesheet" href="/assets/bs3/css/bootstrap.css">
+	<link rel="stylesheet" href="/assets/css/style.css">
 
 	
 	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">

@@ -47,7 +47,7 @@ return array(
 
             $collection->directory('assets/bootstrap-3.0.1', function($collection)
             {
-                //$collection->add('less/bootstrap.less')->apply('Less'); 
+                $collection->add('less/bootstrap.less')->apply('Less'); 
 
             // $collection->directory('assets/bs3/css', function($collection)
             // {

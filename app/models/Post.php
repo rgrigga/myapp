@@ -83,7 +83,8 @@ class Post extends Eloquent implements PresentableInterface {
             $date = $this->created_at;
         }
 
-        return String::date($date);
+// https://github.com/briannesbitt/Carbon/blob/master/src/Carbon/Carbon.php#L797
+        return $date->toDateString();
     }
 
 	/**
