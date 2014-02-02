@@ -1,4 +1,3 @@
-<aside>
 	<article>
 		<section class="post-description">
 <!--  -->		</section>
@@ -16,4 +15,3 @@
 		</div>
 
 	</article>
-</aside>

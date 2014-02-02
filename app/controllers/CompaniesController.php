@@ -2,7 +2,7 @@
 // die(var_dump('companies controller'));
 class CompaniesController extends BaseController {
 
-    public $layout = 'admin.layouts.default';
+    public $layout = 'admin::layouts.default';
     // @extends('admin.layouts.default')
     /**
      * Company Repository
@@ -116,9 +116,10 @@ View::share('company',$this->company);
     public function edit($id)
     {
         $company = $this->company->find($id);
-View::share('company',$company);
+        View::share('company',$company);
+        
         //?? isnull vs empty vs !== etc
-        if (is_null($company))
+        if (empty($company))
         {
             return Redirect::route('companies.index');
         }

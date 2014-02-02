@@ -1,4 +1,4 @@
-@extends('admin::layouts.master')
+@extends('admin::layouts.default')
 
 @section('styles')
 @parent
@@ -15,14 +15,9 @@
 @section('main')
 <h1>Edit Company</h1>
 
-
-
-
-
 <div class="row">
     <div class="span4">
 {{ Form::open(array('method' => 'PATCH', 'route' => array('companies.update', $company->id))) }}
-
 
 <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 
@@ -67,7 +62,7 @@
 
                 <li>
                     {{ Form::label('description', 'Description:') }}
-                    {{ Form::textarea('description',Input::old('description',$company->description)) }}
+                    {{ Form::textarea('description',Input::old('description',$company->description),['class'=>'summernote']) }}
                 </li>
 
                 <li>

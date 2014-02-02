@@ -1,4 +1,4 @@
-@extends('admin.layouts.default')
+@extends('admin::layouts.default')
 
 @section('nav')
 <!-- @ include('admin') -->
@@ -66,7 +66,7 @@
                 {{View::make('site.partials.contact');}}
                 <p>{{{ $mycompany->brand }}}</p>
                 <p>"{{{ $mycompany->slogan }}}"</p>
-                <p>{{{ $mycompany->description }}}</p>
+                <p>{{ $mycompany->description }}</p>
 
                 <p>{{{ $mycompany->phone }}}</p>
                 <p>{{{ $mycompany->email }}}</p>

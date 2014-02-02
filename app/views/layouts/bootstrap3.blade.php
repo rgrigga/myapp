@@ -193,7 +193,7 @@
                         <!-- @ if($user->hasRole('admin')) -->
                             
                             <!-- <h1>Admin-top</h1><h1>Admin-top</h1><h1>Admin-top</h1> -->
-                             @include('admin.nav')
+                             @include('admin::nav')
                         <!-- </div> -->
                         @else
                         <!-- <div class="navbar-inner"> -->

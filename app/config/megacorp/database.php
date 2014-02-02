@@ -29,9 +29,6 @@ return array(
 
 
 	'default' => 'local',
-	'local'=> 'mysql2',
-	'buckeye' => 'buckeye',
-	'jcc'=>'jcc',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -72,7 +69,7 @@ return array(
 		'local' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'gristech_myapp6',
+			'database'  => 'gristech_myapp6_dev',
 			'username'  => 'gristech',
 			// 'password'  => 'JePenseDoncJe$uis',
 			'password'  => 'JLEgriss22',

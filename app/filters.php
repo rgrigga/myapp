@@ -33,6 +33,9 @@ App::before(function($request)
 
 	$company=App::make('company');
 	View::share('company',$company);
+	Session::push('alerts',['warning'=>"Company is set to $company->brand "]);
+
+	Session::flash('info','Company is set to '.$company->brand);
 	if (Auth::guest()) {
 		Session::push('user.page',Request::path());
 		Session::push('alerts',['info'=>"message You are NOT logged in."]);

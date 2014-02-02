@@ -40,12 +40,9 @@ class UserController extends BaseController {
     {
         parent::__construct();
         $this->user = $user;
-
-        $brand=App::environment();
-        $this->company = Company::where('brand','LIKE','megacorp')->first();
-
-        // $company=$this->company
+        $this->company = $company;
         $this->post = $post;
+        
         View::share('company',$this->company);
 
     }

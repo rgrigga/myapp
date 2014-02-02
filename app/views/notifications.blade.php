@@ -1,10 +1,11 @@
 
 <!-- <h1>BAM BAM</h1> -->
 @if (count($errors->all()) > 0)
-<div class="alert alert-error alert-block alert-dissmissable">
+<div class="alert alert-danger alert-error alert-block alert-dissmissable">
 	<button type="button" class="close" data-dismiss="alert">&times;</button>
 	<h4>Error</h4>
 	Please check the form below for errors
+    <div class="pull-right badge">views/notifications @ session::get('error')</div>
 </div>
 @endif
 
@@ -24,7 +25,7 @@
 @endif
 
 @if ($message = Session::get('error'))
-<div class="alert alert-error alert-block alert-dissmissable">
+<div class="alert alert-danger alert-block alert-dissmissable">
 	<button type="button" class="close" data-dismiss="alert">&times;</button>
 	<h4>Error</h4>
     @if(is_array($message))
@@ -34,6 +35,7 @@
     @else
     {{ $message }}
     @endif
+    <div class="pull-right badge">views/notifications @ session::get('error')</div>
 </div>
 @endif
 
@@ -48,6 +50,7 @@
     @else
     {{ $message }}
     @endif
+    <div class="pull-right badge">views/notifications @ session::get('warning')</div>
 </div>
 @endif
 
@@ -62,14 +65,14 @@
     @else
     {{ $message }}
     @endif
-    <span class="pull-right">psst: this is session::get('info')</span>
+    <span class="pull-right badge">psst: this is session::get('info')</span>
 </div>
 @endif
 
 @if ($message = Session::get('message'))
 <div class="alert alert-info alert-block alert-dissmissable">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <h4>Info</h4>
+    <h4>Message</h4>
     @if(is_array($message))
         @foreach ($message as $m)
         {{ $m }}
@@ -81,6 +84,43 @@
     <div class="pull-right badge">views/notifications @ session::get('message')</div>
 </div>
 @endif
+
+
+        @if(!Auth::check())
+        <div class="alert alert-info alert-dismissable"><button type="button" class="close" aria-hidden="true" data-dismiss="alert">&times;</button>You are not signed in.</div>
+        @endif
+
+        @if ( Session::has('warning') )
+            <div class="alert alert-warning alert-dismissable">
+                <button type="button" class="close" aria-hidden="true" data-dismiss="alert">&times;</button>
+                {{ Session::get('warning') }}
+                <div class="pull-right badge">views/notifications @ session::get('warning')</div>
+            </div>
+        @endif
+        
+        @if ( Session::has('success') )
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" aria-hidden="true" data-dismiss="alert">&times;</button>
+                {{ Session::get('success') }}
+                <div class="pull-right badge">views/notifications @ session::get('success')</div>
+            </div>
+        @endif
+        
+        @if ( Session::has('info') )
+            <div class="aslert alert-info alert-dismissable">
+                <button type="button" class="close" aria-hidden="true" data-dismiss="alert">&times;</button>
+                {{ Session::get('info') }}
+                <div class="pull-right badge">views/notifications @ session::get('info')</div>
+            </div>
+        @endif
+
+        @if ( Session::has('notice') )
+            <div class="alert alert-warning alert-dismissable">
+                <button type="button" class="close" aria-hidden="true" data-dismiss="alert">&times;</button>
+                {{ Session::get('notice') }}
+                <div class="pull-right badge">views/notifications @ session::get('notice')</div>
+            </div>
+        @endif
 
 {{--
 @if (Session::has('message'))

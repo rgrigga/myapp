@@ -7,8 +7,11 @@ composer.lock
 app/_ide_helpers.php
 sftp-config.json
 sftp-config*
+*.sql
 .sql
-
+.env.php
+.env.local.php
+.env.development.php
 
 # $ cat .gitignore
 
@@ -66,3 +69,4 @@ validation-report.json
 
 # Folders to ignore
 node_modules
+sql_backups

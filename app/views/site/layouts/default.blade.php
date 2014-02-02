@@ -18,7 +18,7 @@ Site.Layouts.Default
 
 <!-- http://moz.com/learn/seo/meta-description -->
 @section('meta_description')
-<meta name="description" content="Gristech will do things that will help you do what you do better.  We will make you make more money.  We will therefore make you want to give us lots of money. We will make you lots of money.">
+<meta name="description" content="Gristech will do things that will help you do what you do better.  We will make you make more money.  We will make you want to give us lots of money. We will make you lots of money.">
 @show
 
 @section('meta_keywords')
@@ -94,8 +94,8 @@ Site.Layouts.Default
 
 @include('site.'.strtolower($company->brand).'.analytics');
 
-
 @show
+
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?&skin=sunburst"></script>
 @section('favicons')
 		<!-- Favicons

@@ -23,7 +23,6 @@ class AdminDashboardController extends AdminController {
     {
         parent::__construct();
         $this->post = $post;
-        $this->company = $company;
         $this->company=App::make('company');
         View::share('company',$this->company);
     }
@@ -42,8 +41,6 @@ class AdminDashboardController extends AdminController {
             //     App::abort(404,'Company not present.');
             //     // return die('Sorry! Something is wrong with this account!');
             // });
-        $env=App::environment();
-        $company = $this->company->where('brand','LIKE',$env)->first();
 
         if(!$company){
             $company = $this->company->where('brand','LIKE','gristech')->first();

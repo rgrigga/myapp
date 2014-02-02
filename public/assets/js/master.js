@@ -1,6 +1,7 @@
   //where is fixmyoverlap???
   
   $(document).ready(function(){
+  console.log("public/assets/js/master.js");
 
     //this converts font awesome 3 icons to font-awesome 4 icons.
     var icons = $(document).find($('i[class^="icon-"]'));
@@ -15,16 +16,16 @@
 
   console.log('adding prettyprint');
   $('pre').addClass('prettyprint');
-
-    alert("js/master.js");
     // fixMyOverlap();
     // addClasses();
-    $('pre').addClass('prettyprint');
     $('[data-toggle=offcanvas]').click(function() {
       $('.row-offcanvas').toggleClass('active');
     });
   });
 
+var postForm = function() {
+  var content = $('textarea[name="content"]').html($('#summernote').code());
+}
 
   $(window).resize(function(){
     // fixMyOverlap();

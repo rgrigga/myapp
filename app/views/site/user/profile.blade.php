@@ -1,4 +1,3 @@
-@extends('admin.layouts.default')
 <!-- Let's talk about user index. -->
 
 @section('styles')
@@ -136,8 +135,8 @@ echo getRealIpAddr();
 
 <!-- // @ if($user->ability(array('admin',$env),'*')) -->
 @if($user->ability('admin','*'))
-<pre class="prettyprint">
-{{var_dump($user)}}  
+<pre>
+  if($user->ability('admin','*'))
 </pre>
 @else
 

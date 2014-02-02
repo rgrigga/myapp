@@ -19,6 +19,20 @@ class Company extends Eloquent implements PresentableInterface{
 	    }
 
 
+
+	public function logo($option=null)
+	
+	{
+		if(in_array($option,['center','centered'])){
+			$myclass='img-center';
+		}
+		else{
+			$myclass=$option;
+		}
+		// return "BAM BAM";
+		$asset=asset('assets/'.strtolower($this->brand).'/'.$this->image);
+		return "<img class='img-responsive ".$myclass."' src='".$asset."' alt='".$this->brand."'>";
+	}	
 	public function img()
 	
 	{

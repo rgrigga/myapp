@@ -1,4 +1,4 @@
-@extends('admin.layouts.default')
+@extends('admin::layouts.default')
 
 @section('styles')
 @parent
@@ -61,8 +61,9 @@
 
 
                 <li>
-                    {{Form::label('avatar','Logo:')}}
-                    {{Form::file('avatar')}}                    
+                    <span>coming soon: avatar</span>
+                    {{--Form::label('avatar','Logo:')--}}
+                    {{--Form::file('avatar')--}}                    
                 </li>
                 <li>
                     {{ Form::label('menus', 'Menus:') }}

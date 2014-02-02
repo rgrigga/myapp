@@ -49,7 +49,7 @@ class AdminUsersController extends AdminController {
         $users = $this->user->paginate(10);
         $company=$this->company;
         // Show the page
-        return View::make('admin/users/index', compact('users','company'));
+        return View::make('admin::users/index', compact('users','company'));
     }
 
     /**
@@ -72,7 +72,7 @@ class AdminUsersController extends AdminController {
         $selectedPermissions = Input::old('permissions', array());
 
         // Show the page
-        return View::make('admin/users/create', compact('roles', 'permissions', 'selectedRoles', 'selectedPermissions'));
+        return View::make('admin::users/create', compact('roles', 'permissions', 'selectedRoles', 'selectedPermissions'));
     }
 
     /**
@@ -141,7 +141,7 @@ class AdminUsersController extends AdminController {
             $roles = $this->role->all();
             $permissions = $this->permission->all();
             // Show the page
-            return View::make('admin/users/edit', compact('user', 'roles', 'permissions'));
+            return View::make('admin::users/edit', compact('user', 'roles', 'permissions'));
         }
         else
         {
@@ -216,7 +216,7 @@ class AdminUsersController extends AdminController {
     public function getDelete($user)
     {
         // Show the page
-        return View::make('admin/users/delete', compact('user'));
+        return View::make('admin::users/delete', compact('user'));
     }
 
     /**

@@ -10,6 +10,9 @@ class CompanyPresenter extends Presenter
 		return $this->tags();
 	}
 
+	public function presentLogo(){
 
+		return $this->logo();
+	}
 
 }

@@ -24,10 +24,13 @@ class AdminBlogsController extends AdminController {
         parent::__construct();
         $this->company=$company;
         $this->post = $post;
+
+        $company=App::make('company');
         // die(var_dump($company));
 
-        // $this->company=App::make('company');
-        // View::share('company',$this->company);
+        View::share('company',$company);
+        // $this->beforeFilter('admin-auth');
+        
     }
 
     /**
@@ -37,23 +40,7 @@ class AdminBlogsController extends AdminController {
      */
     public function getIndex($tag="",$paginate=12)
     {
-// die("BAM");
-        // Session::flash('message','AdminCompaniesController@getIndex'.var_dump($this->company,$tag));
-            // App::error(function(RuntimeException $exception){
-            //     Log::error($exception);
-                
-                
-                // App::abort(404,'admin.blogs.controller');
-            //     // return die('Sorry! Something is wrong with this account!');
-            // });
 
-
-        // $c=App::make('company');
-        // die(var_dump($c));
-
-        // $env=App::environment();
-        // $company = $this->company->where('brand','like',$env)->first();
-        // $company=App::make('Company');
         $brand=Config::get('company.brand');
 
         // if(!$tag){
@@ -62,7 +49,6 @@ class AdminBlogsController extends AdminController {
         // }
 
         if($tag){
-
 
             $tag='%'.$tag.'%';
             $posts = $this->post->where('meta_keywords', 'LIKE', "$tag")
@@ -87,7 +73,7 @@ class AdminBlogsController extends AdminController {
 
             if(count($posts)>0){
             $brand=strtolower($company->brand);
-            return View::make('admin/blogs/index', compact('posts','tags','company'))
+            return View::make('admin::blogs/index', compact('posts','tags','company'))
                 ->with(compact('company'))
                 ->nest('piwik','site.'.$brand.'.piwik');
             // ->nest('dashboard','admin.dashboard')
@@ -96,7 +82,7 @@ class AdminBlogsController extends AdminController {
             }
 
             die('admin blogs controller problem');
-            return View::make('admin/blogs/index', compact('posts','tags','company'))
+            return View::make('admin::blogs/index', compact('posts','tags','company'))
             ->with('error', 'There was a problem!');
         }
 
@@ -107,7 +93,7 @@ class AdminBlogsController extends AdminController {
         $posts = $this->post->orderBy('created_at', 'DESC')->paginate($paginate);
 
         // Show the page
-        return View::make('admin/blogs/index', 
+        return View::make('admin::blogs/index', 
             compact('posts','company'))
         ->nest('piwik','site.'.$brand.'.piwik');
 
@@ -122,10 +108,8 @@ class AdminBlogsController extends AdminController {
 	public function getCreate()
 	{
         // die('bam');
-        $env=App::environment();
-        $company = $this->company->where('brand','like',$env)->first();
         // Show the page
-        return View::make('admin/blogs/create')
+        return View::make('admin::blogs/create')
         ->with(compact('company'));
 	}
 
@@ -213,11 +197,9 @@ class AdminBlogsController extends AdminController {
      */
 	public function getEdit($post)
 	{
-        $env=App::environment();
-        $company = $this->company->where('brand','like',$env)->first();
         // Show the page
         // die('bam');
-        return View::make('admin/blogs/edit', compact('post','company'));
+        return View::make('admin::blogs/edit', compact('post','company'));
 	}
 
     public function savePhoto($photo){
@@ -283,10 +265,11 @@ class AdminBlogsController extends AdminController {
             // Was the blog post updated?
             if($post->save())
             {
+                Session::flash('success','post saved');
                 // Redirect to the new blog post page
                 return Redirect::to('admin/blogs/' . $post->id . '/edit')->with('success', Lang::get('admin/blogs/messages.update.success'));
             }
-
+            Session::flash('error','Save Problem');
             // Redirect to the blogs post management page
             return Redirect::to('admin/blogs/' . $post->id . '/edit')->with('error', Lang::get('admin/blogs/messages.update.error'));
         }
@@ -304,10 +287,8 @@ class AdminBlogsController extends AdminController {
      */
     public function getDelete($post)
     {
-        $env=App::environment();
-        $company = $this->company->where('brand','like',$env)->first();
         // Show the page
-        return View::make('admin/blogs/delete', compact('post','company'));
+        return View::make('admin::blogs/delete', compact('post','company'));
     }
 
     /**

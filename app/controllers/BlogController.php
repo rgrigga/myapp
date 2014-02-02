@@ -600,7 +600,6 @@ class BlogController extends BaseController {
 	public function getIndex($tag="")
 	{
 
-		Session::flash('error','BAM');
 //AUTHORIZATION:
 		$msg= (Auth::user()) ? "You are Logged in" : "You are not logged in";
 
@@ -642,9 +641,9 @@ class BlogController extends BaseController {
 		// 	die('fail');
 		// }
 		// View::share('accordion','site.posts.accordion');
-		if(!$tag){
+		if(empty($tag)){
 			View::share('posts',$posts);
-			return View::make('blog/index')
+			return View::make('blog.index')
 			->nest('accordion','site.posts.accordion')
 			// ->nest('featurettes','site.posts.featurettes')
 			->with(compact('posts'))

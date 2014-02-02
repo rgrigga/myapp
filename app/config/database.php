@@ -26,10 +26,10 @@ return array(
 	|
 	*/
 
-	'default' => 'mysql',
-	'local'=> 'mysql2',
-	'buckeye' => 'buckeye',
-	'jcc'=>'jcc',
+	// 'default' => 'mysql',
+	'local'=> 'dev',
+	// 'buckeye' => 'buckeye',
+	// 'jcc'=>'jcc',
 
 	// 'default' => 'mysql',
 	// 'local'=> 'sqlite',

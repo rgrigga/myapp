@@ -40,7 +40,7 @@ class User extends ConfideUser implements PresentableInterface {
      */
     public function joined()
     {
-        return String::date(Carbon::createFromFormat('Y-n-j G:i:s', $this->created_at));
+        return Carbon::createFromFormat('Y-n-j G:i:s', $this->created_at);
     }
 
     /**

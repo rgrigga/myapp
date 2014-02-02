@@ -43,7 +43,7 @@ class UserPresenter extends Presenter
      */
     public function created_at()
     {
-        return String::date($this->created_at);
+        return $this->created_at;
     }
 // http://laravel.com/api/
     /**
@@ -54,7 +54,7 @@ class UserPresenter extends Presenter
      */
     public function updated_at()
     {
-        return String::date($this->updated_at);
+        return $this->updated_at;
     }
 
     // public function phone(){

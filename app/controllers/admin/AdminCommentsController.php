@@ -31,15 +31,15 @@ class AdminCommentsController extends AdminController
     public function getIndex()
     {
 
-        $env=App::environment();
-        $company = $this->company->where('brand','like',$env)->first();
-        View::share('company',$company);
 
         // Grab all the comment posts
-        $comments = $this->comment->orderBy('created_at', 'DESC')->paginate(10);
+        $comments = $this->comment->with('Post')->orderBy('created_at', 'DESC')->paginate(10);
 
+        // foreach ($comments as $comment) {
+        //     // dd($comment->post->title);# code...
+        // }
         // Show the page
-        return View::make('admin/comments/index')
+        return View::make('admin::comments/index')
             ->with(compact('comments'))
             ->with(compact('company'));
     }
@@ -53,7 +53,7 @@ class AdminCommentsController extends AdminController
 	public function getEdit($comment)
 	{
         // Show the page
-        return View::make('admin/comments/edit', compact('comment'));
+        return View::make('admin::comments/edit', compact('comment'));
 	}
 
     /**
@@ -102,7 +102,7 @@ class AdminCommentsController extends AdminController
 	public function getDelete($comment)
 	{
         // Show the page
-        return View::make('admin/comments/delete', compact('comment'));
+        return View::make('admin::comments/delete', compact('comment'));
 	}
 
     /**

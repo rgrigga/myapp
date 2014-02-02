@@ -17,21 +17,32 @@
         {
             "type": "vcs",
             "url":  "git@github.com:rgrigga/video"
+        },
+        {
+            "type": "vcs",
+            "url":  "git@github.com:rgrigga/confide"
+        },
+        {
+            "type": "vcs",
+            "url":  "git@github.com:rgrigga/entrust"
+        },
+        {
+            "type": "vcs",
+            "url":  "git@github.com:zizaco/ardent"
         }
     ],
 	"require": {
 		"laravel/framework": "4.1.*",
 		"way/generators": "dev-master",
 		"greggilbert/recaptcha": "dev-master",
-		"zizaco/confide": "dev-master",
-		"zizaco/entrust": "dev-master",
+		"zizaco/confide": "dev-bugfix",
+		"zizaco/entrust": "dev-bugfix",
 		"robclancy/presenter": "1.2.*",
 		"leafo/lessphp": "0.4.0"
 	},
 	"require-dev": {
         "rgrigga/blog":"dev-master",
         "rgrigga/video":"dev-master",
-        "rgrigga/sandbox":"dev-master",
 
 		"filp/whoops": "1.*",
         "phpunit/phpunit": "3.7.*",
@@ -67,5 +78,5 @@
 	"config": {
 		"preferred-install": "dist"
 	},
-	"minimum-stability": "stable"
+	"minimum-stability": "dev"
 }

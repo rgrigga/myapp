@@ -2,7 +2,7 @@
 
 class AdminRolesController extends AdminController {
 
-
+    public $layout = 'admin::layouts.default';
     /**
      * User Model
      * @var User
@@ -51,7 +51,7 @@ class AdminRolesController extends AdminController {
         $roles = $this->role->paginate(10);
 
         // Show the page
-        return View::make('admin/roles/index', compact('roles'));
+        $this->layout->main= View::make('admin::roles/index', compact('roles'));
     }
 
     /**
@@ -68,7 +68,7 @@ class AdminRolesController extends AdminController {
         $selectedPermissions = Input::old('permissions', array());
 
         // Show the page
-        return View::make('admin/roles/create', compact('permissions', 'selectedPermissions'));
+        return View::make('admin::roles/create', compact('permissions', 'selectedPermissions'));
     }
 
     /**
@@ -146,7 +146,7 @@ class AdminRolesController extends AdminController {
         }
 
         // Show the page
-        return View::make('admin/roles/edit', compact('role', 'permissions'));
+        return View::make('admin::roles/edit', compact('role', 'permissions'));
     }
 
     /**
@@ -199,7 +199,7 @@ class AdminRolesController extends AdminController {
     public function getDelete($role)
     {
         // Show the page
-        return View::make('admin/roles/delete', compact('role'));
+        return View::make('admin::roles/delete', compact('role'));
     }
 
     /**

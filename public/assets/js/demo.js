@@ -1,4 +1,16 @@
-
+    window.onload = function()
+        {
+            // alert('bam!');
+            if(!window.jQuery)
+            {
+                alert('jQuery not loaded');
+            }
+            else
+            {
+                 alert('jQuery is loaded (demo.js)');
+            }
+        }
+        
   function fixMyOverlap(){
     $('.admin-top').css({'margin-top':($('.user-top').height()+0)+'px'});
     $('.content-wrap') .css({'padding-top': (

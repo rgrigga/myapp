@@ -2,9 +2,9 @@
 	{{$post->title}}
 	{{$post->img}}
 
-	<h2><strong><a href="{{{ $post->url() }}}">{{ String::title($post->title) }}</a></strong></h2>
+	<h2><strong><a href="{{{ $post->url() }}}">{{ $post->title }}</a></strong></h2>
 	<p>
-		{{ String::tidy(Str::limit($post->meta_description, 158)) }}
+		{{ str_limit($post->meta_description, 158) }}
 	</p>
 	<p>
 		<a class="btn btn-info" href="{{{ $post->url() }}}">more</a>
