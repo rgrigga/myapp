@@ -20,10 +20,11 @@ App::before(function($request)
 	    $company = Company::where('brand','like','%'.$brand.'%')->first();
 
 	    if(!$company){
-            return ("Company does not exist. Consider <a href=".URL::to("admin/companies").">admin/companies</a>");
+	    	trigger_error("Company is not set");
 	        Session::flash("error","No company for ".$brand.".<br>".link_to_route('admin.companies'));
 	    	$brand="gristech";
 	    	$company = Company::where('brand','like','%'.$brand.'%')->first();
+            return ("Company does not exist. Consider <a href=".URL::to("admin/companies").">admin/companies</a>");
 	    }
 		View::share('company',$company);
 
@@ -33,9 +34,9 @@ App::before(function($request)
 
 	$company=App::make('company');
 	View::share('company',$company);
-	Session::push('alerts',['warning'=>"Company is set to $company->brand "]);
+	Session::push('alerts',['warning'=>"Company was set to $company->brand "]);
 
-	Session::flash('info','Company is set to '.$company->brand);
+	// Session::flash('info','Company is set to '.$company->brand);
 	if (Auth::guest()) {
 		Session::push('user.page',Request::path());
 		Session::push('alerts',['info'=>"message You are NOT logged in."]);

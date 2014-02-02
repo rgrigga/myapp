@@ -26,8 +26,8 @@ return array(
 	|
 	*/
 
-	// 'default' => 'mysql',
-	'local'=> 'dev',
+	'default' => 'mysql',
+	// 'local'=> 'dev',
 	// 'buckeye' => 'buckeye',
 	// 'jcc'=>'jcc',
 

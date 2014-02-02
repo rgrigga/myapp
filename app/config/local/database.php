@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'default' => 'mysql2',
+	'default' => 'mydatabase',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -76,10 +76,10 @@ return array(
 			'prefix'    => '',
 		),
 
-		'mysql2' => array(
+		'mydatabase' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'gristech_myapp6',
+			'database'  => 'gristech_dev',
 			'username'  => 'gristech',
 			// 'password'  => '',
 			'password'  => 'JLEgriss22',
